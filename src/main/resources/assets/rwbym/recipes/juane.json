@@ -1,0 +1,18 @@
+{
+
+"type": "minecraft:crafting_shaped",
+"pattern": [
+"  c",
+" b ",
+"a  "
+],
+"key": {
+"a": {"item": "rwbym:cro1"},
+"b": {"item": "rwbym:cro2"},
+"c": {"item": "rwbym:cro3"}
+},
+"result": {
+"item": "rwbym:juane",
+"count": 1
+}
+}

@@ -1,0 +1,21 @@
+{
+
+          "type": "minecraft:crafting_shaped",
+          "pattern": [
+            "abc",
+            " ed",
+            "f  "
+          ],
+          "key": {
+            "a": {"item": "rwbym:cr1"},
+			"b": {"item": "rwbym:cr2"},
+			"c": {"item": "rwbym:cr3"},
+            "d": {"item": "rwbym:cr4"},
+			"e": {"item": "rwbym:cr5"},
+			"f": {"item": "rwbym:cr6"}
+          },
+		  "result": {
+			  "item": "rwbym:crescent",
+			  "count": 1
+		  }
+    }

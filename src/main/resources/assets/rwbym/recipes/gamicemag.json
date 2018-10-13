@@ -1,0 +1,18 @@
+{
+
+          "type": "minecraft:crafting_shaped",
+          "pattern": [
+            "dY ",
+            "III",
+            "III"
+          ],
+          "key": {
+            "I": {"item": "rwbym:gamammo"},
+			"Y": {"item": "rwbym:shadowiron"},
+			"d": {"item": "rwbym:icedust"}
+          },
+		  "result": {
+			  "item": "rwbym:gamicemag",
+			  "count": 1
+		  }
+    }

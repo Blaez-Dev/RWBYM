@@ -1,0 +1,14 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "rwbym:waterdust"
+        },
+        {
+            "item": "rwbym:winddust"
+        }
+    ],
+    "result": {
+        "item": "rwbym:icedust"
+    }
+}

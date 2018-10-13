@@ -1,0 +1,9 @@
+{
+    "type": "rwbym:smelting",
+    "ingredient": {
+        "item": "rwbym:waterdustrock"
+    },
+    "result": "rwbym:waterdust",
+    "experience": 0.4,
+    "cookingtime": 20
+}

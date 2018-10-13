@@ -1,0 +1,18 @@
+{
+
+          "type": "minecraft:crafting_shaped",
+          "pattern": [
+            " F ",
+            "IDI",
+            "III"
+          ],
+          "key": {
+            "I": {"item": "minecraft:iron_ingot"},
+			"D": {"item": "rwbym:dust"},
+			"F": {"item": "rwbym:frostediron"}
+          },
+		  "result": {
+			  "item": "rwbym:magnammo",
+			  "count": 6
+		  }
+    }

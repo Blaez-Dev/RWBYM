@@ -1,0 +1,16 @@
+{
+
+          "type": "minecraft:crafting_shaped",
+          "pattern": [
+            "I I",
+            "I I",
+            "I I"
+          ],
+          "key": {
+            "I": {"item": "rwbym:emshell"}
+          },
+		  "result": {
+			  "item": "rwbym:emammo",
+			  "count": 1
+		  }
+    }

@@ -1,0 +1,9 @@
+{
+    "type": "rwbym:smelting",
+    "ingredient": {
+        "item": "rwbym:mytre2"
+    },
+    "result": "rwbym:frostediron",
+    "experience": 0.4,
+    "cookingtime": 20
+}
