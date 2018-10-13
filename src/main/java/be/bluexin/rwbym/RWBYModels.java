@@ -87,9 +87,9 @@ public class RWBYModels {
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         if (event.getSide() == Side.CLIENT){
-            KeybindRegistry.register();
+            //KeybindRegistry.register();
             MinecraftForge.EVENT_BUS.register(new KeyInputHandler());
-            MinecraftForge.EVENT_BUS.register(new PlayerRenderHandler());
+            //MinecraftForge.EVENT_BUS.register(new PlayerRenderHandler());
         }
         MinecraftForge.EVENT_BUS.register(new EntityUpdatesHandler());
 		MinecraftForge.EVENT_BUS.register(new CapabilityHandler());

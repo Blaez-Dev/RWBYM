@@ -12,7 +12,7 @@ import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class EntityUpdatesHandler {
-
+/*
 	@SubscribeEvent
 	public void onUpdate(LivingUpdateEvent event) {
 		EntityLivingBase entityLiving = event.getEntityLiving();
@@ -28,7 +28,7 @@ public class EntityUpdatesHandler {
 					player.fallDistance = 0;
 				}
 				if (!player.world.isRemote) {
-					//RWBYNetworkHandler.sendToAll(new MessageSendPlayerData(Ruby, player.getName()));
+					RWBYNetworkHandler.sendToAll(new MessageSendPlayerData(Ruby, player.getName()));
 				}
 			}
 		}
@@ -44,5 +44,5 @@ public class EntityUpdatesHandler {
 			EntityPlayer player = (EntityPlayer)entityLiving;
 			
 		}
-	}
+	}*/
 }

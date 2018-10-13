@@ -8,7 +8,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
 
 public class RWBYNetworkHandler {
-    /*private static SimpleNetworkWrapper INSTANCE;
+   /* private static SimpleNetworkWrapper INSTANCE;
     public static void init() {
     INSTANCE = NetworkRegistry.INSTANCE.newSimpleChannel("rwbym");
 

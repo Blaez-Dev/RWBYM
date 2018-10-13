@@ -8,12 +8,12 @@ import net.minecraft.client.settings.KeyBinding;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 
 public class KeybindRegistry {
-
+/*
 	@SideOnly(Side.CLIENT)
-	//public static KeyBinding activateSemblance = new KeyBinding("key.activatesemblance", Keyboard.KEY_G, "key.categories.RWBYM");
+	public static KeyBinding activateSemblance = new KeyBinding("key.activatesemblance", Keyboard.KEY_G, "key.categories.RWBYM");
 
 
 	public static void register() {
-		//ClientRegistry.registerKeyBinding(activateSemblance);
-	}
+		ClientRegistry.registerKeyBinding(activateSemblance);
+	}*/
 }

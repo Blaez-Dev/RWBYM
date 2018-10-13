@@ -9,7 +9,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.fml.common.network.ByteBufUtils;
 
 public class MessageSendPlayerData extends MessageBase<MessageSendPlayerData> {
-	
 	int ITimer;
 	int CTimer;
 	double playerY;
@@ -47,7 +46,7 @@ public class MessageSendPlayerData extends MessageBase<MessageSendPlayerData> {
 
 	@Override
 	public void handleClientSide(MessageSendPlayerData message, EntityPlayer player) {
-		EntityPlayer requestedPlayer = player.world.getPlayerEntityByName(message.name);
+		/*EntityPlayer requestedPlayer = player.world.getPlayerEntityByName(message.name);
 		if (requestedPlayer == null) {
 			System.out.println("DATA ERROR");
 		}
@@ -57,7 +56,7 @@ public class MessageSendPlayerData extends MessageBase<MessageSendPlayerData> {
 			Ruby.setCooldownTimer(message.CTimer);
 			Ruby.setPlayerY(message.playerY);
 			Ruby.setActiveStatus(message.active);
-		}
+		}*/
 	}
 
 	@Override
@@ -65,5 +64,4 @@ public class MessageSendPlayerData extends MessageBase<MessageSendPlayerData> {
 		// TODO Auto-generated method stub
 		
 	}
-
 }

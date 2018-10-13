@@ -2,17 +2,15 @@
 
           "type": "minecraft:crafting_shaped",
           "pattern": [
-            " F ",
-            "IDI",
+            "   ",
+            "III",
             "III"
           ],
           "key": {
-            "I": {"item": "minecraft:iron_ingot"},
-			"D": {"item": "rwbym:dust"},
-			"F": {"item": "rwbym:frostediron"}
+            "I": {"item": "rwbym:magngrenade"}
           },
 		  "result": {
 			  "item": "rwbym:magnammo",
-			  "count": 6
+			  "count": 1
 		  }
     }

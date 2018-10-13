@@ -6,6 +6,9 @@ entity.goliath.name=Goliath
 entity.mutantdeathstalker.name=Mutant DeathStalker
 entity.nevermore.name=Juvenile Nevermore
 entity.giantnevermore.name=Adult Nevermore
+entity.winter_beowolf.name=Summoned Beowolf
+entity.winter_ursa.name=Summoned Ursa
+entity.winter_boarbatusk.name=Summoned Boarbatusk
 
 item.rwbym:crescent.name=Crescent Rose
 item.rwbym:crescentgun.name=Crescent Rose
@@ -147,6 +150,7 @@ item.rwbym:pennyswd.name=Penny's Sword
 item.rwbym:adamswd.name=Wilt
 item.rwbym:adamgun.name=Blush
 item.rwbym:scrap.name=Scrap
+item.rwbym:whtefng.name=White Fang Mask
 
 
 itemGroup.rwby_weapons=RWBY Weapons

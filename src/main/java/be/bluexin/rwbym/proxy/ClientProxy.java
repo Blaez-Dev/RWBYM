@@ -81,6 +81,9 @@ public class ClientProxy extends CommonProxy {
         RenderingRegistry.registerEntityRenderingHandler(EntityMutantDeathStalker.class, MutantDeathStalkerRender.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(EntityNeverMore.class, NeverMoreRender.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(EntityGiantNeverMore.class, GiantNeverMoreRender.FACTORY);
+        RenderingRegistry.registerEntityRenderingHandler(EntityWinterBeowolf.class, WinterBeowolfRender.FACTORY);
+        RenderingRegistry.registerEntityRenderingHandler(EntityWinterUrsa.class, WinterUrsaRender.FACTORY);
+        RenderingRegistry.registerEntityRenderingHandler(EntityWinterBoarbatusk.class, WinterBoarbatuskRender.FACTORY);
         MinecraftForge.EVENT_BUS.register(new TextureStitcher());
         MinecraftForge.EVENT_BUS.register(new HideUtil());
         //RenderingRegistry.registerEntityRenderingHandler(EntityCreep.class, CreepRender.FACTORY);

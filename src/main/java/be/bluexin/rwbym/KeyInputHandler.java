@@ -27,49 +27,22 @@ public class KeyInputHandler {
 
 	//this event only fires on client side, so if you need something done serverside you need to send packets,
 	//or read variables from this class such as the one above.
+	/*
 	@SubscribeEvent
 	@SideOnly(Side.CLIENT)
 	public void onKeyInput(KeyInputEvent event) {
 				
 		EntityPlayer player = Minecraft.getMinecraft().player;
 	
-		/*if (KeybindRegistry.activateSemblance.isKeyDown()) {
+		if (KeybindRegistry.activateSemblance.isKeyDown()) {
 			
 			IRuby Ruby = player.getCapability(RubyProvider.RUBY_CAP, null);
 											
 			Ruby.activate(player);
 			
 			RWBYNetworkHandler.sendToServer(new MessageRose(true));
-			
-			/*
-			//Rose Semblance Level I
-			if (player.onGround){
-				Vec3d look = player.getLookVec();
-				player.motionX = look.x;
-				player.motionZ = look.z;
-				player.motionY = look.y * 2;
-				player.lastTickPosZ = -look.x;
-				player.lastTickPosX = -look.z;
-				RWBYNetworkHandler.sendToServer(new MessageRose(5));} 
-			*/
-			/*player.sendMessage(new TextComponentString("I worked Master"));
-				/*for (int i = 0; i < 32; ++i) {
-					RWBYModels.proxy.generateRosepetals(player);
-				}*/
 
-			//Rose Semblance Level  ((this need's something hooked into it instead of using player.onGround)) 
-			/*
-			if (player.onGround){
-				Vec3d look = player.getLookVec();
-				player.motionX = look.x;
-				player.motionZ = look.z;
-				player.motionY = look.y * 2;
-				player.lastTickPosZ = -look.x;
-				player.lastTickPosX = -look.z;
-				RWBYNetworkHandler.sendToServer(new MessageRose(5));
-				}
-			*/
-		}/*
+		}
 		else {
 			IRuby Ruby = player.getCapability(RubyProvider.RUBY_CAP, null);
 			

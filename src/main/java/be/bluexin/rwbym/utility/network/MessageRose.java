@@ -7,7 +7,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.Vec3d;
 
 public class MessageRose extends MessageBase<MessageRose>{
-	
+
 	boolean status;
 	
 	public MessageRose() {}
@@ -31,14 +31,14 @@ public class MessageRose extends MessageBase<MessageRose>{
 
     }
 
-    @Override
+   @Override
     public void handleServerSide(MessageRose message, EntityPlayer player){
     	
     	if (message.status) {
-    		player.getCapability(RubyProvider.RUBY_CAP, null).activate(player);
+    		//player.getCapability(RubyProvider.RUBY_CAP, null).activate(player);
     	}
     	else {
-    		player.getCapability(RubyProvider.RUBY_CAP, null).setActiveStatus(false);
+    		//player.getCapability(RubyProvider.RUBY_CAP, null).setActiveStatus(false);
     	}
     }
 }

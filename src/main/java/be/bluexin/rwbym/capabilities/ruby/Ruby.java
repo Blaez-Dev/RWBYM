@@ -152,11 +152,6 @@ public class Ruby implements IRuby {
 					this.active = false;
 				}
 				break;
-			case 3:
-				if (this.cooldown > 0) {
-					this.cooldown--;
-				}
-				break;
 		}
 	}
 	
