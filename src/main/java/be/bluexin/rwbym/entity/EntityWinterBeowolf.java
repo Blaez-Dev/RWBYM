@@ -27,6 +27,7 @@ import javax.annotation.Nullable;
 public class EntityWinterBeowolf extends EntityMob {
     World world = null;
     private EntityLiving owner;
+    private int counter;
     @Nullable
 
     public EntityWinterBeowolf(World var1) {
@@ -56,6 +57,16 @@ public class EntityWinterBeowolf extends EntityMob {
         )
 
         );
+    }
+
+    @Override
+    public void onLivingUpdate() {
+        super.onLivingUpdate();
+        counter += 1;
+
+        if(counter >= 6000){
+            this.setDead();
+        }
     }
 
     protected void applyEntityAttributes() {
