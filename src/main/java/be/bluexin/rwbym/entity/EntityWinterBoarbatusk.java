@@ -64,7 +64,11 @@ public class EntityWinterBoarbatusk extends EntityMob {
         super.onLivingUpdate();
         counter += 1;
 
+<<<<<<< HEAD
         if(counter >= 1200){
+=======
+        if(counter >= 6000){
+>>>>>>> d07a651f5a1b50c14f9c32a18511f48bbca908be
             this.setDead();
         }
     }
