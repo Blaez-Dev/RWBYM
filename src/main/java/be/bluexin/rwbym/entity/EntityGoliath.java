@@ -34,7 +34,7 @@ public class EntityGoliath extends EntityMob
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.44D);
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(12.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(60.0D);
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(1000.0D);
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(5.0D);
     }
@@ -46,7 +46,7 @@ public class EntityGoliath extends EntityMob
     }
 
     protected ResourceLocation getLootTable() {
-        return ModLootTables.Demiboss;
+        return ModLootTables.Boss;
     }
 
     protected SoundEvent getAmbientSound() {

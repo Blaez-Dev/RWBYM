@@ -27,6 +27,7 @@ import javax.annotation.Nullable;
 public class EntityWinterBoarbatusk extends EntityMob {
     World world = null;
     private EntityLiving owner;
+    private int counter;
     @Nullable
 
     public EntityWinterBoarbatusk(World var1) {
@@ -56,6 +57,16 @@ public class EntityWinterBoarbatusk extends EntityMob {
                 )
 
         );
+    }
+
+    @Override
+    public void onLivingUpdate() {
+        super.onLivingUpdate();
+        counter += 1;
+
+        if(counter >= 1200){
+            this.setDead();
+        }
     }
 
     protected void applyEntityAttributes() {

@@ -82,25 +82,13 @@
         },
         {
           "type": "item",
-          "name": "rwbym:whtefang",
-          "weight": 20
-        }
-      ,
-        {
-          "type": "item",
           "name": "rwbym:cinder",
           "weight": 20
         },
         {
           "type": "item",
           "name": "rwbym:adamswd",
-          "weight": 20}
-        ,
-        {
-          "type": "item",
-          "name": "rwbym:cinder",
-          "weight": 20
-        },
+          "weight": 20},
         {
           "type": "item",
           "name": "rwbym:jnrbat",
