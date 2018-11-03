@@ -1,5 +1,6 @@
 package be.bluexin.rwbym;
 
+import be.bluexin.rwbym.Init.RWBYBiomes;
 import be.bluexin.rwbym.Init.RWBYCreativeTabs;
 import be.bluexin.rwbym.capabilities.CapabilityHandler;
 import be.bluexin.rwbym.capabilities.ruby.IRuby;
@@ -7,7 +8,6 @@ import be.bluexin.rwbym.capabilities.ruby.Ruby;
 import be.bluexin.rwbym.capabilities.ruby.RubyStorage;
 import be.bluexin.rwbym.proxy.CommonProxy;
 import be.bluexin.rwbym.utility.RegUtil;
-import be.bluexin.rwbym.utility.network.RWBYNetworkHandler;
 import be.bluexin.rwbym.weaponry.ICustomItem;
 import be.bluexin.rwbym.weaponry.RWBYSword;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -98,6 +98,7 @@ public class RWBYModels {
 
         //RWBYNetworkHandler.init();
         RWBYCreativeTabs.init();
+        RWBYBiomes.registerBiomes();
         RWBYEntities.instance = instance;
         rwbym_1.preInit(event);
         RegUtil.registerAll(event);
