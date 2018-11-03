@@ -3,8 +3,8 @@
     {
       "name": "boarbatusk",
       "rolls": {
-        "min": 1,
-        "max": 3
+        "min": 0,
+        "max": 2
       },
       "entries": [
         {

@@ -126,7 +126,7 @@ public class EntityNeverMore extends EntityMob {
 
 
     protected ResourceLocation getLootTable() {
-        return ModLootTables.Demiboss;
+        return ModLootTables.Ursa;
     }
 
     public boolean isOnLadder() {

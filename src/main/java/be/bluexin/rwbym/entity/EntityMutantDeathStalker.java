@@ -7,6 +7,7 @@ import net.minecraft.entity.monster.EntityIronGolem;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.projectile.EntityLargeFireball;
+import net.minecraft.init.MobEffects;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.block.state.IBlockState;
@@ -19,6 +20,7 @@ import net.minecraft.item.EnumDyeColor;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
@@ -100,7 +102,36 @@ public class EntityMutantDeathStalker extends EntityMob
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(5.0D);
     }
 
+    public boolean attackEntityAsMob(Entity entityIn)
+    {
+        if (super.attackEntityAsMob(entityIn))
+        {
+            if (entityIn instanceof EntityLivingBase)
+            {
+                int i = 0;
 
+                if (this.world.getDifficulty() == EnumDifficulty.NORMAL)
+                {
+                    i = 7;
+                }
+                else if (this.world.getDifficulty() == EnumDifficulty.HARD)
+                {
+                    i = 15;
+                }
+
+                if (i > 0)
+                {
+                    ((EntityLivingBase)entityIn).addPotionEffect(new PotionEffect(MobEffects.WITHER, i * 20, 1));
+                }
+            }
+
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 
     /**
      * (abstract) Protected helper method to read subclass entity data from NBT.

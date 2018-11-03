@@ -1,20 +1,21 @@
 package be.bluexin.rwbym.entity;
 
 import be.bluexin.rwbym.ModLootTables;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EnumCreatureAttribute;
-import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityIronGolem;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntityVindicator;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.BossInfo;
 import net.minecraft.world.BossInfoServer;
+import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class EntityDeathStalker extends EntityMob {
@@ -46,6 +47,37 @@ public class EntityDeathStalker extends EntityMob {
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(60.0D);
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(300.0D);
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(5.0D);
+    }
+
+    public boolean attackEntityAsMob(Entity entityIn)
+    {
+        if (super.attackEntityAsMob(entityIn))
+        {
+            if (entityIn instanceof EntityLivingBase)
+            {
+                int i = 0;
+
+                if (this.world.getDifficulty() == EnumDifficulty.NORMAL)
+                {
+                    i = 7;
+                }
+                else if (this.world.getDifficulty() == EnumDifficulty.HARD)
+                {
+                    i = 15;
+                }
+
+                if (i > 0)
+                {
+                    ((EntityLivingBase)entityIn).addPotionEffect(new PotionEffect(MobEffects.WITHER, i * 20, 1));
+                }
+            }
+
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     public boolean isNonBoss()
