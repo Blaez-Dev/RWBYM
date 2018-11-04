@@ -13,10 +13,10 @@ public class BiomeForeverFall extends Biome {
         this.spawnableCreatureList.clear();
         this.spawnableMonsterList.clear();
         this.spawnableWaterCreatureList.clear();
-        this.decorator.treesPerChunk = 5;
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityBeowolf.class, 3, 1, 5));
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityBoarbatusk.class, 3, 2, 5));
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityUrsa.class, 3, 2, 7));
+        this.decorator.treesPerChunk = 7;
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityBeowolf.class, 20, 3, 6));
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityBoarbatusk.class, 20, 3, 6));
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityUrsa.class, 20, 3, 6));
 
     }
 

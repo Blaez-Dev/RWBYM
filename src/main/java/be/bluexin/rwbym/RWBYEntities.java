@@ -60,14 +60,14 @@ public class RWBYEntities {
         Biome[] biomes = getBiomeList(EntityCreeper.class, EnumCreatureType.MONSTER);
 
 
-        EntityRegistry.addSpawn(EntityBeowolf.class, 50, 3, 10, EnumCreatureType.AMBIENT, biomes);
-        EntityRegistry.addSpawn(EntityUrsa.class, 50, 3, 10, EnumCreatureType.AMBIENT, biomes);
-        EntityRegistry.addSpawn(EntityBoarbatusk.class, 50, 3, 10, EnumCreatureType.AMBIENT, biomes);
-        EntityRegistry.addSpawn(EntityGoliath.class, 5, 3, 1, EnumCreatureType.AMBIENT, biomes);
-        EntityRegistry.addSpawn(EntityDeathStalker.class, 5, 3, 1, EnumCreatureType.AMBIENT, biomes);
-        EntityRegistry.addSpawn(EntityMutantDeathStalker.class, 10, 3, 1, EnumCreatureType.AMBIENT, biomes);
-        EntityRegistry.addSpawn(EntityNeverMore.class, 50, 4, 10, EnumCreatureType.AMBIENT, biomes);
-        EntityRegistry.addSpawn(EntityGiantNeverMore.class, 10, 3,  1, EnumCreatureType.AMBIENT, biomes);
+        EntityRegistry.addSpawn(EntityBeowolf.class, 50, 3, 10, EnumCreatureType.MONSTER, biomes);
+        EntityRegistry.addSpawn(EntityUrsa.class, 50, 3, 10, EnumCreatureType.MONSTER, biomes);
+        EntityRegistry.addSpawn(EntityBoarbatusk.class, 50, 3, 10, EnumCreatureType.MONSTER, biomes);
+        EntityRegistry.addSpawn(EntityGoliath.class, 5, 3, 1, EnumCreatureType.MONSTER, biomes);
+        EntityRegistry.addSpawn(EntityDeathStalker.class, 5, 3, 1, EnumCreatureType.MONSTER, biomes);
+        EntityRegistry.addSpawn(EntityMutantDeathStalker.class, 10, 3, 1, EnumCreatureType.MONSTER, biomes);
+        EntityRegistry.addSpawn(EntityNeverMore.class, 50, 4, 10, EnumCreatureType.MONSTER, biomes);
+        EntityRegistry.addSpawn(EntityGiantNeverMore.class, 10, 3,  1, EnumCreatureType.MONSTER, biomes);
 
 
         //DungeonHooks.addDungeonMob(new ResourceLocation("rwbym:beowolf"), 180);

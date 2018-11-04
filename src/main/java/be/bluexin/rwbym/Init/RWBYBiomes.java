@@ -1,6 +1,7 @@
 package be.bluexin.rwbym.Init;
 
 import be.bluexin.rwbym.world.biome.BiomeForeverFall;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.common.BiomeManager;
