@@ -22,6 +22,7 @@ public class Oregen implements IWorldGenerator{
     private WorldGenerator impure_overworld;
     private WorldGenerator water_overworld;
     private WorldGenerator light_overworld;
+    private WorldGenerator ice_overworld;
 
     public Oregen() {
         gravity_overworld = new WorldGenMinable(RWBYItems.rwbyblock1.getDefaultState(), 8);
@@ -30,6 +31,7 @@ public class Oregen implements IWorldGenerator{
         impure_overworld = new WorldGenMinable(RWBYItems.rwbyblock4.getDefaultState(), 8);
         water_overworld = new WorldGenMinable(RWBYItems.rwbyblock5.getDefaultState(), 8);
         light_overworld = new WorldGenMinable(RWBYItems.rwbyblock6.getDefaultState(), 8);
+        ice_overworld = new WorldGenMinable(RWBYItems.rwbyblock9.getDefaultState(), 8);
     }
 
 
@@ -60,6 +62,7 @@ public class Oregen implements IWorldGenerator{
                 this.runGenerator(impure_overworld, world, random, chunkX, chunkZ, 15, 0, 256);
                 this.runGenerator(water_overworld, world, random, chunkX, chunkZ, 15, 0, 64); //BiomeOcean.class,BiomeBeach.class, BiomeMushroomIsland.class,BiomeSwamp.class
                 this.runGenerator(light_overworld, world, random, chunkX, chunkZ, 15, 0, 256);//BiomeHills.class,BiomeMesa.class
+                this.runGenerator(ice_overworld, world, random, chunkX, chunkZ, 15, 0, 256);
         }
     }
 }

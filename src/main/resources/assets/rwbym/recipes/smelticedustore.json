@@ -1,0 +1,9 @@
+{
+    "type": "rwbym:smelting",
+    "ingredient": {
+        "item": "rwbym:iceore"
+    },
+    "result": "rwbym:icedustrock",
+    "experience": 0.4,
+    "cookingtime": 20
+}

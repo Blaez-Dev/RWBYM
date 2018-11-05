@@ -6,12 +6,15 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.JsonToNBT;
 import net.minecraft.nbt.NBTException;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.*;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
@@ -29,6 +32,8 @@ public class RWBYItem extends Item implements ICustomItem {
 
     private boolean ismask;
     private final String data;
+    private boolean gravity;
+    private boolean water;
 
     public RWBYItem(String name,String data, boolean isMask,  CreativeTabs creativetab) {
         this.setRegistryName(new ResourceLocation(RWBYModels.MODID, name));
@@ -37,6 +42,8 @@ public class RWBYItem extends Item implements ICustomItem {
         this.ismask = isMask;
         this.data = data;
         this.setCreativeTab(creativetab);
+        if(name.contains("gravitydustrock")) gravity = true;
+        if(name.contains("waterdustrock")) water = true;
     }
 
     /*@Override
@@ -59,6 +66,21 @@ public class RWBYItem extends Item implements ICustomItem {
     @SuppressWarnings("Duplicates")
     @Override
     public void onUpdate(ItemStack is, World world, Entity entity, int slotIn, boolean inHand) {
+        if(entity instanceof EntityPlayerMP){
+            final EntityPlayerMP player = (EntityPlayerMP)entity;
+            if(player.getHeldItem(EnumHand.OFF_HAND) == is && gravity){
+                if (!player.onGround)
+                {
+                    player.motionY *= 0.4;
+                    player.fallDistance = 0;
+                    player.velocityChanged = true;
+                }
+            }
+            if(player.getHeldItem(EnumHand.OFF_HAND) == is && water){
+                PotionEffect potioneffect = new PotionEffect(MobEffects.REGENERATION, 60, 3, false, false);
+                player.addPotionEffect(potioneffect);
+            }
+        }
         if (!world.isRemote && this.data != null) {
             NBTTagCompound atag = is.getTagCompound();
             if (atag == null) atag = new NBTTagCompound();

@@ -812,13 +812,14 @@ public class RWBYItems {
     public static Item emshell = new RWBYItem("emshell", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static Item emflareshell = new RWBYItem("emflareshell", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static Item emfireshell = new RWBYItem("emfireshell", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item dustrock = new RWBYItem("dustrock", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static Item dustrock = new RWBYItem("dustrock", "{AttributeModifiers:[{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:-0.50,Operation:2,UUIDMost:74685,UUIDLeast:155127},{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"offhand\",Amount:10,Operation:0,UUIDMost:32503,UUIDLeast:164819}]}", false, RWBYCreativeTabs.tab_rwbyitems);
     public static Item dust = new RWBYItem("dust", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item winddustrock = new RWBYItem("winddustrock", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item firedustrock = new RWBYItem("firedustrock", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item gravitydustrock = new RWBYItem("gravitydustrock", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item waterdustrock = new RWBYItem("waterdustrock", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item lightdustrock = new RWBYItem("lightdustrock", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static Item winddustrock = new RWBYItem("winddustrock", "{AttributeModifiers:[{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:-0.50,Operation:2,UUIDMost:74685,UUIDLeast:155127},{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"offhand\",Amount:10,Operation:0,UUIDMost:32503,UUIDLeast:164819},{AttributeName:\"generic.movementSpeed\",Name:\"generic.movementSpeed\",Slot:\"offhand\",Amount:2,Operation:2,UUIDMost:78095,UUIDLeast:122333}]}", false, RWBYCreativeTabs.tab_rwbyitems);
+    public static Item firedustrock = new RWBYItem("firedustrock", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"offhand\",Amount:10,Operation:0,UUIDMost:32503,UUIDLeast:164819},{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:-0.5,Operation:2,UUIDMost:25912,UUIDLeast:178428},{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"offhand\",Amount:3,Operation:2,UUIDMost:87232,UUIDLeast:139412}]}", false, RWBYCreativeTabs.tab_rwbyitems);
+    public static Item gravitydustrock = new RWBYItem("gravitydustrock", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"offhand\",Amount:10,Operation:0,UUIDMost:32503,UUIDLeast:164819},{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:-0.5,Operation:2,UUIDMost:25912,UUIDLeast:178428}],display:{Lore:[\"Slow Falling and Negate Fall Damage While in offhand.\"]}}", false, RWBYCreativeTabs.tab_rwbyitems);
+    public static Item waterdustrock = new RWBYItem("waterdustrock", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"offhand\",Amount:10,Operation:0,UUIDMost:32503,UUIDLeast:164819},{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:-0.5,Operation:2,UUIDMost:83653,UUIDLeast:157522}],display:{Lore:[\"Regeneration While in Off-Hand.\"]}}", false, RWBYCreativeTabs.tab_rwbyitems);
+    public static Item lightdustrock = new RWBYItem("lightdustrock", "{AttributeModifiers:[{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:-0.50,Operation:2,UUIDMost:17934,UUIDLeast:125321},{AttributeName:\"generic.movementSpeed\",Name:\"generic.movementSpeed\",Slot:\"offhand\",Amount:1.6,Operation:2,UUIDMost:13043,UUIDLeast:147969},{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"offhand\",Amount:10,Operation:0,UUIDMost:28194,UUIDLeast:149045},{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"offhand\",Amount:2,Operation:2,UUIDMost:14080,UUIDLeast:163727}]}", false, RWBYCreativeTabs.tab_rwbyitems);
+    public static Item icedustrock = new RWBYItem("icedustrock", " {AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"offhand\",Amount:10,Operation:0,UUIDMost:32503,UUIDLeast:164819},{AttributeName:\"generic.movementSpeed\",Name:\"generic.movementSpeed\",Slot:\"offhand\",Amount:-0.3,Operation:2,UUIDMost:79372,UUIDLeast:112384},{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:0.5,Operation:2,UUIDMost:25912,UUIDLeast:178428}]}", false, RWBYCreativeTabs.tab_rwbyitems);
     public static Item roseiron = new RWBYItem("roseiron", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static Item gildediron = new RWBYItem("gildediron", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static Item frostediron = new RWBYItem("frostediron", null, false, RWBYCreativeTabs.tab_rwbyitems);
@@ -1212,6 +1213,14 @@ public class RWBYItems {
             15F,
             "null",
             0);
+    public static final Block rwbyblock9 = new RWBYBlock(
+            "iceore",
+            Material.ROCK,
+            RWBYCreativeTabs.tab_rwbyitems,
+            5F,
+            15F,
+            "pickaxe",
+            1);
 
 
 

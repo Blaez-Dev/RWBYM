@@ -24,6 +24,7 @@ public class RegUtil {
         registerBlocks(event, RWBYItems.rwbyblock5);
         registerBlocks(event, RWBYItems.rwbyblock6);
         registerBlocks(event, RWBYItems.rwbyblock7);
+        registerBlocks(event, RWBYItems.rwbyblock9);
 
 
         //Weapons
@@ -93,6 +94,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.gravitydustrock);
         registerItems(event, RWBYItems.waterdustrock);
         registerItems(event, RWBYItems.lightdustrock);
+        registerItems(event, RWBYItems.icedustrock);
         registerItems(event, RWBYItems.roseiron);
         registerItems(event, RWBYItems.frostediron);
         registerItems(event, RWBYItems.shadowiron);
