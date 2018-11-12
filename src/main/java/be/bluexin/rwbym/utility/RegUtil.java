@@ -1,6 +1,7 @@
 package be.bluexin.rwbym.utility;
 
 import be.bluexin.rwbym.Init.RWBYItems;
+import be.bluexin.rwbym.weaponry.RWBYItem;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
@@ -23,8 +24,8 @@ public class RegUtil {
         registerBlocks(event, RWBYItems.rwbyblock4);
         registerBlocks(event, RWBYItems.rwbyblock5);
         registerBlocks(event, RWBYItems.rwbyblock6);
-        registerBlocks(event, RWBYItems.rwbyblock7);
         registerBlocks(event, RWBYItems.rwbyblock9);
+        registerBlocks(event, RWBYItems.rwbyblock7);
 
 
         //Weapons
@@ -86,6 +87,14 @@ public class RegUtil {
         registerItems(event, RWBYItems.kkfire);
         registerItems(event, RWBYItems.kkice);
         registerItems(event, RWBYItems.kkwind);
+        //Staffs
+        registerItems(event, RWBYItems.ozmacane);
+        registerItems(event, RWBYItems.ozmacanefire);
+        registerItems(event, RWBYItems.ozmacanegravity);
+        registerItems(event, RWBYItems.ozmacaneice);
+        registerItems(event, RWBYItems.ozmacanelightning);
+        registerItems(event, RWBYItems.ozmacanewater);
+        registerItems(event, RWBYItems.ozmacanewind);
 
         //Items
         registerItems(event, RWBYItems.dustrock);

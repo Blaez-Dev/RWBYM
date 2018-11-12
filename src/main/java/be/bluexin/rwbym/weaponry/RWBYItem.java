@@ -71,7 +71,7 @@ public class RWBYItem extends Item implements ICustomItem {
             if(player.getHeldItem(EnumHand.OFF_HAND) == is && gravity){
                 if (!player.onGround)
                 {
-                    player.motionY *= 0.4;
+                    player.motionY *= 0.8;
                     player.fallDistance = 0;
                     player.velocityChanged = true;
                 }

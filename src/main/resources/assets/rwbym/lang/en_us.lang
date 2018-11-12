@@ -153,7 +153,13 @@ item.rwbym:adamswd.name=Wilt
 item.rwbym:adamgun.name=Blush
 item.rwbym:scrap.name=Scrap
 item.rwbym:whtefng.name=White Fang Mask
-
+item.rwbym:ozmacane.name=Ozma's Staff
+item.rwbym:ozmacanefire.name=Ozma's Staff
+item.rwbym:ozmacanegravity.name=Ozma's Staff
+item.rwbym:ozmacaneice.name=Ozma's Staff
+item.rwbym:ozmacanelightning.name=Ozma's Staff
+item.rwbym:ozmacanewater.name=Ozma's Staff
+item.rwbym:ozmacanewind.name=Ozma's Staff
 
 itemGroup.rwby_weapons=RWBY Weapons
 itemGroup.rwby_items=RWBY Items

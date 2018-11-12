@@ -1,0 +1,18 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " Y ",
+    "IfI",
+    "III"
+  ],
+  "key": {
+    "I": {"item": "rwbym:scrap"},
+    "Y": {"item": "rwbym:gildediron"},
+    "f": {"item": "rwbym:dust"}
+  },
+  "result": {
+    "item": "rwbym:emshell",
+    "count": 6
+  }
+}

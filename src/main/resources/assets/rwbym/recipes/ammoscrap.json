@@ -1,0 +1,17 @@
+{
+
+          "type": "minecraft:crafting_shaped",
+          "pattern": [
+            " I ",
+            "IDI",
+            "III"
+          ],
+          "key": {
+            "I": {"item": "rwbym:scrap"},
+			"D": {"item": "rwbym:dust"}
+          },
+		  "result": {
+			  "item": "rwbym:ammo",
+			  "count": 4
+		  }
+    }

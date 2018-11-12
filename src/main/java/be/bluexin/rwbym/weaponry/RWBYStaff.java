@@ -7,6 +7,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -32,55 +33,35 @@ import javax.annotation.ParametersAreNonnullByDefault;
  * @author Bluexin
  */
 @MethodsReturnNonnullByDefault
-public class RWBYSword extends ItemSword implements ICustomItem {
+public class RWBYStaff extends ItemSword implements ICustomItem {
     public final boolean isShield;
-    public boolean neo = false;
     public final boolean canBlock;
     private final String data;
     //private final RecipeDTO[] recipes;
     private final String morph;
     private boolean fire;
     private boolean ice;
-    private boolean velvet = false;
-    private boolean crescentr = false;
-    private boolean kkfire = false;
-    private boolean kkice = false;
-    private boolean kkwind = false;
-    public static boolean runhideevent = false;
-    private int timer;
-    private boolean magna = false;
+    private boolean gravity;
+    private boolean water;
+    private boolean lightning;
+    private boolean wind;
 
-
-    public RWBYSword(String name, int durability, float damage, int enchantability, String data, String morph, boolean shield, boolean canBlock, boolean fire, boolean ice, int enchantmentglow, CreativeTabs creativetab) {
+    public RWBYStaff(String name, int durability, float damage, int enchantability, String data, String morph, boolean shield, boolean canBlock, CreativeTabs creativetab) {
         super(EnumHelper.addToolMaterial(RWBYModels.MODID + ":" + name, 0, durability, 1.0F, damage, enchantability));
         this.setRegistryName(new ResourceLocation(RWBYModels.MODID, name));
         this.setUnlocalizedName(this.getRegistryName().toString());
         this.setCreativeTab(creativetab);
         this.data = data;
-        if(name.contains("nora")) magna = true;
-        if(name.contains("kkfire")) kkfire = true;
-        if(name.contains("kkice")) kkice = true;
-        if(name.contains("kkwind")) kkwind = true;
-        //this.recipes = from.getRecipes();
-        if(name.contains("crescent")) crescentr = true;
-        if(name.contains("neoumb_closed")) neo = true;
-        if(name.contains("neoumb_closed_blade")) neo = true;
-        if(name.contains("neoumb_handle_blade")) neo = true;
+        if(name.contains("ozmacanefire")) fire = true;
+        if(name.contains("ozmacaneice")) ice = true;
+        if(name.contains("ozmacanegravity")) gravity = true;
+        if(name.contains("ozmacanewater")) water = true;
+        if(name.contains("ozmacanelightning")) lightning = true;
+        if(name.contains("ozmacanewind")) wind = true;
 
         this.morph = morph;
-        this.fire = fire;
-        this.ice = ice;
         this.canBlock = canBlock;
         this.isShield = shield;
-        if(enchantmentglow == 1) this.velvet = true;
-
-        if (this.neo) this.addPropertyOverride(new ResourceLocation("blocking"), new IItemPropertyGetter() {
-            @SideOnly(Side.CLIENT)
-            public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn)
-            {
-                return entityIn != null && entityIn.isHandActive() && entityIn.getActiveItemStack() == stack ? 1.0F : 0.0F;
-            }
-        });
 
         if (this.isShield) this.addPropertyOverride(new ResourceLocation("offhand"), new IItemPropertyGetter() {
             @SideOnly(Side.CLIENT)
@@ -94,70 +75,42 @@ public class RWBYSword extends ItemSword implements ICustomItem {
     @Override
     public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker)
     {
-        PotionEffect potioneffect = new PotionEffect(MobEffects.SLOWNESS, 200, 5, true, true);
+        PotionEffect potioneffect = new PotionEffect(MobEffects.SLOWNESS, 200, 5, false, false);
+        PotionEffect potioneffect2 = new PotionEffect(MobEffects.LEVITATION, 100, 5, false, false);
        if (fire){target.setFire(10);}
        if (ice){
            target.addPotionEffect(potioneffect);
        }
-        /*if (crescentr && !attacker.onGround){
-            for (EntityLivingBase entitylivingbase : attacker.world.getEntitiesWithinAABB(EntityLivingBase.class, target.getEntityBoundingBox().grow(3.0D, 0.25D, 3.0D))) {
-                if (entitylivingbase != attacker && entitylivingbase != target && !attacker.isOnSameTeam(entitylivingbase) && attacker.getDistanceSq(entitylivingbase) < 9.0D) {
-                    entitylivingbase.knockBack(attacker, 0.4F, (double) MathHelper.sin(attacker.rotationYaw * 0.017453292F), (double) (-MathHelper.cos(attacker.rotationYaw * 0.017453292F)));
-                    entitylivingbase.attackEntityFrom(DamageSource.GENERIC, getAttackDamage());
-                }
-            }
-
-            attacker.world.playSound((EntityPlayer) null, attacker.posX, attacker.posY, attacker.posZ, SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, attacker.getSoundCategory(), 1.0F, 1.0F);
-        }*/
+       if(gravity){
+           target.addPotionEffect(potioneffect2);
+       }
         stack.damageItem(1, attacker);
         return true;
     }
 
-    /*@Override
-    public void registerRecipes() {
-        if (this.recipes != null) for (RecipeDTO recipe : this.recipes) {
-            recipe.register(this);
-        }
-    }*/
 
 
     @SideOnly(Side.CLIENT)
     public boolean hasEffect(ItemStack stack)
     {
-        if(velvet){return true;}
-        else
             return false;
     }
 
     @SuppressWarnings("Duplicates")
     public void onUpdate(ItemStack is, World world, Entity entity, int slotIn, boolean inHand) {
+        if(entity instanceof EntityPlayerMP){
+            final EntityPlayerMP player = (EntityPlayerMP)entity;
+            if(player.getHeldItem(EnumHand.MAIN_HAND) == is && gravity){
+                if (!player.onGround)
+                {
+                    player.motionY *= 0.8;
+                    player.fallDistance = 0;
+                    player.velocityChanged = true;
+                }
+            }
+            if(player.getHeldItem(EnumHand.MAIN_HAND) == is && water){
 
-        if(entity instanceof EntityPlayer) {
-            EntityPlayer player = (EntityPlayer) entity;
-            if (kkfire){if(player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() == RWBYItems.korekosmoufire){
-                ItemStack chest = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
-                    is.setItemDamage(chest.getItemDamage());
-                    chest.setItemDamage(is.getItemDamage());}
-                else{is.damageItem(365, player);
-            }}
-        }
-        if(entity instanceof EntityPlayer) {
-            EntityPlayer player = (EntityPlayer) entity;
-            if (kkice){if(player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() == RWBYItems.korekosmouwater){
-                ItemStack chest = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
-                is.setItemDamage(chest.getItemDamage());
-                chest.setItemDamage(is.getItemDamage());}
-            else{is.damageItem(365, player);
-            }}
-        }
-        if(entity instanceof EntityPlayer) {
-            EntityPlayer player = (EntityPlayer) entity;
-            if (kkwind){if(player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() == RWBYItems.korekosmouwind){
-                ItemStack chest = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
-                is.setItemDamage(chest.getItemDamage());
-                chest.setItemDamage(is.getItemDamage());}
-            else{is.damageItem(365, player);
-            }}
+            }
         }
         if (!world.isRemote && this.data != null) {
             NBTTagCompound atag = is.getTagCompound();
@@ -182,6 +135,34 @@ public class RWBYSword extends ItemSword implements ICustomItem {
     @Override
     public ActionResult<ItemStack> onItemRightClick( World worldIn, EntityPlayer playerIn, EnumHand hand) {
         ItemStack is = playerIn.getHeldItem(hand);
+        PotionEffect potioneffect1 = new PotionEffect(MobEffects.STRENGTH, 100, 5, false, false);
+        PotionEffect potioneffect2 = new PotionEffect(MobEffects.LEVITATION, 100, 5, false, false);
+        PotionEffect potionEffect3 = new PotionEffect(MobEffects.FIRE_RESISTANCE, 100, 5, false, false);
+        PotionEffect potioneffect4 = new PotionEffect(MobEffects.REGENERATION, 100, 3, false, false);
+        PotionEffect potioneffect5 = new PotionEffect(MobEffects.HASTE, 100, 5, false, false);
+        PotionEffect potionEffect6 = new PotionEffect(MobEffects.SPEED, 100, 5, false, false);
+        PotionEffect potionEffect7 = new PotionEffect(MobEffects.SPEED, 200, 7, false, false);
+        if(hand == EnumHand.MAIN_HAND && playerIn.isSneaking()){
+        if(gravity)
+        {
+         playerIn.addPotionEffect(potioneffect2);
+        }
+        if(fire)
+        {
+            playerIn.addPotionEffect(potioneffect1);
+            playerIn.addPotionEffect(potionEffect3);
+        }
+        if(water){
+            playerIn.addPotionEffect(potioneffect4);
+        }
+        if(lightning){
+            playerIn.addPotionEffect(potioneffect5);
+            playerIn.addPotionEffect(potionEffect6);
+        }
+        if(wind){
+            playerIn.addPotionEffect(potionEffect7);
+        }
+        }
         if (!worldIn.isRemote && playerIn.isSneaking() && this.morph != null) {
             is = new ItemStack(Item.getByNameOrId(this.morph), is.getCount(), is.getMetadata());
             return new ActionResult<>(EnumActionResult.SUCCESS, is);
@@ -220,26 +201,17 @@ public class RWBYSword extends ItemSword implements ICustomItem {
         return "RWBYSword{" + this.getRegistryName() + "}";
     }
 
-    @Override
-    public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
-        if (kkfire || kkwind || kkice){
-            ItemStack chest = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
-            chest.damageItem(1, player);
-    }
-        return super.onLeftClickEntity(stack, player, entity);
-    }
+
 
 
     @Override
     public boolean isRepairable() {
-        if (kkice || kkfire || kkwind){return false;}
-        else return true;
+        return true;
     }
 
     @Override
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair) {
-        if (kkice || kkfire || kkwind){return false;}
-        else return repair.getItem() == RWBYItems.scrap || super.getIsRepairable(toRepair, repair);
+      return repair.getItem() == RWBYItems.scrap || super.getIsRepairable(toRepair, repair);
     }
 
 }

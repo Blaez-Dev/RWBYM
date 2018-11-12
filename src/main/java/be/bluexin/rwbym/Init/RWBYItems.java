@@ -508,6 +508,80 @@ public class RWBYItems {
             false,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
+
+    public static Item ozmacane = new RWBYStaff(
+            "ozmacane",
+            2500,
+            12,
+            0,
+            null,
+            null,
+            false,
+            true,
+            RWBYCreativeTabs.tab_rwbyweapons
+    );
+    public static Item ozmacanefire = new RWBYStaff(
+            "ozmacanefire",
+            2500,
+            12,
+            0,
+            null,
+            null,
+            false,
+            true,
+          null
+    );
+    public static Item ozmacanegravity = new RWBYStaff(
+            "ozmacanegravity",
+            2500,
+            12,
+            0,
+            null,
+            null,
+            false,
+            true,
+            null
+    );    public static Item ozmacaneice = new RWBYStaff(
+            "ozmacaneice",
+            2500,
+            12,
+            0,
+            null,
+            null,
+            false,
+            true,
+           null
+    );    public static Item ozmacanelightning = new RWBYStaff(
+            "ozmacanelightning",
+            2500,
+            12,
+            0,
+            null,
+            null,
+            false,
+            true,
+           null
+    );    public static Item ozmacanewater = new RWBYStaff(
+            "ozmacanewater",
+            2500,
+            12,
+            0,
+            null,
+            null,
+            false,
+            true,
+            null
+    );    public static Item ozmacanewind = new RWBYStaff(
+            "ozmacanewind",
+            2500,
+            12,
+            0,
+            null,
+            null,
+            false,
+            true,
+            null
+    );
     //------------------------------------------------//
 
     public static Item crescentgun = new RWBYBow(

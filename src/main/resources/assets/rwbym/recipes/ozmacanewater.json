@@ -1,0 +1,17 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " D ",
+    " I ",
+    "   "
+  ],
+  "key": {
+    "I": {"item": "rwbym:ozmacane"},
+    "D": {"item": "rwbym:waterdustrock"}
+  },
+  "result": {
+    "item": "rwbym:ozmacanewater",
+    "count": 1
+  }
+}

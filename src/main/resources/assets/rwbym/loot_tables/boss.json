@@ -76,6 +76,11 @@
         },
         {
           "type": "item",
+          "name": "rwbym:ozmacane",
+          "weight": 15
+        },
+        {
+          "type": "item",
           "name": "rwbym:portgun",
           "weight": 20
         },
@@ -97,7 +102,7 @@
         {
           "type": "item",
           "name": "rwbym:toolkit",
-          "weight": 7
+          "weight": 20
         }
 
       ]
