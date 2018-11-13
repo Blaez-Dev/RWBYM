@@ -1,9 +1,0 @@
-{
-    "type": "rwbym:smelting",
-    "ingredient": {
-        "item": "rwbym:fireore"
-    },
-    "result": "rwbym:firedustrock",
-    "experience": 0.4,
-    "cookingtime": 20
-}

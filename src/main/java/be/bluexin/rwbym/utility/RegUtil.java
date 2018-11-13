@@ -97,6 +97,13 @@ public class RegUtil {
         registerItems(event, RWBYItems.ozmacanewind);
 
         //Items
+        registerItems(event, RWBYItems.dustcrystal);
+        registerItems(event, RWBYItems.firedustcrystal);
+        registerItems(event, RWBYItems.winddustcrystal);
+        registerItems(event, RWBYItems.waterdustcrystal);
+        registerItems(event, RWBYItems.gravitydustcrystal);
+        registerItems(event, RWBYItems.lightdustcrystal);
+        registerItems(event, RWBYItems.icedustcrystal);
         registerItems(event, RWBYItems.dustrock);
         registerItems(event, RWBYItems.winddustrock);
         registerItems(event, RWBYItems.firedustrock);

@@ -1,0 +1,13 @@
+{
+   "type": "minecraft:crafting_shapeless",
+   "ingredients": [
+      {
+         "item": "rwbym:firedustrock"
+      }
+   ],
+   "result": {
+      "item": "rwbym:firedustcrystal",
+      "count": 3
+   },
+   "group": "group"
+}

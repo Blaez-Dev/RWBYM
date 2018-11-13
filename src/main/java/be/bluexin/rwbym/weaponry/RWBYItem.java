@@ -42,8 +42,8 @@ public class RWBYItem extends Item implements ICustomItem {
         this.ismask = isMask;
         this.data = data;
         this.setCreativeTab(creativetab);
-        if(name.contains("gravitydustrock")) gravity = true;
-        if(name.contains("waterdustrock")) water = true;
+        if(name.contains("gravitydustcrystal")) gravity = true;
+        if(name.contains("waterdustcrystal")) water = true;
     }
 
     /*@Override

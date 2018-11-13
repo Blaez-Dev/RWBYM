@@ -160,6 +160,13 @@ item.rwbym:ozmacaneice.name=Ozma's Staff
 item.rwbym:ozmacanelightning.name=Ozma's Staff
 item.rwbym:ozmacanewater.name=Ozma's Staff
 item.rwbym:ozmacanewind.name=Ozma's Staff
+item.rwbym:firedustcrystal.name=Fire Dust Crystal
+item.rwbym:gravitydustcrystal.name=Gravity Dust Crystal
+item.rwbym:icedustcrystal.name=Ice Dust Crystal
+item.rwbym:lightdustcrystal.name=Lightning Dust Crystal
+item.rwbym:waterdustcrystal.name=Water Dust Crystal
+item.rwbym:winddustcrystal.name=Wind Dust Crystal
+item.rwbym:dustcrystal.name=Impure Dust Crystal
 
 itemGroup.rwby_weapons=RWBY Weapons
 itemGroup.rwby_items=RWBY Items
