@@ -43,7 +43,7 @@ public class MessageGetPlayerData extends MessageBase<MessageGetPlayerData> {
 		}
 		else {
 			IRuby Ruby = requestedPlayer.getCapability(RubyProvider.RUBY_CAP, null);
-			//RWBYNetworkHandler.sendToClient(new MessageSendPlayerData(Ruby, message.name), (EntityPlayerMP) player);
+			RWBYNetworkHandler.sendToClient(new MessageSendPlayerData(Ruby, message.name), (EntityPlayerMP) player);
 		}
 	}
 

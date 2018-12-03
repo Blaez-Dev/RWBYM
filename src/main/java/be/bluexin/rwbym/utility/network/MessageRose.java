@@ -35,10 +35,11 @@ public class MessageRose extends MessageBase<MessageRose>{
     public void handleServerSide(MessageRose message, EntityPlayer player){
     	
     	if (message.status) {
-    		//player.getCapability(RubyProvider.RUBY_CAP, null).activate(player);
+    		boolean flag = player.getCapability(RubyProvider.RUBY_CAP, null).activate(player);
+    		//System.out.println(flag);
     	}
     	else {
-    		//player.getCapability(RubyProvider.RUBY_CAP, null).setActiveStatus(false);
+    		player.getCapability(RubyProvider.RUBY_CAP, null).setActiveStatus(false);
     	}
     }
 }

@@ -12,7 +12,6 @@ import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class EntityUpdatesHandler {
-/*
 	@SubscribeEvent
 	public void onUpdate(LivingUpdateEvent event) {
 		EntityLivingBase entityLiving = event.getEntityLiving();
@@ -44,5 +43,5 @@ public class EntityUpdatesHandler {
 			EntityPlayer player = (EntityPlayer)entityLiving;
 			
 		}
-	}*/
+	}
 }
