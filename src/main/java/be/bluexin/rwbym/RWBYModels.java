@@ -8,6 +8,7 @@ import be.bluexin.rwbym.capabilities.ruby.Ruby;
 import be.bluexin.rwbym.capabilities.ruby.RubyStorage;
 import be.bluexin.rwbym.proxy.CommonProxy;
 import be.bluexin.rwbym.utility.RegUtil;
+import be.bluexin.rwbym.utility.network.RWBYNetworkHandler;
 import be.bluexin.rwbym.weaponry.ICustomItem;
 import be.bluexin.rwbym.weaponry.RWBYSword;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -87,16 +88,16 @@ public class RWBYModels {
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         if (event.getSide() == Side.CLIENT){
-            //KeybindRegistry.register();
+            KeybindRegistry.register();
             MinecraftForge.EVENT_BUS.register(new KeyInputHandler());
-            //MinecraftForge.EVENT_BUS.register(new PlayerRenderHandler());
+            MinecraftForge.EVENT_BUS.register(new PlayerRenderHandler());
         }
         MinecraftForge.EVENT_BUS.register(new EntityUpdatesHandler());
 		MinecraftForge.EVENT_BUS.register(new CapabilityHandler());
 
         CapabilityManager.INSTANCE.register(IRuby.class, new RubyStorage(), Ruby.class);
 
-        //RWBYNetworkHandler.init();
+        RWBYNetworkHandler.init();
         RWBYCreativeTabs.init();
         RWBYBiomes.registerBiomes();
         RWBYEntities.instance = instance;

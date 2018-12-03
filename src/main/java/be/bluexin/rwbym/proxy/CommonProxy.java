@@ -28,4 +28,8 @@ public class CommonProxy {
     }
 
     public void generateRosepetals(EntityPlayer playerIn) {}
+
+	public EntityPlayer getPlayer() {
+		return null;
+	}
 }

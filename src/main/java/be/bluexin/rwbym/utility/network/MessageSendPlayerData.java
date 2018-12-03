@@ -46,7 +46,7 @@ public class MessageSendPlayerData extends MessageBase<MessageSendPlayerData> {
 
 	@Override
 	public void handleClientSide(MessageSendPlayerData message, EntityPlayer player) {
-		/*EntityPlayer requestedPlayer = player.world.getPlayerEntityByName(message.name);
+		EntityPlayer requestedPlayer = player.world.getPlayerEntityByName(message.name);
 		if (requestedPlayer == null) {
 			System.out.println("DATA ERROR");
 		}
@@ -56,7 +56,7 @@ public class MessageSendPlayerData extends MessageBase<MessageSendPlayerData> {
 			Ruby.setCooldownTimer(message.CTimer);
 			Ruby.setPlayerY(message.playerY);
 			Ruby.setActiveStatus(message.active);
-		}*/
+		}
 	}
 
 	@Override
