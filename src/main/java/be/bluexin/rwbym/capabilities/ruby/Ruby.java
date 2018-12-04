@@ -20,7 +20,7 @@ public class Ruby implements IRuby {
 	
 	private boolean active = false;
 	
-	private int level = 2;
+	private int level = 0;
 	
 	/**activates the semblance*/
 	@Override
