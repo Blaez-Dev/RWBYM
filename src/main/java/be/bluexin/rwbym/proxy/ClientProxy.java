@@ -115,5 +115,9 @@ public class ClientProxy extends CommonProxy {
                 
         Minecraft.getMinecraft().effectRenderer.addEffect(rosepetal);
     }
+    
+	public EntityPlayer getPlayer() {
+		return Minecraft.getMinecraft().player;
+	}
 
 }

@@ -27,7 +27,6 @@ public class KeyInputHandler {
 
 	//this event only fires on client side, so if you need something done serverside you need to send packets,
 	//or read variables from this class such as the one above.
-	/*
 	@SubscribeEvent
 	@SideOnly(Side.CLIENT)
 	public void onKeyInput(KeyInputEvent event) {
@@ -35,6 +34,7 @@ public class KeyInputHandler {
 		EntityPlayer player = Minecraft.getMinecraft().player;
 	
 		if (KeybindRegistry.activateSemblance.isKeyDown()) {
+			System.out.println("Activating Semblance");
 			
 			IRuby Ruby = player.getCapability(RubyProvider.RUBY_CAP, null);
 											
@@ -58,5 +58,5 @@ public class KeyInputHandler {
 		else {
 			activateSemblance = false;
 		}
-	}*/
+	}
 }
