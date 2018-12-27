@@ -6,322 +6,491 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.math.MathHelper;
 
-public class ModelCreep extends ModelBase {
-    public ModelRenderer torso;
-    public ModelRenderer torso_1;
-    public ModelRenderer head;
-    public ModelRenderer torso_2;
-    public ModelRenderer torso_3;
-    public ModelRenderer torso_4;
-    public ModelRenderer torso_5;
-    public ModelRenderer torso_6;
-    public ModelRenderer torso_7;
-    public ModelRenderer torso_8;
-    public ModelRenderer torso_9;
-    public ModelRenderer legleft1;
-    public ModelRenderer legright1;
-    public ModelRenderer legleft4;
-    public ModelRenderer legright4;
-    public ModelRenderer legright2;
-    public ModelRenderer legleft2;
-    public ModelRenderer torso_10;
-    public ModelRenderer legright5;
-    public ModelRenderer legleft5;
-    public ModelRenderer torso_11;
-    public ModelRenderer torso_12;
-    public ModelRenderer torso_13;
-    public ModelRenderer torso_14;
-    public ModelRenderer torso_15;
-    public ModelRenderer torso_16;
-    public ModelRenderer torso_17;
-    public ModelRenderer torso_18;
-    public ModelRenderer legright3;
-    public ModelRenderer legleft3;
+public class ModelCreep extends ModelBase
+{
+  //fields
+    ModelRenderer LLeg1;
+    ModelRenderer LLeg2;
+    ModelRenderer LLeg3;
+    ModelRenderer LLeg4;
+    ModelRenderer LLeg5;
+    ModelRenderer LLeg6;
+    ModelRenderer RLeg1;
+    ModelRenderer RLeg2;
+    ModelRenderer RLeg3;
+    ModelRenderer RLeg4;
+    ModelRenderer RLeg5;
+    ModelRenderer RLeg6;
+    ModelRenderer Body1;
+    ModelRenderer Body2;
+    ModelRenderer Neck1;
+    ModelRenderer Neck2;
+    ModelRenderer Neck3;
+    ModelRenderer Head1;
+    ModelRenderer Head2;
+    ModelRenderer Head3;
+    ModelRenderer Head4;
+    ModelRenderer Head5;
+    ModelRenderer Head6;
+    ModelRenderer Head7;
+    ModelRenderer Head8;
+    ModelRenderer Head9;
+    ModelRenderer Head10;
+    ModelRenderer Head11;
+    ModelRenderer Head12;
+    ModelRenderer Head13;
+    ModelRenderer Teeth1;
+    ModelRenderer Teeth2;
+    ModelRenderer Teeth3;
+    ModelRenderer Teeth4;
+    ModelRenderer Teeth5;
+    ModelRenderer Teeth6;
+    ModelRenderer Tail1;
+    ModelRenderer Tail11;
+    ModelRenderer Tail2;
+    ModelRenderer Tail3;
+    ModelRenderer Tail4;
+    ModelRenderer Tail5;
+    ModelRenderer BonyPlate1;
+    ModelRenderer BonyPlate2;
+    ModelRenderer BonyPlate3;
+    ModelRenderer BonyPlate4;
+    ModelRenderer BonyPlate5;
+    ModelRenderer BonyPlate6;
+    ModelRenderer BonyPlate7;
+    ModelRenderer BonyPlate8;
+    ModelRenderer BonyPlate9;
+    ModelRenderer LFoot1;
+    ModelRenderer RFoot1;
+    ModelRenderer Shape1;
+  
+  public ModelCreep()
+  {
+    textureWidth = 90;
+    textureHeight = 90;
+    
+      LLeg1 = new ModelRenderer(this, 74, 0);
+      LLeg1.addBox(0.5F, -0.5F, -2.5F, 3, 1, 5);
+      LLeg1.setRotationPoint(4F, 8F, -1F);
+      LLeg1.setTextureSize(90, 90);
+      LLeg1.mirror = true;
+      setRotation(LLeg1, 0.6108652F, 0F, 0F);
+      LLeg2 = new ModelRenderer(this, 70, 7);
+      LLeg2.addBox(0F, 0F, -3F, 4, 5, 6);
+      LLeg2.setRotationPoint(4F, 8F, -1F);
+      LLeg2.setTextureSize(90, 90);
+      LLeg2.mirror = true;
+      setRotation(LLeg2, 0.6108652F, 0F, 0F);
+      LLeg3 = new ModelRenderer(this, 72, 19);
+      LLeg3.addBox(-0.3F, 5F, -2.5F, 4, 4, 5);
+      LLeg3.setRotationPoint(4F, 8F, -1F);
+      LLeg3.setTextureSize(90, 90);
+      LLeg3.mirror = true;
+      setRotation(LLeg3, 0.6108652F, 0F, 0F);
+      LLeg4 = new ModelRenderer(this, 76, 29);
+      LLeg4.addBox(0.2F, 5.5F, 3.5F, 3, 9, 4);
+      LLeg4.setRotationPoint(4F, 8F, -1F);
+      LLeg4.setTextureSize(90, 90);
+      LLeg4.mirror = true;
+      setRotation(LLeg4, -0.0872665F, 0F, 0F);
+      LLeg5 = new ModelRenderer(this, 76, 43);
+      LLeg5.addBox(0.2F, 14F, 1.5F, 3, 2, 4);
+      LLeg5.setRotationPoint(4F, 8F, -1F);
+      LLeg5.setTextureSize(90, 90);
+      LLeg5.mirror = true;
+      setRotation(LLeg5, 0F, 0F, 0F);
+      LLeg6 = new ModelRenderer(this, 72, 50);
+      LLeg6.addBox(-0.3F, 15F, -0.5F, 4, 1, 5);
+      LLeg6.setRotationPoint(4F, 8F, -1F);
+      LLeg6.setTextureSize(90, 90);
+      LLeg6.mirror = true;
+      setRotation(LLeg6, 0F, 0F, 0F);
+      RLeg1 = new ModelRenderer(this, 53, 0);
+      RLeg1.addBox(-3.5F, -0.5F, -2.5F, 3, 1, 5);
+      RLeg1.setRotationPoint(-4F, 8F, -1F);
+      RLeg1.setTextureSize(90, 90);
+      RLeg1.mirror = true;
+      setRotation(RLeg1, 0.6108652F, 0F, 0F);
+      RLeg2 = new ModelRenderer(this, 49, 7);
+      RLeg2.addBox(-4F, 0F, -3F, 4, 5, 6);
+      RLeg2.setRotationPoint(-4F, 8F, -1F);
+      RLeg2.setTextureSize(90, 90);
+      RLeg2.mirror = true;
+      setRotation(RLeg2, 0.6108652F, 0F, 0F);
+      RLeg3 = new ModelRenderer(this, 51, 19);
+      RLeg3.addBox(-3.6F, 5F, -2.5F, 4, 4, 5);
+      RLeg3.setRotationPoint(-4F, 8F, -1F);
+      RLeg3.setTextureSize(90, 90);
+      RLeg3.mirror = true;
+      setRotation(RLeg3, 0.6108652F, 0F, 0F);
+      RLeg4 = new ModelRenderer(this, 55, 29);
+      RLeg4.addBox(-3.1F, 5.5F, 3.5F, 3, 9, 4);
+      RLeg4.setRotationPoint(-4F, 8F, -1F);
+      RLeg4.setTextureSize(90, 90);
+      RLeg4.mirror = true;
+      setRotation(RLeg4, -0.0872665F, 0F, 0F);
+      RLeg5 = new ModelRenderer(this, 55, 43);
+      RLeg5.addBox(-3.1F, 14F, 1.5F, 3, 2, 4);
+      RLeg5.setRotationPoint(-4F, 8F, -1F);
+      RLeg5.setTextureSize(90, 90);
+      RLeg5.mirror = true;
+      setRotation(RLeg5, 0F, 0F, 0F);
+      RLeg6 = new ModelRenderer(this, 53, 50);
+      RLeg6.addBox(-3.6F, 15F, -0.5F, 4, 1, 5);
+      RLeg6.setRotationPoint(-4F, 8F, -1F);
+      RLeg6.setTextureSize(90, 90);
+      RLeg6.mirror = true;
+      Body1 = new ModelRenderer(this, 0, 41);
+      Body1.addBox(0F, 0F, 0F, 8, 9, 10);
+      Body1.setRotationPoint(-4F, 6F, -4F);
+      Body1.setTextureSize(90, 90);
+      Body1.mirror = true;
+      setRotation(Body1, 0F, 0F, 0F);
+      Body2 = new ModelRenderer(this, 0, 30);
+      Body2.addBox(0F, 0F, 0F, 5, 1, 9);
+      Body2.setRotationPoint(-2.5F, 5.5F, -3.5F);
+      Body2.setTextureSize(90, 90);
+      Body2.mirror = true;
+      setRotation(Body2, 0F, 0F, 0F);
+      Neck1 = new ModelRenderer(this, 46, 75);
+      Neck1.addBox(0F, 0F, 0F, 6, 7, 4);
+      Neck1.setRotationPoint(-3F, 6.5F, -8F);
+      Neck1.setTextureSize(90, 90);
+      Neck1.mirror = true;
+      setRotation(Neck1, 0F, 0F, 0F);
+      Neck2 = new ModelRenderer(this, 46, 70);
+      Neck2.addBox(0F, 0F, 0F, 5, 1, 3);
+      Neck2.setRotationPoint(-2.5F, 6F, -7F);
+      Neck2.setTextureSize(90, 90);
+      Neck2.mirror = true;
+      setRotation(Neck2, 0F, 0F, 0F);
+      Neck3 = new ModelRenderer(this, 29, 66);
+      Neck3.addBox(0F, 0F, 0F, 5, 6, 3);
+      Neck3.setRotationPoint(-2.5F, 6.5F, -11F);
+      Neck3.setTextureSize(90, 90);
+      Neck3.mirror = true;
+      setRotation(Neck3, 0F, 0F, 0F);
+      Head1 = new ModelRenderer(this, 7, 73);
+      Head1.addBox(0F, 0F, 0F, 4, 4, 5);
+      Head1.setRotationPoint(-2F, 7F, -16F);
+      Head1.setTextureSize(90, 90);
+      Head1.mirror = true;
+      setRotation(Head1, 0F, 0F, 0F);
+      Head2 = new ModelRenderer(this, 26, 76);
+      Head2.addBox(0F, 0F, 0F, 3, 1, 5);
+      Head2.setRotationPoint(-1.5F, 10.9F, -15F);
+      Head2.setTextureSize(90, 90);
+      Head2.mirror = true;
+      setRotation(Head2, 0F, 0F, 0F);
+      Head3 = new ModelRenderer(this, 0, 70);
+      Head3.addBox(0F, 0F, 0F, 1, 1, 1);
+      Head3.setRotationPoint(-0.5F, 6.5F, -16F);
+      Head3.setTextureSize(90, 90);
+      Head3.mirror = true;
+      setRotation(Head3, 0.4461433F, 0F, 0F);
+      Head4 = new ModelRenderer(this, 7, 83);
+      Head4.addBox(0F, 0F, 0F, 3, 4, 2);
+      Head4.setRotationPoint(-1.5F, 6.9F, -16.2F);
+      Head4.setTextureSize(90, 90);
+      Head4.mirror = true;
+      setRotation(Head4, 0F, 0F, 0F);
+      Head5 = new ModelRenderer(this, 35, 83);
+      Head5.addBox(0F, 0F, 0F, 2, 1, 1);
+      Head5.setRotationPoint(-1F, 10.8F, -15.5F);
+      Head5.setTextureSize(90, 90);
+      Head5.mirror = true;
+      setRotation(Head5, 0F, 0F, 0F);
+      Head6 = new ModelRenderer(this, 7, 62);
+      Head6.addBox(0F, 0F, 0F, 3, 3, 2);
+      Head6.setRotationPoint(-1.5F, 7F, -13.5F);
+      Head6.setTextureSize(90, 90);
+      Head6.mirror = true;
+      setRotation(Head6, 0.2094395F, 0F, 0F);
+      Head7 = new ModelRenderer(this, 0, 73);
+      Head7.addBox(0F, 0F, 0F, 2, 1, 1);
+      Head7.setRotationPoint(-1F, 7.1F, -16.5F);
+      Head7.setTextureSize(90, 90);
+      Head7.mirror = true;
+      setRotation(Head7, 0.7853982F, 0F, 0F);
+      Head8 = new ModelRenderer(this, 26, 83);
+      Head8.addBox(0F, 0F, 0F, 2, 1, 2);
+      Head8.setRotationPoint(-1F, 11.3F, -12.8F);
+      Head8.setTextureSize(90, 90);
+      Head8.mirror = true;
+      setRotation(Head8, 0F, 0F, 0F);
+      Head9 = new ModelRenderer(this, 20, 68);
+      Head9.addBox(0F, 0F, 0F, 1, 1, 2);
+      Head9.setRotationPoint(-0.5F, 6.8F, -11.5F);
+      Head9.setTextureSize(90, 90);
+      Head9.mirror = true;
+      setRotation(Head9, 0.5934119F, 0F, 0F);
+      Head10 = new ModelRenderer(this, 29, 61);
+      Head10.addBox(0F, 0F, 2F, 2, 3, 1);
+      Head10.setRotationPoint(-1F, 7F, -13.5F);
+      Head10.setTextureSize(90, 90);
+      Head10.mirror = true;
+      setRotation(Head10, 0.2094395F, 0F, 0F);
+      Head11 = new ModelRenderer(this, 7, 68);
+      Head11.addBox(0F, 0F, 0F, 3, 1, 3);
+      Head11.setRotationPoint(-1.5F, 6.8F, -14.8F);
+      Head11.setTextureSize(90, 90);
+      Head11.mirror = true;
+      setRotation(Head11, 0F, 0F, 0F);
+      Head12 = new ModelRenderer(this, 0, 76);
+      Head12.addBox(0F, 0F, 0F, 2, 2, 1);
+      Head12.setRotationPoint(-1F, 6.8F, -16.5F);
+      Head12.setTextureSize(90, 90);
+      Head12.mirror = true;
+      setRotation(Head12, 0F, 0F, 0F);
+      Head13 = new ModelRenderer(this, 0, 80);
+      Head13.addBox(0F, 0F, 0F, 2, 2, 1);
+      Head13.setRotationPoint(-1F, 8.8F, -16.5F);
+      Head13.setTextureSize(90, 90);
+      Head13.mirror = true;
+      setRotation(Head13, 0.1570796F, 0F, 0F);
+      Teeth1 = new ModelRenderer(this, 31, 87);
+      Teeth1.addBox(0F, 0F, 0F, 1, 1, 1);
+      Teeth1.setRotationPoint(0.7F, 9.9F, -11.5F);
+      Teeth1.setTextureSize(90, 90);
+      Teeth1.mirror = true;
+      setRotation(Teeth1, -1.041001F, 0F, 0F);
+      Teeth2 = new ModelRenderer(this, 26, 87);
+      Teeth2.addBox(0F, 0F, 0F, 1, 1, 1);
+      Teeth2.setRotationPoint(0.9F, 10.5F, -13.5F);
+      Teeth2.setTextureSize(90, 90);
+      Teeth2.mirror = true;
+      setRotation(Teeth2, 0.5576792F, 0F, 0F);
+      Teeth3 = new ModelRenderer(this, 21, 87);
+      Teeth3.addBox(0F, 0F, 0F, 1, 1, 1);
+      Teeth3.setRotationPoint(0.7F, 10.8F, -14.8F);
+      Teeth3.setTextureSize(90, 90);
+      Teeth3.mirror = true;
+      setRotation(Teeth3, 1.07818F, 0F, 0F);
+      Teeth4 = new ModelRenderer(this, 37, 87);
+      Teeth4.addBox(0F, 0F, 0F, 1, 1, 1);
+      Teeth4.setRotationPoint(-1.7F, 9.9F, -11.5F);
+      Teeth4.setTextureSize(90, 90);
+      Teeth4.mirror = true;
+      setRotation(Teeth4, -1.041001F, 0F, 0F);
+      Teeth5 = new ModelRenderer(this, 42, 87);
+      Teeth5.addBox(0F, 0F, 0F, 1, 1, 1);
+      Teeth5.setRotationPoint(-1.9F, 10.5F, -13.5F);
+      Teeth5.setTextureSize(90, 90);
+      Teeth5.mirror = true;
+      setRotation(Teeth5, 0.5576792F, 0F, 0F);
+      Teeth6 = new ModelRenderer(this, 47, 87);
+      Teeth6.addBox(0F, 0F, 0F, 1, 1, 1);
+      Teeth6.setRotationPoint(-1.7F, 10.8F, -14.8F);
+      Teeth6.setTextureSize(90, 90);
+      Teeth6.mirror = true;
+      setRotation(Teeth6, 1.07818F, 0F, 0F);
+      Tail1 = new ModelRenderer(this, 29, 40);
+      Tail1.addBox(0F, 0F, 0F, 6, 6, 4);
+      Tail1.setRotationPoint(-3F, 6.5F, 6F);
+      Tail1.setTextureSize(90, 90);
+      Tail1.mirror = true;
+      setRotation(Tail1, 0F, 0F, 0F);
+      Tail11 = new ModelRenderer(this, 36, 51);
+      Tail11.addBox(0F, 0F, 0F, 5, 2, 3);
+      Tail11.setRotationPoint(-2.5F, 11.5F, 6F);
+      Tail11.setTextureSize(90, 90);
+      Tail11.mirror = true;
+      setRotation(Tail11, 0F, 0F, 0F);
+      Tail2 = new ModelRenderer(this, 28, 27);
+      Tail2.addBox(0F, 0F, 0F, 5, 5, 5);
+      Tail2.setRotationPoint(-2.5F, 7F, 10F);
+      Tail2.setTextureSize(90, 90);
+      Tail2.mirror = true;
+      setRotation(Tail2, -0.1487144F, 0F, 0F);
+      Tail3 = new ModelRenderer(this, 0, 17);
+      Tail3.addBox(0F, 0F, 0F, 4, 4, 5);
+      Tail3.setRotationPoint(-2F, 8.5F, 14F);
+      Tail3.setTextureSize(90, 90);
+      Tail3.mirror = true;
+      setRotation(Tail3, 0F, 0F, 0F);
+      Tail4 = new ModelRenderer(this, 0, 9);
+      Tail4.addBox(0F, 0F, 0F, 3, 3, 4);
+      Tail4.setRotationPoint(-1.5F, 9F, 18F);
+      Tail4.setTextureSize(90, 90);
+      Tail4.mirror = true;
+      setRotation(Tail4, 0.1396263F, 0F, 0F);
+      Tail5 = new ModelRenderer(this, 7, 0);
+      Tail5.addBox(0F, 0F, 0F, 2, 2, 4);
+      Tail5.setRotationPoint(-1F, 9F, 22F);
+      Tail5.setTextureSize(90, 90);
+      Tail5.mirror = true;
+      setRotation(Tail5, 0.1396263F, 0F, 0F);
+      BonyPlate1 = new ModelRenderer(this, 46, 64);
+      BonyPlate1.addBox(0F, 0F, -1F, 1, 2, 3);
+      BonyPlate1.setRotationPoint(-0.5F, 6F, -7.5F);
+      BonyPlate1.setTextureSize(90, 90);
+      BonyPlate1.mirror = true;
+      setRotation(BonyPlate1, 1.041001F, 0F, 0F);
+      BonyPlate2 = new ModelRenderer(this, 0, 34);
+      BonyPlate2.addBox(0F, 0F, 0F, 1, 2, 2);
+      BonyPlate2.setRotationPoint(-0.5F, 4F, -2.3F);
+      BonyPlate2.setTextureSize(90, 90);
+      BonyPlate2.mirror = true;
+      setRotation(BonyPlate2, -0.6313135F, 0F, 0F);
+      BonyPlate3 = new ModelRenderer(this, 0, 27);
+      BonyPlate3.addBox(0F, -1F, 0F, 1, 4, 2);
+      BonyPlate3.setRotationPoint(-0.5F, 3.7F, 2.7F);
+      BonyPlate3.setTextureSize(90, 90);
+      BonyPlate3.mirror = true;
+      setRotation(BonyPlate3, -0.9287424F, 0F, 0F);
+      BonyPlate4 = new ModelRenderer(this, 47, 38);
+      BonyPlate4.addBox(0F, -1F, 0F, 1, 3, 2);
+      BonyPlate4.setRotationPoint(-0.5F, 4.9F, 6.9F);
+      BonyPlate4.setTextureSize(90, 90);
+      BonyPlate4.mirror = true;
+      setRotation(BonyPlate4, -0.7800279F, 0F, 0F);
+      BonyPlate5 = new ModelRenderer(this, 44, 27);
+      BonyPlate5.addBox(0F, -1F, 0F, 1, 2, 2);
+      BonyPlate5.setRotationPoint(-0.5F, 6.5F, 10.9F);
+      BonyPlate5.setTextureSize(90, 90);
+      BonyPlate5.mirror = true;
+      setRotation(BonyPlate5, -0.7428493F, 0F, 0F);
+      BonyPlate6 = new ModelRenderer(this, 0, 18);
+      BonyPlate6.addBox(0F, -1F, 0F, 1, 2, 1);
+      BonyPlate6.setRotationPoint(-0.5F, 7.5F, 14.9F);
+      BonyPlate6.setTextureSize(90, 90);
+      BonyPlate6.mirror = true;
+      setRotation(BonyPlate6, -0.8543851F, 0F, 0F);
+      BonyPlate7 = new ModelRenderer(this, 14, 18);
+      BonyPlate7.addBox(0F, -1F, 0F, 1, 2, 1);
+      BonyPlate7.setRotationPoint(-0.5F, 8.3F, 17.9F);
+      BonyPlate7.setTextureSize(90, 90);
+      BonyPlate7.mirror = true;
+      setRotation(BonyPlate7, -0.6859454F, 0F, 0F);
+      BonyPlate8 = new ModelRenderer(this, 0, 5);
+      BonyPlate8.addBox(0F, -1F, 0F, 1, 1, 2);
+      BonyPlate8.setRotationPoint(-0.5F, 8.8F, 20.9F);
+      BonyPlate8.setTextureSize(90, 90);
+      BonyPlate8.mirror = true;
+      setRotation(BonyPlate8, -0.6859454F, 0F, 0F);
+      BonyPlate9 = new ModelRenderer(this, 18, 0);
+      BonyPlate9.addBox(0F, -1F, 0F, 1, 2, 1);
+      BonyPlate9.setRotationPoint(-0.5F, 8.2F, 24.5F);
+      BonyPlate9.setTextureSize(90, 90);
+      BonyPlate9.mirror = true;
+      setRotation(BonyPlate9, -1.132089F, 0F, 0F);
+      LFoot1 = new ModelRenderer(this, 24, 0);
+      LFoot1.addBox(-1.8F, 15.9F, -6F, 7, 1, 7);
+      LFoot1.setRotationPoint(4F, 8F, -1F);
+      LFoot1.setTextureSize(90, 90);
+      LFoot1.mirror = true;
+      setRotation(LFoot1, 0F, 0F, 0F);
+      RFoot1 = new ModelRenderer(this, 24, 0);
+      RFoot1.addBox(-5.1F, 15.9F, -6F, 7, 1, 7);
+      RFoot1.setRotationPoint(-4F, 8F, -1F);
+      RFoot1.setTextureSize(90, 90);
+      RFoot1.mirror = true;
+      setRotation(RFoot1, 0F, 0F, 0F);
+      Shape1 = new ModelRenderer(this, 24, 9);
+      Shape1.addBox(1F, 0.5F, 1.8F, 2, 2, 1);
+      Shape1.setRotationPoint(4F, 8F, -1F);
+      Shape1.setTextureSize(90, 90);
+      Shape1.mirror = true;
+      setRotation(Shape1, 1.003822F, 0F, 0F);
+      Shape1 = new ModelRenderer(this, 31, 9);
+      Shape1.addBox(-3F, 0.5F, 1.8F, 2, 2, 1);
+      Shape1.setRotationPoint(-4F, 8F, -1F);
+      Shape1.setTextureSize(90, 90);
+      Shape1.mirror = true;
+      setRotation(Shape1, 1.003822F, 0F, 0F);
+  }
+  
+  public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
+  {
+    super.render(entity, f, f1, f2, f3, f4, f5);
+    setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+    LLeg1.render(f5);
+    LLeg2.render(f5);
+    LLeg3.render(f5);
+    LLeg4.render(f5);
+    LLeg5.render(f5);
+    LLeg6.render(f5);
+    RLeg1.render(f5);
+    RLeg2.render(f5);
+    RLeg3.render(f5);
+    RLeg4.render(f5);
+    RLeg5.render(f5);
+    RLeg6.render(f5);
+    Body1.render(f5);
+    Body2.render(f5);
+    Neck1.render(f5);
+    Neck2.render(f5);
+    Neck3.render(f5);
+    Head1.render(f5);
+    Head2.render(f5);
+    Head3.render(f5);
+    Head4.render(f5);
+    Head5.render(f5);
+    Head6.render(f5);
+    Head7.render(f5);
+    Head8.render(f5);
+    Head9.render(f5);
+    Head10.render(f5);
+    Head11.render(f5);
+    Head12.render(f5);
+    Head13.render(f5);
+    Teeth1.render(f5);
+    Teeth2.render(f5);
+    Teeth3.render(f5);
+    Teeth4.render(f5);
+    Teeth5.render(f5);
+    Teeth6.render(f5);
+    Tail1.render(f5);
+    Tail11.render(f5);
+    Tail2.render(f5);
+    Tail3.render(f5);
+    Tail4.render(f5);
+    Tail5.render(f5);
+    BonyPlate1.render(f5);
+    BonyPlate2.render(f5);
+    BonyPlate3.render(f5);
+    BonyPlate4.render(f5);
+    BonyPlate5.render(f5);
+    BonyPlate6.render(f5);
+    BonyPlate7.render(f5);
+    BonyPlate8.render(f5);
+    BonyPlate9.render(f5);
+    LFoot1.render(f5);
+    RFoot1.render(f5);
+    Shape1.render(f5);
+    Shape1.render(f5);
+  }
+  
+  private void setRotation(ModelRenderer model, float x, float y, float z)
+  {
+    model.rotateAngleX = x;
+    model.rotateAngleY = y;
+    model.rotateAngleZ = z;
+  }
+  
+  public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity)
+  {
+    super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+  }
 
-    public ModelCreep() {
-        this.textureWidth = 64;
-        this.textureHeight = 128;
-        this.torso_1 = new ModelRenderer(this, 16, 16);
-        this.torso_1.setRotationPoint(-0.5F, 1.5F, 7.0F);
-        this.torso_1.addBox(-0.4F, 17.6F, 8.2F, 1, 3, 5, 0.0F);
-        this.setRotateAngle(torso_1, 0.31869712141416456F, 0.0F, 0.0F);
-        this.torso_2 = new ModelRenderer(this, 16, 16);
-        this.torso_2.setRotationPoint(-0.5F, 1.4F, 6.9F);
-        this.torso_2.addBox(-3.1F, 0.0F, 4.1F, 6, 8, 5, 0.0F);
-        this.setRotateAngle(torso_2, -0.7285004297824331F, 0.0F, 0.0F);
-        this.legright1 = new ModelRenderer(this, 0, 16);
-        this.legright1.setRotationPoint(-1.9F, 6.0F, 0.1F);
-        this.legright1.addBox(-2.5F, -0.1F, -1.0F, 5, 7, 9, 0.1F);
-        this.setRotateAngle(legright1, 0.0F, 0.0F, 1.2292353921796064F);
-        this.torso_5 = new ModelRenderer(this, 16, 16);
-        this.torso_5.setRotationPoint(-0.5F, 1.5F, 7.0F);
-        this.torso_5.addBox(-1.4F, 1.9F, 9.1F, 3, 4, 5, 0.0F);
-        this.setRotateAngle(torso_5, -0.8651597102135892F, 0.0F, 0.0F);
-        this.torso_7 = new ModelRenderer(this, 16, 16);
-        this.torso_7.setRotationPoint(-0.5F, 1.5F, 7.0F);
-        this.torso_7.addBox(-1.4F, 12.0F, 10.8F, 3, 4, 5, 0.0F);
-        this.setRotateAngle(torso_7, -0.091106186954104F, 0.0F, 0.0F);
-        this.torso_10 = new ModelRenderer(this, 10, 88);
-        this.torso_10.setRotationPoint(0.1F, 1.7F, -13.3F);
-        this.torso_10.addBox(-1.5F, -4.1F, 31.7F, 2, 5, 2, 0.0F);
-        this.setRotateAngle(torso_10, -0.4553564018453205F, 0.0F, 0.0F);
-        this.legright5 = new ModelRenderer(this, 0, 16);
-        this.legright5.setRotationPoint(-1.9F, 6.0F, 0.3F);
-        this.legright5.addBox(-2.4F, 1.1F, 14.4F, 10, 5, 2, 0.0F);
-        this.setRotateAngle(legright5, -0.9557422983920949F, 0.0F, 1.2292353921796064F);
-        this.legleft5 = new ModelRenderer(this, 0, 16);
-        this.legleft5.mirror = true;
-        this.legleft5.setRotationPoint(2.0F, 6.0F, 0.3F);
-        this.legleft5.addBox(-8.0F, 1.1F, 14.8F, 10, 5, 2, 0.0F);
-        this.setRotateAngle(legleft5, -0.9560913642424937F, 0.0F, -1.2274900629276118F);
-        this.torso_15 = new ModelRenderer(this, 10, 88);
-        this.torso_15.setRotationPoint(0.1F, 1.7F, -13.3F);
-        this.torso_15.addBox(-1.3F, -3.7F, 13.7F, 2, 5, 2, 0.0F);
-        this.torso_13 = new ModelRenderer(this, 10, 88);
-        this.torso_13.setRotationPoint(0.1F, 1.7F, -13.3F);
-        this.torso_13.addBox(-1.3F, -3.7F, 4.3F, 2, 5, 2, 0.0F);
-        this.torso_17 = new ModelRenderer(this, 10, 88);
-        this.torso_17.setRotationPoint(0.1F, 1.7F, -13.3F);
-        this.torso_17.addBox(-1.6F, -16.1F, 20.6F, 2, 5, 2, 0.0F);
-        this.setRotateAngle(torso_17, -0.7285004297824331F, 0.0F, 0.0F);
-        this.legright2 = new ModelRenderer(this, 0, 16);
-        this.legright2.setRotationPoint(-1.9F, 6.0F, 0.3F);
-        this.legright2.addBox(-1.5F, -2.6F, 5.7F, 4, 7, 8, 0.0F);
-        this.setRotateAngle(legright2, -0.9557422983920949F, 0.0F, 1.2292353921796064F);
-        this.torso = new ModelRenderer(this, 16, 16);
-        this.torso.setRotationPoint(-0.5F, 0.2F, -7.0F);
-        this.torso.addBox(-4.0F, 0.0F, -2.0F, 8, 12, 14, 0.0F);
-        this.legleft1 = new ModelRenderer(this, 0, 16);
-        this.legleft1.mirror = true;
-        this.legleft1.setRotationPoint(2.0F, 6.0F, 0.1F);
-        this.legleft1.addBox(-2.5F, 0.0F, -1.0F, 5, 7, 9, 0.0F);
-        this.setRotateAngle(legleft1, -0.0F, 0.0F, -1.2292353921796064F);
-        this.torso_4 = new ModelRenderer(this, 16, 16);
-        this.torso_4.setRotationPoint(-0.5F, 1.5F, 7.0F);
-        this.torso_4.addBox(-1.5F, -7.7F, 8.0F, 3, 6, 3, 0.0F);
-        this.setRotateAngle(torso_4, -1.6390387005478748F, 0.0F, 0.0F);
-        this.torso_18 = new ModelRenderer(this, 10, 88);
-        this.torso_18.setRotationPoint(0.1F, 1.7F, -13.3F);
-        this.torso_18.addBox(-1.5F, -13.7F, 25.5F, 2, 5, 2, 0.0F);
-        this.setRotateAngle(torso_18, -0.7285004297824331F, 0.0F, 0.0F);
-        this.legright3 = new ModelRenderer(this, 0, 16);
-        this.legright3.setRotationPoint(-1.9F, 6.0F, 0.3F);
-        this.legright3.addBox(1.4F, 1.0F, 11.5F, 10, 5, 5, 0.0F);
-        this.setRotateAngle(legright3, -0.9557422983920949F, 0.0F, 1.2292353921796064F);
-        this.head = new ModelRenderer(this, 33, 88);
-        this.head.setRotationPoint(0.1F, 2.7F, -13.3F);
-        this.head.addBox(-4.0F, 0.0F, -8.9F, 7, 6, 7, 0.0F);
-        this.setRotateAngle(head, 0.5462880558742251F, 0.0F, 0.0F);
-        this.torso_3 = new ModelRenderer(this, 16, 16);
-        this.torso_3.setRotationPoint(-0.5F, 1.7F, 7.0F);
-        this.torso_3.addBox(-1.5F, -1.3F, 8.4F, 3, 6, 3, 0.0F);
-        this.setRotateAngle(torso_3, -1.0016444577195458F, 0.0F, 0.0F);
-        this.legleft2 = new ModelRenderer(this, 0, 16);
-        this.legleft2.mirror = true;
-        this.legleft2.setRotationPoint(2.0F, 6.0F, 0.3F);
-        this.legleft2.addBox(-2.5F, -2.6F, 5.6F, 4, 7, 8, 0.0F);
-        this.setRotateAngle(legleft2, -0.9560913642424937F, 0.0F, -1.2274900629276118F);
-        this.torso_11 = new ModelRenderer(this, 44, 44);
-        this.torso_11.setRotationPoint(0.1F, 2.7F, -13.3F);
-        this.torso_11.addBox(-4.0F, 0.0F, -2.0F, 7, 11, 7, 0.0F);
-        this.setRotateAngle(torso_11, 0.5462880558742251F, 0.0F, 0.0F);
-        this.torso_16 = new ModelRenderer(this, 10, 88);
-        this.torso_16.setRotationPoint(0.1F, 1.7F, -13.3F);
-        this.torso_16.addBox(-1.3F, -10.4F, 18.0F, 2, 5, 2, 0.0F);
-        this.setRotateAngle(torso_16, -0.40980330836826856F, 0.0F, 0.0F);
-        this.torso_12 = new ModelRenderer(this, 10, 88);
-        this.torso_12.setRotationPoint(0.1F, 2.7F, -13.3F);
-        this.torso_12.addBox(-1.3F, -2.8F, -0.3F, 2, 5, 2, 0.0F);
-        this.setRotateAngle(torso_12, 0.5462880558742251F, 0.0F, 0.0F);
-        this.torso_14 = new ModelRenderer(this, 10, 88);
-        this.torso_14.setRotationPoint(0.1F, 1.7F, -13.3F);
-        this.torso_14.addBox(-1.3F, -2.9F, 9.0F, 2, 5, 2, 0.0F);
-        this.legleft3 = new ModelRenderer(this, 0, 16);
-        this.legleft3.mirror = true;
-        this.legleft3.setRotationPoint(2.0F, 6.0F, 0.3F);
-        this.legleft3.addBox(-11.4F, 1.1F, 11.9F, 10, 5, 5, 0.0F);
-        this.setRotateAngle(legleft3, -0.9560913642424937F, 0.0F, -1.2274900629276118F);
-        this.torso_6 = new ModelRenderer(this, 16, 16);
-        this.torso_6.setRotationPoint(-0.5F, 1.5F, 7.0F);
-        this.torso_6.addBox(-1.4F, 6.4F, 11.2F, 3, 4, 5, 0.0F);
-        this.setRotateAngle(torso_6, -0.5009094953223726F, 0.0F, 0.0F);
-        this.legleft4 = new ModelRenderer(this, 0, 16);
-        this.legleft4.mirror = true;
-        this.legleft4.setRotationPoint(2.0F, 6.0F, 0.3F);
-        this.legleft4.addBox(-11.4F, 3.1F, 12.0F, 2, 5, 5, 0.0F);
-        this.setRotateAngle(legleft4, -0.9560913642424937F, 0.0F, -1.2274900629276118F);
-        this.torso_8 = new ModelRenderer(this, 16, 16);
-        this.torso_8.setRotationPoint(-0.5F, 1.4F, 6.9F);
-        this.torso_8.addBox(-4.0F, 0.0F, -2.0F, 8, 10, 7, 0.0F);
-        this.setRotateAngle(torso_8, -0.5462880558742251F, 0.0F, 0.0F);
-        this.torso_9 = new ModelRenderer(this, 44, 44);
-        this.torso_9.setRotationPoint(0.1F, 2.7F, -13.3F);
-        this.torso_9.addBox(-4.0F, 6.0F, -7.9F, 7, 2, 7, 0.0F);
-        this.setRotateAngle(torso_9, 0.5462880558742251F, 0.0F, 0.0F);
-        this.legright4 = new ModelRenderer(this, 0, 16);
-        this.legright4.setRotationPoint(-1.9F, 6.0F, 0.3F);
-        this.legright4.addBox(9.3F, 3.4F, 11.5F, 2, 5, 5, 0.0F);
-        this.setRotateAngle(legright4, -0.9557422983920949F, 0.0F, 1.2292353921796064F);
-    }
+  public void setLivingAnimations(EntityLivingBase par1EntityLivingBase, float par2, float par3, float par4) {
 
-    @Override
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-        this.torso_1.render(f5);
-        this.torso_2.render(f5);
-        this.legright1.render(f5);
-        this.torso_5.render(f5);
-        this.torso_7.render(f5);
-        this.torso_10.render(f5);
-        this.legright5.render(f5);
-        this.legleft5.render(f5);
-        this.torso_15.render(f5);
-        this.torso_13.render(f5);
-        this.torso_17.render(f5);
-        this.legright2.render(f5);
-        this.torso.render(f5);
-        this.legleft1.render(f5);
-        this.torso_4.render(f5);
-        this.torso_18.render(f5);
-        this.legright3.render(f5);
-        this.head.render(f5);
-        this.torso_3.render(f5);
-        this.legleft2.render(f5);
-        this.torso_11.render(f5);
-        this.torso_16.render(f5);
-        this.torso_12.render(f5);
-        this.torso_14.render(f5);
-        this.legleft3.render(f5);
-        this.torso_6.render(f5);
-        this.legleft4.render(f5);
-        this.torso_8.render(f5);
-        this.torso_9.render(f5);
-        this.legright4.render(f5);
-    }
+    this.RLeg1.rotateAngleX = MathHelper.cos(par2 * 0.6662F) * 1.4F * par3;
+    this.RLeg2.rotateAngleX = MathHelper.cos(par2 * 0.6662F) * 1.4F * par3;
+    this.RLeg3.rotateAngleX = MathHelper.cos(par2 * 0.6662F) * 1.4F * par3;
+    this.RLeg4.rotateAngleX = MathHelper.cos(par2 * 0.6662F) * 1.4F * par3;
+    this.RLeg5.rotateAngleX = MathHelper.cos(par2 * 0.6662F) * 1.4F * par3;
+    this.RLeg6.rotateAngleX = MathHelper.cos(par2 * 0.6662F) * 1.4F * par3;
+    this.RFoot1.rotateAngleX = MathHelper.cos(par2 * 0.6662F) * 1.4F * par3;
 
-    public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
-        modelRenderer.rotateAngleX = x;
-        modelRenderer.rotateAngleY = y;
-        modelRenderer.rotateAngleZ = z;
-    }
+    this.LFoot1.rotateAngleX = MathHelper.cos(par2 * 0.6662F + (float) Math.PI) * 1.4F * par3;
+    this.LLeg1.rotateAngleX = MathHelper.cos(par2 * 0.6662F + (float) Math.PI) * 1.4F * par3;
+    this.LLeg2.rotateAngleX = MathHelper.cos(par2 * 0.6662F + (float) Math.PI) * 1.4F * par3;
+    this.LLeg3.rotateAngleX = MathHelper.cos(par2 * 0.6662F + (float) Math.PI) * 1.4F * par3;
+    this.LLeg4.rotateAngleX = MathHelper.cos(par2 * 0.6662F + (float) Math.PI) * 1.4F * par3;
+    this.LLeg5.rotateAngleX = MathHelper.cos(par2 * 0.6662F + (float) Math.PI) * 1.4F * par3;
+    this.LLeg6.rotateAngleX = MathHelper.cos(par2 * 0.6662F + (float) Math.PI) * 1.4F * par3;
 
+  }
 
-    public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn)
-    {
-        super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entityIn);
-        float f = -14.0F;
-        this.legright1.rotateAngleX -= 0.0F;
-        this.legleft1.rotateAngleX -= 0.0F;
-        this.legright2.rotateAngleX -= 0.0F;
-        this.legleft2.rotateAngleX -= 0.0F;
-        this.legright3.rotateAngleX -= 0.0F;
-        this.legleft3.rotateAngleX -= 0.0F;
-        this.legright4.rotateAngleX -= 0.0F;
-        this.legleft4.rotateAngleX -= 0.0F;
-        this.legright5.rotateAngleX -= 0.0F;
-        this.legleft5.rotateAngleX -= 0.0F;
-        this.legright1.rotateAngleX = (float)((double)this.legright1.rotateAngleX * 0.5D);
-        this.legleft1.rotateAngleX = (float)((double)this.legleft1.rotateAngleX * 0.5D);
-        this.legright2.rotateAngleX = (float)((double)this.legright2.rotateAngleX * 0.5D);
-        this.legleft2.rotateAngleX = (float)((double)this.legleft2.rotateAngleX * 0.5D);
-        this.legright3.rotateAngleX = (float)((double)this.legright3.rotateAngleX * 0.5D);
-        this.legleft3.rotateAngleX = (float)((double)this.legleft3.rotateAngleX * 0.5D);
-        this.legright4.rotateAngleX = (float)((double)this.legright4.rotateAngleX * 0.5D);
-        this.legleft4.rotateAngleX = (float)((double)this.legleft4.rotateAngleX * 0.5D);
-        this.legright5.rotateAngleX = (float)((double)this.legright5.rotateAngleX * 0.5D);
-        this.legleft5.rotateAngleX = (float)((double)this.legleft5.rotateAngleX * 0.5D);
-        float f1 = 0.4F;
-
-        if (this.legright1.rotateAngleX > 0.4F)
-        {
-            this.legright1.rotateAngleX = 0.4F;
-        }
-        if (this.legright2.rotateAngleX > 0.4F)
-        {
-            this.legright2.rotateAngleX = 0.4F;
-        }
-        if (this.legright3.rotateAngleX > 0.4F)
-        {
-            this.legright3.rotateAngleX = 0.4F;
-        }
-        if (this.legright4.rotateAngleX > 0.4F)
-        {
-            this.legright4.rotateAngleX = 0.4F;
-        }
-        if (this.legright5.rotateAngleX > 0.4F)
-        {
-            this.legright5.rotateAngleX = 0.4F;
-        }
-
-        if (this.legleft1.rotateAngleX > 0.4F)
-        {
-            this.legleft1.rotateAngleX = 0.4F;
-        }
-        if (this.legleft2.rotateAngleX > 0.4F)
-        {
-            this.legleft2.rotateAngleX = 0.4F;
-        }if (this.legleft3.rotateAngleX > 0.4F)
-    {
-        this.legleft3.rotateAngleX = 0.4F;
-    }if (this.legleft4.rotateAngleX > 0.4F)
-    {
-        this.legleft4.rotateAngleX = 0.4F;
-    }if (this.legleft5.rotateAngleX > 0.4F)
-    {
-        this.legleft5.rotateAngleX = 0.4F;
-    }
-        if (this.legright1.rotateAngleX < -0.4F)
-        {
-            this.legright1.rotateAngleX = -0.4F;
-        }if (this.legright2.rotateAngleX < -0.4F)
-    {
-        this.legright2.rotateAngleX = -0.4F;
-    }if (this.legright3.rotateAngleX < -0.4F)
-    {
-        this.legright3.rotateAngleX = -0.4F;
-    }if (this.legright4.rotateAngleX < -0.4F)
-    {
-        this.legright4.rotateAngleX = -0.4F;
-    }if (this.legright5.rotateAngleX < -0.4F)
-    {
-        this.legright5.rotateAngleX = -0.4F;
-    }
-
-        if (this.legleft1.rotateAngleX < -0.4F)
-        {
-            this.legleft1.rotateAngleX = -0.4F;
-        }if (this.legleft2.rotateAngleX < -0.4F)
-    {
-        this.legleft2.rotateAngleX = -0.4F;
-    }if (this.legleft3.rotateAngleX < -0.4F)
-    {
-        this.legleft3.rotateAngleX = -0.4F;
-    }if (this.legleft4.rotateAngleX < -0.4F)
-    {
-        this.legleft4.rotateAngleX = -0.4F;
-    }if (this.legleft5.rotateAngleX < -0.4F)
-    {
-        this.legleft5.rotateAngleX = -0.4F;
-    }
-
-
-        this.legright1.rotationPointZ = 0.0F;
-        this.legright2.rotationPointZ = 0.0F;
-        this.legright3.rotationPointZ = 0.0F;
-        this.legright4.rotationPointZ = 0.0F;
-        this.legright5.rotationPointZ = 0.0F;
-        this.legleft1.rotationPointZ = 0.0F;
-        this.legleft2.rotationPointZ = 0.0F;
-        this.legleft3.rotationPointZ = 0.0F;
-        this.legleft4.rotationPointZ = 0.0F;
-        this.legleft5.rotationPointZ = 0.0F;
-        this.legright1.rotationPointY = -5.0F;
-        this.legright2.rotationPointY = -5.0F;
-        this.legright3.rotationPointY = -5.0F;
-        this.legright4.rotationPointY = -5.0F;
-        this.legright5.rotationPointY = -5.0F;
-        this.legleft1.rotationPointY = -5.0F;
-        this.legleft2.rotationPointY = -5.0F;
-        this.legleft3.rotationPointY = -5.0F;
-        this.legleft4.rotationPointY = -5.0F;
-        this.legleft5.rotationPointY = -5.0F;}
 }

@@ -20,7 +20,7 @@ public class Ruby implements IRuby {
 	
 	private boolean active = false;
 	
-	private int level = 2;
+	private int level = 0;
 	
 	/**activates the semblance*/
 	@Override
@@ -43,35 +43,22 @@ public class Ruby implements IRuby {
 					this.active = false;
 					return false;
 				}
+				if (this.cooldown >= 30) {
+					this.active = true;
+					return true;
+				}
+				return false;
 			case 3:
 				if (this.cooldown > 0) {
 					return false;
-				}else if (player.onGround){
-					 {
-							BlockPos blockpos = (new BlockPos(player));
-							EntityBeowolf entitybeowolf = new EntityBeowolf(player.world);
-							entitybeowolf.moveToBlockPosAndAngles(blockpos, 0.0F, 0.0F);
-							player.world.spawnEntity(entitybeowolf);
-							this.setInvisisbility(50);
-						return true;
-					}
-				} else if (!this.active) {
-					if (this.cooldown >= 30) {
-						this.active = true;
-						return true;
-					}
-					else {
-						return false;
-					}
-				}
-				else {
-					if (this.cooldown > 0) {
-						return true;
-					}
-					else {
-						this.active = false;
-						return false;
-					}
+				} 
+				else if (player.onGround && !player.world.isRemote){
+					BlockPos blockpos = (new BlockPos(player));
+					EntityBeowolf entitybeowolf = new EntityBeowolf(player.world);
+					entitybeowolf.moveToBlockPosAndAngles(blockpos, 0.0F, 0.0F);
+					player.world.spawnEntity(entitybeowolf);
+					this.setInvisisbility(50);
+					return true;
 				}
 			default:
 				return false;
@@ -113,10 +100,12 @@ public class Ruby implements IRuby {
 	@Override
 	public void updateInvisisbility(EntityPlayer player) {
 
+		//System.out.println(cooldown);
+		
 		if (this.active) {
 			if (player.world.isRemote) {
 				if (player.onGround || this.level > 1) {
-					System.out.println(this.cooldown);
+					//System.out.println(this.cooldown);
 					Vec3d look = player.getLookVec();
 					player.motionX = look.x;
 					player.motionZ = look.z;
@@ -152,6 +141,14 @@ public class Ruby implements IRuby {
 					this.active = false;
 				}
 				break;
+			case 3:
+				if (this.invisiblityTimer != 0) {
+					this.invisiblityTimer = 0;
+				}
+				
+				if (this.cooldown > 0) {
+					cooldown--;
+				}
 		}
 	}
 	

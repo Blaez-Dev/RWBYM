@@ -10,6 +10,7 @@ import be.bluexin.rwbym.entity.utility.HideUtil;
 import be.bluexin.rwbym.weaponry.ICustomItem;
 import be.bluexin.rwbym.weaponry.RWBYAmmoEntity;
 import be.bluexin.rwbym.weaponry.RWBYAmmoRender;
+import com.sun.org.apache.regexp.internal.RE;
 import ibxm.Player;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
@@ -72,6 +73,7 @@ public class ClientProxy extends CommonProxy {
     public void preInit() {
         RenderingRegistry.registerEntityRenderingHandler(RWBYAmmoEntity.class, RWBYAmmoRender::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityBeowolf.class, BeowolfRender.FACTORY);
+        RenderingRegistry.registerEntityRenderingHandler(EntityCreep.class, CreepRender.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(EntityUrsa.class, UrsaRender.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(EntityBoarbatusk.class, BoarbatuskRender.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(EntitySmallFireball.class, FireballRender.FACTORY);
@@ -115,5 +117,9 @@ public class ClientProxy extends CommonProxy {
                 
         Minecraft.getMinecraft().effectRenderer.addEffect(rosepetal);
     }
+    
+	public EntityPlayer getPlayer() {
+		return Minecraft.getMinecraft().player;
+	}
 
 }

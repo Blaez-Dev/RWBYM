@@ -3,6 +3,7 @@ entity.boarbatusk.name=Boarbatusk
 entity.ursa.name=Ursa
 entity.deathstalker.name=DeathStalker
 entity.goliath.name=Goliath
+entity.creep.name=Creep
 entity.mutantdeathstalker.name=Mutant DeathStalker
 entity.nevermore.name=Juvenile Nevermore
 entity.giantnevermore.name=Adult Nevermore

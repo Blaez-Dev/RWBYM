@@ -24,8 +24,8 @@ public class CreepRender extends RenderLivingBase<EntityCreep> {
     }
 
     protected void preRenderCallback(EntityCreep entitylivingbaseIn, float partialTickTime) {
-        GlStateManager.scale(1.5F, 1.5F, 1.5F);
-        GlStateManager.translate(0, 0.3, 0);
+        GlStateManager.scale(1.3F, 1.3F, 1.3F);
+        GlStateManager.translate(0, 0, 0);
     }
 
     @Override
