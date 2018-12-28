@@ -10,7 +10,7 @@ import be.bluexin.rwbym.entity.utility.HideUtil;
 import be.bluexin.rwbym.weaponry.ICustomItem;
 import be.bluexin.rwbym.weaponry.RWBYAmmoEntity;
 import be.bluexin.rwbym.weaponry.RWBYAmmoRender;
-import com.sun.org.apache.regexp.internal.RE;
+//import com.sun.org.apache.regexp.internal.RE;
 import ibxm.Player;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;

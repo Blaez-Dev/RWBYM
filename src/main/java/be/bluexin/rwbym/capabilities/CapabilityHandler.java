@@ -13,6 +13,10 @@ public class CapabilityHandler {
 	
 	@SubscribeEvent
 	public void attachCapability(AttachCapabilitiesEvent event) {
-		event.addCapability(RUBY_CAP, new RubyProvider());
+		
+		if (event.getObject() instanceof EntityPlayer) {
+			event.addCapability(RUBY_CAP, new RubyProvider());
+		}
+		
 	}
 }
