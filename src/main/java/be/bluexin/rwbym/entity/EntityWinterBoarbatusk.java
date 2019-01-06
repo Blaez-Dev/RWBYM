@@ -51,7 +51,7 @@ public class EntityWinterBoarbatusk extends EntityMob {
                 {
                     public boolean apply(@Nullable EntityLiving p_apply_1_)
                     {
-                        return p_apply_1_ != null && IMob.VISIBLE_MOB_SELECTOR.apply(p_apply_1_) && !(p_apply_1_ instanceof EntityCreeper) && !(p_apply_1_ instanceof EntityWinterBeowolf) && !(p_apply_1_ instanceof EntityWinterUrsa) && !(p_apply_1_ instanceof EntityWinterBoarbatusk);
+                        return p_apply_1_ != null && IMob.VISIBLE_MOB_SELECTOR.apply(p_apply_1_) && !(p_apply_1_ instanceof EntityCreeper) && !(p_apply_1_ instanceof EntityWinterBeowolf) && !(p_apply_1_ instanceof EntityWinterUrsa) && !(p_apply_1_ instanceof EntityAtlasKnight) && !(p_apply_1_ instanceof EntityWinterBoarbatusk);
                     }
                 }
                 )
