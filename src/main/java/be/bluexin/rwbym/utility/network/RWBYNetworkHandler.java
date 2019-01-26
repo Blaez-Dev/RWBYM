@@ -12,7 +12,7 @@ public class RWBYNetworkHandler {
     public static void init() {
     INSTANCE = NetworkRegistry.INSTANCE.newSimpleChannel("rwbym");
 
-    INSTANCE.registerMessage(MessageRose.class, MessageRose.class, 0, Side.SERVER);
+    INSTANCE.registerMessage(MessageActivateSemblance.class, MessageActivateSemblance.class, 0, Side.SERVER);
     INSTANCE.registerMessage(MessageGetPlayerData.class, MessageGetPlayerData.class, 1, Side.SERVER);
     INSTANCE.registerMessage(MessageSendPlayerData.class, MessageSendPlayerData.class, 2, Side.CLIENT);
 

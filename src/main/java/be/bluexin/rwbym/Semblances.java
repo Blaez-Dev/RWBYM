@@ -1,7 +1,7 @@
 package be.bluexin.rwbym;
 
 import be.bluexin.rwbym.client.particle.RosePetal;
-import be.bluexin.rwbym.utility.network.MessageRose;
+import be.bluexin.rwbym.utility.network.MessageActivateSemblance;
 import be.bluexin.rwbym.utility.network.RWBYNetworkHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.Vec3d;

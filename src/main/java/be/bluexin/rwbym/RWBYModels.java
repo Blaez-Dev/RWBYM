@@ -3,6 +3,9 @@ package be.bluexin.rwbym;
 import be.bluexin.rwbym.Init.RWBYBiomes;
 import be.bluexin.rwbym.Init.RWBYCreativeTabs;
 import be.bluexin.rwbym.capabilities.CapabilityHandler;
+import be.bluexin.rwbym.capabilities.Weiss.IWeiss;
+import be.bluexin.rwbym.capabilities.Weiss.Weiss;
+import be.bluexin.rwbym.capabilities.Weiss.WeissStorage;
 import be.bluexin.rwbym.capabilities.ruby.IRuby;
 import be.bluexin.rwbym.capabilities.ruby.Ruby;
 import be.bluexin.rwbym.capabilities.ruby.RubyStorage;
@@ -37,8 +40,13 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.IGuiHandler;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.relauncher.Side;
+import scala.collection.GenTraversableOnce;
 
 import java.util.List;
+
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * Part of rwbym
@@ -53,7 +61,14 @@ public class RWBYModels {
 
     public static List<ICustomItem> items;
 
-
+    public static final Logger LOGGER = LogManager.getLogger(MODID);
+    
+    
+    // set these to Level.INFO to see the logs in the console
+    // used to control the level of logs that would log every tick
+    public static Level updtes = Level.DEBUG;
+    // used to control the level of logs used for debugging
+    public static Level debug = Level.DEBUG;
 
     @SidedProxy(clientSide = "be.bluexin.rwbym.proxy.ClientProxy", serverSide = "be.bluexin.rwbym.proxy.CommonProxy")
     public static CommonProxy proxy;
@@ -79,7 +94,7 @@ public class RWBYModels {
         return false;
     }
 
-
+    
 
     @Mod.Instance(MODID)
     public static RWBYModels instance;
@@ -87,6 +102,14 @@ public class RWBYModels {
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
+    	LOGGER.log(Level.ALL, "all"); // does not log to console but can be found in the forge log file // should only be used to set logger level, which can't be done without copying and modifying forge files
+    	LOGGER.log(Level.TRACE, "trace"); // does not log to console but can be found in the forge log file
+    	LOGGER.log(Level.DEBUG, "debug"); // does not log to console but can be found in the forge log file
+    	LOGGER.log(Level.INFO, "info");
+    	LOGGER.log(Level.WARN, "warn");
+    	LOGGER.log(Level.ERROR, "error");
+    	LOGGER.log(Level.FATAL, "fatal");
+    	LOGGER.log(Level.OFF, "off"); // should only be used to set logger level, which can't be done without copying and modifying forge files
         if (event.getSide() == Side.CLIENT){
             KeybindRegistry.register();
             MinecraftForge.EVENT_BUS.register(new KeyInputHandler());
@@ -96,6 +119,7 @@ public class RWBYModels {
 		MinecraftForge.EVENT_BUS.register(new CapabilityHandler());
 
         CapabilityManager.INSTANCE.register(IRuby.class, new RubyStorage(), Ruby.class);
+        CapabilityManager.INSTANCE.register(IWeiss.class, new WeissStorage(), Weiss::new);
 
         RWBYNetworkHandler.init();
         RWBYCreativeTabs.init();
@@ -243,7 +267,25 @@ public class RWBYModels {
             }
         }
     }
+    
+    
+    /**Helper function to get the sign of a number*/
+    public static int sign(double x) {
+    	return (int) (x / Math.abs(x));
+    }
+    
+    /**Helper function to get the sign of a number*/
+    public static int sign(float x) {
+    	return sign((double) x);
+    }
+    
+    /**Helper function to get the sign of a number*/
+    public static int sign(int x) {
+    	return sign((double) x);
+    }
 }
+
+// is this list being updated?
 
 /*
 De note of stooff
