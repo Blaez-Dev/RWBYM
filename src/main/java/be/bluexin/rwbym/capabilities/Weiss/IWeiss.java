@@ -1,5 +1,7 @@
 package be.bluexin.rwbym.capabilities.Weiss;
 
-public interface IWeiss {
+import be.bluexin.rwbym.capabilities.ISemblance;
+
+public interface IWeiss extends ISemblance{
 
 }
