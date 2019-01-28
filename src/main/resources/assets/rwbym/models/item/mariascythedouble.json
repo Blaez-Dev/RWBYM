@@ -8339,15 +8339,15 @@
 			"translation": [0, -2.25, 0]
 		},
 		"thirdperson_lefthand": {
-			"translation": [0, -10, 0]
+			"translation": [0, -2.25, 0]
 		},
 		"firstperson_righthand": {
 			"rotation": [-24, 0, 0],
-			"translation": [0, -9.75, 5.75]
+			"translation": [0, -0.5, 5.75]
 		},
 		"firstperson_lefthand": {
 			"rotation": [-24, 0, 0],
-			"translation": [0, -9.75, 5.75]
+			"translation": [0, -0.5, 5.75]
 		},
 		"ground": {
 			"scale": [0.3, 0.3, 0.3]

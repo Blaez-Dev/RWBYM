@@ -87,6 +87,9 @@ public class RegUtil {
         registerItems(event, RWBYItems.kkfire);
         registerItems(event, RWBYItems.kkice);
         registerItems(event, RWBYItems.kkwind);
+        registerItems(event, RWBYItems.mariacane);
+        registerItems(event, RWBYItems.mariascythe);
+        registerItems(event, RWBYItems.mariascythedouble);
         //Staffs
         registerItems(event, RWBYItems.ozmacane);
         registerItems(event, RWBYItems.ozmacanefire);
@@ -147,6 +150,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.stor5);
         registerItems(event, RWBYItems.stor6);
         registerItems(event, RWBYItems.scrap);
+        registerItems(event, RWBYItems.atlasknight);
         //Armour
         registerItems(event, RWBYItems.korekosmouoff);
         registerItems(event, RWBYItems.korekosmoufire);

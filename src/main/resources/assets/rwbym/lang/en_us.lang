@@ -168,6 +168,9 @@ item.rwbym:lightdustcrystal.name=Lightning Dust Crystal
 item.rwbym:waterdustcrystal.name=Water Dust Crystal
 item.rwbym:winddustcrystal.name=Wind Dust Crystal
 item.rwbym:dustcrystal.name=Impure Dust Crystal
+item.rwbym:mariacane.name=Life & Death
+item.rwbym:mariascythe.name=Life & Death
+item.rwbym:mariascythedouble.name=Life & Death
 
 itemGroup.rwby_weapons=RWBY Weapons
 itemGroup.rwby_items=RWBY Items

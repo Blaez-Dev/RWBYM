@@ -103,6 +103,11 @@
           "type": "item",
           "name": "rwbym:emeraldgun",
           "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "rwbym:mariacane",
+          "weight": 20
         }
 
       ]
