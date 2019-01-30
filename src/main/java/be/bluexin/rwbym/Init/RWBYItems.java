@@ -671,7 +671,7 @@ public class RWBYItems {
             72,
             0,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:10,Operation:0,UUIDMost:99791,UUIDLeast:128916}]}",
-            null,
+            "rwbym:ember2",
             "rwbym:emammo,rwbym:emfireammo,rwbym:emflareammo",
             false,
             2,
@@ -679,6 +679,20 @@ public class RWBYItems {
             2,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
+    public static Item ember2 = new RWBYBow(
+            "ember2",
+            2500,
+            72,
+            0,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:14,Operation:0,UUIDMost:99791,UUIDLeast:128916}]}",
+            "rwbym:ember",
+            "rwbym:emammo,rwbym:emfireammo,rwbym:emflareammo",
+            false,
+            2,
+            true,
+            2,
+            0,
+            null);
     public static Item gambolgun = new RWBYBow(
             "gambolgun",
             2500,

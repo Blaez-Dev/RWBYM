@@ -82,7 +82,7 @@ public class RWBYItem extends Item implements ICustomItem {
                 }
             }
             if(player.getHeldItem(EnumHand.OFF_HAND) == is && water){
-                PotionEffect potioneffect = new PotionEffect(MobEffects.REGENERATION, 60, 0, false, false);
+                PotionEffect potioneffect = new PotionEffect(MobEffects.REGENERATION, 60, 2, false, false);
                 player.addPotionEffect(potioneffect);
             }
         }

@@ -13,16 +13,14 @@ public class RubyStorage implements IStorage<IRuby> {
 	@Override
 	public NBTBase writeNBT(Capability<IRuby> capability, IRuby instance, EnumFacing side) {
 		NBTTagCompound nbt = new NBTTagCompound();
-		nbt.setInteger("Invisibility", instance.getInvisibilityTimer());
-		nbt.setInteger("Cooldown", instance.getCooldown());
+		instance.writeToNBT(nbt);
 		return nbt;
 	}
 
 	@Override
 	public void readNBT(Capability<IRuby> capability, IRuby instance, EnumFacing side, NBTBase nbtIn) {
 		NBTTagCompound nbt = (NBTTagCompound)nbtIn;
-		instance.setInvisisbilityTimer(nbt.getInteger("Invisibility"));
-		instance.setCooldownTimer(nbt.getInteger("Cooldown"));
+		instance.readFromNBT(nbt);
 	}
 
 }

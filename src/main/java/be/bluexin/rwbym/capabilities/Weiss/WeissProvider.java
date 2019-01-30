@@ -9,7 +9,7 @@ import net.minecraftforge.common.capabilities.ICapabilitySerializable;
 
 public class WeissProvider implements ICapabilitySerializable<NBTBase> {
 	
-	@CapabilityInject (IRuby.class)
+	@CapabilityInject (IWeiss.class)
 	public static final Capability<IWeiss> WEISS_CAP = null;
 	
 	private IWeiss instance = WEISS_CAP.getDefaultInstance();
@@ -21,7 +21,7 @@ public class WeissProvider implements ICapabilitySerializable<NBTBase> {
 
 	@Override
 	public <T> T getCapability(Capability<T> capability, EnumFacing facing) {
-		return hasCapability(capability, facing) ? WEISS_CAP.<T> cast(this.instance) : null;
+		return capability == WEISS_CAP ? WEISS_CAP.<T> cast(this.instance) : null;
 	}
 
 	@Override

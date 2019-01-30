@@ -10,7 +10,7 @@ public class RubyProvider implements ICapabilitySerializable<NBTBase> {
 
 	@CapabilityInject (IRuby.class)
 	public static final Capability<IRuby> RUBY_CAP = null;
-	
+		
 	private IRuby instance = RUBY_CAP.getDefaultInstance();
 	
 	@Override

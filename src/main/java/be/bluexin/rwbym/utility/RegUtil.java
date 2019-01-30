@@ -33,6 +33,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.weiss);
         registerItems(event, RWBYItems.gambol);
         registerItems(event, RWBYItems.ember);
+        registerItems(event, RWBYItems.ember2);
         registerItems(event, RWBYItems.juane);
         registerItems(event, RWBYItems.norahammer);
         registerItems(event, RWBYItems.pyrrhaspear);

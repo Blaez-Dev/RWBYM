@@ -44,7 +44,7 @@ public class EntityWinterUrsa extends EntityMob {
         this.tasks.addTask(8, new EntityAIWander(this, 0.6D));
         this.tasks.addTask(9, new EntityAIWatchClosest(this, EntityPlayer.class, 3.0F, 1.0F));
         this.tasks.addTask(10, new EntityAIWatchClosest(this, EntityLiving.class, 8.0F));
-        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, EntityVindicator.class));
+        this.targetTasks.addTask(2, new EntityAIHurtByTarget(this, true, EntityVindicator.class));
         this.targetTasks.addTask(2, new EntityWinterUrsa.AICopyOwnerTarget(this));
         this.targetTasks.addTask(2, new EntityAIHurtByTarget(this, false, new Class[0]));
         this.targetTasks.addTask(1, new EntityAINearestAttackableTarget(this, EntityLiving.class, 10, false, true, new Predicate<EntityLiving>()
