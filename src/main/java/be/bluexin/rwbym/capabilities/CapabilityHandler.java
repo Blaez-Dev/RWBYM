@@ -8,6 +8,7 @@ import org.apache.logging.log4j.Level;
 
 import be.bluexin.rwbym.RWBYModels;
 import be.bluexin.rwbym.capabilities.Weiss.WeissProvider;
+import be.bluexin.rwbym.capabilities.Yang.YangProvider;
 import be.bluexin.rwbym.capabilities.ruby.IRuby;
 import be.bluexin.rwbym.capabilities.ruby.RubyProvider;
 import net.minecraft.entity.player.EntityPlayer;
@@ -22,6 +23,7 @@ public class CapabilityHandler {
 		
 	public static final ResourceLocation RUBY_KEY = new ResourceLocation(RWBYModels.MODID, "ruby");
 	public static final ResourceLocation WEISS_KEY = new ResourceLocation(RWBYModels.MODID, "weiss");
+	public static final ResourceLocation YANG_KEY = new ResourceLocation(RWBYModels.MODID, "yang");
 	
 	@SubscribeEvent
 	public void attachCapability(AttachCapabilitiesEvent event) {
@@ -29,6 +31,7 @@ public class CapabilityHandler {
 		if (event.getObject() instanceof EntityPlayer) {
 			event.addCapability(RUBY_KEY, new RubyProvider());
 			event.addCapability(WEISS_KEY, new WeissProvider());
+			event.addCapability(YANG_KEY, new YangProvider());
 		}
 		
 	}
@@ -55,6 +58,14 @@ public class CapabilityHandler {
 				semblances.add(semblance);
 			}			
 		}
+		if (player.hasCapability(YangProvider.YANG_CAP, null)) {
+			ISemblance semblance = player.getCapability(YangProvider.YANG_CAP, null);
+			RWBYModels.LOGGER.log(RWBYModels.updtes, "Found Semblance: {}", semblance);
+			if (semblance.getLevel() > 0) {
+				RWBYModels.LOGGER.log(RWBYModels.updtes, "Adding Semblance: {}", semblance);
+				semblances.add(semblance);
+			}
+		}
 		
 		if (semblances.size() > 1) {
 			RWBYModels.LOGGER.warn("Player Has Multiple Active Semblances");
@@ -71,12 +82,17 @@ public class CapabilityHandler {
 	public static ISemblance getCapabilityByName(EntityPlayer player, String name) {
 		
 		RWBYModels.LOGGER.log(RWBYModels.updtes, "Getting Semblance {} for Player: {}", name, player.getDisplayNameString());
+		
+		name = name.toLowerCase();
 
-		if (name.equals(RubyProvider.RUBY_CAP.getName())) {
+		if (RubyProvider.RUBY_CAP.getName().toLowerCase().contains(name)) {
 			return player.getCapability(RubyProvider.RUBY_CAP, null);
 		}
-		if (name.equals(WeissProvider.WEISS_CAP.getName())) {
+		if (WeissProvider.WEISS_CAP.getName().toLowerCase().contains(name)) {
 			return player.getCapability(WeissProvider.WEISS_CAP, null);
+		}
+		if (YangProvider.YANG_CAP.getName().toLowerCase().contains(name)) {
+			return player.getCapability(YangProvider.YANG_CAP, null);
 		}
 		
 		RWBYModels.LOGGER.error("Unable to Get Requested Sembalnce: {}", name);
@@ -98,7 +114,23 @@ public class CapabilityHandler {
 			RWBYModels.LOGGER.log(RWBYModels.updtes, "Found Semblance: " + semblance);
 			semblances.add(semblance);
 		}
+		if (player.hasCapability(YangProvider.YANG_CAP, null)) {
+			ISemblance semblance = player.getCapability(YangProvider.YANG_CAP, null);
+			RWBYModels.LOGGER.log(RWBYModels.updtes, "FoundSemblance: {}", semblance);
+			semblances.add(semblance);
+		}
 		
 		return semblances;
+	}
+	
+	public static void setSemblance(EntityPlayer player, Capability<ISemblance> capability, int level) {
+		for (ISemblance semblance : getAllSemblances(player)) {
+			semblance.setLevel(0);
+		}
+		
+		if (player.hasCapability(capability, null)) {
+			ISemblance semblance = player.getCapability(capability, null);
+			semblance.setLevel(level);
+		}
 	}
 }
