@@ -6,9 +6,13 @@ import be.bluexin.rwbym.capabilities.CapabilityHandler;
 import be.bluexin.rwbym.capabilities.Weiss.IWeiss;
 import be.bluexin.rwbym.capabilities.Weiss.Weiss;
 import be.bluexin.rwbym.capabilities.Weiss.WeissStorage;
+import be.bluexin.rwbym.capabilities.Yang.IYang;
+import be.bluexin.rwbym.capabilities.Yang.Yang;
+import be.bluexin.rwbym.capabilities.Yang.YangStorage;
 import be.bluexin.rwbym.capabilities.ruby.IRuby;
 import be.bluexin.rwbym.capabilities.ruby.Ruby;
 import be.bluexin.rwbym.capabilities.ruby.RubyStorage;
+import be.bluexin.rwbym.commands.CommandChangeSemblance;
 import be.bluexin.rwbym.proxy.CommonProxy;
 import be.bluexin.rwbym.utility.RegUtil;
 import be.bluexin.rwbym.utility.network.RWBYNetworkHandler;
@@ -36,6 +40,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.IGuiHandler;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
@@ -118,8 +123,9 @@ public class RWBYModels {
         MinecraftForge.EVENT_BUS.register(new EntityUpdatesHandler());
 		MinecraftForge.EVENT_BUS.register(new CapabilityHandler());
 
-        CapabilityManager.INSTANCE.register(IRuby.class, new RubyStorage(), Ruby.class);
+        CapabilityManager.INSTANCE.register(IRuby.class, new RubyStorage(), Ruby::new);
         CapabilityManager.INSTANCE.register(IWeiss.class, new WeissStorage(), Weiss::new);
+        CapabilityManager.INSTANCE.register(IYang.class, new YangStorage(), Yang::new);
 
         RWBYNetworkHandler.init();
         RWBYCreativeTabs.init();
@@ -147,7 +153,10 @@ public class RWBYModels {
         //RWBYItems.init();
     }
 
-
+    @Mod.EventHandler
+    public void serverStart(FMLServerStartingEvent event) {
+    	event.registerServerCommand(new CommandChangeSemblance());
+    }
 
     public static class GuiHandler implements IGuiHandler {
         @Override
