@@ -7,9 +7,11 @@ import com.google.common.collect.Lists;
 
 import be.bluexin.rwbym.RWBYModels;
 import be.bluexin.rwbym.capabilities.CapabilityHandler;
+import be.bluexin.rwbym.capabilities.ISemblance;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
+import net.minecraft.command.PlayerNotFoundException;
 import net.minecraft.command.WrongUsageException;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.server.MinecraftServer;
@@ -50,14 +52,25 @@ public class CommandChangeSemblance extends CommandBase{
 			return getListOfStringsMatchingLastWord(args, server.getOnlinePlayerNames());
 		}
 		else if (args.length == 1) {
-			return getListOfStringsMatchingLastWord(args, server.getOnlinePlayerNames(), getSemblanceNames());
+			try {
+				return getListOfStringsMatchingLastWord(args, server.getOnlinePlayerNames(), getSemblanceNames(getCommandSenderAsPlayer(sender)));
+			} catch (PlayerNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		else if (args.length == 2) {
-			return getListOfStringsMatchingLastWord(args, getSemblanceNames());
+			try {
+				return getListOfStringsMatchingLastWord(args, getSemblanceNames(getCommandSenderAsPlayer(sender)));
+			} catch (PlayerNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		else {
 			return super.getTabCompletions(server, sender, args, targetPos);
 		}
+		return null;
 	}
 	
 	@Override
@@ -105,8 +118,14 @@ public class CommandChangeSemblance extends CommandBase{
 		}
 	}
 	
-	private String[] getSemblanceNames() {
-		return new String[] {"Ruby", "Weiss", "Yang"}; 
+	private String[] getSemblanceNames(EntityPlayer player) {
+		
+		List<String> names = new ArrayList<String>();
+		for (ISemblance semblance : CapabilityHandler.getAllSemblances(player)) {
+			names.add(semblance.toString());
+		}
+		
+		return names.toArray(new String[0]);
 	}
 	
 	private static List<String> getListOfStringsMatchingLastWord(String args[], String[] ... strings) {

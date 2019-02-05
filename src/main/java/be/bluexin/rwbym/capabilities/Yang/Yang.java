@@ -67,5 +67,10 @@ public class Yang implements IYang {
 	public String toString() {
 		return "Yang";
 	}
+	
+	@Override
+	public boolean isInvisible() {
+		return false;
+	}
 
 }
