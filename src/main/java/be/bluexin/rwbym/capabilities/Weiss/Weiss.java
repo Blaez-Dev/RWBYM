@@ -3,6 +3,7 @@ package be.bluexin.rwbym.capabilities.Weiss;
 import be.bluexin.rwbym.RWBYModels;
 import be.bluexin.rwbym.entity.EntityBeowolf;
 import be.bluexin.rwbym.entity.EntityWinterBeowolf;
+import be.bluexin.rwbym.entity.EntityWinterBoarbatusk;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.BlockPos;
@@ -35,8 +36,17 @@ public class Weiss implements IWeiss {
 			}	
 			break;
 		case 2:
-			// if you want to use a level 2 put it here for on activation
-			// for example if you want to spawn a different entity or from a different pool of entities
+			if (this.cooldown > 0) {
+				return false;
+			}
+			else if (player.onGround && !player.world.isRemote){
+				BlockPos blockpos = (new BlockPos(player));
+				EntityWinterBoarbatusk entityWinterBoarbatusk = new EntityWinterBoarbatusk(player.world);
+				entityWinterBoarbatusk.moveToBlockPosAndAngles(blockpos, 0.0F, 0.0F);
+				player.world.spawnEntity(entityWinterBoarbatusk);
+				this.cooldown = 100;
+				return true;
+			}
 			break;
 			
 		default:

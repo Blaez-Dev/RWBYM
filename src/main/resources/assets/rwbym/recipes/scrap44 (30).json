@@ -1,0 +1,15 @@
+{
+   "type": "minecraft:crafting_shapeless",
+   "ingredients": [
+      {
+         "item": "rwbym:stor2",
+         "data": 0
+      }
+   ],
+   "result": {
+      "item": "rwbym:scrap",
+      "data": 0,
+      "count": 1
+   },
+   "group": "group"
+}

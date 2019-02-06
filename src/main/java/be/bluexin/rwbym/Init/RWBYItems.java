@@ -582,6 +582,45 @@ public class RWBYItems {
             true,
             null
     );
+    public static Item mariacane = new RWBYSword(
+            "mariacane",
+            2500,
+            12,
+            0,
+            null,
+            "rwbym:mariascythe",
+            false,
+            false,
+            false,
+            false,
+            0,
+            RWBYCreativeTabs.tab_rwbyweapons);
+    public static Item mariascythe = new RWBYCRScythe(
+            "mariascythe",
+            2500,
+            72,
+            0,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:16,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}]}",
+            "rwbym:mariascythedouble",
+            "rwbym:gammag,rwbym:gamgravmag,rwbym:gamicemag,rwbym:gamfiremag",
+            false,
+            8,
+            true,
+            0,
+            null);
+    public static Item mariascythedouble = new RWBYSword(
+            "mariascythedouble",
+            2500,
+            14,
+            0,
+            null,
+            "rwbym:mariacane",
+            false,
+            true,
+            false,
+            false,
+            0,
+            null);
     //------------------------------------------------//
 
     public static Item crescentgun = new RWBYBow(
@@ -632,7 +671,7 @@ public class RWBYItems {
             72,
             0,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:10,Operation:0,UUIDMost:99791,UUIDLeast:128916}]}",
-            null,
+            "rwbym:ember2",
             "rwbym:emammo,rwbym:emfireammo,rwbym:emflareammo",
             false,
             2,
@@ -640,6 +679,20 @@ public class RWBYItems {
             2,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
+    public static Item ember2 = new RWBYBow(
+            "ember2",
+            2500,
+            72,
+            0,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:14,Operation:0,UUIDMost:99791,UUIDLeast:128916}]}",
+            "rwbym:ember",
+            "rwbym:emammo,rwbym:emfireammo,rwbym:emflareammo",
+            false,
+            2,
+            true,
+            2,
+            0,
+            null);
     public static Item gambolgun = new RWBYBow(
             "gambolgun",
             2500,
@@ -937,6 +990,7 @@ public class RWBYItems {
     public static Item stor5 = new RWBYItem("stor5", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static Item stor6 = new RWBYItem("stor6", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static Item scrap = new RWBYItem("scrap", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static Item atlasknight = new RWBYItem("atlasknight", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static Item rvnmask = new RWBYItem("rvnmask", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true, RWBYCreativeTabs.tab_rwbyitems);
     public static Item whtefng =  new RWBYItem("whtefng", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true, RWBYCreativeTabs.tab_rwbyitems);
     public static Item rubyhood = new RWBYItem("rubyhood", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true, RWBYCreativeTabs.tab_rwbyitems);
