@@ -222,4 +222,16 @@ public class Ruby implements IRuby {
 		return this.active;
 	}
 
+	@Override
+	public boolean isInvisible() {
+		switch(this.level) {
+		case 1: 
+			return false;
+		case 2:
+			return this.active;
+		default:
+			return false;
+		}
+	}
+	
 }

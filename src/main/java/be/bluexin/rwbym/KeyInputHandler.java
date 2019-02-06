@@ -34,7 +34,7 @@ public class KeyInputHandler {
 				
 		EntityPlayer player = Minecraft.getMinecraft().player;
 	
-		if (KeybindRegistry.activateSemblance.isKeyDown()) {
+		if (KeybindRegistry.activateSemblance.isPressed()) {
 			RWBYModels.LOGGER.log(RWBYModels.debug, "Activating Semblance");
 			
 			ISemblance semblance = CapabilityHandler.getCurrentSemblance(player);

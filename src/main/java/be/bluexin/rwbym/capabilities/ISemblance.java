@@ -24,4 +24,9 @@ public interface ISemblance {
 
 	public boolean isActive();
 	
+	public boolean isInvisible();
+	
+	@Override
+	public String toString();
+	
 }

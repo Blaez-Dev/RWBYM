@@ -107,7 +107,7 @@ public class RWBYModels {
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-    	LOGGER.log(Level.ALL, "all"); // does not log to console but can be found in the forge log file // should only be used to set logger level, which can't be done without copying and modifying forge files
+        LOGGER.log(Level.ALL, "all"); // does not log to console but can be found in the forge log file // should only be used to set logger level, which can't be done without copying and modifying forge files
     	LOGGER.log(Level.TRACE, "trace"); // does not log to console but can be found in the forge log file
     	LOGGER.log(Level.DEBUG, "debug"); // does not log to console but can be found in the forge log file
     	//LOGGER.log(Level.INFO, "info");
@@ -115,6 +115,7 @@ public class RWBYModels {
     	//LOGGER.log(Level.ERROR, "error");
     	//LOGGER.log(Level.FATAL, "fatal");
     	//LOGGER.log(Level.OFF, "off"); // should only be used to set logger level, which can't be done without copying and modifying forge files
+
         if (event.getSide() == Side.CLIENT){
             KeybindRegistry.register();
             MinecraftForge.EVENT_BUS.register(new KeyInputHandler());
@@ -123,9 +124,7 @@ public class RWBYModels {
         MinecraftForge.EVENT_BUS.register(new EntityUpdatesHandler());
 		MinecraftForge.EVENT_BUS.register(new CapabilityHandler());
 
-        CapabilityManager.INSTANCE.register(IRuby.class, new RubyStorage(), Ruby::new);
-        CapabilityManager.INSTANCE.register(IWeiss.class, new WeissStorage(), Weiss::new);
-        CapabilityManager.INSTANCE.register(IYang.class, new YangStorage(), Yang::new);
+		CapabilityHandler.registerAll();
 
         RWBYNetworkHandler.init();
         RWBYCreativeTabs.init();
