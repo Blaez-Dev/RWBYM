@@ -21,9 +21,8 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
-public class EntityWinterBeowolf extends EntityMob {
+public class EntityWinterBeowolf extends EntityGolem {
     World world = null;
-    private EntityLiving owner;
     private int counter;
     @Nullable
 
@@ -41,19 +40,9 @@ public class EntityWinterBeowolf extends EntityMob {
         this.tasks.addTask(8, new EntityAIWander(this, 0.6D));
         this.tasks.addTask(9, new EntityAIWatchClosest(this, EntityPlayer.class, 3.0F, 1.0F));
         this.tasks.addTask(10, new EntityAIWatchClosest(this, EntityLiving.class, 8.0F));
-        this.targetTasks.addTask(2, new EntityAIHurtByTarget(this, true, EntityVindicator.class));
-        this.targetTasks.addTask(2, new EntityWinterBeowolf.AICopyOwnerTarget(this));
+        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, EntityVindicator.class));
         this.targetTasks.addTask(2, new EntityAIHurtByTarget(this, false, new Class[0]));
-        this.targetTasks.addTask(1, new EntityAINearestAttackableTarget(this, EntityLiving.class, 10, false, true, new Predicate<EntityLiving>()
-        {
-            public boolean apply(@Nullable EntityLiving p_apply_1_)
-            {
-                return p_apply_1_ != null && IMob.VISIBLE_MOB_SELECTOR.apply(p_apply_1_) && !(p_apply_1_ instanceof EntityCreeper) && !(p_apply_1_ instanceof EntityWinterBeowolf) && !(p_apply_1_ instanceof EntityWinterUrsa)&& !(p_apply_1_ instanceof EntityAtlasKnight) && !(p_apply_1_ instanceof EntityWinterBoarbatusk);
-            }
-        }
-        )
-
-        );
+        this.targetTasks.addTask(1, new EntityAINearestAttackableTarget(this, EntityLiving.class, 10, true, false, IMob.MOB_SELECTOR));
     }
 
     @Override
@@ -71,40 +60,22 @@ public class EntityWinterBeowolf extends EntityMob {
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.3499999940395355D);
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(12.0D);
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(40.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(5.0D);
     }
 
 
-
-
-    public void setOwner(EntityLiving ownerIn)
+    public boolean attackEntityAsMob(Entity entityIn)
     {
-        this.owner = ownerIn;
-    }
+        this.world.setEntityState(this, (byte)4);
+        boolean flag = entityIn.attackEntityFrom(DamageSource.causeMobDamage(this), (float)(7 + this.rand.nextInt(15)));
 
-    class AICopyOwnerTarget extends EntityAITarget
-    {
-        public AICopyOwnerTarget(EntityCreature creature)
+        if (flag)
         {
-            super(creature, false);
+            entityIn.motionY += 0.4000000059604645D;
+            this.applyEnchantments(this, entityIn);
         }
 
-        /**
-         * Returns whether the EntityAIBase should begin execution.
-         */
-        public boolean shouldExecute()
-        {
-            return EntityWinterBeowolf.this.owner != null && EntityWinterBeowolf.this.owner.getAttackTarget() != null && this.isSuitableTarget(EntityWinterBeowolf.this.owner.getAttackTarget(), false);
-        }
-
-        /**
-         * Execute a one shot task or start executing a continuous task
-         */
-        public void startExecuting()
-        {
-            EntityWinterBeowolf.this.setAttackTarget(EntityWinterBeowolf.this.owner.getAttackTarget());
-            super.startExecuting();
-        }
+        this.playSound(SoundEvents.ENTITY_IRONGOLEM_ATTACK, 1.0F, 1.0F);
+        return flag;
     }
 
     public EnumCreatureAttribute getCreatureAttribute() {

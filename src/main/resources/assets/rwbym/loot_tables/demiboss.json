@@ -93,6 +93,10 @@
           "type": "item",
           "name": "rwbym:jnrbat",
           "weight": 20
+        },{
+          "type": "item",
+          "name": "rwbym:whtefng",
+          "weight": 20
         },
         {
           "type": "item",
