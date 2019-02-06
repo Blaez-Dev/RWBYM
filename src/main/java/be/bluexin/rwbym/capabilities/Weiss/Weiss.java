@@ -112,4 +112,9 @@ public class Weiss implements IWeiss {
 	public boolean isActive() {
 		return false;
 	}
+	
+	@Override
+	public boolean isInvisible() {
+		return false;
+	}
 }

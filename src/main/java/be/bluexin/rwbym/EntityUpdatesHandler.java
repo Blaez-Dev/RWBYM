@@ -33,13 +33,11 @@ public class EntityUpdatesHandler {
 		if (entityLiving != null && entityLiving instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) entityLiving;
 			
-			List<ISemblance> semblances = CapabilityHandler.getAllSemblances(player);
-			if (!semblances.isEmpty()) {
-				for (ISemblance semblance : semblances) {
-					semblance.onUpdate(player);
-					if (!player.world.isRemote) {
-						RWBYNetworkHandler.sendToAll(new MessageSendPlayerData(semblance, player.getName()));
-					}
+			ISemblance semblance = CapabilityHandler.getCurrentSemblance(player);
+			if (semblance != null) {
+				semblance.onUpdate(player);
+				if (!player.world.isRemote) {
+					RWBYNetworkHandler.sendToAll(new MessageSendPlayerData(semblance, player.getName()));
 				}
 			}
 		}
