@@ -13,6 +13,8 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
+import java.util.List;
+
 import javax.annotation.Nullable;
 
 public class EntityBlakeIce extends EntityGolem {
@@ -28,19 +30,26 @@ public class EntityBlakeIce extends EntityGolem {
 
     protected void initEntityAI() {
         super.initEntityAI();
-        this.tasks.addTask(0, new EntityAISwimming(this));
-        this.tasks.addTask(4, new EntityAIAttackMelee(this, 1.0D, false));
-        this.tasks.addTask(8, new EntityAIWander(this, 0.6D));
-        this.tasks.addTask(9, new EntityAIWatchClosest(this, EntityPlayer.class, 3.0F, 1.0F));
-        this.tasks.addTask(10, new EntityAIWatchClosest(this, EntityLiving.class, 8.0F));
-        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, EntityVindicator.class));
-        this.targetTasks.addTask(2, new EntityAIHurtByTarget(this, false, new Class[0]));
-        this.targetTasks.addTask(1, new EntityAINearestAttackableTarget(this, EntityLiving.class, 10, true, false, IMob.MOB_SELECTOR));
+        //this.tasks.addTask(0, new EntityAISwimming(this));
+        //this.tasks.addTask(4, new EntityAIAttackMelee(this, 1.0D, false));
+        //this.tasks.addTask(8, new EntityAIWander(this, 0.6D));
+        //this.tasks.addTask(9, new EntityAIWatchClosest(this, EntityPlayer.class, 3.0F, 1.0F));
+        //this.tasks.addTask(10, new EntityAIWatchClosest(this, EntityLiving.class, 8.0F));
+        //this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, EntityVindicator.class));
+        //this.targetTasks.addTask(2, new EntityAIHurtByTarget(this, false, new Class[0]));
+        //this.targetTasks.addTask(1, new EntityAINearestAttackableTarget(this, EntityLiving.class, 10, true, false, IMob.MOB_SELECTOR));
     }
 
     @Override
     public void onLivingUpdate() {
-        super.onLivingUpdate();
+    	List<Entity> entitylist = world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().grow(20D));
+    	for (Entity entity : entitylist) {
+    		if (entity instanceof EntityMob) {
+    			EntityMob mob = (EntityMob) entity;
+    			mob.setAttackTarget(this);
+    		}
+    	}
+    	super.onLivingUpdate();
         counter += 1;
         if(counter >= 1200){
             this.setDead();
@@ -71,6 +80,16 @@ public class EntityBlakeIce extends EntityGolem {
 
     @Override
     public void onDeath(DamageSource cause) {
+    	List<Entity> entitylist = world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().grow(20D));
+    	for (Entity entity : entitylist) {
+    		if (entity instanceof EntityMob) {
+    			EntityMob mob = (EntityMob) entity;
+    			Entity target = mob.getAttackTarget();
+    			if (target == this) {
+    				mob.setAttackTarget(null);
+    			}
+    		}
+    	}
         super.onDeath(cause);
         if (!this.world.isRemote)
         {

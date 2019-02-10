@@ -468,6 +468,12 @@ public class EntityMutantDeathStalker extends EntityMob
         public void updateTask()
         {
             EntityLivingBase entitylivingbase = this.parentEntity.getAttackTarget();
+            
+            if (entitylivingbase == null) {
+            	resetTask();
+            	return;
+            }
+            
             double d0 = 64.0D;
 
             if (entitylivingbase.getDistance(this.parentEntity) < 4096.0D && this.parentEntity.canEntityBeSeen(entitylivingbase))
