@@ -6,18 +6,20 @@ import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.*;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
-public class EntityBlakeFire extends EntityGolem {
+public class EntityBlakeIce extends EntityGolem {
     World world = null;
     private int counter;
     @Nullable
-    public EntityBlakeFire(World var1) {
+    public EntityBlakeIce(World var1) {
         super(var1);
         world = var1;
         this.setSize(1.5F, 1.5F);
@@ -72,10 +74,13 @@ public class EntityBlakeFire extends EntityGolem {
         super.onDeath(cause);
         if (!this.world.isRemote)
         {
-            boolean flag = false;
-            this.dead = true;
-            this.world.createExplosion(this, this.posX, this.posY, this.posZ, 3, flag);
-            this.setDead();
+        EntityAreaEffectCloud cloud = new EntityAreaEffectCloud(this.world, this.posX, this.posY, this.posZ);
+        cloud.addEffect(new PotionEffect(MobEffects.SLOWNESS, 300, 55));
+        cloud.setColor(0xccffff);
+        cloud.setDuration(60);
+        cloud.setRadius(3);
+        cloud.setWaitTime(10);
+        world.spawnEntity(cloud);
         }
     }
 

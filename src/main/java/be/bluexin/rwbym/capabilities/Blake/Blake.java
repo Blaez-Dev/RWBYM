@@ -4,6 +4,7 @@ import be.bluexin.rwbym.Init.RWBYItems;
 import be.bluexin.rwbym.RWBYModels;
 import be.bluexin.rwbym.entity.EntityBeowolf;
 import be.bluexin.rwbym.entity.EntityBlakeFire;
+import be.bluexin.rwbym.entity.EntityBlakeIce;
 import be.bluexin.rwbym.entity.EntityWinterBeowolf;
 import net.minecraft.entity.MoverType;
 import net.minecraft.entity.player.EntityPlayer;
@@ -73,7 +74,7 @@ public class Blake implements IBlake {
 						if (player.onGround){
 							motion = motion.scale(3.5D);
 						}else{
-							motion = motion.scale(2D);
+							motion = motion.scale(1.0D);
 						}
 						player.motionX = motion.x;
 						player.motionY = motion.y/4;
@@ -81,7 +82,7 @@ public class Blake implements IBlake {
 					}
 					else {
 						motion = player.getLookVec();
-						motion = motion.scale(3.5D);
+						motion = motion.scale(2D);
 						player.motionX = -motion.x;
 						player.motionY = -motion.y;
 						player.motionZ = -motion.z;
@@ -160,6 +161,13 @@ public class Blake implements IBlake {
 		entityBlakeFire.moveToBlockPosAndAngles(blockpos, 0.0F, 0.0F);
 		player.world.spawnEntity(entityBlakeFire);
 		is.shrink(1);
+		}
+		if(is.getItem() == RWBYItems.icedust){
+			BlockPos blockpos = (new BlockPos(player));
+			EntityBlakeIce entityBlakeIce = new EntityBlakeIce(player.world);
+			entityBlakeIce.moveToBlockPosAndAngles(blockpos, 0.0F, 0.0F);
+			player.world.spawnEntity(entityBlakeIce);
+			is.shrink(1);
 		}
 	}
 	
