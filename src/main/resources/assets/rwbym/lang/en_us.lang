@@ -3,12 +3,14 @@ entity.boarbatusk.name=Boarbatusk
 entity.ursa.name=Ursa
 entity.deathstalker.name=DeathStalker
 entity.goliath.name=Goliath
+entity.creep.name=Creep
 entity.mutantdeathstalker.name=Mutant DeathStalker
 entity.nevermore.name=Juvenile Nevermore
 entity.giantnevermore.name=Adult Nevermore
 entity.winter_beowolf.name=Summoned Beowolf
 entity.winter_ursa.name=Summoned Ursa
 entity.winter_boarbatusk.name=Summoned Boarbatusk
+entity.atlasknight.name=Atlas Knight
 
 item.rwbym:crescent.name=Crescent Rose
 item.rwbym:crescentgun.name=Crescent Rose
@@ -167,6 +169,11 @@ item.rwbym:lightdustcrystal.name=Lightning Dust Crystal
 item.rwbym:waterdustcrystal.name=Water Dust Crystal
 item.rwbym:winddustcrystal.name=Wind Dust Crystal
 item.rwbym:dustcrystal.name=Impure Dust Crystal
+item.rwbym:mariacane.name=Life & Death
+item.rwbym:mariascythe.name=Life & Death
+item.rwbym:mariascythedouble.name=Life & Death
+item.rwbym:atlasknight.name=Atlas Knight
+item.rwbym:ember2.name=Ember Celica
 
 itemGroup.rwby_weapons=RWBY Weapons
 itemGroup.rwby_items=RWBY Items
@@ -174,6 +181,6 @@ itemGroup.rwby_items=RWBY Items
 key.categories.RWBYM=RWBYM
 
 key.activatesemblance=Activate Semblance
-key.morphweapon=Morph Weapon
+
 
 

@@ -6,19 +6,21 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
+import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntityIronGolem;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntityVindicator;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
-public class EntityCreep extends EntityMob {
+public class EntityCreep extends EntityCreeper {
     World world = null;
     private EntityLiving owner;
     @Nullable
@@ -28,6 +30,7 @@ public class EntityCreep extends EntityMob {
         world = var1;
         this.setSize(1.95F, 1.95F);
     }
+
 
 
     protected void initEntityAI() {
@@ -40,8 +43,6 @@ public class EntityCreep extends EntityMob {
         this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, EntityVindicator.class));
         this.targetTasks.addTask(2, new EntityCreep.AICopyOwnerTarget(this));
         this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
-        this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityVillager.class, true));
-        this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityIronGolem.class, true));
     }
 
     protected void applyEntityAttributes() {
@@ -85,6 +86,9 @@ public class EntityCreep extends EntityMob {
         }
     }
 
+
+
+
     public EnumCreatureAttribute getCreatureAttribute() {
         return EnumCreatureAttribute.ILLAGER;
     }
@@ -97,13 +101,13 @@ public class EntityCreep extends EntityMob {
         return SoundEvents.ENTITY_WITHER_SKELETON_AMBIENT;
     }
 
-    protected SoundEvent getHurtSound() {
+    protected SoundEvent getHurtSound(DamageSource damageSourceIn)
+    {
         return SoundEvents.ENTITY_SQUID_DEATH;
     }
 
-    @Override
     protected net.minecraft.util.SoundEvent getDeathSound() {
-        return SoundEvent.REGISTRY.getObject(new ResourceLocation("entity.wolf.death"));
+        return SoundEvents.ENTITY_ELDER_GUARDIAN_DEATH;
     }
 
     @Override

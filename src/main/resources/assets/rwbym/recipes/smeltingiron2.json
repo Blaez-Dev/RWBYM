@@ -1,0 +1,9 @@
+{
+    "type": "rwbym:smelting",
+    "ingredient": {
+        "item": "rwbym:roseiron"
+    },
+    "result": "minecraft:iron_ingot",
+    "experience": 0.4,
+    "cookingtime": 20
+}

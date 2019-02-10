@@ -321,7 +321,7 @@ public class EntityMutantDeathStalker extends EntityMob
             }
             else
             {
-                int i = EntityMutantDeathStalker.this.world.getEntitiesWithinAABB(EntityBeowolf.class, EntityMutantDeathStalker.this.getEntityBoundingBox().grow(16.0D)).size();
+                int i = EntityMutantDeathStalker.this.world.getEntitiesWithinAABB(EntityCreep.class, EntityMutantDeathStalker.this.getEntityBoundingBox().grow(16.0D)).size();
                 return EntityMutantDeathStalker.this.rand.nextInt(8) + 1 > i;
             }
         }
@@ -341,11 +341,11 @@ public class EntityMutantDeathStalker extends EntityMob
             for (int i = 0; i < 3; ++i)
             {
                 BlockPos blockpos = (new BlockPos(EntityMutantDeathStalker.this)).add(-2 + EntityMutantDeathStalker.this.rand.nextInt(5), 1, -2 + EntityMutantDeathStalker.this.rand.nextInt(5));
-                EntityBeowolf entitybeowolf = new EntityBeowolf(EntityMutantDeathStalker.this.world);
-                entitybeowolf.moveToBlockPosAndAngles(blockpos, 0.0F, 0.0F);
-                entitybeowolf.onInitialSpawn(EntityMutantDeathStalker.this.world.getDifficultyForLocation(blockpos), (IEntityLivingData)null);
-                entitybeowolf.setOwner(EntityMutantDeathStalker.this);
-                EntityMutantDeathStalker.this.world.spawnEntity(entitybeowolf);
+                EntityCreep entitycreep = new EntityCreep(EntityMutantDeathStalker.this.world);
+                entitycreep.moveToBlockPosAndAngles(blockpos, 0.0F, 0.0F);
+                entitycreep.onInitialSpawn(EntityMutantDeathStalker.this.world.getDifficultyForLocation(blockpos), (IEntityLivingData)null);
+                entitycreep.setOwner(EntityMutantDeathStalker.this);
+                EntityMutantDeathStalker.this.world.spawnEntity(entitycreep);
             }
         }
 

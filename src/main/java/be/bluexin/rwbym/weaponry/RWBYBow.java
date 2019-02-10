@@ -32,6 +32,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.logging.log4j.LogManager;
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 /**
@@ -54,6 +55,7 @@ public class RWBYBow extends ItemBow implements ICustomItem {
     private boolean recoil3;
     private boolean crescentr = false;
     private boolean emberc = false;
+    private boolean ember2 = false;
     private boolean gambols = false;
     private boolean magna = false;
     private boolean mytre = false;
@@ -89,6 +91,7 @@ public class RWBYBow extends ItemBow implements ICustomItem {
         if(name.contains("crescent")) crescentr = true;
         if(name.contains("gambol")) gambols = true;
         if(name.contains("ember")) emberc = true;
+        if(name.contains("ember2")) ember2 = true;
         if(name.contains("nora")) magna = true;
         if(name.contains("weiss")) mytre = true;
         if(name.contains("stormf")) stormf = true;
@@ -105,6 +108,14 @@ public class RWBYBow extends ItemBow implements ICustomItem {
         if(name.contains("jnrrocket")) jnr = true;
         if(name.contains("adamgun")) emberc = true;
         if(name.contains("torchwickgun")) torch = true;
+
+        if (this.ember2) this.addPropertyOverride(new ResourceLocation("offhand"), new IItemPropertyGetter() {
+            @SideOnly(Side.CLIENT)
+            @ParametersAreNonnullByDefault
+            public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
+                return entityIn != null && entityIn.getHeldItemOffhand() == stack ? 1.0F : 0.0F;
+            }
+        });
 
     }
 
@@ -152,6 +163,27 @@ public class RWBYBow extends ItemBow implements ICustomItem {
                 }
             }}
         }
+
+        /*if(ember2){
+            if(entity instanceof EntityPlayer && !world.isRemote) {
+                EntityPlayer player = (EntityPlayer) entity;
+                float hppct = player.getHealth()/player.getMaxHealth();
+                float hpPct = Math.min(player.getHealth() / player.getMaxHealth(), 1f);
+                if (hppct > 0.61 && hppct < 0.80){
+                PotionEffect potioneffect = new PotionEffect(MobEffects.STRENGTH, 60, 1, false, false);
+                player.addPotionEffect(potioneffect);}
+                if (hppct > 0.41 && hppct < 0.60){
+                    PotionEffect potioneffect = new PotionEffect(MobEffects.STRENGTH, 60, 2, false, false);
+                    player.addPotionEffect(potioneffect);}
+                if (hppct > 0.21 && hppct < 0.40){
+                    PotionEffect potioneffect = new PotionEffect(MobEffects.STRENGTH, 60, 4, false, false);
+                    player.addPotionEffect(potioneffect);}
+                if (hppct > 0.0 && hppct < 0.20){
+                    PotionEffect potioneffect = new PotionEffect(MobEffects.STRENGTH, 60, 8, false, false);
+                    player.addPotionEffect(potioneffect);}
+            }
+        }*/
+
         if (!world.isRemote && this.data != null) {
             NBTTagCompound atag = is.getTagCompound();
             if (atag == null) atag = new NBTTagCompound();

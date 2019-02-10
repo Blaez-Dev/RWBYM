@@ -21,7 +21,7 @@ public class EntityBoarbatusk extends EntityMob {
     public EntityBoarbatusk(World var3) {
         super(var3);
         world = var3;
-        this.setSize(1.95F, 1.95F);
+        this.setSize(1.5F, 1.5F);
     }
 
     protected void initEntityAI() {

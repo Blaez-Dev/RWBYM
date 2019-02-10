@@ -4,6 +4,8 @@ import be.bluexin.rwbym.utility.network.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import be.bluexin.rwbym.RWBYModels;
+import be.bluexin.rwbym.capabilities.CapabilityHandler;
+import be.bluexin.rwbym.capabilities.ISemblance;
 import be.bluexin.rwbym.capabilities.ruby.IRuby;
 import be.bluexin.rwbym.capabilities.ruby.RubyProvider;
 import net.minecraft.init.MobEffects;
@@ -26,29 +28,27 @@ public class KeyInputHandler {
 	public boolean morphWeapon;
 
 	//this event only fires on client side, so if you need something done serverside you need to send packets,
-	//or read variables from this class such as the one above.
 	@SubscribeEvent
 	@SideOnly(Side.CLIENT)
 	public void onKeyInput(KeyInputEvent event) {
 				
 		EntityPlayer player = Minecraft.getMinecraft().player;
 	
-		if (KeybindRegistry.activateSemblance.isKeyDown()) {
-			System.out.println("Activating Semblance");
+		if (KeybindRegistry.activateSemblance.isPressed()) {
+			RWBYModels.LOGGER.log(RWBYModels.debug, "Activating Semblance");
 			
-			IRuby Ruby = player.getCapability(RubyProvider.RUBY_CAP, null);
-											
-			Ruby.activate(player);
+			ISemblance semblance = CapabilityHandler.getCurrentSemblance(player);
 			
-			RWBYNetworkHandler.sendToServer(new MessageRose(true));
-
+			if (semblance != null) {
+				RWBYNetworkHandler.sendToServer(new MessageActivateSemblance(true));
+			}
 		}
 		else {
-			IRuby Ruby = player.getCapability(RubyProvider.RUBY_CAP, null);
+			ISemblance semblance = CapabilityHandler.getCurrentSemblance(player);
 			
-			Ruby.setActiveStatus(false);
-			
-			RWBYNetworkHandler.sendToServer(new MessageRose(false));
+			if (semblance != null) {
+				RWBYNetworkHandler.sendToServer(new MessageActivateSemblance(false));
+			}
 		}
 
 		//alternatively you could set a variable for key presses and call that variable in other classes with to check if a key is pressed.

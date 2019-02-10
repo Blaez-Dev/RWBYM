@@ -2,6 +2,8 @@ package be.bluexin.rwbym.weaponry;
 
 import be.bluexin.rwbym.Init.RWBYCreativeTabs;
 import be.bluexin.rwbym.RWBYModels;
+import be.bluexin.rwbym.entity.EntityAtlasKnight;
+import be.bluexin.rwbym.entity.EntityBeowolf;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -16,6 +18,7 @@ import net.minecraft.nbt.NBTException;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.*;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -34,6 +37,7 @@ public class RWBYItem extends Item implements ICustomItem {
     private final String data;
     private boolean gravity;
     private boolean water;
+    private boolean atlasknight;
 
     public RWBYItem(String name,String data, boolean isMask,  CreativeTabs creativetab) {
         this.setRegistryName(new ResourceLocation(RWBYModels.MODID, name));
@@ -44,6 +48,7 @@ public class RWBYItem extends Item implements ICustomItem {
         this.setCreativeTab(creativetab);
         if(name.contains("gravitydustcrystal")) gravity = true;
         if(name.contains("waterdustcrystal")) water = true;
+        if(name.contains("atlasknight")) atlasknight = true;
     }
 
     /*@Override
@@ -77,7 +82,7 @@ public class RWBYItem extends Item implements ICustomItem {
                 }
             }
             if(player.getHeldItem(EnumHand.OFF_HAND) == is && water){
-                PotionEffect potioneffect = new PotionEffect(MobEffects.REGENERATION, 60, 3, false, false);
+                PotionEffect potioneffect = new PotionEffect(MobEffects.REGENERATION, 60, 2, false, false);
                 player.addPotionEffect(potioneffect);
             }
         }
@@ -102,6 +107,15 @@ public class RWBYItem extends Item implements ICustomItem {
         ItemStack itemstack = playerIn.getHeldItem(handIn);
         EntityEquipmentSlot entityequipmentslot = EntityEquipmentSlot.HEAD;
         ItemStack itemstack1 = playerIn.getItemStackFromSlot(entityequipmentslot);
+
+        if(atlasknight){
+            if(!worldIn.isRemote){
+            BlockPos blockpos = (new BlockPos(playerIn));
+            EntityAtlasKnight entityAtlasKnight = new EntityAtlasKnight(playerIn.world);
+            entityAtlasKnight.moveToBlockPosAndAngles(blockpos, 0.0F, 0.0F);
+            playerIn.world.spawnEntity(entityAtlasKnight);}
+            itemstack.shrink(1);
+        }
 
         if (itemstack1.isEmpty() && ismask)
         {

@@ -1,23 +1,18 @@
 package be.bluexin.rwbym.capabilities.ruby;
 
+import be.bluexin.rwbym.capabilities.ISemblance;
 import net.minecraft.entity.player.EntityPlayer;
 
-public interface IRuby {
-	
-	public boolean activate(EntityPlayer player);
-		
+public interface IRuby extends ISemblance{
+			
 	public void setInvisisbility(int time);
 
 	public void setInvisisbilityTimer(int time);
 	
 	public void setCooldownTimer(int time);
-	
-	public void setActiveStatus(boolean status);
-	
+		
 	public void setPlayerY(double Y);
-	
-	public void updateInvisisbility(EntityPlayer player);
-	
+		
 	public int getInvisibilityTimer();
 	
 	public int getCooldown();
@@ -27,4 +22,8 @@ public interface IRuby {
 	public boolean getActiveStatus();
 	
 	public double getPlayerY();
+
+	public int getLevel();
+	
+	public void setLevel(int level);
 }
