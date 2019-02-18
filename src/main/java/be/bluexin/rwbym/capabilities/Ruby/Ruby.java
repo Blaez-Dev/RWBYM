@@ -1,4 +1,4 @@
-package be.bluexin.rwbym.capabilities.ruby;
+package be.bluexin.rwbym.capabilities.Ruby;
 
 import be.bluexin.rwbym.Init.RWBYItems;
 import be.bluexin.rwbym.RWBYModels;
@@ -26,16 +26,14 @@ public class Ruby implements IRuby {
 	
 	// a level greater than 0 will signal that this is the active semblance
 	private int level = 0;
+
+	private static final int MAX_LEVEL = 2;
 	
 	/**activates the semblance*/
 	@Override
 	public boolean onActivate(EntityPlayer player) {
 		
 		//System.out.println("" + this.level);
-
-		if(this.level >2){
-			this.level = 2;
-		}
 
 		switch(this.level) {
 		case 1:
@@ -199,7 +197,7 @@ public class Ruby implements IRuby {
 	
 	@Override
 	public void setLevel(int level) {
-		this.level = level;
+		this.level = level > MAX_LEVEL  ? MAX_LEVEL : level;
 	}
 
 	@Override

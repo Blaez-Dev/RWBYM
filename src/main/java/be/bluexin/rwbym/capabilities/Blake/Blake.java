@@ -18,6 +18,8 @@ public class Blake implements IBlake {
 
 	private int level = 0;
 	
+	private static final int MAX_LEVEL = 3;
+
 	private int numShadows = 0;
 	
 	private int cooldown = 0;
@@ -53,10 +55,6 @@ public class Blake implements IBlake {
 
 	@Override
 	public void onUpdate(EntityPlayer player) {
-
-		if(this.level >3){
-			this.level = 3;
-		}
 
 		if (!player.onGround) {
 			airTime++;
@@ -142,7 +140,7 @@ public class Blake implements IBlake {
 
 	@Override
 	public void setLevel(int level) {
-		this.level = level;
+		this.level = level > MAX_LEVEL ? MAX_LEVEL : level;
 	}
 
 	@Override

@@ -15,15 +15,13 @@ public class Weiss implements IWeiss {
 	// a level greater than 0 will signal that this is the active semblance
 	private int level = 0;
 	
+	private static final int MAX_LEVEL = 2;
+	
 	private int cooldown = 0;
 
 	public boolean onActivate(EntityPlayer player) {
 		
 		RWBYModels.LOGGER.log(RWBYModels.debug, "Weiss Activated");
-
-		if(this.level >2){
-			this.level = 2;
-		}
 		
 		switch(this.level) {
 		case 1:
@@ -111,7 +109,7 @@ public class Weiss implements IWeiss {
 
 	@Override
 	public void setLevel(int level) {
-		this.level = level;
+		this.level = level > MAX_LEVEL ? MAX_LEVEL : level;
 	}
 
 	@Override

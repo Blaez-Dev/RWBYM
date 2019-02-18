@@ -12,6 +12,8 @@ import net.minecraftforge.common.capabilities.Capability;
 public class Yang implements IYang {
 
 	private int level = 0;
+	
+	private static final int MAX_LEVEL = 3;
 
 	@Override
 	public boolean onActivate(EntityPlayer player) {
@@ -25,9 +27,6 @@ public class Yang implements IYang {
 
 	@Override
 	public void onUpdate(EntityPlayer player) {
-		if(this.level >3){
-			this.level = 3;
-		}
 		float hppct = Math.min(player.getHealth()/player.getMaxHealth(), 1f);
 		int strength = Math.round((1f - hppct) * 6 * this.level);
 		if (strength > 0) {
@@ -53,7 +52,7 @@ public class Yang implements IYang {
 
 	@Override
 	public void setLevel(int level) {
-		this.level = level;
+		this.level = level > MAX_LEVEL ? MAX_LEVEL : level;
 	}
 
 	@Override

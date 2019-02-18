@@ -1,4 +1,4 @@
-package be.bluexin.rwbym.capabilities.ruby;
+package be.bluexin.rwbym.capabilities.Ruby;
 
 import be.bluexin.rwbym.capabilities.ISemblance;
 import net.minecraft.entity.player.EntityPlayer;
