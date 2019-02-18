@@ -176,6 +176,10 @@ item.rwbym:mariascythe.name=Life & Death
 item.rwbym:mariascythedouble.name=Life & Death
 item.rwbym:atlasknight.name=Atlas Knight
 item.rwbym:ember2.name=Ember Celica
+item.rwbym:coinr.name=Semblance Coin Ruby
+item.rwbym:coinw.name=Semblance Coin Weiss
+item.rwbym:coinb.name=Semblance Coin Blake
+item.rwbym:coiny.name=Semblance Coin Yang
 
 itemGroup.rwby_weapons=RWBY Weapons
 itemGroup.rwby_items=RWBY Items
