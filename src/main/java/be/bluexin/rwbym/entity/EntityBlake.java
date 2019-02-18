@@ -17,11 +17,11 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-public class EntityBlakeIce extends EntityGolem {
+public class EntityBlake extends EntityGolem {
     World world = null;
     private int counter;
     @Nullable
-    public EntityBlakeIce(World var1) {
+    public EntityBlake(World var1) {
         super(var1);
         world = var1;
         this.setSize(1.5F, 1.5F);
@@ -42,14 +42,14 @@ public class EntityBlakeIce extends EntityGolem {
 
     @Override
     public void onLivingUpdate() {
-    	List<Entity> entitylist = world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().grow(20D));
-    	for (Entity entity : entitylist) {
-    		if (entity instanceof EntityMob) {
-    			EntityMob mob = (EntityMob) entity;
-    			mob.setAttackTarget(this);
-    		}
-    	}
-    	super.onLivingUpdate();
+        List<Entity> entitylist = world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().grow(20D));
+        for (Entity entity : entitylist) {
+            if (entity instanceof EntityMob) {
+                EntityMob mob = (EntityMob) entity;
+                mob.setAttackTarget(this);
+            }
+        }
+        super.onLivingUpdate();
         counter += 1;
         if(counter >= 1200){
             this.setDead();
@@ -80,27 +80,17 @@ public class EntityBlakeIce extends EntityGolem {
 
     @Override
     public void onDeath(DamageSource cause) {
-    	List<Entity> entitylist = world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().grow(20D));
-    	for (Entity entity : entitylist) {
-    		if (entity instanceof EntityMob) {
-    			EntityMob mob = (EntityMob) entity;
-    			Entity target = mob.getAttackTarget();
-    			if (target == this) {
-    				mob.setAttackTarget(null);
-    			}
-    		}
-    	}
-        super.onDeath(cause);
-        if (!this.world.isRemote)
-        {
-        EntityAreaEffectCloud cloud = new EntityAreaEffectCloud(this.world, this.posX, this.posY, this.posZ);
-        cloud.addEffect(new PotionEffect(MobEffects.SLOWNESS, 300, 55));
-        cloud.setColor(0xccffff);
-        cloud.setDuration(60);
-        cloud.setRadius(3);
-        cloud.setWaitTime(10);
-        world.spawnEntity(cloud);
+        List<Entity> entitylist = world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().grow(20D));
+        for (Entity entity : entitylist) {
+            if (entity instanceof EntityMob) {
+                EntityMob mob = (EntityMob) entity;
+                Entity target = mob.getAttackTarget();
+                if (target == this) {
+                    mob.setAttackTarget(null);
+                }
+            }
         }
+        super.onDeath(cause);
     }
 
     public EnumCreatureAttribute getCreatureAttribute() {

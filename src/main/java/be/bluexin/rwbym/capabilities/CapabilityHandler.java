@@ -90,7 +90,7 @@ public class CapabilityHandler {
 		}
 		
 		if (semblances.size() > 1) {
-			RWBYModels.LOGGER.warn("Player Has Multiple Active Semblances");
+			//RWBYModels.LOGGER.warn("Player Has Multiple Active Semblances");
 		}
 		
 		if (semblances.isEmpty()) {
@@ -132,8 +132,8 @@ public class CapabilityHandler {
 		
 		return semblances;
 	}
-	
-	public static void setSemblance(EntityPlayer player, Capability<ISemblance> capability, int level) {
+
+	public static <T extends ISemblance> void setSemblance(EntityPlayer player, Capability<T> capability, int level) {
 		for (ISemblance semblance : getAllSemblances(player)) {
 			semblance.setLevel(0);
 		}

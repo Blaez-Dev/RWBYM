@@ -30,6 +30,8 @@ public class RegUtil {
 
         //Weapons
         registerItems(event, RWBYItems.crescent);
+        registerItems(event, RWBYItems.crescentfrost);
+        registerItems(event, RWBYItems.crescentgunfrost);
         registerItems(event, RWBYItems.weiss);
         registerItems(event, RWBYItems.gambol);
         registerItems(event, RWBYItems.ember);
@@ -152,6 +154,10 @@ public class RegUtil {
         registerItems(event, RWBYItems.stor6);
         registerItems(event, RWBYItems.scrap);
         registerItems(event, RWBYItems.atlasknight);
+        registerItems(event, RWBYItems.coinr);
+        registerItems(event, RWBYItems.coinw);
+        registerItems(event, RWBYItems.coinb);
+        registerItems(event, RWBYItems.coiny);
         //Armour
         registerItems(event, RWBYItems.korekosmouoff);
         registerItems(event, RWBYItems.korekosmoufire);

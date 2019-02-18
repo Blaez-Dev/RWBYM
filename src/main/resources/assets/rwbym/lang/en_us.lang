@@ -14,6 +14,8 @@ entity.atlasknight.name=Atlas Knight
 
 item.rwbym:crescent.name=Crescent Rose
 item.rwbym:crescentgun.name=Crescent Rose
+item.rwbym:crescentgunfrost.name= Summer Crescent
+item.rwbym:crescentfrost.name= Summer Crescent
 item.rwbym:gambol.name=Gambol Shroud
 item.rwbym:gambolgun.name=Gambol Shroud
 item.rwbym:ember.name=Ember Celica

@@ -1,5 +1,6 @@
 package be.bluexin.rwbym.capabilities.ruby;
 
+import be.bluexin.rwbym.Init.RWBYItems;
 import be.bluexin.rwbym.RWBYModels;
 import be.bluexin.rwbym.client.particle.RosePetal;
 import be.bluexin.rwbym.entity.EntityBeowolf;
@@ -7,6 +8,7 @@ import be.bluexin.rwbym.entity.EntityMutantDeathStalker;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
@@ -30,7 +32,11 @@ public class Ruby implements IRuby {
 	public boolean onActivate(EntityPlayer player) {
 		
 		//System.out.println("" + this.level);
-		
+
+		if(this.level >2){
+			this.level = 2;
+		}
+
 		switch(this.level) {
 		case 1:
 			if (this.cooldown > 0) {
@@ -117,7 +123,12 @@ public class Ruby implements IRuby {
 					player.motionZ = look.z;
 					player.fallDistance = 0;
 					for (int i = 0; i < (this.level > 1 ? 32 : 2); i++) {
-						RWBYModels.proxy.generateRosepetals(player);
+						ItemStack is = player.getHeldItemMainhand();
+						if(is.getItem() == RWBYItems.crescentfrost){
+							RWBYModels.proxy.generateSummerpetals(player);
+						}else if(is.getItem() == RWBYItems.crescentgunfrost){
+							RWBYModels.proxy.generateSummerpetals(player);
+						}else RWBYModels.proxy.generateRosepetals(player);
 					}
 				}
 			}

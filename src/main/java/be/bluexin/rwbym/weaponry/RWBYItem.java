@@ -2,6 +2,13 @@ package be.bluexin.rwbym.weaponry;
 
 import be.bluexin.rwbym.Init.RWBYCreativeTabs;
 import be.bluexin.rwbym.RWBYModels;
+import be.bluexin.rwbym.capabilities.Blake.Blake;
+import be.bluexin.rwbym.capabilities.Blake.BlakeProvider;
+import be.bluexin.rwbym.capabilities.CapabilityHandler;
+import be.bluexin.rwbym.capabilities.ISemblance;
+import be.bluexin.rwbym.capabilities.Weiss.WeissProvider;
+import be.bluexin.rwbym.capabilities.Yang.YangProvider;
+import be.bluexin.rwbym.capabilities.ruby.RubyProvider;
 import be.bluexin.rwbym.entity.EntityAtlasKnight;
 import be.bluexin.rwbym.entity.EntityBeowolf;
 import net.minecraft.creativetab.CreativeTabs;
@@ -22,9 +29,12 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.logging.log4j.LogManager;
+
+import static be.bluexin.rwbym.capabilities.CapabilityHandler.getCapabilityByName;
 
 /**
  * Part of rwbym by Bluexin.
@@ -38,7 +48,10 @@ public class RWBYItem extends Item implements ICustomItem {
     private boolean gravity;
     private boolean water;
     private boolean atlasknight;
-
+    private boolean coinr;
+    private boolean coinw;
+    private boolean coinb;
+    private boolean coiny;
     public RWBYItem(String name,String data, boolean isMask,  CreativeTabs creativetab) {
         this.setRegistryName(new ResourceLocation(RWBYModels.MODID, name));
         this.setUnlocalizedName(this.getRegistryName().toString());
@@ -49,6 +62,10 @@ public class RWBYItem extends Item implements ICustomItem {
         if(name.contains("gravitydustcrystal")) gravity = true;
         if(name.contains("waterdustcrystal")) water = true;
         if(name.contains("atlasknight")) atlasknight = true;
+        if(name.contains("coinr")) coinr = true;
+        if(name.contains("coinw")) coinw = true;
+        if(name.contains("coinb")) coinb = true;
+        if(name.contains("coiny")) coiny = true;
     }
 
     /*@Override
@@ -115,6 +132,49 @@ public class RWBYItem extends Item implements ICustomItem {
             entityAtlasKnight.moveToBlockPosAndAngles(blockpos, 0.0F, 0.0F);
             playerIn.world.spawnEntity(entityAtlasKnight);}
             itemstack.shrink(1);
+        }
+
+        if(coinr)
+    {
+        if(!worldIn.isRemote){
+            ISemblance semblance = CapabilityHandler.getCurrentSemblance(playerIn);
+            if (semblance.toString().equals("Ruby")) {
+                semblance.setLevel(semblance.getLevel() + 1);
+            } else {CapabilityHandler.setSemblance(playerIn, RubyProvider.RUBY_CAP, semblance.getLevel());}
+            itemstack.shrink(1);
+        }
+    }
+        if(coinw)
+        {
+            if(!worldIn.isRemote){
+                ISemblance semblance = CapabilityHandler.getCurrentSemblance(playerIn);
+                if (semblance.toString().equals("Weiss")) {
+                    semblance.setLevel(semblance.getLevel() + 1);
+                } else {CapabilityHandler.setSemblance(playerIn, WeissProvider.WEISS_CAP, semblance.getLevel());}
+                itemstack.shrink(1);
+            }
+        }
+
+        if(coinb)
+        {
+            if(!worldIn.isRemote){
+                ISemblance semblance = CapabilityHandler.getCurrentSemblance(playerIn);
+                if (semblance.toString().equals("Weiss")) {
+                    semblance.setLevel(semblance.getLevel() + 1);
+                } else {CapabilityHandler.setSemblance(playerIn, BlakeProvider.BLAKE_CAP, semblance.getLevel());}
+                itemstack.shrink(1);
+            }
+        }
+
+        if(coiny)
+        {
+            if(!worldIn.isRemote){
+                ISemblance semblance = CapabilityHandler.getCurrentSemblance(playerIn);
+                if (semblance.toString().equals("Weiss")) {
+                    semblance.setLevel(semblance.getLevel() + 1);
+                } else {CapabilityHandler.setSemblance(playerIn, YangProvider.YANG_CAP, semblance.getLevel());}
+                itemstack.shrink(1);
+            }
         }
 
         if (itemstack1.isEmpty() && ismask)

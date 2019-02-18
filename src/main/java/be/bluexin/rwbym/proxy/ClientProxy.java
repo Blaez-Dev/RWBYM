@@ -3,6 +3,7 @@ package be.bluexin.rwbym.proxy;
 import be.bluexin.rwbym.RWBYModels;
 import be.bluexin.rwbym.client.particle.RenderEvents;
 import be.bluexin.rwbym.client.particle.RosePetal;
+import be.bluexin.rwbym.client.particle.SummerPetal;
 import be.bluexin.rwbym.client.particle.TextureStitcher;
 import be.bluexin.rwbym.entity.*;
 import be.bluexin.rwbym.entity.renderer.*;
@@ -89,9 +90,9 @@ public class ClientProxy extends CommonProxy {
         RenderingRegistry.registerEntityRenderingHandler(EntityWinterBoarbatusk.class, WinterBoarbatuskRender.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(EntityBlakeFire.class, BlakeFireRender.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(EntityBlakeIce.class, BlakeIceRender.FACTORY);
+        RenderingRegistry.registerEntityRenderingHandler(EntityBlake.class, BlakeRender.FACTORY);
         MinecraftForge.EVENT_BUS.register(new TextureStitcher());
         MinecraftForge.EVENT_BUS.register(new HideUtil());
-        //RenderingRegistry.registerEntityRenderingHandler(EntityCreep.class, CreepRender.FACTORY);
     }
 
     public void init() {
@@ -119,6 +120,27 @@ public class ClientProxy extends CommonProxy {
                 motionZ);
                 
         Minecraft.getMinecraft().effectRenderer.addEffect(rosepetal);
+    }
+
+    public void generateSummerpetals(EntityPlayer playerIn)
+    {
+
+        double motionX = playerIn.world.rand.nextGaussian() * 0.02D;
+        double motionY = playerIn.world.rand.nextGaussian() * 0.02D;
+        double motionZ = playerIn.world.rand.nextGaussian() * 0.02D;
+        SummerPetal summerpetal = new SummerPetal(
+                playerIn.world,
+                playerIn.posX + playerIn.world.rand.nextFloat() * playerIn.width
+                        * 2.0F - playerIn.width,
+                playerIn.posY + 0.5D + playerIn.world.rand.nextFloat()
+                        * playerIn.height,
+                playerIn.posZ + playerIn.world.rand.nextFloat() * playerIn.width
+                        * 2.0F - playerIn.width,
+                motionX,
+                motionY,
+                motionZ);
+
+        Minecraft.getMinecraft().effectRenderer.addEffect(summerpetal);
     }
     
 	public EntityPlayer getPlayer() {

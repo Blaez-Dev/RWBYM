@@ -25,6 +25,9 @@ public class Yang implements IYang {
 
 	@Override
 	public void onUpdate(EntityPlayer player) {
+		if(this.level >3){
+			this.level = 3;
+		}
 		float hppct = Math.min(player.getHealth()/player.getMaxHealth(), 1f);
 		int strength = Math.round((1f - hppct) * 6 * this.level);
 		if (strength > 0) {

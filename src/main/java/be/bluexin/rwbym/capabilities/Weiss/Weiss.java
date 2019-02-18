@@ -20,6 +20,10 @@ public class Weiss implements IWeiss {
 	public boolean onActivate(EntityPlayer player) {
 		
 		RWBYModels.LOGGER.log(RWBYModels.debug, "Weiss Activated");
+
+		if(this.level >2){
+			this.level = 2;
+		}
 		
 		switch(this.level) {
 		case 1:
@@ -35,7 +39,7 @@ public class Weiss implements IWeiss {
 				return true;
 			}	
 			break;
-		case 2:
+			case 2:
 			if (this.cooldown > 0) {
 				return false;
 			}
@@ -69,7 +73,9 @@ public class Weiss implements IWeiss {
 				this.cooldown--;
 			}
 		case 2:
-			break;
+			if (this.cooldown > 0) {
+				this.cooldown--;
+			}
 		default:
 			break;
 		}

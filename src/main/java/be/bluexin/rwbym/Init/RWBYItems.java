@@ -40,6 +40,19 @@ public class RWBYItems {
             true,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
+    public static final Item crescentfrost = new RWBYCRScythe(
+            "crescentfrost",
+            2500,
+            72,
+            0,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:16,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}]}",
+            "rwbym:crescentgunfrost",
+            "rwbym:crmag,rwbym:crfiremag,rwbym:crgravmag,rwbym:crelectricmag",
+            false,
+            3,
+            true,
+            0,
+           null);
     public static final Item gambol = new RWBYSword(
             "gambol",
             2500,
@@ -637,6 +650,20 @@ public class RWBYItems {
             1,
             0,
             null);
+    public static Item crescentgunfrost = new RWBYBow(
+            "crescentgunfrost",
+            2500,
+            72,
+            0,
+            null,
+            "rwbym:crescentfrost",
+            "rwbym:crmag,rwbym:crfiremag,rwbym:crgravmag,rwbym:crelectricmag",
+            false,
+            3,
+            true,
+            1,
+            0,
+            null);
     public static Item weiss = new RWBYBow(
             "weiss",
             2500,
@@ -991,6 +1018,10 @@ public class RWBYItems {
     public static Item stor6 = new RWBYItem("stor6", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static Item scrap = new RWBYItem("scrap", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static Item atlasknight = new RWBYItem("atlasknight", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static Item coinr = new RWBYItem("coinr", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static Item coinw = new RWBYItem("coinw", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static Item coinb = new RWBYItem("coinb", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static Item coiny = new RWBYItem("coiny", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static Item rvnmask = new RWBYItem("rvnmask", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true, RWBYCreativeTabs.tab_rwbyitems);
     public static Item whtefng =  new RWBYItem("whtefng", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true, RWBYCreativeTabs.tab_rwbyitems);
     public static Item rubyhood = new RWBYItem("rubyhood", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true, RWBYCreativeTabs.tab_rwbyitems);
