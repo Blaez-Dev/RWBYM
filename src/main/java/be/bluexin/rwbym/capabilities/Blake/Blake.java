@@ -2,10 +2,7 @@ package be.bluexin.rwbym.capabilities.Blake;
 
 import be.bluexin.rwbym.Init.RWBYItems;
 import be.bluexin.rwbym.RWBYModels;
-import be.bluexin.rwbym.entity.EntityBeowolf;
-import be.bluexin.rwbym.entity.EntityBlakeFire;
-import be.bluexin.rwbym.entity.EntityBlakeIce;
-import be.bluexin.rwbym.entity.EntityWinterBeowolf;
+import be.bluexin.rwbym.entity.*;
 import net.minecraft.entity.MoverType;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -56,7 +53,11 @@ public class Blake implements IBlake {
 
 	@Override
 	public void onUpdate(EntityPlayer player) {
-		
+
+		if(this.level >3){
+			this.level = 3;
+		}
+
 		if (!player.onGround) {
 			airTime++;
 		}
@@ -181,6 +182,14 @@ public class Blake implements IBlake {
 			if (!player.capabilities.isCreativeMode) {
 				is.shrink(1);
 			}
+<<<<<<< HEAD
+		}else {
+			BlockPos blockpos = (new BlockPos(player));
+			EntityBlake entityBlake = new EntityBlake(player.world);
+			entityBlake.moveToBlockPosAndAngles(blockpos, 0.0F, 0.0F);
+			player.world.spawnEntity(entityBlake);
+=======
+>>>>>>> 51ee5665f9b6939dd3b5d32d2406fa54a5a9ce90
 		}
 	}
 	
