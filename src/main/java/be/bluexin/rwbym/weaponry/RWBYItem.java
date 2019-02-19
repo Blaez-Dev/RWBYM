@@ -140,7 +140,7 @@ public class RWBYItem extends Item implements ICustomItem {
             ISemblance semblance = CapabilityHandler.getCurrentSemblance(playerIn);
             if (semblance.toString().equals("Ruby")) {
                 semblance.setLevel(semblance.getLevel() + 1);
-            } else {CapabilityHandler.setSemblance(playerIn, RubyProvider.RUBY_CAP, semblance.getLevel());}
+            } else {CapabilityHandler.setSemblance(playerIn, RubyProvider.RUBY_CAP, 1);}
             itemstack.shrink(1);
         }
     }
@@ -150,7 +150,7 @@ public class RWBYItem extends Item implements ICustomItem {
                 ISemblance semblance = CapabilityHandler.getCurrentSemblance(playerIn);
                 if (semblance.toString().equals("Weiss")) {
                     semblance.setLevel(semblance.getLevel() + 1);
-                } else {CapabilityHandler.setSemblance(playerIn, WeissProvider.WEISS_CAP, semblance.getLevel());}
+                } else {CapabilityHandler.setSemblance(playerIn, WeissProvider.WEISS_CAP, 1);}
                 itemstack.shrink(1);
             }
         }
@@ -159,9 +159,9 @@ public class RWBYItem extends Item implements ICustomItem {
         {
             if(!worldIn.isRemote){
                 ISemblance semblance = CapabilityHandler.getCurrentSemblance(playerIn);
-                if (semblance.toString().equals("Weiss")) {
+                if (semblance.toString().equals("Blake")) {
                     semblance.setLevel(semblance.getLevel() + 1);
-                } else {CapabilityHandler.setSemblance(playerIn, BlakeProvider.BLAKE_CAP, semblance.getLevel());}
+                } else {CapabilityHandler.setSemblance(playerIn, BlakeProvider.BLAKE_CAP, 1);}
                 itemstack.shrink(1);
             }
         }
@@ -170,9 +170,9 @@ public class RWBYItem extends Item implements ICustomItem {
         {
             if(!worldIn.isRemote){
                 ISemblance semblance = CapabilityHandler.getCurrentSemblance(playerIn);
-                if (semblance.toString().equals("Weiss")) {
+                if (semblance.toString().equals("Yang")) {
                     semblance.setLevel(semblance.getLevel() + 1);
-                } else {CapabilityHandler.setSemblance(playerIn, YangProvider.YANG_CAP, semblance.getLevel());}
+                } else {CapabilityHandler.setSemblance(playerIn, YangProvider.YANG_CAP, 1);}
                 itemstack.shrink(1);
             }
         }
