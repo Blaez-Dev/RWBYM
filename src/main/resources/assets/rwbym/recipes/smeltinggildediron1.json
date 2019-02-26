@@ -1,9 +1,0 @@
-{
-    "type": "rwbym:smelting",
-    "ingredient": {
-        "item": "rwbym:em1"
-    },
-    "result": "rwbym:gildediron",
-    "experience": 0.4,
-    "cookingtime": 20
-}

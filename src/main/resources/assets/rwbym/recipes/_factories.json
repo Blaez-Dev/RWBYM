@@ -1,5 +1,0 @@
-{
-  "recipes": {
-    "smelting": "be.bluexin.rwbym.Init.SmeltingRecipe$SmeltingFactory"
-  }
-}
