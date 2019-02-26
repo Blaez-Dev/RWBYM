@@ -1,5 +1,6 @@
 package be.bluexin.rwbym.entity;
 
+import be.bluexin.rwbym.Init.RWBYItems;
 import com.google.common.base.Predicate;
 
 import net.minecraft.block.Block;
@@ -13,10 +14,8 @@ import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvent;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.*;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -62,6 +61,7 @@ public class EntityBlakeFire extends EntityGolem {
     			mob.setAttackTarget(this);
     		}
     	}
+
         super.onLivingUpdate();
         counter += 1;
         if(counter >= 1200){

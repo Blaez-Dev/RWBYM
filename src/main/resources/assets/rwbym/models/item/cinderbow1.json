@@ -2795,34 +2795,6 @@
 			"scale": [0.7, 0.7, 0.7]
 		}
 	},
-	"overrides": [
-		{
-			"predicate": {
-				"pulling1": 1
-			},
-			"model": "rwbym:item/cinderbow1"
-		},
-		{
-			"predicate": {
-				"pulling1": 1,
-				"pull1": 0.25
-			},
-			"model": "rwbym:item/cinderbow125"
-		},
-		{
-			"predicate": {
-				"pulling1": 1,
-				"pull1": 0.50
-			},
-			"model": "rwbym:item/cinderbow150"
-		},
-		{
-			"predicate": {
-				"pulling1": 1,
-				"pull1": 0.75
-			},
-			"model": "rwbym:item/cinderbow175"
-		}],
 	"groups": [
 		{
 			"name": "cinderbow",

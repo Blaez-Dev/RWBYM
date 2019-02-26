@@ -67,6 +67,7 @@ public class RWBYBow extends ItemBow implements ICustomItem {
     private boolean emerald = false;
     private boolean jnr = false;
     private boolean torch = false;
+    private boolean chat = false;
     boolean compensate;
     float lastDamage;
     private boolean emerald2 = false;
@@ -108,6 +109,59 @@ public class RWBYBow extends ItemBow implements ICustomItem {
         if(name.contains("jnrrocket")) jnr = true;
         if(name.contains("adamgun")) emberc = true;
         if(name.contains("torchwickgun")) torch = true;
+        if(name.contains("chatareusgun")) chat = true;
+        if(name.contains("chatareus")) chat = true;
+
+
+        this.addPropertyOverride(new ResourceLocation("pull"), new IItemPropertyGetter()
+        {
+            @SideOnly(Side.CLIENT)
+            public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn)
+            {
+                if (entityIn == null)
+                {
+                    return 0.0F;
+                }
+                else
+                {
+                    return entityIn.getActiveItemStack().getItem() != RWBYItems.chatareusgun ? 0.0F : (float)(stack.getMaxItemUseDuration() - entityIn.getItemInUseCount()) / 20.0F;
+                }
+            }
+        });
+        this.addPropertyOverride(new ResourceLocation("pulling"), new IItemPropertyGetter()
+        {
+            @SideOnly(Side.CLIENT)
+            public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn)
+            {
+                return entityIn != null && entityIn.isHandActive() && entityIn.getActiveItemStack() == stack ? 1.0F : 0.0F;
+            }
+        });
+
+
+        this.addPropertyOverride(new ResourceLocation("pull1"), new IItemPropertyGetter()
+        {
+            @SideOnly(Side.CLIENT)
+            public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn)
+            {
+                if (entityIn == null)
+                {
+                    return 0.0F;
+                }
+                else
+                {
+                    return entityIn.getActiveItemStack().getItem() != RWBYItems.cinderbow ? 0.0F : (float)(stack.getMaxItemUseDuration() - entityIn.getItemInUseCount()) / 20.0F;
+                }
+            }
+        });
+        this.addPropertyOverride(new ResourceLocation("pulling1"), new IItemPropertyGetter()
+        {
+            @SideOnly(Side.CLIENT)
+            public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn)
+            {
+                return entityIn != null && entityIn.isHandActive() && entityIn.getActiveItemStack() == stack ? 1.0F : 0.0F;
+            }
+        });
+
 
         if (this.ember2) this.addPropertyOverride(new ResourceLocation("offhand"), new IItemPropertyGetter() {
             @SideOnly(Side.CLIENT)
@@ -164,25 +218,7 @@ public class RWBYBow extends ItemBow implements ICustomItem {
             }}
         }
 
-        /*if(ember2){
-            if(entity instanceof EntityPlayer && !world.isRemote) {
-                EntityPlayer player = (EntityPlayer) entity;
-                float hppct = player.getHealth()/player.getMaxHealth();
-                float hpPct = Math.min(player.getHealth() / player.getMaxHealth(), 1f);
-                if (hppct > 0.61 && hppct < 0.80){
-                PotionEffect potioneffect = new PotionEffect(MobEffects.STRENGTH, 60, 1, false, false);
-                player.addPotionEffect(potioneffect);}
-                if (hppct > 0.41 && hppct < 0.60){
-                    PotionEffect potioneffect = new PotionEffect(MobEffects.STRENGTH, 60, 2, false, false);
-                    player.addPotionEffect(potioneffect);}
-                if (hppct > 0.21 && hppct < 0.40){
-                    PotionEffect potioneffect = new PotionEffect(MobEffects.STRENGTH, 60, 4, false, false);
-                    player.addPotionEffect(potioneffect);}
-                if (hppct > 0.0 && hppct < 0.20){
-                    PotionEffect potioneffect = new PotionEffect(MobEffects.STRENGTH, 60, 8, false, false);
-                    player.addPotionEffect(potioneffect);}
-            }
-        }*/
+
 
         if (!world.isRemote && this.data != null) {
             NBTTagCompound atag = is.getTagCompound();
@@ -248,7 +284,11 @@ public class RWBYBow extends ItemBow implements ICustomItem {
 
     @Override
     public EnumAction getItemUseAction(ItemStack stack) {
-        return EnumAction.BLOCK;
+        if(stack.getItem() == RWBYItems.chatareusgun){
+            return EnumAction.BOW;
+        }else if(stack.getItem() == RWBYItems.cinderbow){
+            return EnumAction.BOW;
+        }else return EnumAction.BLOCK;
     }
 
     @Nonnull
@@ -318,6 +358,8 @@ public class RWBYBow extends ItemBow implements ICustomItem {
                         EntityArrow entityarrow = (itemstack.getItem() instanceof RWBYAmmoItem ? ((RWBYAmmoItem) itemstack.getItem()).createArrow(worldIn, itemstack, entityplayer) : ((ItemArrow) Items.ARROW).createArrow(worldIn, itemstack, entityplayer));
                         entityarrow.shoot(entityplayer, entityplayer.rotationPitch, entityplayer.rotationYaw, 0.0F, f * 3.0F * (this.projectileSpeed == 0.0F ? 1.0F : this.projectileSpeed), 2.0F);
 
+                            entityarrow.setIsCritical(true);
+
                         worldIn.spawnEntity(entityarrow);
                         //if (f >= 1.0F) entityarrow.setIsCritical(true);
                         if (jnr) {stack.damageItem(30,entityplayer);}
@@ -360,6 +402,10 @@ public class RWBYBow extends ItemBow implements ICustomItem {
 
                     if (torch) {
                         worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.Torchwick_Shoot, SoundCategory.MASTER, 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+                    }
+
+                    if (chat) {
+                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.Crescent_Rose_Shoot, SoundCategory.MASTER, 1.0F, 2F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
                     }
                     if (recoil) {
                     Vec3d look = entityplayer.getLookVec();

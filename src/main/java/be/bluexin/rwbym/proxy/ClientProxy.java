@@ -91,6 +91,9 @@ public class ClientProxy extends CommonProxy {
         RenderingRegistry.registerEntityRenderingHandler(EntityBlakeFire.class, BlakeFireRender.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(EntityBlakeIce.class, BlakeIceRender.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(EntityBlake.class, BlakeRender.FACTORY);
+        RenderingRegistry.registerEntityRenderingHandler(EntityArmorgeist.class, ArmorGeistRender.FACTORY);
+        RenderingRegistry.registerEntityRenderingHandler(EntityWinterArmorgeist.class, WinterArmorGeistRender.FACTORY);
+        RenderingRegistry.registerEntityRenderingHandler(EntityGeist.class, GeistRender.FACTORY);
         MinecraftForge.EVENT_BUS.register(new TextureStitcher());
         MinecraftForge.EVENT_BUS.register(new HideUtil());
     }

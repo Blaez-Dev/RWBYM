@@ -1,9 +1,7 @@
 package be.bluexin.rwbym.entity.renderer;
 
 import be.bluexin.rwbym.RWBYModels;
-import be.bluexin.rwbym.entity.EntityBlake;
-import be.bluexin.rwbym.entity.EntityBlake;
-import be.bluexin.rwbym.entity.EntityBlake;
+import be.bluexin.rwbym.entity.EntityArmorgeist;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelZombie;
@@ -19,33 +17,33 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class BlakeRender extends RenderBiped<EntityBlake>
+public class ArmorGeistRender extends RenderBiped<EntityArmorgeist>
 {
 
-    public static BlakeRender.Factory FACTORY = new BlakeRender.Factory();
+    public static ArmorGeistRender.Factory FACTORY = new ArmorGeistRender.Factory();
 
-    public BlakeRender(RenderManager renderManagerIn, ModelBiped modelBaseIn, float shadowSizeIn) {
+    public ArmorGeistRender(RenderManager renderManagerIn, ModelBiped modelBaseIn, float shadowSizeIn) {
         super(renderManagerIn, modelBaseIn, shadowSizeIn);
     }
 
-    protected boolean canRenderName(EntityBlake entity) {
+    protected boolean canRenderName(EntityArmorgeist entity) {
         return false;
     }
 
-    protected void preRenderCallback(EntityBlake entitylivingbaseIn, float partialTickTime) {
-        GlStateManager.scale(1F, 1F, 1F);
+    protected void preRenderCallback(EntityArmorgeist entitylivingbaseIn, float partialTickTime) {
+        GlStateManager.scale(3F, 3F, 3F);
     }
 
     @Override
-    protected ResourceLocation getEntityTexture(EntityBlake entity) {
-        return new ResourceLocation(RWBYModels.MODID,"textures/entity/Blake.png");
+    protected ResourceLocation getEntityTexture(EntityArmorgeist entity) {
+        return new ResourceLocation(RWBYModels.MODID,"textures/entity/armorgeist.png");
     }
 
-    public static class Factory implements IRenderFactory<EntityBlake> {
+    public static class Factory implements IRenderFactory<EntityArmorgeist> {
 
         @Override
-        public Render<? super EntityBlake> createRenderFor(RenderManager manager) {
-            return new BlakeRender(manager, new ModelBiped(), 0);
+        public Render<? super EntityArmorgeist> createRenderFor(RenderManager manager) {
+            return new ArmorGeistRender(manager, new ModelBiped(), 0);
         }
 
     }

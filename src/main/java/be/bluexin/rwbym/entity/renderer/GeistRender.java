@@ -1,9 +1,8 @@
 package be.bluexin.rwbym.entity.renderer;
 
 import be.bluexin.rwbym.RWBYModels;
-import be.bluexin.rwbym.entity.EntityBlake;
-import be.bluexin.rwbym.entity.EntityBlake;
-import be.bluexin.rwbym.entity.EntityBlake;
+import be.bluexin.rwbym.entity.EntityGeist;
+import be.bluexin.rwbym.entity.ModelGeist;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelZombie;
@@ -19,33 +18,33 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class BlakeRender extends RenderBiped<EntityBlake>
+public class GeistRender extends RenderBiped<EntityGeist>
 {
 
-    public static BlakeRender.Factory FACTORY = new BlakeRender.Factory();
+    public static GeistRender.Factory FACTORY = new GeistRender.Factory();
 
-    public BlakeRender(RenderManager renderManagerIn, ModelBiped modelBaseIn, float shadowSizeIn) {
+    public GeistRender(RenderManager renderManagerIn, ModelBiped modelBaseIn, float shadowSizeIn) {
         super(renderManagerIn, modelBaseIn, shadowSizeIn);
     }
 
-    protected boolean canRenderName(EntityBlake entity) {
+    protected boolean canRenderName(EntityGeist entity) {
         return false;
     }
 
-    protected void preRenderCallback(EntityBlake entitylivingbaseIn, float partialTickTime) {
+    protected void preRenderCallback(EntityGeist entitylivingbaseIn, float partialTickTime) {
         GlStateManager.scale(1F, 1F, 1F);
     }
 
     @Override
-    protected ResourceLocation getEntityTexture(EntityBlake entity) {
-        return new ResourceLocation(RWBYModels.MODID,"textures/entity/Blake.png");
+    protected ResourceLocation getEntityTexture(EntityGeist entity) {
+        return new ResourceLocation(RWBYModels.MODID,"textures/entity/geist.png");
     }
 
-    public static class Factory implements IRenderFactory<EntityBlake> {
+    public static class Factory implements IRenderFactory<EntityGeist> {
 
         @Override
-        public Render<? super EntityBlake> createRenderFor(RenderManager manager) {
-            return new BlakeRender(manager, new ModelBiped(), 0);
+        public Render<? super EntityGeist> createRenderFor(RenderManager manager) {
+            return new GeistRender(manager, new ModelGeist(), 0);
         }
 
     }

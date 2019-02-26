@@ -1,45 +1,58 @@
 {
   "pools": [
     {
-      "name": "boss",
+      "name": "armagigas",
       "rolls": {
-        "min": 1,
+        "min": 2,
         "max": 3
       },
       "entries": [
         {
           "type": "item",
+          "name": "rwbym:armasword",
+          "weight": 100
+        },
+        {
+          "type": "item",
           "name": "rwbym:crescent",
           "weight": 20
-        },{
+        },
+        {
           "type": "item",
           "name": "rwbym:gambol",
           "weight": 20
-        },{
+        },
+        {
           "type": "item",
           "name": "rwbym:ember",
           "weight": 20
-        },{
+        },
+        {
           "type": "item",
           "name": "rwbym:weiss",
           "weight": 20
-        },{
+        },
+        {
           "type": "item",
           "name": "rwbym:juane",
           "weight": 20
-        },{
+        },
+        {
           "type": "item",
           "name": "rwbym:pyrrhaspear",
           "weight": 20
-        },{
+        },
+        {
           "type": "item",
           "name": "rwbym:stormflower",
           "weight": 20
-        },{
+        },
+        {
           "type": "item",
           "name": "rwbym:norahammer",
           "weight": 20
-        },{
+        },
+        {
           "type": "item",
           "name": "rwbym:rvnswd",
           "weight": 5
@@ -109,8 +122,5 @@
           "name": "rwbym:mariacane",
           "weight": 20
         }
-
       ]
-    }
-  ]
-}
+    }]}

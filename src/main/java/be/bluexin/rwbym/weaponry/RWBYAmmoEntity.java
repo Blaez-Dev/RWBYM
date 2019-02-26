@@ -29,6 +29,7 @@ import net.minecraft.network.play.server.SPacketChangeGameState;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
@@ -179,7 +180,6 @@ public class RWBYAmmoEntity extends EntityArrow { // FIXME: for some reason thes
         });
         super.setDead();
     }
-
     @Override
     public void onUpdate() {
         super.onUpdate();
@@ -187,6 +187,9 @@ public class RWBYAmmoEntity extends EntityArrow { // FIXME: for some reason thes
             this.maxMotionX = this.motionX;
             this.maxMotionY = this.motionY;
             this.maxMotionZ = this.motionZ;
+
+
+
 
             if (nbt.hasKey("Passengers", 9)) {
                 NBTTagList nbttaglist = nbt.getTagList("Passengers", 10);

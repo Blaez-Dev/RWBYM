@@ -3,8 +3,8 @@ package be.bluexin.rwbym.entity.renderer;
 import be.bluexin.rwbym.RWBYModels;
 import be.bluexin.rwbym.entity.EntityBlakeFire;
 import be.bluexin.rwbym.entity.EntityBlakeFire;
-import be.bluexin.rwbym.entity.ModelBlake;
 import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelZombie;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.Render;
@@ -18,12 +18,12 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class BlakeFireRender extends RenderLivingBase<EntityBlakeFire>
+public class BlakeFireRender extends RenderBiped<EntityBlakeFire>
 {
 
     public static BlakeFireRender.Factory FACTORY = new BlakeFireRender.Factory();
 
-    public BlakeFireRender(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
+    public BlakeFireRender(RenderManager renderManagerIn, ModelBiped modelBaseIn, float shadowSizeIn) {
         super(renderManagerIn, modelBaseIn, shadowSizeIn);
     }
 
@@ -44,7 +44,7 @@ public class BlakeFireRender extends RenderLivingBase<EntityBlakeFire>
 
         @Override
         public Render<? super EntityBlakeFire> createRenderFor(RenderManager manager) {
-            return new BlakeFireRender(manager, new ModelBlake(1, false), 0);
+            return new BlakeFireRender(manager, new ModelBiped(), 0);
         }
 
     }

@@ -4,8 +4,8 @@ import be.bluexin.rwbym.RWBYModels;
 import be.bluexin.rwbym.entity.EntityBlakeIce;
 import be.bluexin.rwbym.entity.EntityBlakeIce;
 import be.bluexin.rwbym.entity.EntityBlakeIce;
-import be.bluexin.rwbym.entity.ModelBlake;
 import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelZombie;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.Render;
@@ -19,12 +19,12 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class BlakeIceRender extends RenderLivingBase<EntityBlakeIce>
+public class BlakeIceRender extends RenderBiped<EntityBlakeIce>
 {
 
     public static BlakeIceRender.Factory FACTORY = new BlakeIceRender.Factory();
 
-    public BlakeIceRender(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
+    public BlakeIceRender(RenderManager renderManagerIn, ModelBiped modelBaseIn, float shadowSizeIn) {
         super(renderManagerIn, modelBaseIn, shadowSizeIn);
     }
 
@@ -45,7 +45,7 @@ public class BlakeIceRender extends RenderLivingBase<EntityBlakeIce>
 
         @Override
         public Render<? super EntityBlakeIce> createRenderFor(RenderManager manager) {
-            return new BlakeIceRender(manager, new ModelBlake(1, false), 0);
+            return new BlakeIceRender(manager, new ModelBiped(), 0);
         }
 
     }
