@@ -193,7 +193,7 @@ public class RWBYCRScythe extends ItemBow implements ICustomItem {
     private ItemStack findAmmo(EntityPlayer player, boolean force) {
         Item ammo1 = this.ammo == null ? Items.ARROW : Item.getByNameOrId(this.ammo);
         if (force || (ammo1 instanceof ItemArrow && ((ItemArrow) ammo1).isInfinite(null, player.getActiveItemStack(), player))
-                || (ammo1 instanceof RWBYAmmoItem && ((RWBYAmmoItem) ammo1).isInfinite(null, player.getActiveItemStack(), player)))
+                  || (ammo1 instanceof RWBYAmmoItem && ((RWBYAmmoItem) ammo1).isInfinite()))
             return new ItemStack(ammo1);
 
 
