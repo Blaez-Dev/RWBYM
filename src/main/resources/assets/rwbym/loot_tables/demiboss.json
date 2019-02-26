@@ -93,6 +93,10 @@
           "type": "item",
           "name": "rwbym:jnrbat",
           "weight": 20
+        },{
+          "type": "item",
+          "name": "rwbym:whtefng",
+          "weight": 20
         },
         {
           "type": "item",
@@ -103,6 +107,31 @@
           "type": "item",
           "name": "rwbym:emeraldgun",
           "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "rwbym:mariacane",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "rwbym:coinr",
+          "weight": 10
+        },
+        {
+          "type": "item",
+          "name": "rwbym:coinw",
+          "weight": 10
+        },
+        {
+          "type": "item",
+          "name": "rwbym:coinb",
+          "weight": 10
+        },
+        {
+          "type": "item",
+          "name": "rwbym:coiny",
+          "weight": 10
         }
 
       ]

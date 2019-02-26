@@ -2,16 +2,32 @@ package be.bluexin.rwbym.Init;
 
 import be.bluexin.rwbym.blocks.*;
 import be.bluexin.rwbym.weaponry.*;
+import be.bluexin.rwbym.weaponry.ammohit.ExplosionAmmoHit;
+import be.bluexin.rwbym.weaponry.ammohit.FireAmmoHit;
+import be.bluexin.rwbym.weaponry.ammohit.IAmmoHit;
+import be.bluexin.rwbym.weaponry.ammohit.PotionAmmoHit;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.projectile.EntityPotion;
+import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemArmor;
+import net.minecraft.item.ItemSplashPotion;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.potion.PotionUtils;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import net.minecraftforge.common.util.EnumHelper;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Lists;
 
 public class RWBYItems {
     public static final Item icon = new RWBYSword(
@@ -36,10 +52,23 @@ public class RWBYItems {
             "rwbym:crescentgun",
             "rwbym:crmag,rwbym:crfiremag,rwbym:crgravmag,rwbym:crelectricmag",
             false,
-            3,
+            2,
             true,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
+    public static final Item crescentfrost = new RWBYCRScythe(
+            "crescentfrost",
+            2500,
+            72,
+            0,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:16,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}]}",
+            "rwbym:crescentgunfrost",
+            "rwbym:crmag,rwbym:crfiremag,rwbym:crgravmag,rwbym:crelectricmag",
+            false,
+            2,
+            true,
+            0,
+           null);
     public static final Item gambol = new RWBYSword(
             "gambol",
             2500,
@@ -191,7 +220,7 @@ public class RWBYItems {
             "rwbym:crescentgunv",
             "rwbym:ammov",
             false,
-            3,
+            2,
             false,
             1,
             null);
@@ -206,7 +235,7 @@ public class RWBYItems {
             false,
             1,
             true,
-            3,
+            2,
             1,
             null);
     public static Item gambolv = new RWBYSword(
@@ -582,6 +611,102 @@ public class RWBYItems {
             true,
             null
     );
+    public static Item mariacane = new RWBYSword(
+            "mariacane",
+            2500,
+            12,
+            0,
+            null,
+            "rwbym:mariascythe",
+            false,
+            false,
+            false,
+            false,
+            0,
+            RWBYCreativeTabs.tab_rwbyweapons);
+    public static Item mariascythe = new RWBYCRScythe(
+            "mariascythe",
+            2500,
+            72,
+            0,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:16,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}]}",
+            "rwbym:mariascythedouble",
+            "rwbym:gammag,rwbym:gamgravmag,rwbym:gamicemag,rwbym:gamfiremag",
+            false,
+            2,
+            true,
+            0,
+            null);
+    public static Item mariascythedouble = new RWBYSword(
+            "mariascythedouble",
+            2500,
+            14,
+            0,
+            null,
+            "rwbym:mariacane",
+            false,
+            true,
+            false,
+            false,
+            0,
+            null);
+    public static final Item chatareus = new RWBYBow(
+            "chatareus",
+            2500,
+            72,
+            0,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:16,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}]}",
+            "rwbym:chatareusgun",
+            "rwbym:crmag,rwbym:crfiremag,rwbym:crgravmag,rwbym:crelectricmag",
+            false,
+            2,
+            true,
+            0,
+            0,
+            RWBYCreativeTabs.tab_rwbyweapons);
+    public static final Item chatareusgun = new RWBYBow(
+            "chatareusgun",
+            2500,
+            7200,
+            0,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:16,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}]}",
+            "rwbym:chatareus",
+            "rwbym:crmag,rwbym:crfiremag,rwbym:crgravmag,rwbym:crelectricmag",
+            false,
+            3,
+            true,
+            0,
+            0,
+            null);
+
+    public static Item armasword = new RWBYSword(
+            "armasword",
+            2500,
+            15,
+            15,
+            null,
+            null,
+            false,
+            true,
+            false,
+            false,
+            0,
+            null);
+
+    public static Item armaswordsummon = new RWBYSword(
+            "armaswordsummon",
+            2500,
+            15,
+            15,
+            null,
+            null,
+            false,
+            true,
+            false,
+            false,
+            0,
+            null);
+
     //------------------------------------------------//
 
     public static Item crescentgun = new RWBYBow(
@@ -593,7 +718,21 @@ public class RWBYItems {
             "rwbym:crescent",
             "rwbym:crmag,rwbym:crfiremag,rwbym:crgravmag,rwbym:crelectricmag",
             false,
-            3,
+            2,
+            true,
+            1,
+            0,
+            null);
+    public static Item crescentgunfrost = new RWBYBow(
+            "crescentgunfrost",
+            2500,
+            72,
+            0,
+            null,
+            "rwbym:crescentfrost",
+            "rwbym:crmag,rwbym:crfiremag,rwbym:crgravmag,rwbym:crelectricmag",
+            false,
+            2,
             true,
             1,
             0,
@@ -632,7 +771,7 @@ public class RWBYItems {
             72,
             0,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:10,Operation:0,UUIDMost:99791,UUIDLeast:128916}]}",
-            null,
+            "rwbym:ember2",
             "rwbym:emammo,rwbym:emfireammo,rwbym:emflareammo",
             false,
             2,
@@ -640,6 +779,20 @@ public class RWBYItems {
             2,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
+    public static Item ember2 = new RWBYBow(
+            "ember2",
+            2500,
+            72,
+            0,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:14,Operation:0,UUIDMost:99791,UUIDLeast:128916}]}",
+            "rwbym:ember",
+            "rwbym:emammo,rwbym:emfireammo,rwbym:emflareammo",
+            false,
+            2,
+            true,
+            2,
+            0,
+            null);
     public static Item gambolgun = new RWBYBow(
             "gambolgun",
             2500,
@@ -860,7 +1013,7 @@ public class RWBYItems {
             "rwbym:cinder",
             "minecraft:arrow,minecraft:tipped_arrow",
             false,
-            3,
+            2,
             true,
             0,
             0,
@@ -905,6 +1058,7 @@ public class RWBYItems {
     public static Item gildediron = new RWBYItem("gildediron", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static Item frostediron = new RWBYItem("frostediron", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static Item shadowiron = new RWBYItem("shadowiron", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static Item viridianiron = new RWBYItem("viridianiron", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static Item cr1 = new RWBYItem("cr1", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static Item cr2 = new RWBYItem("cr2", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static Item cr3 = new RWBYItem("cr3", null, false, RWBYCreativeTabs.tab_rwbyitems);
@@ -937,295 +1091,322 @@ public class RWBYItems {
     public static Item stor5 = new RWBYItem("stor5", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static Item stor6 = new RWBYItem("stor6", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static Item scrap = new RWBYItem("scrap", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static Item atlasknight = new RWBYItem("atlasknight", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static Item coinr = new RWBYItem("coinr", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static Item coinw = new RWBYItem("coinw", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static Item coinb = new RWBYItem("coinb", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static Item coiny = new RWBYItem("coiny", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static Item rvnmask = new RWBYItem("rvnmask", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true, RWBYCreativeTabs.tab_rwbyitems);
     public static Item whtefng =  new RWBYItem("whtefng", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true, RWBYCreativeTabs.tab_rwbyitems);
     public static Item rubyhood = new RWBYItem("rubyhood", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true, RWBYCreativeTabs.tab_rwbyitems);
     //------------------------------------------------//
     public static Item gamammo = new RWBYAmmoItem(
             "gamammo",
+            null,
             64,
             false,
             "textures/entity/projectiles/tipped_arrow.png",
-            4,
             true,
             false,
             null,
             null,
             1,
             4,
-            RWBYCreativeTabs.tab_rwbyitems);
+            RWBYCreativeTabs.tab_rwbyitems,
+            null);
     public static Item gammag = new RWBYAmmoItem(
             "gammag",
+            null,
             1,
             false,
             "textures/entity/projectiles/tipped_arrow.png",
-            4,
             true,
             false,
             null,
             null,
             32,
             4,
-            RWBYCreativeTabs.tab_rwbyitems);
+            RWBYCreativeTabs.tab_rwbyitems,
+            null);
     public static Item gamfiremag = new RWBYAmmoItem(
             "gamfiremag",
+            null,
             1,
             false,
             "textures/entity/projectiles/tipped_arrow.png",
-            4,
             true,
             false,
-            "{Passengers:[{id:\"rwbym:fireball\",ExplosionPower:1}]}",
+            "",
             null,
             32,
             4,
-            RWBYCreativeTabs.tab_rwbyitems);
+            RWBYCreativeTabs.tab_rwbyitems,
+            new FireAmmoHit());
     public static Item gamicemag = new RWBYAmmoItem(
             "gamicemag",
+            null,
             1,
             false,
             "textures/entity/projectiles/tipped_arrow.png",
-            4,
             true,
             false,
             null,
-            "minecraft:slowness*5*900",
+            ImmutableList.of(new PotionEffect(Potion.getPotionFromResourceLocation("minecraft:slowness"), 100, 5)),
             32,
             4,
-            RWBYCreativeTabs.tab_rwbyitems);
+            RWBYCreativeTabs.tab_rwbyitems,
+            null);
     public static Item gamgravmag = new RWBYAmmoItem(
             "gamgravmag",
+            null,
             1,
             false,
             "textures/entity/projectiles/tipped_arrow.png",
-            4,
             true,
             false,
             null,
-            "minecraft:levitation*2*100",
+            ImmutableList.of(new PotionEffect(Potion.getPotionFromResourceLocation("minecraft:levitation"), 100, 2)),
             32,
             4,
-            RWBYCreativeTabs.tab_rwbyitems);
+            RWBYCreativeTabs.tab_rwbyitems,
+            null);
     public static Item emammo = new RWBYAmmoItem(
             "emammo",
+            null,
             1,
             false,
             "textures/entity/projectiles/tipped_arrow.png",
-            8,
             true,
             false,
             null,
             null,
             12,
             8,
-            RWBYCreativeTabs.tab_rwbyitems);
+            RWBYCreativeTabs.tab_rwbyitems,
+            null);
     public static Item emfireammo = new RWBYAmmoItem(
             "emfireammo",
+            null,
             1,
             false,
             "textures/entity/projectiles/tipped_arrow.png",
-            8,
             true,
             false,
-            "{Passengers:[{id:\"rwbym:fireball\",ExplosionPower:1}]}",
+            "",
             null,
             12,
             8,
-            RWBYCreativeTabs.tab_rwbyitems);
+            RWBYCreativeTabs.tab_rwbyitems,
+            new FireAmmoHit());
     public static Item emflareammo = new RWBYAmmoItem(
             "emflareammo",
+            null,
             1,
             false,
             "textures/entity/projectiles/tipped_arrow.png",
-            8,
             true,
             false,
-            "{Passengers:[{id:\"rwbym:largefireball\",ExplosionPower:1}]}",
+            "",
             null,
             12,
             8,
-            RWBYCreativeTabs.tab_rwbyitems);
+            RWBYCreativeTabs.tab_rwbyitems,
+            new ExplosionAmmoHit(1));
     public static Item crmag = new RWBYAmmoItem(
             "crmag",
+            null,
             1,
             false,
             "textures/entity/projectiles/tipped_arrow.png",
-            10,
             true,
             false,
             null,
             null,
             12,
             10,
-            RWBYCreativeTabs.tab_rwbyitems);
+            RWBYCreativeTabs.tab_rwbyitems,
+            null);
     public static Item crgravmag = new RWBYAmmoItem(
             "crgravmag",
+            null,
             1,
             false,
             "textures/entity/projectiles/tipped_arrow.png",
-            10,
             true,
             false,
             null,
-            "minecraft:levitation*2*100",
+            ImmutableList.of(new PotionEffect(Potion.getPotionFromResourceLocation("minecraft:levitation"), 100, 2)),
             12,
             10,
-            RWBYCreativeTabs.tab_rwbyitems);
+            RWBYCreativeTabs.tab_rwbyitems,
+            null);
     public static Item crfiremag = new RWBYAmmoItem(
             "crfiremag",
+            null,
             1,
             false,
             "textures/entity/projectiles/tipped_arrow.png",
-            10,
             true,
             false,
-            "{Passengers:[{id:\"rwbym:fireball\",ExplosionPower:1}]}",
+            "",
             null,
             12,
             10,
-            RWBYCreativeTabs.tab_rwbyitems);
+            RWBYCreativeTabs.tab_rwbyitems,
+            new FireAmmoHit());
     public static Item crelectricmag = new RWBYAmmoItem(
             "crelectricmag",
+            null,
             1,
             false,
             "textures/entity/projectiles/tipped_arrow.png",
-            10,
             true,
             false,
             null,
-            "minecraft:slowness*20*900",
+            ImmutableList.of(new PotionEffect(Potion.getPotionFromResourceLocation("minecraft:slowness"), 500, 20)),
             12,
             10,
-            RWBYCreativeTabs.tab_rwbyitems);
+            RWBYCreativeTabs.tab_rwbyitems,
+            null);
     public static Item magnammo = new RWBYAmmoItem(
             "magnammo",
+            null,
             1,
             false,
             "textures/entity/projectiles/tipped_arrow.png",
-            4,
             true,
             false,
-            "{Passengers:[{id:\"rwbym:largefireball\",ExplosionPower:3}]}",
+            "",
             null,
             6,
             4,
-            RWBYCreativeTabs.tab_rwbyitems);
+            RWBYCreativeTabs.tab_rwbyitems,
+            new ExplosionAmmoHit(3));
     public static Item waterdust = new RWBYAmmoItem(
             "waterdust",
+            null,
             64,
             false,
-            "textures/entity/projectiles/tipped_arrow2.png",
-            0,
+            "textures/entity/projectiles/tipped_arrow.png",
             true,
             false,
-            "{Passengers:[{id:\"potion\",Potion:{id:\"minecraft:splash_potion\",Count:1,tag:{CustomPotionEffects:[{Id:22,Amplifier:2,Duration:100}]}}}]}",
+            "",
             null,
             1,
             0,
-            RWBYCreativeTabs.tab_rwbyitems);
+            RWBYCreativeTabs.tab_rwbyitems,
+            new PotionAmmoHit(Items.SPLASH_POTION, ImmutableList.of(new PotionEffect(Potion.getPotionById(22), 100, 2))));
     public static Item winddust = new RWBYAmmoItem(
             "winddust",
+            null,
             64,
             false,
-            "textures/entity/projectiles/tipped_arrow2.png",
-            0,
+            "textures/entity/projectiles/tipped_arrow.png",
             true,
             false,
-            "{Passengers:[{id:\"potion\",Potion:{id:\"minecraft:lingering_potion\",Count:1,tag:{CustomPotionEffects:[{Id:1,Amplifier:5,Duration:80},{Id:8,Amplifier:3,Duration:100,ShowParticles:0b}]}}}]}",
+            "",
             null,
             1,
             0,
-            RWBYCreativeTabs.tab_rwbyitems);
+            RWBYCreativeTabs.tab_rwbyitems,
+            new PotionAmmoHit(Items.LINGERING_POTION, ImmutableList.of(new PotionEffect(Potion.getPotionById(1), 80, 5), new PotionEffect(Potion.getPotionById(8), 100, 3, false, false))));
     public static Item firedust = new RWBYAmmoItem(
             "firedust",
+            null,
             64,
             false,
-            "textures/entity/projectiles/tipped_arrow2.png",
-            5,
+            "textures/entity/projectiles/tipped_arrow.png",
             true,
             false,
-            "{Passengers:[{id:\"rwbym:fireball\",ExplosionPower:1}]}",
+            "",
             null,
             1,
             5,
-            RWBYCreativeTabs.tab_rwbyitems);
+            RWBYCreativeTabs.tab_rwbyitems,
+            new FireAmmoHit());
     public static Item icedust = new RWBYAmmoItem(
             "icedust",
+            null,
             64,
             false,
-            "textures/entity/projectiles/tipped_arrow3.png",
-            5,
+            "textures/entity/projectiles/tipped_arrow.png",
             true,
             false,
             null,
-            "minecraft:slowness*20*900",
+            ImmutableList.of(new PotionEffect(Potion.getPotionFromResourceLocation("minecraft:slowness"), 500, 20)),
             1,
             5,
-            RWBYCreativeTabs.tab_rwbyitems);
+            RWBYCreativeTabs.tab_rwbyitems,
+            null);
     public static Item lightdust = new RWBYAmmoItem(
             "lightdust",
+            null,
             64,
             false,
-            "textures/entity/projectiles/tipped_arrow4.png",
-            5,
+            "textures/entity/projectiles/tipped_arrow.png",
             true,
             false,
             null,
-            "minecraft:speed*2*400",
+            ImmutableList.of(new PotionEffect(Potion.getPotionFromResourceLocation("minecraft:speed"), 400, 2)),
             1,
             5,
-            RWBYCreativeTabs.tab_rwbyitems);
+            RWBYCreativeTabs.tab_rwbyitems,
+            null);
     public static Item gravitydust = new RWBYAmmoItem(
             "gravitydust",
+            null,
             64,
             false,
-            "textures/entity/projectiles/tipped_arrow2.png",
-            5,
+            "textures/entity/projectiles/tipped_arrow.png",
             true,
             false,
-            "{Passengers:[{id:\"potion\",Potion:{id:\"minecraft:lingering_potion\",Count:1,tag:{CustomPotionEffects:[{Id:25,Amplifier:3,Duration:60,ShowParticles:0b}]}}}]}",
+            "",
             null,
             1,
             5,
-            RWBYCreativeTabs.tab_rwbyitems);
+            RWBYCreativeTabs.tab_rwbyitems,
+            new PotionAmmoHit(Items.LINGERING_POTION, ImmutableList.of(new PotionEffect(Potion.getPotionById(25), 60, 3, false, false))));
     public static Item jnrammo = new RWBYAmmoItem(
             "jnrammo",
+            null,
             1,
             false,
             "textures/entity/projectiles/tipped_arrow.png",
-            4,
             true,
             true,
-            "{Passengers:[{id:\"rwbym:largefireball\",ExplosionPower:3}]}",
+            "",
             null,
             6,
             4,
-            null);
+            null,
+            new ExplosionAmmoHit(3));
     public static Item ammov = new RWBYAmmoItem(
             "ammov",
+            null,
             1,
             false,
-            "textures/entity/projectiles/tipped_arrow1.png",
-            2,
+            "textures/entity/projectiles/tipped_arrow.png",
             true,
             true,
             null,
             null,
             1,
             2,
+            null,
             null);
     public static Item ammmo = new RWBYAmmoItem(
             "ammmo",
+            null,
             1,
             false,
             "textures/entity/projectiles/tipped_arrow.png",
-            1,
             true,
             true,
             null,
             null,
             1,
             1,
+            null,
             null);
 
 

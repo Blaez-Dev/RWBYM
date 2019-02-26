@@ -4,10 +4,7 @@ import be.bluexin.rwbym.ModLootTables;
 import com.google.common.base.Predicate;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.EntityCreature;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EnumCreatureAttribute;
-import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.*;
 import net.minecraft.entity.passive.EntityVillager;
@@ -24,9 +21,8 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
-public class EntityWinterUrsa extends EntityMob {
+public class EntityWinterUrsa extends EntityGolem {
     World world = null;
-    private EntityLiving owner;
     private int counter;
     @Nullable
 
@@ -45,18 +41,8 @@ public class EntityWinterUrsa extends EntityMob {
         this.tasks.addTask(9, new EntityAIWatchClosest(this, EntityPlayer.class, 3.0F, 1.0F));
         this.tasks.addTask(10, new EntityAIWatchClosest(this, EntityLiving.class, 8.0F));
         this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, EntityVindicator.class));
-        this.targetTasks.addTask(2, new EntityWinterUrsa.AICopyOwnerTarget(this));
         this.targetTasks.addTask(2, new EntityAIHurtByTarget(this, false, new Class[0]));
-        this.targetTasks.addTask(1, new EntityAINearestAttackableTarget(this, EntityLiving.class, 10, false, true, new Predicate<EntityLiving>()
-                {
-                    public boolean apply(@Nullable EntityLiving p_apply_1_)
-                    {
-                        return p_apply_1_ != null && IMob.VISIBLE_MOB_SELECTOR.apply(p_apply_1_) && !(p_apply_1_ instanceof EntityCreeper) && !(p_apply_1_ instanceof EntityWinterBeowolf) && !(p_apply_1_ instanceof EntityWinterUrsa) && !(p_apply_1_ instanceof EntityWinterBoarbatusk);
-                    }
-                }
-                )
-
-        );
+        this.targetTasks.addTask(1, new EntityAINearestAttackableTarget(this, EntityLiving.class, 10, true, false, IMob.MOB_SELECTOR));
     }
 
     @Override
@@ -72,41 +58,22 @@ public class EntityWinterUrsa extends EntityMob {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.3499999940395355D);
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(12.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(40.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(5.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(60.0D);
     }
 
-
-
-
-    public void setOwner(EntityLiving ownerIn)
+    public boolean attackEntityAsMob(Entity entityIn)
     {
-        this.owner = ownerIn;
-    }
+        this.world.setEntityState(this, (byte)4);
+        boolean flag = entityIn.attackEntityFrom(DamageSource.causeMobDamage(this), (float)(7 + this.rand.nextInt(15)));
 
-    class AICopyOwnerTarget extends EntityAITarget
-    {
-        public AICopyOwnerTarget(EntityCreature creature)
+        if (flag)
         {
-            super(creature, false);
+            entityIn.motionY += 0.4000000059604645D;
+            this.applyEnchantments(this, entityIn);
         }
 
-        /**
-         * Returns whether the EntityAIBase should begin execution.
-         */
-        public boolean shouldExecute()
-        {
-            return EntityWinterUrsa.this.owner != null && EntityWinterUrsa.this.owner.getAttackTarget() != null && this.isSuitableTarget(EntityWinterUrsa.this.owner.getAttackTarget(), false);
-        }
-
-        /**
-         * Execute a one shot task or start executing a continuous task
-         */
-        public void startExecuting()
-        {
-            EntityWinterUrsa.this.setAttackTarget(EntityWinterUrsa.this.owner.getAttackTarget());
-            super.startExecuting();
-        }
+        this.playSound(SoundEvents.ENTITY_IRONGOLEM_ATTACK, 1.0F, 1.0F);
+        return flag;
     }
 
     public EnumCreatureAttribute getCreatureAttribute() {

@@ -1,7 +1,7 @@
 package be.bluexin.rwbym.utility.network;
 
-import be.bluexin.rwbym.capabilities.ruby.IRuby;
-import be.bluexin.rwbym.capabilities.ruby.RubyProvider;
+import be.bluexin.rwbym.capabilities.Ruby.IRuby;
+import be.bluexin.rwbym.capabilities.Ruby.RubyProvider;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;

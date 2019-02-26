@@ -57,6 +57,7 @@ public class RWBYCRScythe extends ItemBow implements ICustomItem {
     private boolean stormf = false;
     private boolean coco = false;
     private boolean velvet = false;
+    private boolean maria = false;
 
 
     public RWBYCRScythe(String name, int durability, int drawSpeed, int enchantability, String data, String morph, String ammo, boolean noCharge, float projectileSpeed, boolean usesAmmo, int enchantmentglow, CreativeTabs creativetab) {
@@ -71,6 +72,8 @@ public class RWBYCRScythe extends ItemBow implements ICustomItem {
         this.projectileSpeed = projectileSpeed;
         this.charges = !noCharge;
         if(enchantmentglow == 1) this.velvet = true;
+
+        if(name.contains("mariascythe")) maria = true;
 
         if(name.contains("crescent")) crescentr = true;
         if(name.contains("gambol")) gambols = true;
@@ -150,6 +153,15 @@ public class RWBYCRScythe extends ItemBow implements ICustomItem {
                 playerIn.lastTickPosX = -look.z;
             }}
 
+        if (!flag) {if (maria)  { if (playerIn.collidedHorizontally){
+            Vec3d look = playerIn.getLookVec();
+            playerIn.motionX = look.x/2;
+            playerIn.motionZ = look.z/2;
+            playerIn.motionY = look.y/2;
+            playerIn.lastTickPosZ = -look.x;
+            playerIn.lastTickPosX = -look.z;
+            playerIn.fallDistance = 0;
+        }}}
 
         ActionResult<ItemStack> ret = net.minecraftforge.event.ForgeEventFactory.onArrowNock(itemstack, worldIn, playerIn, handIn, flag);
         if (ret != null) return ret;
@@ -181,7 +193,7 @@ public class RWBYCRScythe extends ItemBow implements ICustomItem {
     private ItemStack findAmmo(EntityPlayer player, boolean force) {
         Item ammo1 = this.ammo == null ? Items.ARROW : Item.getByNameOrId(this.ammo);
         if (force || (ammo1 instanceof ItemArrow && ((ItemArrow) ammo1).isInfinite(null, player.getActiveItemStack(), player))
-                || (ammo1 instanceof RWBYAmmoItem && ((RWBYAmmoItem) ammo1).isInfinite(null, player.getActiveItemStack(), player)))
+                  || (ammo1 instanceof RWBYAmmoItem && ((RWBYAmmoItem) ammo1).isInfinite()))
             return new ItemStack(ammo1);
 
 
@@ -256,6 +268,20 @@ public class RWBYCRScythe extends ItemBow implements ICustomItem {
                         worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.Crescent_Rose_Shoot, SoundCategory.MASTER, 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
                     }
 
+                    if (maria) {
+                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.Mytrenaster_Shoot, SoundCategory.MASTER, 1.0F, 0.5F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+                    }
+
+                    if(maria && !entityplayer.onGround){
+                        Vec3d look = entityplayer.getLookVec();
+                        entityplayer.motionX = look.x;
+                        entityplayer.motionZ = look.z;
+                        entityplayer.motionY = look.y *2;
+                        entityplayer.lastTickPosZ = -look.x;
+                        entityplayer.lastTickPosX = -look.z;
+                        entityplayer.fallDistance = 0;
+                    }
+
                     if (!flag){if (mytre) {itemstack.damageItem(2, entityplayer);} else itemstack.damageItem(1, entityplayer);}
                 }
             }
@@ -265,7 +291,7 @@ public class RWBYCRScythe extends ItemBow implements ICustomItem {
     @Override
     public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker)
     {
-        if (crescentr && !attacker.onGround){
+
             for (EntityLivingBase entitylivingbase : attacker.world.getEntitiesWithinAABB(EntityLivingBase.class, target.getEntityBoundingBox().grow(3.0D, 0.25D, 3.0D))) {
                 if (entitylivingbase != attacker && entitylivingbase != target && !attacker.isOnSameTeam(entitylivingbase) && attacker.getDistanceSq(entitylivingbase) < 9.0D) {
                     entitylivingbase.knockBack(attacker, 0.4F, (double) MathHelper.sin(attacker.rotationYaw * 0.017453292F), (double) (-MathHelper.cos(attacker.rotationYaw * 0.017453292F)));
@@ -274,7 +300,7 @@ public class RWBYCRScythe extends ItemBow implements ICustomItem {
             }
 
             attacker.world.playSound((EntityPlayer) null, attacker.posX, attacker.posY, attacker.posZ, SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, attacker.getSoundCategory(), 1.0F, 1.0F);
-        }
+
         stack.damageItem(1, attacker);
         return true;
     }

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "rwbym:chatareus"
+    }
+  ],
+  "result": {
+    "item": "rwbym:scrap",
+    "count": 3
+  },
+  "group": "group"
+}

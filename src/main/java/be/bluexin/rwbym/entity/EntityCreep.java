@@ -43,8 +43,6 @@ public class EntityCreep extends EntityCreeper {
         this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, EntityVindicator.class));
         this.targetTasks.addTask(2, new EntityCreep.AICopyOwnerTarget(this));
         this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
-        this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityVillager.class, true));
-        this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityIronGolem.class, true));
     }
 
     protected void applyEntityAttributes() {
