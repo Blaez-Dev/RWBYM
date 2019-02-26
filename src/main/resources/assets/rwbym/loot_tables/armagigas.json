@@ -1,0 +1,126 @@
+{
+  "pools": [
+    {
+      "name": "armagigas",
+      "rolls": {
+        "min": 2,
+        "max": 3
+      },
+      "entries": [
+        {
+          "type": "item",
+          "name": "rwbym:armasword",
+          "weight": 100
+        },
+        {
+          "type": "item",
+          "name": "rwbym:crescent",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "rwbym:gambol",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "rwbym:ember",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "rwbym:weiss",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "rwbym:juane",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "rwbym:pyrrhaspear",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "rwbym:stormflower",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "rwbym:norahammer",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "rwbym:rvnswd",
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "name": "rwbym:qrowsword",
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "name": "rwbym:yatsuhashi",
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "name": "rwbym:cocobag",
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "name": "rwbym:velvet",
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "name": "rwbym:fox",
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "name": "rwbym:ozpincane",
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "name": "rwbym:ozmacane",
+          "weight": 15
+        },
+        {
+          "type": "item",
+          "name": "rwbym:portgun",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "rwbym:winterswd",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "rwbym:korekosmouoff",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "rwbym:rvnmask",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "rwbym:toolkit",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "rwbym:mariacane",
+          "weight": 20
+        }
+      ]
+    }]}

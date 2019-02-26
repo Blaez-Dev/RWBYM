@@ -93,7 +93,7 @@ public class RWBYAmmoEntity extends EntityArrow { // FIXME: for some reason thes
         this.setNoGravity(!from.obeysGravity());
         this.itemRef = from;
 
-        if (from.getPotion() != null) {
+        /*if (from.getPotion() != null) {
             String[] ps = from.getPotion().split("\\*", -1);
             Potion p = ForgeRegistries.POTIONS.getValue(new ResourceLocation(ps[0]));
             if (p != null){
@@ -109,6 +109,7 @@ public class RWBYAmmoEntity extends EntityArrow { // FIXME: for some reason thes
             }
             else throw new IllegalStateException("Invalid Potion requested: " + new ResourceLocation(ps[0]));
         }
+        */
 
         if (from.getNbt() != null && !world.isRemote) this.nbt = from.getNbt();
     } // TODO: add to dispenser registries (see usage of this constructor in other impl of EntityArrow

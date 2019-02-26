@@ -1,0 +1,18 @@
+{
+
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " F ",
+        "IDI",
+        "III"
+    ],
+    "key": {
+        "I": {"item": "rwbym:scrap"},
+        "D": {"item": "rwbym:dust"},
+        "F": {"item": "rwbym:frostediron"}
+    },
+    "result": {
+        "item": "rwbym:magngrenade",
+        "count": 8
+    }
+}

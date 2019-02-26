@@ -1,0 +1,18 @@
+{
+
+"type": "minecraft:crafting_shaped",
+"pattern": [
+"  c",
+" b ",
+"a  "
+],
+"key": {
+"a": {"item": "rwbym:milo1"},
+"b": {"item": "rwbym:milo2"},
+"c": {"item": "rwbym:milo3"}
+},
+"result": {
+"item": "rwbym:pyrrhaspear",
+"count": 1
+}
+}

@@ -2,8 +2,8 @@ package be.bluexin.rwbym;
 
 import be.bluexin.rwbym.capabilities.CapabilityHandler;
 import be.bluexin.rwbym.capabilities.ISemblance;
-import be.bluexin.rwbym.capabilities.ruby.IRuby;
-import be.bluexin.rwbym.capabilities.ruby.RubyProvider;
+import be.bluexin.rwbym.capabilities.Ruby.IRuby;
+import be.bluexin.rwbym.capabilities.Ruby.RubyProvider;
 import be.bluexin.rwbym.utility.network.MessageGetPlayerData;
 import be.bluexin.rwbym.utility.network.RWBYNetworkHandler;
 import net.minecraft.entity.player.EntityPlayer;

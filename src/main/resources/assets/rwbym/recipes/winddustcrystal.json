@@ -1,0 +1,13 @@
+{
+   "type": "minecraft:crafting_shapeless",
+   "ingredients": [
+      {
+         "item": "rwbym:winddustrock"
+      }
+   ],
+   "result": {
+      "item": "rwbym:winddustcrystal",
+      "count": 3
+   },
+   "group": "group"
+}

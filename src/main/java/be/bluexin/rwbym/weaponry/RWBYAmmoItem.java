@@ -1,6 +1,9 @@
 package be.bluexin.rwbym.weaponry;
 
 import be.bluexin.rwbym.Init.RWBYCreativeTabs;
+import be.bluexin.rwbym.entity.EntityBullet;
+import be.bluexin.rwbym.weaponry.ammohit.IAmmoHit;
+import be.bluexin.rwbym.weaponry.ammohit.NullAmmoHit;
 import be.bluexin.rwbym.RWBYModels;
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.creativetab.CreativeTabs;
@@ -14,11 +17,18 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.JsonToNBT;
 import net.minecraft.nbt.NBTException;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
+
+import com.google.common.collect.ImmutableList;
 
 /**
  * Part of rwbym by Bluexin.
@@ -29,44 +39,58 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 public class RWBYAmmoItem extends Item implements ICustomItem {
 
-    public static boolean canPickup;
-    private static String texture;
-    public static double baseDamage;
-    public static boolean gravity;
-    public static boolean infinite;
-    public static String nbt;
-    public transient NBTTagCompound nbtTag;
-    public float damages;
+	private ItemStack renderStack;
+    private boolean canPickup;
+    private String texture;
+    private double baseDamage;
+    private boolean gravity;
+    private boolean infinite;
+    private String nbt;
+    private transient NBTTagCompound nbtTag;
+    private IAmmoHit hitfun;
 
-    public String potion;
+    private List<PotionEffect> potions;
 
 
 
 
     //public int getAmmoMax;
 
-    public RWBYAmmoItem(String name, int ammoMax, boolean canPickup, String texture, float damages, boolean gravity, boolean infinite, String nbt, String potion, int durability, double baseDamage, CreativeTabs creativetab) {
+    public RWBYAmmoItem(String name, Item render, int ammoMax, boolean canPickup, String texture, boolean gravity, boolean infinite, String nbt, List<PotionEffect> potion, int durability, double baseDamage, CreativeTabs creativetab, IAmmoHit hitfun) {
         this.setCreativeTab(creativetab);
         this.setRegistryName(new ResourceLocation(RWBYModels.MODID, name));
         this.setUnlocalizedName(this.getRegistryName().toString());
         this.setMaxStackSize(ammoMax);
-        this.damages = damages;
+        if (render == null) {
+        	this.renderStack = ItemStack.EMPTY;
+        }
+        else {
+        	this.renderStack = new ItemStack(render);
+        }
         this.canPickup = canPickup;
         this.texture = texture;
         this.baseDamage = baseDamage;
         this.gravity = gravity;
         this.infinite = infinite;
         this.nbt = nbt;
-        this.potion = potion;
+        this.potions = potion;
         this.setMaxDamage(durability);
+        this.hitfun = hitfun;
+        if (this.hitfun == null) {
+        	this.hitfun = new NullAmmoHit();
+        }
 
-        if (nbt != null) try {
+        if (nbt != null && !nbt.isEmpty()) try {
             this.nbtTag = JsonToNBT.getTagFromJson(nbt);
         } catch (NBTException e) {
             e.printStackTrace();
             System.err.println("Invalid NBT !");
         }
         //this.getAmmoMax = from.getAmmoMax();
+    }
+    
+    public ItemStack getRenderStack() {
+    	return this.renderStack;
     }
 
     public boolean canPickup() {
@@ -89,8 +113,8 @@ public class RWBYAmmoItem extends Item implements ICustomItem {
         return infinite;
     }
 
-    public String getPotion() {
-        return potion;
+    public List<PotionEffect> getPotions() {
+        return potions;
     }
 
     public NBTTagCompound getNbt() {
@@ -107,18 +131,22 @@ public class RWBYAmmoItem extends Item implements ICustomItem {
     {
         return 0;
     }
+    
+    public void onBlockHit(World world, BlockPos pos) {
+    	this.hitfun.applyBlock(world, pos);
+    }
+    
+    public void onEntityHit(EntityLivingBase living) {
+    	this.hitfun.applyEntity(living);
+    }
 
     @Override
     public boolean isRepairable() {
         return false;
     }
     
-    public EntityArrow createArrow(World worldIn, ItemStack stack, EntityLivingBase shooter) {
-        return new RWBYAmmoEntity(worldIn, shooter, this);
-    }
-
-    public boolean isInfinite(@Nullable ItemStack stack, @Nullable ItemStack bow, @Nullable EntityPlayer player) {
-        if (isInfinite()){return true;}else {return false;}
+    public EntityBullet createArrow(World worldIn, ItemStack stack, EntityLivingBase shooter) {
+        return new EntityBullet(worldIn, shooter, this);
     }
 
     @Override

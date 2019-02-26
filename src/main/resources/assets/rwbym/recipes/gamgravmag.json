@@ -1,0 +1,18 @@
+{
+
+          "type": "minecraft:crafting_shaped",
+          "pattern": [
+            "gY ",
+            "III",
+            "III"
+          ],
+          "key": {
+            "I": {"item": "rwbym:gamammo"},
+			"Y": {"item": "rwbym:shadowiron"},
+			"g": {"item": "rwbym:gravitydust"}
+          },
+		  "result": {
+			  "item": "rwbym:gamgravmag",
+			  "count": 1
+		  }
+    }

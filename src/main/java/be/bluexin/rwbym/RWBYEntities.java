@@ -39,11 +39,11 @@ public class RWBYEntities {
     }
 
     public void preInit(FMLPreInitializationEvent event) {
-        int entityID = 333000;
+        int entityID = 0;
         mobid = entityID;
 
         EntityRegistry.registerModEntity(new ResourceLocation("rwbym:beowolf"), EntityBeowolf.class, "beowolf", entityID, instance, 64, 1, true, (0 << 16) + (0 << 8) + 0, (153 << 16) + (153 << 8) + 153);
-        EntityRegistry.registerModEntity(new ResourceLocation("rwbym:projectiles"), RWBYAmmoEntity.class, "rwbyprojectile", entityID + 1, instance, 64, 1, false);
+        EntityRegistry.registerModEntity(new ResourceLocation("rwbym:projectiles"), EntityBullet.class, "rwbyprojectile", entityID + 1, instance, 64, Integer.MAX_VALUE, false);
         EntityRegistry.registerModEntity(new ResourceLocation("rwbym:ursa"), EntityUrsa.class, "ursa", entityID + 2, instance, 64, 1, true, (0 << 16) + (0 << 8) + 0, (153 << 16) + (153 << 8) + 153);
         EntityRegistry.registerModEntity(new ResourceLocation("rwbym:boarbatusk"), EntityBoarbatusk.class, "boarbatusk", entityID + 3, instance, 64, 1, true, (0 << 16) + (0 << 8) + 0, (153 << 16) + (153 << 8) + 153);
         EntityRegistry.registerModEntity(new ResourceLocation("rwbym:fireball"), EntitySmallFireball.class, "fireball", entityID + 4, instance, 64, 1, true);

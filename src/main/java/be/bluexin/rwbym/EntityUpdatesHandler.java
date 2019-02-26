@@ -6,10 +6,10 @@ import org.apache.logging.log4j.Level;
 
 import be.bluexin.rwbym.capabilities.CapabilityHandler;
 import be.bluexin.rwbym.capabilities.ISemblance;
+import be.bluexin.rwbym.capabilities.Ruby.IRuby;
+import be.bluexin.rwbym.capabilities.Ruby.RubyProvider;
 import be.bluexin.rwbym.capabilities.Weiss.WeissProvider;
 import be.bluexin.rwbym.capabilities.Yang.YangProvider;
-import be.bluexin.rwbym.capabilities.ruby.IRuby;
-import be.bluexin.rwbym.capabilities.ruby.RubyProvider;
 import be.bluexin.rwbym.utility.network.MessageSendPlayerData;
 import be.bluexin.rwbym.utility.network.RWBYNetworkHandler;
 import net.minecraft.entity.EntityLiving;

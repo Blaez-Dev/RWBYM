@@ -1,0 +1,55 @@
+{
+	"weapon.crescent_rose.shoot": {
+		"category": "master",
+		"subtitle": "weapon.crescent_rose.shoot",
+		"sounds": [ { "name": "rwbym:weapon/crescent_rose/shoot", "stream": true } ]
+	},
+	
+	"weapon.gambol_shroud.shoot": {
+		"category": "master",
+		"subtitle": "weapon.gambol_shroud.shoot",
+		"sounds": [ { "name": "rwbym:weapon/gambol_shroud/shoot", "stream": true } ]
+		
+	},
+	
+	"weapon.ember_celica.shoot": {
+		"category": "master",
+		"subtitle": "weapon.ember_celica,shoot",
+		"sounds": [ { "name": "rwbym:weapon/ember_celica/shoot", "stream": true } ]
+		
+	},
+	
+	"weapon.mytrenaster.shoot": {
+		"category": "master",
+		"subtitle": "weapon.mytrenaster.shoot",
+		"sounds": [ { "name": "rwbym:weapon/mytrenaster/shoot", "stream": true } ]
+	},
+	
+	"weapon.storm_flower.shoot": {
+		"category": "master",
+		"subtitle": "weapon.storm_flower.shoot",
+		"sounds": [ { "name": "rwbym:weapon/storm_flower/shoot", "stream": true } ]
+	},
+
+	"weapon.port.shoot": {
+		"category": "master",
+		"subtitle": "weapon.port.shoot",
+		"sounds": [ { "name": "rwbym:weapon/port/shoot", "stream": true } ]
+	},
+
+	"weapon.magnhild.shoot": {
+		"category": "master",
+		"subtitle": "weapon.magnhild.shoot",
+		"sounds": [ { "name": "rwbym:weapon/magnhild/shoot", "stream": true } ]
+	},
+	"weapon.junior.shoot": {
+		"category": "master",
+		"subtitle": "weapon.junior.shoot",
+		"sounds": [ { "name": "rwbym:weapon/junior/shoot", "stream": true } ]
+	},
+	"weapon.torchwick.shoot": {
+		"category": "master",
+		"subtitle": "weapon.torchwick.shoot",
+		"sounds": [ { "name": "rwbym:weapon/torchwick/shoot", "stream": true } ]
+	}
+}

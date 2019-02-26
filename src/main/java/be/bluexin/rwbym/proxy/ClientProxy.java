@@ -72,7 +72,7 @@ public class ClientProxy extends CommonProxy {
 
 
     public void preInit() {
-        RenderingRegistry.registerEntityRenderingHandler(RWBYAmmoEntity.class, RWBYAmmoRender::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityBullet.class, RWBYAmmoRender::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityBeowolf.class, BeowolfRender.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(EntityAtlasKnight.class, AtlasKnightRender.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(EntityCreep.class, CreepRender.FACTORY);

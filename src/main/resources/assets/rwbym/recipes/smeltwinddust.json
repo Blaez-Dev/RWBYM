@@ -1,0 +1,9 @@
+{
+    "type": "rwbym:smelting",
+    "ingredient": {
+        "item": "rwbym:winddustrock"
+    },
+    "result": "rwbym:winddust",
+    "experience": 0.4,
+    "cookingtime": 20
+}

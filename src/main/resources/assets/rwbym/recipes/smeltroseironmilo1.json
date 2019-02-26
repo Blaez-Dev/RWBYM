@@ -1,0 +1,9 @@
+{
+    "type": "rwbym:smelting",
+    "ingredient": {
+        "item": "rwbym:milo1"
+    },
+    "result": "rwbym:roseiron",
+    "experience": 0.4,
+    "cookingtime": 20
+}

@@ -1,0 +1,17 @@
+{
+
+          "type": "minecraft:crafting_shaped",
+          "pattern": [
+            " I ",
+            " D ",
+            " I "
+          ],
+          "key": {
+            "I": {"item": "minecraft:iron_ingot"},
+			"D": {"item": "rwbym:dust"}
+          },
+		  "result": {
+			  "item": "rwbym:gamammo",
+			  "count": 2
+		  }
+    }
