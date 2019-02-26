@@ -1,9 +1,0 @@
-{
-    "type": "rwbym:smelting",
-    "ingredient": {
-        "item": "rwbym:cr2"
-    },
-    "result": "rwbym:roseiron",
-    "experience": 0.4,
-    "cookingtime": 20
-}
