@@ -122,9 +122,14 @@ public class Ruby implements IRuby {
 					player.fallDistance = 0;
 					for (int i = 0; i < (this.level > 1 ? 32 : 2); i++) {
 						ItemStack is = player.getHeldItemMainhand();
+						ItemStack is2 = player.getHeldItemOffhand();
 						if(is.getItem() == RWBYItems.crescentfrost){
 							RWBYModels.proxy.generateSummerpetals(player);
 						}else if(is.getItem() == RWBYItems.crescentgunfrost){
+							RWBYModels.proxy.generateSummerpetals(player);
+						}else if(is2.getItem() == RWBYItems.crescentfrost){
+							RWBYModels.proxy.generateSummerpetals(player);
+						}else if(is2.getItem() == RWBYItems.crescentgunfrost){
 							RWBYModels.proxy.generateSummerpetals(player);
 						}else RWBYModels.proxy.generateRosepetals(player);
 					}

@@ -11,6 +11,9 @@ entity.winter_beowolf.name=Summoned Beowolf
 entity.winter_ursa.name=Summoned Ursa
 entity.winter_boarbatusk.name=Summoned Boarbatusk
 entity.atlasknight.name=Atlas Knight
+entity.armorgeist.name=Arma Gigas
+entity.winterarmorgeist.name= Summoned Arma Gigas
+entity.geist.name=Geist
 
 item.rwbym:crescent.name=Crescent Rose
 item.rwbym:crescentgun.name=Crescent Rose
@@ -180,6 +183,11 @@ item.rwbym:coinr.name=Semblance Coin Ruby
 item.rwbym:coinw.name=Semblance Coin Weiss
 item.rwbym:coinb.name=Semblance Coin Blake
 item.rwbym:coiny.name=Semblance Coin Yang
+item.rwbym:viridianiron.name=Viridian Iron
+item.rwbym:chatareus.name=Chatareus
+item.rwbym:chatareusgun.name=Chatareus
+item.rwbym:armasword.name=Arma Gigas' Sword
+item.rwbym:armaswordsummon.name=Summoned Arma Gigas' Sword
 
 itemGroup.rwby_weapons=RWBY Weapons
 itemGroup.rwby_items=RWBY Items

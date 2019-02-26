@@ -171,8 +171,7 @@ public class Blake implements IBlake {
 			if (!player.capabilities.isCreativeMode) {
 				is.shrink(1);
 			}
-		}
-		if(is.getItem() == RWBYItems.icedust){
+		}else if(is.getItem() == RWBYItems.icedust){
 			BlockPos blockpos = (new BlockPos(player));
 			EntityBlakeIce entityBlakeIce = new EntityBlakeIce(player.world);
 			entityBlakeIce.moveToBlockPosAndAngles(blockpos, 0.0F, 0.0F);

@@ -4,8 +4,8 @@ import be.bluexin.rwbym.RWBYModels;
 import be.bluexin.rwbym.entity.EntityBlake;
 import be.bluexin.rwbym.entity.EntityBlake;
 import be.bluexin.rwbym.entity.EntityBlake;
-import be.bluexin.rwbym.entity.ModelBlake;
 import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelZombie;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.Render;
@@ -19,12 +19,12 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class BlakeRender extends RenderLivingBase<EntityBlake>
+public class BlakeRender extends RenderBiped<EntityBlake>
 {
 
     public static BlakeRender.Factory FACTORY = new BlakeRender.Factory();
 
-    public BlakeRender(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
+    public BlakeRender(RenderManager renderManagerIn, ModelBiped modelBaseIn, float shadowSizeIn) {
         super(renderManagerIn, modelBaseIn, shadowSizeIn);
     }
 
@@ -45,7 +45,7 @@ public class BlakeRender extends RenderLivingBase<EntityBlake>
 
         @Override
         public Render<? super EntityBlake> createRenderFor(RenderManager manager) {
-            return new BlakeRender(manager, new ModelBlake(1, false), 0);
+            return new BlakeRender(manager, new ModelBiped(), 0);
         }
 
     }

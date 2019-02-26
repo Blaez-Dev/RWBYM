@@ -52,7 +52,7 @@ public class RWBYItems {
             "rwbym:crescentgun",
             "rwbym:crmag,rwbym:crfiremag,rwbym:crgravmag,rwbym:crelectricmag",
             false,
-            3,
+            2,
             true,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
@@ -65,7 +65,7 @@ public class RWBYItems {
             "rwbym:crescentgunfrost",
             "rwbym:crmag,rwbym:crfiremag,rwbym:crgravmag,rwbym:crelectricmag",
             false,
-            3,
+            2,
             true,
             0,
            null);
@@ -220,7 +220,7 @@ public class RWBYItems {
             "rwbym:crescentgunv",
             "rwbym:ammov",
             false,
-            3,
+            2,
             false,
             1,
             null);
@@ -235,7 +235,7 @@ public class RWBYItems {
             false,
             1,
             true,
-            3,
+            2,
             1,
             null);
     public static Item gambolv = new RWBYSword(
@@ -633,7 +633,7 @@ public class RWBYItems {
             "rwbym:mariascythedouble",
             "rwbym:gammag,rwbym:gamgravmag,rwbym:gamicemag,rwbym:gamfiremag",
             false,
-            8,
+            2,
             true,
             0,
             null);
@@ -650,6 +650,63 @@ public class RWBYItems {
             false,
             0,
             null);
+    public static final Item chatareus = new RWBYBow(
+            "chatareus",
+            2500,
+            72,
+            0,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:16,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}]}",
+            "rwbym:chatareusgun",
+            "rwbym:crmag,rwbym:crfiremag,rwbym:crgravmag,rwbym:crelectricmag",
+            false,
+            2,
+            true,
+            0,
+            0,
+            RWBYCreativeTabs.tab_rwbyweapons);
+    public static final Item chatareusgun = new RWBYBow(
+            "chatareusgun",
+            2500,
+            7200,
+            0,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:16,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}]}",
+            "rwbym:chatareus",
+            "rwbym:crmag,rwbym:crfiremag,rwbym:crgravmag,rwbym:crelectricmag",
+            false,
+            3,
+            true,
+            0,
+            0,
+            null);
+
+    public static Item armasword = new RWBYSword(
+            "armasword",
+            2500,
+            15,
+            15,
+            null,
+            null,
+            false,
+            true,
+            false,
+            false,
+            0,
+            null);
+
+    public static Item armaswordsummon = new RWBYSword(
+            "armaswordsummon",
+            2500,
+            15,
+            15,
+            null,
+            null,
+            false,
+            true,
+            false,
+            false,
+            0,
+            null);
+
     //------------------------------------------------//
 
     public static Item crescentgun = new RWBYBow(
@@ -661,7 +718,7 @@ public class RWBYItems {
             "rwbym:crescent",
             "rwbym:crmag,rwbym:crfiremag,rwbym:crgravmag,rwbym:crelectricmag",
             false,
-            3,
+            2,
             true,
             1,
             0,
@@ -675,7 +732,7 @@ public class RWBYItems {
             "rwbym:crescentfrost",
             "rwbym:crmag,rwbym:crfiremag,rwbym:crgravmag,rwbym:crelectricmag",
             false,
-            3,
+            2,
             true,
             1,
             0,
@@ -956,7 +1013,7 @@ public class RWBYItems {
             "rwbym:cinder",
             "minecraft:arrow,minecraft:tipped_arrow",
             false,
-            3,
+            2,
             true,
             0,
             0,
@@ -1001,6 +1058,7 @@ public class RWBYItems {
     public static Item gildediron = new RWBYItem("gildediron", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static Item frostediron = new RWBYItem("frostediron", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static Item shadowiron = new RWBYItem("shadowiron", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static Item viridianiron = new RWBYItem("viridianiron", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static Item cr1 = new RWBYItem("cr1", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static Item cr2 = new RWBYItem("cr2", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static Item cr3 = new RWBYItem("cr3", null, false, RWBYCreativeTabs.tab_rwbyitems);

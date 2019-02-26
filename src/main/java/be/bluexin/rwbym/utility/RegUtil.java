@@ -17,6 +17,8 @@ public class RegUtil {
     public static void registerAll(FMLPreInitializationEvent event){
         //Icon
         registerItems(event, RWBYItems.icon);
+        registerItems(event, RWBYItems.armasword);
+        registerItems(event, RWBYItems.armaswordsummon);
         //Blocks
         registerBlocks(event, RWBYItems.rwbyblock1);
         registerBlocks(event, RWBYItems.rwbyblock2);
@@ -90,6 +92,8 @@ public class RegUtil {
         registerItems(event, RWBYItems.kkfire);
         registerItems(event, RWBYItems.kkice);
         registerItems(event, RWBYItems.kkwind);
+        registerItems(event, RWBYItems.chatareus);
+        registerItems(event, RWBYItems.chatareusgun);
         registerItems(event, RWBYItems.mariacane);
         registerItems(event, RWBYItems.mariascythe);
         registerItems(event, RWBYItems.mariascythedouble);
@@ -121,6 +125,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.frostediron);
         registerItems(event, RWBYItems.shadowiron);
         registerItems(event, RWBYItems.gildediron);
+        registerItems(event, RWBYItems.viridianiron);
         registerItems(event, RWBYItems.cr1);
         registerItems(event, RWBYItems.cr2);
         registerItems(event, RWBYItems.cr3);

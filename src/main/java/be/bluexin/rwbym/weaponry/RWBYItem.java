@@ -4,15 +4,13 @@ import be.bluexin.rwbym.Init.RWBYCreativeTabs;
 import be.bluexin.rwbym.RWBYModels;
 import be.bluexin.rwbym.capabilities.Blake.Blake;
 import be.bluexin.rwbym.capabilities.Blake.BlakeProvider;
-import be.bluexin.rwbym.capabilities.Ruby.RubyProvider;
 import be.bluexin.rwbym.capabilities.CapabilityHandler;
 import be.bluexin.rwbym.capabilities.ISemblance;
 import be.bluexin.rwbym.capabilities.Weiss.WeissProvider;
 import be.bluexin.rwbym.capabilities.Yang.YangProvider;
+import be.bluexin.rwbym.capabilities.ruby.RubyProvider;
 import be.bluexin.rwbym.entity.EntityAtlasKnight;
 import be.bluexin.rwbym.entity.EntityBeowolf;
-import be.bluexin.rwbym.utility.network.MessageSendPlayerData;
-import be.bluexin.rwbym.utility.network.RWBYNetworkHandler;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -30,9 +28,6 @@ import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentBase;
-import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.fml.relauncher.Side;
@@ -87,7 +82,7 @@ public class RWBYItem extends Item implements ICustomItem {
         }else {
             return false;
         }}else {
-        return false;}
+            return false;}
     }
 
     @SuppressWarnings("Duplicates")
@@ -132,92 +127,54 @@ public class RWBYItem extends Item implements ICustomItem {
 
         if(atlasknight){
             if(!worldIn.isRemote){
-            BlockPos blockpos = (new BlockPos(playerIn));
-            EntityAtlasKnight entityAtlasKnight = new EntityAtlasKnight(playerIn.world);
-            entityAtlasKnight.moveToBlockPosAndAngles(blockpos, 0.0F, 0.0F);
-            playerIn.world.spawnEntity(entityAtlasKnight);}
+                BlockPos blockpos = (new BlockPos(playerIn));
+                EntityAtlasKnight entityAtlasKnight = new EntityAtlasKnight(playerIn.world);
+                entityAtlasKnight.moveToBlockPosAndAngles(blockpos, 0.0F, 0.0F);
+                playerIn.world.spawnEntity(entityAtlasKnight);}
             itemstack.shrink(1);
         }
 
         if(coinr)
-	    {
-	        {
-	            ISemblance semblance = CapabilityHandler.getCurrentSemblance(playerIn);
-	            if (semblance.toString().equals("Ruby")) {
-	                semblance.setLevel(semblance.getLevel() + 1);
-	                if (!worldIn.isRemote) {
-	                	playerIn.sendMessage(new TextComponentString("Set Level of Ruby to: " + semblance.getLevel()));
-	                }
-	            } else {
-	            	CapabilityHandler.setSemblance(playerIn, RubyProvider.RUBY_CAP, semblance.getLevel());
-	            	if (!worldIn.isRemote) {
-	            		playerIn.sendMessage(new TextComponentString("Set Semblance to: Ruby"));
-	            	}
-            	}
-	            itemstack.shrink(1);
-	        }
-	    }
+        {
+            if(!worldIn.isRemote){
+                ISemblance semblance = CapabilityHandler.getCurrentSemblance(playerIn);
+                if (semblance.toString().equals("Ruby")) {
+                    semblance.setLevel(semblance.getLevel() + 1);
+                } else {CapabilityHandler.setSemblance(playerIn, RubyProvider.RUBY_CAP, 1);}
+                itemstack.shrink(1);
+            }
+        }
         if(coinw)
         {
-            {
+            if(!worldIn.isRemote){
                 ISemblance semblance = CapabilityHandler.getCurrentSemblance(playerIn);
                 if (semblance.toString().equals("Weiss")) {
                     semblance.setLevel(semblance.getLevel() + 1);
-                    if (!worldIn.isRemote) {
-                    	playerIn.sendMessage(new TextComponentString("Set Level of Weiss to: " + semblance.getLevel()));
-                    }
-                } else {
-                	CapabilityHandler.setSemblance(playerIn, WeissProvider.WEISS_CAP, semblance.getLevel());
-                	if (!worldIn.isRemote) {
-                		playerIn.sendMessage(new TextComponentString("Set Semblance to: Weiss"));
-                	}
-                }
+                } else {CapabilityHandler.setSemblance(playerIn, WeissProvider.WEISS_CAP, 1);}
                 itemstack.shrink(1);
             }
         }
 
         if(coinb)
         {
-            {
+            if(!worldIn.isRemote){
                 ISemblance semblance = CapabilityHandler.getCurrentSemblance(playerIn);
                 if (semblance.toString().equals("Blake")) {
                     semblance.setLevel(semblance.getLevel() + 1);
-                    if (!worldIn.isRemote) {
-                    	playerIn.sendMessage(new TextComponentString("Set Level of Blake to: " + semblance.getLevel()));
-                    }
-                } else {
-                	CapabilityHandler.setSemblance(playerIn, BlakeProvider.BLAKE_CAP, semblance.getLevel());
-                	if (!worldIn.isRemote) {
-                		playerIn.sendMessage(new TextComponentString("Set Semblance to: Blake"));
-                	}
-                }
+                } else {CapabilityHandler.setSemblance(playerIn, BlakeProvider.BLAKE_CAP, 1);}
                 itemstack.shrink(1);
             }
         }
 
         if(coiny)
         {
-            {
+            if(!worldIn.isRemote){
                 ISemblance semblance = CapabilityHandler.getCurrentSemblance(playerIn);
                 if (semblance.toString().equals("Yang")) {
                     semblance.setLevel(semblance.getLevel() + 1);
-                    if (!worldIn.isRemote) {
-                    	playerIn.sendMessage(new TextComponentString("Set Level of Yang to: " + semblance.getLevel()));
-                    }
-                } else {
-                	CapabilityHandler.setSemblance(playerIn, YangProvider.YANG_CAP, semblance.getLevel());
-                	if (!worldIn.isRemote) {
-                		playerIn.sendMessage(new TextComponentString("Set Semblance to: Yang"));
-                	}
-                }
+                } else {CapabilityHandler.setSemblance(playerIn, YangProvider.YANG_CAP, 1);}
                 itemstack.shrink(1);
             }
-        }
-        
-        if (coinr || coinw || coinb || coiny) {
-        	for (ISemblance semblance : CapabilityHandler.getAllSemblances(playerIn)) {
-        		RWBYModels.LOGGER.info("Semblance: {}, Level: {}", semblance, semblance.getLevel());
-        	}
         }
 
         if (itemstack1.isEmpty() && ismask)
@@ -236,7 +193,7 @@ public class RWBYItem extends Item implements ICustomItem {
     @SideOnly(Side.CLIENT)
     public boolean hasEffect(ItemStack stack)
     {
-            return false;
+        return false;
     }
 
     @Override
