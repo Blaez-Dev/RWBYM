@@ -1,0 +1,17 @@
+{
+
+          "type": "minecraft:crafting_shaped",
+          "pattern": [
+            " c ",
+            "rrr",
+            "rrr"
+          ],
+          "key": {
+            "c": {"item": "rwbym:roseiron"},
+			"r": {"item": "rwbym:ammo"}
+          },
+		  "result": {
+			  "item": "rwbym:crmag",
+			  "count": 1
+		  }
+    }

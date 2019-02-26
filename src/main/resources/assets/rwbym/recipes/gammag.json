@@ -1,0 +1,17 @@
+{
+
+          "type": "minecraft:crafting_shaped",
+          "pattern": [
+            " I ",
+            "YYY",
+            "YYY"
+          ],
+          "key": {
+            "Y": {"item": "rwbym:gamammo"},
+			"I": {"item": "rwbym:shadowiron"}
+          },
+		  "result": {
+			  "item": "rwbym:gammag",
+			  "count": 1
+		  }
+    }

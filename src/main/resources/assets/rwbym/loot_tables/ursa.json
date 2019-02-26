@@ -1,0 +1,159 @@
+{
+  "pools": [
+    {
+      "name": "ursa",
+      "rolls": {
+        "min": 0,
+        "max": 4
+      },
+      "entries": [
+        {
+          "type": "item",
+          "name": "rwbym:cro1",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "rwbym:cro2",
+          "weight": 20
+        },{
+          "type": "item",
+          "name": "rwbym:cro3",
+          "weight": 20
+        },{
+          "type": "item",
+          "name": "rwbym:magn1",
+          "weight": 20
+        },{
+          "type": "item",
+          "name": "rwbym:magn2",
+          "weight": 20
+        },{
+          "type": "item",
+          "name": "rwbym:magn3",
+          "weight": 20
+        },{
+          "type": "item",
+          "name": "rwbym:magn4",
+          "weight": 20
+        },{
+          "type": "item",
+          "name": "rwbym:milo1",
+          "weight": 20
+        },{
+          "type": "item",
+          "name": "rwbym:milo2",
+          "weight": 20
+        },{
+          "type": "item",
+          "name": "rwbym:milo3",
+          "weight": 20
+        },{
+          "type": "item",
+          "name": "rwbym:stor1",
+          "weight": 20
+        },{
+          "type": "item",
+          "name": "rwbym:stor2",
+          "weight": 20
+        },{
+          "type": "item",
+          "name": "rwbym:stor3",
+          "weight": 20
+        },{
+          "type": "item",
+          "name": "rwbym:stor4",
+          "weight": 20
+        },{
+          "type": "item",
+          "name": "rwbym:stor5",
+          "weight": 20
+        },{
+          "type": "item",
+          "name": "rwbym:stor6",
+          "weight": 20
+        },{
+          "type": "item",
+          "name": "rwbym:cr1",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "rwbym:cr2",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "rwbym:cr3",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "rwbym:cr4",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "rwbym:cr5",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "rwbym:cr6",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "rwbym:gam1",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "rwbym:gam2",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "rwbym:gam3",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "rwbym:em1",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "rwbym:em2",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "rwbym:em3",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "rwbym:mytre1",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "rwbym:mytre2",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "rwbym:mytre3",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "rwbym:pennyswd",
+          "weight": 20
+        }
+
+      ]
+    }
+  ]
+}

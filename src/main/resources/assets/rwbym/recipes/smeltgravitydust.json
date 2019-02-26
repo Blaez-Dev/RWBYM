@@ -1,0 +1,9 @@
+{
+    "type": "rwbym:smelting",
+    "ingredient": {
+        "item": "rwbym:gravitydustrock"
+    },
+    "result": "rwbym:gravitydust",
+    "experience": 0.4,
+    "cookingtime": 20
+}

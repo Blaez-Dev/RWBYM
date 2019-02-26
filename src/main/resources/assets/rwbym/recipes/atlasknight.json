@@ -1,0 +1,19 @@
+{
+
+          "type": "minecraft:crafting_shaped",
+          "pattern": [
+            "sos",
+            "idi",
+            "fif"
+          ],
+          "key": {
+            "s": {"item": "rwbym:scrap"},
+            "o": {"item": "minecraft:observer"},
+              "i": {"item": "minecraft:iron_block"},
+              "d": {"item": "rwbym:dustcrystal"},
+              "f": {"item": "rwbym:frostediron"}
+          },
+		  "result": {
+			  "item": "rwbym:atlasknight",
+			  "count": 1
+		  }}

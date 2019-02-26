@@ -1,0 +1,9 @@
+{
+    "type": "rwbym:smelting",
+    "ingredient": {
+        "item": "rwbym:gam3"
+    },
+    "result": "rwbym:shadowiron",
+    "experience": 0.4,
+    "cookingtime": 20
+}

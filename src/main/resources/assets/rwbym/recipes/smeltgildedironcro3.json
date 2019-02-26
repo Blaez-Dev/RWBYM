@@ -1,0 +1,9 @@
+{
+    "type": "rwbym:smelting",
+    "ingredient": {
+        "item": "rwbym:cro3"
+    },
+    "result": "rwbym:gildediron",
+    "experience": 0.4,
+    "cookingtime": 20
+}

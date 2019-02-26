@@ -1,0 +1,13 @@
+{
+   "type": "minecraft:crafting_shapeless",
+   "ingredients": [
+      {
+         "item": "rwbym:dustrock"
+      }
+   ],
+   "result": {
+      "item": "rwbym:dustcrystal",
+      "count": 3
+   },
+   "group": "group"
+}
