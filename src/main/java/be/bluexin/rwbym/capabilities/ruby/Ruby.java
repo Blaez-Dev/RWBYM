@@ -1,18 +1,24 @@
-package be.bluexin.rwbym.capabilities.ruby;
+package be.bluexin.rwbym.capabilities.Ruby;
 
 import be.bluexin.rwbym.Init.RWBYItems;
 import be.bluexin.rwbym.RWBYModels;
 import be.bluexin.rwbym.client.particle.RosePetal;
 import be.bluexin.rwbym.entity.EntityBeowolf;
 import be.bluexin.rwbym.entity.EntityMutantDeathStalker;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.common.capabilities.Capability;
+
+import java.util.Iterator;
+import java.util.List;
 
 public class Ruby implements IRuby {
 
@@ -33,8 +39,8 @@ public class Ruby implements IRuby {
 		
 		//System.out.println("" + this.level);
 
-		if(this.level >2){
-			this.level = 2;
+		if(this.level >3){
+			this.level = 3;
 		}
 
 		switch(this.level) {
@@ -59,6 +65,16 @@ public class Ruby implements IRuby {
 				return true;
 			}
 			return false;
+			case 3:
+				if (this.cooldown <= 0) {
+					this.active = false;
+					return false;
+				}
+				if (this.cooldown >= 30) {
+					this.active = true;
+					return true;
+				}
+				return false;
 		default:
 			return false;
 		}
@@ -72,7 +88,9 @@ public class Ruby implements IRuby {
 			break;
 		case 2:
 			this.active = false;
-		}
+
+		case 3:
+		this.active = false;}
 		return false;
 	}
 
@@ -122,6 +140,35 @@ public class Ruby implements IRuby {
 					player.motionY = look.y * 2;
 					player.motionZ = look.z;
 					player.fallDistance = 0;
+
+
+					if(this.level >2){
+					AxisAlignedBB axisalignedbb = player.getEntityBoundingBox().grow(1,1,1);
+
+
+					List<?> list1 = player.world.getEntitiesWithinAABB(EntityLivingBase.class, axisalignedbb);
+
+					if (!list1.isEmpty())
+					{
+						Iterator<?> iterator = list1.iterator();
+
+						double y = Math.pow(player.motionY, 2);
+						double x = Math.pow(player.motionX, 2);
+						double z = Math.pow(player.motionZ, 2);
+
+						double d3 = Math.sqrt(x+y+z);
+						float f = (float)d3;
+
+						while (iterator.hasNext())
+						{
+							EntityLivingBase entitylivingbase = (EntityLivingBase)iterator.next();
+							entitylivingbase.attackEntityFrom(DamageSource.FLY_INTO_WALL, f*100);
+						}
+					}}
+
+
+
+
 					for (int i = 0; i < (this.level > 1 ? 32 : 2); i++) {
 						ItemStack is = player.getHeldItemMainhand();
 						ItemStack is2 = player.getHeldItemOffhand();
@@ -162,6 +209,17 @@ public class Ruby implements IRuby {
 				this.active = false;
 			}
 			break;
+			case 3:
+				if (!this.active && this.cooldown < 360) {
+					this.cooldown++;
+				}
+				if (this.active) {
+					this.cooldown -= 3;
+				}
+				if (this.cooldown < 1) {
+					this.active = false;
+				}
+				break;
 		}
 	}
 	

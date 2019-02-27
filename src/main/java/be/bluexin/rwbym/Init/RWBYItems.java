@@ -1100,11 +1100,20 @@ public class RWBYItems {
     public static Item whtefng =  new RWBYItem("whtefng", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true, RWBYCreativeTabs.tab_rwbyitems);
     public static Item rubyhood = new RWBYItem("rubyhood", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true, RWBYCreativeTabs.tab_rwbyitems);
     //------------------------------------------------//
+    public static Item entitybullet = new RWBYItem("entitybullet", null, false, null);
+    public static Item entityfireshell = new RWBYItem("entityfireshell", null, false, null);
+    public static Item entityflareshell = new RWBYItem("entityflareshell", null, false, null);
+    public static Item entityshell = new RWBYItem("entityshell", null, false, null);
+    public static Item entitysmallbullet = new RWBYItem("entitysmallbullet", null, false, null);
+    public static Item entitygrenade = new RWBYItem("entitygrenade", null, false, null);
+    public static Item entitybulletv = new RWBYItem("entitybulletv", null, false, null);
+    //------------------------------------------------//
     public static Item gamammo = new RWBYAmmoItem(
             "gamammo",
-            null,
+            RWBYItems.entitysmallbullet,
             64,
             false,
+            RWBYAmmoItem.SurviveOnHit.NONE,
             "textures/entity/projectiles/tipped_arrow.png",
             true,
             false,
@@ -1116,9 +1125,10 @@ public class RWBYItems {
             null);
     public static Item gammag = new RWBYAmmoItem(
             "gammag",
-            null,
+            RWBYItems.entitysmallbullet,
             1,
             false,
+            RWBYAmmoItem.SurviveOnHit.NONE,
             "textures/entity/projectiles/tipped_arrow.png",
             true,
             false,
@@ -1130,9 +1140,10 @@ public class RWBYItems {
             null);
     public static Item gamfiremag = new RWBYAmmoItem(
             "gamfiremag",
-            null,
+            RWBYItems.entitysmallbullet,
             1,
             false,
+            RWBYAmmoItem.SurviveOnHit.NONE,
             "textures/entity/projectiles/tipped_arrow.png",
             true,
             false,
@@ -1144,23 +1155,25 @@ public class RWBYItems {
             new FireAmmoHit());
     public static Item gamicemag = new RWBYAmmoItem(
             "gamicemag",
-            null,
+            RWBYItems.entitysmallbullet,
             1,
             false,
+            RWBYAmmoItem.SurviveOnHit.NONE,
             "textures/entity/projectiles/tipped_arrow.png",
             true,
             false,
             null,
-            ImmutableList.of(new PotionEffect(Potion.getPotionFromResourceLocation("minecraft:slowness"), 900, 5)),
+            ImmutableList.of(new PotionEffect(Potion.getPotionFromResourceLocation("minecraft:slowness"), 100, 5)),
             32,
             4,
             RWBYCreativeTabs.tab_rwbyitems,
             null);
     public static Item gamgravmag = new RWBYAmmoItem(
             "gamgravmag",
-            null,
+            RWBYItems.entitysmallbullet,
             1,
             false,
+            RWBYAmmoItem.SurviveOnHit.NONE,
             "textures/entity/projectiles/tipped_arrow.png",
             true,
             false,
@@ -1172,9 +1185,10 @@ public class RWBYItems {
             null);
     public static Item emammo = new RWBYAmmoItem(
             "emammo",
-            null,
+            RWBYItems.entityshell,
             1,
             false,
+            RWBYAmmoItem.SurviveOnHit.NONE,
             "textures/entity/projectiles/tipped_arrow.png",
             true,
             false,
@@ -1186,9 +1200,10 @@ public class RWBYItems {
             null);
     public static Item emfireammo = new RWBYAmmoItem(
             "emfireammo",
-            null,
+            RWBYItems.entityfireshell,
             1,
             false,
+            RWBYAmmoItem.SurviveOnHit.NONE,
             "textures/entity/projectiles/tipped_arrow.png",
             true,
             false,
@@ -1200,9 +1215,10 @@ public class RWBYItems {
             new FireAmmoHit());
     public static Item emflareammo = new RWBYAmmoItem(
             "emflareammo",
-            null,
+            RWBYItems.entityflareshell,
             1,
             false,
+            RWBYAmmoItem.SurviveOnHit.NONE,
             "textures/entity/projectiles/tipped_arrow.png",
             true,
             false,
@@ -1214,9 +1230,10 @@ public class RWBYItems {
             new ExplosionAmmoHit(1));
     public static Item crmag = new RWBYAmmoItem(
             "crmag",
-            null,
+            RWBYItems.entitybullet,
             1,
             false,
+            RWBYAmmoItem.SurviveOnHit.NONE,
             "textures/entity/projectiles/tipped_arrow.png",
             true,
             false,
@@ -1228,9 +1245,10 @@ public class RWBYItems {
             null);
     public static Item crgravmag = new RWBYAmmoItem(
             "crgravmag",
-            null,
+            RWBYItems.entitybullet,
             1,
             false,
+            RWBYAmmoItem.SurviveOnHit.NONE,
             "textures/entity/projectiles/tipped_arrow.png",
             true,
             false,
@@ -1242,9 +1260,10 @@ public class RWBYItems {
             null);
     public static Item crfiremag = new RWBYAmmoItem(
             "crfiremag",
-            null,
+            RWBYItems.entitybullet,
             1,
             false,
+            RWBYAmmoItem.SurviveOnHit.NONE,
             "textures/entity/projectiles/tipped_arrow.png",
             true,
             false,
@@ -1256,23 +1275,25 @@ public class RWBYItems {
             new FireAmmoHit());
     public static Item crelectricmag = new RWBYAmmoItem(
             "crelectricmag",
-            null,
+            RWBYItems.entitybullet,
             1,
             false,
+            RWBYAmmoItem.SurviveOnHit.NONE,
             "textures/entity/projectiles/tipped_arrow.png",
             true,
             false,
             null,
-            ImmutableList.of(new PotionEffect(Potion.getPotionFromResourceLocation("minecraft:slowness"), 900, 20)),
+            ImmutableList.of(new PotionEffect(Potion.getPotionFromResourceLocation("minecraft:slowness"), 500, 20)),
             12,
             10,
             RWBYCreativeTabs.tab_rwbyitems,
             null);
     public static Item magnammo = new RWBYAmmoItem(
             "magnammo",
-            null,
+            RWBYItems.entitygrenade,
             1,
             false,
+            RWBYAmmoItem.SurviveOnHit.NONE,
             "textures/entity/projectiles/tipped_arrow.png",
             true,
             false,
@@ -1287,7 +1308,8 @@ public class RWBYItems {
             null,
             64,
             false,
-            "textures/entity/projectiles/tipped_arrow2.png",
+            RWBYAmmoItem.SurviveOnHit.NONE,
+            "textures/entity/projectiles/tipped_arrow.png",
             true,
             false,
             "",
@@ -1301,7 +1323,8 @@ public class RWBYItems {
             null,
             64,
             false,
-            "textures/entity/projectiles/tipped_arrow2.png",
+            RWBYAmmoItem.SurviveOnHit.NONE,
+            "textures/entity/projectiles/tipped_arrow.png",
             true,
             false,
             "",
@@ -1315,7 +1338,8 @@ public class RWBYItems {
             null,
             64,
             false,
-            "textures/entity/projectiles/tipped_arrow2.png",
+            RWBYAmmoItem.SurviveOnHit.NONE,
+            "textures/entity/projectiles/tipped_arrow.png",
             true,
             false,
             "",
@@ -1329,11 +1353,12 @@ public class RWBYItems {
             null,
             64,
             false,
-            "textures/entity/projectiles/tipped_arrow3.png",
+            RWBYAmmoItem.SurviveOnHit.NONE,
+            "textures/entity/projectiles/tipped_arrow.png",
             true,
             false,
             null,
-            ImmutableList.of(new PotionEffect(Potion.getPotionFromResourceLocation("minecraft:slowness"), 900, 20)),
+            ImmutableList.of(new PotionEffect(Potion.getPotionFromResourceLocation("minecraft:slowness"), 500, 20)),
             1,
             5,
             RWBYCreativeTabs.tab_rwbyitems,
@@ -1343,7 +1368,8 @@ public class RWBYItems {
             null,
             64,
             false,
-            "textures/entity/projectiles/tipped_arrow4.png",
+            RWBYAmmoItem.SurviveOnHit.NONE,
+            "textures/entity/projectiles/tipped_arrow.png",
             true,
             false,
             null,
@@ -1357,7 +1383,8 @@ public class RWBYItems {
             null,
             64,
             false,
-            "textures/entity/projectiles/tipped_arrow2.png",
+            RWBYAmmoItem.SurviveOnHit.NONE,
+            "textures/entity/projectiles/tipped_arrow.png",
             true,
             false,
             "",
@@ -1371,6 +1398,7 @@ public class RWBYItems {
             null,
             1,
             false,
+            RWBYAmmoItem.SurviveOnHit.NONE,
             "textures/entity/projectiles/tipped_arrow.png",
             true,
             true,
@@ -1382,10 +1410,11 @@ public class RWBYItems {
             new ExplosionAmmoHit(3));
     public static Item ammov = new RWBYAmmoItem(
             "ammov",
-            null,
+            RWBYItems.entitybulletv,
             1,
             false,
-            "textures/entity/projectiles/tipped_arrow1.png",
+            RWBYAmmoItem.SurviveOnHit.NONE,
+            "textures/entity/projectiles/tipped_arrow.png",
             true,
             true,
             null,
@@ -1396,9 +1425,10 @@ public class RWBYItems {
             null);
     public static Item ammmo = new RWBYAmmoItem(
             "ammmo",
-            null,
+            RWBYItems.entitybullet,
             1,
             false,
+            RWBYAmmoItem.SurviveOnHit.NONE,
             "textures/entity/projectiles/tipped_arrow.png",
             true,
             true,

@@ -1,4 +1,4 @@
-package be.bluexin.rwbym.capabilities.ruby;
+package be.bluexin.rwbym.capabilities.Ruby;
 
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.util.EnumFacing;

@@ -1,4 +1,4 @@
-package be.bluexin.rwbym.capabilities.ruby;
+package be.bluexin.rwbym.capabilities.Ruby;
 
 import be.bluexin.rwbym.capabilities.SemblanceStorage;
 import net.minecraft.nbt.NBTBase;

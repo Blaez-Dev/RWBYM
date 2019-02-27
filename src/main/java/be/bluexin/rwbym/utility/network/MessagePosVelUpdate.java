@@ -50,7 +50,7 @@ public class MessagePosVelUpdate extends MessageBase<MessagePosVelUpdate> {
 	public void handleClientSide(MessagePosVelUpdate message, EntityPlayer player) {
 		Entity entity = player.world.getEntityByID(message.id);
 		if (entity != null) {
-			RWBYModels.LOGGER.info(message.velY);
+			//RWBYModels.LOGGER.info(message.velY);
 			entity.posX = message.posX;
 			entity.posY = message.posY;
 			entity.posZ = message.posZ;

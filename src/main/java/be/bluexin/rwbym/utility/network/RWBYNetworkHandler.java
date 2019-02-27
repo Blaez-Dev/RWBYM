@@ -8,15 +8,22 @@ import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
 
 public class RWBYNetworkHandler {
+	
     private static SimpleNetworkWrapper INSTANCE;
+    
     public static void init() {
-    INSTANCE = NetworkRegistry.INSTANCE.newSimpleChannel("rwbym");
-
-    INSTANCE.registerMessage(MessageActivateSemblance.class, MessageActivateSemblance.class, 0, Side.SERVER);
-    INSTANCE.registerMessage(MessageGetPlayerData.class, MessageGetPlayerData.class, 1, Side.SERVER);
-    INSTANCE.registerMessage(MessageSendPlayerData.class, MessageSendPlayerData.class, 2, Side.CLIENT);
-
+    	
+	    INSTANCE = NetworkRegistry.INSTANCE.newSimpleChannel("rwbym");
+	
+	    int i = 0;
+	    
+	    INSTANCE.registerMessage(MessageActivateSemblance.class, MessageActivateSemblance.class, i++, Side.SERVER);
+	    INSTANCE.registerMessage(MessageGetPlayerData.class, MessageGetPlayerData.class, i++, Side.SERVER);
+	    INSTANCE.registerMessage(MessageSendPlayerData.class, MessageSendPlayerData.class, i++, Side.CLIENT);
+	    INSTANCE.registerMessage(MessagePosVelUpdate.class, MessagePosVelUpdate.class, i++, Side.CLIENT);
+	    
     }
+    
     public static void sendToServer(IMessage message){
         INSTANCE.sendToServer(message);
     }

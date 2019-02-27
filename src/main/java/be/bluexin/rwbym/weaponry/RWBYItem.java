@@ -8,7 +8,7 @@ import be.bluexin.rwbym.capabilities.CapabilityHandler;
 import be.bluexin.rwbym.capabilities.ISemblance;
 import be.bluexin.rwbym.capabilities.Weiss.WeissProvider;
 import be.bluexin.rwbym.capabilities.Yang.YangProvider;
-import be.bluexin.rwbym.capabilities.ruby.RubyProvider;
+import be.bluexin.rwbym.capabilities.Ruby.RubyProvider;
 import be.bluexin.rwbym.entity.EntityAtlasKnight;
 import be.bluexin.rwbym.entity.EntityBeowolf;
 import net.minecraft.creativetab.CreativeTabs;

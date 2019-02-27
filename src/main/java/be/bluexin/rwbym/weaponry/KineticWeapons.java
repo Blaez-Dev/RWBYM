@@ -1,4 +1,4 @@
-package be.bluexin.rwbym.weaponry;
+/*package be.bluexin.rwbym.weaponry;
 
 import be.bluexin.rwbym.Init.RWBYCreativeTabs;
 import be.bluexin.rwbym.Init.RWBYItems;
@@ -34,11 +34,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Iterator;
 import java.util.List;
 
-/**
- * Part of rwbym
- *
- * @author Bluexin
- */
+
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 public class KineticWeapons extends ItemBow implements ICustomItem {
@@ -107,7 +103,7 @@ public class KineticWeapons extends ItemBow implements ICustomItem {
         if (this.recipes != null) for (RecipeDTO recipe : this.recipes) {
             recipe.register(this);
         }
-    }*/
+    }
 
     @SideOnly(Side.CLIENT)
     public boolean hasEffect(ItemStack stack)
@@ -355,4 +351,4 @@ public class KineticWeapons extends ItemBow implements ICustomItem {
         return repair.getItem() == RWBYItems.scrap || super.getIsRepairable(toRepair, repair);
     }
 
-}
+}*/
