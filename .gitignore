@@ -1,26 +1,14 @@
-# eclipse
-bin
-*.launch
-.settings
-.metadata
-.classpath
-.project
-
-# idea
-out
-*.ipr
-*.iws
-*.iml
-.idea
-.git
-
-# gradle
-build
-.gradle
-
-# other
-production
-eclipse
-run
-classes
-Git
+/bin/
+/.classpath
+/.git
+/.gradle
+/.settings/
+/build/
+/eclipse/
+/gradle/
+/run/
+/.project
+/CREDITS.txt
+/RWBYM-2.0_Client.launch
+/RWBYM-2.0_Server.launch
+/Git/
