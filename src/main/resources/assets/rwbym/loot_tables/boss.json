@@ -108,6 +108,26 @@
           "type": "item",
           "name": "rwbym:mariacane",
           "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "rwbym:coinr",
+          "weight": 30
+        },
+        {
+          "type": "item",
+          "name": "rwbym:coinw",
+          "weight": 30
+        },
+        {
+          "type": "item",
+          "name": "rwbym:coinb",
+          "weight": 30
+        },
+        {
+          "type": "item",
+          "name": "rwbym:coiny",
+          "weight": 30
         }
 
       ]

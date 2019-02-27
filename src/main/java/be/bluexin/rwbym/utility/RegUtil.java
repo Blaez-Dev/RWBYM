@@ -17,8 +17,14 @@ public class RegUtil {
     public static void registerAll(FMLPreInitializationEvent event){
         //Icon
         registerItems(event, RWBYItems.icon);
-        registerItems(event, RWBYItems.armasword);
-        registerItems(event, RWBYItems.armaswordsummon);
+        registerItems(event, RWBYItems.entitybullet);
+        registerItems(event, RWBYItems.entityfireshell);
+        registerItems(event, RWBYItems.entityflareshell);
+        registerItems(event, RWBYItems.entityshell);
+        registerItems(event, RWBYItems.entitysmallbullet);
+        registerItems(event, RWBYItems.entitygrenade);
+        registerItems(event, RWBYItems.entitybulletv);
+
         //Blocks
         registerBlocks(event, RWBYItems.rwbyblock1);
         registerBlocks(event, RWBYItems.rwbyblock2);
@@ -97,6 +103,8 @@ public class RegUtil {
         registerItems(event, RWBYItems.mariacane);
         registerItems(event, RWBYItems.mariascythe);
         registerItems(event, RWBYItems.mariascythedouble);
+        registerItems(event, RWBYItems.armasword);
+        registerItems(event, RWBYItems.armaswordsummon);
         //Staffs
         registerItems(event, RWBYItems.ozmacane);
         registerItems(event, RWBYItems.ozmacanefire);

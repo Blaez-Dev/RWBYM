@@ -2,6 +2,7 @@ package be.bluexin.rwbym.utility.network;
 
 import be.bluexin.rwbym.Semblances;
 import be.bluexin.rwbym.capabilities.CapabilityHandler;
+import be.bluexin.rwbym.capabilities.Ruby.RubyProvider;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.Vec3d;

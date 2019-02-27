@@ -151,6 +151,26 @@
           "type": "item",
           "name": "rwbym:pennyswd",
           "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "rwbym:coinr",
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "name": "rwbym:coinw",
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "name": "rwbym:coinb",
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "name": "rwbym:coiny",
+          "weight": 5
         }
 
       ]
