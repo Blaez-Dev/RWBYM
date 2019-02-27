@@ -48,6 +48,7 @@ public class RWBYAmmoItem extends Item implements ICustomItem {
     private String nbt;
     private transient NBTTagCompound nbtTag;
     private IAmmoHit hitfun;
+    private SurviveOnHit survives;
 
     private List<PotionEffect> potions;
 
@@ -56,7 +57,7 @@ public class RWBYAmmoItem extends Item implements ICustomItem {
 
     //public int getAmmoMax;
 
-    public RWBYAmmoItem(String name, Item render, int ammoMax, boolean canPickup, String texture, boolean gravity, boolean infinite, String nbt, List<PotionEffect> potion, int durability, double baseDamage, CreativeTabs creativetab, IAmmoHit hitfun) {
+    public RWBYAmmoItem(String name, Item render, int ammoMax, boolean canPickup, SurviveOnHit canSurvive, String texture, boolean gravity, boolean infinite, String nbt, List<PotionEffect> potion, int durability, double baseDamage, CreativeTabs creativetab, IAmmoHit hitfun) {
         this.setCreativeTab(creativetab);
         this.setRegistryName(new ResourceLocation(RWBYModels.MODID, name));
         this.setUnlocalizedName(this.getRegistryName().toString());
@@ -76,6 +77,7 @@ public class RWBYAmmoItem extends Item implements ICustomItem {
         this.potions = potion;
         this.setMaxDamage(durability);
         this.hitfun = hitfun;
+        this.survives = canSurvive;
         if (this.hitfun == null) {
         	this.hitfun = new NullAmmoHit();
         }
@@ -116,6 +118,14 @@ public class RWBYAmmoItem extends Item implements ICustomItem {
     public List<PotionEffect> getPotions() {
         return potions;
     }
+    
+    public boolean canSurviveBlockHit() {
+    	return survives == SurviveOnHit.BLOCK || survives == SurviveOnHit.ENTITY;
+    }
+    
+    public boolean canSurviveEntityHit() {
+    	return survives == SurviveOnHit.ENTITY;
+    }
 
     public NBTTagCompound getNbt() {
         if (nbtTag == null && nbt != null) try {
@@ -153,4 +163,10 @@ public class RWBYAmmoItem extends Item implements ICustomItem {
     public String toString() {
         return "RWBYAmmoItem{" + this.getRegistryName() + "}";
     }
+	
+	public enum SurviveOnHit {
+		NONE,
+		BLOCK,
+		ENTITY;
+	}
 }

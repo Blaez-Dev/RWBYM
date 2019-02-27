@@ -110,6 +110,8 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
     	Entity entity = raytraceResultIn.entityHit;
     	
     	RWBYAmmoItem item = this.getItem();
+    	
+    	RWBYModels.LOGGER.info(item);
 
         if (entity != null)
         {
@@ -149,8 +151,11 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
                         }
                     }
 
-                    this.arrowHit(entitylivingbase);
-
+                    if (!(entitylivingbase instanceof EntityEnderman))
+                    {
+                        this.arrowHit(entitylivingbase);
+                    }
+                    
                     if (this.shootingEntity != null && entitylivingbase != this.shootingEntity && entitylivingbase instanceof EntityPlayer && this.shootingEntity instanceof EntityPlayerMP)
                     {
                         ((EntityPlayerMP)this.shootingEntity).connection.sendPacket(new SPacketChangeGameState(6, 0.0F));
@@ -158,11 +163,6 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
                 }
 
                 this.playSound(SoundEvents.ENTITY_ARROW_HIT, 1.0F, 1.2F / (this.rand.nextFloat() * 0.2F + 0.9F));
-
-                if (!(entity instanceof EntityEnderman))
-                {
-                    this.setDead();
-                }
             }
             else
             {
@@ -384,7 +384,8 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
 
             this.setPosition(this.posX, this.posY, this.posZ);
             this.doBlockCollisions();
-        }    }
+        }    
+    }
     
     @Override
     public void setVelocity(double x, double y, double z) {}
@@ -395,9 +396,14 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
     	RWBYAmmoItem item = this.getItem();
     	
     	item.onEntityHit(living);
+    	
+    	if (!item.canSurviveBlockHit() && !(living instanceof EntityEnderman)) {
+    		this.setDead();
+    	}
+    	
     	if (item.getPotions() != null) {
 	    	for (PotionEffect potion : item.getPotions()) {
-	    		RWBYModels.LOGGER.info("Potion: {}, Durration: {}, Power: {}", potion.getPotion(), potion.getDuration(), potion.getAmplifier());
+	    		RWBYModels.LOGGER.info("Potion: {}, Durration: {}, Power: {}", potion.getPotion().getName(), potion.getDuration(), potion.getAmplifier());
 	    		PotionEffect effect = new PotionEffect(potion);
 	    		living.addPotionEffect(effect);
 	    	}
@@ -407,6 +413,10 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
     private void arrowHitBlock(World world, BlockPos pos, EnumFacing facing) {
     	
     	RWBYAmmoItem item = this.getItem();
+    	
+    	if (!item.canSurviveEntityHit()) {
+    		this.setDead();
+    	}
     	
 		item.onBlockHit(world, pos.offset(facing));
 		//this.setDead();

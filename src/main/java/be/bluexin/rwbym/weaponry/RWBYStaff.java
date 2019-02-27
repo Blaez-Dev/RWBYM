@@ -143,25 +143,25 @@ public class RWBYStaff extends ItemSword implements ICustomItem {
         PotionEffect potionEffect6 = new PotionEffect(MobEffects.SPEED, 100, 5, false, false);
         PotionEffect potionEffect7 = new PotionEffect(MobEffects.SPEED, 200, 7, false, false);
         if(hand == EnumHand.MAIN_HAND && playerIn.isSneaking()){
-        if(gravity)
-        {
-         playerIn.addPotionEffect(potioneffect2);
-        }
-        if(fire)
-        {
-            playerIn.addPotionEffect(potioneffect1);
-            playerIn.addPotionEffect(potionEffect3);
-        }
-        if(water){
-            playerIn.addPotionEffect(potioneffect4);
-        }
-        if(lightning){
-            playerIn.addPotionEffect(potioneffect5);
-            playerIn.addPotionEffect(potionEffect6);
-        }
-        if(wind){
-            playerIn.addPotionEffect(potionEffect7);
-        }
+	        if(gravity)
+	        {
+	        	playerIn.addPotionEffect(potioneffect2);
+	        }
+	        if(fire)
+	        {
+	            playerIn.addPotionEffect(potioneffect1);
+	            playerIn.addPotionEffect(potionEffect3);
+	        }
+	        if(water){
+	            playerIn.addPotionEffect(potioneffect4);
+	        }
+	        if(lightning){
+	            playerIn.addPotionEffect(potioneffect5);
+	            playerIn.addPotionEffect(potionEffect6);
+	        }
+	        if(wind){
+	            playerIn.addPotionEffect(potionEffect7);
+	        }
         }
         if (!worldIn.isRemote && playerIn.isSneaking() && this.morph != null) {
             is = new ItemStack(Item.getByNameOrId(this.morph), is.getCount(), is.getMetadata());
