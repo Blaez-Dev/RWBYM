@@ -64,6 +64,7 @@ public class RWBYEntities {
         EntityRegistry.registerModEntity(new ResourceLocation("rwbym:armorgeist"), EntityArmorgeist.class, "armorgeist", entityID + 19, instance, 64, 1, true);
         EntityRegistry.registerModEntity(new ResourceLocation("rwbym:winterarmorgeist"), EntityWinterArmorgeist.class, "winterarmorgeist", entityID + 20, instance, 64, 1, true, (153 << 16) + (153 << 8) + 153, (0 << 16) + (0 << 8) + 0);
         EntityRegistry.registerModEntity(new ResourceLocation("rwbym:geist"), EntityGeist.class, "geist", entityID + 21, instance, 64, 1, true, (0 << 16) + (0 << 8) + 0, (153 << 16) + (153 << 8) + 153);
+        EntityRegistry.registerModEntity(new ResourceLocation("rwbym:apathy"), EntityApathy.class, "apathy", entityID + 22, instance, 64, 1, true, (0 << 16) + (0 << 8) + 0, (153 << 16) + (153 << 8) + 153);
         Biome[] biomes = getBiomeList(EntityCreeper.class, EnumCreatureType.MONSTER);
 
 

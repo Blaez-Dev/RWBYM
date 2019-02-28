@@ -1,15 +1,15 @@
 package be.bluexin.rwbym.entity.renderer;
 
 import be.bluexin.rwbym.RWBYModels;
-import be.bluexin.rwbym.entity.EntityDeathStalker;
-import be.bluexin.rwbym.entity.ModelDeathStalker;
-import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.entity.Render;
-import net.minecraft.client.renderer.entity.RenderLivingBase;
-import net.minecraft.client.renderer.entity.RenderManager;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.client.registry.IRenderFactory;
+        import be.bluexin.rwbym.entity.EntityDeathStalker;
+        import be.bluexin.rwbym.entity.ModelDeathStalker;
+        import net.minecraft.client.model.ModelBase;
+        import net.minecraft.client.renderer.GlStateManager;
+        import net.minecraft.client.renderer.entity.Render;
+        import net.minecraft.client.renderer.entity.RenderLivingBase;
+        import net.minecraft.client.renderer.entity.RenderManager;
+        import net.minecraft.util.ResourceLocation;
+        import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class DeathStalkerRender extends RenderLivingBase<EntityDeathStalker> {
 
