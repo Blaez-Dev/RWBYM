@@ -2,10 +2,7 @@ package be.bluexin.rwbym.entity;
 
 import be.bluexin.rwbym.Init.RWBYItems;
 import be.bluexin.rwbym.ModLootTables;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EnumCreatureAttribute;
-import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityIronGolem;
 import net.minecraft.entity.monster.EntityMob;
@@ -13,17 +10,25 @@ import net.minecraft.entity.monster.EntityVindicator;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.World;
 
+import java.util.Iterator;
 import java.util.List;
+
+import static sun.audio.AudioPlayer.player;
 
 public class EntityApathy extends EntityMob {
     World world = null;
+    private int cooldown = 0;
 
     public EntityApathy(World var3) {
         super(var3);
@@ -47,15 +52,31 @@ public class EntityApathy extends EntityMob {
 
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.3499999940395355D);
+        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.2499999940395355D);
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(60.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(400.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(30.0D);
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.0D);
+    }
+    @Override
+    public void onLivingUpdate() {
+        super.onLivingUpdate();
+        this.cooldown --;
+        if(cooldown <0){
+        AxisAlignedBB axisalignedbb = this.getEntityBoundingBox().grow(10,10,10);
+            this.cooldown = 120;
+        List<EntityPlayer> list = this.world.<EntityPlayer>getEntitiesWithinAABB(EntityPlayer.class, axisalignedbb);
+
+        for (EntityPlayer entityplayer : list)
+        {
+            entityplayer.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 120, 1, true, true));
+            entityplayer.addPotionEffect(new PotionEffect(MobEffects.WEAKNESS, 120, 1, true, true));
+        }}
+
     }
 
+
     protected ResourceLocation getLootTable() {
-        return ModLootTables.Armagigas;
+        return ModLootTables.Boarbatusk;
     }
 
 
@@ -64,15 +85,16 @@ public class EntityApathy extends EntityMob {
     }
 
     protected SoundEvent getAmbientSound() {
-        return SoundEvents.ENTITY_IRONGOLEM_STEP;
+        return SoundEvents.ENTITY_WITHER_SKELETON_AMBIENT;
     }
 
-    protected SoundEvent getHurtSound() {
-        return SoundEvents.ENTITY_IRONGOLEM_HURT;
+    protected SoundEvent getHurtSound(DamageSource damageSourceIn)
+    {
+        return SoundEvents.ENTITY_SQUID_DEATH;
     }
 
-    protected SoundEvent getDeathSound() {
-        return SoundEvents.ENTITY_IRONGOLEM_DEATH;
+    protected net.minecraft.util.SoundEvent getDeathSound() {
+        return SoundEvents.ENTITY_ELDER_GUARDIAN_DEATH;
     }
     @Override
     protected float getSoundVolume() {
