@@ -24,6 +24,12 @@ public class RegUtil {
         registerItems(event, RWBYItems.entitysmallbullet);
         registerItems(event, RWBYItems.entitygrenade);
         registerItems(event, RWBYItems.entitybulletv);
+        registerItems(event, RWBYItems.entityweissfire);
+        registerItems(event, RWBYItems.entityweissgravity);
+        registerItems(event, RWBYItems.entityweissice);
+        registerItems(event, RWBYItems.entityweisslight);
+        registerItems(event, RWBYItems.entityweisswater);
+        registerItems(event, RWBYItems.entityweisswind);
 
         //Blocks
         registerBlocks(event, RWBYItems.rwbyblock1);

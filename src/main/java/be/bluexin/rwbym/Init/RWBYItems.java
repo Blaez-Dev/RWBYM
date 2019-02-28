@@ -1107,6 +1107,13 @@ public class RWBYItems {
     public static Item entitysmallbullet = new RWBYItem("entitysmallbullet", null, false, null);
     public static Item entitygrenade = new RWBYItem("entitygrenade", null, false, null);
     public static Item entitybulletv = new RWBYItem("entitybulletv", null, false, null);
+    public static Item entityweissfire = new RWBYItem("entityweissfire", null, false, null);
+    public static Item entityweissgravity = new RWBYItem("entityweissgravity", null, false, null);
+    public static Item entityweissice = new RWBYItem("entityweissice", null, false, null);
+    public static Item entityweisslight = new RWBYItem("entityweisslight", null, false, null);
+    public static Item entityweisswater = new RWBYItem("entityweisswater", null, false, null);
+    public static Item entityweisswind = new RWBYItem("entityweisswind", null, false, null);
+
     //------------------------------------------------//
     public static Item gamammo = new RWBYAmmoItem(
             "gamammo",
@@ -1305,7 +1312,7 @@ public class RWBYItems {
             new ExplosionAmmoHit(3));
     public static Item waterdust = new RWBYAmmoItem(
             "waterdust",
-            null,
+            RWBYItems.entityweisswater,
             64,
             false,
             RWBYAmmoItem.SurviveOnHit.NONE,
@@ -1320,7 +1327,7 @@ public class RWBYItems {
             new PotionAmmoHit(Items.SPLASH_POTION, ImmutableList.of(new PotionEffect(Potion.getPotionById(22), 100, 2))));
     public static Item winddust = new RWBYAmmoItem(
             "winddust",
-            null,
+            RWBYItems.entityweisswind,
             64,
             false,
             RWBYAmmoItem.SurviveOnHit.NONE,
@@ -1335,7 +1342,7 @@ public class RWBYItems {
             new PotionAmmoHit(Items.LINGERING_POTION, ImmutableList.of(new PotionEffect(Potion.getPotionById(1), 80, 5), new PotionEffect(Potion.getPotionById(8), 100, 3, false, false))));
     public static Item firedust = new RWBYAmmoItem(
             "firedust",
-            null,
+            RWBYItems.entityweissfire,
             64,
             false,
             RWBYAmmoItem.SurviveOnHit.NONE,
@@ -1350,7 +1357,7 @@ public class RWBYItems {
             new FireAmmoHit());
     public static Item icedust = new RWBYAmmoItem(
             "icedust",
-            null,
+            RWBYItems.entityweissice,
             64,
             false,
             RWBYAmmoItem.SurviveOnHit.NONE,
@@ -1365,7 +1372,7 @@ public class RWBYItems {
             null);
     public static Item lightdust = new RWBYAmmoItem(
             "lightdust",
-            null,
+            RWBYItems.entityweisslight,
             64,
             false,
             RWBYAmmoItem.SurviveOnHit.NONE,
@@ -1380,7 +1387,7 @@ public class RWBYItems {
             null);
     public static Item gravitydust = new RWBYAmmoItem(
             "gravitydust",
-            null,
+            RWBYItems.entityweissgravity,
             64,
             false,
             RWBYAmmoItem.SurviveOnHit.NONE,
