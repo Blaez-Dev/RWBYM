@@ -1,0 +1,18 @@
+{
+
+          "type": "minecraft:crafting_shaped",
+          "pattern": [
+            "fc ",
+            "rrr",
+            "rrr"
+          ],
+          "key": {
+            "c": {"item": "rwbym:viridianiron"},
+			"r": {"item": "rwbym:ammo"},
+			"f": {"item": "rwbym:firedust"}
+          },
+		  "result": {
+			  "item": "rwbym:chatfiremag",
+			  "count": 1
+		  }
+    }

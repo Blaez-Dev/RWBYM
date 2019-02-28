@@ -54,7 +54,7 @@ public class EntityGeist extends EntityMob
         super(worldIn);
         this.isImmuneToFire = true;
         this.moveHelper = new EntityGeist.AIMoveControl(this);
-        this.setSize(0.4F, 0.8F);
+        this.setSize(1F, 1F);
         this.experienceValue = 3;
     }
 

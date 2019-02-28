@@ -162,7 +162,6 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
                     }
                 }
 
-                this.playSound(SoundEvents.ENTITY_ARROW_HIT, 1.0F, 1.2F / (this.rand.nextFloat() * 0.2F + 0.9F));
             }
             else
             {
@@ -200,9 +199,8 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
             this.posX -= this.motionX / (double)f2 * 0.05000000074505806D;
             this.posY -= this.motionY / (double)f2 * 0.05000000074505806D;
             this.posZ -= this.motionZ / (double)f2 * 0.05000000074505806D;
-            this.playSound(SoundEvents.ENTITY_ARROW_HIT, 1.0F, 1.2F / (this.rand.nextFloat() * 0.2F + 0.9F));
             this.inGround = true;
-            this.arrowShake = 7;
+            this.arrowShake = 0;
             this.setIsCritical(false);
 
             if (iblockstate.getMaterial() != Material.AIR)
@@ -396,6 +394,8 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
     	RWBYAmmoItem item = this.getItem();
     	
     	item.onEntityHit(living);
+
+        living.hurtResistantTime = 0;
     	
     	if (!item.canSurviveBlockHit() && !(living instanceof EntityEnderman)) {
     		this.setDead();

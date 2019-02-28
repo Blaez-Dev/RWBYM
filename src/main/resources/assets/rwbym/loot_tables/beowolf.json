@@ -3,7 +3,7 @@
     {
       "name": "beowolf",
       "rolls": {
-        "min": 0,
+        "min": 1,
         "max": 2
       },
       "entries": [

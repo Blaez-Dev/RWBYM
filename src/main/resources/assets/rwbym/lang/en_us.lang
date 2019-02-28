@@ -12,7 +12,7 @@ entity.winter_ursa.name=Summoned Ursa
 entity.winter_boarbatusk.name=Summoned Boarbatusk
 entity.atlasknight.name=Atlas Knight
 entity.armorgeist.name=Arma Gigas
-entity.winterarmorgeist.name= Summoned Arma Gigas
+entity.winterarmorgeist.name=Summoned Arma Gigas
 entity.geist.name=Geist
 
 item.rwbym:crescent.name=Crescent Rose
@@ -188,6 +188,11 @@ item.rwbym:chatareus.name=Chatareus
 item.rwbym:chatareusgun.name=Chatareus
 item.rwbym:armasword.name=Arma Gigas' Sword
 item.rwbym:armaswordsummon.name=Summoned Arma Gigas' Sword
+item.rwbym:chatfiremag.name=Chatareus Fire Magazine
+item.rwbym:chatmag.name=Chatareus Magazine
+item.rwbym:chatgravmag.name=Chatareus Gravity Magazine
+item.rwbym:chatelectricmag.name=Chatareus Lightning Magazine
+
 
 itemGroup.rwby_weapons=RWBY Weapons
 itemGroup.rwby_items=RWBY Items

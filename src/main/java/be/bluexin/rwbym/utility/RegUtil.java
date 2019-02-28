@@ -218,6 +218,10 @@ public class RegUtil {
         registerItems(event, RWBYItems.jnrammo);
         registerItems(event, RWBYItems.ammov);
         registerItems(event, RWBYItems.ammmo);
+        registerItems(event, RWBYItems.chatmag);
+        registerItems(event, RWBYItems.chatelectricmag);
+        registerItems(event, RWBYItems.chatfiremag);
+        registerItems(event, RWBYItems.chatgravmag);
 
 
 
