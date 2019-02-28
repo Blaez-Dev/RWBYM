@@ -1,0 +1,14 @@
+/bin/
+/.classpath
+/.git
+/.gradle
+/.settings/
+/build/
+/eclipse/
+/gradle/
+/run/
+/.project
+/CREDITS.txt
+/RWBYM-2.0_Client.launch
+/RWBYM-2.0_Server.launch
+/Git/

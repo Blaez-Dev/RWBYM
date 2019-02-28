@@ -1,6 +1,5 @@
 package be.bluexin.rwbym.capabilities.Weiss;
 
-import be.bluexin.rwbym.capabilities.ruby.IRuby;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.util.EnumFacing;
 import net.minecraftforge.common.capabilities.Capability;
