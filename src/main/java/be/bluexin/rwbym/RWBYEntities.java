@@ -82,6 +82,7 @@ public class RWBYEntities {
         EntityRegistry.addSpawn(EntityCreep.class, 50, 3, 10, EnumCreatureType.MONSTER, biomes);
         EntityRegistry.addSpawn(EntityGeist.class, 50, 1, 5, EnumCreatureType.MONSTER, biomes);
         EntityRegistry.addSpawn(EntityApathy.class, 75, 7, 10, EnumCreatureType.MONSTER, biomes1);
+        EntityRegistry.addSpawn(EntityNuckleeve.class, 10, 3, 1, EnumCreatureType.MONSTER, biomes);
 
 
         //DungeonHooks.addDungeonMob(new ResourceLocation("rwbym:beowolf"), 180);

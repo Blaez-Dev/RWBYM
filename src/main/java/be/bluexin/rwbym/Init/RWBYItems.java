@@ -1113,8 +1113,9 @@ public class RWBYItems {
     public static Item entityweisslight = new RWBYItem("entityweisslight", null, false, null);
     public static Item entityweisswater = new RWBYItem("entityweisswater", null, false, null);
     public static Item entityweisswind = new RWBYItem("entityweisswind", null, false, null);
+    public static Item entityrocket = new RWBYItem("entityrocket", null, false, null);
 
-    //------------------------------------------------//
+            //------------------------------------------------//
     public static Item gamammo = new RWBYAmmoItem(
             "gamammo",
             RWBYItems.entitysmallbullet,
@@ -1402,7 +1403,7 @@ public class RWBYItems {
             new PotionAmmoHit(Items.LINGERING_POTION, ImmutableList.of(new PotionEffect(Potion.getPotionById(25), 60, 3, false, false))));
     public static Item jnrammo = new RWBYAmmoItem(
             "jnrammo",
-            null,
+            RWBYItems.entityrocket,
             1,
             false,
             RWBYAmmoItem.SurviveOnHit.NONE,
