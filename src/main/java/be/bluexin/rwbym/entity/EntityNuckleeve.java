@@ -1,26 +1,27 @@
 package be.bluexin.rwbym.entity;
 
-        import be.bluexin.rwbym.ModLootTables;
-        import net.minecraft.entity.*;
-        import net.minecraft.entity.ai.*;
-        import net.minecraft.entity.monster.EntityIronGolem;
-        import net.minecraft.entity.monster.EntityMob;
-        import net.minecraft.entity.monster.EntitySilverfish;
-        import net.minecraft.entity.player.EntityPlayer;
-        import net.minecraft.init.SoundEvents;
-        import net.minecraft.util.ResourceLocation;
-        import net.minecraft.util.SoundEvent;
-        import net.minecraft.world.World;
+import be.bluexin.rwbym.ModLootTables;
+import net.minecraft.entity.*;
+import net.minecraft.entity.ai.*;
+import net.minecraft.entity.monster.EntityIronGolem;
+import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.monster.EntitySilverfish;
+import net.minecraft.entity.passive.EntityVillager;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundEvent;
+import net.minecraft.world.World;
 
-public class EntityGoliath extends EntityMob
+public class EntityNuckleeve extends EntityMob
 {
 
     World world = null;
 
-    public EntityGoliath(World var1) {
+    public EntityNuckleeve(World var1) {
         super(var1);
         world = var1;
-        this.setSize(3.95F, 3.95F);
+        this.setSize(2F, 2F);
     }
 
     protected void initEntityAI() {
@@ -28,15 +29,16 @@ public class EntityGoliath extends EntityMob
         this.tasks.addTask(4, new EntityAIAttackMelee(this, 1.0D, false));
         this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[0]));
         this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
-        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityIronGolem.class, true));
+        this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityVillager.class, true));
+        this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityIronGolem.class, true));
     }
 
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.44D);
+        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.6D);
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(60.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(1000.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(5.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(350.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
         this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.0D);
     }
 

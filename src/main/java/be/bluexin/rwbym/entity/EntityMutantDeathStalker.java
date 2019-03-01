@@ -52,7 +52,7 @@ public class EntityMutantDeathStalker extends EntityMob
     public EntityMutantDeathStalker(World worldIn)
     {
         super(worldIn);
-        this.setSize(3.95F, 1.95F);
+        this.setSize(2.95F, 1.95F);
         this.experienceValue = 300;
     }
 
@@ -100,6 +100,7 @@ public class EntityMutantDeathStalker extends EntityMob
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(60.0D);
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(300.0D);
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(5.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.0D);
     }
 
     public boolean attackEntityAsMob(Entity entityIn)

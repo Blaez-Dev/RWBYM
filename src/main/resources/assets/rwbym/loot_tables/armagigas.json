@@ -4,13 +4,13 @@
       "name": "armagigas",
       "rolls": {
         "min": 1,
-        "max": 2
+        "max": 1
       },
       "entries": [
         {
           "type": "item",
           "name": "rwbym:armasword",
-          "weight": 100
+          "weight": 5
         },{
           "type": "item",
           "name": "rwbym:rvnswd",
@@ -30,6 +30,31 @@
           "type": "item",
           "name": "rwbym:chatareus",
           "weight": 20
+        },,
+        {
+          "type": "item",
+          "name": "rwbym:ozpincane",
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "name": "rwbym:ozmacane",
+          "weight": 15
+        },
+        {
+          "type": "item",
+          "name": "rwbym:portgun",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "rwbym:winterswd",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "rwbym:rvnmask",
+          "weight": 2
         },
         {
           "type": "item",
@@ -39,22 +64,22 @@
         {
           "type": "item",
           "name": "rwbym:coinr",
-          "weight": 10
+          "weight": 5
         },
         {
           "type": "item",
           "name": "rwbym:coinw",
-          "weight": 10
+          "weight": 5
         },
         {
           "type": "item",
           "name": "rwbym:coinb",
-          "weight": 10
+          "weight": 5
         },
         {
           "type": "item",
           "name": "rwbym:coiny",
-          "weight": 10
+          "weight": 5
         }
       ]
     }]}
