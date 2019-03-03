@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#I#",
+        "#N#",
+        "#K#"
+    ],
+    "key": {
+        "#": {
+            "item": "rwbym:remnants"
+        },
+        "I": {
+            "item": "minecraft:iron_helmet"
+        },
+        "N": {
+            "item": "minecraft:iron_chestplate"
+        },
+        "K": {
+            "item": "minecraft:iron_leggings"
+        }
+    },
+    "result": {
+        "item": "rwbym:armagigas",
+        "count": 1
+    }
+}

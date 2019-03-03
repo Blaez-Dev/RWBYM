@@ -171,6 +171,14 @@
           "type": "item",
           "name": "rwbym:coiny",
           "weight": 3
+        },{
+          "type": "item",
+          "name": "rwbym:whtefng",
+          "weight": 20
+        }{
+          "type": "item",
+          "name": "rwbym:remnants",
+          "weight": 30
         }
 
       ]

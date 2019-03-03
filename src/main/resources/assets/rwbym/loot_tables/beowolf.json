@@ -81,6 +81,14 @@
           "type": "item",
           "name": "rwbym:mytre3",
           "weight": 20
+        },{
+          "type": "item",
+          "name": "rwbym:whtefng",
+          "weight": 20
+        }{
+          "type": "item",
+          "name": "rwbym:remnants",
+          "weight": 40
         }
       ]
     }

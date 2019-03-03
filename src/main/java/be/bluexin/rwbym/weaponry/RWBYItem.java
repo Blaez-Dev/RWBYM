@@ -105,7 +105,7 @@ public class RWBYItem extends Item implements ICustomItem {
             if(player.getHeldItem(EnumHand.OFF_HAND) == is && water){
                 PotionEffect potioneffect = new PotionEffect(MobEffects.RESISTANCE, 60, 1, false, false);
                 player.addPotionEffect(potioneffect);
-                player.heal(0.01F);
+                player.heal(0.05F);
             }
         }
         if (!world.isRemote && this.data != null) {

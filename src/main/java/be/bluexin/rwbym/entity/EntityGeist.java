@@ -209,7 +209,7 @@ public class EntityGeist extends EntityMob
     }
 
 
-    
+
 
     class AIChargeAttack extends EntityAIBase
     {

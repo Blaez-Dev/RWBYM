@@ -39,6 +39,15 @@
           "type": "item",
           "name": "rwbym:norahammer",
           "weight": 20
+        },{
+          "type": "item",
+          "name": "rwbym:rvnswd",
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "name": "rwbym:qrowsword",
+          "weight": 5
         },
         {
           "type": "item",
@@ -82,6 +91,11 @@
         },
         {
           "type": "item",
+          "name": "rwbym:korekosmouoff",
+          "weight": 20
+        },
+        {
+          "type": "item",
           "name": "rwbym:rvnmask",
           "weight": 2
         },
@@ -97,71 +111,28 @@
         },
         {
           "type": "item",
+          "name": "rwbym:chatareus",
+          "weight": 20
+        },
+        {
+          "type": "item",
           "name": "rwbym:coinr",
-          "weight": 30
+          "weight": 20
         },
         {
           "type": "item",
           "name": "rwbym:coinw",
-          "weight": 30
+          "weight": 20
         },
         {
           "type": "item",
           "name": "rwbym:coinb",
-          "weight": 30
+          "weight": 20
         },
         {
           "type": "item",
           "name": "rwbym:coiny",
-          "weight": 30
-        },{
-          "type": "item",
-          "name": "rwbym:armasword",
-          "weight": 5
-        },{
-          "type": "item",
-          "name": "rwbym:rvnswd",
-          "weight": 5
-        },
-        {
-          "type": "item",
-          "name": "rwbym:qrowsword",
-          "weight": 5
-        },
-        {
-          "type": "item",
-          "name": "rwbym:korekosmouoff",
           "weight": 20
-        },
-        {
-          "type": "item",
-          "name": "rwbym:chatareus",
-          "weight": 20
-        },,
-        {
-          "type": "item",
-          "name": "rwbym:ozpincane",
-          "weight": 5
-        },
-        {
-          "type": "item",
-          "name": "rwbym:ozmacane",
-          "weight": 15
-        },
-        {
-          "type": "item",
-          "name": "rwbym:portgun",
-          "weight": 20
-        },
-        {
-          "type": "item",
-          "name": "rwbym:winterswd",
-          "weight": 20
-        },
-        {
-          "type": "item",
-          "name": "rwbym:rvnmask",
-          "weight": 2
         }
 
       ]
