@@ -9,7 +9,11 @@ public class FireAmmoHit implements IAmmoHit {
 
 	@Override
 	public void applyBlock(World world, BlockPos pos) {
-		world.setBlockState(pos, Blocks.FIRE.getDefaultState());
+		//BlockPos blockpos = result.getBlockPos().offset(result.sideHit);
+
+		//if (world.isAirBlock(blockpos)) {
+			world.setBlockState(pos, Blocks.FIRE.getDefaultState());
+		//}
 	}
 
 	@Override

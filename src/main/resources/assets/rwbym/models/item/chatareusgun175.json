@@ -2,7 +2,6 @@
 	"credit": "Made with Blockbench",
 	"textures": {
 		"1": "rwbym:blocks/cha1.75",
-		"2": "rwbym:blocks/cha1.75f",
 		"4": "rwbym:blocks/chatareus",
 		"particle": "rwbym:blocks/chatareus"
 	},
@@ -2557,7 +2556,7 @@
 			"rotation": {"angle": 22.5, "axis": "x", "origin": [8, 0, 8.5]},
 			"faces": {
 				"north": {"uv": [3.438, 0, 15.987, 15.975], "texture": "#1"},
-				"east": {"uv": [0, 0, 15.985, 15.975], "texture": "#2"},
+				"east": {"uv": [15.985, 0, 0, 15.975], "texture": "#1"},
 				"south": {"uv": [15.987, 15.975, 3.063, 0], "rotation": 90, "texture": "#1"},
 				"west": {"uv": [0, 0, 15.985, 15.975], "texture": "#1"},
 				"up": {"uv": [15.5, 0, 15.987, 15.975], "texture": "#1"},
@@ -2571,7 +2570,7 @@
 				"north": {"uv": [15.987, 15.975, 3.063, 0], "rotation": 270, "texture": "#1"},
 				"east": {"uv": [0, 0, 15.985, 15.975], "rotation": 180, "texture": "#1"},
 				"south": {"uv": [3.438, 0, 15.987, 15.975], "rotation": 180, "texture": "#1"},
-				"west": {"uv": [0, 0, 15.985, 15.975], "rotation": 180, "texture": "#2"},
+				"west": {"uv": [15.985, 0, 0, 15.975], "rotation": 180, "texture": "#1"},
 				"up": {"uv": [15.5, 0, 15.987, 15.975], "texture": "#1"},
 				"down": {"uv": [15.5, 0, 15.987, 15.975], "texture": "#1"}
 			}
@@ -2581,7 +2580,7 @@
 			"to": [7.925, 7.35, 17.925],
 			"faces": {
 				"north": {"uv": [3.438, 0, 15.987, 15.975], "texture": "#1"},
-				"east": {"uv": [0.5, 0, 15.985, 15.975], "texture": "#2"},
+				"east": {"uv": [15.961, 0.025, 0, 16], "texture": "#1"},
 				"south": {"uv": [15.987, 15.975, 3.063, 0], "rotation": 90, "texture": "#1"},
 				"west": {"uv": [0, 0, 15.985, 15.975], "texture": "#1"},
 				"up": {"uv": [15.5, 0, 15.987, 15.975], "texture": "#1"},
@@ -2596,7 +2595,7 @@
 				"north": {"uv": [15.987, 15.975, 3.063, 0], "rotation": 270, "texture": "#1"},
 				"east": {"uv": [0, 0, 15.985, 15.975], "rotation": 180, "texture": "#1"},
 				"south": {"uv": [3.438, 0, 15.987, 15.975], "rotation": 180, "texture": "#1"},
-				"west": {"uv": [0, 0, 15.985, 15.975], "rotation": 180, "texture": "#2"},
+				"west": {"uv": [15.985, 0, 0, 15.975], "rotation": 180, "texture": "#1"},
 				"up": {"uv": [15.5, 0, 15.987, 15.975], "texture": "#1"},
 				"down": {"uv": [15.5, 0, 15.987, 15.975], "texture": "#1"}
 			}

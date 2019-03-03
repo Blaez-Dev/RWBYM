@@ -9,6 +9,7 @@ import be.bluexin.rwbym.capabilities.ISemblance;
 import be.bluexin.rwbym.capabilities.Weiss.WeissProvider;
 import be.bluexin.rwbym.capabilities.Yang.YangProvider;
 import be.bluexin.rwbym.capabilities.Ruby.RubyProvider;
+import be.bluexin.rwbym.entity.EntityArmorgeist;
 import be.bluexin.rwbym.entity.EntityAtlasKnight;
 import be.bluexin.rwbym.entity.EntityBeowolf;
 import net.minecraft.creativetab.CreativeTabs;
@@ -52,6 +53,8 @@ public class RWBYItem extends Item implements ICustomItem {
     private boolean coinw;
     private boolean coinb;
     private boolean coiny;
+    private boolean ageist;
+
     public RWBYItem(String name,String data, boolean isMask,  CreativeTabs creativetab) {
         this.setRegistryName(new ResourceLocation(RWBYModels.MODID, name));
         this.setUnlocalizedName(this.getRegistryName().toString());
@@ -66,6 +69,7 @@ public class RWBYItem extends Item implements ICustomItem {
         if(name.contains("coinw")) coinw = true;
         if(name.contains("coinb")) coinb = true;
         if(name.contains("coiny")) coiny = true;
+        if(name.contains("armagigas")) ageist = true;
     }
 
     /*@Override
@@ -99,8 +103,9 @@ public class RWBYItem extends Item implements ICustomItem {
                 }
             }
             if(player.getHeldItem(EnumHand.OFF_HAND) == is && water){
-                PotionEffect potioneffect = new PotionEffect(MobEffects.REGENERATION, 60, 2, false, false);
+                PotionEffect potioneffect = new PotionEffect(MobEffects.RESISTANCE, 60, 1, false, false);
                 player.addPotionEffect(potioneffect);
+                player.heal(0.01F);
             }
         }
         if (!world.isRemote && this.data != null) {
@@ -131,6 +136,16 @@ public class RWBYItem extends Item implements ICustomItem {
             EntityAtlasKnight entityAtlasKnight = new EntityAtlasKnight(playerIn.world);
             entityAtlasKnight.moveToBlockPosAndAngles(blockpos, 0.0F, 0.0F);
             playerIn.world.spawnEntity(entityAtlasKnight);}
+            itemstack.shrink(1);
+        }
+
+        if(ageist){
+            if(!worldIn.isRemote){
+                BlockPos blockpos = (new BlockPos(playerIn));
+                EntityArmorgeist entityAtlasKnight = new EntityArmorgeist(playerIn.world);
+                entityAtlasKnight.moveToBlockPosAndAngles(blockpos, 0.0F, 0.0F);
+                entityAtlasKnight.ignite();
+                playerIn.world.spawnEntity(entityAtlasKnight);}
             itemstack.shrink(1);
         }
 

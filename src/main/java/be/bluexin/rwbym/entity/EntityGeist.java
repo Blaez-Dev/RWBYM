@@ -208,22 +208,8 @@ public class EntityGeist extends EntityMob
         return ModLootTables.Ursa;
     }
 
-    @SideOnly(Side.CLIENT)
-    public int getBrightnessForRender()
-    {
-        return 15728880;
-    }
 
-    /**
-     * Gets how bright this entity is.
-     */
-    public float getBrightness()
-    {
-        return 1.0F;
-    }
-
-
-
+    
 
     class AIChargeAttack extends EntityAIBase
     {
