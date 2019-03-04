@@ -143,7 +143,7 @@ public class Ruby implements IRuby {
 
 
 					if(this.level >2){
-					AxisAlignedBB axisalignedbb = player.getEntityBoundingBox().grow(1,1,1);
+					AxisAlignedBB axisalignedbb = player.getEntityBoundingBox().grow(2,2,2);
 
 
 					List<?> list1 = player.world.getEntitiesWithinAABB(EntityLivingBase.class, axisalignedbb);

@@ -46,17 +46,17 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.common.registry.IThrowableEntity;
 
 public class EntityBullet extends EntityArrow implements IThrowableEntity{
-		
+
     private static final DataParameter<ItemStack> ITEM = EntityDataManager.createKey(RWBYAmmoEntity.class, DataSerializers.ITEM_STACK);
-	
-	private int knockbackStrength;
-	private int ticksInAir;
-	private int xTile;
-	private int yTile;
-	private int zTile;
-	private Block inTile;
-	private int inData;
-	private short ticksInGround;
+
+    private int knockbackStrength;
+    private int ticksInAir;
+    private int xTile;
+    private int yTile;
+    private int zTile;
+    private Block inTile;
+    private int inData;
+    private short ticksInGround;
 
     public EntityBullet(World worldIn)
     {
@@ -80,38 +80,38 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
             this.pickupStatus = PickupStatus.CREATIVE_ONLY;
         }
     }
-    
+
     public EntityBullet(World worldIn, EntityLivingBase shooter, RWBYAmmoItem from) {
-    	this(worldIn, shooter);
-    	this.setItem(from);
-    	if (shooter instanceof EntityPlayer && from.canPickup()) {
-    		this.pickupStatus = PickupStatus.ALLOWED;
-    	}
+        this(worldIn, shooter);
+        this.setItem(from);
+        if (shooter instanceof EntityPlayer && from.canPickup()) {
+            this.pickupStatus = PickupStatus.ALLOWED;
+        }
     }
-    
+
     @Override
     protected void entityInit() {
-    	super.entityInit();
-    	dataManager.register(ITEM, ItemStack.EMPTY);
+        super.entityInit();
+        dataManager.register(ITEM, ItemStack.EMPTY);
     }
-    
+
     public ResourceLocation getTexture() {
-    	RWBYAmmoItem item = getItem();
-    	return item == null ? null : new ResourceLocation(RWBYModels.MODID, item.getTexture());
+        RWBYAmmoItem item = getItem();
+        return item == null ? null : new ResourceLocation(RWBYModels.MODID, item.getTexture());
     }
-    
+
     public ItemStack getStackForRender() {
-    	return this.getItem().getRenderStack();
+        return this.getItem().getRenderStack();
     }
-    
+
     @Override
     protected void onHit(RayTraceResult raytraceResultIn) {
-    	
-    	Entity entity = raytraceResultIn.entityHit;
-    	
-    	RWBYAmmoItem item = this.getItem();
-    	
-    	RWBYModels.LOGGER.info(item);
+
+        Entity entity = raytraceResultIn.entityHit;
+
+        RWBYAmmoItem item = this.getItem();
+
+        RWBYModels.LOGGER.info(item);
 
         if (entity != null)
         {
@@ -132,7 +132,7 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
             {
                 entity.setFire(5);
             }
-            
+
             entity.hurtResistantTime = 0;
 
             if (entity.attackEntityFrom(damagesource, (float)i))
@@ -140,7 +140,7 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
                 if (entity instanceof EntityLivingBase)
                 {
                     EntityLivingBase entitylivingbase = (EntityLivingBase)entity;
-                    
+
                     if (this.knockbackStrength > 0)
                     {
                         float f1 = MathHelper.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ);
@@ -155,7 +155,7 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
                     {
                         this.arrowHit(entitylivingbase);
                     }
-                    
+
                     if (this.shootingEntity != null && entitylivingbase != this.shootingEntity && entitylivingbase instanceof EntityPlayer && this.shootingEntity instanceof EntityPlayerMP)
                     {
                         ((EntityPlayerMP)this.shootingEntity).connection.sendPacket(new SPacketChangeGameState(6, 0.0F));
@@ -205,24 +205,24 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
 
             if (iblockstate.getMaterial() != Material.AIR)
             {
-        		this.arrowHitBlock(this.world, blockpos, raytraceResultIn.sideHit);
+                this.arrowHitBlock(this.world, blockpos, raytraceResultIn.sideHit);
                 this.inTile.onEntityCollidedWithBlock(this.world, blockpos, iblockstate, this);
             }
-        }    
+        }
     }
-    
+
     @Override
     public void onUpdate() {
-    	if (this.firstUpdate || this.ticksExisted % 20 == 0) {
-    		RWBYNetworkHandler.sendToAll(new MessagePosVelUpdate(this));
-    	}
+        if (this.firstUpdate || this.ticksExisted % 20 == 0) {
+            RWBYNetworkHandler.sendToAll(new MessagePosVelUpdate(this));
+        }
         if (!this.world.isRemote)
         {
             this.setFlag(6, this.isGlowing());
         }
 
         this.onEntityUpdate();
-        
+
         if (this.prevRotationPitch == 0.0F && this.prevRotationYaw == 0.0F)
         {
             float f = MathHelper.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ);
@@ -281,7 +281,7 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
             this.timeInGround = 0;
             ++this.ticksInAir;
             if (this.ticksInAir > 20 * 15) {
-            	this.setDead();
+                this.setDead();
             }
             Vec3d vec3d1 = new Vec3d(this.posX, this.posY, this.posZ);
             Vec3d vec3d = new Vec3d(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
@@ -382,46 +382,47 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
 
             this.setPosition(this.posX, this.posY, this.posZ);
             this.doBlockCollisions();
-        }    
+        }
     }
-    
+
     @Override
     public void setVelocity(double x, double y, double z) {}
-    
+
     @Override
     protected void arrowHit(EntityLivingBase living) {
-    	
-    	RWBYAmmoItem item = this.getItem();
-    	
-    	item.onEntityHit(living);
+
+        RWBYAmmoItem item = this.getItem();
+
+        item.onEntityHit(living);
 
         living.hurtResistantTime = 0;
-    	
-    	if (!item.canSurviveBlockHit() && !(living instanceof EntityEnderman)) {
-    		this.setDead();
-    	}
-    	
-    	if (item.getPotions() != null) {
-	    	for (PotionEffect potion : item.getPotions()) {
-	    		RWBYModels.LOGGER.info("Potion: {}, Durration: {}, Power: {}", potion.getPotion().getName(), potion.getDuration(), potion.getAmplifier());
-	    		PotionEffect effect = new PotionEffect(potion);
-	    		living.addPotionEffect(effect);
-	    	}
-    	}
+
+        if (!item.canSurviveBlockHit() && !(living instanceof EntityEnderman)) {
+            this.setDead();
+        }
+
+        if (item.getPotions() != null) {
+            for (PotionEffect potion : item.getPotions()) {
+                RWBYModels.LOGGER.info("Potion: {}, Durration: {}, Power: {}", potion.getPotion().getName(), potion.getDuration(), potion.getAmplifier());
+                PotionEffect effect = new PotionEffect(potion);
+                living.addPotionEffect(effect);
+            }
+        }
     }
-    
+
     private void arrowHitBlock(World world, BlockPos pos, EnumFacing facing) {
-    	
-    	RWBYAmmoItem item = this.getItem();
-    	
-    	if (!item.canSurviveEntityHit()) {
-    		this.setDead();
-    	}
-    	
-		item.onBlockHit(world, pos.offset(facing));
-		//this.setDead();
+
+        RWBYAmmoItem item = this.getItem();
+
+        if (!item.canSurviveEntityHit()) {
+            this.setDead();
+        }
+
+        if(!world.isRemote){
+        item.onBlockHit(world, pos.offset(facing));}
+        //this.setDead();
     }
-    
+
     @Override
     public void writeEntityToNBT(NBTTagCompound compound) {
         compound.setInteger("xTile", this.xTile);
@@ -434,12 +435,12 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
         compound.setByte("shake", (byte)this.arrowShake);
         compound.setByte("inGround", (byte)(this.inGround ? 1 : 0));
         compound.setByte("pickup", (byte)this.pickupStatus.ordinal());
-        compound.setBoolean("crit", this.getIsCritical());  
+        compound.setBoolean("crit", this.getIsCritical());
     }
-    
+
     @Override
     public void readEntityFromNBT(NBTTagCompound compound) {
-    	this.xTile = compound.getInteger("xTile");
+        this.xTile = compound.getInteger("xTile");
         this.yTile = compound.getInteger("yTile");
         this.zTile = compound.getInteger("zTile");
         this.ticksInGround = compound.getShort("life");
@@ -468,34 +469,34 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
 
         this.setIsCritical(compound.getBoolean("crit"));
     }
-    
+
     public RWBYAmmoItem getItem() {
-    	ItemStack stack = dataManager.get(ITEM);
-    	if (stack.getItem() instanceof RWBYAmmoItem) {
-    		return (RWBYAmmoItem) dataManager.get(ITEM).getItem();
-    	}
-    	else {
-    		return (RWBYAmmoItem) RWBYItems.ammmo;
-    	}
+        ItemStack stack = dataManager.get(ITEM);
+        if (stack.getItem() instanceof RWBYAmmoItem) {
+            return (RWBYAmmoItem) dataManager.get(ITEM).getItem();
+        }
+        else {
+            return (RWBYAmmoItem) RWBYItems.ammmo;
+        }
     }
-    
+
     public void setItem(RWBYAmmoItem item) {
-    	dataManager.set(ITEM, new ItemStack(item));
+        dataManager.set(ITEM, new ItemStack(item));
     }
 
-	@Override
-	protected ItemStack getArrowStack() {
-		return ItemStack.EMPTY;
-	}
+    @Override
+    protected ItemStack getArrowStack() {
+        return ItemStack.EMPTY;
+    }
 
-	@Override
-	public Entity getThrower() {
-		return this.shootingEntity;
-	}
+    @Override
+    public Entity getThrower() {
+        return this.shootingEntity;
+    }
 
-	@Override
-	public void setThrower(Entity entity) {
-		this.shootingEntity = entity;
-	}
+    @Override
+    public void setThrower(Entity entity) {
+        this.shootingEntity = entity;
+    }
 
 }
