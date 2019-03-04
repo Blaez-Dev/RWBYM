@@ -5,6 +5,7 @@ import be.bluexin.rwbym.RWBYModels;
 import be.bluexin.rwbym.client.particle.RosePetal;
 import be.bluexin.rwbym.entity.EntityBeowolf;
 import be.bluexin.rwbym.entity.EntityMutantDeathStalker;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.passive.EntityVillager;
@@ -12,6 +13,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.EntityDamageSource;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
@@ -21,6 +23,8 @@ import java.util.Iterator;
 import java.util.List;
 
 public class Ruby implements IRuby {
+
+	private static final int MAX_LEVEL = 3;
 
 	private int invisiblityTimer = 0;
 	
@@ -39,10 +43,6 @@ public class Ruby implements IRuby {
 		
 		//System.out.println("" + this.level);
 
-		if(this.level >3){
-			this.level = 3;
-		}
-
 		switch(this.level) {
 		case 1:
 			if (this.cooldown > 0) {
@@ -56,6 +56,7 @@ public class Ruby implements IRuby {
 				return true;
 			}
 		case 2:
+		case 3:
 			if (this.cooldown <= 0) {
 				this.active = false;
 				return false;
@@ -65,16 +66,6 @@ public class Ruby implements IRuby {
 				return true;
 			}
 			return false;
-			case 3:
-				if (this.cooldown <= 0) {
-					this.active = false;
-					return false;
-				}
-				if (this.cooldown >= 30) {
-					this.active = true;
-					return true;
-				}
-				return false;
 		default:
 			return false;
 		}
@@ -87,10 +78,8 @@ public class Ruby implements IRuby {
 		case 1:
 			break;
 		case 2:
-			this.active = false;
-
 		case 3:
-		this.active = false;}
+			this.active = false;}
 		return false;
 	}
 
@@ -127,61 +116,56 @@ public class Ruby implements IRuby {
 			
 			player.fallDistance = 0;
 			
-			if (player.world.isRemote) {
-				if (player.onGround || this.level > 1) {
-					//System.out.println(this.cooldown);
-					Vec3d look = player.getLookVec();
-					
-					//how much speed to keep
-					double decay = 0.95D;
-					//comment out this line to go back to normal
-					look = look.scale(Math.max(Math.sqrt(player.motionX * player.motionX + player.motionY * player.motionY / 4 + player.motionZ * player.motionZ) * decay, 1));
-					player.motionX = look.x;
-					player.motionY = look.y * 2;
-					player.motionZ = look.z;
-					player.fallDistance = 0;
+			if (player.onGround || this.level > 1) {
+				//System.out.println(this.cooldown);
+				Vec3d look = player.getLookVec();
+				
+				//how much speed to keep
+				double decay = 0.95D;
+				//comment out this line to go back to normal
+				look = look.scale(Math.max(Math.sqrt(player.motionX * player.motionX + player.motionY * player.motionY / 4 + player.motionZ * player.motionZ) * decay, 1));
+				player.motionX = look.x;
+				player.motionY = look.y * 2;
+				player.motionZ = look.z;
+				player.fallDistance = 0;
 
-
-					if(this.level >2){
+				if(this.level >2){
 					AxisAlignedBB axisalignedbb = player.getEntityBoundingBox().grow(2,2,2);
-
-
-					List<?> list1 = player.world.getEntitiesWithinAABB(EntityLivingBase.class, axisalignedbb);
-
+	
+	
+					List<Entity> list1 = player.world.getEntitiesWithinAABBExcludingEntity(player, axisalignedbb);
+	
 					if (!list1.isEmpty())
 					{
-						Iterator<?> iterator = list1.iterator();
-
 						double y = Math.pow(player.motionY, 2);
 						double x = Math.pow(player.motionX, 2);
 						double z = Math.pow(player.motionZ, 2);
-
+	
 						double d3 = Math.sqrt(x+y+z);
 						float f = (float)d3;
-
-						while (iterator.hasNext())
+	
+						for (Entity entity : list1)
 						{
-							EntityLivingBase entitylivingbase = (EntityLivingBase)iterator.next();
-							entitylivingbase.attackEntityFrom(DamageSource.FLY_INTO_WALL, f*100);
+							if (entity instanceof EntityLivingBase) {
+								EntityLivingBase entitylivingbase = (EntityLivingBase)entity;
+								entitylivingbase.attackEntityFrom(new EntityDamageSource("rose petal", player), f*10);
+							}
 						}
-					}}
-
-
-
-
-					for (int i = 0; i < (this.level > 1 ? 32 : 2); i++) {
-						ItemStack is = player.getHeldItemMainhand();
-						ItemStack is2 = player.getHeldItemOffhand();
-						if(is.getItem() == RWBYItems.crescentfrost){
-							RWBYModels.proxy.generateSummerpetals(player);
-						}else if(is.getItem() == RWBYItems.crescentgunfrost){
-							RWBYModels.proxy.generateSummerpetals(player);
-						}else if(is2.getItem() == RWBYItems.crescentfrost){
-							RWBYModels.proxy.generateSummerpetals(player);
-						}else if(is2.getItem() == RWBYItems.crescentgunfrost){
-							RWBYModels.proxy.generateSummerpetals(player);
-						}else RWBYModels.proxy.generateRosepetals(player);
 					}
+				}
+
+				for (int i = 0; i < (this.level > 1 ? 32 : 2); i++) {
+					ItemStack is = player.getHeldItemMainhand();
+					ItemStack is2 = player.getHeldItemOffhand();
+					if(is.getItem() == RWBYItems.crescentfrost){
+						RWBYModels.proxy.generateSummerpetals(player);
+					}else if(is.getItem() == RWBYItems.crescentgunfrost){
+						RWBYModels.proxy.generateSummerpetals(player);
+					}else if(is2.getItem() == RWBYItems.crescentfrost){
+						RWBYModels.proxy.generateSummerpetals(player);
+					}else if(is2.getItem() == RWBYItems.crescentgunfrost){
+						RWBYModels.proxy.generateSummerpetals(player);
+					}else RWBYModels.proxy.generateRosepetals(player);
 				}
 			}
 		}
@@ -199,6 +183,7 @@ public class Ruby implements IRuby {
 			}
 			break;
 		case 2:
+		case 3:
 			if (!this.active && this.cooldown < 360) {
 				this.cooldown++;
 			}
@@ -209,17 +194,6 @@ public class Ruby implements IRuby {
 				this.active = false;
 			}
 			break;
-			case 3:
-				if (!this.active && this.cooldown < 360) {
-					this.cooldown++;
-				}
-				if (this.active) {
-					this.cooldown -= 3;
-				}
-				if (this.cooldown < 1) {
-					this.active = false;
-				}
-				break;
 		}
 	}
 	
@@ -239,6 +213,7 @@ public class Ruby implements IRuby {
 		case 1: 
 			return false;
 		case 2:
+		case 3:
 			return this.active ? true : false;
 		default:
 			return false;
@@ -262,6 +237,9 @@ public class Ruby implements IRuby {
 	
 	@Override
 	public void setLevel(int level) {
+		if (level > MAX_LEVEL) {
+			return;
+		}
 		this.level = level;
 	}
 
@@ -302,6 +280,7 @@ public class Ruby implements IRuby {
 		case 1: 
 			return false;
 		case 2:
+		case 3:
 			return this.active;
 		default:
 			return false;

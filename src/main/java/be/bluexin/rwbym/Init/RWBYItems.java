@@ -1162,7 +1162,7 @@ public class RWBYItems {
             32,
             4,
             RWBYCreativeTabs.tab_rwbyitems,
-            new FireAmmoHit());
+            new FireAmmoHit(10));
     public static Item gamicemag = new RWBYAmmoItem(
             "gamicemag",
             RWBYItems.entitysmallbullet,
@@ -1222,7 +1222,7 @@ public class RWBYItems {
             32,
             8,
             RWBYCreativeTabs.tab_rwbyitems,
-            new FireAmmoHit());
+            new FireAmmoHit(10));
     public static Item emflareammo = new RWBYAmmoItem(
             "emflareammo",
             RWBYItems.entityflareshell,
@@ -1282,7 +1282,7 @@ public class RWBYItems {
             32,
             10,
             RWBYCreativeTabs.tab_rwbyitems,
-            new FireAmmoHit());
+            new FireAmmoHit(10));
     public static Item crelectricmag = new RWBYAmmoItem(
             "crelectricmag",
             RWBYItems.entitybullet,
@@ -1357,7 +1357,7 @@ public class RWBYItems {
             1,
             10,
             RWBYCreativeTabs.tab_rwbyitems,
-            new FireAmmoHit());
+            new FireAmmoHit(10));
     public static Item icedust = new RWBYAmmoItem(
             "icedust",
             RWBYItems.entityweissice,
@@ -1492,7 +1492,7 @@ public class RWBYItems {
             32,
             10,
             RWBYCreativeTabs.tab_rwbyitems,
-            new FireAmmoHit());
+            new FireAmmoHit(10));
     public static Item chatelectricmag = new RWBYAmmoItem(
             "chatelectricmag",
             RWBYItems.entitybullet,
