@@ -1043,7 +1043,7 @@ public class RWBYItems {
     public static Item winddustcrystal = new RWBYItem("winddustcrystal", "{AttributeModifiers:[{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:-0.50,Operation:2,UUIDMost:74685,UUIDLeast:155127},{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"offhand\",Amount:10,Operation:0,UUIDMost:32503,UUIDLeast:164819},{AttributeName:\"generic.movementSpeed\",Name:\"generic.movementSpeed\",Slot:\"offhand\",Amount:2,Operation:2,UUIDMost:78095,UUIDLeast:122333}]}", false, RWBYCreativeTabs.tab_rwbyitems);
     public static Item firedustcrystal = new RWBYItem("firedustcrystal", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"offhand\",Amount:10,Operation:0,UUIDMost:32503,UUIDLeast:164819},{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:-0.5,Operation:2,UUIDMost:25912,UUIDLeast:178428},{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"offhand\",Amount:3,Operation:2,UUIDMost:87232,UUIDLeast:139412}]}", false, RWBYCreativeTabs.tab_rwbyitems);
     public static Item gravitydustcrystal = new RWBYItem("gravitydustcrystal", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"offhand\",Amount:10,Operation:0,UUIDMost:32503,UUIDLeast:164819},{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:-0.5,Operation:2,UUIDMost:25912,UUIDLeast:178428}],display:{Lore:[\"Slow Falling and Negate Fall Damage While in offhand.\"]}}", false, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item waterdustcrystal = new RWBYItem("waterdustcrystal",  "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"offhand\",Amount:10,Operation:0,UUIDMost:28329,UUIDLeast:112750},{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"offhand\",Amount:-0.25,Operation:2,UUIDMost:81281,UUIDLeast:160467}],display:{Lore:[\"Provides Slow Health Regeneration and Resistance while in Offhand.\"]}}", false, RWBYCreativeTabs.tab_rwbyitems);
+    public static Item waterdustcrystal = new RWBYItem("waterdustcrystal",  "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"offhand\",Amount:10,Operation:0,UUIDMost:28329,UUIDLeast:112750},{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"offhand\",Amount:-0.25,Operation:2,UUIDMost:81281,UUIDLeast:160467}],display:{Lore:[\"Provides Slow Health Regeneration while in Offhand.\"]}}", false, RWBYCreativeTabs.tab_rwbyitems);
     public static Item lightdustcrystal = new RWBYItem("lightdustcrystal", "{AttributeModifiers:[{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:-0.50,Operation:2,UUIDMost:17934,UUIDLeast:125321},{AttributeName:\"generic.movementSpeed\",Name:\"generic.movementSpeed\",Slot:\"offhand\",Amount:1.6,Operation:2,UUIDMost:13043,UUIDLeast:147969},{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"offhand\",Amount:10,Operation:0,UUIDMost:28194,UUIDLeast:149045},{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"offhand\",Amount:2,Operation:2,UUIDMost:14080,UUIDLeast:163727}]}", false, RWBYCreativeTabs.tab_rwbyitems);
     public static Item icedustcrystal = new RWBYItem("icedustcrystal", " {AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"offhand\",Amount:10,Operation:0,UUIDMost:32503,UUIDLeast:164819},{AttributeName:\"generic.movementSpeed\",Name:\"generic.movementSpeed\",Slot:\"offhand\",Amount:-0.3,Operation:2,UUIDMost:79372,UUIDLeast:112384},{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:0.5,Operation:2,UUIDMost:25912,UUIDLeast:178428}]}", false, RWBYCreativeTabs.tab_rwbyitems);
     public static Item dustrock = new RWBYItem("dustrock", null, false, RWBYCreativeTabs.tab_rwbyitems);
@@ -1162,7 +1162,7 @@ public class RWBYItems {
             32,
             4,
             RWBYCreativeTabs.tab_rwbyitems,
-            new FireAmmoHit());
+            new FireAmmoHit(10));
     public static Item gamicemag = new RWBYAmmoItem(
             "gamicemag",
             RWBYItems.entitysmallbullet,
@@ -1222,7 +1222,7 @@ public class RWBYItems {
             32,
             8,
             RWBYCreativeTabs.tab_rwbyitems,
-            new FireAmmoHit());
+            new FireAmmoHit(10));
     public static Item emflareammo = new RWBYAmmoItem(
             "emflareammo",
             RWBYItems.entityflareshell,
@@ -1282,7 +1282,7 @@ public class RWBYItems {
             32,
             10,
             RWBYCreativeTabs.tab_rwbyitems,
-            new FireAmmoHit());
+            new FireAmmoHit(10));
     public static Item crelectricmag = new RWBYAmmoItem(
             "crelectricmag",
             RWBYItems.entitybullet,
@@ -1357,7 +1357,7 @@ public class RWBYItems {
             1,
             10,
             RWBYCreativeTabs.tab_rwbyitems,
-            new FireAmmoHit());
+            new FireAmmoHit(10));
     public static Item icedust = new RWBYAmmoItem(
             "icedust",
             RWBYItems.entityweissice,
@@ -1492,7 +1492,7 @@ public class RWBYItems {
             32,
             10,
             RWBYCreativeTabs.tab_rwbyitems,
-            new FireAmmoHit());
+            new FireAmmoHit(10));
     public static Item chatelectricmag = new RWBYAmmoItem(
             "chatelectricmag",
             RWBYItems.entitybullet,

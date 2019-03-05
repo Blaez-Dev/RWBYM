@@ -14,7 +14,7 @@ entity.atlasknight.name=Atlas Knight
 entity.armorgeist.name=Arma Gigas
 entity.winterarmorgeist.name=Summoned Arma Gigas
 entity.geist.name=Geist
-entity.nuckleeve.name=Nuckleeve
+entity.nuckleeve.name=Nuckeleeve
 entity.apathy.name=Apathy
 
 item.rwbym:crescent.name=Crescent Rose
@@ -195,7 +195,7 @@ item.rwbym:chatmag.name=Chatareus Magazine
 item.rwbym:chatgravmag.name=Chatareus Gravity Magazine
 item.rwbym:chatelectricmag.name=Chatareus Lightning Magazine
 item.rwbym:armagigas.name=Arma Gigas
-item.rwbym:remnants.name=Grimm Amalgum
+item.rwbym:remnants.name=Grimm Amalgam
 
 itemGroup.rwby_weapons=RWBY Weapons
 itemGroup.rwby_items=RWBY Items

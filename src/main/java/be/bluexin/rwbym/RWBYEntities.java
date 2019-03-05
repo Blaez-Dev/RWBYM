@@ -67,6 +67,7 @@ public class RWBYEntities {
         EntityRegistry.registerModEntity(new ResourceLocation("rwbym:geist"), EntityGeist.class, "geist", entityID + 21, instance, 64, 1, true, (0 << 16) + (0 << 8) + 0, (153 << 16) + (153 << 8) + 153);
         EntityRegistry.registerModEntity(new ResourceLocation("rwbym:apathy"), EntityApathy.class, "apathy", entityID + 22, instance, 64, 1, true, (0 << 16) + (0 << 8) + 0, (153 << 16) + (153 << 8) + 153);
         EntityRegistry.registerModEntity(new ResourceLocation("rwbym:nuckleeve"), EntityNuckleeve.class, "nuckleeve", entityID + 23, instance, 64, 1, true, (0 << 16) + (0 << 8) + 0, (153 << 16) + (153 << 8) + 153);
+        EntityRegistry.registerModEntity(new ResourceLocation("rwbym:lancer"), EntityLancer.class, "lancer", entityID + 24, instance, 64, 1, true, (0 << 16) + (0 << 8) + 0, (153 << 16) + (153 << 8) + 153);
         Biome[] biomes = getBiomeList(EntityCreeper.class, EnumCreatureType.MONSTER);
         Biome[] biomes1 = getBiomeList(EntityStray.class, EnumCreatureType.MONSTER);
 
@@ -80,7 +81,7 @@ public class RWBYEntities {
         EntityRegistry.addSpawn(EntityMutantDeathStalker.class, 10, 3, 1, EnumCreatureType.MONSTER, biomes);
         EntityRegistry.addSpawn(EntityNeverMore.class, 50, 4, 10, EnumCreatureType.MONSTER, biomes);
         EntityRegistry.addSpawn(EntityCreep.class, 50, 3, 10, EnumCreatureType.MONSTER, biomes);
-        EntityRegistry.addSpawn(EntityGeist.class, 50, 1, 5, EnumCreatureType.MONSTER, biomes);
+        EntityRegistry.addSpawn(EntityGeist.class, 10, 1, 5, EnumCreatureType.MONSTER, biomes);
         EntityRegistry.addSpawn(EntityApathy.class, 75, 7, 10, EnumCreatureType.MONSTER, biomes1);
         EntityRegistry.addSpawn(EntityNuckleeve.class, 10, 3, 1, EnumCreatureType.MONSTER, biomes);
 

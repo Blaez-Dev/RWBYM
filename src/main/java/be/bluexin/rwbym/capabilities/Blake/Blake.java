@@ -15,6 +15,8 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.common.capabilities.Capability;
 
 public class Blake implements IBlake {
+	
+	private static final int MAX_LEVEL = 3;
 
 	private int level = 0;
 	
@@ -53,10 +55,6 @@ public class Blake implements IBlake {
 
 	@Override
 	public void onUpdate(EntityPlayer player) {
-
-		if(this.level >3){
-			this.level = 3;
-		}
 
 		if (!player.onGround) {
 			airTime++;
@@ -142,6 +140,11 @@ public class Blake implements IBlake {
 
 	@Override
 	public void setLevel(int level) {
+		
+		if (level >  MAX_LEVEL) {
+			return;
+		}
+		
 		this.level = level;
 	}
 

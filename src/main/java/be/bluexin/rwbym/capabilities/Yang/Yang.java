@@ -11,6 +11,8 @@ import net.minecraftforge.common.capabilities.Capability;
 
 public class Yang implements IYang {
 
+	private static final int MAX_LEVEL = 3;
+	
 	private int level = 0;
 
 	@Override
@@ -25,14 +27,16 @@ public class Yang implements IYang {
 
 	@Override
 	public void onUpdate(EntityPlayer player) {
-		if(this.level >3){
-			this.level = 3;
-		}
+
 		float hppct = Math.min(player.getHealth()/player.getMaxHealth(), 1f);
+		
 		int strength = Math.round((1f - hppct) * 6 * this.level);
+		
 		if (strength > 0) {
+			
 			PotionEffect potioneffect = new PotionEffect(MobEffects.STRENGTH, 60, strength, false, false);
 			player.addPotionEffect(potioneffect);
+			
 		}
 	}
 
@@ -53,6 +57,11 @@ public class Yang implements IYang {
 
 	@Override
 	public void setLevel(int level) {
+		
+		if (level > MAX_LEVEL) {
+			return;
+		}
+		
 		this.level = level;
 	}
 

@@ -11,32 +11,29 @@ public class Weiss implements IWeiss {
 	
 	
 	// a level greater than 0 will signal that this is the active semblance
+	
+	private static final int MAX_LEVEL = 4;
+	
 	private int level = 0;
 	
 	private int cooldown = 0;
 
 	public boolean onActivate(EntityPlayer player) {
 		
-		RWBYModels.LOGGER.log(RWBYModels.debug, "Weiss Activated");
-
-		if(this.level >4){
-			this.level = 4;
-		}
-		
 		switch(this.level) {
-			case 1:
-				if (this.cooldown > 0) {
-					return false;
-				}
-				else if (player.onGround && !player.world.isRemote){
-					BlockPos blockpos = (new BlockPos(player));
-					EntityWinterBoarbatusk entityWinterBoarbatusk = new EntityWinterBoarbatusk(player.world);
-					entityWinterBoarbatusk.moveToBlockPosAndAngles(blockpos, 0.0F, 0.0F);
-					player.world.spawnEntity(entityWinterBoarbatusk);
-					this.cooldown = 100;
-					return true;
-				}
-				break;
+		case 1:
+			if (this.cooldown > 0) {
+				return false;
+			}
+			else if (player.onGround && !player.world.isRemote){
+				BlockPos blockpos = (new BlockPos(player));
+				EntityWinterBoarbatusk entityWinterBoarbatusk = new EntityWinterBoarbatusk(player.world);
+				entityWinterBoarbatusk.moveToBlockPosAndAngles(blockpos, 0.0F, 0.0F);
+				player.world.spawnEntity(entityWinterBoarbatusk);
+				this.cooldown = 100;
+				return true;
+			}
+			break;
 		case 2:
 			if (this.cooldown > 0) {
 				return false;
@@ -50,32 +47,32 @@ public class Weiss implements IWeiss {
 				return true;
 			}	
 			break;
-			case 3:
-				if (this.cooldown > 0) {
-					return false;
-				}
-				else if (player.onGround && !player.world.isRemote){
-					BlockPos blockpos = (new BlockPos(player));
-					EntityWinterUrsa entityWinterUrsa = new EntityWinterUrsa(player.world);
-					entityWinterUrsa.moveToBlockPosAndAngles(blockpos, 0.0F, 0.0F);
-					player.world.spawnEntity(entityWinterUrsa);
-					this.cooldown = 500;
-					return true;
-				}
-				break;
-			case 4:
-				if (this.cooldown > 0) {
-					return false;
-				}
-				else if (player.onGround && !player.world.isRemote){
-					BlockPos blockpos = (new BlockPos(player));
-					EntityWinterArmorgeist entityWinterArmorgeist = new EntityWinterArmorgeist(player.world);
-					entityWinterArmorgeist.moveToBlockPosAndAngles(blockpos, 0.0F, 0.0F);
-					player.world.spawnEntity(entityWinterArmorgeist);
-					this.cooldown = 1200;
-					return true;
-				}
-				break;
+		case 3:
+			if (this.cooldown > 0) {
+				return false;
+			}
+			else if (player.onGround && !player.world.isRemote){
+				BlockPos blockpos = (new BlockPos(player));
+				EntityWinterUrsa entityWinterUrsa = new EntityWinterUrsa(player.world);
+				entityWinterUrsa.moveToBlockPosAndAngles(blockpos, 0.0F, 0.0F);
+				player.world.spawnEntity(entityWinterUrsa);
+				this.cooldown = 500;
+				return true;
+			}
+			break;
+		case 4:
+			if (this.cooldown > 0) {
+				return false;
+			}
+			else if (player.onGround && !player.world.isRemote){
+				BlockPos blockpos = (new BlockPos(player));
+				EntityWinterArmorgeist entityWinterArmorgeist = new EntityWinterArmorgeist(player.world);
+				entityWinterArmorgeist.moveToBlockPosAndAngles(blockpos, 0.0F, 0.0F);
+				player.world.spawnEntity(entityWinterArmorgeist);
+				this.cooldown = 1200;
+				return true;
+			}
+			break;
 			
 		default:
 			return false;
@@ -90,26 +87,9 @@ public class Weiss implements IWeiss {
 
 	@Override
 	public void onUpdate(EntityPlayer player) {
-		
-		switch(this.level) {
-		case 1:
-			if (this.cooldown > 0) {
-				this.cooldown--;
-			}
-		case 2:
-			if (this.cooldown > 0) {
-				this.cooldown--;
-			}
-			case 3:
-				if (this.cooldown > 0) {
-					this.cooldown--;
-				}
-			case 4:
-				if (this.cooldown > 0) {
-					this.cooldown--;
-				}
-		default:
-			break;
+
+		if (this.cooldown > 0) {
+			this.cooldown--;
 		}
 		
 	}
@@ -143,6 +123,11 @@ public class Weiss implements IWeiss {
 
 	@Override
 	public void setLevel(int level) {
+		
+		if (level > MAX_LEVEL) {
+			return;
+		}
+		
 		this.level = level;
 	}
 
