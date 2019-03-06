@@ -54,7 +54,7 @@ public class EntityLancer extends EntityMob
         super(worldIn);
         this.isImmuneToFire = true;
         this.moveHelper = new EntityLancer.AIMoveControl(this);
-        this.setSize(1F, 1F);
+        this.setSize(0.5F, 2F);
         this.experienceValue = 3;
     }
 
