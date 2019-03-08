@@ -16,6 +16,8 @@ entity.winterarmorgeist.name=Summoned Arma Gigas
 entity.geist.name=Geist
 entity.nuckleeve.name=Nuckeleeve
 entity.apathy.name=Apathy
+entity.store.name=From Dust Till Dawn
+entity.lancer.name=Lancer
 
 item.rwbym:crescent.name=Crescent Rose
 item.rwbym:crescentgun.name=Crescent Rose
@@ -196,6 +198,13 @@ item.rwbym:chatgravmag.name=Chatareus Gravity Magazine
 item.rwbym:chatelectricmag.name=Chatareus Lightning Magazine
 item.rwbym:armagigas.name=Arma Gigas
 item.rwbym:remnants.name=Grimm Amalgam
+item.rwbym:lien1.name=Ⱡ1
+item.rwbym:lien5.name=Ⱡ5
+item.rwbym:lien10.name=Ⱡ10
+item.rwbym:lien20.name=Ⱡ20
+item.rwbym:lien50.name=Ⱡ50
+item.rwbym:lien100.name=Ⱡ100
+item.rwbym:lien500.name=Ⱡ500
 
 itemGroup.rwby_weapons=RWBY Weapons
 itemGroup.rwby_items=RWBY Items

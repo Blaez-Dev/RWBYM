@@ -180,6 +180,14 @@ public class RegUtil {
         registerItems(event, RWBYItems.coiny);
         registerItems(event, RWBYItems.armagigas);
         registerItems(event, RWBYItems.remnants);
+        registerItems(event, RWBYItems.lien1);
+        registerItems(event, RWBYItems.lien5);
+        registerItems(event, RWBYItems.lien10);
+        registerItems(event, RWBYItems.lien20);
+        registerItems(event, RWBYItems.lien50);
+        registerItems(event, RWBYItems.lien100);
+        registerItems(event, RWBYItems.lien500);
+
         //Armour
         registerItems(event, RWBYItems.korekosmouoff);
         registerItems(event, RWBYItems.korekosmoufire);

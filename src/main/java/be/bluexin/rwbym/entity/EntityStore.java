@@ -141,16 +141,18 @@ public class EntityStore extends EntityMob implements INpc, IMerchant{
     }
 
     public void useRecipe(MerchantRecipe recipe) {
-        recipe.incrementToolUses();
         this.livingSoundTime = -this.getTalkInterval();
         this.playSound(SoundEvents.ENTITY_VILLAGER_YES, this.getSoundVolume(), this.getSoundPitch());
         int i = 3 + this.rand.nextInt(4);
-
-
+        //this.populateTradingList();
         if (recipe.getRewardsExp()) {
             this.world.spawnEntity(new EntityXPOrb(this.world, this.posX, this.posY + 0.5D, this.posZ, i));
         }
 
+    }
+
+    protected boolean canDespawn() {
+        return false;
     }
 
     public BlockPos getPos() {
