@@ -73,17 +73,11 @@ public class EntityUpdatesHandler {
 		ISemblance semblance = CapabilityHandler.getCurrentSemblance(event.player);
 		
 		if (semblance == null) {
-			int i = event.player.world.rand.nextInt(2);
-			switch(i) {
-			case 0:
-				semblance = event.player.getCapability(RubyProvider.RUBY_CAP, null);
-				break;
-			case 1:
-				semblance = event.player.getCapability(WeissProvider.WEISS_CAP, null);
-				break;
-			case 2:
-				semblance = event.player.getCapability(YangProvider.YANG_CAP, null);
-			}
+
+			List<ISemblance> semblances = CapabilityHandler.getAllSemblances(event.player);
+			
+			semblance = semblances.get(event.player.world.rand.nextInt(semblances.size()));
+			
 			if (semblance == null) {
 				RWBYModels.LOGGER.error("Could not Get A Semblance for Player {}", event.player.getDisplayNameString());
 			}

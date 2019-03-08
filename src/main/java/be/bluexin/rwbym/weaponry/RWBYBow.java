@@ -408,13 +408,14 @@ public class RWBYBow extends ItemBow implements ICustomItem {
                         worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.Crescent_Rose_Shoot, SoundCategory.MASTER, 1.0F, 2F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
                     }
                     if (recoil) {
-                    Vec3d look = entityplayer.getLookVec();
-                    entityplayer.motionX = -look.x ;
-                    entityplayer.motionZ = -look.z ;
-                    entityplayer.motionY = -look.y/2 ;
-                    entityplayer.lastTickPosZ = -look.x;
-                    entityplayer.lastTickPosX = -look.z;
-                    entityplayer.fallDistance = 0;}
+	                    Vec3d look = entityplayer.getLookVec();
+	                    entityplayer.motionX = -look.x ;
+	                    entityplayer.motionZ = -look.z ;
+	                    entityplayer.motionY = -look.y/2 ;
+	                    entityplayer.lastTickPosZ = -look.x;
+	                    entityplayer.lastTickPosX = -look.z;
+	                    entityplayer.fallDistance = 0;
+                    }
 
                     if (recoil2) {
                         Vec3d look = entityplayer.getLookVec();
@@ -422,9 +423,21 @@ public class RWBYBow extends ItemBow implements ICustomItem {
                         entityplayer.motionZ = -look.z ;
                         entityplayer.motionY = -look.y/4 ;
                         entityplayer.lastTickPosZ = -look.x;
-                        entityplayer.lastTickPosX = -look.z;}
-                    if (!flag){if (cinder & !flagger) {itemstack.shrink(1);}}
-                    if (!flag){if (mytre || emerald) {itemstack.damageItem(2, entityplayer);} else itemstack.damageItem(1, entityplayer);}
+                        entityplayer.lastTickPosX = -look.z;
+                    }
+                    if (!flag){
+                    	if (cinder & !flagger) {
+                    		itemstack.shrink(1);
+                		}
+                	}
+                    if (!flag){
+                    	if (mytre || emerald) {
+                    		itemstack.damageItem(2, entityplayer);
+                		} 
+                    	else {
+                    		itemstack.damageItem(1, entityplayer);
+                		}
+                	}
                 }
             }
         }
