@@ -748,7 +748,7 @@ public class RWBYItems {
             false,
             1,
             true,
-            1,
+            3,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
     public static Item crescentgunv = new RWBYBow(

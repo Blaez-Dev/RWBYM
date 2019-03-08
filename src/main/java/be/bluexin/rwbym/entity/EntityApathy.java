@@ -75,6 +75,7 @@ public class EntityApathy extends EntityMob {
     }
 
 
+
     protected ResourceLocation getLootTable() {
         return ModLootTables.Boarbatusk;
     }

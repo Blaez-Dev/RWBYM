@@ -63,6 +63,7 @@ public class EntityBeowolf extends EntityMob {
 
 
 
+
     public void setOwner(EntityLiving ownerIn)
     {
         this.owner = ownerIn;

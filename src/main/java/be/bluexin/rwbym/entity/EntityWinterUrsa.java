@@ -20,6 +20,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
+import java.util.List;
 
 public class EntityWinterUrsa extends EntityGolem {
     World world = null;
@@ -48,6 +49,13 @@ public class EntityWinterUrsa extends EntityGolem {
     @Override
     public void onLivingUpdate() {
         super.onLivingUpdate();
+        List<Entity> entitylist = world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().grow(20D));
+        for (Entity entity : entitylist) {
+            if (entity instanceof EntityMob) {
+                EntityMob mob = (EntityMob) entity;
+                mob.setAttackTarget(this);
+            }
+        }
         counter += 1;
         if(counter >= 1200){
             this.setDead();

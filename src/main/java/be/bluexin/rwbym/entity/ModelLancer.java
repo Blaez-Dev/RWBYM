@@ -255,7 +255,7 @@ public class ModelLancer extends ModelBiped {
 		this.leftwing.rotationPointZ = 0.0F;
 		this.rightwing.rotationPointY = 0.0F;
 		this.leftwing.rotationPointY = 0.0F;
-		this.rightwing.rotateAngleY = -0.47123894F + MathHelper.cos(ageInTicks * 0.8F) * 3.1415927F * 0.05F;
+		this.rightwing.rotateAngleY = -0.47123894F + MathHelper.cos(ageInTicks*2) * 3.1415927F * 0.05F;
 		this.leftwing.rotateAngleY = -this.rightwing.rotateAngleY;
 		this.leftwing.rotateAngleZ = 0.0F;
 		this.leftwing.rotateAngleX = 0.32F;

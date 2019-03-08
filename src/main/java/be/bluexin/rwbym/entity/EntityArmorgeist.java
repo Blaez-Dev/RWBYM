@@ -65,6 +65,10 @@ public class EntityArmorgeist extends EntityMob {
         this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.0D);
     }
 
+    protected boolean canDespawn() {
+        return false;
+    }
+
     protected ResourceLocation getLootTable() {
         return ModLootTables.Armagigas;
     }

@@ -35,6 +35,10 @@ import javax.annotation.Nullable;
             this.targetTasks.addTask(1, new EntityAINearestAttackableTarget(this, EntityLiving.class, 10, true, false, IMob.MOB_SELECTOR));
         }
 
+     protected boolean canDespawn() {
+         return false;
+     }
+
         @Override
         public void onLivingUpdate() {
             super.onLivingUpdate();

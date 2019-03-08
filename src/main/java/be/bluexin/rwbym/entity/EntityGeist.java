@@ -67,6 +67,8 @@ public class EntityGeist extends EntityMob
         this.doBlockCollisions();
     }
 
+
+
     /**
      * Called to update the entity's position/logic.
      */

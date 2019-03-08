@@ -74,6 +74,10 @@ public class EntityMutantDeathStalker extends EntityMob
     }
 
 
+    protected boolean canDespawn() {
+        return false;
+    }
+
 
     protected void entityInit()
     {

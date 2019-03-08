@@ -27,7 +27,6 @@ public class GiantNeverMoreRender extends RenderLivingBase<EntityGiantNeverMore>
 
     protected void preRenderCallback(EntityGiantNeverMore entitylivingbaseIn, float partialTickTime) {
         GlStateManager.scale(4F, 4F, 4F);
-        GlStateManager.translate(0F, 0.3F, -0.5F);
     }
 
     @Override

@@ -45,6 +45,10 @@ public class EntityUrsa extends EntityMob {
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(5.0D);
     }
 
+    protected boolean canDespawn() {
+        return false;
+    }
+
     public EnumCreatureAttribute getCreatureAttribute() {
         return EnumCreatureAttribute.ILLAGER;
     }

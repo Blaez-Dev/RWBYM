@@ -42,7 +42,9 @@ public class EntityNuckleeve extends EntityMob
         this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.0D);
     }
 
-
+    protected boolean canDespawn() {
+        return false;
+    }
 
     public EnumCreatureAttribute getCreatureAttribute() {
         return EnumCreatureAttribute.ILLAGER;

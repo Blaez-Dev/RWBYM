@@ -45,6 +45,8 @@ public class EntityBoarbatusk extends EntityMob {
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(5.0D);
     }
 
+
+
     public EnumCreatureAttribute getCreatureAttribute() {
         return EnumCreatureAttribute.ILLAGER;
     }
