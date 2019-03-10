@@ -27,28 +27,28 @@ import javax.annotation.Nullable;
 import java.util.Iterator;
 import java.util.List;
 
-public class EntityGiantNeverMore extends EntityMob
+public class EntityQueenLancer extends EntityMob
 {
-    protected static final DataParameter<Byte> VEX_FLAGS = EntityDataManager.<Byte>createKey(be.bluexin.rwbym.entity.EntityGiantNeverMore.class, DataSerializers.BYTE);
+    protected static final DataParameter<Byte> VEX_FLAGS = EntityDataManager.<Byte>createKey(be.bluexin.rwbym.entity.EntityQueenLancer.class, DataSerializers.BYTE);
     private EntityLiving owner;
     @Nullable
     private BlockPos boundOrigin;
-    public be.bluexin.rwbym.entity.EntityGiantNeverMore.AttackPhase attackPhase;
+    public be.bluexin.rwbym.entity.EntityQueenLancer.AttackPhase attackPhase;
     public BlockPos circleCenter;
     public Vec3d targetPos;
     private EntityLookHelper lookHelper;
 
 
-    public EntityGiantNeverMore(World worldIn)
+    public EntityQueenLancer(World worldIn)
     {
         super(worldIn);
-        this.setSize(0.5F, 2F);
+        this.setSize(1.5F, 3F);
         this.experienceValue = 3;
         this.targetPos = Vec3d.ZERO;
         this.circleCenter = BlockPos.ORIGIN;
-        this.attackPhase = be.bluexin.rwbym.entity.EntityGiantNeverMore.AttackPhase.CIRCLE;
-        this.moveHelper = new be.bluexin.rwbym.entity.EntityGiantNeverMore.MoveHelper(this);
-        this.lookHelper = new be.bluexin.rwbym.entity.EntityGiantNeverMore.LookHelper(this);
+        this.attackPhase = be.bluexin.rwbym.entity.EntityQueenLancer.AttackPhase.CIRCLE;
+        this.moveHelper = new be.bluexin.rwbym.entity.EntityQueenLancer.MoveHelper(this);
+        this.lookHelper = new be.bluexin.rwbym.entity.EntityQueenLancer.LookHelper(this);
     }
 
     class LookHelper extends EntityLookHelper {
@@ -87,11 +87,11 @@ public class EntityGiantNeverMore extends EntityMob
 
     protected void initEntityAI()
     {
-        this.tasks.addTask(1, new be.bluexin.rwbym.entity.EntityGiantNeverMore.AIPickAttack());
-        this.tasks.addTask(2, new be.bluexin.rwbym.entity.EntityGiantNeverMore.AISweepAttack());
-        this.tasks.addTask(3, new be.bluexin.rwbym.entity.EntityGiantNeverMore.AIOrbitPoint());
-        this.targetTasks.addTask(1, new be.bluexin.rwbym.entity.EntityGiantNeverMore.AIAttackPlayer());
-        //this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[] {EntityGiantNeverMore.class}));
+        this.tasks.addTask(1, new be.bluexin.rwbym.entity.EntityQueenLancer.AIPickAttack());
+        this.tasks.addTask(2, new be.bluexin.rwbym.entity.EntityQueenLancer.AISweepAttack());
+        this.tasks.addTask(3, new be.bluexin.rwbym.entity.EntityQueenLancer.AIOrbitPoint());
+        this.targetTasks.addTask(1, new be.bluexin.rwbym.entity.EntityQueenLancer.AIAttackPlayer());
+        //this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[] {EntityQueenLancer.class}));
         //this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
         //this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityVillager.class, true));
         //this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityIronGolem.class, true));
@@ -112,7 +112,7 @@ public class EntityGiantNeverMore extends EntityMob
 
     public static void registerFixesVex(DataFixer fixer)
     {
-        EntityLiving.registerFixesMob(fixer, be.bluexin.rwbym.entity.EntityGiantNeverMore.class);
+        EntityLiving.registerFixesMob(fixer, be.bluexin.rwbym.entity.EntityQueenLancer.class);
     }
 
     /**
@@ -240,8 +240,8 @@ public class EntityGiantNeverMore extends EntityMob
                 return false;
             } else {
                 this.attackTime = 60;
-                AxisAlignedBB aabb = be.bluexin.rwbym.entity.EntityGiantNeverMore.this.getEntityBoundingBox().grow(16.0D, 64.0D, 16.0D);
-                List<EntityPlayer> playerList = be.bluexin.rwbym.entity.EntityGiantNeverMore.this.world.getEntitiesWithinAABB(EntityPlayer.class, aabb);
+                AxisAlignedBB aabb = be.bluexin.rwbym.entity.EntityQueenLancer.this.getEntityBoundingBox().grow(16.0D, 64.0D, 16.0D);
+                List<EntityPlayer> playerList = be.bluexin.rwbym.entity.EntityQueenLancer.this.world.getEntitiesWithinAABB(EntityPlayer.class, aabb);
                 if (!playerList.isEmpty()) {
                     playerList.sort((player1, player2) -> {
                         return player1.posY > player2.posY ? -1 : 1;
@@ -250,8 +250,8 @@ public class EntityGiantNeverMore extends EntityMob
 
                     while(var3.hasNext()) {
                         EntityPlayer entityPlayer = (EntityPlayer)var3.next();
-                        if (EntityAITarget.isSuitableTarget(be.bluexin.rwbym.entity.EntityGiantNeverMore.this, entityPlayer, false, false)) {
-                            be.bluexin.rwbym.entity.EntityGiantNeverMore.this.setAttackTarget(entityPlayer);
+                        if (EntityAITarget.isSuitableTarget(be.bluexin.rwbym.entity.EntityQueenLancer.this, entityPlayer, false, false)) {
+                            be.bluexin.rwbym.entity.EntityQueenLancer.this.setAttackTarget(entityPlayer);
                             return true;
                         }
                     }
@@ -262,7 +262,7 @@ public class EntityGiantNeverMore extends EntityMob
         }
 
         public boolean shouldContinueExecuting() {
-            return EntityAITarget.isSuitableTarget(be.bluexin.rwbym.entity.EntityGiantNeverMore.this, be.bluexin.rwbym.entity.EntityGiantNeverMore.this.getAttackTarget(), false, false);
+            return EntityAITarget.isSuitableTarget(be.bluexin.rwbym.entity.EntityQueenLancer.this, be.bluexin.rwbym.entity.EntityQueenLancer.this.getAttackTarget(), false, false);
         }
     }
 
@@ -273,17 +273,17 @@ public class EntityGiantNeverMore extends EntityMob
         }
 
         public boolean shouldExecute() {
-            return EntityAITarget.isSuitableTarget(be.bluexin.rwbym.entity.EntityGiantNeverMore.this, be.bluexin.rwbym.entity.EntityGiantNeverMore.this.getAttackTarget(), false, false);
+            return EntityAITarget.isSuitableTarget(be.bluexin.rwbym.entity.EntityQueenLancer.this, be.bluexin.rwbym.entity.EntityQueenLancer.this.getAttackTarget(), false, false);
         }
 
         public void startExecuting() {
             this.phaseTime = 10;
-            be.bluexin.rwbym.entity.EntityGiantNeverMore.this.attackPhase = be.bluexin.rwbym.entity.EntityGiantNeverMore.AttackPhase.CIRCLE;
+            be.bluexin.rwbym.entity.EntityQueenLancer.this.attackPhase = be.bluexin.rwbym.entity.EntityQueenLancer.AttackPhase.CIRCLE;
             this.setCircleCenter();
         }
 
         public void resetTask() {
-            be.bluexin.rwbym.entity.EntityGiantNeverMore.this.circleCenter = be.bluexin.rwbym.entity.EntityGiantNeverMore.this.world.getHeight(be.bluexin.rwbym.entity.EntityGiantNeverMore.this.circleCenter).up(10 + be.bluexin.rwbym.entity.EntityGiantNeverMore.this.rand.nextInt(20));
+            be.bluexin.rwbym.entity.EntityQueenLancer.this.circleCenter = be.bluexin.rwbym.entity.EntityQueenLancer.this.world.getHeight(be.bluexin.rwbym.entity.EntityQueenLancer.this.circleCenter).up(10 + be.bluexin.rwbym.entity.EntityQueenLancer.this.rand.nextInt(20));
         }
 
         @Override
@@ -292,37 +292,37 @@ public class EntityGiantNeverMore extends EntityMob
         }
 
         public void tick() {
-            if (be.bluexin.rwbym.entity.EntityGiantNeverMore.this.attackPhase == be.bluexin.rwbym.entity.EntityGiantNeverMore.AttackPhase.CIRCLE) {
+            if (be.bluexin.rwbym.entity.EntityQueenLancer.this.attackPhase == be.bluexin.rwbym.entity.EntityQueenLancer.AttackPhase.CIRCLE) {
                 --this.phaseTime;
                 if (this.phaseTime <= 0) {
-                    be.bluexin.rwbym.entity.EntityGiantNeverMore.this.attackPhase = be.bluexin.rwbym.entity.EntityGiantNeverMore.AttackPhase.SWOOP;
+                    be.bluexin.rwbym.entity.EntityQueenLancer.this.attackPhase = be.bluexin.rwbym.entity.EntityQueenLancer.AttackPhase.SWOOP;
                     this.setCircleCenter();
-                    this.phaseTime = (8 + be.bluexin.rwbym.entity.EntityGiantNeverMore.this.rand.nextInt(4)) * 20;
+                    this.phaseTime = (8 + be.bluexin.rwbym.entity.EntityQueenLancer.this.rand.nextInt(4)) * 20;
                 }
             }
 
         }
 
         private void setCircleCenter() {
-            be.bluexin.rwbym.entity.EntityGiantNeverMore.this.circleCenter = (new BlockPos(be.bluexin.rwbym.entity.EntityGiantNeverMore.this.getAttackTarget())).up(20 + be.bluexin.rwbym.entity.EntityGiantNeverMore.this.rand.nextInt(20));
-            if (be.bluexin.rwbym.entity.EntityGiantNeverMore.this.circleCenter.getY() < be.bluexin.rwbym.entity.EntityGiantNeverMore.this.world.getSeaLevel()) {
-                be.bluexin.rwbym.entity.EntityGiantNeverMore.this.circleCenter = new BlockPos(be.bluexin.rwbym.entity.EntityGiantNeverMore.this.circleCenter.getX(), be.bluexin.rwbym.entity.EntityGiantNeverMore.this.world.getSeaLevel() + 1, be.bluexin.rwbym.entity.EntityGiantNeverMore.this.circleCenter.getZ());
+            be.bluexin.rwbym.entity.EntityQueenLancer.this.circleCenter = (new BlockPos(be.bluexin.rwbym.entity.EntityQueenLancer.this.getAttackTarget())).up(20 + be.bluexin.rwbym.entity.EntityQueenLancer.this.rand.nextInt(20));
+            if (be.bluexin.rwbym.entity.EntityQueenLancer.this.circleCenter.getY() < be.bluexin.rwbym.entity.EntityQueenLancer.this.world.getSeaLevel()) {
+                be.bluexin.rwbym.entity.EntityQueenLancer.this.circleCenter = new BlockPos(be.bluexin.rwbym.entity.EntityQueenLancer.this.circleCenter.getX(), be.bluexin.rwbym.entity.EntityQueenLancer.this.world.getSeaLevel() + 1, be.bluexin.rwbym.entity.EntityQueenLancer.this.circleCenter.getZ());
             }
 
         }
     }
 
-    class AISweepAttack extends be.bluexin.rwbym.entity.EntityGiantNeverMore.AIMove {
+    class AISweepAttack extends be.bluexin.rwbym.entity.EntityQueenLancer.AIMove {
         private AISweepAttack() {
             super();
         }
 
         public boolean shouldExecute() {
-            return be.bluexin.rwbym.entity.EntityGiantNeverMore.this.getAttackTarget() != null && be.bluexin.rwbym.entity.EntityGiantNeverMore.this.attackPhase == be.bluexin.rwbym.entity.EntityGiantNeverMore.AttackPhase.SWOOP;
+            return be.bluexin.rwbym.entity.EntityQueenLancer.this.getAttackTarget() != null && be.bluexin.rwbym.entity.EntityQueenLancer.this.attackPhase == be.bluexin.rwbym.entity.EntityQueenLancer.AttackPhase.SWOOP;
         }
 
         public boolean shouldContinueExecuting() {
-            EntityLivingBase target = be.bluexin.rwbym.entity.EntityGiantNeverMore.this.getAttackTarget();
+            EntityLivingBase target = be.bluexin.rwbym.entity.EntityQueenLancer.this.getAttackTarget();
             if (target == null) {
                 return false;
             } else if (target.isDead) {
@@ -336,8 +336,8 @@ public class EntityGiantNeverMore extends EntityMob
         }
 
         public void resetTask() {
-            be.bluexin.rwbym.entity.EntityGiantNeverMore.this.setAttackTarget((EntityLivingBase)null);
-            be.bluexin.rwbym.entity.EntityGiantNeverMore.this.attackPhase = be.bluexin.rwbym.entity.EntityGiantNeverMore.AttackPhase.CIRCLE;
+            be.bluexin.rwbym.entity.EntityQueenLancer.this.setAttackTarget((EntityLivingBase)null);
+            be.bluexin.rwbym.entity.EntityQueenLancer.this.attackPhase = be.bluexin.rwbym.entity.EntityQueenLancer.AttackPhase.CIRCLE;
         }
 
         @Override
@@ -346,20 +346,20 @@ public class EntityGiantNeverMore extends EntityMob
         }
 
         public void tick() {
-            EntityLivingBase target = be.bluexin.rwbym.entity.EntityGiantNeverMore.this.getAttackTarget();
-            be.bluexin.rwbym.entity.EntityGiantNeverMore.this.targetPos = new Vec3d(target.posX, target.posY + (double)target.height * 0.5D, target.posZ);
-            if (be.bluexin.rwbym.entity.EntityGiantNeverMore.this.getEntityBoundingBox().grow(0.20000000298023224D).intersects(target.getEntityBoundingBox())) {
-                be.bluexin.rwbym.entity.EntityGiantNeverMore.this.attackEntityAsMob(target);
-                be.bluexin.rwbym.entity.EntityGiantNeverMore.this.attackPhase = be.bluexin.rwbym.entity.EntityGiantNeverMore.AttackPhase.CIRCLE;
-                be.bluexin.rwbym.entity.EntityGiantNeverMore.this.world.playEvent(1039, new BlockPos(be.bluexin.rwbym.entity.EntityGiantNeverMore.this), 0);
-            } else if (be.bluexin.rwbym.entity.EntityGiantNeverMore.this.collided|| be.bluexin.rwbym.entity.EntityGiantNeverMore.this.hurtTime > 0) {
-                be.bluexin.rwbym.entity.EntityGiantNeverMore.this.attackPhase = be.bluexin.rwbym.entity.EntityGiantNeverMore.AttackPhase.CIRCLE;
+            EntityLivingBase target = be.bluexin.rwbym.entity.EntityQueenLancer.this.getAttackTarget();
+            be.bluexin.rwbym.entity.EntityQueenLancer.this.targetPos = new Vec3d(target.posX, target.posY + (double)target.height * 0.5D, target.posZ);
+            if (be.bluexin.rwbym.entity.EntityQueenLancer.this.getEntityBoundingBox().grow(0.20000000298023224D).intersects(target.getEntityBoundingBox())) {
+                be.bluexin.rwbym.entity.EntityQueenLancer.this.attackEntityAsMob(target);
+                be.bluexin.rwbym.entity.EntityQueenLancer.this.attackPhase = be.bluexin.rwbym.entity.EntityQueenLancer.AttackPhase.CIRCLE;
+                be.bluexin.rwbym.entity.EntityQueenLancer.this.world.playEvent(1039, new BlockPos(be.bluexin.rwbym.entity.EntityQueenLancer.this), 0);
+            } else if (be.bluexin.rwbym.entity.EntityQueenLancer.this.collided|| be.bluexin.rwbym.entity.EntityQueenLancer.this.hurtTime > 0) {
+                be.bluexin.rwbym.entity.EntityQueenLancer.this.attackPhase = be.bluexin.rwbym.entity.EntityQueenLancer.AttackPhase.CIRCLE;
             }
 
         }
     }
 
-    class AIOrbitPoint extends be.bluexin.rwbym.entity.EntityGiantNeverMore.AIMove {
+    class AIOrbitPoint extends be.bluexin.rwbym.entity.EntityQueenLancer.AIMove {
         private float angle;
         private float radius;
         private float yVel;
@@ -370,13 +370,13 @@ public class EntityGiantNeverMore extends EntityMob
         }
 
         public boolean shouldExecute() {
-            return be.bluexin.rwbym.entity.EntityGiantNeverMore.this.getAttackTarget() == null || be.bluexin.rwbym.entity.EntityGiantNeverMore.this.attackPhase == be.bluexin.rwbym.entity.EntityGiantNeverMore.AttackPhase.CIRCLE;
+            return be.bluexin.rwbym.entity.EntityQueenLancer.this.getAttackTarget() == null || be.bluexin.rwbym.entity.EntityQueenLancer.this.attackPhase == be.bluexin.rwbym.entity.EntityQueenLancer.AttackPhase.CIRCLE;
         }
 
         public void startExecuting() {
-            this.radius = 5.0F + be.bluexin.rwbym.entity.EntityGiantNeverMore.this.rand.nextFloat() * 10.0F;
-            this.yVel = -4.0F + be.bluexin.rwbym.entity.EntityGiantNeverMore.this.rand.nextFloat() * 9.0F;
-            this.direction = be.bluexin.rwbym.entity.EntityGiantNeverMore.this.rand.nextBoolean() ? 1.0F : -1.0F;
+            this.radius = 5.0F + be.bluexin.rwbym.entity.EntityQueenLancer.this.rand.nextFloat() * 10.0F;
+            this.yVel = -4.0F + be.bluexin.rwbym.entity.EntityQueenLancer.this.rand.nextFloat() * 9.0F;
+            this.direction = be.bluexin.rwbym.entity.EntityQueenLancer.this.rand.nextBoolean() ? 1.0F : -1.0F;
             this.setTargetPosition();
         }
 
@@ -386,11 +386,11 @@ public class EntityGiantNeverMore extends EntityMob
         }
 
         public void tick() {
-            if (be.bluexin.rwbym.entity.EntityGiantNeverMore.this.rand.nextInt(350) == 0) {
-                this.yVel = -4.0F + be.bluexin.rwbym.entity.EntityGiantNeverMore.this.rand.nextFloat() * 9.0F;
+            if (be.bluexin.rwbym.entity.EntityQueenLancer.this.rand.nextInt(350) == 0) {
+                this.yVel = -4.0F + be.bluexin.rwbym.entity.EntityQueenLancer.this.rand.nextFloat() * 9.0F;
             }
 
-            if (be.bluexin.rwbym.entity.EntityGiantNeverMore.this.rand.nextInt(250) == 0) {
+            if (be.bluexin.rwbym.entity.EntityQueenLancer.this.rand.nextInt(250) == 0) {
                 ++this.radius;
                 if (this.radius > 15.0F) {
                     this.radius = 5.0F;
@@ -398,8 +398,8 @@ public class EntityGiantNeverMore extends EntityMob
                 }
             }
 
-            if (be.bluexin.rwbym.entity.EntityGiantNeverMore.this.rand.nextInt(450) == 0) {
-                this.angle = be.bluexin.rwbym.entity.EntityGiantNeverMore.this.rand.nextFloat() * 2.0F * 3.1415927F;
+            if (be.bluexin.rwbym.entity.EntityQueenLancer.this.rand.nextInt(450) == 0) {
+                this.angle = be.bluexin.rwbym.entity.EntityQueenLancer.this.rand.nextFloat() * 2.0F * 3.1415927F;
                 this.setTargetPosition();
             }
 
@@ -407,12 +407,12 @@ public class EntityGiantNeverMore extends EntityMob
                 this.setTargetPosition();
             }
 
-            if (be.bluexin.rwbym.entity.EntityGiantNeverMore.this.targetPos.y < be.bluexin.rwbym.entity.EntityGiantNeverMore.this.posY && !be.bluexin.rwbym.entity.EntityGiantNeverMore.this.world.isAirBlock((new BlockPos(be.bluexin.rwbym.entity.EntityGiantNeverMore.this)).down(1))) {
+            if (be.bluexin.rwbym.entity.EntityQueenLancer.this.targetPos.y < be.bluexin.rwbym.entity.EntityQueenLancer.this.posY && !be.bluexin.rwbym.entity.EntityQueenLancer.this.world.isAirBlock((new BlockPos(be.bluexin.rwbym.entity.EntityQueenLancer.this)).down(1))) {
                 this.yVel = Math.max(1.0F, this.yVel);
                 this.setTargetPosition();
             }
 
-            if (be.bluexin.rwbym.entity.EntityGiantNeverMore.this.targetPos.y > be.bluexin.rwbym.entity.EntityGiantNeverMore.this.posY && !be.bluexin.rwbym.entity.EntityGiantNeverMore.this.world.isAirBlock((new BlockPos(be.bluexin.rwbym.entity.EntityGiantNeverMore.this)).up(1))) {
+            if (be.bluexin.rwbym.entity.EntityQueenLancer.this.targetPos.y > be.bluexin.rwbym.entity.EntityQueenLancer.this.posY && !be.bluexin.rwbym.entity.EntityQueenLancer.this.world.isAirBlock((new BlockPos(be.bluexin.rwbym.entity.EntityQueenLancer.this)).up(1))) {
                 this.yVel = Math.min(-1.0F, this.yVel);
                 this.setTargetPosition();
             }
@@ -420,12 +420,12 @@ public class EntityGiantNeverMore extends EntityMob
         }
 
         private void setTargetPosition() {
-            if (BlockPos.ORIGIN.equals(be.bluexin.rwbym.entity.EntityGiantNeverMore.this.circleCenter)) {
-                be.bluexin.rwbym.entity.EntityGiantNeverMore.this.circleCenter = new BlockPos(be.bluexin.rwbym.entity.EntityGiantNeverMore.this);
+            if (BlockPos.ORIGIN.equals(be.bluexin.rwbym.entity.EntityQueenLancer.this.circleCenter)) {
+                be.bluexin.rwbym.entity.EntityQueenLancer.this.circleCenter = new BlockPos(be.bluexin.rwbym.entity.EntityQueenLancer.this);
             }
 
             this.angle += this.direction * 15.0F * 0.017453292F;
-            be.bluexin.rwbym.entity.EntityGiantNeverMore.this.targetPos = (new Vec3d(be.bluexin.rwbym.entity.EntityGiantNeverMore.this.circleCenter)).addVector((double)(this.radius * MathHelper.cos(this.angle)), (double)(0F + this.yVel), (double)(this.radius * MathHelper.sin(this.angle)));
+            be.bluexin.rwbym.entity.EntityQueenLancer.this.targetPos = (new Vec3d(be.bluexin.rwbym.entity.EntityQueenLancer.this.circleCenter)).addVector((double)(this.radius * MathHelper.cos(this.angle)), (double)(0F + this.yVel), (double)(this.radius * MathHelper.sin(this.angle)));
         }
     }
 
@@ -435,7 +435,7 @@ public class EntityGiantNeverMore extends EntityMob
         }
 
         protected boolean isClose() {
-            return be.bluexin.rwbym.entity.EntityGiantNeverMore.this.targetPos.squareDistanceTo(be.bluexin.rwbym.entity.EntityGiantNeverMore.this.posX, be.bluexin.rwbym.entity.EntityGiantNeverMore.this.posY, be.bluexin.rwbym.entity.EntityGiantNeverMore.this.posZ) < 4.0D;
+            return be.bluexin.rwbym.entity.EntityQueenLancer.this.targetPos.squareDistanceTo(be.bluexin.rwbym.entity.EntityQueenLancer.this.posX, be.bluexin.rwbym.entity.EntityQueenLancer.this.posY, be.bluexin.rwbym.entity.EntityQueenLancer.this.posZ) < 4.0D;
         }
     }
 
@@ -446,8 +446,8 @@ public class EntityGiantNeverMore extends EntityMob
         }
 
         public void updateRenderAngles() {
-            be.bluexin.rwbym.entity.EntityGiantNeverMore.this.rotationYawHead = be.bluexin.rwbym.entity.EntityGiantNeverMore.this.renderYawOffset;
-            be.bluexin.rwbym.entity.EntityGiantNeverMore.this.renderYawOffset = be.bluexin.rwbym.entity.EntityGiantNeverMore.this.rotationYaw;
+            be.bluexin.rwbym.entity.EntityQueenLancer.this.rotationYawHead = be.bluexin.rwbym.entity.EntityQueenLancer.this.renderYawOffset;
+            be.bluexin.rwbym.entity.EntityQueenLancer.this.renderYawOffset = be.bluexin.rwbym.entity.EntityQueenLancer.this.rotationYaw;
         }
     }
 
@@ -476,41 +476,41 @@ public class EntityGiantNeverMore extends EntityMob
         }
 
         public void tick() {
-            if (be.bluexin.rwbym.entity.EntityGiantNeverMore.this.collidedHorizontally) {
-                be.bluexin.rwbym.entity.EntityGiantNeverMore.this.rotationYaw += 180.0F;
+            if (be.bluexin.rwbym.entity.EntityQueenLancer.this.collidedHorizontally) {
+                be.bluexin.rwbym.entity.EntityQueenLancer.this.rotationYaw += 180.0F;
                 this.velocity = startingVelocity;
             }
 
-            float dx = (float)(be.bluexin.rwbym.entity.EntityGiantNeverMore.this.targetPos.x - be.bluexin.rwbym.entity.EntityGiantNeverMore.this.posX);
-            float dy = (float)(be.bluexin.rwbym.entity.EntityGiantNeverMore.this.targetPos.y - be.bluexin.rwbym.entity.EntityGiantNeverMore.this.posY);
-            float dz = (float)(be.bluexin.rwbym.entity.EntityGiantNeverMore.this.targetPos.z - be.bluexin.rwbym.entity.EntityGiantNeverMore.this.posZ);
+            float dx = (float)(be.bluexin.rwbym.entity.EntityQueenLancer.this.targetPos.x - be.bluexin.rwbym.entity.EntityQueenLancer.this.posX);
+            float dy = (float)(be.bluexin.rwbym.entity.EntityQueenLancer.this.targetPos.y - be.bluexin.rwbym.entity.EntityQueenLancer.this.posY);
+            float dz = (float)(be.bluexin.rwbym.entity.EntityQueenLancer.this.targetPos.z - be.bluexin.rwbym.entity.EntityQueenLancer.this.posZ);
             double groundDistance = (double)MathHelper.sqrt(dx * dx + dz * dz);
             double modifiedVerticalDistance = 1.0D - (double)MathHelper.abs(dy * 0.7F) / groundDistance;
             dx = (float)((double)dx * modifiedVerticalDistance);
             dz = (float)((double)dz * modifiedVerticalDistance);
             groundDistance = (double)MathHelper.sqrt(dx * dx + dz * dz);
             double distance = (double)MathHelper.sqrt(dx * dx + dz * dz + dy * dy);
-            float oldRotationYaw = be.bluexin.rwbym.entity.EntityGiantNeverMore.this.rotationYaw;
+            float oldRotationYaw = be.bluexin.rwbym.entity.EntityQueenLancer.this.rotationYaw;
             float targetAngleRad = (float)MathHelper.atan2((double)dz, (double)dx);
-            float f1 = wrapDegrees(be.bluexin.rwbym.entity.EntityGiantNeverMore.this.rotationYaw + 90.0F);
+            float f1 = wrapDegrees(be.bluexin.rwbym.entity.EntityQueenLancer.this.rotationYaw + 90.0F);
             float targetAngleDeg = wrapDegrees(targetAngleRad * 57.295776F);
-            be.bluexin.rwbym.entity.EntityGiantNeverMore.this.rotationYaw = approachDegrees(f1, targetAngleDeg, angularVelocity) - 90.0F;
-            be.bluexin.rwbym.entity.EntityGiantNeverMore.this.renderYawOffset = be.bluexin.rwbym.entity.EntityGiantNeverMore.this.rotationYaw;
-            if (degreesDifferenceAbs(oldRotationYaw, be.bluexin.rwbym.entity.EntityGiantNeverMore.this.rotationYaw) < 3.0F) {
+            be.bluexin.rwbym.entity.EntityQueenLancer.this.rotationYaw = approachDegrees(f1, targetAngleDeg, angularVelocity) - 90.0F;
+            be.bluexin.rwbym.entity.EntityQueenLancer.this.renderYawOffset = be.bluexin.rwbym.entity.EntityQueenLancer.this.rotationYaw;
+            if (degreesDifferenceAbs(oldRotationYaw, be.bluexin.rwbym.entity.EntityQueenLancer.this.rotationYaw) < 3.0F) {
                 this.velocity = approach(this.velocity, maxStraitVelocity, straitAcceleration * (maxStraitVelocity / this.velocity));
             } else {
                 this.velocity = approach(this.velocity, maxTurningVelocity, turningAcceleration);
             }
 
             float pitch = (float)(-(MathHelper.atan2((double)(-dy), groundDistance) * 57.2957763671875D));
-            be.bluexin.rwbym.entity.EntityGiantNeverMore.this.rotationPitch = pitch;
-            float approachYaw = be.bluexin.rwbym.entity.EntityGiantNeverMore.this.rotationYaw + 90.0F;
+            be.bluexin.rwbym.entity.EntityQueenLancer.this.rotationPitch = pitch;
+            float approachYaw = be.bluexin.rwbym.entity.EntityQueenLancer.this.rotationYaw + 90.0F;
             double lvt_16_1_ = (double)(this.velocity * MathHelper.cos(approachYaw * 0.017453292F)) * abs((double)dx / distance);
             double lvt_18_1_ = (double)(this.velocity * MathHelper.sin(approachYaw * 0.017453292F)) * abs((double)dz / distance);
             double lvt_20_1_ = (double)(this.velocity * MathHelper.sin(pitch * 0.017453292F)) * abs((double)dy / distance);
-            be.bluexin.rwbym.entity.EntityGiantNeverMore.this.motionX += (lvt_16_1_ - be.bluexin.rwbym.entity.EntityGiantNeverMore.this.motionX) * 0.2D;
-            be.bluexin.rwbym.entity.EntityGiantNeverMore.this.motionY += (lvt_20_1_ - be.bluexin.rwbym.entity.EntityGiantNeverMore.this.motionY) * 0.2D;
-            be.bluexin.rwbym.entity.EntityGiantNeverMore.this.motionZ += (lvt_18_1_ - be.bluexin.rwbym.entity.EntityGiantNeverMore.this.motionZ) * 0.2D;
+            be.bluexin.rwbym.entity.EntityQueenLancer.this.motionX += (lvt_16_1_ - be.bluexin.rwbym.entity.EntityQueenLancer.this.motionX) * 0.2D;
+            be.bluexin.rwbym.entity.EntityQueenLancer.this.motionY += (lvt_20_1_ - be.bluexin.rwbym.entity.EntityQueenLancer.this.motionY) * 0.2D;
+            be.bluexin.rwbym.entity.EntityQueenLancer.this.motionZ += (lvt_18_1_ - be.bluexin.rwbym.entity.EntityQueenLancer.this.motionZ) * 0.2D;
         }
     }
 
@@ -558,5 +558,3 @@ public class EntityGiantNeverMore extends EntityMob
         return Math.abs(val);
     }
 }
-
-

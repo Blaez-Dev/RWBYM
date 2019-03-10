@@ -141,6 +141,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.shadowiron);
         registerItems(event, RWBYItems.gildediron);
         registerItems(event, RWBYItems.viridianiron);
+        registerItems(event, RWBYItems.forestiron);
         registerItems(event, RWBYItems.cr1);
         registerItems(event, RWBYItems.cr2);
         registerItems(event, RWBYItems.cr3);

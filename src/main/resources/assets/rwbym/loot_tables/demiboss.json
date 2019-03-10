@@ -3,137 +3,15 @@
     {
       "name": "demiboss",
       "rolls": {
-        "min": 1,
+        "min": 0,
         "max": 2
       },
       "entries": [
         {
           "type": "item",
-          "name": "rwbym:crescent",
-          "weight": 20,
-          "functions": [
-            {
-              "function": "set_damage",
-              "damage": 0.2
-            }]
-        },{
-          "type": "item",
-          "name": "rwbym:gambol",
-          "weight": 20,
-          "functions": [
-            {
-              "function": "set_damage",
-              "damage": 0.2
-            }]
-        },{
-          "type": "item",
-          "name": "rwbym:ember",
-          "weight": 20,
-          "functions": [
-            {
-              "function": "set_damage",
-              "damage": 0.2
-            }]
-        },{
-          "type": "item",
-          "name": "rwbym:weiss",
-          "weight": 20,"functions": [
-            {
-              "function": "set_damage",
-              "damage": 0.2
-            }]
-        },{
-          "type": "item",
-          "name": "rwbym:juane",
-          "weight": 20,"functions": [
-            {
-              "function": "set_damage",
-              "damage": 0.2
-            }]
-        },{
-          "type": "item",
-          "name": "rwbym:pyrrhaspear",
-          "weight": 20,"functions": [
-            {
-              "function": "set_damage",
-              "damage": 0.2
-            }]
-        },{
-          "type": "item",
-          "name": "rwbym:stormflower",
-          "weight": 20,"functions": [
-            {
-              "function": "set_damage",
-              "damage": 0.2
-            }]
-        },{
-          "type": "item",
-          "name": "rwbym:norahammer",
-          "weight": 20,"functions": [
-            {
-              "function": "set_damage",
-              "damage": 0.2
-            }]
-        },
-        {
-          "type": "item",
-          "name": "rwbym:torchwick",
-          "weight": 20
-        },
-        {
-          "type": "item",
-          "name": "rwbym:cinder",
-          "weight": 20
-        },
-        {
-          "type": "item",
-          "name": "rwbym:adamswd",
-          "weight": 20},
-        {
-          "type": "item",
-          "name": "rwbym:jnrbat",
-          "weight": 20
-        },{
-          "type": "item",
-          "name": "rwbym:whtefng",
-          "weight": 20
-        },
-        {
-          "type": "item",
-          "name": "rwbym:neoumb_closed",
-          "weight": 20
-        },
-        {
-          "type": "item",
-          "name": "rwbym:emeraldgun",
-          "weight": 20
-        },
-        {
-          "type": "item",
-          "name": "rwbym:mariacane",
-          "weight": 20
-        },
-        {
-          "type": "item",
-          "name": "rwbym:coinr",
-          "weight": 10
-        },
-        {
-          "type": "item",
-          "name": "rwbym:coinw",
-          "weight": 10
-        },
-        {
-          "type": "item",
-          "name": "rwbym:coinb",
-          "weight": 10
-        },
-        {
-          "type": "item",
-          "name": "rwbym:coiny",
-          "weight": 10
+          "name": "rwbym:remnants",
+          "weight": 40
         }
-
       ]
     }
   ]

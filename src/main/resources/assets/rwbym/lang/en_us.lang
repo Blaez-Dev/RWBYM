@@ -18,6 +18,9 @@ entity.nuckleeve.name=Nuckeleeve
 entity.apathy.name=Apathy
 entity.store.name=From Dust Till Dawn
 entity.lancer.name=Lancer
+entity.queenlancer.name=Queen Lancer
+entity.juveniledeathstalker=Tiny Deathstalker
+
 
 item.rwbym:crescent.name=Crescent Rose
 item.rwbym:crescentgun.name=Crescent Rose
@@ -188,6 +191,7 @@ item.rwbym:coinw.name=Semblance Coin Weiss
 item.rwbym:coinb.name=Semblance Coin Blake
 item.rwbym:coiny.name=Semblance Coin Yang
 item.rwbym:viridianiron.name=Viridian Iron
+item.rwbym:forestiron.name=Forest Iron
 item.rwbym:chatareus.name=Chatareus
 item.rwbym:chatareusgun.name=Chatareus
 item.rwbym:armasword.name=Arma Gigas' Sword

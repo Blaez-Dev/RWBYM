@@ -3,80 +3,11 @@
     {
       "name": "boarbatusk",
       "rolls": {
-        "min": 1,
-        "max": 2
+        "min": 0,
+        "max": 1
       },
       "entries": [
         {
-          "type": "item",
-          "name": "rwbym:cro1",
-          "weight": 20
-        },
-        {
-          "type": "item",
-          "name": "rwbym:cro2",
-          "weight": 20
-        },{
-          "type": "item",
-          "name": "rwbym:cro3",
-          "weight": 20
-        },{
-          "type": "item",
-          "name": "rwbym:magn1",
-          "weight": 20
-        },{
-          "type": "item",
-          "name": "rwbym:magn2",
-          "weight": 20
-        },{
-          "type": "item",
-          "name": "rwbym:magn3",
-          "weight": 20
-        },{
-          "type": "item",
-          "name": "rwbym:magn4",
-          "weight": 20
-        },{
-          "type": "item",
-          "name": "rwbym:milo1",
-          "weight": 20
-        },{
-          "type": "item",
-          "name": "rwbym:milo2",
-          "weight": 20
-        },{
-          "type": "item",
-          "name": "rwbym:milo3",
-          "weight": 20
-        },{
-          "type": "item",
-          "name": "rwbym:stor1",
-          "weight": 20
-        },{
-          "type": "item",
-          "name": "rwbym:stor2",
-          "weight": 20
-        },{
-          "type": "item",
-          "name": "rwbym:stor3",
-          "weight": 20
-        },{
-          "type": "item",
-          "name": "rwbym:stor4",
-          "weight": 20
-        },{
-          "type": "item",
-          "name": "rwbym:stor5",
-          "weight": 20
-        },{
-          "type": "item",
-          "name": "rwbym:stor6",
-          "weight": 20
-        },{
-          "type": "item",
-          "name": "rwbym:whtefng",
-          "weight": 20
-        },{
           "type": "item",
           "name": "rwbym:remnants",
           "weight": 40

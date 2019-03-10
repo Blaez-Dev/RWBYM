@@ -69,6 +69,9 @@ public class RWBYEntities {
         EntityRegistry.registerModEntity(new ResourceLocation("rwbym:nuckleeve"), EntityNuckleeve.class, "nuckleeve", entityID + 23, instance, 64, 1, true, (0 << 16) + (0 << 8) + 0, (153 << 16) + (153 << 8) + 153);
         EntityRegistry.registerModEntity(new ResourceLocation("rwbym:store"), EntityStore.class, "store", entityID + 25, instance, 64, 1, true, (0 << 16) + (0 << 8) + 0, (153 << 16) + (153 << 8) + 153);
         EntityRegistry.registerModEntity(new ResourceLocation("rwbym:lancer"), EntityLancer.class, "lancer", entityID + 24, instance, 64, 1, true, (0 << 16) + (0 << 8) + 0, (153 << 16) + (153 << 8) + 153);
+        EntityRegistry.registerModEntity(new ResourceLocation("rwbym:juveniledeathstalker"), EntityJuvenileDeathstalker.class, "juveniledeathstalker", entityID + 26, instance, 64, 1, true, (0 << 16) + (0 << 8) + 0, (153 << 16) + (153 << 8) + 153);
+        EntityRegistry.registerModEntity(new ResourceLocation("rwbym:queenlancer"), EntityQueenLancer.class, "queenlancer", entityID + 27, instance, 64, 1, true, (0 << 16) + (0 << 8) + 0, (153 << 16) + (153 << 8) + 153);
+        EntityRegistry.registerModEntity(new ResourceLocation("rwbym:weaponstore"), EntityStore.class, "weaponstore", entityID + 28, instance, 64, 1, true, (0 << 16) + (0 << 8) + 0, (153 << 16) + (153 << 8) + 153);
         Biome[] biomes = getBiomeList(EntityCreeper.class, EnumCreatureType.MONSTER);
         Biome[] biomes1 = getBiomeList(EntityStray.class, EnumCreatureType.MONSTER);
 
