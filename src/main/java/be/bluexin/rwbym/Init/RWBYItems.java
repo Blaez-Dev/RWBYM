@@ -637,6 +637,32 @@ public class RWBYItems {
             true,
             0,
             null);
+    public static Item angelcane = new RWBYSword(
+            "angelcane",
+            2500,
+            12,
+            0,
+            null,
+            "rwbym:angelsword",
+            false,
+            false,
+            false,
+            false,
+            0,
+            RWBYCreativeTabs.tab_rwbyweapons);
+    public static Item angelsword = new RWBYSword(
+            "angelsword",
+            2500,
+            12,
+            0,
+            null,
+            "rwbym:angelcane",
+            true,
+            false,
+            false,
+            false,
+            0,
+            null);
     public static Item mariascythedouble = new RWBYSword(
             "mariascythedouble",
             2500,
@@ -644,8 +670,8 @@ public class RWBYItems {
             0,
             null,
             "rwbym:mariacane",
-            false,
             true,
+            false,
             false,
             false,
             0,

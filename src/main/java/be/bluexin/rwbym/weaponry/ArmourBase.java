@@ -132,4 +132,14 @@ public class ArmourBase extends ItemArmor {
             }}
         return super.onItemRightClick(worldIn, playerIn, hand);
     }
+
+    @Override
+    public boolean isRepairable() {
+        return true;
+    }
+
+    @Override
+    public boolean getIsRepairable(ItemStack toRepair, ItemStack repair) {
+        return repair.getItem() == RWBYItems.scrap || super.getIsRepairable(toRepair, repair);
+    }
 }

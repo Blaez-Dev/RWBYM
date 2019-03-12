@@ -112,6 +112,8 @@ public class RegUtil {
         registerItems(event, RWBYItems.mariascythedouble);
         registerItems(event, RWBYItems.armasword);
         registerItems(event, RWBYItems.armaswordsummon);
+        registerItems(event, RWBYItems.angelcane);
+        registerItems(event, RWBYItems.angelsword);
         //Staffs
         registerItems(event, RWBYItems.ozmacane);
         registerItems(event, RWBYItems.ozmacanefire);

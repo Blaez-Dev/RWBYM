@@ -17,6 +17,7 @@ entity.geist.name=Geist
 entity.nuckleeve.name=Nuckeleeve
 entity.apathy.name=Apathy
 entity.store.name=From Dust Till Dawn
+entity.weaponstore.name=Cutting Edge
 entity.lancer.name=Lancer
 entity.queenlancer.name=Queen Lancer
 entity.juveniledeathstalker=Tiny Deathstalker
@@ -209,6 +210,8 @@ item.rwbym:lien20.name=Ⱡ20
 item.rwbym:lien50.name=Ⱡ50
 item.rwbym:lien100.name=Ⱡ100
 item.rwbym:lien500.name=Ⱡ500
+item.rwbym:angelcane.name= Angel's Cane
+item.rwbym:angelsword.name= Angel's Sword
 
 itemGroup.rwby_weapons=RWBY Weapons
 itemGroup.rwby_items=RWBY Items
