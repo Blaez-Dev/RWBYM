@@ -397,7 +397,7 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
 
         living.hurtResistantTime = 0;
 
-        if (!item.canSurviveBlockHit() && !(living instanceof EntityEnderman)) {
+        if (!item.canSurviveEntityHit() && !(living instanceof EntityEnderman)) {
             this.setDead();
         }
 
@@ -414,7 +414,7 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
 
         RWBYAmmoItem item = this.getItem();
 
-        if (!item.canSurviveEntityHit()) {
+        if (!item.canSurviveBlockHit()) {
             this.setDead();
         }
 
@@ -486,7 +486,8 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
 
     @Override
     protected ItemStack getArrowStack() {
-        return ItemStack.EMPTY;
+    	RWBYAmmoItem item = this.getItem();
+        return item.getRenderStack().copy();
     }
 
     @Override
