@@ -190,6 +190,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.lien50);
         registerItems(event, RWBYItems.lien100);
         registerItems(event, RWBYItems.lien500);
+        registerItems(event, RWBYItems.wallet);
 
         //Armour
         registerItems(event, RWBYItems.korekosmouoff);

@@ -1,6 +1,7 @@
 package be.bluexin.rwbym.Init;
 
 import be.bluexin.rwbym.blocks.*;
+import be.bluexin.rwbym.gui.RWBYItemContainerGui;
 import be.bluexin.rwbym.weaponry.*;
 import be.bluexin.rwbym.weaponry.ammohit.ExplosionAmmoHit;
 import be.bluexin.rwbym.weaponry.ammohit.FireAmmoHit;
@@ -159,7 +160,7 @@ public class RWBYItems {
             false,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static Item norahammer = new RWBYSword(
+    public static final Item norahammer = new RWBYSword(
             "norahammer",
             2500,
             8,
@@ -172,7 +173,7 @@ public class RWBYItems {
             false,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static Item pyrrhaspear = new RWBYSword(
+    public static final Item pyrrhaspear = new RWBYSword(
             "pyrrhaspear",
             2500,
             6,
@@ -185,7 +186,7 @@ public class RWBYItems {
             false,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static Item pyrrhasword = new RWBYSword(
+    public static final Item pyrrhasword = new RWBYSword(
             "pyrrhasword",
             2500,
             5,
@@ -198,7 +199,7 @@ public class RWBYItems {
             false,
             0,
             null);
-    public static Item velvet = new RWBYSword(
+    public static final Item velvet = new RWBYSword(
             "velvet",
             1250,
             -4,
@@ -211,7 +212,7 @@ public class RWBYItems {
             false,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static Item crescentv = new RWBYCRScythe(
+    public static final Item crescentv = new RWBYCRScythe(
             "crescentv",
             1250,
             72,
@@ -224,7 +225,7 @@ public class RWBYItems {
             false,
             1,
             null);
-    public static Item weissv = new RWBYBow(
+    public static final Item weissv = new RWBYBow(
             "weissv",
             1250,
             72,
@@ -238,7 +239,7 @@ public class RWBYItems {
             2,
             1,
             null);
-    public static Item gambolv = new RWBYSword(
+    public static final Item gambolv = new RWBYSword(
             "gambolv",
             1250,
             5,
@@ -251,7 +252,7 @@ public class RWBYItems {
             false,
             1,
             null);
-    public static Item juanev = new RWBYSword(
+    public static final Item juanev = new RWBYSword(
             "juanev",
             1250,
             5,
@@ -264,7 +265,7 @@ public class RWBYItems {
             false,
             1,
             null);
-    public static Item norahammerv = new RWBYSword(
+    public static final Item norahammerv = new RWBYSword(
             "norahammerv",
             1250,
             8,
@@ -277,7 +278,7 @@ public class RWBYItems {
             false,
             1,
             null);
-    public static Item pyrrhaspearv = new RWBYSword(
+    public static final Item pyrrhaspearv = new RWBYSword(
             "pyrrhaspearv",
             1250,
             6,
@@ -290,7 +291,7 @@ public class RWBYItems {
             false,
             1,
             null);
-    public static Item pyrrhaswordv = new RWBYSword(
+    public static final Item pyrrhaswordv = new RWBYSword(
             "pyrrhaswordv",
             1250,
             5,
@@ -303,7 +304,7 @@ public class RWBYItems {
             false,
             1,
             null);
-    public static Item yatsuhashi = new RWBYSword(
+    public static final Item yatsuhashi = new RWBYSword(
             "yatsuhashi",
             1250,
             15,
@@ -316,7 +317,7 @@ public class RWBYItems {
             false,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static Item cocobag = new RWBYSword(
+    public static final Item cocobag = new RWBYSword(
             "cocobag",
             1250,
             10,
@@ -329,7 +330,7 @@ public class RWBYItems {
             false,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static Item fox = new RWBYSword(
+    public static final Item fox = new RWBYSword(
             "fox",
             1250,
             10,
@@ -342,7 +343,7 @@ public class RWBYItems {
             false,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static Item cocobagv = new RWBYSword(
+    public static final Item cocobagv = new RWBYSword(
             "cocobagv",
             1250,
             10,
@@ -355,7 +356,7 @@ public class RWBYItems {
             false,
             1,
             null);
-    public static Item winterswd = new RWBYSword(
+    public static final Item winterswd = new RWBYSword(
             "winterswd",
             1250,
             10,
@@ -368,7 +369,7 @@ public class RWBYItems {
             false,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static Item pennyswd = new RWBYSword(
+    public static final Item pennyswd = new RWBYSword(
             "pennyswd",
             2500,
             9,
@@ -381,7 +382,7 @@ public class RWBYItems {
             false,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static Item ozpincane = new RWBYSword(
+    public static final Item ozpincane = new RWBYSword(
             "ozpincane",
             1250,
             10,
@@ -394,7 +395,7 @@ public class RWBYItems {
             false,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static Item port = new RWBYSword(
+    public static final Item port = new RWBYSword(
             "port",
             1250,
             12,
@@ -407,7 +408,7 @@ public class RWBYItems {
             false,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static Item kkfire = new RWBYSword(
+    public static final Item kkfire = new RWBYSword(
             "kkfire",
             640,
             15,
@@ -420,7 +421,7 @@ public class RWBYItems {
             false,
             0,
             null);
-    public static Item kkice = new RWBYSword(
+    public static final Item kkice = new RWBYSword(
             "kkice",
             640,
             10,
@@ -433,7 +434,7 @@ public class RWBYItems {
             true,
             0,
             null);
-    public static Item kkwind = new RWBYSword(
+    public static final Item kkwind = new RWBYSword(
             "kkwind",
             640,
             8,
@@ -446,7 +447,7 @@ public class RWBYItems {
             false,
             0,
             null);
-    public static Item torchwick = new RWBYSword(
+    public static final Item torchwick = new RWBYSword(
             "torchwick",
             2500,
             6,
@@ -459,7 +460,7 @@ public class RWBYItems {
             false,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static Item neoumb_closed = new RWBYSword(
+    public static final Item neoumb_closed = new RWBYSword(
             "neoumb_closed",
             2500,
             4,
@@ -472,7 +473,7 @@ public class RWBYItems {
             false,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static Item neoumb_closed_blade = new RWBYSword(
+    public static final Item neoumb_closed_blade = new RWBYSword(
             "neoumb_closed_blade",
             2500,
             6,
@@ -485,7 +486,7 @@ public class RWBYItems {
             false,
             0,
            null);
-    public static Item neoumb_handle_blade = new RWBYSword(
+    public static final Item neoumb_handle_blade = new RWBYSword(
             "neoumb_handle_blade",
             2500,
             6,
@@ -498,7 +499,7 @@ public class RWBYItems {
             false,
             0,
             null);
-    public static Item jnrbat = new RWBYSword(
+    public static final Item jnrbat = new RWBYSword(
             "jnrbat",
             2500,
             8,
@@ -511,7 +512,7 @@ public class RWBYItems {
             false,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static Item adamswd = new RWBYSword(
+    public static final Item adamswd = new RWBYSword(
             "adamswd",
             2500,
             9,
@@ -524,7 +525,7 @@ public class RWBYItems {
             false,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static Item cinder = new RWBYSword(
+    public static final Item cinder = new RWBYSword(
             "cinder",
             2500,
             6,
@@ -538,7 +539,7 @@ public class RWBYItems {
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
 
-    public static Item ozmacane = new RWBYStaff(
+    public static final Item ozmacane = new RWBYStaff(
             "ozmacane",
             2500,
             12,
@@ -549,7 +550,7 @@ public class RWBYItems {
             true,
             RWBYCreativeTabs.tab_rwbyweapons
     );
-    public static Item ozmacanefire = new RWBYStaff(
+    public static final Item ozmacanefire = new RWBYStaff(
             "ozmacanefire",
             2500,
             12,
@@ -560,7 +561,7 @@ public class RWBYItems {
             true,
           null
     );
-    public static Item ozmacanegravity = new RWBYStaff(
+    public static final Item ozmacanegravity = new RWBYStaff(
             "ozmacanegravity",
             2500,
             12,
@@ -570,7 +571,7 @@ public class RWBYItems {
             false,
             true,
             null
-    );    public static Item ozmacaneice = new RWBYStaff(
+    );    public static final Item ozmacaneice = new RWBYStaff(
             "ozmacaneice",
             2500,
             12,
@@ -580,7 +581,7 @@ public class RWBYItems {
             false,
             true,
            null
-    );    public static Item ozmacanelightning = new RWBYStaff(
+    );    public static final Item ozmacanelightning = new RWBYStaff(
             "ozmacanelightning",
             2500,
             12,
@@ -590,7 +591,7 @@ public class RWBYItems {
             false,
             true,
            null
-    );    public static Item ozmacanewater = new RWBYStaff(
+    );    public static final Item ozmacanewater = new RWBYStaff(
             "ozmacanewater",
             2500,
             12,
@@ -600,7 +601,7 @@ public class RWBYItems {
             false,
             true,
             null
-    );    public static Item ozmacanewind = new RWBYStaff(
+    );    public static final Item ozmacanewind = new RWBYStaff(
             "ozmacanewind",
             2500,
             12,
@@ -611,7 +612,7 @@ public class RWBYItems {
             true,
             null
     );
-    public static Item mariacane = new RWBYSword(
+    public static final Item mariacane = new RWBYSword(
             "mariacane",
             2500,
             12,
@@ -624,7 +625,7 @@ public class RWBYItems {
             false,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static Item mariascythe = new RWBYCRScythe(
+    public static final Item mariascythe = new RWBYCRScythe(
             "mariascythe",
             2500,
             72,
@@ -637,7 +638,7 @@ public class RWBYItems {
             true,
             0,
             null);
-    public static Item angelcane = new RWBYSword(
+    public static final Item angelcane = new RWBYSword(
             "angelcane",
             2500,
             12,
@@ -650,7 +651,7 @@ public class RWBYItems {
             false,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static Item angelsword = new RWBYSword(
+    public static final Item angelsword = new RWBYSword(
             "angelsword",
             2500,
             12,
@@ -663,7 +664,7 @@ public class RWBYItems {
             false,
             0,
             null);
-    public static Item mariascythedouble = new RWBYSword(
+    public static final Item mariascythedouble = new RWBYSword(
             "mariascythedouble",
             2500,
             14,
@@ -705,7 +706,7 @@ public class RWBYItems {
             0,
             null);
 
-    public static Item armasword = new RWBYSword(
+    public static final Item armasword = new RWBYSword(
             "armasword",
             2500,
             15,
@@ -719,7 +720,7 @@ public class RWBYItems {
             0,
             null);
 
-    public static Item armaswordsummon = new RWBYSword(
+    public static final Item armaswordsummon = new RWBYSword(
             "armaswordsummon",
             2500,
             15,
@@ -735,7 +736,7 @@ public class RWBYItems {
 
     //------------------------------------------------//
 
-    public static Item crescentgun = new RWBYBow(
+    public static final Item crescentgun = new RWBYBow(
             "crescentgun",
             2500,
             72,
@@ -749,7 +750,7 @@ public class RWBYItems {
             1,
             0,
             null);
-    public static Item crescentgunfrost = new RWBYBow(
+    public static final Item crescentgunfrost = new RWBYBow(
             "crescentgunfrost",
             2500,
             72,
@@ -763,7 +764,7 @@ public class RWBYItems {
             1,
             0,
             null);
-    public static Item weiss = new RWBYBow(
+    public static final Item weiss = new RWBYBow(
             "weiss",
             2500,
             72,
@@ -777,7 +778,7 @@ public class RWBYItems {
             3,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static Item crescentgunv = new RWBYBow(
+    public static final Item crescentgunv = new RWBYBow(
             "crescentgunv",
             1250,
             72,
@@ -791,7 +792,7 @@ public class RWBYItems {
             1,
             1,
             null);
-    public static Item ember = new RWBYBow(
+    public static final Item ember = new RWBYBow(
             "ember",
             2500,
             72,
@@ -805,7 +806,7 @@ public class RWBYItems {
             2,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static Item ember2 = new RWBYBow(
+    public static final Item ember2 = new RWBYBow(
             "ember2",
             2500,
             72,
@@ -819,7 +820,7 @@ public class RWBYItems {
             2,
             0,
             null);
-    public static Item gambolgun = new RWBYBow(
+    public static final Item gambolgun = new RWBYBow(
             "gambolgun",
             2500,
             72,
@@ -833,7 +834,7 @@ public class RWBYItems {
             0,
             0,
             null);
-    public static Item gambolgunv = new RWBYBow(
+    public static final Item gambolgunv = new RWBYBow(
             "gambolgunv",
             1250,
             72,
@@ -847,7 +848,7 @@ public class RWBYItems {
             0,
             1,
             null);
-    public static Item stormflower = new RWBYBow(
+    public static final Item stormflower = new RWBYBow(
             "stormflower",
             2500,
             72,
@@ -861,7 +862,7 @@ public class RWBYItems {
             0,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static Item noragun = new RWBYBow(
+    public static final Item noragun = new RWBYBow(
             "noragun",
             2500,
             72,
@@ -875,7 +876,7 @@ public class RWBYItems {
             0,
             0,
             null);
-    public static Item stormflowerv = new RWBYBow(
+    public static final Item stormflowerv = new RWBYBow(
             "stormflowerv",
             1250,
             72,
@@ -889,7 +890,7 @@ public class RWBYItems {
             0,
             1,
             null);
-    public static Item noragunv = new RWBYBow(
+    public static final Item noragunv = new RWBYBow(
             "noragunv",
             1250,
             72,
@@ -903,7 +904,7 @@ public class RWBYItems {
             0,
             1,
             null);
-    public static Item emberv = new RWBYBow(
+    public static final Item emberv = new RWBYBow(
             "emberv",
             1250,
             72,
@@ -917,7 +918,7 @@ public class RWBYItems {
             2,
             1,
             null);
-    public static Item qrowgun = new RWBYBow(
+    public static final Item qrowgun = new RWBYBow(
             "qrowgun",
             1250,
             72,
@@ -931,7 +932,7 @@ public class RWBYItems {
             0,
             0,
             null);
-    public static Item cocogun = new RWBYBow(
+    public static final Item cocogun = new RWBYBow(
             "cocogun",
             1250,
             72,
@@ -945,7 +946,7 @@ public class RWBYItems {
             0,
             0,
             null);
-    public static Item cocogunv = new RWBYBow(
+    public static final Item cocogunv = new RWBYBow(
             "cocogunv",
             1250,
             72,
@@ -960,7 +961,7 @@ public class RWBYItems {
             1,
             null);
 
-    public static Item torchwickgun = new RWBYBow(
+    public static final Item torchwickgun = new RWBYBow(
             "torchwickgun",
             2500,
             72,
@@ -974,7 +975,7 @@ public class RWBYItems {
             0,
             0,
             null);
-    public static Item portgun = new RWBYBow(
+    public static final Item portgun = new RWBYBow(
             "portgun",
             1250,
             72,
@@ -988,7 +989,7 @@ public class RWBYItems {
             0,
             0,
             null);
-    public static Item emeraldgun = new RWBYBow(
+    public static final Item emeraldgun = new RWBYBow(
             "emeraldgun",
             2500,
             72,
@@ -1002,7 +1003,7 @@ public class RWBYItems {
             0,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static Item emeraldblade = new RWBYBow(
+    public static final Item emeraldblade = new RWBYBow(
             "emeraldblade",
             2500,
             72,
@@ -1016,7 +1017,7 @@ public class RWBYItems {
             0,
             0,
             null);
-    public static Item jnrrocket = new RWBYBow(
+    public static final Item jnrrocket = new RWBYBow(
             "jnrrocket",
             1250,
             72,
@@ -1030,7 +1031,7 @@ public class RWBYItems {
             0,
             0,
             null);
-    public static Item cinderbow = new RWBYBow(
+    public static final Item cinderbow = new RWBYBow(
             "cinderbow",
             2500,
             72,
@@ -1044,7 +1045,7 @@ public class RWBYItems {
             0,
             0,
             null);
-    public static Item adamgun = new RWBYBow(
+    public static final Item adamgun = new RWBYBow(
             "adamgun",
             2500,
             72,
@@ -1060,99 +1061,106 @@ public class RWBYItems {
             null);
 
     //------------------------------------------------//
-    public static Item ammo = new RWBYItem("ammo", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item magngrenade = new RWBYItem("magngrenade", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item emshell = new RWBYItem("emshell", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item emflareshell = new RWBYItem("emflareshell", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item emfireshell = new RWBYItem("emfireshell", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item dustcrystal = new RWBYItem("dustcrystal", "{AttributeModifiers:[{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:-0.50,Operation:2,UUIDMost:74685,UUIDLeast:155127},{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"offhand\",Amount:10,Operation:0,UUIDMost:32503,UUIDLeast:164819}]}", false, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item winddustcrystal = new RWBYItem("winddustcrystal", "{AttributeModifiers:[{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:-0.50,Operation:2,UUIDMost:74685,UUIDLeast:155127},{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"offhand\",Amount:10,Operation:0,UUIDMost:32503,UUIDLeast:164819},{AttributeName:\"generic.movementSpeed\",Name:\"generic.movementSpeed\",Slot:\"offhand\",Amount:2,Operation:2,UUIDMost:78095,UUIDLeast:122333}]}", false, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item firedustcrystal = new RWBYItem("firedustcrystal", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"offhand\",Amount:10,Operation:0,UUIDMost:32503,UUIDLeast:164819},{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:-0.5,Operation:2,UUIDMost:25912,UUIDLeast:178428},{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"offhand\",Amount:3,Operation:2,UUIDMost:87232,UUIDLeast:139412}]}", false, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item gravitydustcrystal = new RWBYItem("gravitydustcrystal", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"offhand\",Amount:10,Operation:0,UUIDMost:32503,UUIDLeast:164819},{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:-0.5,Operation:2,UUIDMost:25912,UUIDLeast:178428}],display:{Lore:[\"Slow Falling and Negate Fall Damage While in offhand.\"]}}", false, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item waterdustcrystal = new RWBYItem("waterdustcrystal",  "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"offhand\",Amount:10,Operation:0,UUIDMost:28329,UUIDLeast:112750},{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"offhand\",Amount:-0.25,Operation:2,UUIDMost:81281,UUIDLeast:160467}],display:{Lore:[\"Provides Slow Health Regeneration while in Offhand.\"]}}", false, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item lightdustcrystal = new RWBYItem("lightdustcrystal", "{AttributeModifiers:[{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:-0.50,Operation:2,UUIDMost:17934,UUIDLeast:125321},{AttributeName:\"generic.movementSpeed\",Name:\"generic.movementSpeed\",Slot:\"offhand\",Amount:1.6,Operation:2,UUIDMost:13043,UUIDLeast:147969},{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"offhand\",Amount:10,Operation:0,UUIDMost:28194,UUIDLeast:149045},{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"offhand\",Amount:2,Operation:2,UUIDMost:14080,UUIDLeast:163727}]}", false, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item icedustcrystal = new RWBYItem("icedustcrystal", " {AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"offhand\",Amount:10,Operation:0,UUIDMost:32503,UUIDLeast:164819},{AttributeName:\"generic.movementSpeed\",Name:\"generic.movementSpeed\",Slot:\"offhand\",Amount:-0.3,Operation:2,UUIDMost:79372,UUIDLeast:112384},{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:0.5,Operation:2,UUIDMost:25912,UUIDLeast:178428}]}", false, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item dustrock = new RWBYItem("dustrock", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item dust = new RWBYItem("dust", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item winddustrock = new RWBYItem("winddustrock", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item firedustrock = new RWBYItem("firedustrock", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item gravitydustrock = new RWBYItem("gravitydustrock", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item waterdustrock = new RWBYItem("waterdustrock", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item lightdustrock = new RWBYItem("lightdustrock", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item icedustrock = new RWBYItem("icedustrock", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item roseiron = new RWBYItem("roseiron", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item gildediron = new RWBYItem("gildediron", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item frostediron = new RWBYItem("frostediron", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item shadowiron = new RWBYItem("shadowiron", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item viridianiron = new RWBYItem("viridianiron", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item forestiron = new RWBYItem("forestiron", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item cr1 = new RWBYItem("cr1", null, false, null);
-    public static Item cr2 = new RWBYItem("cr2", null, false, null);
-    public static Item cr3 = new RWBYItem("cr3", null, false, null);
-    public static Item cr4 = new RWBYItem("cr4", null, false, null);
-    public static Item cr5 = new RWBYItem("cr5", null, false, null);
-    public static Item cr6 = new RWBYItem("cr6", null, false, null);
-    public static Item mytre1 = new RWBYItem("mytre1", null, false, null);
-    public static Item mytre2 = new RWBYItem("mytre2", null, false, null);
-    public static Item mytre3 = new RWBYItem("mytre3", null, false, null);
-    public static Item gam1 = new RWBYItem("gam1", null, false, null);
-    public static Item gam2 = new RWBYItem("gam2", null, false, null);
-    public static Item gam3 = new RWBYItem("gam3", null, false, null);
-    public static Item em1 = new RWBYItem("em1", null, false, null);
-    public static Item em2 = new RWBYItem("em2", null, false, null);
-    public static Item em3 = new RWBYItem("em3", null, false, null);
-    public static Item cro1 = new RWBYItem("cro1", null, false, null);
-    public static Item cro2 = new RWBYItem("cro2", null, false, null);
-    public static Item cro3 = new RWBYItem("cro3", null, false, null);
-    public static Item magn1 = new RWBYItem("magn1", null, false, null);
-    public static Item magn2 = new RWBYItem("magn2", null, false, null);
-    public static Item magn3 = new RWBYItem("magn3", null, false, null);
-    public static Item magn4 = new RWBYItem("magn4", null, false, null);
-    public static Item milo1 = new RWBYItem("milo1", null, false, null);
-    public static Item milo2 = new RWBYItem("milo2", null, false, null);
-    public static Item milo3 = new RWBYItem("milo3", null, false, null);
-    public static Item stor1 = new RWBYItem("stor1", null, false, null);
-    public static Item stor2 = new RWBYItem("stor2", null, false, null);
-    public static Item stor3 = new RWBYItem("stor3", null, false, null);
-    public static Item stor4 = new RWBYItem("stor4", null, false, null);
-    public static Item stor5 = new RWBYItem("stor5", null, false, null);
-    public static Item stor6 = new RWBYItem("stor6", null, false, null);
-    public static Item scrap = new RWBYItem("scrap", null, false, null);
-    public static Item atlasknight = new RWBYItem("atlasknight", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item remnants = new RWBYItem("remnants", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item armagigas = new RWBYItem("armagigas", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item coinr = new RWBYItem("coinr", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item coinw = new RWBYItem("coinw", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item coinb = new RWBYItem("coinb", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item coiny = new RWBYItem("coiny", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item rvnmask = new RWBYItem("rvnmask", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item whtefng =  new RWBYItem("whtefng", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item rubyhood = new RWBYItem("rubyhood", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item lien1 = new RWBYItem("lien1", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item lien5 = new RWBYItem("lien5", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item lien10 = new RWBYItem("lien10", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item lien20 = new RWBYItem("lien20", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item lien50 = new RWBYItem("lien50", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item lien100 = new RWBYItem("lien100", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static Item lien500 = new RWBYItem("lien500", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item ammo = new RWBYItem("ammo", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item magngrenade = new RWBYItem("magngrenade", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item emshell = new RWBYItem("emshell", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item emflareshell = new RWBYItem("emflareshell", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item emfireshell = new RWBYItem("emfireshell", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item dustcrystal = new RWBYItem("dustcrystal", "{AttributeModifiers:[{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:-0.50,Operation:2,UUIDMost:74685,UUIDLeast:155127},{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"offhand\",Amount:10,Operation:0,UUIDMost:32503,UUIDLeast:164819}]}", false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item winddustcrystal = new RWBYItem("winddustcrystal", "{AttributeModifiers:[{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:-0.50,Operation:2,UUIDMost:74685,UUIDLeast:155127},{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"offhand\",Amount:10,Operation:0,UUIDMost:32503,UUIDLeast:164819},{AttributeName:\"generic.movementSpeed\",Name:\"generic.movementSpeed\",Slot:\"offhand\",Amount:2,Operation:2,UUIDMost:78095,UUIDLeast:122333}]}", false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item firedustcrystal = new RWBYItem("firedustcrystal", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"offhand\",Amount:10,Operation:0,UUIDMost:32503,UUIDLeast:164819},{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:-0.5,Operation:2,UUIDMost:25912,UUIDLeast:178428},{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"offhand\",Amount:3,Operation:2,UUIDMost:87232,UUIDLeast:139412}]}", false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item gravitydustcrystal = new RWBYItem("gravitydustcrystal", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"offhand\",Amount:10,Operation:0,UUIDMost:32503,UUIDLeast:164819},{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:-0.5,Operation:2,UUIDMost:25912,UUIDLeast:178428}],display:{Lore:[\"Slow Falling and Negate Fall Damage While in offhand.\"]}}", false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item waterdustcrystal = new RWBYItem("waterdustcrystal",  "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"offhand\",Amount:10,Operation:0,UUIDMost:28329,UUIDLeast:112750},{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"offhand\",Amount:-0.25,Operation:2,UUIDMost:81281,UUIDLeast:160467}],display:{Lore:[\"Provides Slow Health Regeneration while in Offhand.\"]}}", false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item lightdustcrystal = new RWBYItem("lightdustcrystal", "{AttributeModifiers:[{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:-0.50,Operation:2,UUIDMost:17934,UUIDLeast:125321},{AttributeName:\"generic.movementSpeed\",Name:\"generic.movementSpeed\",Slot:\"offhand\",Amount:1.6,Operation:2,UUIDMost:13043,UUIDLeast:147969},{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"offhand\",Amount:10,Operation:0,UUIDMost:28194,UUIDLeast:149045},{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"offhand\",Amount:2,Operation:2,UUIDMost:14080,UUIDLeast:163727}]}", false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item icedustcrystal = new RWBYItem("icedustcrystal", " {AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"offhand\",Amount:10,Operation:0,UUIDMost:32503,UUIDLeast:164819},{AttributeName:\"generic.movementSpeed\",Name:\"generic.movementSpeed\",Slot:\"offhand\",Amount:-0.3,Operation:2,UUIDMost:79372,UUIDLeast:112384},{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:0.5,Operation:2,UUIDMost:25912,UUIDLeast:178428}]}", false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item dustrock = new RWBYItem("dustrock", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item dust = new RWBYItem("dust", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item winddustrock = new RWBYItem("winddustrock", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item firedustrock = new RWBYItem("firedustrock", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item gravitydustrock = new RWBYItem("gravitydustrock", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item waterdustrock = new RWBYItem("waterdustrock", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item lightdustrock = new RWBYItem("lightdustrock", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item icedustrock = new RWBYItem("icedustrock", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item roseiron = new RWBYItem("roseiron", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item gildediron = new RWBYItem("gildediron", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item frostediron = new RWBYItem("frostediron", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item shadowiron = new RWBYItem("shadowiron", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item viridianiron = new RWBYItem("viridianiron", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item forestiron = new RWBYItem("forestiron", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item cr1 = new RWBYItem("cr1", null, false, null);
+    public static final Item cr2 = new RWBYItem("cr2", null, false, null);
+    public static final Item cr3 = new RWBYItem("cr3", null, false, null);
+    public static final Item cr4 = new RWBYItem("cr4", null, false, null);
+    public static final Item cr5 = new RWBYItem("cr5", null, false, null);
+    public static final Item cr6 = new RWBYItem("cr6", null, false, null);
+    public static final Item mytre1 = new RWBYItem("mytre1", null, false, null);
+    public static final Item mytre2 = new RWBYItem("mytre2", null, false, null);
+    public static final Item mytre3 = new RWBYItem("mytre3", null, false, null);
+    public static final Item gam1 = new RWBYItem("gam1", null, false, null);
+    public static final Item gam2 = new RWBYItem("gam2", null, false, null);
+    public static final Item gam3 = new RWBYItem("gam3", null, false, null);
+    public static final Item em1 = new RWBYItem("em1", null, false, null);
+    public static final Item em2 = new RWBYItem("em2", null, false, null);
+    public static final Item em3 = new RWBYItem("em3", null, false, null);
+    public static final Item cro1 = new RWBYItem("cro1", null, false, null);
+    public static final Item cro2 = new RWBYItem("cro2", null, false, null);
+    public static final Item cro3 = new RWBYItem("cro3", null, false, null);
+    public static final Item magn1 = new RWBYItem("magn1", null, false, null);
+    public static final Item magn2 = new RWBYItem("magn2", null, false, null);
+    public static final Item magn3 = new RWBYItem("magn3", null, false, null);
+    public static final Item magn4 = new RWBYItem("magn4", null, false, null);
+    public static final Item milo1 = new RWBYItem("milo1", null, false, null);
+    public static final Item milo2 = new RWBYItem("milo2", null, false, null);
+    public static final Item milo3 = new RWBYItem("milo3", null, false, null);
+    public static final Item stor1 = new RWBYItem("stor1", null, false, null);
+    public static final Item stor2 = new RWBYItem("stor2", null, false, null);
+    public static final Item stor3 = new RWBYItem("stor3", null, false, null);
+    public static final Item stor4 = new RWBYItem("stor4", null, false, null);
+    public static final Item stor5 = new RWBYItem("stor5", null, false, null);
+    public static final Item stor6 = new RWBYItem("stor6", null, false, null);
+    public static final Item scrap = new RWBYItem("scrap", null, false, null);
+    public static final Item atlasknight = new RWBYItem("atlasknight", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item remnants = new RWBYItem("remnants", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item armagigas = new RWBYItem("armagigas", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item coinr = new RWBYItem("coinr", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item coinw = new RWBYItem("coinw", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item coinb = new RWBYItem("coinb", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item coiny = new RWBYItem("coiny", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item rvnmask = new RWBYItem("rvnmask", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item whtefng =  new RWBYItem("whtefng", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item rubyhood = new RWBYItem("rubyhood", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item lien1 = new RWBYItem("lien1", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item lien5 = new RWBYItem("lien5", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item lien10 = new RWBYItem("lien10", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item lien20 = new RWBYItem("lien20", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item lien50 = new RWBYItem("lien50", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item lien100 = new RWBYItem("lien100", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item lien500 = new RWBYItem("lien500", null, false, RWBYCreativeTabs.tab_rwbyitems);
     //------------------------------------------------//
-    public static Item entitybullet = new RWBYItem("entitybullet", null, false, null);
-    public static Item entityfireshell = new RWBYItem("entityfireshell", null, false, null);
-    public static Item entityflareshell = new RWBYItem("entityflareshell", null, false, null);
-    public static Item entityshell = new RWBYItem("entityshell", null, false, null);
-    public static Item entitysmallbullet = new RWBYItem("entitysmallbullet", null, false, null);
-    public static Item entitygrenade = new RWBYItem("entitygrenade", null, false, null);
-    public static Item entitybulletv = new RWBYItem("entitybulletv", null, false, null);
-    public static Item entityweissfire = new RWBYItem("entityweissfire", null, false, null);
-    public static Item entityweissgravity = new RWBYItem("entityweissgravity", null, false, null);
-    public static Item entityweissice = new RWBYItem("entityweissice", null, false, null);
-    public static Item entityweisslight = new RWBYItem("entityweisslight", null, false, null);
-    public static Item entityweisswater = new RWBYItem("entityweisswater", null, false, null);
-    public static Item entityweisswind = new RWBYItem("entityweisswind", null, false, null);
-    public static Item entityrocket = new RWBYItem("entityrocket", null, false, null);
+    public static final Item wallet = new RWBYContainerItem(
+    		"lienwallet",
+    		"rwbym:lien1,rwbym:lien5,rwbym:lien10,rwbym:lien20,rwbym:lien50,rwbym:lien100,rwbym:lien500",
+    		9,
+    		RWBYItemContainerGui.class)
+    		.setCreativeTab(RWBYCreativeTabs.tab_rwbyitems);
+    //------------------------------------------------//
+    public static final Item entitybullet = new RWBYItem("entitybullet", null, false, null);
+    public static final Item entityfireshell = new RWBYItem("entityfireshell", null, false, null);
+    public static final Item entityflareshell = new RWBYItem("entityflareshell", null, false, null);
+    public static final Item entityshell = new RWBYItem("entityshell", null, false, null);
+    public static final Item entitysmallbullet = new RWBYItem("entitysmallbullet", null, false, null);
+    public static final Item entitygrenade = new RWBYItem("entitygrenade", null, false, null);
+    public static final Item entitybulletv = new RWBYItem("entitybulletv", null, false, null);
+    public static final Item entityweissfire = new RWBYItem("entityweissfire", null, false, null);
+    public static final Item entityweissgravity = new RWBYItem("entityweissgravity", null, false, null);
+    public static final Item entityweissice = new RWBYItem("entityweissice", null, false, null);
+    public static final Item entityweisslight = new RWBYItem("entityweisslight", null, false, null);
+    public static final Item entityweisswater = new RWBYItem("entityweisswater", null, false, null);
+    public static final Item entityweisswind = new RWBYItem("entityweisswind", null, false, null);
+    public static final Item entityrocket = new RWBYItem("entityrocket", null, false, null);
 
             //------------------------------------------------//
-    public static Item gamammo = new RWBYAmmoItem(
+    public static final Item gamammo = new RWBYAmmoItem(
             "gamammo",
             RWBYItems.entitysmallbullet,
             64,
@@ -1167,7 +1175,7 @@ public class RWBYItems {
             4,
             RWBYCreativeTabs.tab_rwbyitems,
             null);
-    public static Item gammag = new RWBYAmmoItem(
+    public static final Item gammag = new RWBYAmmoItem(
             "gammag",
             RWBYItems.entitysmallbullet,
             1,
@@ -1182,7 +1190,7 @@ public class RWBYItems {
             4,
             RWBYCreativeTabs.tab_rwbyitems,
             null);
-    public static Item gamfiremag = new RWBYAmmoItem(
+    public static final Item gamfiremag = new RWBYAmmoItem(
             "gamfiremag",
             RWBYItems.entitysmallbullet,
             1,
@@ -1197,7 +1205,7 @@ public class RWBYItems {
             4,
             RWBYCreativeTabs.tab_rwbyitems,
             new FireAmmoHit(10));
-    public static Item gamicemag = new RWBYAmmoItem(
+    public static final Item gamicemag = new RWBYAmmoItem(
             "gamicemag",
             RWBYItems.entitysmallbullet,
             1,
@@ -1212,7 +1220,7 @@ public class RWBYItems {
             4,
             RWBYCreativeTabs.tab_rwbyitems,
             null);
-    public static Item gamgravmag = new RWBYAmmoItem(
+    public static final Item gamgravmag = new RWBYAmmoItem(
             "gamgravmag",
             RWBYItems.entitysmallbullet,
             1,
@@ -1227,7 +1235,7 @@ public class RWBYItems {
             4,
             RWBYCreativeTabs.tab_rwbyitems,
             null);
-    public static Item emammo = new RWBYAmmoItem(
+    public static final Item emammo = new RWBYAmmoItem(
             "emammo",
             RWBYItems.entityshell,
             1,
@@ -1242,7 +1250,7 @@ public class RWBYItems {
             8,
             RWBYCreativeTabs.tab_rwbyitems,
             null);
-    public static Item emfireammo = new RWBYAmmoItem(
+    public static final Item emfireammo = new RWBYAmmoItem(
             "emfireammo",
             RWBYItems.entityfireshell,
             1,
@@ -1257,7 +1265,7 @@ public class RWBYItems {
             8,
             RWBYCreativeTabs.tab_rwbyitems,
             new FireAmmoHit(10));
-    public static Item emflareammo = new RWBYAmmoItem(
+    public static final Item emflareammo = new RWBYAmmoItem(
             "emflareammo",
             RWBYItems.entityflareshell,
             1,
@@ -1272,7 +1280,7 @@ public class RWBYItems {
             8,
             RWBYCreativeTabs.tab_rwbyitems,
             new ExplosionAmmoHit(1));
-    public static Item crmag = new RWBYAmmoItem(
+    public static final Item crmag = new RWBYAmmoItem(
             "crmag",
             RWBYItems.entitybullet,
             1,
@@ -1287,7 +1295,7 @@ public class RWBYItems {
             10,
             RWBYCreativeTabs.tab_rwbyitems,
             null);
-    public static Item crgravmag = new RWBYAmmoItem(
+    public static final Item crgravmag = new RWBYAmmoItem(
             "crgravmag",
             RWBYItems.entitybullet,
             1,
@@ -1302,7 +1310,7 @@ public class RWBYItems {
             10,
             RWBYCreativeTabs.tab_rwbyitems,
             null);
-    public static Item crfiremag = new RWBYAmmoItem(
+    public static final Item crfiremag = new RWBYAmmoItem(
             "crfiremag",
             RWBYItems.entitybullet,
             1,
@@ -1317,7 +1325,7 @@ public class RWBYItems {
             10,
             RWBYCreativeTabs.tab_rwbyitems,
             new FireAmmoHit(10));
-    public static Item crelectricmag = new RWBYAmmoItem(
+    public static final Item crelectricmag = new RWBYAmmoItem(
             "crelectricmag",
             RWBYItems.entitybullet,
             1,
@@ -1332,7 +1340,7 @@ public class RWBYItems {
             10,
             RWBYCreativeTabs.tab_rwbyitems,
             null);
-    public static Item magnammo = new RWBYAmmoItem(
+    public static final Item magnammo = new RWBYAmmoItem(
             "magnammo",
             RWBYItems.entitygrenade,
             1,
@@ -1347,7 +1355,7 @@ public class RWBYItems {
             10,
             RWBYCreativeTabs.tab_rwbyitems,
             new ExplosionAmmoHit(3));
-    public static Item waterdust = new RWBYAmmoItem(
+    public static final Item waterdust = new RWBYAmmoItem(
             "waterdust",
             RWBYItems.entityweisswater,
             64,
@@ -1362,7 +1370,7 @@ public class RWBYItems {
             0,
             RWBYCreativeTabs.tab_rwbyitems,
             new PotionAmmoHit(Items.SPLASH_POTION, ImmutableList.of(new PotionEffect(Potion.getPotionById(22), 100, 2))));
-    public static Item winddust = new RWBYAmmoItem(
+    public static final Item winddust = new RWBYAmmoItem(
             "winddust",
             RWBYItems.entityweisswind,
             64,
@@ -1377,7 +1385,7 @@ public class RWBYItems {
             0,
             RWBYCreativeTabs.tab_rwbyitems,
             new PotionAmmoHit(Items.LINGERING_POTION, ImmutableList.of(new PotionEffect(Potion.getPotionById(1), 80, 5), new PotionEffect(Potion.getPotionById(8), 100, 3, false, false))));
-    public static Item firedust = new RWBYAmmoItem(
+    public static final Item firedust = new RWBYAmmoItem(
             "firedust",
             RWBYItems.entityweissfire,
             64,
@@ -1392,7 +1400,7 @@ public class RWBYItems {
             10,
             RWBYCreativeTabs.tab_rwbyitems,
             new FireAmmoHit(10));
-    public static Item icedust = new RWBYAmmoItem(
+    public static final Item icedust = new RWBYAmmoItem(
             "icedust",
             RWBYItems.entityweissice,
             64,
@@ -1407,7 +1415,7 @@ public class RWBYItems {
             10,
             RWBYCreativeTabs.tab_rwbyitems,
             null);
-    public static Item lightdust = new RWBYAmmoItem(
+    public static final Item lightdust = new RWBYAmmoItem(
             "lightdust",
             RWBYItems.entityweisslight,
             64,
@@ -1422,7 +1430,7 @@ public class RWBYItems {
             10,
             RWBYCreativeTabs.tab_rwbyitems,
             null);
-    public static Item gravitydust = new RWBYAmmoItem(
+    public static final Item gravitydust = new RWBYAmmoItem(
             "gravitydust",
             RWBYItems.entityweissgravity,
             64,
@@ -1437,7 +1445,7 @@ public class RWBYItems {
             10,
             RWBYCreativeTabs.tab_rwbyitems,
             new PotionAmmoHit(Items.LINGERING_POTION, ImmutableList.of(new PotionEffect(Potion.getPotionById(25), 60, 3, false, false))));
-    public static Item jnrammo = new RWBYAmmoItem(
+    public static final Item jnrammo = new RWBYAmmoItem(
             "jnrammo",
             RWBYItems.entityrocket,
             1,
@@ -1452,7 +1460,7 @@ public class RWBYItems {
             10,
             null,
             new ExplosionAmmoHit(3));
-    public static Item ammov = new RWBYAmmoItem(
+    public static final Item ammov = new RWBYAmmoItem(
             "ammov",
             RWBYItems.entitybulletv,
             1,
@@ -1467,7 +1475,7 @@ public class RWBYItems {
             10,
             null,
             null);
-    public static Item ammmo = new RWBYAmmoItem(
+    public static final Item ammmo = new RWBYAmmoItem(
             "ammmo",
             RWBYItems.entitybullet,
             1,
@@ -1482,7 +1490,7 @@ public class RWBYItems {
             4,
             null,
             null);
-    public static Item chatmag = new RWBYAmmoItem(
+    public static final Item chatmag = new RWBYAmmoItem(
             "chatmag",
             RWBYItems.entitybullet,
             1,
@@ -1497,7 +1505,7 @@ public class RWBYItems {
             10,
             RWBYCreativeTabs.tab_rwbyitems,
             null);
-    public static Item chatgravmag = new RWBYAmmoItem(
+    public static final Item chatgravmag = new RWBYAmmoItem(
             "chatgravmag",
             RWBYItems.entitybullet,
             1,
@@ -1512,7 +1520,7 @@ public class RWBYItems {
             10,
             RWBYCreativeTabs.tab_rwbyitems,
             null);
-    public static Item chatfiremag = new RWBYAmmoItem(
+    public static final Item chatfiremag = new RWBYAmmoItem(
             "chatfiremag",
             RWBYItems.entitybullet,
             1,
@@ -1527,7 +1535,7 @@ public class RWBYItems {
             10,
             RWBYCreativeTabs.tab_rwbyitems,
             new FireAmmoHit(10));
-    public static Item chatelectricmag = new RWBYAmmoItem(
+    public static final Item chatelectricmag = new RWBYAmmoItem(
             "chatelectricmag",
             RWBYItems.entitybullet,
             1,
@@ -1623,15 +1631,15 @@ public class RWBYItems {
     //Armour
 
     public static List<Item> ITEMS = new ArrayList();
-    public static ItemArmor.ArmorMaterial korekosmouOffMat;
-    public static ItemArmor.ArmorMaterial korekosmouFireMat;
-    public static ItemArmor.ArmorMaterial korekosmouWaterMat;
-    public static ItemArmor.ArmorMaterial korekosmouWindMat;
-    public static ItemArmor korekosmouoff;
-    public static ItemArmor korekosmoufire;
-    public static ItemArmor korekosmouwater;
-    public static ItemArmor korekosmouwind;
-    //public static ItemArmor starting_Leggings;
+    public static final ItemArmor.ArmorMaterial korekosmouOffMat;
+    public static final ItemArmor.ArmorMaterial korekosmouFireMat;
+    public static final ItemArmor.ArmorMaterial korekosmouWaterMat;
+    public static final ItemArmor.ArmorMaterial korekosmouWindMat;
+    public static final ItemArmor korekosmouoff;
+    public static final ItemArmor korekosmoufire;
+    public static final ItemArmor korekosmouwater;
+    public static final ItemArmor korekosmouwind;
+    //public static final ItemArmor starting_Leggings;
 /*
     public static void init() {
         Utils.addItem(korekosmouoff);
@@ -1647,7 +1655,7 @@ public class RWBYItems {
         e.getRegistry().registerAll((ITEMS.toArray(new Item[ITEMS.size()])));
     }
 
-    public static Item addItem(Item item) {
+    public static final Item addItem(Item item) {
         ITEMS.add(item);
         if (RWBYModels.side.isClient()) {
             Utils.registerItemRenderer(item);

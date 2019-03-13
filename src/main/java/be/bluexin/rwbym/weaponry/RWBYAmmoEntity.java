@@ -128,7 +128,7 @@ public class RWBYAmmoEntity extends EntityArrow { // FIXME: for some reason thes
 
     @Override
     protected ItemStack getArrowStack() {
-        return new ItemStack(itemRef);
+        return itemRef.getRenderStack();
     }
 
     ResourceLocation getRs() {

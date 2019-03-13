@@ -13,11 +13,16 @@ import be.bluexin.rwbym.capabilities.Yang.IYang;
 import be.bluexin.rwbym.capabilities.Yang.Yang;
 import be.bluexin.rwbym.capabilities.Yang.YangStorage;
 import be.bluexin.rwbym.commands.CommandChangeSemblance;
+import be.bluexin.rwbym.gui.IRWBYGuiFactory;
+import be.bluexin.rwbym.gui.RWBYItemContainerGui;
+import be.bluexin.rwbym.inventory.RWBYItemContainer;
 import be.bluexin.rwbym.proxy.CommonProxy;
 import be.bluexin.rwbym.utility.RegUtil;
 import be.bluexin.rwbym.utility.network.RWBYNetworkHandler;
 import be.bluexin.rwbym.weaponry.ICustomItem;
+import be.bluexin.rwbym.weaponry.RWBYContainerItem;
 import be.bluexin.rwbym.weaponry.RWBYSword;
+import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -161,15 +166,35 @@ public class RWBYModels {
     }
 
     public static class GuiHandler implements IGuiHandler {
+    	
+    	public enum GUI {
+    		ITEM_CONTAINER;
+    	}
+    	
         @Override
         public Object getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) {
-            return null;
+        	
+        	switch (GUI.values()[id]) {
+        		case ITEM_CONTAINER:
+        			ItemStack stack = player.getHeldItemMainhand();
+        			return ((GuiContainer)IRWBYGuiFactory.createInstance(((RWBYContainerItem)stack.getItem()).getGuiClass(), player.inventory, stack)).inventorySlots;
+        	}
+        	
+        	throw new IllegalArgumentException("No GUI with ID: " + id);
+        	
         }
 
         @Override
         public Object getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) {
-            return null;
-        }
+        	
+        	switch (GUI.values()[id]) {
+	    		case ITEM_CONTAINER:
+        			ItemStack stack = player.getHeldItemMainhand();
+        			return IRWBYGuiFactory.createInstance(((RWBYContainerItem)stack.getItem()).getGuiClass(), player.inventory, stack);
+	    	}
+	    	
+	    	throw new IllegalArgumentException("No GUI with ID: " + id);        
+    	}
     }
 
 
