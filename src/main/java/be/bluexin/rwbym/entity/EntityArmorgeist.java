@@ -16,6 +16,7 @@ import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
@@ -40,6 +41,7 @@ public class EntityArmorgeist extends EntityMob {
         world = var3;
         this.setSize(1.3F, 4.5F);
         this.setHeldItem(EnumHand.MAIN_HAND, new ItemStack(RWBYItems.armasword));
+
     }
 
     protected void initEntityAI() {

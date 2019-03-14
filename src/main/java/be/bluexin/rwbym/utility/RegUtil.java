@@ -114,6 +114,8 @@ public class RegUtil {
         registerItems(event, RWBYItems.armaswordsummon);
         registerItems(event, RWBYItems.angelcane);
         registerItems(event, RWBYItems.angelsword);
+        registerItems(event, RWBYItems.razorbolt);
+        registerItems(event, RWBYItems.razorboltknife);
         //Staffs
         registerItems(event, RWBYItems.ozmacane);
         registerItems(event, RWBYItems.ozmacanefire);
@@ -237,6 +239,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.chatelectricmag);
         registerItems(event, RWBYItems.chatfiremag);
         registerItems(event, RWBYItems.chatgravmag);
+        registerItems(event, RWBYItems.rzrbolt);
 
 
 

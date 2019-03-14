@@ -28,22 +28,27 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
+import net.minecraft.village.Village;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
+import java.util.Iterator;
 
 
 public class EntityWeaponStore extends EntityCreature implements INpc, IMerchant{
     World world = null;
     private MerchantRecipeList trades;
     private EntityPlayer buyingPlayer;
+    Village village;
+    private int randomTickDivider;
+    private boolean isLookingForHome;
 
     public EntityWeaponStore(World var3) {
         super(var3);
         world = var3;
-        this.setSize(1.5F, 1.5F);
+        this.setSize(1F, 1.5F);
     }
 
     protected void initEntityAI() {
@@ -52,7 +57,7 @@ public class EntityWeaponStore extends EntityCreature implements INpc, IMerchant
         this.tasks.addTask(4, new EntityAIAttackMelee(this, 1.0D, false));
         this.tasks.addTask(8, new EntityAIWander(this, 0.6D));
         this.tasks.addTask(9, new EntityAIWatchClosest(this, EntityPlayer.class, 3.0F, 1.0F));
-        this.tasks.addTask(10, new EntityAIWatchClosest(this, EntityLiving.class, 8.0F));
+        this.tasks.addTask(1, new EntityAIWatchClosest(this, EntityLiving.class, 8.0F));
     }
 
     protected void applyEntityAttributes() {
@@ -62,6 +67,14 @@ public class EntityWeaponStore extends EntityCreature implements INpc, IMerchant
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(30.0D);
     }
 
+    public boolean canBeLeashedTo(EntityPlayer player) {
+        return false;
+    }
+
+    @Override
+    public boolean getCanSpawnHere() {
+        return super.getCanSpawnHere();
+    }
 
     public boolean processInteract(EntityPlayer player, EnumHand hand) {
         ItemStack itemstack = player.getHeldItem(hand);
@@ -140,6 +153,7 @@ public class EntityWeaponStore extends EntityCreature implements INpc, IMerchant
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,8),new ItemStack(RWBYItems.forestiron,8), new ItemStack(RWBYItems.stormflower, 1)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,10),new ItemStack(RWBYItems.viridianiron,8), new ItemStack(RWBYItems.korekosmouoff, 1)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,10),new ItemStack(RWBYItems.viridianiron,8), new ItemStack(RWBYItems.chatareusgun, 1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,10),new ItemStack(RWBYItems.viridianiron,8), new ItemStack(RWBYItems.razorbolt, 1)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,12),new ItemStack(RWBYItems.mariacane, 1)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,12),new ItemStack(RWBYItems.ozmacane, 1)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,12),new ItemStack(RWBYItems.cocobag, 1)));
@@ -149,7 +163,7 @@ public class EntityWeaponStore extends EntityCreature implements INpc, IMerchant
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,12),new ItemStack(RWBYItems.angelcane, 1)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,12),new ItemStack(RWBYItems.rwbyblock8,1)));
         //sell//
-
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.remnants,1), new ItemStack(RWBYItems.lien5, 1)));
 
         // add as many trades as you want
     }
@@ -175,6 +189,28 @@ public class EntityWeaponStore extends EntityCreature implements INpc, IMerchant
             this.world.spawnEntity(new EntityXPOrb(this.world, this.posX, this.posY + 0.5D, this.posZ, i));
         }
 
+    }
+
+    protected void updateAITasks() {
+        if (--this.randomTickDivider <= 0) {
+            BlockPos blockpos = new BlockPos(this);
+            this.world.getVillageCollection().addToVillagerPositionList(blockpos);
+            this.randomTickDivider = 70 + this.rand.nextInt(50);
+            this.village = this.world.getVillageCollection().getNearestVillage(blockpos, 32);
+            if (this.village == null) {
+                this.detachHome();
+            } else {
+                BlockPos blockpos1 = this.village.getCenter();
+                this.setHomePosAndDistance(blockpos1, this.village.getVillageRadius());
+                if (this.isLookingForHome) {
+                    this.isLookingForHome = false;
+                    this.village.setDefaultPlayerReputation(5);
+                }
+            }
+        }
+
+
+        super.updateAITasks();
     }
 
     protected boolean canDespawn() {

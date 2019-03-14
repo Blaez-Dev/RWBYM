@@ -210,8 +210,11 @@ item.rwbym:lien20.name=Ⱡ20
 item.rwbym:lien50.name=Ⱡ50
 item.rwbym:lien100.name=Ⱡ100
 item.rwbym:lien500.name=Ⱡ500
+item.rwbym:lienwallet.name=Lien Wallet
 item.rwbym:angelcane.name= Angel's Cane
 item.rwbym:angelsword.name= Angel's Sword
+item.rwbym:razorbolt.name=Razorbolt
+item.rwbym:razorboltknife.name=Razorbolt
 
 itemGroup.rwby_weapons=RWBY Weapons
 itemGroup.rwby_items=RWBY Items

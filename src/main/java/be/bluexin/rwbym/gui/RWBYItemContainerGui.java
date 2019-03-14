@@ -47,9 +47,9 @@ public class RWBYItemContainerGui extends GuiContainer implements IRWBYGuiFactor
      */
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
     {
-        String s = itemstack.getUnlocalizedName();
+        /*String s = itemstack.getUnlocalizedName();
         this.fontRenderer.drawString(s, this.xSize / 2 - this.fontRenderer.getStringWidth(s) / 2, 6, 4210752);
-        this.fontRenderer.drawString(this.playerInventory.getDisplayName().getUnformattedText(), 8, this.ySize - 96 + 2, 4210752);
+        this.fontRenderer.drawString(this.playerInventory.getDisplayName().getUnformattedText(), 8, this.ySize - 96 + 2, 4210752);*/
     }
 
     /**

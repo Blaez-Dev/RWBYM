@@ -35,9 +35,9 @@ public class RWBYContainerItem<T> extends Item implements ICustomItem {
 	
 	private final Class<T> guiClass;
 
-	public RWBYContainerItem(String name, String acceptedItems, int size, Class<T> guiClass) {
+	public RWBYContainerItem(String name, String acceptedItems, int size,int stacksize, Class<T> guiClass) {
 		this.size = size;
-
+		this.setMaxStackSize(stacksize);
 		this.setRegistryName(name);
 		this.setUnlocalizedName(this.getRegistryName().toString());
 				

@@ -733,6 +733,33 @@ public class RWBYItems {
             false,
             0,
             null);
+    public static final Item razorbolt = new RWBYSword(
+            "razorbolt",
+            2500,
+            12,
+            0,
+            null,
+            "rwbym:razorboltknife",
+            true,
+            false,
+            false,
+            false,
+            0,
+            RWBYCreativeTabs.tab_rwbyweapons);
+    public static final Item razorboltknife = new RWBYBow(
+            "razorboltknife",
+            2500,
+            72,
+            0,
+            null,
+            "rwbym:razorbolt",
+            "rwbym:rzrbolt",
+            false,
+            1,
+            false,
+            1,
+            0,
+            null);
 
     //------------------------------------------------//
 
@@ -1141,6 +1168,7 @@ public class RWBYItems {
     		"lienwallet",
     		"rwbym:lien1,rwbym:lien5,rwbym:lien10,rwbym:lien20,rwbym:lien50,rwbym:lien100,rwbym:lien500",
     		9,
+    		1,
     		RWBYItemContainerGui.class)
     		.setCreativeTab(RWBYCreativeTabs.tab_rwbyitems);
     //------------------------------------------------//
@@ -1179,8 +1207,8 @@ public class RWBYItems {
             "gammag",
             RWBYItems.entitysmallbullet,
             1,
-            true,
-            RWBYAmmoItem.SurviveOnHit.ENTITY,
+            false,
+            RWBYAmmoItem.SurviveOnHit.NONE,
             "textures/entity/projectiles/tipped_arrow.png",
             true,
             false,
@@ -1549,6 +1577,21 @@ public class RWBYItems {
             32,
             10,
             RWBYCreativeTabs.tab_rwbyitems,
+            null);
+    public static final Item rzrbolt = new RWBYAmmoItem(
+            "rzrbolt",
+            RWBYItems.razorboltknife,
+            1,
+            false,
+            RWBYAmmoItem.SurviveOnHit.ENTITY,
+            "textures/entity/projectiles/tipped_arrow.png",
+            true,
+            true,
+            null,
+            null,
+            1,
+            4,
+            null,
             null);
 
 

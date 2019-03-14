@@ -1,8 +1,8 @@
 package be.bluexin.rwbym.entity.renderer;
 
 import be.bluexin.rwbym.RWBYModels;
-import be.bluexin.rwbym.entity.EntityWeaponStore;
-import be.bluexin.rwbym.entity.EntityWeaponStore;
+import be.bluexin.rwbym.entity.EntityBlackStore;
+import be.bluexin.rwbym.entity.EntityBlackStore;
 import be.bluexin.rwbym.entity.ModelStore;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.model.ModelBase;
@@ -27,20 +27,20 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class WeaponStoreRender extends RenderBiped<EntityWeaponStore>
+public class BlackStoreRender extends RenderBiped<EntityBlackStore>
 {
 
-    public static WeaponStoreRender.Factory FACTORY = new WeaponStoreRender.Factory();
+    public static BlackStoreRender.Factory FACTORY = new BlackStoreRender.Factory();
 
-    public WeaponStoreRender(RenderManager renderManagerIn, ModelBiped modelBaseIn, float shadowSizeIn) {
+    public BlackStoreRender(RenderManager renderManagerIn, ModelBiped modelBaseIn, float shadowSizeIn) {
         super(renderManagerIn, modelBaseIn, shadowSizeIn);
     }
 
-    protected boolean canRenderName(EntityWeaponStore entity) {
+    protected boolean canRenderName(EntityBlackStore entity) {
         return false;
     }
 
-    protected void preRenderCallback(EntityWeaponStore entitylivingbaseIn, float partialTickTime) {
+    protected void preRenderCallback(EntityBlackStore entitylivingbaseIn, float partialTickTime) {
         GlStateManager.scale(1F, 1F, 1F);
         this.setModelVisibilities(entitylivingbaseIn);
     }
@@ -50,11 +50,11 @@ public class WeaponStoreRender extends RenderBiped<EntityWeaponStore>
         return (ModelPlayer)super.getMainModel();}
 
     @Override
-    protected ResourceLocation getEntityTexture(EntityWeaponStore entity) {
-        return new ResourceLocation(RWBYModels.MODID,"textures/entity/wepshop.png");
+    protected ResourceLocation getEntityTexture(EntityBlackStore entity) {
+        return new ResourceLocation(RWBYModels.MODID,"textures/entity/whitefang.png");
     }
 
-    private void setModelVisibilities(EntityWeaponStore entitylivingbaseIn) {
+    private void setModelVisibilities(EntityBlackStore entitylivingbaseIn) {
         ModelPlayer modelplayer = this.getMainModel();
         {
             modelplayer.setVisible(true);
@@ -66,7 +66,7 @@ public class WeaponStoreRender extends RenderBiped<EntityWeaponStore>
             modelplayer.bipedRightArmwear.showModel = true ;
             ModelBiped.ArmPose modelbiped$armpose = ModelBiped.ArmPose.EMPTY;
             ModelBiped.ArmPose modelbiped$armpose1 = ModelBiped.ArmPose.EMPTY;
-             {
+            {
                 modelplayer.rightArmPose = modelbiped$armpose1;
                 modelplayer.leftArmPose = modelbiped$armpose;
             }
@@ -74,13 +74,14 @@ public class WeaponStoreRender extends RenderBiped<EntityWeaponStore>
 
     }
 
-    public static class Factory implements IRenderFactory<EntityWeaponStore> {
+    public static class Factory implements IRenderFactory<EntityBlackStore> {
 
         @Override
-        public Render<? super EntityWeaponStore> createRenderFor(RenderManager manager) {
-            return new WeaponStoreRender(manager, new ModelPlayer(0.5F, true), 0);
+        public Render<? super EntityBlackStore> createRenderFor(RenderManager manager) {
+            return new BlackStoreRender(manager, new ModelPlayer(0.5F, true), 0);
         }
 
     }
 
 }
+

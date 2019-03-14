@@ -16,6 +16,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.stats.StatList;
@@ -34,23 +35,25 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import javax.annotation.Nullable;
 
 
-public class EntityStore extends EntityCreature implements INpc, IMerchant{
+public class EntityBlackStore extends EntityCreature implements INpc, IMerchant {
     World world = null;
     private MerchantRecipeList trades;
     private EntityPlayer buyingPlayer;
 
-    public EntityStore(World var3) {
+    public EntityBlackStore(World var3) {
         super(var3);
         world = var3;
+
+        ItemStack is = new ItemStack(RWBYItems.whtefng, 1);
         this.setSize(1F, 1.5F);
+        this.setItemStackToSlot(EntityEquipmentSlot.HEAD, is);
     }
 
     protected void initEntityAI() {
         super.initEntityAI();
         this.tasks.addTask(0, new EntityAISwimming(this));
         this.tasks.addTask(4, new EntityAIAttackMelee(this, 1.0D, false));
-        this.tasks.addTask(8, new EntityAIWander(this, 0.6D));
-        this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 3.0F, 1.0F));
+        this.tasks.addTask(9, new EntityAIWatchClosest(this, EntityPlayer.class, 3.0F, 1.0F));
         this.tasks.addTask(1, new EntityAIWatchClosest(this, EntityLiving.class, 8.0F));
     }
 
@@ -104,7 +107,6 @@ public class EntityStore extends EntityCreature implements INpc, IMerchant{
         return false;
     }
 
-
     @SideOnly(Side.CLIENT)
     public void setRecipes(@Nullable MerchantRecipeList recipeList) {
     }
@@ -114,38 +116,13 @@ public class EntityStore extends EntityCreature implements INpc, IMerchant{
         this.trades = new MerchantRecipeList();
 
         //buy//
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien5,1),new ItemStack(RWBYItems.firedust,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien5,1),new ItemStack(RWBYItems.dust,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien5,1),new ItemStack(RWBYItems.gravitydust,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien5,1),new ItemStack(RWBYItems.icedust,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien5,1),new ItemStack(RWBYItems.lightdust,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien5,1),new ItemStack(RWBYItems.waterdust,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien5,1),new ItemStack(RWBYItems.winddust,1)));
-
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien50,1),new ItemStack(RWBYItems.dustcrystal,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien50,1),new ItemStack(RWBYItems.firedustcrystal,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien50,1),new ItemStack(RWBYItems.gravitydustcrystal,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien50,1),new ItemStack(RWBYItems.icedustcrystal,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien50,1),new ItemStack(RWBYItems.lightdustcrystal,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien50,1),new ItemStack(RWBYItems.waterdustcrystal,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien50,1),new ItemStack(RWBYItems.winddustcrystal,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,2),new ItemStack(RWBYItems.rvnmask,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,1),new ItemStack(RWBYItems.whtefng,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,1),new ItemStack(RWBYItems.atlasknight,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,1),new ItemStack(RWBYItems.wallet,1)));
 
         //sell//
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.firedust,1), new ItemStack(RWBYItems.lien1,2)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.dust,1), new ItemStack(RWBYItems.lien1,2)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.gravitydust,1), new ItemStack(RWBYItems.lien1,2)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.icedust,1), new ItemStack(RWBYItems.lien1,2)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lightdust,1), new ItemStack(RWBYItems.lien1,2)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.waterdust,1), new ItemStack(RWBYItems.lien1,2)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.winddust,1),new ItemStack(RWBYItems.lien1,2)));
 
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.dustcrystal,1),new ItemStack(RWBYItems.lien20,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.firedustcrystal,1),new ItemStack(RWBYItems.lien20,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.gravitydustcrystal,1),new ItemStack(RWBYItems.lien20,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.icedustcrystal,1),new ItemStack(RWBYItems.lien20,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lightdustcrystal,1),new ItemStack(RWBYItems.lien20,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.waterdustcrystal,1),new ItemStack(RWBYItems.lien20,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.winddustcrystal,1),new ItemStack(RWBYItems.lien20,1)));
 
         // add as many trades as you want
     }

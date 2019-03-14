@@ -1,49 +1,49 @@
 package be.bluexin.rwbym.entity;
 
-import be.bluexin.rwbym.RWBYModels;
-import be.bluexin.rwbym.Init.RWBYItems;
-import be.bluexin.rwbym.entity.renderer.BeowolfRender;
-import be.bluexin.rwbym.entity.renderer.BeowolfRender.Factory;
-import be.bluexin.rwbym.utility.network.MessagePosVelUpdate;
-import be.bluexin.rwbym.utility.network.RWBYNetworkHandler;
-import be.bluexin.rwbym.weaponry.RWBYAmmoEntity;
-import be.bluexin.rwbym.weaponry.RWBYAmmoItem;
-import be.bluexin.rwbym.weaponry.RWBYAmmoRender;
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.renderer.entity.Render;
-import net.minecraft.client.renderer.entity.RenderManager;
-import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.monster.EntityEnderman;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.entity.projectile.EntityArrow;
-import net.minecraft.entity.projectile.EntityArrow.PickupStatus;
-import net.minecraft.init.SoundEvents;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.network.datasync.DataParameter;
-import net.minecraft.network.datasync.DataSerializers;
-import net.minecraft.network.datasync.EntityDataManager;
-import net.minecraft.network.play.server.SPacketChangeGameState;
-import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.EntityDamageSourceIndirect;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.RayTraceResult;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.World;
-import net.minecraftforge.fml.client.registry.IRenderFactory;
-import net.minecraftforge.fml.common.registry.IThrowableEntity;
+        import be.bluexin.rwbym.RWBYModels;
+        import be.bluexin.rwbym.Init.RWBYItems;
+        import be.bluexin.rwbym.entity.renderer.BeowolfRender;
+        import be.bluexin.rwbym.entity.renderer.BeowolfRender.Factory;
+        import be.bluexin.rwbym.utility.network.MessagePosVelUpdate;
+        import be.bluexin.rwbym.utility.network.RWBYNetworkHandler;
+        import be.bluexin.rwbym.weaponry.RWBYAmmoEntity;
+        import be.bluexin.rwbym.weaponry.RWBYAmmoItem;
+        import be.bluexin.rwbym.weaponry.RWBYAmmoRender;
+        import net.minecraft.block.Block;
+        import net.minecraft.block.material.Material;
+        import net.minecraft.block.state.IBlockState;
+        import net.minecraft.client.renderer.entity.Render;
+        import net.minecraft.client.renderer.entity.RenderManager;
+        import net.minecraft.enchantment.EnchantmentHelper;
+        import net.minecraft.entity.Entity;
+        import net.minecraft.entity.EntityLivingBase;
+        import net.minecraft.entity.monster.EntityEnderman;
+        import net.minecraft.entity.player.EntityPlayer;
+        import net.minecraft.entity.player.EntityPlayerMP;
+        import net.minecraft.entity.projectile.EntityArrow;
+        import net.minecraft.entity.projectile.EntityArrow.PickupStatus;
+        import net.minecraft.init.SoundEvents;
+        import net.minecraft.item.Item;
+        import net.minecraft.item.ItemStack;
+        import net.minecraft.nbt.NBTTagCompound;
+        import net.minecraft.network.datasync.DataParameter;
+        import net.minecraft.network.datasync.DataSerializers;
+        import net.minecraft.network.datasync.EntityDataManager;
+        import net.minecraft.network.play.server.SPacketChangeGameState;
+        import net.minecraft.potion.PotionEffect;
+        import net.minecraft.util.DamageSource;
+        import net.minecraft.util.EntityDamageSourceIndirect;
+        import net.minecraft.util.EnumFacing;
+        import net.minecraft.util.EnumParticleTypes;
+        import net.minecraft.util.ResourceLocation;
+        import net.minecraft.util.math.AxisAlignedBB;
+        import net.minecraft.util.math.BlockPos;
+        import net.minecraft.util.math.MathHelper;
+        import net.minecraft.util.math.RayTraceResult;
+        import net.minecraft.util.math.Vec3d;
+        import net.minecraft.world.World;
+        import net.minecraftforge.fml.client.registry.IRenderFactory;
+        import net.minecraftforge.fml.common.registry.IThrowableEntity;
 
 public class EntityBullet extends EntityArrow implements IThrowableEntity{
 
@@ -419,7 +419,7 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
         }
 
         if(!world.isRemote){
-        item.onBlockHit(world, pos.offset(facing));}
+            item.onBlockHit(world, pos.offset(facing));}
         //this.setDead();
     }
 
@@ -486,7 +486,7 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
 
     @Override
     protected ItemStack getArrowStack() {
-    	RWBYAmmoItem item = this.getItem();
+        RWBYAmmoItem item = this.getItem();
         return item.getRenderStack().copy();
     }
 

@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "rwbym:lien100"
+        },
+        {
+            "item": "rwbym:lien100"
+        },        {
+            "item": "rwbym:lien100"
+        },
+        {
+            "item": "rwbym:lien100"
+        },        {
+            "item": "rwbym:lien100"
+        }
+    ],
+    "result": {
+        "item": "rwbym:lien500",
+        "count": 1
+    }
+}
