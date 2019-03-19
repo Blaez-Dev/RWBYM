@@ -42,7 +42,7 @@ public class EntityGiantNeverMore extends EntityMob
     public EntityGiantNeverMore(World worldIn)
     {
         super(worldIn);
-        this.setSize(0.5F, 2F);
+        this.setSize(1.5F, 3F);
         this.experienceValue = 3;
         this.targetPos = Vec3d.ZERO;
         this.circleCenter = BlockPos.ORIGIN;

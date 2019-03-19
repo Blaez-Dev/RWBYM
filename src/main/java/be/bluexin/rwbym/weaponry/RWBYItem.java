@@ -61,6 +61,9 @@ public class RWBYItem extends Item implements ICustomItem {
         this.setCreativeTab(RWBYCreativeTabs.tab_rwbyitems);
         this.ismask = isMask;
         this.data = data;
+        if(this.ismask){
+            maxStackSize = 1;
+        }
         this.setCreativeTab(creativetab);
         if(name.contains("gravitydustcrystal")) gravity = true;
         if(name.contains("waterdustcrystal")) water = true;

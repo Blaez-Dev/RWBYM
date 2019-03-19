@@ -87,21 +87,32 @@ public class Oregen implements IWorldGenerator{
                 this.runGenerator(water_overworld, world, random, chunkX, chunkZ, 15, 0, 64); //BiomeOcean.class,BiomeBeach.class, BiomeMushroomIsland.class,BiomeSwamp.class
                 this.runGenerator(light_overworld, world, random, chunkX, chunkZ, 15, 0, 256);//BiomeHills.class,BiomeMesa.class
                 this.runGenerator(ice_overworld, world, random, chunkX, chunkZ, 15, 0, 256);
-                generateOverworld(world, random, blockX + 8, blockZ + 8);
+                generatestructure1(world, random, blockX + 8, blockZ + 8);
+                generatestructure2(world, random, blockX + 8, blockZ + 8);
         }
     }
 
-    private void generateOverworld(World world, Random rand, int blockX, int blockZ)
+    private void generatestructure1(World world, Random rand, int blockX, int blockZ)
     {
-        if ((int) (Math.random() * 125) == 0)
+        if ((int) (Math.random() * 200) == 0)
         	{
         int y = getGroundFromAbove(world, blockX, blockZ);
         BlockPos pos = new BlockPos(blockX, y, blockZ);
-        WorldGenerator structure = new SubWorldGen();
+        WorldGenerator structure = new Structure1();
         structure.generate(world, rand, pos);
         }
     }
 
+    private void generatestructure2(World world, Random rand, int blockX, int blockZ)
+    {
+        if ((int) (Math.random() * 200) == 0)
+        {
+            int y = getGroundFromAbove(world, blockX, blockZ);
+            BlockPos pos = new BlockPos(blockX, y, blockZ);
+            WorldGenerator structure2 = new Structure2();
+            structure2.generate(world, rand, pos);
+        }
+    }
 
     public static int getLakeFromAbove(World world, int x, int z)
     {

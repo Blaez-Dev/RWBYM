@@ -18,9 +18,10 @@ entity.nuckleeve.name=Nuckeleeve
 entity.apathy.name=Apathy
 entity.store.name=From Dust Till Dawn
 entity.weaponstore.name=Cutting Edge
+entity.blackstore.name=Black Market
 entity.lancer.name=Lancer
 entity.queenlancer.name=Queen Lancer
-entity.juveniledeathstalker=Tiny Deathstalker
+entity.tinydeathstalker.name=Tiny Deathstalker
 
 
 item.rwbym:crescent.name=Crescent Rose

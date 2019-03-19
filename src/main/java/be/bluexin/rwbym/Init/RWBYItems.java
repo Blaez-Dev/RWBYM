@@ -73,7 +73,7 @@ public class RWBYItems {
     public static final Item gambol = new RWBYSword(
             "gambol",
             2500,
-            5,
+            10,
             0,
             null,
             "rwbym:gambolgun",
@@ -150,7 +150,7 @@ public class RWBYItems {
             RWBYCreativeTabs.tab_rwbyweapons);
     public static final Item juane = new RWBYSword("juane",
             2500,
-            5,
+            10,
             0,
             null,
             null,
@@ -163,7 +163,7 @@ public class RWBYItems {
     public static final Item norahammer = new RWBYSword(
             "norahammer",
             2500,
-            8,
+            12,
             0,
             "{ench:[{id:19,lvl:2}]}",
             "rwbym:noragun",
@@ -176,7 +176,7 @@ public class RWBYItems {
     public static final Item pyrrhaspear = new RWBYSword(
             "pyrrhaspear",
             2500,
-            6,
+            10,
             0,
             null,
             "rwbym:pyrrhasword",
@@ -189,7 +189,7 @@ public class RWBYItems {
     public static final Item pyrrhasword = new RWBYSword(
             "pyrrhasword",
             2500,
-            5,
+            10,
             0,
             null,
             "rwbym:pyrrhaspear",
@@ -242,7 +242,7 @@ public class RWBYItems {
     public static final Item gambolv = new RWBYSword(
             "gambolv",
             1250,
-            5,
+            10,
             0,
             "{ench:[{id:51,lvl:1}],HideFlags:3}",
             "rwbym:gambolgunv",
@@ -255,7 +255,7 @@ public class RWBYItems {
     public static final Item juanev = new RWBYSword(
             "juanev",
             1250,
-            5,
+            10,
             0,
             "{ench:[{id:51,lvl:1}],HideFlags:3}",
             "rwbym:norahammerv",
@@ -268,7 +268,7 @@ public class RWBYItems {
     public static final Item norahammerv = new RWBYSword(
             "norahammerv",
             1250,
-            8,
+            12,
             0,
             "{ench:[{id:19,lvl:2}],HideFlags:3}",
             "rwbym:noragunv",
@@ -281,7 +281,7 @@ public class RWBYItems {
     public static final Item pyrrhaspearv = new RWBYSword(
             "pyrrhaspearv",
             1250,
-            6,
+            10,
             0,
             "{ench:[{id:51,lvl:1}],HideFlags:3}",
             "rwbym:pyrrhaswordv",
@@ -294,7 +294,7 @@ public class RWBYItems {
     public static final Item pyrrhaswordv = new RWBYSword(
             "pyrrhaswordv",
             1250,
-            5,
+            10,
             0,
             "{ench:[{id:51,lvl:1}],HideFlags:3}",
             "rwbym:stormflowerv",
@@ -450,7 +450,7 @@ public class RWBYItems {
     public static final Item torchwick = new RWBYSword(
             "torchwick",
             2500,
-            6,
+            10,
             0,
             null,
             "rwbym:torchwickgun",
@@ -463,7 +463,7 @@ public class RWBYItems {
     public static final Item neoumb_closed = new RWBYSword(
             "neoumb_closed",
             2500,
-            4,
+            9,
             0,
             null,
             "rwbym:neoumb_closed_blade",
@@ -476,7 +476,7 @@ public class RWBYItems {
     public static final Item neoumb_closed_blade = new RWBYSword(
             "neoumb_closed_blade",
             2500,
-            6,
+            9,
             0,
             null,
             "rwbym:neoumb_handle_blade",
@@ -489,7 +489,7 @@ public class RWBYItems {
     public static final Item neoumb_handle_blade = new RWBYSword(
             "neoumb_handle_blade",
             2500,
-            6,
+            10,
             0,
             null,
             "rwbym:neoumb_closed",
@@ -502,7 +502,7 @@ public class RWBYItems {
     public static final Item jnrbat = new RWBYSword(
             "jnrbat",
             2500,
-            8,
+            11,
             0,
             null,
             "rwbym:jnrrocket",
@@ -528,7 +528,7 @@ public class RWBYItems {
     public static final Item cinder = new RWBYSword(
             "cinder",
             2500,
-            6,
+            10,
             0,
             null,
             "rwbym:cinderbow",
@@ -757,7 +757,7 @@ public class RWBYItems {
             false,
             1,
             false,
-            1,
+            0,
             0,
             null);
 
@@ -838,7 +838,7 @@ public class RWBYItems {
             2500,
             72,
             0,
-            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:16,Operation:0,UUIDMost:99791,UUIDLeast:128916}]}",
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:14,Operation:0,UUIDMost:99791,UUIDLeast:128916}]}",
             "rwbym:ember",
             "rwbym:emammo,rwbym:emfireammo,rwbym:emflareammo",
             false,
@@ -1035,7 +1035,7 @@ public class RWBYItems {
             2500,
             72,
             0,
-            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:10,Operation:0,UUIDMost:99791,UUIDLeast:128916}]}",
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:14,Operation:0,UUIDMost:99791,UUIDLeast:128916}]}",
             "rwbym:emeraldgun",
             "rwbym:gamammo,rwbym:emammmo",
             false,

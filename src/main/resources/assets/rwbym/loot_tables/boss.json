@@ -10,7 +10,24 @@
         {
           "type": "item",
           "name": "rwbym:remnants",
-          "weight": 40
+          "weight": 100
+        },        {
+          "type": "item",
+          "name": "rwbym:coinr",
+          "weight": 25
+        },
+        {
+          "type": "item",
+          "name": "rwbym:coinw",
+          "weight": 25
+        },{
+          "type": "item",
+          "name": "rwbym:coinb",
+          "weight": 25
+        },{
+          "type": "item",
+          "name": "rwbym:coiny",
+          "weight": 25
         }
       ]
     }
