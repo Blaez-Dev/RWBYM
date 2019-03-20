@@ -2,6 +2,7 @@ package be.bluexin.rwbym.Init;
 
 import be.bluexin.rwbym.blocks.*;
 import be.bluexin.rwbym.gui.RWBYItemContainerGui;
+import be.bluexin.rwbym.inventory.RWBYItemContainer;
 import be.bluexin.rwbym.weaponry.*;
 import be.bluexin.rwbym.weaponry.ammohit.ExplosionAmmoHit;
 import be.bluexin.rwbym.weaponry.ammohit.FireAmmoHit;
@@ -23,6 +24,8 @@ import net.minecraft.potion.PotionUtils;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.EnumHelper;
+import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.relauncher.Side;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -1169,7 +1172,8 @@ public class RWBYItems {
     		"rwbym:lien1,rwbym:lien5,rwbym:lien10,rwbym:lien20,rwbym:lien50,rwbym:lien100,rwbym:lien500",
     		9,
     		1,
-    		RWBYItemContainerGui.class)
+    		FMLCommonHandler.instance().getSide() == Side.CLIENT ? RWBYItemContainerGui.class : null,
+    		RWBYItemContainer.class)
     		.setCreativeTab(RWBYCreativeTabs.tab_rwbyitems);
     //------------------------------------------------//
     public static final Item entitybullet = new RWBYItem("entitybullet", null, false, null);

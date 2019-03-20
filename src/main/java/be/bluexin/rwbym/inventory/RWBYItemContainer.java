@@ -12,7 +12,7 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 
-public class RWBYItemContainer extends Container {
+public class RWBYItemContainer extends Container implements IRWBYContainerFactory {
 
 	private final IItemHandler itemInventory;
 

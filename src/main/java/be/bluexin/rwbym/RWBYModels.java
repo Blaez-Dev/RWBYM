@@ -15,6 +15,7 @@ import be.bluexin.rwbym.capabilities.Yang.YangStorage;
 import be.bluexin.rwbym.commands.CommandChangeSemblance;
 import be.bluexin.rwbym.gui.IRWBYGuiFactory;
 import be.bluexin.rwbym.gui.RWBYItemContainerGui;
+import be.bluexin.rwbym.inventory.IRWBYContainerFactory;
 import be.bluexin.rwbym.inventory.RWBYItemContainer;
 import be.bluexin.rwbym.proxy.CommonProxy;
 import be.bluexin.rwbym.utility.RegUtil;
@@ -177,7 +178,7 @@ public class RWBYModels {
         	switch (GUI.values()[id]) {
         		case ITEM_CONTAINER:
         			ItemStack stack = player.getHeldItemMainhand();
-        			return ((GuiContainer)IRWBYGuiFactory.createInstance(((RWBYContainerItem)stack.getItem()).getGuiClass(), player.inventory, stack)).inventorySlots;
+        			return IRWBYContainerFactory.createInstance(((RWBYContainerItem)stack.getItem()).getContainerClass(), player.inventory, stack);
         	}
         	
         	throw new IllegalArgumentException("No GUI with ID: " + id);

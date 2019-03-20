@@ -213,7 +213,7 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
 
     @Override
     public void onUpdate() {
-        if (this.firstUpdate || this.ticksExisted % 20 == 0) {
+        if ((this.firstUpdate || this.ticksExisted % 20 == 0) && !world.isRemote) {
             RWBYNetworkHandler.sendToAll(new MessagePosVelUpdate(this));
         }
         if (!this.world.isRemote)
