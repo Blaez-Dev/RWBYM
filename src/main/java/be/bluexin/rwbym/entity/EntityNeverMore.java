@@ -227,7 +227,7 @@ public class EntityNeverMore extends EntityMob
         private int attackTime;
 
         private AIAttackPlayer() {
-            this.attackTime = 20;
+            this.attackTime = 10;
         }
 
         public boolean shouldExecute() {
@@ -235,7 +235,7 @@ public class EntityNeverMore extends EntityMob
                 --this.attackTime;
                 return false;
             } else {
-                this.attackTime = 60;
+                this.attackTime = 20;
                 AxisAlignedBB aabb = be.bluexin.rwbym.entity.EntityNeverMore.this.getEntityBoundingBox().grow(16.0D, 64.0D, 16.0D);
                 List<EntityPlayer> playerList = be.bluexin.rwbym.entity.EntityNeverMore.this.world.getEntitiesWithinAABB(EntityPlayer.class, aabb);
                 if (!playerList.isEmpty()) {
@@ -349,7 +349,7 @@ public class EntityNeverMore extends EntityMob
                 be.bluexin.rwbym.entity.EntityNeverMore.this.attackPhase = be.bluexin.rwbym.entity.EntityNeverMore.AttackPhase.CIRCLE;
                 be.bluexin.rwbym.entity.EntityNeverMore.this.world.playEvent(1039, new BlockPos(be.bluexin.rwbym.entity.EntityNeverMore.this), 0);
             } else if (be.bluexin.rwbym.entity.EntityNeverMore.this.collided|| be.bluexin.rwbym.entity.EntityNeverMore.this.hurtTime > 0) {
-                be.bluexin.rwbym.entity.EntityNeverMore.this.attackPhase = be.bluexin.rwbym.entity.EntityNeverMore.AttackPhase.CIRCLE;
+                be.bluexin.rwbym.entity.EntityNeverMore.this.attackPhase = AttackPhase.SWOOP;
             }
 
         }

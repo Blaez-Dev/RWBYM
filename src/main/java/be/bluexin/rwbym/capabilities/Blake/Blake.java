@@ -40,6 +40,7 @@ public class Blake implements IBlake {
 			if (!player.world.isRemote) {
 				spawnShadow(player);
 			}
+			player.fallDistance = 0;
 			active = 10;
 			numShadows--;
 			return true;

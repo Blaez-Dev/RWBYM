@@ -16,7 +16,10 @@ import net.minecraft.nbt.NBTException;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.*;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.relauncher.Side;
@@ -25,6 +28,7 @@ import org.apache.logging.log4j.LogManager;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.List;
 
 /**
  * Part of rwbym
@@ -46,6 +50,7 @@ public class RWBYSword extends ItemSword implements ICustomItem {
     private boolean kkfire = false;
     private boolean kkice = false;
     private boolean kkwind = false;
+    public boolean reese;
     public static boolean runhideevent = false;
     private int timer;
     private boolean magna = false;
@@ -66,6 +71,8 @@ public class RWBYSword extends ItemSword implements ICustomItem {
         if(name.contains("neoumb_closed")) neo = true;
         if(name.contains("neoumb_closed_blade")) neo = true;
         if(name.contains("neoumb_handle_blade")) neo = true;
+        if(name.contains("reese")) neo = true;
+        if(name.contains("reese")) reese = true;
 
         this.morph = morph;
         this.fire = fire;
@@ -99,16 +106,7 @@ public class RWBYSword extends ItemSword implements ICustomItem {
        if (ice){
            target.addPotionEffect(potioneffect);
        }
-        /*if (crescentr && !attacker.onGround){
-            for (EntityLivingBase entitylivingbase : attacker.world.getEntitiesWithinAABB(EntityLivingBase.class, target.getEntityBoundingBox().grow(3.0D, 0.25D, 3.0D))) {
-                if (entitylivingbase != attacker && entitylivingbase != target && !attacker.isOnSameTeam(entitylivingbase) && attacker.getDistanceSq(entitylivingbase) < 9.0D) {
-                    entitylivingbase.knockBack(attacker, 0.4F, (double) MathHelper.sin(attacker.rotationYaw * 0.017453292F), (double) (-MathHelper.cos(attacker.rotationYaw * 0.017453292F)));
-                    entitylivingbase.attackEntityFrom(DamageSource.GENERIC, getAttackDamage());
-                }
-            }
 
-            attacker.world.playSound((EntityPlayer) null, attacker.posX, attacker.posY, attacker.posZ, SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, attacker.getSoundCategory(), 1.0F, 1.0F);
-        }*/
         stack.damageItem(1, attacker);
         return true;
     }
@@ -159,6 +157,54 @@ public class RWBYSword extends ItemSword implements ICustomItem {
             else{is.damageItem(365, player);
             }}
         }
+        if(entity instanceof  EntityPlayer){
+            EntityPlayer player = (EntityPlayer) entity;
+            if(player.getActiveItemStack().getItem() == RWBYItems.reese ){
+                //System.out.println(this.cooldown);
+                Vec3d look = player.getLookVec();
+
+                this.timer =+1;
+                if(timer >20){
+                player.getActiveItemStack().damageItem(1, player);
+                this.timer = 0;
+                }
+                player.limbSwing = 0;
+                player.limbSwingAmount = 0;
+                //how much speed to keep
+                double decay = 0.95D;
+                //comment out this line to go back to normal
+                look = look.scale(Math.max(Math.sqrt(player.motionX * player.motionX + player.motionY * player.motionY / 4 + player.motionZ * player.motionZ) * decay, 1));
+                player.motionX = look.x;
+                player.motionY = look.y * 0.2;
+                player.motionZ = look.z;
+                player.fallDistance = 0;
+
+                AxisAlignedBB axisalignedbb = player.getEntityBoundingBox().grow(2,2,2);
+
+
+                List<Entity> list1 = player.world.getEntitiesWithinAABBExcludingEntity(player, axisalignedbb);
+
+                if (!list1.isEmpty())
+                {
+                    double y = Math.pow(player.motionY, 2);
+                    double x = Math.pow(player.motionX, 2);
+                    double z = Math.pow(player.motionZ, 2);
+
+                    double d3 = Math.sqrt(x+y+z);
+                    float f = (float)d3;
+
+                    for (Entity entity2 : list1)
+                    {
+                        if (entity2 instanceof EntityLivingBase) {
+                            EntityLivingBase entitylivingbase = (EntityLivingBase)entity2;
+                            entitylivingbase.attackEntityFrom(new EntityDamageSource("rose petal", player), f*20);
+                            player.getActiveItemStack().damageItem(1, player);
+                        }
+                    }
+                }
+            }
+        }
+
         if (!world.isRemote && this.data != null) {
             NBTTagCompound atag = is.getTagCompound();
             if (atag == null) atag = new NBTTagCompound();
@@ -178,10 +224,14 @@ public class RWBYSword extends ItemSword implements ICustomItem {
     }
 
 
+
     @ParametersAreNonnullByDefault
     @Override
     public ActionResult<ItemStack> onItemRightClick( World worldIn, EntityPlayer playerIn, EnumHand hand) {
         ItemStack is = playerIn.getHeldItem(hand);
+        
+
+        
         if (!worldIn.isRemote && playerIn.isSneaking() && this.morph != null) {
             is = new ItemStack(Item.getByNameOrId(this.morph), is.getCount(), is.getMetadata());
             return new ActionResult<>(EnumActionResult.SUCCESS, is);
@@ -190,6 +240,7 @@ public class RWBYSword extends ItemSword implements ICustomItem {
             return new ActionResult<>(EnumActionResult.SUCCESS, is);
         }else if (canBlock && hand == EnumHand.MAIN_HAND) {
             playerIn.setActiveHand(EnumHand.MAIN_HAND);
+
             return new ActionResult<>(EnumActionResult.SUCCESS, is);
         }else return ActionResult.newResult(EnumActionResult.FAIL, is);}
 

@@ -2,6 +2,7 @@ package be.bluexin.rwbym;
 
 import be.bluexin.rwbym.Init.RWBYBiomes;
 import be.bluexin.rwbym.Init.RWBYCreativeTabs;
+import be.bluexin.rwbym.Init.RWBYItems;
 import be.bluexin.rwbym.capabilities.CapabilityHandler;
 import be.bluexin.rwbym.capabilities.Ruby.IRuby;
 import be.bluexin.rwbym.capabilities.Ruby.Ruby;
@@ -15,6 +16,7 @@ import be.bluexin.rwbym.capabilities.Yang.YangStorage;
 import be.bluexin.rwbym.commands.CommandChangeSemblance;
 import be.bluexin.rwbym.gui.IRWBYGuiFactory;
 import be.bluexin.rwbym.gui.RWBYItemContainerGui;
+import be.bluexin.rwbym.inventory.IRWBYContainerFactory;
 import be.bluexin.rwbym.inventory.RWBYItemContainer;
 import be.bluexin.rwbym.proxy.CommonProxy;
 import be.bluexin.rwbym.utility.RegUtil;
@@ -24,6 +26,7 @@ import be.bluexin.rwbym.weaponry.RWBYContainerItem;
 import be.bluexin.rwbym.weaponry.RWBYSword;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -32,8 +35,10 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.EntityDamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -177,7 +182,7 @@ public class RWBYModels {
         	switch (GUI.values()[id]) {
         		case ITEM_CONTAINER:
         			ItemStack stack = player.getHeldItemMainhand();
-        			return ((GuiContainer)IRWBYGuiFactory.createInstance(((RWBYContainerItem)stack.getItem()).getGuiClass(), player.inventory, stack)).inventorySlots;
+        			return IRWBYContainerFactory.createInstance(((RWBYContainerItem)stack.getItem()).getContainerClass(), player.inventory, stack);
         	}
         	
         	throw new IllegalArgumentException("No GUI with ID: " + id);
@@ -208,6 +213,10 @@ public class RWBYModels {
         float damage = e.getAmount();
         ItemStack activeItemStack = player.getActiveItemStack();
 
+        if(activeItemStack.getItem() == RWBYItems.reese){
+            damage = 3;
+        }
+
         if (damage > 0.0F && !activeItemStack.isEmpty() && activeItemStack.getItem() instanceof RWBYSword && ((RWBYSword) activeItemStack.getItem()).isShield) {
             activeItemStack.damageItem(1 + MathHelper.floor(damage), player);
 
@@ -227,6 +236,8 @@ public class RWBYModels {
                 }
             }
 
+
+            
             if (!player.world.isRemote && e.getSource().getTrueSource() instanceof EntityLivingBase) {
                 EntityLivingBase el = (EntityLivingBase) e.getSource().getTrueSource();
                 ItemStack is = el.getHeldItemMainhand();

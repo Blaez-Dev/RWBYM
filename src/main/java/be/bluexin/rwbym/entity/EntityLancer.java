@@ -247,7 +247,7 @@ public class EntityLancer extends EntityMob
         private int attackTime;
 
         private AIAttackPlayer() {
-            this.attackTime = 20;
+            this.attackTime = 10;
         }
 
         public boolean shouldExecute() {
@@ -255,7 +255,7 @@ public class EntityLancer extends EntityMob
                 --this.attackTime;
                 return false;
             } else {
-                this.attackTime = 60;
+                this.attackTime = 20;
                 AxisAlignedBB aabb = EntityLancer.this.getEntityBoundingBox().grow(16.0D, 64.0D, 16.0D);
                 List<EntityPlayer> playerList = EntityLancer.this.world.getEntitiesWithinAABB(EntityPlayer.class, aabb);
                 if (!playerList.isEmpty()) {
@@ -369,7 +369,7 @@ public class EntityLancer extends EntityMob
                 EntityLancer.this.attackPhase = EntityLancer.AttackPhase.CIRCLE;
                 EntityLancer.this.world.playEvent(1039, new BlockPos(EntityLancer.this), 0);
             } else if (EntityLancer.this.collided|| EntityLancer.this.hurtTime > 0) {
-                EntityLancer.this.attackPhase = EntityLancer.AttackPhase.CIRCLE;
+                EntityLancer.this.attackPhase = AttackPhase.SWOOP;
             }
 
         }

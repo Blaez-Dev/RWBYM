@@ -6,17 +6,16 @@ import be.bluexin.rwbym.RWBYModels;
 import be.bluexin.rwbym.RWBYSoundHandler;
 import be.bluexin.rwbym.entity.EntityLargeFireball;
 import be.bluexin.rwbym.entity.EntityNeverMore;
+import com.google.common.collect.Sets;
 import mcp.MethodsReturnNonnullByDefault;
+import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
-import net.minecraft.init.Enchantments;
-import net.minecraft.init.Items;
-import net.minecraft.init.MobEffects;
-import net.minecraft.init.SoundEvents;
+import net.minecraft.init.*;
 import net.minecraft.item.*;
 import net.minecraft.nbt.JsonToNBT;
 import net.minecraft.nbt.NBTException;
@@ -28,12 +27,19 @@ import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.logging.log4j.LogManager;
+import scala.tools.nsc.doc.model.Public;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
+
+import java.util.Set;
+
+import static net.minecraft.item.ItemBow.getArrowVelocity;
 
 /**
  * Part of rwbym
@@ -42,7 +48,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
  */
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class RWBYBow extends ItemBow implements ICustomItem {
+public class RWBYRapier extends ItemBow implements ICustomItem{
 
     private final String data;
     private final int drawSpeed;
@@ -66,6 +72,7 @@ public class RWBYBow extends ItemBow implements ICustomItem {
     private boolean cinder = false;
     private boolean emerald = false;
     private boolean jnr = false;
+    public final boolean isShield;
     private boolean torch = false;
     private boolean chat = false;
     boolean compensate;
@@ -73,8 +80,7 @@ public class RWBYBow extends ItemBow implements ICustomItem {
     private boolean emerald2 = false;
 
 
-    public RWBYBow(String name, int durability, int drawSpeed, int enchantability, String data, String morph, String ammo, boolean noCharge, float projectileSpeed, boolean usesAmmo, int recoilType, int enchantmentglow, CreativeTabs creativetab) {
-        this.setMaxDamage(durability);
+    public RWBYRapier(String name, int durability, int drawSpeed, int enchantability, String data, String morph, String ammo, boolean noCharge, float projectileSpeed, boolean shield, int recoilType, int enchantmentglow, CreativeTabs creativetab) {
         this.setRegistryName(new ResourceLocation(RWBYModels.MODID, name));
         this.setUnlocalizedName(this.getRegistryName().toString());
         this.setCreativeTab(creativetab);
@@ -88,90 +94,16 @@ public class RWBYBow extends ItemBow implements ICustomItem {
         if(recoilType == 2) this.recoil2 = true;
         if(recoilType == 3) this.recoil3 = true;
         if(enchantmentglow == 1) this.velvet = true;
-
-        if(name.contains("crescent")) crescentr = true;
-        if(name.contains("gambol")) gambols = true;
-        if(name.contains("ember")) emberc = true;
-        if(name.contains("ember2")) ember2 = true;
-        if(name.contains("nora")) magna = true;
         if(name.contains("weiss")) mytre = true;
-        if(name.contains("stormf")) stormf = true;
-        if(name.contains("coco")) coco = true;
-        if(name.contains("qrow")) emberc = true;
-        if(name.contains("emberv")) emberc = true;
-        if(name.contains("weissv")) mytre = true;
-        if(name.contains("portgun")) port = true;
-        if(name.contains("emeraldgun")) emerald = true;
-        if(name.contains("emeraldblade")) emerald = true;
-        if(name.contains("emeraldblade")) emerald2 = true;
-        if(name.contains("reesegun")) emerald = true;
-        if(name.contains("stormf")) emerald2 = true;
-        if(name.contains("cinderbow")) cinder = true;
-        if(name.contains("jnrrocket")) jnr = true;
-        if(name.contains("adamgun")) emberc = true;
-        if(name.contains("torchwickgun")) torch = true;
-        if(name.contains("chatareusgun")) chat = true;
-        if(name.contains("chatareus")) chat = true;
+        this.isShield = shield;
 
-
-        this.addPropertyOverride(new ResourceLocation("pull"), new IItemPropertyGetter()
-        {
-            @SideOnly(Side.CLIENT)
-            public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn)
-            {
-                if (entityIn == null)
-                {
-                    return 0.0F;
-                }
-                else
-                {
-                    return entityIn.getActiveItemStack().getItem() != RWBYItems.chatareusgun ? 0.0F : (float)(stack.getMaxItemUseDuration() - entityIn.getItemInUseCount()) / 20.0F;
-                }
-            }
-        });
-        this.addPropertyOverride(new ResourceLocation("pulling"), new IItemPropertyGetter()
-        {
-            @SideOnly(Side.CLIENT)
-            public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn)
-            {
-                return entityIn != null && entityIn.isHandActive() && entityIn.getActiveItemStack() == stack ? 1.0F : 0.0F;
-            }
-        });
-
-
-        this.addPropertyOverride(new ResourceLocation("pull1"), new IItemPropertyGetter()
-        {
-            @SideOnly(Side.CLIENT)
-            public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn)
-            {
-                if (entityIn == null)
-                {
-                    return 0.0F;
-                }
-                else
-                {
-                    return entityIn.getActiveItemStack().getItem() != RWBYItems.cinderbow ? 0.0F : (float)(stack.getMaxItemUseDuration() - entityIn.getItemInUseCount()) / 20.0F;
-                }
-            }
-        });
-        this.addPropertyOverride(new ResourceLocation("pulling1"), new IItemPropertyGetter()
-        {
-            @SideOnly(Side.CLIENT)
-            public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn)
-            {
-                return entityIn != null && entityIn.isHandActive() && entityIn.getActiveItemStack() == stack ? 1.0F : 0.0F;
-            }
-        });
-
-
-        if (this.ember2) this.addPropertyOverride(new ResourceLocation("offhand"), new IItemPropertyGetter() {
+        if (this.isShield) this.addPropertyOverride(new ResourceLocation("offhand"), new IItemPropertyGetter() {
             @SideOnly(Side.CLIENT)
             @ParametersAreNonnullByDefault
             public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
                 return entityIn != null && entityIn.getHeldItemOffhand() == stack ? 1.0F : 0.0F;
             }
         });
-
     }
 
     @Override
@@ -185,19 +117,13 @@ public class RWBYBow extends ItemBow implements ICustomItem {
         return this.drawSpeed;
     }
 
-    /*@Override
-    public void registerRecipes() {
-        if (this.recipes != null) for (RecipeDTO recipe : this.recipes) {
-            recipe.register(this);
-        }
-    }*/
 
     @SideOnly(Side.CLIENT)
     public boolean hasEffect(ItemStack stack)
     {
         if(velvet){return true;}
         else
-        return false;
+            return false;
     }
 
     @SuppressWarnings("Duplicates")
@@ -216,7 +142,7 @@ public class RWBYBow extends ItemBow implements ICustomItem {
                         }
                     }
                 }
-            }}
+                }}
         }
 
 
@@ -237,12 +163,15 @@ public class RWBYBow extends ItemBow implements ICustomItem {
     }
 
 
+
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         ItemStack is = playerIn.getHeldItem(handIn);
         if (!worldIn.isRemote && playerIn.isSneaking() && this.morph != null) {
             is = new ItemStack(Item.getByNameOrId(this.morph), is.getCount(), is.getMetadata());
             return new ActionResult<>(EnumActionResult.SUCCESS, is);
-        }
+        } else if (this.isShield && handIn == EnumHand.OFF_HAND) {
+            playerIn.setActiveHand(EnumHand.OFF_HAND);
+            return new ActionResult<>(EnumActionResult.SUCCESS, is);}
         boolean flag = !this.findAmmo(playerIn, false).isEmpty();
         if (!flag) if (playerIn.onGround){
             if (recoil3) {
@@ -295,8 +224,8 @@ public class RWBYBow extends ItemBow implements ICustomItem {
     @Nonnull
     private ItemStack findAmmo(EntityPlayer player, boolean force) {
         Item ammo1 = this.ammo == null ? Items.ARROW : Item.getByNameOrId(this.ammo);
-        if (force || (ammo1 instanceof ItemArrow && ((ItemArrow) ammo1).isInfinite(null, player.getActiveItemStack(), player)) 
-        		  || (ammo1 instanceof RWBYAmmoItem && ((RWBYAmmoItem) ammo1).isInfinite())) {
+        if (force || (ammo1 instanceof ItemArrow && ((ItemArrow) ammo1).isInfinite(null, player.getActiveItemStack(), player))
+                || (ammo1 instanceof RWBYAmmoItem && ((RWBYAmmoItem) ammo1).isInfinite())) {
             return new ItemStack(ammo1);
         }
 
@@ -320,7 +249,7 @@ public class RWBYBow extends ItemBow implements ICustomItem {
         }
     }
 
-    @Override
+
     //Thanks Bright_Spark//
     protected boolean isArrow(@Nonnull ItemStack stack) {
         String[] itemIds = ammo.split(",");
@@ -359,7 +288,7 @@ public class RWBYBow extends ItemBow implements ICustomItem {
                         EntityArrow entityarrow = (itemstack.getItem() instanceof RWBYAmmoItem ? ((RWBYAmmoItem) itemstack.getItem()).createArrow(worldIn, itemstack, entityplayer) : ((ItemArrow) Items.ARROW).createArrow(worldIn, itemstack, entityplayer));
                         entityarrow.shoot(entityplayer, entityplayer.rotationPitch, entityplayer.rotationYaw, 0.0F, f * 3.0F * (this.projectileSpeed == 0.0F ? 1.0F : this.projectileSpeed), 2.0F);
 
-                            entityarrow.setIsCritical(true);
+                        entityarrow.setIsCritical(true);
 
                         worldIn.spawnEntity(entityarrow);
                         //if (f >= 1.0F) entityarrow.setIsCritical(true);
@@ -367,55 +296,19 @@ public class RWBYBow extends ItemBow implements ICustomItem {
                         else stack.damageItem(1, entityplayer);
                     }
 
-                    if (crescentr) {
-                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.Crescent_Rose_Shoot, SoundCategory.MASTER, 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
-                    }
-                    if (emberc){
-                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.Ember_Celica_Shoot, SoundCategory.MASTER, 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
-                    }
-                    if (gambols) {
-                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.Gambol_Shroud_Shoot, SoundCategory.MASTER, 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
-                    }
+
                     if (mytre) {
                         worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.Mytrenaster_Shoot, SoundCategory.MASTER, 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
                     }
-                    if (stormf){
-                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.StormFlower_Shoot, SoundCategory.MASTER, 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
-                    }
-                    if (magna) {
-                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.Magnhild_Shoot, SoundCategory.MASTER, 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
-                    }
-                    if (coco) {
-                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.Ember_Celica_Shoot, SoundCategory.MASTER, 1.0F, 0.2F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
-                    }
 
-                    if (port) {
-                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.Port_Shoot, SoundCategory.MASTER, 1.0F, 0.8F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
-                    }
-
-                    if (emerald) {
-                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.Gambol_Shroud_Shoot, SoundCategory.MASTER, 1.0F, 0.7F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
-                    }
-
-                    if (jnr) {
-                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.Junior_Shoot, SoundCategory.MASTER, 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
-                    }
-
-                    if (torch) {
-                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.Torchwick_Shoot, SoundCategory.MASTER, 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
-                    }
-
-                    if (chat) {
-                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.Crescent_Rose_Shoot, SoundCategory.MASTER, 1.0F, 2F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
-                    }
                     if (recoil) {
-	                    Vec3d look = entityplayer.getLookVec();
-	                    entityplayer.motionX = -look.x ;
-	                    entityplayer.motionZ = -look.z ;
-	                    entityplayer.motionY = -look.y/2 ;
-	                    entityplayer.lastTickPosZ = -look.x;
-	                    entityplayer.lastTickPosX = -look.z;
-	                    entityplayer.fallDistance = 0;
+                        Vec3d look = entityplayer.getLookVec();
+                        entityplayer.motionX = -look.x ;
+                        entityplayer.motionZ = -look.z ;
+                        entityplayer.motionY = -look.y/2 ;
+                        entityplayer.lastTickPosZ = -look.x;
+                        entityplayer.lastTickPosX = -look.z;
+                        entityplayer.fallDistance = 0;
                     }
 
                     if (recoil2) {
@@ -427,18 +320,18 @@ public class RWBYBow extends ItemBow implements ICustomItem {
                         entityplayer.lastTickPosX = -look.z;
                     }
                     if (!flag){
-                    	if (cinder & !flagger) {
-                    		itemstack.shrink(1);
-                		}
-                	}
+                        if (cinder & !flagger) {
+                            itemstack.shrink(1);
+                        }
+                    }
                     if (!flag){
-                    	if (mytre || emerald) {
-                    		itemstack.damageItem(2, entityplayer);
-                		} 
-                    	else {
-                    		itemstack.damageItem(1, entityplayer);
-                		}
-                	}
+                        if (mytre || emerald) {
+                            itemstack.damageItem(2, entityplayer);
+                        }
+                        else {
+                            itemstack.damageItem(1, entityplayer);
+                        }
+                    }
                 }
             }
         }
@@ -446,7 +339,14 @@ public class RWBYBow extends ItemBow implements ICustomItem {
 
     @Override
     public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker)
-    {
+    {  boolean unarm = false;
+        if(target.getTotalArmorValue() == 0){
+        unarm = true; }
+
+        if(!unarm){
+            target.attackEntityFrom(DamageSource.GENERIC, 14);
+        }
+
         stack.damageItem(1, attacker);
         return true;
     }
@@ -470,5 +370,8 @@ public class RWBYBow extends ItemBow implements ICustomItem {
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair) {
         return repair.getItem() == RWBYItems.scrap || super.getIsRepairable(toRepair, repair);
     }
+
+
+
 
 }

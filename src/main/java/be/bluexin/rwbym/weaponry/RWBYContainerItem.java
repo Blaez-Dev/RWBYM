@@ -8,6 +8,7 @@ import com.google.common.collect.Lists;
 import be.bluexin.rwbym.RWBYModels;
 import be.bluexin.rwbym.inventory.RWBYItemContainer;
 import be.bluexin.rwbym.inventory.RWBYItemInventory;
+import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
@@ -27,15 +28,17 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.items.IItemHandler;
 
-public class RWBYContainerItem<T> extends Item implements ICustomItem {
+public class RWBYContainerItem<GUI extends GuiContainer, CONTAINER extends Container> extends Item implements ICustomItem {
 			
 	private String acceptedItems;
 	
 	private final int size;
 	
-	private final Class<T> guiClass;
+	private final Class<GUI> guiClass;
+	
+	private final Class<CONTAINER> containerClass;
 
-	public RWBYContainerItem(String name, String acceptedItems, int size,int stacksize, Class<T> guiClass) {
+	public RWBYContainerItem(String name, String acceptedItems, int size,int stacksize, Class<GUI> guiClass, Class<CONTAINER> containerClass) {
 		this.size = size;
 		this.setMaxStackSize(stacksize);
 		this.setRegistryName(name);
@@ -44,11 +47,17 @@ public class RWBYContainerItem<T> extends Item implements ICustomItem {
 		this.acceptedItems = acceptedItems;
 		
 		this.guiClass = guiClass;
+		
+		this.containerClass = containerClass;
 				
 	}
 	
-	public Class<T> getGuiClass() {
+	public Class<GUI> getGuiClass() {
 		return guiClass;
+	}
+	
+	public Class<CONTAINER> getContainerClass() {
+		return containerClass;
 	}
 	
 	@Override

@@ -124,6 +124,8 @@ public class RegUtil {
         registerItems(event, RWBYItems.ozmacanelightning);
         registerItems(event, RWBYItems.ozmacanewater);
         registerItems(event, RWBYItems.ozmacanewind);
+        registerItems(event, RWBYItems.reese);
+        registerItems(event, RWBYItems.reesegun);
 
         //Items
         registerItems(event, RWBYItems.dustcrystal);

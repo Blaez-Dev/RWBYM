@@ -2,6 +2,7 @@ package be.bluexin.rwbym.Init;
 
 import be.bluexin.rwbym.blocks.*;
 import be.bluexin.rwbym.gui.RWBYItemContainerGui;
+import be.bluexin.rwbym.inventory.RWBYItemContainer;
 import be.bluexin.rwbym.weaponry.*;
 import be.bluexin.rwbym.weaponry.ammohit.ExplosionAmmoHit;
 import be.bluexin.rwbym.weaponry.ammohit.FireAmmoHit;
@@ -23,6 +24,8 @@ import net.minecraft.potion.PotionUtils;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.EnumHelper;
+import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.relauncher.Side;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -225,7 +228,7 @@ public class RWBYItems {
             false,
             1,
             null);
-    public static final Item weissv = new RWBYBow(
+    public static final Item weissv = new RWBYRapier(
             "weissv",
             1250,
             72,
@@ -235,7 +238,7 @@ public class RWBYItems {
             "rwbym:ammmmo",
             false,
             1,
-            true,
+            false,
             2,
             1,
             null);
@@ -651,17 +654,18 @@ public class RWBYItems {
             false,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static final Item angelsword = new RWBYSword(
+    public static final Item angelsword = new RWBYRapier(
             "angelsword",
             2500,
-            12,
+            72,
             0,
             null,
             "rwbym:angelcane",
+            "none",
+            false,
+            1,
             true,
-            false,
-            false,
-            false,
+            0,
             0,
             null);
     public static final Item mariascythedouble = new RWBYSword(
@@ -671,8 +675,8 @@ public class RWBYItems {
             0,
             null,
             "rwbym:mariacane",
-            true,
             false,
+            true,
             false,
             false,
             0,
@@ -760,6 +764,35 @@ public class RWBYItems {
             0,
             0,
             null);
+    public static final Item reese = new RWBYSword(
+            "reese",
+            2500,
+            -4,
+            0,
+            null,
+            "rwbym:reesegun",
+            false,
+            true,
+            false,
+            false,
+            0,
+            RWBYCreativeTabs.tab_rwbyweapons);
+
+    public static final Item reesegun = new RWBYBow(
+            "reesegun",
+            2500,
+            72,
+            0,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:14,Operation:0,UUIDMost:99791,UUIDLeast:128916}]}",
+            "rwbym:reese",
+            "rwbym:gamammo,rwbym:emammmo",
+            false,
+            1,
+            true,
+            0,
+            0,
+            null);
+
 
     //------------------------------------------------//
 
@@ -791,7 +824,7 @@ public class RWBYItems {
             1,
             0,
             null);
-    public static final Item weiss = new RWBYBow(
+    public static final Item weiss = new RWBYRapier(
             "weiss",
             2500,
             72,
@@ -801,7 +834,7 @@ public class RWBYItems {
             "rwbym:gravitydust,rwbym:winddust,rwbym:icedust,rwbym:waterdust,rwbym:firedust,rwbym:lightdust",
             false,
             1,
-            true,
+            false,
             3,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
@@ -1169,7 +1202,8 @@ public class RWBYItems {
     		"rwbym:lien1,rwbym:lien5,rwbym:lien10,rwbym:lien20,rwbym:lien50,rwbym:lien100,rwbym:lien500",
     		9,
     		1,
-    		RWBYItemContainerGui.class)
+    		FMLCommonHandler.instance().getSide() == Side.CLIENT ? RWBYItemContainerGui.class : null,
+    		RWBYItemContainer.class)
     		.setCreativeTab(RWBYCreativeTabs.tab_rwbyitems);
     //------------------------------------------------//
     public static final Item entitybullet = new RWBYItem("entitybullet", null, false, null);
