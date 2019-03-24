@@ -172,7 +172,7 @@ public class RWBYSword extends ItemSword implements ICustomItem {
 	                double y = player.motionY;
 	                double z = player.motionZ;
 	                BlockPos pos;
-	                for (pos = new BlockPos(player); world.isAirBlock(pos); pos = pos.add(0, -1, 0));
+	                for (pos = new BlockPos(player); world.isAirBlock(pos) && pos.getY() > 0; pos = pos.add(0, -1, 0));
 	                
 	                double u = z*Math.cos(r) - x*Math.sin(r);
 	                double v = -x*Math.cos(r) - z*Math.sin(r);
@@ -209,9 +209,7 @@ public class RWBYSword extends ItemSword implements ICustomItem {
 	                double dy = my - y;
 	                
 	                double a = Math.atan2(mv, mu) / Math.PI * 180;
-	                
-	                RWBYModels.LOGGER.info(a);
-	                
+	                	                
 	                player.renderYawOffset = (float) (player.rotationYaw + a);
 	                
 	                dy = my - (player.posY - (pos.getY() + 1));
@@ -227,7 +225,7 @@ public class RWBYSword extends ItemSword implements ICustomItem {
 	                }
 	                                
 	                u += du * 0.05;
-	                v += dv * 0.15;
+	                v += dv * 0.1;
 	                y += dy * 0.15 - d*y;
 	                
 	                x = -v*Math.cos(r) - u*Math.sin(r);
