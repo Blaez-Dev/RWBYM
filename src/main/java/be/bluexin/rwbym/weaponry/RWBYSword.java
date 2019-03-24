@@ -182,16 +182,16 @@ public class RWBYSword extends ItemSword implements ICustomItem {
 	                double my = 2;
 	                                                
 	                if (Minecraft.getMinecraft().gameSettings.keyBindForward.isKeyDown()) {
-	                	mu += 1.5;
+	                	mu += 2.0;
 	                }
 	                if (Minecraft.getMinecraft().gameSettings.keyBindBack.isKeyDown()) {
 	                	mu -= 0.2;
 	                }
 	                if (Minecraft.getMinecraft().gameSettings.keyBindLeft.isKeyDown()) {
-	                	mv -= 1.5;
+	                	mv -= 2.0;
 	                }
 	                if (Minecraft.getMinecraft().gameSettings.keyBindRight.isKeyDown()) {
-	                	mv += 1.5;
+	                	mv += 2.0;
 	                }
 	                
 	                if (player.isSprinting()) {
@@ -238,14 +238,14 @@ public class RWBYSword extends ItemSword implements ICustomItem {
                 
             	if (!world.isRemote) {
 	                this.timer++;
-	                if(timer > 20){
+	               /* if(timer > 20){
 		                player.getActiveItemStack().damageItem(1, player);
 		                this.timer = 0;
-	                }
+	                }*/
 	            	
 	                player.fallDistance = 0;
 	
-	                AxisAlignedBB axisalignedbb = player.getEntityBoundingBox().grow(1,0,1);
+	                AxisAlignedBB axisalignedbb = player.getEntityBoundingBox().grow(1.5,0,1.5);
 	
 	                List<Entity> list1 = player.world.getEntitiesWithinAABBExcludingEntity(player, axisalignedbb);
 	
@@ -257,6 +257,7 @@ public class RWBYSword extends ItemSword implements ICustomItem {
 	                    
 	                    double d3 = Math.sqrt(x1+y1+z1);
 	                    float f = (float)d3;
+	                    d3 = d3/2;
 	                    RWBYModels.LOGGER.info(d3);
 	
 	                    for (Entity entity2 : list1)
@@ -264,7 +265,7 @@ public class RWBYSword extends ItemSword implements ICustomItem {
 	                        if (entity2 instanceof EntityLivingBase) {
 	                            EntityLivingBase entitylivingbase = (EntityLivingBase)entity2;
 	                            entitylivingbase.attackEntityFrom(new EntityDamageSource("rose petal", player), f*10);
-	                            player.getActiveItemStack().damageItem(1, player);
+	                            player.getActiveItemStack().damageItem(3, player);
 	                        }
 	                    }
 	                }
