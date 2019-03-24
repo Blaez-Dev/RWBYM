@@ -225,7 +225,7 @@ public class RWBYSword extends ItemSword implements ICustomItem {
 	                }
 	                                
 	                u += du * 0.05;
-	                v += dv * 0.1;
+	                v += dv * 0.00;
 	                y += dy * 0.15 - d*y;
 	                
 	                x = -v*Math.cos(r) - u*Math.sin(r);
