@@ -1,5 +1,4 @@
 {
-	"credit": "Made with Blockbench",
 	"textures": {
 		"0": "rwbym:blocks/colorpaletteresse",
 		"1": "rwbym:blocks/awool_colored_silver",
@@ -624,12 +623,12 @@
 		"thirdperson_righthand": {
 			"rotation": [42, 50, 0],
 			"translation": [-4, -17, -2.5],
-			"scale": [1, 0.5, 1]
+			"scale": [0, 0, 0]
 		},
 		"thirdperson_lefthand": {
 			"rotation": [63.5, 90, 0],
 			"translation": [-4, -10.25, -8.75],
-			"scale": [1, 0.5, 1]
+			"scale": [0, 0, 0]
 		},
 		"firstperson_righthand": {
 			"rotation": [0, 90, 0],
@@ -643,6 +642,9 @@
 			"rotation": [90, -136, 0],
 			"translation": [0.5, 0, 0.75],
 			"scale": [0.7, 0.3, 0.7]
+		},
+		"head": {
+			"scale": [1, 0.5, 1]
 		},
 		"fixed": {
 			"rotation": [90, 136, 0],

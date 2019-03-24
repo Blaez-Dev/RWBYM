@@ -3,9 +3,12 @@ package be.bluexin.rwbym.weaponry;
 import be.bluexin.rwbym.Init.RWBYItems;
 import be.bluexin.rwbym.RWBYModels;
 import mcp.MethodsReturnNonnullByDefault;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.MoverType;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
@@ -21,6 +24,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.minecraftforge.client.settings.KeyBindingMap;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -54,7 +58,6 @@ public class RWBYSword extends ItemSword implements ICustomItem {
     public static boolean runhideevent = false;
     private int timer;
     private boolean magna = false;
-
 
     public RWBYSword(String name, int durability, float damage, int enchantability, String data, String morph, boolean shield, boolean canBlock, boolean fire, boolean ice, int enchantmentglow, CreativeTabs creativetab) {
         super(EnumHelper.addToolMaterial(RWBYModels.MODID + ":" + name, 0, durability, 1.0F, damage, enchantability));
@@ -159,49 +162,121 @@ public class RWBYSword extends ItemSword implements ICustomItem {
         }
         if(entity instanceof  EntityPlayer){
             EntityPlayer player = (EntityPlayer) entity;
-            if(player.getActiveItemStack().getItem() == RWBYItems.reese ){
-                //System.out.println(this.cooldown);
-                Vec3d look = player.getLookVec();
-
-                this.timer =+1;
-                if(timer >20){
-                player.getActiveItemStack().damageItem(1, player);
-                this.timer = 0;
+            if(player.getHeldItemMainhand().getItem() == RWBYItems.reese && player.getHeldItemMainhand().getOrCreateSubCompound("RWBYM").getInteger("inactive") < 2){
+            	
+                if (world.isRemote) {
+                
+                	double r = player.rotationYaw * Math.PI / 180;
+                
+	                double x = player.motionX;
+	                double y = player.motionY;
+	                double z = player.motionZ;
+	                BlockPos pos;
+	                for (pos = new BlockPos(player); world.isAirBlock(pos); pos = pos.add(0, -1, 0));
+	                
+	                double u = z*Math.cos(r) - x*Math.sin(r);
+	                double v = -x*Math.cos(r) - z*Math.sin(r);
+	                
+	                double mu = 0;
+	                double mv = 0;
+	                double my = 3;
+	                                                
+	                if (Minecraft.getMinecraft().gameSettings.keyBindForward.isKeyDown()) {
+	                	mu += 2.5;
+	                }
+	                if (Minecraft.getMinecraft().gameSettings.keyBindBack.isKeyDown()) {
+	                	mu -= 0.2;
+	                }
+	                if (Minecraft.getMinecraft().gameSettings.keyBindLeft.isKeyDown()) {
+	                	mv -= mu == 2.5 ? 1.5 : 0.1;
+	                }
+	                if (Minecraft.getMinecraft().gameSettings.keyBindRight.isKeyDown()) {
+	                	mv += mu == 2.5 ? 1.5 : 0.1;
+	                }
+	                
+	                if (player.isSprinting()) {
+	                	mu *= 2;
+	                	mv *= 2;
+	                }
+	                if (player.isSneaking()) {
+	                	mu /= 2;
+	                	mv /= 2;
+	                	my /= 2;
+	                }
+	                                
+	                double du = mu - u;
+	                double dv = mv - v;
+	                double dy = my - y;
+	                
+	                double a = Math.atan2(mv, mu) / Math.PI * 180;
+	                
+	                RWBYModels.LOGGER.info(a);
+	                
+	                player.renderYawOffset = (float) (player.rotationYaw + a);
+	                
+	                dy = my - (player.posY - (pos.getY() + 1));
+	                
+	                double d = 0.3;
+	                
+	                if (dy < -1) {
+	                	d /= -dy;
+	                }
+	                
+	                if (dy < 0) {
+	                	dy = 0;
+	                }
+	                                
+	                u += du * 0.05;
+	                v += dv * 0.15;
+	                y += dy * 0.15 - d*y;
+	                
+	                x = -v*Math.cos(r) - u*Math.sin(r);
+	                z = u*Math.cos(r) - v*Math.sin(r);
+	                
+	                player.motionX = x;
+	                player.motionY = y;
+	                player.motionZ = z;
                 }
-                player.limbSwing = 0;
-                player.limbSwingAmount = 0;
-                //how much speed to keep
-                double decay = 0.95D;
-                //comment out this line to go back to normal
-                look = look.scale(Math.max(Math.sqrt(player.motionX * player.motionX + player.motionY * player.motionY / 4 + player.motionZ * player.motionZ) * decay, 1));
-                player.motionX = look.x;
-                player.motionY = look.y * 0.2;
-                player.motionZ = look.z;
-                player.fallDistance = 0;
-
-                AxisAlignedBB axisalignedbb = player.getEntityBoundingBox().grow(2,2,2);
-
-
-                List<Entity> list1 = player.world.getEntitiesWithinAABBExcludingEntity(player, axisalignedbb);
-
-                if (!list1.isEmpty())
-                {
-                    double y = Math.pow(player.motionY, 2);
-                    double x = Math.pow(player.motionX, 2);
-                    double z = Math.pow(player.motionZ, 2);
-
-                    double d3 = Math.sqrt(x+y+z);
-                    float f = (float)d3;
-
-                    for (Entity entity2 : list1)
-                    {
-                        if (entity2 instanceof EntityLivingBase) {
-                            EntityLivingBase entitylivingbase = (EntityLivingBase)entity2;
-                            entitylivingbase.attackEntityFrom(new EntityDamageSource("rose petal", player), f*20);
-                            player.getActiveItemStack().damageItem(1, player);
-                        }
-                    }
-                }
+                
+            	if (!world.isRemote) {
+	                this.timer++;
+	                if(timer > 20){
+		                player.getActiveItemStack().damageItem(1, player);
+		                this.timer = 0;
+	                }
+	            	
+	                player.fallDistance = 0;
+	
+	                AxisAlignedBB axisalignedbb = player.getEntityBoundingBox().grow(2,2,2);
+	
+	                List<Entity> list1 = player.world.getEntitiesWithinAABBExcludingEntity(player, axisalignedbb);
+	
+	                if (!list1.isEmpty())
+	                {
+	                    double y1 = Math.pow(player.motionY, 2);
+	                    double x1 = Math.pow(player.motionX, 2);
+	                    double z1 = Math.pow(player.motionZ, 2);
+	                    
+	                    double d3 = Math.sqrt(x1+y1+z1);
+	                    float f = (float)d3;
+	
+	                    for (Entity entity2 : list1)
+	                    {
+	                        if (entity2 instanceof EntityLivingBase) {
+	                            EntityLivingBase entitylivingbase = (EntityLivingBase)entity2;
+	                            entitylivingbase.attackEntityFrom(new EntityDamageSource("rose petal", player), f*20);
+	                            player.getActiveItemStack().damageItem(1, player);
+	                        }
+	                    }
+	                }
+            	}
+            }
+            if (!player.isHandActive()) {
+            	NBTTagCompound nbt = is.getOrCreateSubCompound("RWBYM");
+            	nbt.setInteger("inactive", nbt.getInteger("inactive") + 1);
+            	if (nbt.getInteger("inactive") < 2 && player.getHeldItemMainhand().getItem() == RWBYItems.reese) {
+            		player.setActiveHand(EnumHand.MAIN_HAND);
+            	}
             }
         }
 
@@ -219,7 +294,6 @@ public class RWBYSword extends ItemSword implements ICustomItem {
                     LogManager.getLogger(RWBYModels.MODID).error("Couldn't load data tag for " + this.getRegistryName());
                 }
             }
-
         }
     }
 
@@ -240,6 +314,8 @@ public class RWBYSword extends ItemSword implements ICustomItem {
             return new ActionResult<>(EnumActionResult.SUCCESS, is);
         }else if (canBlock && hand == EnumHand.MAIN_HAND) {
             playerIn.setActiveHand(EnumHand.MAIN_HAND);
+            NBTTagCompound nbt = is.getOrCreateSubCompound("RWBYM");
+            nbt.setInteger("inactive", 0);
 
             return new ActionResult<>(EnumActionResult.SUCCESS, is);
         }else return ActionResult.newResult(EnumActionResult.FAIL, is);}
