@@ -41,38 +41,30 @@ public class PlayerRenderHandler {
 		if(renderedPlayer.getActiveItemStack().getItem() == RWBYItems.reese){
 			renderedPlayer.limbSwingAmount = 0;
 			renderedPlayer.prevLimbSwingAmount = 0;
-			GlStateManager.pushMatrix();
-				GlStateManager.translate(0, 0.4, 0);
+			GlStateManager.pushMatrix();				
+				if (renderedPlayer.isSneaking()) {
+					GlStateManager.translate(0, -0.125, 0);
+				}
 				
-				GlStateManager.pushMatrix();
-					if (renderedPlayer.isSneaking()) {
-						GlStateManager.translate(0, -0.125, 0);
-					}
-					
-					GlStateManager.translate(0, 0.1, 0);
-					
-					if (Minecraft.getMinecraft().player != renderedPlayer) {
-						GlStateManager.translate(renderedPlayer.posX - renderingPlayer.posX, renderedPlayer.posY - renderingPlayer.posY, renderedPlayer.posZ - renderingPlayer.posZ);
-					}
-					
-					float y1 = renderedPlayer.prevRenderYawOffset;
-					float y2 = renderedPlayer.renderYawOffset;
-					
-					float pt = event.getPartialRenderTick();
-					
-					float y3 = (1 - pt) * y1 + pt * y2;
-					
-					GlStateManager.rotate(90 - y3, 0, 1, 0);
-					
-					Minecraft.getMinecraft().getItemRenderer().renderItem(renderedPlayer, renderedPlayer.getActiveItemStack(), TransformType.HEAD);
+				GlStateManager.translate(0, 0.1, 0);
 				
-				GlStateManager.popMatrix();
-			if (event.isCanceled()) {
-				GlStateManager.popMatrix();
-			}
-			else {
-				popped = true;
-			}
+				if (Minecraft.getMinecraft().player != renderedPlayer) {
+					GlStateManager.translate(renderedPlayer.posX - renderingPlayer.posX, renderedPlayer.posY - renderingPlayer.posY, renderedPlayer.posZ - renderingPlayer.posZ);
+				}
+				
+				float y1 = renderedPlayer.prevRenderYawOffset;
+				float y2 = renderedPlayer.renderYawOffset;
+				
+				float pt = event.getPartialRenderTick();
+				
+				float y3 = (1 - pt) * y1 + pt * y2;
+				
+				GlStateManager.rotate(90 - y3, 0, 1, 0);
+				
+				Minecraft.getMinecraft().getItemRenderer().renderItem(renderedPlayer, renderedPlayer.getActiveItemStack(), TransformType.HEAD);
+			
+			GlStateManager.popMatrix();
+
 		}
 		
 	}

@@ -772,7 +772,7 @@ public class RWBYItems {
             null,
             "rwbym:reesegun",
             false,
-            true,
+            false,
             false,
             false,
             0,

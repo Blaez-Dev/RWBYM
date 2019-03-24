@@ -179,19 +179,19 @@ public class RWBYSword extends ItemSword implements ICustomItem {
 	                
 	                double mu = 0;
 	                double mv = 0;
-	                double my = 3;
+	                double my = 2;
 	                                                
 	                if (Minecraft.getMinecraft().gameSettings.keyBindForward.isKeyDown()) {
-	                	mu += 2.5;
+	                	mu += 1.5;
 	                }
 	                if (Minecraft.getMinecraft().gameSettings.keyBindBack.isKeyDown()) {
 	                	mu -= 0.2;
 	                }
 	                if (Minecraft.getMinecraft().gameSettings.keyBindLeft.isKeyDown()) {
-	                	mv -= mu == 2.5 ? 1.5 : 0.1;
+	                	mv -= 1.5;
 	                }
 	                if (Minecraft.getMinecraft().gameSettings.keyBindRight.isKeyDown()) {
-	                	mv += mu == 2.5 ? 1.5 : 0.1;
+	                	mv += 1.5;
 	                }
 	                
 	                if (player.isSprinting()) {
@@ -208,7 +208,7 @@ public class RWBYSword extends ItemSword implements ICustomItem {
 	                double dv = mv - v;
 	                double dy = my - y;
 	                
-	                double a = Math.atan2(mv, mu) / Math.PI * 180;
+	                double a = mu != 0 ? Math.atan(mv/mu) / Math.PI * 180 : mv == 0 ? 0 : 90 * mv / Math.abs(mv);
 	                	                
 	                player.renderYawOffset = (float) (player.rotationYaw + a);
 	                
@@ -225,7 +225,7 @@ public class RWBYSword extends ItemSword implements ICustomItem {
 	                }
 	                                
 	                u += du * 0.05;
-	                v += dv * 0.00;
+	                v += dv * 0.05;
 	                y += dy * 0.15 - d*y;
 	                
 	                x = -v*Math.cos(r) - u*Math.sin(r);
@@ -245,7 +245,7 @@ public class RWBYSword extends ItemSword implements ICustomItem {
 	            	
 	                player.fallDistance = 0;
 	
-	                AxisAlignedBB axisalignedbb = player.getEntityBoundingBox().grow(2,2,2);
+	                AxisAlignedBB axisalignedbb = player.getEntityBoundingBox().grow(1,0,1);
 	
 	                List<Entity> list1 = player.world.getEntitiesWithinAABBExcludingEntity(player, axisalignedbb);
 	
@@ -257,12 +257,13 @@ public class RWBYSword extends ItemSword implements ICustomItem {
 	                    
 	                    double d3 = Math.sqrt(x1+y1+z1);
 	                    float f = (float)d3;
+	                    RWBYModels.LOGGER.info(d3);
 	
 	                    for (Entity entity2 : list1)
 	                    {
 	                        if (entity2 instanceof EntityLivingBase) {
 	                            EntityLivingBase entitylivingbase = (EntityLivingBase)entity2;
-	                            entitylivingbase.attackEntityFrom(new EntityDamageSource("rose petal", player), f*20);
+	                            entitylivingbase.attackEntityFrom(new EntityDamageSource("rose petal", player), f*10);
 	                            player.getActiveItemStack().damageItem(1, player);
 	                        }
 	                    }
@@ -310,7 +311,7 @@ public class RWBYSword extends ItemSword implements ICustomItem {
         } else if (this.isShield && hand == EnumHand.OFF_HAND) {
             playerIn.setActiveHand(EnumHand.OFF_HAND);
             return new ActionResult<>(EnumActionResult.SUCCESS, is);
-        }else if (canBlock && hand == EnumHand.MAIN_HAND) {
+        }else if ((canBlock || reese) && hand == EnumHand.MAIN_HAND) {
             playerIn.setActiveHand(EnumHand.MAIN_HAND);
             NBTTagCompound nbt = is.getOrCreateSubCompound("RWBYM");
             nbt.setInteger("inactive", 0);
@@ -331,12 +332,12 @@ public class RWBYSword extends ItemSword implements ICustomItem {
 
     @Override
     public int getMaxItemUseDuration(ItemStack stack) {
-        return this.isShield ? 72000 : this.canBlock ? 72000 : 0;
+        return this.isShield ? 72000 : this.canBlock || this.reese ? 72000 : 0;
     }
 
     @Override
     public EnumAction getItemUseAction(ItemStack stack) {
-        return this.isShield ? EnumAction.BLOCK : this.canBlock ? EnumAction.BLOCK :EnumAction.NONE;
+        return this.isShield ? EnumAction.BLOCK : this.canBlock ? EnumAction.BLOCK : this.reese ? EnumAction.BOW : EnumAction.NONE;
     }
 
 
