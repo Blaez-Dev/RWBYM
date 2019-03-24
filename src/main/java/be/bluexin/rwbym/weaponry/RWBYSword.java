@@ -172,7 +172,7 @@ public class RWBYSword extends ItemSword implements ICustomItem {
 	                double y = player.motionY;
 	                double z = player.motionZ;
 	                BlockPos pos;
-	                for (pos = new BlockPos(player); world.isAirBlock(pos) && pos.getY() > 0; pos = pos.add(0, -1, 0));
+	                for (pos = new BlockPos(player); world.isAirBlock(pos) && pos.getY() > -1000; pos = pos.add(0, -1, 0));
 	                
 	                double u = z*Math.cos(r) - x*Math.sin(r);
 	                double v = -x*Math.cos(r) - z*Math.sin(r);
