@@ -271,7 +271,7 @@ public class RWBYSword extends ItemSword implements ICustomItem {
 	                }
             	}
             }
-            if (!player.isHandActive()) {
+            if (!player.isHandActive() && is.getItem() == RWBYItems.reese) {
             	NBTTagCompound nbt = is.getOrCreateSubCompound("RWBYM");
             	nbt.setInteger("inactive", nbt.getInteger("inactive") + 1);
             	if (nbt.getInteger("inactive") < 2 && player.getHeldItemMainhand().getItem() == RWBYItems.reese) {
@@ -314,8 +314,10 @@ public class RWBYSword extends ItemSword implements ICustomItem {
             return new ActionResult<>(EnumActionResult.SUCCESS, is);
         }else if ((canBlock || reese) && hand == EnumHand.MAIN_HAND) {
             playerIn.setActiveHand(EnumHand.MAIN_HAND);
-            NBTTagCompound nbt = is.getOrCreateSubCompound("RWBYM");
-            nbt.setInteger("inactive", 0);
+            if (reese) {
+	            NBTTagCompound nbt = is.getOrCreateSubCompound("RWBYM");
+	            nbt.setInteger("inactive", 0);
+            }
 
             return new ActionResult<>(EnumActionResult.SUCCESS, is);
         }else return ActionResult.newResult(EnumActionResult.FAIL, is);}
