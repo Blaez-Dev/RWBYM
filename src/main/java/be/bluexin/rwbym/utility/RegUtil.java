@@ -126,6 +126,8 @@ public class RegUtil {
         registerItems(event, RWBYItems.ozmacanewind);
         registerItems(event, RWBYItems.reese);
         registerItems(event, RWBYItems.reesegun);
+        registerItems(event, RWBYItems.bolin);
+        registerItems(event, RWBYItems.bolinblade);
 
         //Items
         registerItems(event, RWBYItems.dustcrystal);

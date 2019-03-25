@@ -1,4 +1,5 @@
 {
+	"credit": "Made with Blockbench",
 	"textures": {
 		"0": "rwbym:blocks/colorpaletteresse",
 		"1": "rwbym:blocks/awool_colored_silver",
@@ -632,11 +633,11 @@
 		},
 		"firstperson_righthand": {
 			"rotation": [0, 90, 0],
-			"translation": [0, -4.25, 0]
+			"translation": [0, -80, 0]
 		},
 		"firstperson_lefthand": {
 			"rotation": [0, 90, 0],
-			"translation": [0, -4.25, 0]
+			"translation": [0, -80, 0]
 		},
 		"ground": {
 			"scale": [1, 0.5, 1]
@@ -656,11 +657,11 @@
 		}
 	},
 	"overrides": [
-        {
-            "predicate": {
-                "blocking": 1
-            },
-            "model": "rwbym:item/reeseblock"
-        }
-    ]
+		{
+			"predicate": {
+				"blocking": 1
+			},
+			"model": "rwbym:item/reeseblock"
+		}
+	]
 }

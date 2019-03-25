@@ -24,6 +24,7 @@ import be.bluexin.rwbym.utility.network.RWBYNetworkHandler;
 import be.bluexin.rwbym.weaponry.ICustomItem;
 import be.bluexin.rwbym.weaponry.RWBYContainerItem;
 import be.bluexin.rwbym.weaponry.RWBYSword;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
@@ -39,6 +40,7 @@ import net.minecraft.util.EntityDamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -213,9 +215,7 @@ public class RWBYModels {
         float damage = e.getAmount();
         ItemStack activeItemStack = player.getActiveItemStack();
 
-        if(activeItemStack.getItem() == RWBYItems.reese){
-            damage = 3;
-        }
+
 
         if (damage > 0.0F && !activeItemStack.isEmpty() && activeItemStack.getItem() instanceof RWBYSword && ((RWBYSword) activeItemStack.getItem()).isShield) {
             activeItemStack.damageItem(1 + MathHelper.floor(damage), player);

@@ -54,7 +54,6 @@ public class RWBYSword extends ItemSword implements ICustomItem {
     private boolean kkfire = false;
     private boolean kkice = false;
     private boolean kkwind = false;
-    public boolean reese;
     public static boolean runhideevent = false;
     private int timer;
     private boolean magna = false;
@@ -74,8 +73,6 @@ public class RWBYSword extends ItemSword implements ICustomItem {
         if(name.contains("neoumb_closed")) neo = true;
         if(name.contains("neoumb_closed_blade")) neo = true;
         if(name.contains("neoumb_handle_blade")) neo = true;
-        if(name.contains("reese")) neo = true;
-        if(name.contains("reese")) reese = true;
 
         this.morph = morph;
         this.fire = fire;
@@ -160,125 +157,6 @@ public class RWBYSword extends ItemSword implements ICustomItem {
             else{is.damageItem(365, player);
             }}
         }
-        if(entity instanceof  EntityPlayer){
-            EntityPlayer player = (EntityPlayer) entity;
-            if(player.getHeldItemMainhand().getItem() == RWBYItems.reese && player.getHeldItemMainhand().getOrCreateSubCompound("RWBYM").getInteger("inactive") < 2){
-            	
-                if (world.isRemote) {
-                
-                	double r = player.rotationYaw * Math.PI / 180;
-                
-	                double x = player.motionX;
-	                double y = player.motionY;
-	                double z = player.motionZ;
-	                BlockPos pos;
-	                for (pos = new BlockPos(player); world.isAirBlock(pos) && pos.getY() > -1000; pos = pos.add(0, -1, 0));
-	                
-	                double u = z*Math.cos(r) - x*Math.sin(r);
-	                double v = -x*Math.cos(r) - z*Math.sin(r);
-	                
-	                double mu = 0;
-	                double mv = 0;
-	                double my = 2;
-	                                                
-	                if (Minecraft.getMinecraft().gameSettings.keyBindForward.isKeyDown()) {
-	                	mu += 2.0;
-	                }
-	                if (Minecraft.getMinecraft().gameSettings.keyBindBack.isKeyDown()) {
-	                	mu -= 0.2;
-	                }
-	                if (Minecraft.getMinecraft().gameSettings.keyBindLeft.isKeyDown()) {
-	                	mv -= 2.0;
-	                }
-	                if (Minecraft.getMinecraft().gameSettings.keyBindRight.isKeyDown()) {
-	                	mv += 2.0;
-	                }
-	                
-	                if (player.isSprinting()) {
-	                	mu *= 2;
-	                	mv *= 2;
-	                }
-	                if (player.isSneaking()) {
-	                	mu /= 2;
-	                	mv /= 2;
-	                	my /= 2;
-	                }
-	                                
-	                double du = mu - u;
-	                double dv = mv - v;
-	                double dy = my - y;
-	                
-	                double a = mu != 0 ? Math.atan(mv/mu) / Math.PI * 180 : mv == 0 ? 0 : 90 * mv / Math.abs(mv);
-	                	                
-	                player.renderYawOffset = (float) (player.rotationYaw + a);
-	                
-	                dy = my - (player.posY - (pos.getY() + 1));
-	                
-	                double d = 0.3;
-	                
-	                if (dy < -1) {
-	                	d /= -dy;
-	                }
-	                
-	                if (dy < 0) {
-	                	dy = 0;
-	                }
-	                                
-	                u += du * 0.05;
-	                v += dv * 0.05;
-	                y += dy * 0.15 - d*y;
-	                
-	                x = -v*Math.cos(r) - u*Math.sin(r);
-	                z = u*Math.cos(r) - v*Math.sin(r);
-	                
-	                player.motionX = x;
-	                player.motionY = y;
-	                player.motionZ = z;
-                }
-                
-            	if (!world.isRemote) {
-	                this.timer++;
-	               /* if(timer > 20){
-		                player.getActiveItemStack().damageItem(1, player);
-		                this.timer = 0;
-	                }*/
-	            	
-	                player.fallDistance = 0;
-	
-	                AxisAlignedBB axisalignedbb = player.getEntityBoundingBox().grow(1.5,0,1.5);
-	
-	                List<Entity> list1 = player.world.getEntitiesWithinAABBExcludingEntity(player, axisalignedbb);
-	
-	                if (!list1.isEmpty())
-	                {
-	                    double y1 = Math.pow(player.motionY, 2);
-	                    double x1 = Math.pow(player.motionX, 2);
-	                    double z1 = Math.pow(player.motionZ, 2);
-	                    
-	                    double d3 = Math.sqrt(x1+y1+z1);
-	                    float f = (float)d3;
-	                    d3 = d3/2;
-	                    RWBYModels.LOGGER.info(d3);
-	
-	                    for (Entity entity2 : list1)
-	                    {
-	                        if (entity2 instanceof EntityLivingBase) {
-	                            EntityLivingBase entitylivingbase = (EntityLivingBase)entity2;
-	                            entitylivingbase.attackEntityFrom(new EntityDamageSource("rose petal", player), f*10);
-	                            player.getActiveItemStack().damageItem(3, player);
-	                        }
-	                    }
-	                }
-            	}
-            }
-            if (!player.isHandActive() && is.getItem() == RWBYItems.reese) {
-            	NBTTagCompound nbt = is.getOrCreateSubCompound("RWBYM");
-            	nbt.setInteger("inactive", nbt.getInteger("inactive") + 1);
-            	if (nbt.getInteger("inactive") < 2 && player.getHeldItemMainhand().getItem() == RWBYItems.reese) {
-            		player.setActiveHand(EnumHand.MAIN_HAND);
-            	}
-            }
-        }
 
         if (!world.isRemote && this.data != null) {
             NBTTagCompound atag = is.getTagCompound();
@@ -312,14 +190,6 @@ public class RWBYSword extends ItemSword implements ICustomItem {
         } else if (this.isShield && hand == EnumHand.OFF_HAND) {
             playerIn.setActiveHand(EnumHand.OFF_HAND);
             return new ActionResult<>(EnumActionResult.SUCCESS, is);
-        }else if ((canBlock || reese) && hand == EnumHand.MAIN_HAND) {
-            playerIn.setActiveHand(EnumHand.MAIN_HAND);
-            if (reese) {
-	            NBTTagCompound nbt = is.getOrCreateSubCompound("RWBYM");
-	            nbt.setInteger("inactive", 0);
-            }
-
-            return new ActionResult<>(EnumActionResult.SUCCESS, is);
         }else return ActionResult.newResult(EnumActionResult.FAIL, is);}
 
     @Override
@@ -335,12 +205,12 @@ public class RWBYSword extends ItemSword implements ICustomItem {
 
     @Override
     public int getMaxItemUseDuration(ItemStack stack) {
-        return this.isShield ? 72000 : this.canBlock || this.reese ? 72000 : 0;
+        return this.isShield ? 72000 : this.canBlock ? 72000 : 0;
     }
 
     @Override
     public EnumAction getItemUseAction(ItemStack stack) {
-        return this.isShield ? EnumAction.BLOCK : this.canBlock ? EnumAction.BLOCK : this.reese ? EnumAction.BOW : EnumAction.NONE;
+        return this.isShield ? EnumAction.BLOCK : this.canBlock ? EnumAction.BLOCK  : EnumAction.NONE;
     }
 
 

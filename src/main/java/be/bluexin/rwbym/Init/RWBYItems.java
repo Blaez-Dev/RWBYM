@@ -764,7 +764,7 @@ public class RWBYItems {
             0,
             0,
             null);
-    public static final Item reese = new RWBYSword(
+    public static final Item reese = new KineticWeapons(
             "reese",
             2500,
             -4,
@@ -792,6 +792,33 @@ public class RWBYItems {
             0,
             0,
             null);
+    public static final Item bolin = new RWBYSword(
+            "bolin",
+            2500,
+            12,
+            0,
+            null,
+            "rwbym:bolinblade",
+            false,
+            true,
+            false,
+            false,
+            0,
+            RWBYCreativeTabs.tab_rwbyweapons);
+    public static final Item bolinblade = new RWBYSword(
+            "bolinblade",
+            2500,
+            13,
+            0,
+            null,
+            "rwbym:bolin",
+            false,
+            true,
+            false,
+            false,
+            0,
+            null);
+
 
 
     //------------------------------------------------//
