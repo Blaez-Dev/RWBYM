@@ -4,7 +4,7 @@
       "name": "armagigas",
       "rolls": {
         "min": 1,
-        "max": 2
+        "max": 4
       },
       "entries": [
         {
@@ -16,41 +16,41 @@
           "type": "item",
           "name": "rwbym:remnants",
           "weight": 40
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "condition": "killed_by_player"
         },
         {
-          "conditions": [
-            {
-              "condition": "killed_by_player"
-            },
-            {
-              "condition": "random_chance_with_looting",
-              "chance": 0.025,
-              "looting_multiplier": 0.01
-            }
-          ],
-          "rolls": 1,
-          "entries": [
-            {
-              "type": "item",
-              "name": "rwbym:coinr",
-              "weight": 1
-            },
-            {
-              "type": "item",
-              "name": "rwbym:coinw",
-              "weight": 1
-            },{
-              "type": "item",
-              "name": "rwbym:coinb",
-              "weight": 1
-            },{
-              "type": "item",
-              "name": "rwbym:coiny",
-              "weight": 1
-            }
-          ]
+          "condition": "random_chance_with_looting",
+          "chance": 0.25,
+          "looting_multiplier": 0.01
         }
-
+      ],
+      "name": "armagigas1",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "rwbym:coinr",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:coinw",
+          "weight": 1
+        },{
+          "type": "item",
+          "name": "rwbym:coinb",
+          "weight": 1
+        },{
+          "type": "item",
+          "name": "rwbym:coiny",
+          "weight": 1
+        }
       ]
     }
   ]

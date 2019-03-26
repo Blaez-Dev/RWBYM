@@ -196,14 +196,14 @@ public class KineticWeapons extends ItemSword implements ICustomItem {
                         mv += 2.0;
                     }
 
-                    if (Minecraft.getMinecraft().gameSettings.keyBindSprint.isKeyDown()) {
+                    /*if (Minecraft.getMinecraft().gameSettings.keyBindSprint.isKeyDown()) {
                         mu *= 2;
                         mv *= 2;
                         my *= 2;
                         if (player.isSprinting()) {
                         	player.setSprinting(false);
                         }
-                    }
+                    }*/
                     if (Minecraft.getMinecraft().gameSettings.keyBindSneak.isKeyDown()) {
                         mu /= 2;
                         mv /= 2;
@@ -261,16 +261,16 @@ public class KineticWeapons extends ItemSword implements ICustomItem {
                     
                     double d3 = Math.sqrt(x1*x1+y1*y1+z1*z1);
                     
-                    if (y1 > 1) {
-                    	RWBYModels.LOGGER.info("damaged 10");
+                    /*if (y1 > 1) {
+                    	//RWBYModels.LOGGER.info("damaged 10");
                     	player.getHeldItem(EnumHand.MAIN_HAND).damageItem(10, player);
                     }
                     
-                    if (timer > 5 / d3) {
-                    	RWBYModels.LOGGER.info("damaged 1");
+                   /* if (timer > 5 / d3) {
+                    	//RWBYModels.LOGGER.info("damaged 1");
                     	player.getHeldItem(EnumHand.MAIN_HAND).damageItem(1, player);
                     	timer = 0;
-                    }
+                    }*/
 
                     AxisAlignedBB axisalignedbb = player.getEntityBoundingBox().grow(1.5,0,1.5);
 
@@ -286,7 +286,7 @@ public class KineticWeapons extends ItemSword implements ICustomItem {
                             if (entity2 instanceof EntityLivingBase) {
                                 EntityLivingBase entitylivingbase = (EntityLivingBase)entity2;
                                 if (entitylivingbase.attackEntityFrom(new EntityDamageSource("rose petal", player), f*10)) {
-                                	RWBYModels.LOGGER.info("damaged 1e");
+                                	//RWBYModels.LOGGER.info("damaged 1e");
                                 	player.getHeldItem(EnumHand.MAIN_HAND).damageItem(1, player);
                                 }
                             }
