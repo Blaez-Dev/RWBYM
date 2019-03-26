@@ -1,11 +1,14 @@
 package be.bluexin.rwbym.weaponry;
 
 import be.bluexin.rwbym.Init.RWBYItems;
+import be.bluexin.rwbym.utility.ExtraInfo;
 import be.bluexin.rwbym.utility.network.MessagePlayerMotionUpdate;
 import be.bluexin.rwbym.utility.network.RWBYNetworkHandler;
+import be.bluexin.rwbym.PlayerRenderHandler;
 import be.bluexin.rwbym.RWBYModels;
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -170,12 +173,12 @@ public class KineticWeapons extends ItemSword implements ICustomItem {
 
                     double r = player.rotationYaw * Math.PI / 180;
 
-                    double x = player.motionX;
-                    double y = player.motionY;
-                    double z = player.motionZ;
+                    double x = player.motionX / 0.91;
+                    double y = player.motionY / 0.98;
+                    double z = player.motionZ / 0.91;
                     BlockPos pos;
                     for (pos = new BlockPos(player); world.isAirBlock(pos) && pos.getY() > 0; pos = pos.add(0, -1, 0));
-
+                    
                     double u = z*Math.cos(r) - x*Math.sin(r);
                     double v = -x*Math.cos(r) - z*Math.sin(r);
 
@@ -184,36 +187,51 @@ public class KineticWeapons extends ItemSword implements ICustomItem {
                     double my = 2;
                     
                     if (Minecraft.getMinecraft().gameSettings.keyBindForward.isKeyDown()) {
-                        mu += 2.0;
+                        mu += player.getAIMoveSpeed() * 5;
                     }
                     if (Minecraft.getMinecraft().gameSettings.keyBindBack.isKeyDown()) {
-                        mu -= 0.2;
+                        mu -= player.getAIMoveSpeed() * 0.5;
                     }
                     if (Minecraft.getMinecraft().gameSettings.keyBindLeft.isKeyDown()) {
-                        mv -= 2.0;
+                        mv -= player.getAIMoveSpeed() * 5;
                     }
                     if (Minecraft.getMinecraft().gameSettings.keyBindRight.isKeyDown()) {
-                        mv += 2.0;
+                        mv += player.getAIMoveSpeed() * 5;
                     }
 
-                    /*if (Minecraft.getMinecraft().gameSettings.keyBindSprint.isKeyDown()) {
+                    if (Minecraft.getMinecraft().gameSettings.keyBindSprint.isKeyDown()) {
                         mu *= 2;
                         mv *= 2;
-                        my *= 2;
+                        //my *= 2;
                         if (player.isSprinting()) {
                         	player.setSprinting(false);
                         }
-                    }*/
+                    }
                     if (Minecraft.getMinecraft().gameSettings.keyBindSneak.isKeyDown()) {
                         mu /= 2;
                         mv /= 2;
-                        my /= 2;
+                        //my /= 2;
                         if (player.isSneaking()) {
                         	player.setSneaking(false);
                         }
                     }
                     
+                    double m = Math.sqrt(mu*mu + mv*mv);
+                                        
+                    if (m != 0) {
+	                    mu = mu / m * Math.abs(mu == 0 ? mv : mu);
+	                    mv = mv / m * Math.abs(mu == 0 ? mv : mu);
+                    }
+                    
+                    double a = mu != 0 ? Math.atan(mv/mu) / Math.PI * 180 : mv == 0 ? 0 : 90 * mv / Math.abs(mv);
+                    
+                    if (mu == 0) {
+                    	a = 0;
+                    }
+                    
                     double dy = my - (player.posY - (pos.getY() + 1));
+                    
+                    double py = y;
                     
                     if (Minecraft.getMinecraft().gameSettings.keyBindJump.isKeyDown() && dy > 0) {
                 		y += 2;
@@ -221,11 +239,7 @@ public class KineticWeapons extends ItemSword implements ICustomItem {
 
                     double du = mu - u;
                     double dv = mv - v;
-
-                    double a = mu != 0 ? Math.atan(mv/mu) / Math.PI * 180 : mv == 0 ? 0 : 90 * mv / Math.abs(mv);
-
-                    player.renderYawOffset = (float) (player.rotationYaw + a);
-
+                    
                     double d = 0.3;
 
                     if (dy < -1) {
@@ -234,18 +248,53 @@ public class KineticWeapons extends ItemSword implements ICustomItem {
 
                     if (dy < 0) {
                         dy = 0;
+                        d = d / 2 * (y < 0 ? -y*5 : 0);
                     }
-
+                    
                     u += du * 0.05;
-                    v += dv * 0.05;
+                    v += dv * 0.1 / (Math.abs(v)*Math.abs(v) < 1 ? 1 : Math.abs(v)*Math.abs(v));
                     y += dy * 0.15 - d*y;
+                    
+                    double r2 = player.renderYawOffset * Math.PI / 180;
+
+                    double u1 = z*Math.cos(r2) - x*Math.sin(r2);
+                    double v1 = -x*Math.cos(r2) - z*Math.sin(r2);
 
                     x = -v*Math.cos(r) - u*Math.sin(r);
                     z = u*Math.cos(r) - v*Math.sin(r);
+                    
+                    double drag = 1;
+                    x *= drag;
+                    y *= drag;
+                    z *= drag;
+
+                    double u2 = z*Math.cos(r2) - x*Math.sin(r2);
+                    double v2 = -x*Math.cos(r2) - z*Math.sin(r2);
+                    
+                    ExtraInfo info = PlayerRenderHandler.playerInfo.get(player);
+                    
+                    if (info == null) {
+                    	info = new ExtraInfo();
+                    	PlayerRenderHandler.playerInfo.put((EntityPlayerSP) player, info);
+                    }
+
+                    info.prevMotionF = info.motionF;
+                    info.prevMotionR = info.motionR;
+                    info.prevMotionU = info.motionU;
+                    info.motionF = u2;
+                    info.motionR = v2;
+                    info.motionU = y;
+                    info.prevAccelF = info.accelF;
+                    info.prevAccelR = info.accelR;
+                    info.accelF = u2 - u1;
+                    info.accelR = v2 - v1;
+                    info.prevAngle = info.angle;
+                    info.angle = a;
 
                     player.motionX = x;
                     player.motionY = y;
                     player.motionZ = z;
+                    
                     RWBYNetworkHandler.sendToServer(new MessagePlayerMotionUpdate(player));
                 }
 

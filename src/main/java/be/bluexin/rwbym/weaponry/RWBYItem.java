@@ -95,14 +95,14 @@ public class RWBYItem extends Item implements ICustomItem {
     @SuppressWarnings("Duplicates")
     @Override
     public void onUpdate(ItemStack is, World world, Entity entity, int slotIn, boolean inHand) {
-        if(entity instanceof EntityPlayerMP){
-            final EntityPlayerMP player = (EntityPlayerMP)entity;
+        if(entity instanceof EntityPlayer){
+            final EntityPlayer player = (EntityPlayer)entity;
             if(player.getHeldItem(EnumHand.OFF_HAND) == is && gravity){
                 if (!player.onGround)
                 {
-                    player.motionY *= 0.8;
+                    player.motionY += 0.05;
                     player.fallDistance = 0;
-                    player.velocityChanged = true;
+                    //player.velocityChanged = true;
                 }
             }
             if(player.getHeldItem(EnumHand.OFF_HAND) == is && water){
