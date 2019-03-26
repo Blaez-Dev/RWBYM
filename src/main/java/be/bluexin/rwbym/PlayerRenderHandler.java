@@ -38,7 +38,7 @@ public class PlayerRenderHandler {
 		}
 
 
-		if(renderedPlayer.getActiveItemStack().getItem() == RWBYItems.reese){
+		if(renderedPlayer.getHeldItemMainhand().getItem() == RWBYItems.reese && renderedPlayer.getHeldItemMainhand().getOrCreateSubCompound("RWBYM").getInteger("inactive") < 2){
 			renderedPlayer.limbSwingAmount = 0;
 			renderedPlayer.prevLimbSwingAmount = 0;
 			GlStateManager.pushMatrix();				
@@ -61,7 +61,7 @@ public class PlayerRenderHandler {
 				
 				GlStateManager.rotate(90 - y3, 0, 1, 0);
 				
-				Minecraft.getMinecraft().getItemRenderer().renderItem(renderedPlayer, renderedPlayer.getActiveItemStack(), TransformType.HEAD);
+				Minecraft.getMinecraft().getItemRenderer().renderItem(renderedPlayer, renderedPlayer.getHeldItemMainhand(), TransformType.HEAD);
 			
 			GlStateManager.popMatrix();
 

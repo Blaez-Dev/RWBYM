@@ -21,6 +21,7 @@ public class RWBYNetworkHandler {
 	    INSTANCE.registerMessage(MessageGetPlayerData.class, MessageGetPlayerData.class, i++, Side.SERVER);
 	    INSTANCE.registerMessage(MessageSendPlayerData.class, MessageSendPlayerData.class, i++, Side.CLIENT);
 	    INSTANCE.registerMessage(MessagePosVelUpdate.class, MessagePosVelUpdate.class, i++, Side.CLIENT);
+	    INSTANCE.registerMessage(MessagePlayerMotionUpdate.class, MessagePlayerMotionUpdate.class, i++, Side.SERVER);
 	    
     }
     

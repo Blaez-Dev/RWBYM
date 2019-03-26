@@ -1,6 +1,8 @@
 package be.bluexin.rwbym.weaponry;
 
 import be.bluexin.rwbym.Init.RWBYItems;
+import be.bluexin.rwbym.utility.network.MessagePlayerMotionUpdate;
+import be.bluexin.rwbym.utility.network.RWBYNetworkHandler;
 import be.bluexin.rwbym.RWBYModels;
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.client.Minecraft;
@@ -88,7 +90,7 @@ public class KineticWeapons extends ItemSword implements ICustomItem {
             @SideOnly(Side.CLIENT)
             public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn)
             {
-                return entityIn != null && entityIn.isHandActive() && entityIn.getActiveItemStack() == stack ? 1.0F : 0.0F;
+                return entityIn != null && entityIn.getHeldItemMainhand().getItem() == RWBYItems.reese && entityIn.getHeldItemMainhand().getOrCreateSubCompound("RWBYM").getInteger("inactive") < 2 ? 1.0F : 0.0F;
             }
         });
 
@@ -180,7 +182,7 @@ public class KineticWeapons extends ItemSword implements ICustomItem {
                     double mu = 0;
                     double mv = 0;
                     double my = 2;
-
+                    
                     if (Minecraft.getMinecraft().gameSettings.keyBindForward.isKeyDown()) {
                         mu += 2.0;
                     }
@@ -194,25 +196,35 @@ public class KineticWeapons extends ItemSword implements ICustomItem {
                         mv += 2.0;
                     }
 
-                    if (player.isSprinting()) {
+                    if (Minecraft.getMinecraft().gameSettings.keyBindSprint.isKeyDown()) {
                         mu *= 2;
                         mv *= 2;
+                        my *= 2;
+                        if (player.isSprinting()) {
+                        	player.setSprinting(false);
+                        }
                     }
-                    if (player.isSneaking()) {
+                    if (Minecraft.getMinecraft().gameSettings.keyBindSneak.isKeyDown()) {
                         mu /= 2;
                         mv /= 2;
                         my /= 2;
+                        if (player.isSneaking()) {
+                        	player.setSneaking(false);
+                        }
+                    }
+                    
+                    double dy = my - (player.posY - (pos.getY() + 1));
+                    
+                    if (Minecraft.getMinecraft().gameSettings.keyBindJump.isKeyDown() && dy > 0) {
+                		y += 2;
                     }
 
                     double du = mu - u;
                     double dv = mv - v;
-                    double dy = my - y;
 
                     double a = mu != 0 ? Math.atan(mv/mu) / Math.PI * 180 : mv == 0 ? 0 : 90 * mv / Math.abs(mv);
 
                     player.renderYawOffset = (float) (player.rotationYaw + a);
-
-                    dy = my - (player.posY - (pos.getY() + 1));
 
                     double d = 0.3;
 
@@ -234,13 +246,31 @@ public class KineticWeapons extends ItemSword implements ICustomItem {
                     player.motionX = x;
                     player.motionY = y;
                     player.motionZ = z;
+                    RWBYNetworkHandler.sendToServer(new MessagePlayerMotionUpdate(player));
                 }
 
                 if (!world.isRemote) {
-                    this.timer++;
-
+                	
+                	this.timer++;
 
                     player.fallDistance = 0;
+                    
+                    double y1 = player.motionY;
+                    double x1 = player.motionX;
+                    double z1 = player.motionZ;
+                    
+                    double d3 = Math.sqrt(x1*x1+y1*y1+z1*z1);
+                    
+                    if (y1 > 1) {
+                    	RWBYModels.LOGGER.info("damaged 10");
+                    	player.getHeldItem(EnumHand.MAIN_HAND).damageItem(10, player);
+                    }
+                    
+                    if (timer > 5 / d3) {
+                    	RWBYModels.LOGGER.info("damaged 1");
+                    	player.getHeldItem(EnumHand.MAIN_HAND).damageItem(1, player);
+                    	timer = 0;
+                    }
 
                     AxisAlignedBB axisalignedbb = player.getEntityBoundingBox().grow(1.5,0,1.5);
 
@@ -248,21 +278,17 @@ public class KineticWeapons extends ItemSword implements ICustomItem {
 
                     if (!list1.isEmpty())
                     {
-                        double y1 = Math.pow(player.motionY, 2);
-                        double x1 = Math.pow(player.motionX, 2);
-                        double z1 = Math.pow(player.motionZ, 2);
 
-                        double d3 = Math.sqrt(x1+y1+z1);
                         float f = (float)d3;
-                        d3 = d3/2;
-                        RWBYModels.LOGGER.info(d3);
 
                         for (Entity entity2 : list1)
                         {
                             if (entity2 instanceof EntityLivingBase) {
                                 EntityLivingBase entitylivingbase = (EntityLivingBase)entity2;
-                                entitylivingbase.attackEntityFrom(new EntityDamageSource("rose petal", player), f*10);
-                                player.getHeldItem(EnumHand.MAIN_HAND).damageItem(1, player);
+                                if (entitylivingbase.attackEntityFrom(new EntityDamageSource("rose petal", player), f*10)) {
+                                	RWBYModels.LOGGER.info("damaged 1e");
+                                	player.getHeldItem(EnumHand.MAIN_HAND).damageItem(1, player);
+                                }
                             }
                         }
                     }

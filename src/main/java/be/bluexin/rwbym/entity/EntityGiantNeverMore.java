@@ -42,7 +42,7 @@ public class EntityGiantNeverMore extends EntityMob
     public EntityGiantNeverMore(World worldIn)
     {
         super(worldIn);
-        this.setSize(1.5F, 3F);
+        this.setSize(4F, 7F);
         this.experienceValue = 3;
         this.targetPos = Vec3d.ZERO;
         this.circleCenter = BlockPos.ORIGIN;
@@ -421,7 +421,7 @@ public class EntityGiantNeverMore extends EntityMob
 
         private void setTargetPosition() {
             if (BlockPos.ORIGIN.equals(be.bluexin.rwbym.entity.EntityGiantNeverMore.this.circleCenter)) {
-                be.bluexin.rwbym.entity.EntityGiantNeverMore.this.circleCenter = new BlockPos(be.bluexin.rwbym.entity.EntityGiantNeverMore.this);
+                be.bluexin.rwbym.entity.EntityGiantNeverMore.this.circleCenter = new BlockPos(be.bluexin.rwbym.entity.EntityGiantNeverMore.this).add(0, 20, 0);
             }
 
             this.angle += this.direction * 15.0F * 0.017453292F;
