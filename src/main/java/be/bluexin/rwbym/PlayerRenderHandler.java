@@ -104,8 +104,8 @@ public class PlayerRenderHandler {
 						ang2 = 0;
 					}
 					
-					ang1 = MathHelper.clamp(ang1, -60, 60);
-					ang2 = MathHelper.clamp(ang2, -60, 60);
+					ang1 = MathHelper.clamp(ang1, -30, 30);
+					ang2 = MathHelper.clamp(ang2, -30, 30);
 					
 					double ang = (1 - pt) * ang1 + pt * ang2;
 										

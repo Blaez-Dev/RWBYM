@@ -9,11 +9,6 @@
       "entries": [
         {
           "type": "item",
-          "name": "rwbym:armasword",
-          "weight": 5
-        },
-        {
-          "type": "item",
           "name": "rwbym:remnants",
           "weight": 40
         }
@@ -34,6 +29,11 @@
       "rolls": 1,
       "entries": [
         {
+        "type": "item",
+        "name": "rwbym:armasword",
+        "weight": 5
+      },
+        {
           "type": "item",
           "name": "rwbym:coinr",
           "weight": 1
@@ -50,6 +50,42 @@
           "type": "item",
           "name": "rwbym:coiny",
           "weight": 1
+        },{
+          "type": "item",
+          "name": "rwbym:smrgrave",
+          "weight": 2,
+          "count": 1
+        },{
+          "type": "item",
+          "name": "rwbym:roseiron",
+          "weight": 2,
+          "count": 2
+        },
+        {
+          "type": "item",
+          "name": "rwbym:frostediron",
+          "weight": 2,
+          "count": 2
+        },{
+          "type": "item",
+          "name": "rwbym:shadowiron",
+          "weight": 2,
+          "count": 2
+        },{
+          "type": "item",
+          "name": "rwbym:gildediron",
+          "weight":2,
+          "count": 2
+        },{
+          "type": "item",
+          "name": "rwbym:forestiron",
+          "weight":2,
+          "count": 2
+        },{
+          "type": "item",
+          "name": "rwbym:viridianiron",
+          "weight":2,
+          "count": 2
         }
       ]
     }

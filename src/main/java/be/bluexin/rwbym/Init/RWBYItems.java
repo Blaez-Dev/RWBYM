@@ -9,6 +9,7 @@ import be.bluexin.rwbym.weaponry.ammohit.FireAmmoHit;
 import be.bluexin.rwbym.weaponry.ammohit.IAmmoHit;
 import be.bluexin.rwbym.weaponry.ammohit.PotionAmmoHit;
 import net.minecraft.block.material.Material;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityPotion;
 import net.minecraft.init.Items;
@@ -1146,6 +1147,31 @@ public class RWBYItems {
             0,
             0,
             null);
+    public  static  final Item sunstaff = new RWBYSword("sunstaff",
+            2500,
+            12.0F,
+            0,
+            null,
+            "rwbym:sunnunchuck",
+            false,
+            true,
+            false,
+            false,
+            0,
+            null);
+    public  static  final  Item sunnunchuck = new RWBYBow(
+            "sunnunchuck",
+            2500,
+            72,
+            0,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:14,Operation:0,UUIDMost:99791,UUIDLeast:128916}]}",
+            "rwbym:sunstaff", "rwbym:emammo,rwbym:emfireammo,rwbym:emflareammo",
+            false,
+            1.0F,
+            true,
+            0,
+            0,
+            RWBYCreativeTabs.tab_rwbyweapons);
 
     //------------------------------------------------//
     public static final Item ammo = new RWBYItem("ammo", null, false, RWBYCreativeTabs.tab_rwbyitems);

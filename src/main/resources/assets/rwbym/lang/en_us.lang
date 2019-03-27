@@ -220,6 +220,8 @@ item.rwbym:reese.name=Reese's Hoverboard
 item.rwbym:reesegun.name=Reese's Revolver
 item.rwbym:bolin.name=Bolin's Bo Staff
 item.rwbym:bolinblade.name=Bolin's Bo Staff
+item.rwbym:sunstaff.name=Ruyi Bang & Jingu Bang
+item.rwbym:sunnunchuck.name=Ruyi Bang & Jingu Bang
 
 itemGroup.rwby_weapons=RWBY Weapons
 itemGroup.rwby_items=RWBY Items

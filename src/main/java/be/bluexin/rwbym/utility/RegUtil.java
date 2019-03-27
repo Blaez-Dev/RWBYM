@@ -15,8 +15,9 @@ import net.minecraftforge.fml.relauncher.Side;
 
 public class RegUtil {
     public static void registerAll(FMLPreInitializationEvent event){
-        //Icon
+        //icon
         registerItems(event, RWBYItems.icon);
+        //entity models
         registerItems(event, RWBYItems.entitybullet);
         registerItems(event, RWBYItems.entityfireshell);
         registerItems(event, RWBYItems.entityflareshell);
@@ -31,8 +32,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.entityweisswater);
         registerItems(event, RWBYItems.entityweisswind);
         registerItems(event, RWBYItems.entityrocket);
-
-        //Blocks
+        //dust blocks
         registerBlocks(event, RWBYItems.rwbyblock1);
         registerBlocks(event, RWBYItems.rwbyblock2);
         registerBlocks(event, RWBYItems.rwbyblock3);
@@ -40,10 +40,7 @@ public class RegUtil {
         registerBlocks(event, RWBYItems.rwbyblock5);
         registerBlocks(event, RWBYItems.rwbyblock6);
         registerBlocks(event, RWBYItems.rwbyblock9);
-        registerBlocks(event, RWBYItems.rwbyblock7);
-
-
-        //Weapons
+        //weapons
         registerItems(event, RWBYItems.crescent);
         registerItems(event, RWBYItems.crescentfrost);
         registerItems(event, RWBYItems.crescentgunfrost);
@@ -105,6 +102,12 @@ public class RegUtil {
         registerItems(event, RWBYItems.kkfire);
         registerItems(event, RWBYItems.kkice);
         registerItems(event, RWBYItems.kkwind);
+        registerItems(event, RWBYItems.korekosmouoff);
+        registerItems(event, RWBYItems.korekosmoufire);
+        registerItems(event, RWBYItems.korekosmouwater);
+        registerItems(event, RWBYItems.korekosmouwind);
+        registerItems(event, RWBYItems.razorbolt);
+        registerItems(event, RWBYItems.razorboltknife);
         registerItems(event, RWBYItems.chatareus);
         registerItems(event, RWBYItems.chatareusgun);
         registerItems(event, RWBYItems.mariacane);
@@ -114,9 +117,6 @@ public class RegUtil {
         registerItems(event, RWBYItems.armaswordsummon);
         registerItems(event, RWBYItems.angelcane);
         registerItems(event, RWBYItems.angelsword);
-        registerItems(event, RWBYItems.razorbolt);
-        registerItems(event, RWBYItems.razorboltknife);
-        //Staffs
         registerItems(event, RWBYItems.ozmacane);
         registerItems(event, RWBYItems.ozmacanefire);
         registerItems(event, RWBYItems.ozmacanegravity);
@@ -124,12 +124,13 @@ public class RegUtil {
         registerItems(event, RWBYItems.ozmacanelightning);
         registerItems(event, RWBYItems.ozmacanewater);
         registerItems(event, RWBYItems.ozmacanewind);
+        registerItems(event, RWBYItems.sunnunchuck);
+        registerItems(event, RWBYItems.sunstaff);
         registerItems(event, RWBYItems.reese);
         registerItems(event, RWBYItems.reesegun);
         registerItems(event, RWBYItems.bolin);
         registerItems(event, RWBYItems.bolinblade);
-
-        //Items
+        //dust items
         registerItems(event, RWBYItems.dustcrystal);
         registerItems(event, RWBYItems.firedustcrystal);
         registerItems(event, RWBYItems.winddustcrystal);
@@ -144,12 +145,72 @@ public class RegUtil {
         registerItems(event, RWBYItems.waterdustrock);
         registerItems(event, RWBYItems.lightdustrock);
         registerItems(event, RWBYItems.icedustrock);
+        registerItems(event, RWBYItems.waterdust);
+        registerItems(event, RWBYItems.winddust);
+        registerItems(event, RWBYItems.firedust);
+        registerItems(event, RWBYItems.icedust);
+        registerItems(event, RWBYItems.lightdust);
+        registerItems(event, RWBYItems.gravitydust);
+        registerItems(event, RWBYItems.dust);
+        //entity spawning items
+        registerItems(event, RWBYItems.atlasknight);
+        registerItems(event, RWBYItems.armagigas);
+        //colored iron
         registerItems(event, RWBYItems.roseiron);
         registerItems(event, RWBYItems.frostediron);
         registerItems(event, RWBYItems.shadowiron);
         registerItems(event, RWBYItems.gildediron);
         registerItems(event, RWBYItems.viridianiron);
         registerItems(event, RWBYItems.forestiron);
+        //semblance coins
+        registerItems(event, RWBYItems.coinr);
+        registerItems(event, RWBYItems.coinw);
+        registerItems(event, RWBYItems.coinb);
+        registerItems(event, RWBYItems.coiny);
+        //lien items
+        registerItems(event, RWBYItems.lien1);
+        registerItems(event, RWBYItems.lien5);
+        registerItems(event, RWBYItems.lien10);
+        registerItems(event, RWBYItems.lien20);
+        registerItems(event, RWBYItems.lien50);
+        registerItems(event, RWBYItems.lien100);
+        registerItems(event, RWBYItems.lien500);
+        registerItems(event, RWBYItems.wallet);
+        //masks
+        registerItems(event, RWBYItems.rvnmask);
+        registerItems(event, RWBYItems.whtefng);
+        //repair items
+        registerBlocks(event, RWBYItems.rwbyblock8);
+        registerItems(event, RWBYItems.scrap);
+        //ammo
+        registerItems(event, RWBYItems.ammo);
+        registerItems(event, RWBYItems.gamammo);
+        registerItems(event, RWBYItems.emshell);
+        registerItems(event, RWBYItems.emfireshell);
+        registerItems(event, RWBYItems.emflareshell);
+        registerItems(event, RWBYItems.magngrenade);
+        registerItems(event, RWBYItems.gammag);
+        registerItems(event, RWBYItems.gamfiremag);
+        registerItems(event, RWBYItems.gamicemag);
+        registerItems(event, RWBYItems.gamgravmag);
+        registerItems(event, RWBYItems.emammo);
+        registerItems(event, RWBYItems.emfireammo);
+        registerItems(event, RWBYItems.emflareammo);
+        registerItems(event, RWBYItems.crmag);
+        registerItems(event, RWBYItems.crgravmag);
+        registerItems(event, RWBYItems.crfiremag);
+        registerItems(event, RWBYItems.crelectricmag);
+        registerItems(event, RWBYItems.magnammo);
+        registerItems(event, RWBYItems.chatmag);
+        registerItems(event, RWBYItems.chatelectricmag);
+        registerItems(event, RWBYItems.chatfiremag);
+        registerItems(event, RWBYItems.chatgravmag);
+        registerItems(event, RWBYItems.jnrammo);
+        registerItems(event, RWBYItems.ammov);
+        registerItems(event, RWBYItems.ammmo);
+        registerItems(event, RWBYItems.rzrbolt);
+        //mob drops
+        registerItems(event, RWBYItems.remnants);
         registerItems(event, RWBYItems.cr1);
         registerItems(event, RWBYItems.cr2);
         registerItems(event, RWBYItems.cr3);
@@ -181,70 +242,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.stor4);
         registerItems(event, RWBYItems.stor5);
         registerItems(event, RWBYItems.stor6);
-        registerItems(event, RWBYItems.scrap);
-        registerItems(event, RWBYItems.atlasknight);
-        registerItems(event, RWBYItems.coinr);
-        registerItems(event, RWBYItems.coinw);
-        registerItems(event, RWBYItems.coinb);
-        registerItems(event, RWBYItems.coiny);
-        registerItems(event, RWBYItems.armagigas);
-        registerItems(event, RWBYItems.remnants);
-        registerItems(event, RWBYItems.lien1);
-        registerItems(event, RWBYItems.lien5);
-        registerItems(event, RWBYItems.lien10);
-        registerItems(event, RWBYItems.lien20);
-        registerItems(event, RWBYItems.lien50);
-        registerItems(event, RWBYItems.lien100);
-        registerItems(event, RWBYItems.lien500);
-        registerItems(event, RWBYItems.wallet);
-
-        //Armour
-        registerItems(event, RWBYItems.korekosmouoff);
-        registerItems(event, RWBYItems.korekosmoufire);
-        registerItems(event, RWBYItems.korekosmouwater);
-        registerItems(event, RWBYItems.korekosmouwind);
-
-        //mask & 3D Helmets
-        registerItems(event, RWBYItems.rvnmask);
-        registerItems(event, RWBYItems.whtefng);
-        //registerItems(event, RWBYItems.rubyhood);
-
-        //Ammo Related Items
-        registerBlocks(event, RWBYItems.rwbyblock8);
-        registerItems(event, RWBYItems.ammo);
-        registerItems(event, RWBYItems.gamammo);
-        registerItems(event, RWBYItems.emshell);
-        registerItems(event, RWBYItems.emfireshell);
-        registerItems(event, RWBYItems.emflareshell);
-        registerItems(event, RWBYItems.magngrenade);
-        registerItems(event, RWBYItems.gammag);
-        registerItems(event, RWBYItems.gamfiremag);
-        registerItems(event, RWBYItems.gamicemag);
-        registerItems(event, RWBYItems.gamgravmag);
-        registerItems(event, RWBYItems.emammo);
-        registerItems(event, RWBYItems.emfireammo);
-        registerItems(event, RWBYItems.emflareammo);
-        registerItems(event, RWBYItems.crmag);
-        registerItems(event, RWBYItems.crgravmag);
-        registerItems(event, RWBYItems.crfiremag);
-        registerItems(event, RWBYItems.crelectricmag);
-        registerItems(event, RWBYItems.magnammo);
-        registerItems(event, RWBYItems.waterdust);
-        registerItems(event, RWBYItems.winddust);
-        registerItems(event, RWBYItems.firedust);
-        registerItems(event, RWBYItems.icedust);
-        registerItems(event, RWBYItems.lightdust);
-        registerItems(event, RWBYItems.gravitydust);
-        registerItems(event, RWBYItems.dust);
-        registerItems(event, RWBYItems.jnrammo);
-        registerItems(event, RWBYItems.ammov);
-        registerItems(event, RWBYItems.ammmo);
-        registerItems(event, RWBYItems.chatmag);
-        registerItems(event, RWBYItems.chatelectricmag);
-        registerItems(event, RWBYItems.chatfiremag);
-        registerItems(event, RWBYItems.chatgravmag);
-        registerItems(event, RWBYItems.rzrbolt);
-
+        registerBlocks(event, RWBYItems.rwbyblock7);
 
 
     }

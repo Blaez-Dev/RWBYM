@@ -190,6 +190,9 @@ public class RWBYSword extends ItemSword implements ICustomItem {
         } else if (this.isShield && hand == EnumHand.OFF_HAND) {
             playerIn.setActiveHand(EnumHand.OFF_HAND);
             return new ActionResult<>(EnumActionResult.SUCCESS, is);
+        }else if (canBlock && hand == EnumHand.MAIN_HAND) {
+            playerIn.setActiveHand(EnumHand.MAIN_HAND);
+            return new ActionResult<>(EnumActionResult.SUCCESS, is);
         }else return ActionResult.newResult(EnumActionResult.FAIL, is);}
 
     @Override
