@@ -1172,6 +1172,46 @@ public class RWBYItems {
             0,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
+    public static final Item neptunegun = new RWBYBow(
+            "neptunegun",
+            2500,
+            72,
+            0,
+            null,
+            "rwbym:neptunespear",
+            "rwbym:neptammo,rwbym:magnaampammo",
+            false,
+            2,
+            true,
+            0,
+            0,
+            RWBYCreativeTabs.tab_rwbyweapons);
+    public  static  final Item neptunespear = new RWBYSword(
+            "neptunespear",
+            2500,
+            11.0F,
+            0,
+            null,
+            "rwbym:neptunetrident",
+            false,
+            true,
+            false,
+            true,
+            0,
+            null);
+    public  static  final Item neptunetrident = new RWBYSword(
+            "neptunetrident",
+            2500,
+            12.0F,
+            0,
+            null,
+            "rwbym:neptunegun",
+            false,
+            true,
+            false,
+            false,
+            0,
+            null);
 
     //------------------------------------------------//
     public static final Item ammo = new RWBYItem("ammo", null, false, RWBYCreativeTabs.tab_rwbyitems);
@@ -1200,38 +1240,38 @@ public class RWBYItems {
     public static final Item shadowiron = new RWBYItem("shadowiron", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item viridianiron = new RWBYItem("viridianiron", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item forestiron = new RWBYItem("forestiron", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static final Item cr1 = new RWBYItem("cr1", null, false, null);
-    public static final Item cr2 = new RWBYItem("cr2", null, false, null);
-    public static final Item cr3 = new RWBYItem("cr3", null, false, null);
-    public static final Item cr4 = new RWBYItem("cr4", null, false, null);
-    public static final Item cr5 = new RWBYItem("cr5", null, false, null);
-    public static final Item cr6 = new RWBYItem("cr6", null, false, null);
-    public static final Item mytre1 = new RWBYItem("mytre1", null, false, null);
-    public static final Item mytre2 = new RWBYItem("mytre2", null, false, null);
-    public static final Item mytre3 = new RWBYItem("mytre3", null, false, null);
-    public static final Item gam1 = new RWBYItem("gam1", null, false, null);
-    public static final Item gam2 = new RWBYItem("gam2", null, false, null);
-    public static final Item gam3 = new RWBYItem("gam3", null, false, null);
-    public static final Item em1 = new RWBYItem("em1", null, false, null);
-    public static final Item em2 = new RWBYItem("em2", null, false, null);
-    public static final Item em3 = new RWBYItem("em3", null, false, null);
-    public static final Item cro1 = new RWBYItem("cro1", null, false, null);
-    public static final Item cro2 = new RWBYItem("cro2", null, false, null);
-    public static final Item cro3 = new RWBYItem("cro3", null, false, null);
-    public static final Item magn1 = new RWBYItem("magn1", null, false, null);
-    public static final Item magn2 = new RWBYItem("magn2", null, false, null);
-    public static final Item magn3 = new RWBYItem("magn3", null, false, null);
-    public static final Item magn4 = new RWBYItem("magn4", null, false, null);
-    public static final Item milo1 = new RWBYItem("milo1", null, false, null);
-    public static final Item milo2 = new RWBYItem("milo2", null, false, null);
-    public static final Item milo3 = new RWBYItem("milo3", null, false, null);
-    public static final Item stor1 = new RWBYItem("stor1", null, false, null);
-    public static final Item stor2 = new RWBYItem("stor2", null, false, null);
-    public static final Item stor3 = new RWBYItem("stor3", null, false, null);
-    public static final Item stor4 = new RWBYItem("stor4", null, false, null);
-    public static final Item stor5 = new RWBYItem("stor5", null, false, null);
-    public static final Item stor6 = new RWBYItem("stor6", null, false, null);
-    public static final Item scrap = new RWBYItem("scrap", null, false, null);
+    public static final Item cr1 = new RWBYItem("cr1", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item cr2 = new RWBYItem("cr2", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item cr3 = new RWBYItem("cr3", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item cr4 = new RWBYItem("cr4", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item cr5 = new RWBYItem("cr5", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item cr6 = new RWBYItem("cr6", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item mytre1 = new RWBYItem("mytre1", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item mytre2 = new RWBYItem("mytre2", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item mytre3 = new RWBYItem("mytre3", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item gam1 = new RWBYItem("gam1", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item gam2 = new RWBYItem("gam2", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item gam3 = new RWBYItem("gam3", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item em1 = new RWBYItem("em1", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item em2 = new RWBYItem("em2", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item em3 = new RWBYItem("em3", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item cro1 = new RWBYItem("cro1", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item cro2 = new RWBYItem("cro2", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item cro3 = new RWBYItem("cro3", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item magn1 = new RWBYItem("magn1", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item magn2 = new RWBYItem("magn2", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item magn3 = new RWBYItem("magn3", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item magn4 = new RWBYItem("magn4", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item milo1 = new RWBYItem("milo1", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item milo2 = new RWBYItem("milo2", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item milo3 = new RWBYItem("milo3", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item stor1 = new RWBYItem("stor1", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item stor2 = new RWBYItem("stor2", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item stor3 = new RWBYItem("stor3", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item stor4 = new RWBYItem("stor4", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item stor5 = new RWBYItem("stor5", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item stor6 = new RWBYItem("stor6", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item scrap = new RWBYItem("scrap", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item atlasknight = new RWBYItem("atlasknight", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item remnants = new RWBYItem("remnants", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item armagigas = new RWBYItem("armagigas", null, false, RWBYCreativeTabs.tab_rwbyitems);
@@ -1665,6 +1705,21 @@ public class RWBYItems {
             10,
             RWBYCreativeTabs.tab_rwbyitems,
             null);
+    public static final Item neptammo = new RWBYAmmoItem(
+            "neptammo",
+            RWBYItems.entitybullet,
+            1,
+            false,
+            RWBYAmmoItem.SurviveOnHit.NONE,
+            "textures/entity/projectiles/tipped_arrow.png",
+            true,
+            false,
+            "",
+            null,
+            32,
+            10,
+            RWBYCreativeTabs.tab_rwbyitems,
+            new ExplosionAmmoHit(1));
     public static final Item rzrbolt = new RWBYAmmoItem(
             "rzrbolt",
             RWBYItems.razorboltknife,

@@ -145,12 +145,6 @@ public class EntityBlackStore extends EntityCreature implements INpc, IMerchant 
     public void useRecipe(MerchantRecipe recipe) {
         this.livingSoundTime = -this.getTalkInterval();
         this.playSound(SoundEvents.ENTITY_VILLAGER_YES, this.getSoundVolume(), this.getSoundPitch());
-        int i = 3 + this.rand.nextInt(4);
-        //this.populateTradingList();
-        if (recipe.getRewardsExp()) {
-            this.world.spawnEntity(new EntityXPOrb(this.world, this.posX, this.posY + 0.5D, this.posZ, i));
-        }
-
     }
 
     protected boolean canDespawn() {

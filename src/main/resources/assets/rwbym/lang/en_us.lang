@@ -222,6 +222,10 @@ item.rwbym:bolin.name=Bolin's Bo Staff
 item.rwbym:bolinblade.name=Bolin's Bo Staff
 item.rwbym:sunstaff.name=Ruyi Bang & Jingu Bang
 item.rwbym:sunnunchuck.name=Ruyi Bang & Jingu Bang
+item.rwbym:neptunegun.name=Neptune's Gun
+item.rwbym:neptunespear.name=Neptune's Guandao
+item.rwbym:neptunetrident.name=Neptune's Trident
+item.rwbym:neptammo.name=Magazine
 
 itemGroup.rwby_weapons=RWBY Weapons
 itemGroup.rwby_items=RWBY Items

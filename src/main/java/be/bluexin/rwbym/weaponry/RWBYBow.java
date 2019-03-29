@@ -68,6 +68,7 @@ public class RWBYBow extends ItemBow implements ICustomItem {
     private boolean jnr = false;
     private boolean torch = false;
     private boolean chat = false;
+    private boolean nept = false;
     boolean compensate;
     float lastDamage;
     private boolean emerald2 = false;
@@ -112,6 +113,7 @@ public class RWBYBow extends ItemBow implements ICustomItem {
         if(name.contains("torchwickgun")) torch = true;
         if(name.contains("chatareusgun")) chat = true;
         if(name.contains("chatareus")) chat = true;
+        if(name.contains("neptunegun")) nept = true;
 
 
         this.addPropertyOverride(new ResourceLocation("pull"), new IItemPropertyGetter()
@@ -407,6 +409,10 @@ public class RWBYBow extends ItemBow implements ICustomItem {
 
                     if (chat) {
                         worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.Crescent_Rose_Shoot, SoundCategory.MASTER, 1.0F, 2F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+                    }
+
+                    if (nept) {
+                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.Crescent_Rose_Shoot, SoundCategory.MASTER, 0.5F, 3F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
                     }
                     if (recoil) {
 	                    Vec3d look = entityplayer.getLookVec();

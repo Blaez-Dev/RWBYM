@@ -126,6 +126,9 @@ public class RegUtil {
         registerItems(event, RWBYItems.ozmacanewind);
         registerItems(event, RWBYItems.sunnunchuck);
         registerItems(event, RWBYItems.sunstaff);
+        registerItems(event, RWBYItems.neptunegun);
+        registerItems(event, RWBYItems.neptunespear);
+        registerItems(event, RWBYItems.neptunetrident);
         registerItems(event, RWBYItems.reese);
         registerItems(event, RWBYItems.reesegun);
         registerItems(event, RWBYItems.bolin);
@@ -205,6 +208,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.chatelectricmag);
         registerItems(event, RWBYItems.chatfiremag);
         registerItems(event, RWBYItems.chatgravmag);
+        registerItems(event, RWBYItems.neptammo);
         registerItems(event, RWBYItems.jnrammo);
         registerItems(event, RWBYItems.ammov);
         registerItems(event, RWBYItems.ammmo);

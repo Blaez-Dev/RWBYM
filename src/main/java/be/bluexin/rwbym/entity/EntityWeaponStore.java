@@ -144,6 +144,7 @@ public class EntityWeaponStore extends EntityCreature implements INpc, IMerchant
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,8),new ItemStack(RWBYItems.qrowsword,1)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,8),new ItemStack(RWBYItems.rvnswd,1)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500, 7), new ItemStack(RWBYItems.sunstaff, 1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500, 7), new ItemStack(RWBYItems.neptunegun, 1)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,7),new ItemStack(RWBYItems.bolin,1)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,7),new ItemStack(RWBYItems.shadowiron, 16),new ItemStack(RWBYItems.reese,1)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,8),new ItemStack(RWBYItems.roseiron,8), new ItemStack(RWBYItems.crescent, 1)));
@@ -186,11 +187,6 @@ public class EntityWeaponStore extends EntityCreature implements INpc, IMerchant
     public void useRecipe(MerchantRecipe recipe) {
         this.livingSoundTime = -this.getTalkInterval();
         this.playSound(SoundEvents.ENTITY_VILLAGER_YES, this.getSoundVolume(), this.getSoundPitch());
-        int i = 3 + this.rand.nextInt(4);
-        //this.populateTradingList();
-        if (recipe.getRewardsExp()) {
-            this.world.spawnEntity(new EntityXPOrb(this.world, this.posX, this.posY + 0.5D, this.posZ, i));
-        }
 
     }
 
