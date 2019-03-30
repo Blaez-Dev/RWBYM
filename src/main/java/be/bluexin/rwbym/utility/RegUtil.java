@@ -126,14 +126,15 @@ public class RegUtil {
         registerItems(event, RWBYItems.ozmacanewind);
         registerItems(event, RWBYItems.sunnunchuck);
         registerItems(event, RWBYItems.sunstaff);
+        registerItems(event, RWBYItems.sage);
         registerItems(event, RWBYItems.neptunegun);
         registerItems(event, RWBYItems.neptunespear);
         registerItems(event, RWBYItems.neptunetrident);
-        registerItems(event, RWBYItems.sage);
-        registerItems(event, RWBYItems.reese);
-        registerItems(event, RWBYItems.reesegun);
+        registerItems(event, RWBYItems.arslan);
         registerItems(event, RWBYItems.bolin);
         registerItems(event, RWBYItems.bolinblade);
+        registerItems(event, RWBYItems.reese);
+        registerItems(event, RWBYItems.reesegun);
         //dust items
         registerItems(event, RWBYItems.dustcrystal);
         registerItems(event, RWBYItems.firedustcrystal);

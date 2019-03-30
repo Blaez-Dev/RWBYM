@@ -235,6 +235,7 @@ item.rwbym:torchquick.name=Torchquick Energy Drink
 item.rwbym:qrowflask.name=Flask
 item.rwbym:sake.name=Bottle of Sake
 item.rwbym:coconutmilk.name=Coconut Milk
+item.rwbym:arslan.name=Arslan's Dagger
 
 itemGroup.rwby_weapons=RWBY Weapons
 itemGroup.rwby_items=RWBY Items
