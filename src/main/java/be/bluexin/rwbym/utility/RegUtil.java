@@ -129,6 +129,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.neptunegun);
         registerItems(event, RWBYItems.neptunespear);
         registerItems(event, RWBYItems.neptunetrident);
+        registerItems(event, RWBYItems.sage);
         registerItems(event, RWBYItems.reese);
         registerItems(event, RWBYItems.reesegun);
         registerItems(event, RWBYItems.bolin);
@@ -179,6 +180,15 @@ public class RegUtil {
         registerItems(event, RWBYItems.lien100);
         registerItems(event, RWBYItems.lien500);
         registerItems(event, RWBYItems.wallet);
+        //food
+        registerItems(event, RWBYItems.hchoc);
+        registerItems(event, RWBYItems.coffee);
+        registerItems(event, RWBYItems.sunrise);
+        registerItems(event, RWBYItems.plg);
+        registerItems(event, RWBYItems.torchquick);
+        registerItems(event, RWBYItems.qrowflask);
+        registerItems(event, RWBYItems.sake);
+        registerItems(event, RWBYItems.coconutmilk);
         //masks
         registerItems(event, RWBYItems.rvnmask);
         registerItems(event, RWBYItems.whtefng);

@@ -1,0 +1,217 @@
+Hot Chocolate:
+/give @p potion 1 8200 {
+    CustomPotionEffects: [
+        {
+            Id: 10,
+            Amplifier: 1,
+            Duration: 3600
+        },
+        {
+            Id: 21,
+            Amplifier: 2,
+            Duration: 3600
+        }
+    ],
+    display: {
+        Name: "Hot Chocolate",
+        Lore: [
+            "The favorite of Beacon's headmaster",
+            "Drink to regain health, plus some extra!"
+        ]
+    }
+}
+Coffee:
+/give @p potion 1 8200 {
+    CustomPotionEffects: [
+        {
+            Id: 1,
+            Amplifier: 3,
+            Duration: 3600
+        },
+        {
+            Id: 3,
+            Amplifier: 3,
+            Duration: 3600
+        }
+    ],
+    display: {
+        Name: "Oobleck's Coffee",
+        Lore: [
+            "Some people say he puts jet fuel in it...",
+            "Drink to become as fast as Oobleck!"
+        ]
+    }
+}
+Strawberry Sunrise:
+/give @p potion 1 8200 {
+    CustomPotionEffects: [
+        {
+            Id: 1,
+            Amplifier: 3,
+            Duration: 3600
+        },
+        {
+            Id: 7,
+            Amplifier: 1,
+            Duration: 600
+        },
+        {
+            Id: 11,
+            Amplifier: 4,
+            Duration: 3600
+        },
+        {
+            Id: 12,
+            Amplifier: 1,
+            Duration: 3600
+        }
+    ],
+    display: {
+        Name: "Strawberry Sunrise",
+        Lore: [
+            "No ice. It even has a little umbrella!",
+            "Drink to power up like Yang!"
+        ]
+    }
+}
+People Like Grapes Soda:
+/give @p potion 1 8200 {
+    CustomPotionEffects: [
+        {
+            Id: 1,
+            Amplifier: 3,
+            Duration: 3600
+        },
+        {
+            Id: 6,
+            Amplifier: 2,
+            Duration: 600
+        },
+        {
+            Id: 16,
+            Amplifier: 3,
+            Duration: 3600
+        }
+    ],
+    display: {
+        Name: "People Like Grapes Soda",
+        Lore: [
+            "A wise man once said...",
+            "Drink to regain health and more!"
+        ]
+    }
+}
+TorchQuick Energy Drink:
+/give @p potion 1 8200 {
+    CustomPotionEffects: [
+        {
+            Id: 15,
+            Amplifier: 1,
+            Duration: 3600
+        },
+        {
+            Id: 18,
+            Amplifier: 1,
+            Duration: 3600
+        },
+        {
+            Id: 19,
+            Amplifier: 1,
+            Duration: 3600
+        }
+    ],
+    display: {
+        Name: "TorchQuick Energy Drink",
+        Lore: [
+            "It's not poison!",
+            "Drink for, uh, good things?"
+        ]
+    }
+}
+Qrow's Flask:
+/give @p potion 1 8200 {
+    CustomPotionEffects: [
+        {
+            Id: 6,
+            Amplifier: 3,
+            Duration: 600
+        },
+        {
+            Id: 9,
+            Amplifier: 1,
+            Duration: 100
+        },
+        {
+            Id: 27,
+            Amplifier: 1,
+            Duration: 3600
+        },
+        {
+            Id: 23,
+            Amplifier: 1,
+            Duration: 3600
+        }
+    ],
+    display: {
+        Name: "Qrow's Flask",
+        Lore: [
+            "Who knows what's in here...",
+            "Drink to regain health, at a price..."
+        ]
+    }
+}
+Sake:
+/give @p potion 1 8200 {
+    CustomPotionEffects: [
+        {
+            Id: 9,
+            Amplifier: 1,
+            Duration: 100
+        },
+        {
+            Id: 14,
+            Amplifier: 1,
+            Duration: 3600
+        }
+    ],
+    display: {
+        Name: "Sake",
+        Lore: [
+            "Straight from Kuroyuri!",
+            "Drink to temporarily gain Ren's Semblance!"
+        ]
+    }
+}
+Coconut Milk: 
+/give @p potion 1 8200 {
+    CustomPotionEffects: [
+        {
+            Id: 1,
+            Amplifier: 3,
+            Duration: 3600
+        },
+        {
+            Id: 8,
+            Amplifier: 2,
+            Duration: 3600
+        },
+        {
+            Id: 13,
+            Amplifier: 3,
+            Duration: 3600
+        },
+        {
+            Id: 16,
+            Amplifier: 3,
+            Duration: 3600
+        }
+    ],
+    display: {
+        Name: "Coconut Milk",
+        Lore: [
+            "Straight from Menagerie.",
+            "Drink to temporarily become a Faunus!"
+        ]
+    }
+}
+Milk Carton

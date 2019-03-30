@@ -33,6 +33,7 @@ import java.util.List;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
+import scala.tools.nsc.doc.model.Public;
 
 public class RWBYItems {
     public static final Item icon = new RWBYSword(
@@ -89,7 +90,7 @@ public class RWBYItems {
             RWBYCreativeTabs.tab_rwbyweapons);
     public static final Item rvnswd = new RWBYSword(
             "rvnswd",
-            1250,
+            2500,
             10,
             0,
             null,
@@ -102,7 +103,7 @@ public class RWBYItems {
             RWBYCreativeTabs.tab_rwbyweapons);
     public static final Item rvnswdele = new RWBYSword(
             "rvnswdele",
-            1250,
+            2500,
             10,
             0,
             "{AttributeModifiers:[{AttributeName:\"generic.movementSpeed\",Name:\"generic.movementSpeed\",Amount:0.2,Operation:0,UUIDLeast:763623,UUIDMost:811709,Slot:\"mainhand\"},{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:9,Operation:0,UUIDMost:99791,UUIDLeast:128916}]}",
@@ -115,7 +116,7 @@ public class RWBYItems {
             null);
     public static final Item rvnswdice = new RWBYSword(
             "rvnswdice",
-            1250,
+            2500,
             10,
             0,
             null,
@@ -128,7 +129,7 @@ public class RWBYItems {
             null);
     public static final Item qrow = new RWBYCRScythe(
             "qrow",
-            1250,
+            2500,
             15,
             0,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:16,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}]}",
@@ -141,7 +142,7 @@ public class RWBYItems {
             null);
     public static final Item qrowsword = new RWBYSword(
             "qrowsword",
-            1250,
+            2500,
             10,
             0,
             null,
@@ -310,7 +311,7 @@ public class RWBYItems {
             null);
     public static final Item yatsuhashi = new RWBYSword(
             "yatsuhashi",
-            1250,
+            2500,
             15,
             15,
             null,
@@ -336,7 +337,7 @@ public class RWBYItems {
             RWBYCreativeTabs.tab_rwbyweapons);
     public static final Item fox = new RWBYSword(
             "fox",
-            1250,
+            2500,
             10,
             15,
             null,
@@ -362,7 +363,7 @@ public class RWBYItems {
             null);
     public static final Item winterswd = new RWBYSword(
             "winterswd",
-            1250,
+            2500,
             10,
             0,
             null,
@@ -388,7 +389,7 @@ public class RWBYItems {
             RWBYCreativeTabs.tab_rwbyweapons);
     public static final Item ozpincane = new RWBYSword(
             "ozpincane",
-            1250,
+            2500,
             10,
             0,
             null,
@@ -401,7 +402,7 @@ public class RWBYItems {
             RWBYCreativeTabs.tab_rwbyweapons);
     public static final Item port = new RWBYSword(
             "port",
-            1250,
+            2500,
             12,
             0,
             null,
@@ -1008,7 +1009,7 @@ public class RWBYItems {
             null);
     public static final Item qrowgun = new RWBYBow(
             "qrowgun",
-            1250,
+            2500,
             72,
             0,
             null,
@@ -1065,7 +1066,7 @@ public class RWBYItems {
             null);
     public static final Item portgun = new RWBYBow(
             "portgun",
-            1250,
+            2500,
             72,
             0,
             null,
@@ -1107,7 +1108,7 @@ public class RWBYItems {
             null);
     public static final Item jnrrocket = new RWBYBow(
             "jnrrocket",
-            1250,
+            2500,
             72,
             0,
             null,
@@ -1212,7 +1213,19 @@ public class RWBYItems {
             false,
             0,
             null);
-
+    public static final Item sage = new RWBYSword(
+            "sage",
+            2500,
+            15,
+            15,
+            null,
+            null,
+            false,
+            true,
+            false,
+            false,
+            0,
+            RWBYCreativeTabs.tab_rwbyweapons);
     //------------------------------------------------//
     public static final Item ammo = new RWBYItem("ammo", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item magngrenade = new RWBYItem("magngrenade", null, false, RWBYCreativeTabs.tab_rwbyitems);
@@ -1299,6 +1312,17 @@ public class RWBYItems {
     		RWBYItemContainer.class)
     		.setCreativeTab(RWBYCreativeTabs.tab_rwbyitems);
     //------------------------------------------------//
+
+    public static final Item hchoc = new RWBYFood("hchoc",null, 1, RWBYCreativeTabs.tab_rwbyitems );
+    public static final Item coffee = new RWBYFood("coffee",null, 2, RWBYCreativeTabs.tab_rwbyitems );
+    public static final Item sunrise = new RWBYFood("sunrise",null, 3, RWBYCreativeTabs.tab_rwbyitems );
+    public static final Item plg = new RWBYFood("plg",null, 4, RWBYCreativeTabs.tab_rwbyitems );
+    public static final Item torchquick = new RWBYFood("torchquick",null, 5, RWBYCreativeTabs.tab_rwbyitems );
+    public static final Item qrowflask = new RWBYFood("qrowflask",null, 6, RWBYCreativeTabs.tab_rwbyitems );
+    public static final Item sake = new RWBYFood("sake",null, 7, RWBYCreativeTabs.tab_rwbyitems );
+    public static final Item coconutmilk = new RWBYFood("coconutmilk",null, 8, RWBYCreativeTabs.tab_rwbyitems );
+
+    //-----------------------------------------------//
     public static final Item entitybullet = new RWBYItem("entitybullet", null, false, null);
     public static final Item entityfireshell = new RWBYItem("entityfireshell", null, false, null);
     public static final Item entityflareshell = new RWBYItem("entityflareshell", null, false, null);

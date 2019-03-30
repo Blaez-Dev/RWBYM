@@ -226,6 +226,15 @@ item.rwbym:neptunegun.name=Neptune's Gun
 item.rwbym:neptunespear.name=Neptune's Guandao
 item.rwbym:neptunetrident.name=Neptune's Trident
 item.rwbym:neptammo.name=Magazine
+item.rwbym:sage.name=Sage's Sword
+item.rwbym:hchoc.name=Hot Chocolate
+item.rwbym:coffee.name=Thermos of Coffee
+item.rwbym:sunrise.name=Strawberry Sunrise
+item.rwbym:plg.name=People Like Grapes Soda
+item.rwbym:torchquick.name=Torchquick Energy Drink
+item.rwbym:qrowflask.name=Flask
+item.rwbym:sake.name=Bottle of Sake
+item.rwbym:coconutmilk.name=Coconut Milk
 
 itemGroup.rwby_weapons=RWBY Weapons
 itemGroup.rwby_items=RWBY Items
