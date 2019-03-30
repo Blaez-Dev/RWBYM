@@ -34,14 +34,56 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Random;
+import java.util.Set;
 
 
 public class EntityWeaponStore extends EntityCreature implements INpc, IMerchant{
     World world = null;
     private MerchantRecipeList trades;
+    private int ticksAlive;
     private EntityPlayer buyingPlayer;
     Village village;
+    private static MerchantRecipe[] weapons = new MerchantRecipe[]{
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.pennyswd,1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.neoumb_closed,1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.torchwick,1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.frostediron,4), new ItemStack(RWBYItems.cinder, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.shadowiron,8), new ItemStack(RWBYItems.jnrbat, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.forestiron,4), new ItemStack(RWBYItems.emeraldgun, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.shadowiron,4), new ItemStack(RWBYItems.adamswd, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,6),new ItemStack(RWBYItems.frostediron,8), new ItemStack(RWBYItems.winterswd, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,6),new ItemStack(RWBYItems.ozpincane,1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,6),new ItemStack(RWBYItems.portgun,1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,8),new ItemStack(RWBYItems.qrowsword,1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,8),new ItemStack(RWBYItems.rvnswd,1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500, 7), new ItemStack(RWBYItems.sunstaff, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500, 7), new ItemStack(RWBYItems.sage, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500, 7), new ItemStack(RWBYItems.neptunegun, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,7),new ItemStack(RWBYItems.arslan,1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,7),new ItemStack(RWBYItems.bolin,1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,7),new ItemStack(RWBYItems.shadowiron, 16),new ItemStack(RWBYItems.reese,1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,8),new ItemStack(RWBYItems.roseiron,8), new ItemStack(RWBYItems.crescent, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,8),new ItemStack(RWBYItems.frostediron,8), new ItemStack(RWBYItems.weiss, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,8),new ItemStack(RWBYItems.shadowiron,8), new ItemStack(RWBYItems.gambol, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,8),new ItemStack(RWBYItems.gildediron,8), new ItemStack(RWBYItems.ember, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,8),new ItemStack(RWBYItems.gildediron,8), new ItemStack(RWBYItems.juane, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,8),new ItemStack(RWBYItems.frostediron,8), new ItemStack(RWBYItems.norahammer, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,8),new ItemStack(RWBYItems.roseiron,8), new ItemStack(RWBYItems.pyrrhaspear, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,8),new ItemStack(RWBYItems.forestiron,8), new ItemStack(RWBYItems.stormflower, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,10),new ItemStack(RWBYItems.viridianiron,8), new ItemStack(RWBYItems.korekosmouoff, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,10),new ItemStack(RWBYItems.viridianiron,8), new ItemStack(RWBYItems.chatareusgun, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,10),new ItemStack(RWBYItems.viridianiron,8), new ItemStack(RWBYItems.razorbolt, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,12),new ItemStack(RWBYItems.mariacane, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,12),new ItemStack(RWBYItems.ozmacane, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,12),new ItemStack(RWBYItems.cocobag, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,12),new ItemStack(RWBYItems.velvet, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,12),new ItemStack(RWBYItems.yatsuhashi, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,12),new ItemStack(RWBYItems.fox, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,12),new ItemStack(RWBYItems.angelcane, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,12),new ItemStack(RWBYItems.rwbyblock8,1))};
     private int randomTickDivider;
     private boolean isLookingForHome;
 
@@ -114,6 +156,14 @@ public class EntityWeaponStore extends EntityCreature implements INpc, IMerchant
 
     }
 
+    @Override
+    public void onLivingUpdate() {
+        super.onLivingUpdate();
+        this.ticksAlive ++;
+        if(ticksAlive % 18000 == 0) {
+            populateTradingList();
+        }
+    }
 
     @SideOnly(Side.CLIENT)
     public void setRecipes(@Nullable MerchantRecipeList recipeList) {
@@ -123,55 +173,33 @@ public class EntityWeaponStore extends EntityCreature implements INpc, IMerchant
 
         this.trades = new MerchantRecipeList();
 
-        //buy//
+        //Buy
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien20,1),new ItemStack(RWBYItems.scrap,10)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien50,1),new ItemStack(RWBYItems.roseiron,1)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien50,1),new ItemStack(RWBYItems.frostediron,1)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien50,1),new ItemStack(RWBYItems.shadowiron,1)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien50,1),new ItemStack(RWBYItems.gildediron,1)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien50,1),new ItemStack(RWBYItems.viridianiron,1)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien50,1),new ItemStack(RWBYItems.forestiron,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien20,1),new ItemStack(RWBYItems.scrap,10)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.pennyswd,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.neoumb_closed,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.torchwick,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.frostediron,4), new ItemStack(RWBYItems.cinder, 1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.shadowiron,8), new ItemStack(RWBYItems.jnrbat, 1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.forestiron,4), new ItemStack(RWBYItems.emeraldgun, 1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.shadowiron,4), new ItemStack(RWBYItems.adamswd, 1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,6),new ItemStack(RWBYItems.frostediron,8), new ItemStack(RWBYItems.winterswd, 1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,6),new ItemStack(RWBYItems.ozpincane,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,6),new ItemStack(RWBYItems.portgun,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,8),new ItemStack(RWBYItems.qrowsword,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,8),new ItemStack(RWBYItems.rvnswd,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500, 7), new ItemStack(RWBYItems.sunstaff, 1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500, 7), new ItemStack(RWBYItems.sage, 1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500, 7), new ItemStack(RWBYItems.neptunegun, 1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,7),new ItemStack(RWBYItems.arslan,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,7),new ItemStack(RWBYItems.bolin,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,7),new ItemStack(RWBYItems.shadowiron, 16),new ItemStack(RWBYItems.reese,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,8),new ItemStack(RWBYItems.roseiron,8), new ItemStack(RWBYItems.crescent, 1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,8),new ItemStack(RWBYItems.frostediron,8), new ItemStack(RWBYItems.weiss, 1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,8),new ItemStack(RWBYItems.shadowiron,8), new ItemStack(RWBYItems.gambol, 1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,8),new ItemStack(RWBYItems.gildediron,8), new ItemStack(RWBYItems.ember, 1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,8),new ItemStack(RWBYItems.gildediron,8), new ItemStack(RWBYItems.juane, 1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,8),new ItemStack(RWBYItems.frostediron,8), new ItemStack(RWBYItems.norahammer, 1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,8),new ItemStack(RWBYItems.roseiron,8), new ItemStack(RWBYItems.pyrrhaspear, 1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,8),new ItemStack(RWBYItems.forestiron,8), new ItemStack(RWBYItems.stormflower, 1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,10),new ItemStack(RWBYItems.viridianiron,8), new ItemStack(RWBYItems.korekosmouoff, 1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,10),new ItemStack(RWBYItems.viridianiron,8), new ItemStack(RWBYItems.chatareusgun, 1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,10),new ItemStack(RWBYItems.viridianiron,8), new ItemStack(RWBYItems.razorbolt, 1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,12),new ItemStack(RWBYItems.mariacane, 1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,12),new ItemStack(RWBYItems.ozmacane, 1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,12),new ItemStack(RWBYItems.cocobag, 1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,12),new ItemStack(RWBYItems.velvet, 1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,12),new ItemStack(RWBYItems.yatsuhashi, 1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,12),new ItemStack(RWBYItems.fox, 1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,12),new ItemStack(RWBYItems.angelcane, 1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,12),new ItemStack(RWBYItems.rwbyblock8,1)));
-        //sell//
+
+        //Sell
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.remnants,1), new ItemStack(RWBYItems.lien10, 3)));
 
-        // add as many trades as you want
+        //Random Weapons
+
+        Random rand = new Random();
+        int nextRandom = rand.nextInt(this.weapons.length);
+        Set<Integer> validate = new HashSet<>();
+        validate.add(nextRandom);
+        for (int i = 0; i < 10; i++) {
+            while(validate.contains(nextRandom)) {
+                nextRandom = rand.nextInt(this.weapons.length);
+            }
+            validate.add(nextRandom);
+        }
+        for (int i : validate) {
+            this.trades.add(this.weapons[i]);
+        }
     }
 
     public void verifySellingItem(ItemStack stack) {

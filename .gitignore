@@ -12,3 +12,6 @@
 /RWBYM-2.0_Client.launch
 /RWBYM-2.0_Server.launch
 /Git/
+*.iml
+.idea
+classes/
