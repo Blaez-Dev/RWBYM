@@ -65,6 +65,7 @@ public class RWBYFood extends Item implements ICustomItem {
         this.alwaysEdible = true;
         this.setMaxDamage(3);
         this.food = food;
+        this.maxStackSize = 2;
         if(food == 2||food == 6|| food == 7){
             this.food6 = true;
         }
@@ -123,7 +124,7 @@ public class RWBYFood extends Item implements ICustomItem {
             if(food == 4){
                 //Grape Soda
                 PotionEffect potioneffect = new PotionEffect(MobEffects.HASTE, 1200, 3, false, false);
-                PotionEffect potioneffect1 = new PotionEffect(MobEffects.INSTANT_HEALTH, 20, 2, false, false);
+                PotionEffect potioneffect1 = new PotionEffect(MobEffects.INSTANT_HEALTH, 20, 0, false, false);
                 entityplayer.addPotionEffect(potioneffect);
                 entityplayer.addPotionEffect(potioneffect1);
             }
@@ -138,10 +139,10 @@ public class RWBYFood extends Item implements ICustomItem {
             }
             if(food == 6){
                 //Qrow's Flask
-                PotionEffect potioneffect = new PotionEffect(MobEffects.INSTANT_HEALTH, 20, 3, false, false);
+                PotionEffect potioneffect = new PotionEffect(MobEffects.INSTANT_HEALTH, 1, 0, false, false);
                 PotionEffect potioneffect1 = new PotionEffect(MobEffects.NAUSEA, 200, 1, false, false);
                 PotionEffect potioneffect2 = new PotionEffect(MobEffects.UNLUCK, 3600, 2, false, false);
-                PotionEffect potioneffect3 = new PotionEffect(MobEffects.SATURATION, 20, 2, false, false);
+                PotionEffect potioneffect3 = new PotionEffect(MobEffects.SATURATION, 5, 0, false, false);
                 entityplayer.addPotionEffect(potioneffect);
                 entityplayer.addPotionEffect(potioneffect1);
                 entityplayer.addPotionEffect(potioneffect2);

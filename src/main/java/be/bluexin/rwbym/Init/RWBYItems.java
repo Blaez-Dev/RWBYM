@@ -1315,6 +1315,7 @@ public class RWBYItems {
     public static final Item lien50 = new RWBYItem("lien50", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item lien100 = new RWBYItem("lien100", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item lien500 = new RWBYItem("lien500", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item signcrow = new RWBYItem("signcrow", null, false, null);
     //------------------------------------------------//
     public static final Item wallet = new RWBYContainerItem(
     		"lienwallet",
@@ -1325,6 +1326,7 @@ public class RWBYItems {
     		RWBYItemContainer.class)
     		.setCreativeTab(RWBYCreativeTabs.tab_rwbyitems);
     //------------------------------------------------//
+
 
     public static final Item hchoc = new RWBYFood("hchoc",null, 1, RWBYCreativeTabs.tab_rwbyitems );
     public static final Item coffee = new RWBYFood("coffee",null, 2, RWBYCreativeTabs.tab_rwbyitems );

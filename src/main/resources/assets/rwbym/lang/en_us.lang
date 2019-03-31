@@ -19,6 +19,7 @@ entity.apathy.name=Apathy
 entity.store.name=From Dust Till Dawn
 entity.weaponstore.name=Cutting Edge
 entity.blackstore.name=Black Market
+entity.crowbar.name=Crow Bar
 entity.lancer.name=Lancer
 entity.queenlancer.name=Queen Lancer
 entity.tinydeathstalker.name=Tiny Deathstalker
@@ -236,6 +237,7 @@ item.rwbym:qrowflask.name=Flask
 item.rwbym:sake.name=Bottle of Sake
 item.rwbym:coconutmilk.name=Coconut Milk
 item.rwbym:arslan.name=Arslan's Dagger
+item.rwbym:signcrow.name=Crow Bar Sign
 
 itemGroup.rwby_weapons=RWBY Weapons
 itemGroup.rwby_items=RWBY Items

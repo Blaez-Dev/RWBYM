@@ -55,6 +55,7 @@ public class RWBYItem extends Item implements ICustomItem {
     private boolean coinb;
     private boolean coiny;
     private boolean ageist;
+    private boolean burn;
 
     public RWBYItem(String name,String data, boolean isMask,  CreativeTabs creativetab) {
         this.setRegistryName(new ResourceLocation(RWBYModels.MODID, name));
@@ -65,6 +66,7 @@ public class RWBYItem extends Item implements ICustomItem {
         if(this.ismask){
             maxStackSize = 1;
         }
+        if(name.contains("crystal")) burn = true;
         this.setCreativeTab(creativetab);
         if(name.contains("gravitydustcrystal")) gravity = true;
         if(name.contains("waterdustcrystal")) water = true;
@@ -208,6 +210,11 @@ public class RWBYItem extends Item implements ICustomItem {
         }
     }
 
+    @Override
+    public int getItemBurnTime(ItemStack itemStack) {
+        if(burn){
+        return 2400;}else return 0;
+    }
 
     @SideOnly(Side.CLIENT)
     public boolean hasEffect(ItemStack stack)

@@ -2,6 +2,7 @@ package be.bluexin.rwbym.entity;
 
 import be.bluexin.rwbym.Init.RWBYItems;
 import be.bluexin.rwbym.ModLootTables;
+import be.bluexin.rwbym.weaponry.RWBYItem;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
@@ -16,7 +17,6 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
-import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.stats.StatList;
@@ -35,25 +35,22 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import javax.annotation.Nullable;
 
 
-public class EntityBlackStore extends EntityCreature implements INpc, IMerchant {
+public class EntityCrowBar extends EntityCreature implements INpc, IMerchant{
     World world = null;
     private MerchantRecipeList trades;
     private EntityPlayer buyingPlayer;
 
-    public EntityBlackStore(World var3) {
+    public EntityCrowBar(World var3) {
         super(var3);
         world = var3;
-
-        ItemStack is = new ItemStack(RWBYItems.whtefng, 1);
         this.setSize(1F, 1.5F);
-        this.setItemStackToSlot(EntityEquipmentSlot.HEAD, is);
     }
 
     protected void initEntityAI() {
         super.initEntityAI();
         this.tasks.addTask(0, new EntityAISwimming(this));
         this.tasks.addTask(4, new EntityAIAttackMelee(this, 1.0D, false));
-        this.tasks.addTask(9, new EntityAIWatchClosest(this, EntityPlayer.class, 3.0F, 1.0F));
+        this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 3.0F, 1.0F));
         this.tasks.addTask(1, new EntityAIWatchClosest(this, EntityLiving.class, 8.0F));
     }
 
@@ -107,6 +104,7 @@ public class EntityBlackStore extends EntityCreature implements INpc, IMerchant 
         return false;
     }
 
+
     @SideOnly(Side.CLIENT)
     public void setRecipes(@Nullable MerchantRecipeList recipeList) {
     }
@@ -116,16 +114,16 @@ public class EntityBlackStore extends EntityCreature implements INpc, IMerchant 
         this.trades = new MerchantRecipeList();
 
         //buy//
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,2),new ItemStack(RWBYItems.rvnmask,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,1),new ItemStack(RWBYItems.whtefng,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,1),new ItemStack(RWBYItems.atlasknight,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien50,1),new ItemStack(RWBYItems.wallet,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,10),new ItemStack(RWBYItems.coinr,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,10),new ItemStack(RWBYItems.coinw,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,10),new ItemStack(RWBYItems.coinb,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,10),new ItemStack(RWBYItems.coiny,1)));
-        //sell//
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien20, 1), new ItemStack(RWBYItems.torchquick)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien50, 1), new ItemStack(RWBYItems.hchoc)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien50, 1), new ItemStack(RWBYItems.plg)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien20, 3), new ItemStack(RWBYItems.sunrise)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien20, 3), new ItemStack(RWBYItems.coconutmilk)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien20, 4), new ItemStack(RWBYItems.qrowflask)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien20, 4), new ItemStack(RWBYItems.coffee)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien20, 4), new ItemStack(RWBYItems.sake)));
 
+        //sell//
 
         // add as many trades as you want
     }
@@ -137,8 +135,6 @@ public class EntityBlackStore extends EntityCreature implements INpc, IMerchant 
         }
 
     }
-
-
 
     public World getWorld() {
         return this.world;

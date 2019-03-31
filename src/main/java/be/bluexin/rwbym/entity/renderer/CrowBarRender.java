@@ -1,9 +1,8 @@
 package be.bluexin.rwbym.entity.renderer;
 
 import be.bluexin.rwbym.RWBYModels;
-import be.bluexin.rwbym.entity.EntityBlackStore;
-import be.bluexin.rwbym.entity.EntityBlackStore;
-import be.bluexin.rwbym.entity.ModelStore;
+import be.bluexin.rwbym.entity.EntityCrowBar;
+import be.bluexin.rwbym.entity.EntityCrowBar;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
@@ -27,20 +26,20 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class BlackStoreRender extends RenderBiped<EntityBlackStore>
+public class CrowBarRender extends RenderBiped<EntityCrowBar>
 {
 
-    public static BlackStoreRender.Factory FACTORY = new BlackStoreRender.Factory();
+    public static CrowBarRender.Factory FACTORY = new CrowBarRender.Factory();
 
-    public BlackStoreRender(RenderManager renderManagerIn, ModelBiped modelBaseIn, float shadowSizeIn) {
+    public CrowBarRender(RenderManager renderManagerIn, ModelBiped modelBaseIn, float shadowSizeIn) {
         super(renderManagerIn, modelBaseIn, shadowSizeIn);
     }
 
-    protected boolean canRenderName(EntityBlackStore entity) {
+    protected boolean canRenderName(EntityCrowBar entity) {
         return false;
     }
 
-    protected void preRenderCallback(EntityBlackStore entitylivingbaseIn, float partialTickTime) {
+    protected void preRenderCallback(EntityCrowBar entitylivingbaseIn, float partialTickTime) {
         GlStateManager.scale(1F, 1F, 1F);
         this.setModelVisibilities(entitylivingbaseIn);
     }
@@ -50,11 +49,11 @@ public class BlackStoreRender extends RenderBiped<EntityBlackStore>
         return (ModelPlayer)super.getMainModel();}
 
     @Override
-    protected ResourceLocation getEntityTexture(EntityBlackStore entity) {
-        return new ResourceLocation(RWBYModels.MODID,"textures/entity/whitefang.png");
+    protected ResourceLocation getEntityTexture(EntityCrowBar entity) {
+        return new ResourceLocation(RWBYModels.MODID,"textures/entity/crowbar.png");
     }
 
-    private void setModelVisibilities(EntityBlackStore entitylivingbaseIn) {
+    private void setModelVisibilities(EntityCrowBar entitylivingbaseIn) {
         ModelPlayer modelplayer = this.getMainModel();
         {
             modelplayer.setVisible(true);
@@ -74,14 +73,13 @@ public class BlackStoreRender extends RenderBiped<EntityBlackStore>
 
     }
 
-    public static class Factory implements IRenderFactory<EntityBlackStore> {
+    public static class Factory implements IRenderFactory<EntityCrowBar> {
 
         @Override
-        public Render<? super EntityBlackStore> createRenderFor(RenderManager manager) {
-            return new BlackStoreRender(manager, new ModelPlayer(0.5F, false), 0);
+        public Render<? super EntityCrowBar> createRenderFor(RenderManager manager) {
+            return new CrowBarRender(manager, new ModelPlayer(0.5F, true), 0);
         }
 
     }
 
 }
-

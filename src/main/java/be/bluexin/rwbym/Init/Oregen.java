@@ -94,7 +94,7 @@ public class Oregen implements IWorldGenerator{
 
     private void generatestructure1(World world, Random rand, int blockX, int blockZ)
     {
-        if ((int) (Math.random() * 400) == 0)
+        if ((int) (Math.random() * 200) == 0)
         	{
         int y = getGroundFromAbove(world, blockX, blockZ);
         BlockPos pos = new BlockPos(blockX, y, blockZ);
@@ -105,7 +105,7 @@ public class Oregen implements IWorldGenerator{
 
     private void generatestructure2(World world, Random rand, int blockX, int blockZ)
     {
-        if ((int) (Math.random() * 400) == 0)
+        if ((int) (Math.random() * 200) == 0)
         {
             int y = getGroundFromAbove(world, blockX, blockZ);
             BlockPos pos = new BlockPos(blockX, y, blockZ);

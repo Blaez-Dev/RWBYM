@@ -97,7 +97,6 @@ public class EntityWeaponStore extends EntityCreature implements INpc, IMerchant
         super.initEntityAI();
         this.tasks.addTask(0, new EntityAISwimming(this));
         this.tasks.addTask(4, new EntityAIAttackMelee(this, 1.0D, false));
-        this.tasks.addTask(8, new EntityAIWander(this, 0.6D));
         this.tasks.addTask(9, new EntityAIWatchClosest(this, EntityPlayer.class, 3.0F, 1.0F));
         this.tasks.addTask(1, new EntityAIWatchClosest(this, EntityLiving.class, 8.0F));
     }
@@ -174,16 +173,15 @@ public class EntityWeaponStore extends EntityCreature implements INpc, IMerchant
         this.trades = new MerchantRecipeList();
 
         //Buy
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien20,1),new ItemStack(RWBYItems.scrap,10)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien50,1),new ItemStack(RWBYItems.roseiron,1)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien50,1),new ItemStack(RWBYItems.frostediron,1)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien50,1),new ItemStack(RWBYItems.shadowiron,1)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien50,1),new ItemStack(RWBYItems.gildediron,1)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien50,1),new ItemStack(RWBYItems.viridianiron,1)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien50,1),new ItemStack(RWBYItems.forestiron,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien20,1),new ItemStack(RWBYItems.scrap,10)));
 
         //Sell
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.remnants,1), new ItemStack(RWBYItems.lien10, 3)));
 
         //Random Weapons
 
@@ -200,6 +198,7 @@ public class EntityWeaponStore extends EntityCreature implements INpc, IMerchant
         for (int i : validate) {
             this.trades.add(this.weapons[i]);
         }
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.remnants,1), new ItemStack(RWBYItems.lien10, 3)));
     }
 
     public void verifySellingItem(ItemStack stack) {

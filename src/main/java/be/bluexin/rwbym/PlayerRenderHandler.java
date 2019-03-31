@@ -121,8 +121,4 @@ public class PlayerRenderHandler {
 		
 	}
 
-	@SubscribeEvent
-	public void PlayerRenderEvent2(RenderPlayerEvent.Post event) {
-
-	}
 }

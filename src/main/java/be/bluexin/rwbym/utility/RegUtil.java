@@ -17,6 +17,7 @@ public class RegUtil {
     public static void registerAll(FMLPreInitializationEvent event){
         //icon
         registerItems(event, RWBYItems.icon);
+        registerItems(event, RWBYItems.signcrow);
         //entity models
         registerItems(event, RWBYItems.entitybullet);
         registerItems(event, RWBYItems.entityfireshell);
