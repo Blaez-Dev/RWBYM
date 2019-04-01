@@ -82,8 +82,7 @@ public class EntityWeaponStore extends EntityCreature implements INpc, IMerchant
             new MerchantRecipe(new ItemStack(RWBYItems.lien500,12),new ItemStack(RWBYItems.velvet, 1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien500,12),new ItemStack(RWBYItems.yatsuhashi, 1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien500,12),new ItemStack(RWBYItems.fox, 1)),
-            new MerchantRecipe(new ItemStack(RWBYItems.lien500,12),new ItemStack(RWBYItems.angelcane, 1)),
-            new MerchantRecipe(new ItemStack(RWBYItems.lien500,12),new ItemStack(RWBYItems.rwbyblock8,1))};
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,12),new ItemStack(RWBYItems.angelcane, 1))};
     private int randomTickDivider;
     private boolean isLookingForHome;
 
@@ -181,6 +180,7 @@ public class EntityWeaponStore extends EntityCreature implements INpc, IMerchant
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien50,1),new ItemStack(RWBYItems.forestiron,1)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien20,1),new ItemStack(RWBYItems.scrap,10)));
 
+
         //Sell
 
         //Random Weapons
@@ -198,6 +198,7 @@ public class EntityWeaponStore extends EntityCreature implements INpc, IMerchant
         for (int i : validate) {
             this.trades.add(this.weapons[i]);
         }
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,12),new ItemStack(RWBYItems.rwbyblock8,1)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.remnants,1), new ItemStack(RWBYItems.lien10, 3)));
     }
 

@@ -18,6 +18,7 @@ public class RegUtil {
         //icon
         registerItems(event, RWBYItems.icon);
         registerItems(event, RWBYItems.signcrow);
+        registerItems(event, RWBYItems.signdust);
         //entity models
         registerItems(event, RWBYItems.entitybullet);
         registerItems(event, RWBYItems.entityfireshell);

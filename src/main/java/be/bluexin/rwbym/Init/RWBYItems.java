@@ -1316,6 +1316,7 @@ public class RWBYItems {
     public static final Item lien100 = new RWBYItem("lien100", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item lien500 = new RWBYItem("lien500", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item signcrow = new RWBYItem("signcrow", null, false, null);
+    public static final Item signdust = new RWBYItem("signdust", null, false, null);
     //------------------------------------------------//
     public static final Item wallet = new RWBYContainerItem(
     		"lienwallet",
