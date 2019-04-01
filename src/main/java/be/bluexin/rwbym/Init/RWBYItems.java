@@ -1239,6 +1239,48 @@ public class RWBYItems {
             false,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
+    public static final Item scarletsword = new RWBYRapier(
+            "scarletsword",
+            2500,
+            72,
+            0,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:14,Operation:0,UUIDMost:99791,UUIDLeast:128916}]}",
+            null,
+            "rwbym:gamammo,rwbym:emammmo",
+            false,
+            1,
+            false,
+            0,
+            0,
+            RWBYCreativeTabs.tab_rwbyweapons);
+    public static final Item nadirgun = new RWBYBow(
+            "nadirgun",
+            2500,
+            72,
+            0,
+            null,
+            "rwbym:nadirsword",
+            "rwbym:gammag,rwbym:gamgravmag,rwbym:gamicemag,rwbym:gamfiremag",
+            true,
+            1,
+            true,
+            0,
+            0,
+            RWBYCreativeTabs.tab_rwbyweapons);
+    public static final Item nadirsword = new RWBYSword(
+            "nadirsword",
+            2500,
+            10,
+            0,
+            null,
+            "rwbym:nadirgun",
+            false,
+            false,
+            false,
+            false,
+            0,
+           null);
+
     //------------------------------------------------//
     public static final Item ammo = new RWBYItem("ammo", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item magngrenade = new RWBYItem("magngrenade", null, false, RWBYCreativeTabs.tab_rwbyitems);

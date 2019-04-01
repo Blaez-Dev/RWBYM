@@ -238,6 +238,9 @@ item.rwbym:sake.name=Bottle of Sake
 item.rwbym:coconutmilk.name=Coconut Milk
 item.rwbym:arslan.name=Arslan's Dagger
 item.rwbym:signcrow.name=Crow Bar Sign
+item.rwbym:scarletsword.name=Scarlet's Paired Weapons
+item.rwbym:nadirgun.name=Nadir's SMG
+item.rwbym:nadirsword.name=Nadir's Sword
 
 itemGroup.rwby_weapons=RWBY Weapons
 itemGroup.rwby_items=RWBY Items

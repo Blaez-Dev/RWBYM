@@ -129,6 +129,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.sunnunchuck);
         registerItems(event, RWBYItems.sunstaff);
         registerItems(event, RWBYItems.sage);
+        registerItems(event, RWBYItems.scarletsword);
         registerItems(event, RWBYItems.neptunegun);
         registerItems(event, RWBYItems.neptunespear);
         registerItems(event, RWBYItems.neptunetrident);
@@ -137,6 +138,8 @@ public class RegUtil {
         registerItems(event, RWBYItems.bolinblade);
         registerItems(event, RWBYItems.reese);
         registerItems(event, RWBYItems.reesegun);
+        registerItems(event, RWBYItems.nadirgun);
+        registerItems(event, RWBYItems.nadirsword);
         //dust items
         registerItems(event, RWBYItems.dustcrystal);
         registerItems(event, RWBYItems.firedustcrystal);

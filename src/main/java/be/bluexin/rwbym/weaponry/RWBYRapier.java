@@ -72,6 +72,7 @@ public class RWBYRapier extends ItemBow implements ICustomItem{
     private boolean cinder = false;
     private boolean emerald = false;
     private boolean jnr = false;
+    private boolean scarlet = false;
     public final boolean isShield;
     private boolean torch = false;
     private boolean chat = false;
@@ -95,9 +96,18 @@ public class RWBYRapier extends ItemBow implements ICustomItem{
         if(recoilType == 3) this.recoil3 = true;
         if(enchantmentglow == 1) this.velvet = true;
         if(name.contains("weiss")) mytre = true;
+        if(name.contains("scarlet")) scarlet = true;
         this.isShield = shield;
 
         if (this.isShield) this.addPropertyOverride(new ResourceLocation("offhand"), new IItemPropertyGetter() {
+            @SideOnly(Side.CLIENT)
+            @ParametersAreNonnullByDefault
+            public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
+                return entityIn != null && entityIn.getHeldItemOffhand() == stack ? 1.0F : 0.0F;
+            }
+        });
+
+        if (scarlet) this.addPropertyOverride(new ResourceLocation("offhand1"), new IItemPropertyGetter() {
             @SideOnly(Side.CLIENT)
             @ParametersAreNonnullByDefault
             public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
@@ -169,7 +179,9 @@ public class RWBYRapier extends ItemBow implements ICustomItem{
         if (!worldIn.isRemote && playerIn.isSneaking() && this.morph != null) {
             is = new ItemStack(Item.getByNameOrId(this.morph), is.getCount(), is.getMetadata());
             return new ActionResult<>(EnumActionResult.SUCCESS, is);
-        } else if (this.isShield && handIn == EnumHand.OFF_HAND) {
+        } else if (this.scarlet && handIn == EnumHand.MAIN_HAND) {
+            return new ActionResult<>(EnumActionResult.FAIL, is);}
+            else if (this.isShield && handIn == EnumHand.OFF_HAND) {
             playerIn.setActiveHand(EnumHand.OFF_HAND);
             return new ActionResult<>(EnumActionResult.SUCCESS, is);}
         boolean flag = !this.findAmmo(playerIn, false).isEmpty();

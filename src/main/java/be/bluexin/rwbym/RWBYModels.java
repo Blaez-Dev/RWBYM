@@ -77,7 +77,7 @@ import org.apache.logging.log4j.Logger;
 public class RWBYModels {
     public static final String MODID = "rwbym";
     public static final String MODNAME = "RWBY-M";
-    public static final String VERSION = "3.0";
+    public static final String VERSION = "3.2";
 
     public static List<ICustomItem> items;
 
@@ -156,7 +156,7 @@ public class RWBYModels {
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
         proxy.init();
-        System.out.println("Blaez:RWBYM Relz 3.0");
+        System.out.println("Blaez:RWBYM Relz 3.2");
         //if (items != null) items.forEach(ICustomItem::registerRecipes);
         if (event.getSide() == Side.CLIENT) {
             OBJLoader.INSTANCE.addDomain("rwbym");
