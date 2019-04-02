@@ -1,6 +1,7 @@
 package be.bluexin.rwbym;
 
 import be.bluexin.rwbym.entity.*;
+import be.bluexin.rwbym.utility.Config;
 import be.bluexin.rwbym.weaponry.RWBYAmmoEntity;
 
 import net.minecraft.entity.EntityLiving;
@@ -79,21 +80,21 @@ public class RWBYEntities {
 
 
 
-        EntityRegistry.addSpawn(EntityBeowolf.class, 50, 3, 10, EnumCreatureType.MONSTER, biomes);
-        EntityRegistry.addSpawn(EntityUrsa.class, 50, 3, 10, EnumCreatureType.MONSTER, biomes);
-        EntityRegistry.addSpawn(EntityBoarbatusk.class, 50, 3, 10, EnumCreatureType.MONSTER, biomes);
-        EntityRegistry.addSpawn(EntityGoliath.class, 5, 3, 1, EnumCreatureType.MONSTER, biomes);
-        EntityRegistry.addSpawn(EntityDeathStalker.class, 5, 3, 1, EnumCreatureType.MONSTER, biomes);
-        EntityRegistry.addSpawn(EntityMutantDeathStalker.class, 5, 3, 1, EnumCreatureType.MONSTER, biomes);
-        EntityRegistry.addSpawn(EntityNeverMore.class, 50, 4, 10, EnumCreatureType.MONSTER, biomes);
-        EntityRegistry.addSpawn(EntityGiantNeverMore.class, 10, 4, 10, EnumCreatureType.MONSTER, biomes);
-        EntityRegistry.addSpawn(EntityCreep.class, 50, 3, 10, EnumCreatureType.MONSTER, biomes);
-        EntityRegistry.addSpawn(EntityGeist.class, 10, 1, 5, EnumCreatureType.MONSTER, biomes);
-        EntityRegistry.addSpawn(EntityApathy.class, 75, 7, 10, EnumCreatureType.MONSTER, biomes1);
-        EntityRegistry.addSpawn(EntityNuckleeve.class, 10, 3, 1, EnumCreatureType.MONSTER, biomes);
-        EntityRegistry.addSpawn(EntityLancer.class, 75, 3, 10, EnumCreatureType.MONSTER, biomes);
-        EntityRegistry.addSpawn(EntityJuvenileDeathstalker.class, 50, 3, 10, EnumCreatureType.MONSTER, biomes);
-        EntityRegistry.addSpawn(EntityQueenLancer.class, 10, 3, 1, EnumCreatureType.MONSTER, biomes);
+        EntityRegistry.addSpawn(EntityBeowolf.class, Config.spawnrate1, 3, 10, EnumCreatureType.MONSTER, biomes);
+        EntityRegistry.addSpawn(EntityUrsa.class, Config.spawnrate1, 3, 10, EnumCreatureType.MONSTER, biomes);
+        EntityRegistry.addSpawn(EntityBoarbatusk.class, Config.spawnrate1, 3, 10, EnumCreatureType.MONSTER, biomes);
+        EntityRegistry.addSpawn(EntityGoliath.class, Config.spawnrate1, 3, 1, EnumCreatureType.MONSTER, biomes);
+        EntityRegistry.addSpawn(EntityDeathStalker.class, Config.spawnrate1, 3, 1, EnumCreatureType.MONSTER, biomes);
+        EntityRegistry.addSpawn(EntityMutantDeathStalker.class, Config.spawnrate1, 3, 1, EnumCreatureType.MONSTER, biomes);
+        EntityRegistry.addSpawn(EntityNeverMore.class, Config.spawnrate1, 4, 10, EnumCreatureType.MONSTER, biomes);
+        EntityRegistry.addSpawn(EntityGiantNeverMore.class, Config.spawnrate1, 4, 10, EnumCreatureType.MONSTER, biomes);
+        EntityRegistry.addSpawn(EntityCreep.class, Config.spawnrate1, 3, 10, EnumCreatureType.MONSTER, biomes);
+        EntityRegistry.addSpawn(EntityGeist.class, Config.spawnrate1, 1, 5, EnumCreatureType.MONSTER, biomes);
+        EntityRegistry.addSpawn(EntityApathy.class, Config.spawnrate1, 7, 10, EnumCreatureType.MONSTER, biomes1);
+        EntityRegistry.addSpawn(EntityNuckleeve.class, Config.spawnrate1, 3, 1, EnumCreatureType.MONSTER, biomes);
+        EntityRegistry.addSpawn(EntityLancer.class, Config.spawnrate1, 3, 10, EnumCreatureType.MONSTER, biomes);
+        EntityRegistry.addSpawn(EntityJuvenileDeathstalker.class, Config.spawnrate1, 3, 10, EnumCreatureType.MONSTER, biomes);
+        EntityRegistry.addSpawn(EntityQueenLancer.class, Config.spawnrate1, 3, 1, EnumCreatureType.MONSTER, biomes);
 
 
         //DungeonHooks.addDungeonMob(new ResourceLocation("rwbym:beowolf"), 180);

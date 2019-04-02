@@ -7,6 +7,7 @@ import be.bluexin.rwbym.client.particle.SummerPetal;
 import be.bluexin.rwbym.client.particle.TextureStitcher;
 import be.bluexin.rwbym.entity.*;
 import be.bluexin.rwbym.entity.renderer.*;
+import be.bluexin.rwbym.utility.Config;
 import be.bluexin.rwbym.weaponry.ICustomItem;
 import be.bluexin.rwbym.weaponry.RWBYAmmoEntity;
 import be.bluexin.rwbym.weaponry.RWBYAmmoRender;
@@ -102,6 +103,7 @@ public class ClientProxy extends CommonProxy {
         RenderingRegistry.registerEntityRenderingHandler(EntityWeaponStore.class, WeaponStoreRender.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(EntityBlackStore.class, BlackStoreRender.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(EntityCrowBar.class, CrowBarRender.FACTORY);
+        Config.clientPreInit();
         MinecraftForge.EVENT_BUS.register(new TextureStitcher());
     }
 

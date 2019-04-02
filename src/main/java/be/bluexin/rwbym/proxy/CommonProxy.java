@@ -2,13 +2,19 @@ package be.bluexin.rwbym.proxy;
 
 import be.bluexin.rwbym.Init.Oregen;
 import be.bluexin.rwbym.RWBYModels;
+import be.bluexin.rwbym.utility.Config;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
+import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
+
+import java.io.File;
 
 /**
  * Part of rwbym
@@ -16,7 +22,13 @@ import net.minecraftforge.fml.relauncher.Side;
  * @author Bluexin
  */
 public class CommonProxy {
-    public void preInit() {
+
+    public void preInit(FMLPreInitializationEvent e) {
+    Config.preInit();
+    }
+
+    public void postInit(FMLPostInitializationEvent event){
+
     }
 
     public void registerRenderers(RWBYModels ins) {
