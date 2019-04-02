@@ -2,7 +2,6 @@ package be.bluexin.rwbym.proxy;
 
 import be.bluexin.rwbym.Init.Oregen;
 import be.bluexin.rwbym.RWBYModels;
-import be.bluexin.rwbym.utility.Config;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
@@ -24,7 +23,6 @@ import java.io.File;
 public class CommonProxy {
 
     public void preInit() {
-    Config.preInit();
     }
 
 

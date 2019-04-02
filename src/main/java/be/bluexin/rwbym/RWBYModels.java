@@ -161,10 +161,10 @@ public class RWBYModels {
         if (event.getSide() == Side.CLIENT) {
             OBJLoader.INSTANCE.addDomain("rwbym");
         }
+
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
         proxy.registerRenderers(this);
         RWBYSoundHandler.init();
-        //RWBYItems.init();
     }
 
     @Mod.EventHandler

@@ -5,7 +5,7 @@
 		"1": "rwbym:blocks/awool_colored_gold",
 		"2": "rwbym:blocks/awool_colored_silver",
 		"3": "rwbym:blocks/awool_colored_white",
-		"particle": "blocks/awool_colored_black"
+		"particle": "rwbym:blocks/awool_colored_black"
 	},
 	"elements": [
 		{

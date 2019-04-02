@@ -7,7 +7,6 @@ import be.bluexin.rwbym.client.particle.SummerPetal;
 import be.bluexin.rwbym.client.particle.TextureStitcher;
 import be.bluexin.rwbym.entity.*;
 import be.bluexin.rwbym.entity.renderer.*;
-import be.bluexin.rwbym.utility.Config;
 import be.bluexin.rwbym.weaponry.ICustomItem;
 import be.bluexin.rwbym.weaponry.RWBYAmmoEntity;
 import be.bluexin.rwbym.weaponry.RWBYAmmoRender;
