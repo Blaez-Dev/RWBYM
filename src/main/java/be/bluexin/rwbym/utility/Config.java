@@ -34,14 +34,10 @@ public class Config {
     public static Configuration getConfig(){
         return config;
     }
-    
+
 
     public static void syncFromFiles(){
         syncConfig(true,true);
-    }
-
-    public static void syncFromgui(){
-        syncConfig(false,true);
     }
 
 

@@ -23,13 +23,11 @@ import java.io.File;
  */
 public class CommonProxy {
 
-    public void preInit(FMLPreInitializationEvent e) {
+    public void preInit() {
     Config.preInit();
     }
 
-    public void postInit(FMLPostInitializationEvent event){
 
-    }
 
     public void registerRenderers(RWBYModels ins) {
 
