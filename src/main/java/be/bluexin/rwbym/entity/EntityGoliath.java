@@ -1,6 +1,7 @@
 package be.bluexin.rwbym.entity;
 
         import be.bluexin.rwbym.ModLootTables;
+        import be.bluexin.rwbym.utility.RWBYConfig;
         import net.minecraft.entity.*;
         import net.minecraft.entity.ai.*;
         import net.minecraft.entity.monster.EntityIronGolem;
@@ -34,7 +35,7 @@ public class EntityGoliath extends EntityMob
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.44D);
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(60.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(RWBYConfig.aggrorange);
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(1000.0D);
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(5.0D);
         this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.0D);

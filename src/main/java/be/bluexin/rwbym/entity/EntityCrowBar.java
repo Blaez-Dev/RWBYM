@@ -2,6 +2,7 @@ package be.bluexin.rwbym.entity;
 
 import be.bluexin.rwbym.Init.RWBYItems;
 import be.bluexin.rwbym.ModLootTables;
+import be.bluexin.rwbym.utility.RWBYConfig;
 import be.bluexin.rwbym.weaponry.RWBYItem;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.entity.*;

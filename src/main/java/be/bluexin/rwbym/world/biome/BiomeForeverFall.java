@@ -3,6 +3,7 @@ package be.bluexin.rwbym.world.biome;
 import be.bluexin.rwbym.entity.EntityBeowolf;
 import be.bluexin.rwbym.entity.EntityBoarbatusk;
 import be.bluexin.rwbym.entity.EntityUrsa;
+import be.bluexin.rwbym.utility.RWBYConfig;
 import net.minecraft.world.biome.Biome;
 
 public class BiomeForeverFall extends Biome {
@@ -14,9 +15,9 @@ public class BiomeForeverFall extends Biome {
         this.spawnableMonsterList.clear();
         this.spawnableWaterCreatureList.clear();
         this.decorator.treesPerChunk = 7;
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityBeowolf.class, 20, 3, 6));
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityBoarbatusk.class, 20, 3, 6));
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityUrsa.class, 20, 3, 6));
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityBeowolf.class, RWBYConfig.spawnratebeowolf, 3, 6));
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityBoarbatusk.class, RWBYConfig.spawnrateboar, 3, 6));
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityUrsa.class, RWBYConfig.spawnrateursa, 3, 6));
 
     }
 

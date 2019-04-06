@@ -2,6 +2,7 @@ package be.bluexin.rwbym.entity;
 
 import be.bluexin.rwbym.Init.RWBYItems;
 import be.bluexin.rwbym.ModLootTables;
+import be.bluexin.rwbym.utility.RWBYConfig;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.*;
