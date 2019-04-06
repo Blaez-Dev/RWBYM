@@ -15,6 +15,7 @@ import net.minecraftforge.fml.relauncher.Side;
 
 public class RegUtil {
     public static void registerAll(FMLPreInitializationEvent event){
+    	registerItems(event, RWBYItems.container);
         //icon
         registerItems(event, RWBYItems.icon);
         registerItems(event, RWBYItems.signcrow);

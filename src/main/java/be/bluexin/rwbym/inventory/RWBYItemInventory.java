@@ -22,8 +22,8 @@ public class RWBYItemInventory implements ICapabilityProvider, ICapabilitySerial
 
 	private ItemStackHandler inventory;
 	
-	public RWBYItemInventory(List<String> validItems) {
-		this.inventory = new RWBYItemStackHandler(9, validItems);
+	public RWBYItemInventory(int size, List<String> validItems) {
+		this.inventory = new RWBYItemStackHandler(size, validItems);
 	}
 	
 	@Override

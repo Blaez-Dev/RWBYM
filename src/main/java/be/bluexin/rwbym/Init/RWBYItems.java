@@ -2,7 +2,9 @@ package be.bluexin.rwbym.Init;
 
 import be.bluexin.rwbym.blocks.*;
 import be.bluexin.rwbym.gui.RWBYItemContainerGui;
+import be.bluexin.rwbym.gui.RWBYItemContainerGuiChest;
 import be.bluexin.rwbym.inventory.RWBYItemContainer;
+import be.bluexin.rwbym.inventory.RWBYItemContainerChest;
 import be.bluexin.rwbym.weaponry.*;
 import be.bluexin.rwbym.weaponry.ammohit.ExplosionAmmoHit;
 import be.bluexin.rwbym.weaponry.ammohit.FireAmmoHit;
@@ -1367,6 +1369,14 @@ public class RWBYItems {
     		1,
     		FMLCommonHandler.instance().getSide() == Side.CLIENT ? RWBYItemContainerGui.class : null,
     		RWBYItemContainer.class)
+    		.setCreativeTab(RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item container = new RWBYContainerItem(
+    		"container",
+    		"rwbym:dustcrystal,rwbym:winddustcrystal,rwbym:firedustcrystal,rwbym:gravitydustcrystal,rwbym:waterdustcrystal,rwbym:lightdustcrystal,rwbym:lightdustcrystal,rwbym:icedustcrystal",
+    		54,
+    		1,
+    		FMLCommonHandler.instance().getSide() == Side.CLIENT ? RWBYItemContainerGuiChest.class : null,
+    		RWBYItemContainerChest.class)
     		.setCreativeTab(RWBYCreativeTabs.tab_rwbyitems);
     //------------------------------------------------//
 

@@ -32,7 +32,7 @@ public class RWBYContainerItem<GUI extends GuiContainer, CONTAINER extends Conta
 			
 	private String acceptedItems;
 	
-	private final int size;
+	public final int size;
 	
 	private final Class<GUI> guiClass;
 	
@@ -80,7 +80,7 @@ public class RWBYContainerItem<GUI extends GuiContainer, CONTAINER extends Conta
 	@Override
 	public ICapabilityProvider initCapabilities(ItemStack stack, NBTTagCompound nbt) {
 		String[] itemnames = acceptedItems.split(",");
-		return new RWBYItemInventory(ImmutableList.copyOf(itemnames));
+		return new RWBYItemInventory(size, ImmutableList.copyOf(itemnames));
 	}
 	
 }
