@@ -15,7 +15,6 @@ import net.minecraftforge.fml.relauncher.Side;
 
 public class RegUtil {
     public static void registerAll(FMLPreInitializationEvent event){
-    	registerItems(event, RWBYItems.container);
         //icon
         registerItems(event, RWBYItems.icon);
         registerItems(event, RWBYItems.signcrow);
@@ -187,6 +186,9 @@ public class RegUtil {
         registerItems(event, RWBYItems.lien100);
         registerItems(event, RWBYItems.lien500);
         registerItems(event, RWBYItems.wallet);
+        registerItems(event, RWBYItems.dustpouch);
+        registerItems(event, RWBYItems.partspouch);
+        registerItems(event, RWBYItems.container);
         //food
         registerItems(event, RWBYItems.hchoc);
         registerItems(event, RWBYItems.coffee);
