@@ -9,7 +9,7 @@ import scala.tools.nsc.interactive.Main;
 public class Aura implements IAura {
 	
 	/**Current Aura amount*/
-	private int amount = 0;
+	private float amount = 0;
 	
 	/**Maximum Aura*/
 	private static final int MAX = 20;
@@ -41,8 +41,8 @@ public class Aura implements IAura {
 	}
 	
 	@Override
-	public int useAura(EntityPlayer player, int usage) {
-		int temp = amount - usage;
+	public float useAura(EntityPlayer player, float usage) {
+		float temp = amount - usage;
 		amount = Math.max(temp, 0);
 		return temp < 0 ? -temp : 0;
 	}
@@ -54,13 +54,13 @@ public class Aura implements IAura {
 	
 	@Override
 	public float getPercentage() {
-		return (float) amount / (float) MAX;
+		return amount / (float) MAX;
 	}
 	
 	@Override
 	public NBTBase serialize() {
 		NBTTagCompound nbt = new NBTTagCompound();
-		nbt.setInteger("amount", amount);
+		nbt.setFloat("amount", amount);
 		nbt.setInteger("recharge", recharge);
 		nbt.setInteger("rate", rate);
 		return nbt;
@@ -68,7 +68,7 @@ public class Aura implements IAura {
 
 	@Override
 	public void deserialize(NBTTagCompound nbt) {
-		this.amount = nbt.getInteger("amount");
+		this.amount = nbt.getFloat("amount");
 		this.recharge = nbt.getInteger("recharge");
 		this.rate = nbt.getInteger("rate");
 	}

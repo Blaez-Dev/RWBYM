@@ -60,7 +60,7 @@ public class EntityUpdatesHandler {
 			EntityPlayer player = (EntityPlayer) entityliving;
 			if (player.hasCapability(AuraProvider.AURA_CAP, null)) {
 				IAura aura = player.getCapability(AuraProvider.AURA_CAP, null);
-				int overflow = aura.useAura(player, (int) event.getAmount());
+				float overflow = aura.useAura(player, event.getAmount());
 				aura.delayRecharge(600);
 				event.setAmount(overflow);
 			}

@@ -53,7 +53,7 @@ public class RenderEvents {
     		Minecraft mc = Minecraft.getMinecraft();
     		
     		EntityPlayer player = mc.player;
-    		if (player.hasCapability(AuraProvider.AURA_CAP, null)) {
+    		if (!player.capabilities.isCreativeMode && player.hasCapability(AuraProvider.AURA_CAP, null)) {
     			
     			IAura aura = player.getCapability(AuraProvider.AURA_CAP, null);
     			
@@ -63,7 +63,7 @@ public class RenderEvents {
 	    		GlStateManager.enableBlend();
 		    	
 		    	int posx = event.getResolution().getScaledWidth() / 2 - 175;
-		    	int posy = event.getResolution().getScaledHeight() - 15;
+		    	int posy = event.getResolution().getScaledHeight() - 39;
 		    	
 		    	mc.renderEngine.bindTexture(new ResourceLocation(RWBYModels.MODID, "textures/overlay/aura.png"));
 		    	
@@ -76,7 +76,6 @@ public class RenderEvents {
 		    	ISemblance semblance = CapabilityHandler.getCurrentSemblance(player);
 		    	
 		    	if (semblance != null) {
-		    		//RWBYModels.LOGGER.info(semblance);
 		    		color = semblance.getColor();
 		    		GlStateManager.color(color[0], color[1], color[2]);
 		    	}
