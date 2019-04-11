@@ -195,6 +195,7 @@ public class RWBYSword extends ItemSword implements ICustomItem {
             return new ActionResult<>(EnumActionResult.SUCCESS, is);
         }else return ActionResult.newResult(EnumActionResult.FAIL, is);}
 
+
     @Override
     public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
         return false;
@@ -204,7 +205,6 @@ public class RWBYSword extends ItemSword implements ICustomItem {
     {
         return 0;
     }
-
 
     @Override
     public int getMaxItemUseDuration(ItemStack stack) {

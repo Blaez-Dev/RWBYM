@@ -200,6 +200,16 @@ public class RWBYFood extends Item implements ICustomItem {
         }
     }
 
+    @Override
+    public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
+        return false;
+    }
+
+    public int getItemEnchantability()
+    {
+        return 0;
+    }
+
     @SideOnly(Side.CLIENT)
     public boolean hasEffect(ItemStack stack)
     {

@@ -210,6 +210,17 @@ public class RWBYItem extends Item implements ICustomItem {
         }
     }
 
+
+    @Override
+    public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
+        return false;
+    }
+
+    public int getItemEnchantability()
+    {
+        return 0;
+    }
+
     @Override
     public int getItemBurnTime(ItemStack itemStack) {
         if(burn){
