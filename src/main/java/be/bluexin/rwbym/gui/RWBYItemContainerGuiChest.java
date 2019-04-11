@@ -48,8 +48,8 @@ public class RWBYItemContainerGuiChest extends GuiContainer implements IRWBYGuiF
      */
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
     {
-        this.fontRenderer.drawString("Container Item", 8, 6, 4210752);
-        this.fontRenderer.drawString(inventory.getDisplayName().getUnformattedText(), 8, this.ySize - 96 + 2, 4210752);
+        //this.fontRenderer.drawString("Container Item", 8, 6, 4210752);
+        //this.fontRenderer.drawString(inventory.getDisplayName().getUnformattedText(), 8, this.ySize - 96 + 2, 4210752);
     }
 
     /**
