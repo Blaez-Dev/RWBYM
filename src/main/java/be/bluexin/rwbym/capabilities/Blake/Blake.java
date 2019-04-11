@@ -1,6 +1,8 @@
 package be.bluexin.rwbym.capabilities.Blake;
 
 import be.bluexin.rwbym.Init.RWBYItems;
+import be.bluexin.rwbym.capabilities.Aura.AuraProvider;
+import be.bluexin.rwbym.capabilities.Aura.IAura;
 import be.bluexin.rwbym.RWBYModels;
 import be.bluexin.rwbym.entity.*;
 import net.minecraft.entity.MoverType;
@@ -36,7 +38,8 @@ public class Blake implements IBlake {
 		cooldowntime = (int) (200 / (Math.pow(level, 0.5)));
 		
 		if (numShadows > 0) {
-
+			
+			if (!this.useAura(player, 5)) return false;
 			if (!player.world.isRemote) {
 				spawnShadow(player);
 			}

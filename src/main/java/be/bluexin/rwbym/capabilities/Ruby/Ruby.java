@@ -114,6 +114,8 @@ public class Ruby implements IRuby {
 		
 		if (this.active) {
 			
+			if (!this.useAura(player, 0.1F)) return;
+			
 			player.fallDistance = 0;
 			
 			if (player.onGround || this.level > 1) {

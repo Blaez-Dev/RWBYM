@@ -1,5 +1,7 @@
 package be.bluexin.rwbym.capabilities;
 
+import be.bluexin.rwbym.capabilities.Aura.AuraProvider;
+import be.bluexin.rwbym.capabilities.Aura.IAura;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.common.capabilities.Capability;
@@ -31,4 +33,11 @@ public interface ISemblance {
 	@Override
 	public String toString();
 	
+	public default boolean useAura(EntityPlayer player, float usage) {
+		if(!player.isCreative() && player.hasCapability(AuraProvider.AURA_CAP, null)) {
+			IAura aura = player.getCapability(AuraProvider.AURA_CAP, null);
+			return aura.useAura(player, usage) == 0;
+		}
+		return player.isCreative();
+	}
 }

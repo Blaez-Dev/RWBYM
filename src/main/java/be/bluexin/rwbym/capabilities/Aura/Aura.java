@@ -12,7 +12,7 @@ public class Aura implements IAura {
 	private float amount = 0;
 	
 	/**Maximum Aura*/
-	private static final int MAX = 20;
+	private static final int MAX = 100;
 	
 	/**Amount to recharge*/
 	private int recharge = 1;

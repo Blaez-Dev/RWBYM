@@ -26,6 +26,7 @@ public class Weiss implements IWeiss {
 				return false;
 			}
 			else if (player.onGround && !player.world.isRemote){
+				if (!this.useAura(player, 5)) return false;
 				BlockPos blockpos = (new BlockPos(player));
 				EntityWinterBoarbatusk entityWinterBoarbatusk = new EntityWinterBoarbatusk(player.world);
 				entityWinterBoarbatusk.moveToBlockPosAndAngles(blockpos, 0.0F, 0.0F);
@@ -39,6 +40,7 @@ public class Weiss implements IWeiss {
 				return false;
 			} 
 			else if (player.onGround && !player.world.isRemote){
+				if(!this.useAura(player, 7)) return false;
 				BlockPos blockpos = (new BlockPos(player));
 				EntityWinterBeowolf entitybeowolf = new EntityWinterBeowolf(player.world);
 				entitybeowolf.moveToBlockPosAndAngles(blockpos, 0.0F, 0.0F);
@@ -52,6 +54,7 @@ public class Weiss implements IWeiss {
 				return false;
 			}
 			else if (player.onGround && !player.world.isRemote){
+				if (!this.useAura(player, 9)) return false;
 				BlockPos blockpos = (new BlockPos(player));
 				EntityWinterUrsa entityWinterUrsa = new EntityWinterUrsa(player.world);
 				entityWinterUrsa.moveToBlockPosAndAngles(blockpos, 0.0F, 0.0F);
@@ -65,6 +68,7 @@ public class Weiss implements IWeiss {
 				return false;
 			}
 			else if (player.onGround && !player.world.isRemote){
+				if (!this.useAura(player, 12)) return false;
 				BlockPos blockpos = (new BlockPos(player));
 				EntityWinterArmorgeist entityWinterArmorgeist = new EntityWinterArmorgeist(player.world);
 				entityWinterArmorgeist.moveToBlockPosAndAngles(blockpos, 0.0F, 0.0F);

@@ -3,6 +3,7 @@ package be.bluexin.rwbym.capabilities.Yang;
 import org.apache.logging.log4j.Level;
 
 import be.bluexin.rwbym.RWBYModels;
+import be.bluexin.rwbym.capabilities.Aura.AuraProvider;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.nbt.NBTTagCompound;
@@ -27,10 +28,17 @@ public class Yang implements IYang {
 
 	@Override
 	public void onUpdate(EntityPlayer player) {
-
-		float hppct = Math.min(player.getHealth()/player.getMaxHealth(), 1f);
 		
-		int strength = Math.round((1f - hppct) * 6 * this.level);
+		float percentage;
+		
+		if (player.hasCapability(AuraProvider.AURA_CAP, null)) {
+			percentage = player.getCapability(AuraProvider.AURA_CAP, null).getPercentage();
+		}
+		else {
+			percentage = Math.min(player.getHealth()/player.getMaxHealth(), 1f);
+		}
+		
+		int strength = Math.round((1f - percentage) * 6 * this.level);
 		
 		if (strength > 0) {
 			
