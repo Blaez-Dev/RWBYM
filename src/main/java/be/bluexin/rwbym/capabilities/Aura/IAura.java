@@ -18,6 +18,8 @@ public interface IAura {
 	public int useAura(EntityPlayer player, int usage);
 	
 	public void delayRecharge(int ticks);
+	
+	public float getPercentage();
 
 	public NBTBase serialize();
 	

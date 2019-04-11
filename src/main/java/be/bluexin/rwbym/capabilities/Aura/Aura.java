@@ -53,8 +53,12 @@ public class Aura implements IAura {
 	}
 	
 	@Override
+	public float getPercentage() {
+		return (float) amount / (float) MAX;
+	}
+	
+	@Override
 	public NBTBase serialize() {
-		RWBYModels.LOGGER.info("serialize");
 		NBTTagCompound nbt = new NBTTagCompound();
 		nbt.setInteger("amount", amount);
 		nbt.setInteger("recharge", recharge);
@@ -64,7 +68,6 @@ public class Aura implements IAura {
 
 	@Override
 	public void deserialize(NBTTagCompound nbt) {
-		RWBYModels.LOGGER.info("deserialize");
 		this.amount = nbt.getInteger("amount");
 		this.recharge = nbt.getInteger("recharge");
 		this.rate = nbt.getInteger("rate");

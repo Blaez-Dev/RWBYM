@@ -140,4 +140,13 @@ public class Weiss implements IWeiss {
 	public boolean isInvisible() {
 		return false;
 	}
+
+	@Override
+	public float[] getColor() {
+		float color[] = new float[3];
+		color[0] = 0F;
+		color[1] = 0.75F;
+		color[2] = 1F;
+		return color;
+	}
 }

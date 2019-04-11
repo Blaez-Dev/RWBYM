@@ -15,6 +15,8 @@ public interface ISemblance {
 	public void writeToNBT(NBTTagCompound nbt);
 	
 	public void readFromNBT(NBTTagCompound nbt);
+	
+	public float[] getColor();
 
 	public int getLevel();
 	

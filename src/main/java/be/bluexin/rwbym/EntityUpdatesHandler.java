@@ -36,17 +36,19 @@ public class EntityUpdatesHandler {
 		if (entityLiving != null && entityLiving instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) entityLiving;
 			
+			IAura aura = null;
+			
 			if (!player.world.isRemote && player.hasCapability(AuraProvider.AURA_CAP, null)) {
-				IAura aura = player.getCapability(AuraProvider.AURA_CAP, null);
+				aura = player.getCapability(AuraProvider.AURA_CAP, null);
 				aura.onUpdate(player);
 			}
 			
 			ISemblance semblance = CapabilityHandler.getCurrentSemblance(player);
 			if (semblance != null) {
 				semblance.onUpdate(player);
-				if (!player.world.isRemote) {
-					RWBYNetworkHandler.sendToAll(new MessageSendPlayerData(semblance, player.getName()));
-				}
+			}
+			if (!player.world.isRemote) {
+				RWBYNetworkHandler.sendToAll(new MessageSendPlayerData(semblance, aura, player.getName()));
 			}
 		}
 	}

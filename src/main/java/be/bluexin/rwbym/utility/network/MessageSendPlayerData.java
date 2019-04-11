@@ -2,6 +2,8 @@ package be.bluexin.rwbym.utility.network;
 
 import be.bluexin.rwbym.capabilities.CapabilityHandler;
 import be.bluexin.rwbym.capabilities.ISemblance;
+import be.bluexin.rwbym.capabilities.Aura.AuraProvider;
+import be.bluexin.rwbym.capabilities.Aura.IAura;
 import be.bluexin.rwbym.capabilities.Ruby.IRuby;
 import be.bluexin.rwbym.capabilities.Ruby.RubyProvider;
 import io.netty.buffer.ByteBuf;
@@ -13,30 +15,35 @@ import net.minecraftforge.fml.common.network.ByteBufUtils;
 
 public class MessageSendPlayerData extends MessageBase<MessageSendPlayerData> {
 
-	NBTTagCompound nbt = new NBTTagCompound();
+	private NBTTagCompound semblancenbt = new NBTTagCompound();
 	
-	String capability;
+	private NBTTagCompound auranbt = new NBTTagCompound();
 	
-	String player;
+	private String capability;
+	
+	private String player;
 
 	public MessageSendPlayerData() {}
 	
-	public MessageSendPlayerData(ISemblance semblance, String player) {
-		semblance.writeToNBT(nbt);
+	public MessageSendPlayerData(ISemblance semblance, IAura aura, String player) {
+		semblance.writeToNBT(semblancenbt);
+		auranbt = (NBTTagCompound) aura.serialize();
 		this.capability = semblance.getCapability().getName();
 		this.player = player;
 	}
 	
 	@Override
 	public void fromBytes(ByteBuf buf) {
-		nbt = ByteBufUtils.readTag(buf);
+		semblancenbt = ByteBufUtils.readTag(buf);
+		auranbt = ByteBufUtils.readTag(buf);
 		capability = ByteBufUtils.readUTF8String(buf);
 		player = ByteBufUtils.readUTF8String(buf);
 	}
 
 	@Override
 	public void toBytes(ByteBuf buf) {
-		ByteBufUtils.writeTag(buf, nbt);
+		ByteBufUtils.writeTag(buf, semblancenbt);
+		ByteBufUtils.writeTag(buf, auranbt);
 		ByteBufUtils.writeUTF8String(buf, capability);
 		ByteBufUtils.writeUTF8String(buf, player);
 	}
@@ -49,7 +56,11 @@ public class MessageSendPlayerData extends MessageBase<MessageSendPlayerData> {
 		}
 		else {
 			ISemblance semblance = CapabilityHandler.getCapabilityByName(requestedPlayer, message.capability);
-			semblance.readFromNBT(message.nbt);
+			semblance.readFromNBT(message.semblancenbt);
+			CapabilityHandler.setSemblance(requestedPlayer, semblance.getCapability(), semblance.getLevel());
+			if (requestedPlayer.hasCapability(AuraProvider.AURA_CAP, null)) {
+				requestedPlayer.getCapability(AuraProvider.AURA_CAP, null).deserialize(message.auranbt);
+			}
 		}
 	}
 

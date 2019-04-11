@@ -85,4 +85,13 @@ public class Yang implements IYang {
 		return false;
 	}
 
+	@Override
+	public float[] getColor() {
+		float color[] = new float[3];
+		color[0] = 1F;
+		color[1] = 0.9F;
+		color[2] = 0F;
+		return color;
+	}
+
 }

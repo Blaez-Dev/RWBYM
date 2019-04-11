@@ -166,7 +166,6 @@ public class Blake implements IBlake {
 
 	@Override
 	public void spawnShadow(EntityPlayer player) {
-		// TODO for Blaez to spawn a shadow player (this function is already check to be called on server only)
 		ItemStack is = player.getHeldItemOffhand();
 		if(is.getItem() == RWBYItems.firedust){
 			BlockPos blockpos = (new BlockPos(player));
@@ -196,6 +195,15 @@ public class Blake implements IBlake {
 	@Override
 	public String toString() {
 		return "Blake";
+	}
+
+	@Override
+	public float[] getColor() {
+		float color[] = new float[3];
+		color[0] = 0.85F;
+		color[1] = 0F;
+		color[2] = 1F;
+		return color;
 	}
 
 }
