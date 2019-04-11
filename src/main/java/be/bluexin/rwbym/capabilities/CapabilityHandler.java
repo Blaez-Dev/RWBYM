@@ -8,6 +8,10 @@ import java.util.concurrent.Callable;
 import org.apache.logging.log4j.Level;
 
 import be.bluexin.rwbym.RWBYModels;
+import be.bluexin.rwbym.capabilities.Aura.Aura;
+import be.bluexin.rwbym.capabilities.Aura.AuraProvider;
+import be.bluexin.rwbym.capabilities.Aura.AuraStorage;
+import be.bluexin.rwbym.capabilities.Aura.IAura;
 import be.bluexin.rwbym.capabilities.Blake.Blake;
 import be.bluexin.rwbym.capabilities.Blake.BlakeProvider;
 import be.bluexin.rwbym.capabilities.Blake.BlakeStorage;
@@ -40,6 +44,8 @@ public class CapabilityHandler {
 	public static final ResourceLocation YANG_KEY = new ResourceLocation(RWBYModels.MODID, "yang");
 	public static final ResourceLocation BLAKE_KEY = new ResourceLocation(RWBYModels.MODID, "blake");
 	
+	public static final ResourceLocation AURA_KEY = new ResourceLocation(RWBYModels.MODID, "aura");
+	
 	private static List<Capability> capabilities = new ArrayList<Capability>();
 	
 	@SubscribeEvent
@@ -50,6 +56,8 @@ public class CapabilityHandler {
 			event.addCapability(WEISS_KEY, new WeissProvider());
 			event.addCapability(YANG_KEY, new YangProvider());
 			event.addCapability(BLAKE_KEY, new BlakeProvider());
+			
+			event.addCapability(AURA_KEY, new AuraProvider());
 		}
 		
 	}
@@ -61,6 +69,7 @@ public class CapabilityHandler {
         register(IYang.class, new YangStorage(), Yang::new);
         register(IBlake.class, new BlakeStorage(), Blake::new);
         
+        CapabilityManager.INSTANCE.register(IAura.class, new AuraStorage(), Aura::new);
 	}
 	
 	public static <T extends ISemblance> void register(Class<T> type, Capability.IStorage<T> storage, Callable<? extends T> factory) {

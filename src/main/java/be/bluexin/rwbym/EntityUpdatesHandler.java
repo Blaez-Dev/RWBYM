@@ -6,6 +6,8 @@ import org.apache.logging.log4j.Level;
 
 import be.bluexin.rwbym.capabilities.CapabilityHandler;
 import be.bluexin.rwbym.capabilities.ISemblance;
+import be.bluexin.rwbym.capabilities.Aura.AuraProvider;
+import be.bluexin.rwbym.capabilities.Aura.IAura;
 import be.bluexin.rwbym.capabilities.Ruby.IRuby;
 import be.bluexin.rwbym.capabilities.Ruby.RubyProvider;
 import be.bluexin.rwbym.capabilities.Weiss.WeissProvider;
@@ -18,6 +20,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenHellLava;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
+import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent.Clone;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -33,12 +36,31 @@ public class EntityUpdatesHandler {
 		if (entityLiving != null && entityLiving instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) entityLiving;
 			
+			if (!player.world.isRemote && player.hasCapability(AuraProvider.AURA_CAP, null)) {
+				IAura aura = player.getCapability(AuraProvider.AURA_CAP, null);
+				aura.onUpdate(player);
+			}
+			
 			ISemblance semblance = CapabilityHandler.getCurrentSemblance(player);
 			if (semblance != null) {
 				semblance.onUpdate(player);
 				if (!player.world.isRemote) {
 					RWBYNetworkHandler.sendToAll(new MessageSendPlayerData(semblance, player.getName()));
 				}
+			}
+		}
+	}
+	
+	@SubscribeEvent
+	public void onEntityDamage(LivingDamageEvent event) {
+		EntityLivingBase entityliving = event.getEntityLiving();
+		if (entityliving instanceof EntityPlayer) {
+			EntityPlayer player = (EntityPlayer) entityliving;
+			if (player.hasCapability(AuraProvider.AURA_CAP, null)) {
+				IAura aura = player.getCapability(AuraProvider.AURA_CAP, null);
+				int overflow = aura.useAura(player, (int) event.getAmount());
+				aura.delayRecharge(600);
+				event.setAmount(overflow);
 			}
 		}
 	}

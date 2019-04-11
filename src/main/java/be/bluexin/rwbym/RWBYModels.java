@@ -175,17 +175,21 @@ public class RWBYModels {
     public static class GuiHandler implements IGuiHandler {
     	
     	public enum GUI {
-    		ITEM_CONTAINER;
+    		ITEM_CONTAINER_MAINHAND,
+    		ITEM_CONTAINER_OFFHAND;
     	}
     	
         @Override
         public Object getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) {
         	
         	switch (GUI.values()[id]) {
-        		case ITEM_CONTAINER:
+        		case ITEM_CONTAINER_MAINHAND:
         			ItemStack stack = player.getHeldItemMainhand();
         			return IRWBYContainerFactory.createInstance(((RWBYContainerItem)stack.getItem()).getContainerClass(), player.inventory, stack);
-        	}
+				case ITEM_CONTAINER_OFFHAND:
+					stack = player.getHeldItemOffhand();
+        			return IRWBYContainerFactory.createInstance(((RWBYContainerItem)stack.getItem()).getContainerClass(), player.inventory, stack);
+    			}
         	
         	throw new IllegalArgumentException("No GUI with ID: " + id);
         	
@@ -195,8 +199,11 @@ public class RWBYModels {
         public Object getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) {
         	
         	switch (GUI.values()[id]) {
-	    		case ITEM_CONTAINER:
+	    		case ITEM_CONTAINER_MAINHAND:
         			ItemStack stack = player.getHeldItemMainhand();
+        			return IRWBYGuiFactory.createInstance(((RWBYContainerItem)stack.getItem()).getGuiClass(), player.inventory, stack);
+	    		case ITEM_CONTAINER_OFFHAND:
+	    			stack = player.getHeldItemOffhand();
         			return IRWBYGuiFactory.createInstance(((RWBYContainerItem)stack.getItem()).getGuiClass(), player.inventory, stack);
 	    	}
 	    	

@@ -65,7 +65,10 @@ public class RWBYContainerItem<GUI extends GuiContainer, CONTAINER extends Conta
 		
 		if (!world.isRemote) {
 			if (hand == EnumHand.MAIN_HAND) {
-				player.openGui(RWBYModels.instance, RWBYModels.GuiHandler.GUI.ITEM_CONTAINER.ordinal(), world, (int)player.posX, (int)player.posY, (int)player.posZ);
+				player.openGui(RWBYModels.instance, RWBYModels.GuiHandler.GUI.ITEM_CONTAINER_MAINHAND.ordinal(), world, (int)player.posX, (int)player.posY, (int)player.posZ);
+			}
+			else {
+				player.openGui(RWBYModels.instance, RWBYModels.GuiHandler.GUI.ITEM_CONTAINER_OFFHAND.ordinal(), world, (int)player.posX, (int)player.posY, (int)player.posZ);
 			}
 		}
 		

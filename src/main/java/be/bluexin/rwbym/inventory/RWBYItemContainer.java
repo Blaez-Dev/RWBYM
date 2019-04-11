@@ -15,10 +15,14 @@ import net.minecraftforge.items.SlotItemHandler;
 public class RWBYItemContainer extends Container implements IRWBYContainerFactory {
 
 	private final IItemHandler itemInventory;
+	
+	private final ItemStack itemstack;
 
     public RWBYItemContainer(IInventory playerInventory, ItemStack item)
     {
         this.itemInventory = item.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
+        
+        this.itemstack = item;
         
         for (int i = 0; i < 3; ++i)
         {
@@ -47,7 +51,7 @@ public class RWBYItemContainer extends Container implements IRWBYContainerFactor
      */
     public boolean canInteractWith(EntityPlayer playerIn)
     {
-        return true;
+        return playerIn.getHeldItemMainhand() == this.itemstack || playerIn.getHeldItemOffhand() == this.itemstack;
     }
 
     /**
