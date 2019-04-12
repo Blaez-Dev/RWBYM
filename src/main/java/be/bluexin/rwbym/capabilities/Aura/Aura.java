@@ -12,7 +12,7 @@ public class Aura implements IAura {
 	private float amount = 0;
 	
 	/**Maximum Aura*/
-	private static final int MAX = 100;
+	private int max = 100;
 	
 	/**Amount to recharge*/
 	private int recharge = 1;
@@ -24,20 +24,19 @@ public class Aura implements IAura {
 	
 	@Override
 	public void onUpdate(EntityPlayer player) {
-		if (!player.getFoodStats().needFood()) {
+		if (player.getFoodStats().getFoodLevel() > 7) {
 			if (delay == 0) {
 				if (player.world.getTotalWorldTime() % rate == 0) {
-					if (amount < MAX) {
+					if (amount < max) {
 						player.getFoodStats().addExhaustion(recharge);
 						amount += recharge;
 					}
 				}
 			}
-			else {
-				delay--;
-			}
 		}
-		//RWBYModels.LOGGER.info("{}, {}", amount, delay);
+		if (delay > 0) {
+			delay--;
+		}
 	}
 	
 	@Override
@@ -54,7 +53,7 @@ public class Aura implements IAura {
 	
 	@Override
 	public float getPercentage() {
-		return amount / (float) MAX;
+		return amount / (float) max;
 	}
 	
 	@Override
