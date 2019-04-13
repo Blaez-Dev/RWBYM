@@ -56,7 +56,7 @@ public class EntityUpdatesHandler {
 	@SubscribeEvent
 	public void onEntityDamage(LivingDamageEvent event) {
 		EntityLivingBase entityliving = event.getEntityLiving();
-		if (entityliving instanceof EntityPlayer) {
+		if (entityliving instanceof EntityPlayer && !entityliving.world.isRemote) {
 			EntityPlayer player = (EntityPlayer) entityliving;
 			if (player.hasCapability(AuraProvider.AURA_CAP, null)) {
 				IAura aura = player.getCapability(AuraProvider.AURA_CAP, null);

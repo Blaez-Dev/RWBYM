@@ -21,33 +21,18 @@ public class Aura implements IAura {
 	private int rate = 10;
 	
 	private int delay = 0;
-	
-	@Override
-	/*public void onUpdate(EntityPlayer player) {
-		if (player.getFoodStats().getFoodLevel() > 6) {
-			if (delay == 0) {
-				if (player.world.getTotalWorldTime() % rate == 0) {
-					if (amount < max) {
-						player.getFoodStats().addExhaustion(recharge);
-						amount += recharge;
-					}
-				}
-			}
-		}
-		if (delay > 0) {
-			delay--;
-		}
-	}*/
 
+	@Override
 	public void onUpdate(EntityPlayer player) {
 		if (player.getFoodStats().getFoodLevel() > 6) {
 			if (delay == 0) {
 				if (player.world.getTotalWorldTime() % rate == 0) {
 					if (amount < max) {
-						if (player.getFoodStats().getFoodLevel() >19) {
+						if (player.getFoodStats().getFoodLevel() > 19) {
 							player.getFoodStats().addExhaustion(recharge);
 							amount += recharge;
 						} else {
+							player.getFoodStats().addExhaustion(recharge / 4);
 							amount += (recharge / 4);
 						}
 					}
