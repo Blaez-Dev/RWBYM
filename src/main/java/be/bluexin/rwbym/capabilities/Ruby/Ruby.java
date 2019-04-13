@@ -34,6 +34,10 @@ public class Ruby implements IRuby {
 	
 	private boolean active = false;
 	
+	private int level1Time = 50;
+	
+	private int maxUseTime = 360;
+	
 	// a level greater than 0 will signal that this is the active semblance
 	private int level = 0;
 	
@@ -50,7 +54,7 @@ public class Ruby implements IRuby {
 			}
 			else {
 				if (player.onGround){
-					this.setInvisisbility(50);
+					this.setInvisisbility(level1Time);
 					this.active = true;
 				}
 				return true;
@@ -186,7 +190,7 @@ public class Ruby implements IRuby {
 			break;
 		case 2:
 		case 3:
-			if (!this.active && this.cooldown < 360) {
+			if (!this.active && this.cooldown < maxUseTime) {
 				this.cooldown++;
 			}
 			if (this.active) {
@@ -216,7 +220,7 @@ public class Ruby implements IRuby {
 			return false;
 		case 2:
 		case 3:
-			return this.active ? true : false;
+			return this.active;
 		default:
 			return false;
 		}
@@ -292,7 +296,7 @@ public class Ruby implements IRuby {
 	@Override
 	public float[] getColor() {
 		float color[] = new float[3];
-		color[0] = 1F;
+		color[0] = 0.6F;
 		color[1] = 0.1F;
 		color[2] = 0.1F;
 		return color;

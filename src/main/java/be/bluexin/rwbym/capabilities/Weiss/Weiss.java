@@ -17,69 +17,44 @@ public class Weiss implements IWeiss {
 	private int level = 0;
 	
 	private int cooldown = 0;
+	
+	private int[] cooldowns = {100, 300, 500, 1200};
+	private int[] auraUses = {5, 15, 25, 60};
 
 	public boolean onActivate(EntityPlayer player) {
 		
-		switch(this.level) {
-		case 1:
-			if (this.cooldown > 0) {
-				return false;
-			}
-			else if (player.onGround && !player.world.isRemote){
-				if (!this.useAura(player, 5)) return false;
-				BlockPos blockpos = (new BlockPos(player));
+		if (!this.useAura(player, auraUses[level - 1])) return false;
+		if (this.cooldown > 0) {
+			return false;
+		}
+		
+		this.cooldown = cooldowns[level-1];
+		if (player.onGround && !player.world.isRemote){
+			BlockPos blockpos = (new BlockPos(player));
+			switch(this.level) {
+			case 1:
 				EntityWinterBoarbatusk entityWinterBoarbatusk = new EntityWinterBoarbatusk(player.world);
 				entityWinterBoarbatusk.moveToBlockPosAndAngles(blockpos, 0.0F, 0.0F);
 				player.world.spawnEntity(entityWinterBoarbatusk);
-				this.cooldown = 100;
 				return true;
-			}
-			break;
-		case 2:
-			if (this.cooldown > 0) {
-				return false;
-			} 
-			else if (player.onGround && !player.world.isRemote){
-				if(!this.useAura(player, 7)) return false;
-				BlockPos blockpos = (new BlockPos(player));
+			case 2:
 				EntityWinterBeowolf entitybeowolf = new EntityWinterBeowolf(player.world);
 				entitybeowolf.moveToBlockPosAndAngles(blockpos, 0.0F, 0.0F);
 				player.world.spawnEntity(entitybeowolf);
-				this.cooldown = 300;
 				return true;
-			}	
-			break;
-		case 3:
-			if (this.cooldown > 0) {
-				return false;
-			}
-			else if (player.onGround && !player.world.isRemote){
-				if (!this.useAura(player, 9)) return false;
-				BlockPos blockpos = (new BlockPos(player));
+			case 3:
 				EntityWinterUrsa entityWinterUrsa = new EntityWinterUrsa(player.world);
 				entityWinterUrsa.moveToBlockPosAndAngles(blockpos, 0.0F, 0.0F);
 				player.world.spawnEntity(entityWinterUrsa);
-				this.cooldown = 500;
 				return true;
-			}
-			break;
-		case 4:
-			if (this.cooldown > 0) {
-				return false;
-			}
-			else if (player.onGround && !player.world.isRemote){
-				if (!this.useAura(player, 12)) return false;
-				BlockPos blockpos = (new BlockPos(player));
+			case 4:
 				EntityWinterArmorgeist entityWinterArmorgeist = new EntityWinterArmorgeist(player.world);
 				entityWinterArmorgeist.moveToBlockPosAndAngles(blockpos, 0.0F, 0.0F);
 				player.world.spawnEntity(entityWinterArmorgeist);
-				this.cooldown = 1200;
 				return true;
+			default:
+				return false;
 			}
-			break;
-			
-		default:
-			return false;
 		}
 		
 		return false;
@@ -148,8 +123,8 @@ public class Weiss implements IWeiss {
 	@Override
 	public float[] getColor() {
 		float color[] = new float[3];
-		color[0] = 0F;
-		color[1] = 0.75F;
+		color[0] = 1F;
+		color[1] = 1F;
 		color[2] = 1F;
 		return color;
 	}

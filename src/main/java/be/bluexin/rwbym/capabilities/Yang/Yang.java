@@ -15,6 +15,8 @@ public class Yang implements IYang {
 	private static final int MAX_LEVEL = 3;
 	
 	private int level = 0;
+	
+	private int strengthMultiplyer = 6;
 
 	@Override
 	public boolean onActivate(EntityPlayer player) {
@@ -38,7 +40,7 @@ public class Yang implements IYang {
 			percentage = Math.min(player.getHealth()/player.getMaxHealth(), 1f);
 		}
 		
-		int strength = Math.round((1f - percentage) * 6 * this.level);
+		int strength = Math.round((1f - percentage) * strengthMultiplyer * this.level);
 		
 		if (strength > 0) {
 			
@@ -96,8 +98,8 @@ public class Yang implements IYang {
 	@Override
 	public float[] getColor() {
 		float color[] = new float[3];
-		color[0] = 1F;
-		color[1] = 0.9F;
+		color[0] = 0.7F;
+		color[1] = 0.6F;
 		color[2] = 0F;
 		return color;
 	}
