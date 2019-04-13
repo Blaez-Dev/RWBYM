@@ -28,6 +28,8 @@ public class Blake implements IBlake {
 	
 	private int cooldowntime = 200;
 	
+	private float auraUse = 5F;
+	
 	private int active = 0;
 	
 	private int airTime = 0;
@@ -39,7 +41,7 @@ public class Blake implements IBlake {
 		
 		if (numShadows > 0) {
 			
-			if (!this.useAura(player, 5)) return false;
+			if (!this.useAura(player, auraUse)) return false;
 			if (!player.world.isRemote) {
 				spawnShadow(player);
 			}

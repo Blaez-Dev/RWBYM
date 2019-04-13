@@ -38,6 +38,8 @@ public class Ruby implements IRuby {
 	
 	private int maxUseTime = 360;
 	
+	private float auraUse = 0.1F;
+	
 	// a level greater than 0 will signal that this is the active semblance
 	private int level = 0;
 	
@@ -118,7 +120,7 @@ public class Ruby implements IRuby {
 		
 		if (this.active) {
 			
-			if (!this.useAura(player, 0.1F)) return;
+			if (!this.useAura(player, auraUse)) return;
 			
 			player.fallDistance = 0;
 			
