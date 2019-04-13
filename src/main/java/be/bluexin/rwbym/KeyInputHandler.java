@@ -12,6 +12,7 @@ import net.minecraft.init.MobEffects;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
@@ -38,7 +39,6 @@ public class KeyInputHandler {
 			RWBYModels.LOGGER.log(RWBYModels.debug, "Activating Semblance");
 			
 			ISemblance semblance = CapabilityHandler.getCurrentSemblance(player);
-			
 			if (semblance != null) {
 				RWBYNetworkHandler.sendToServer(new MessageActivateSemblance(true));
 			}

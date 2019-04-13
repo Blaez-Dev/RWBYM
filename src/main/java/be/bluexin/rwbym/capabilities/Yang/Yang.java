@@ -96,8 +96,8 @@ public class Yang implements IYang {
 	@Override
 	public float[] getColor() {
 		float color[] = new float[3];
-		color[0] = 1F;
-		color[1] = 0.9F;
+		color[0] = 0.7F;
+		color[1] = 0.6F;
 		color[2] = 0F;
 		return color;
 	}

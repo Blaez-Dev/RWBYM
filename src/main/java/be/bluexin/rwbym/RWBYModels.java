@@ -156,7 +156,7 @@ public class RWBYModels {
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
         proxy.init();
-        System.out.println("Blaez:RWBYM Relz 3.2");
+        System.out.println("Blaez:RWBYM Relz 3.3");
         //if (items != null) items.forEach(ICustomItem::registerRecipes);
         if (event.getSide() == Side.CLIENT) {
             OBJLoader.INSTANCE.addDomain("rwbym");

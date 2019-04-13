@@ -148,8 +148,8 @@ public class Weiss implements IWeiss {
 	@Override
 	public float[] getColor() {
 		float color[] = new float[3];
-		color[0] = 0F;
-		color[1] = 0.75F;
+		color[0] = 1F;
+		color[1] = 1F;
 		color[2] = 1F;
 		return color;
 	}

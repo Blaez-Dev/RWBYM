@@ -292,7 +292,7 @@ public class Ruby implements IRuby {
 	@Override
 	public float[] getColor() {
 		float color[] = new float[3];
-		color[0] = 1F;
+		color[0] = 0.6F;
 		color[1] = 0.1F;
 		color[2] = 0.1F;
 		return color;
