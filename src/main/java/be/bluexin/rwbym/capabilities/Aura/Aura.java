@@ -12,10 +12,10 @@ public class Aura implements IAura {
 	private float amount = 0;
 	
 	/**Maximum Aura*/
-	private int max = 100;
+	private float max = 100;
 	
 	/**Amount to recharge*/
-	private int recharge = 1;
+	private float recharge = 1;
 	
 	/**How many ticks until recharge*/
 	private int rate = 10;
@@ -23,13 +23,33 @@ public class Aura implements IAura {
 	private int delay = 0;
 	
 	@Override
-	public void onUpdate(EntityPlayer player) {
-		if (player.getFoodStats().getFoodLevel() > 7) {
+	/*public void onUpdate(EntityPlayer player) {
+		if (player.getFoodStats().getFoodLevel() > 6) {
 			if (delay == 0) {
 				if (player.world.getTotalWorldTime() % rate == 0) {
 					if (amount < max) {
 						player.getFoodStats().addExhaustion(recharge);
 						amount += recharge;
+					}
+				}
+			}
+		}
+		if (delay > 0) {
+			delay--;
+		}
+	}*/
+
+	public void onUpdate(EntityPlayer player) {
+		if (player.getFoodStats().getFoodLevel() > 6) {
+			if (delay == 0) {
+				if (player.world.getTotalWorldTime() % rate == 0) {
+					if (amount < max) {
+						if (player.getFoodStats().getFoodLevel() >19) {
+							player.getFoodStats().addExhaustion(recharge);
+							amount += recharge;
+						} else {
+							amount += (recharge / 4);
+						}
 					}
 				}
 			}
@@ -60,7 +80,7 @@ public class Aura implements IAura {
 	public NBTBase serialize() {
 		NBTTagCompound nbt = new NBTTagCompound();
 		nbt.setFloat("amount", amount);
-		nbt.setInteger("recharge", recharge);
+		nbt.setFloat("recharge", recharge);
 		nbt.setInteger("rate", rate);
 		return nbt;
 	}
@@ -68,7 +88,7 @@ public class Aura implements IAura {
 	@Override
 	public void deserialize(NBTTagCompound nbt) {
 		this.amount = nbt.getFloat("amount");
-		this.recharge = nbt.getInteger("recharge");
+		this.recharge = nbt.getFloat("recharge");
 		this.rate = nbt.getInteger("rate");
 	}
 

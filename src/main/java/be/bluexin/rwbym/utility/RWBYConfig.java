@@ -61,7 +61,8 @@ public class RWBYConfig
     public static int lightore = 15;
     @Config.Comment("Spawn Chance Ice Dust")
     public static int iceore = 15;
-
+    @Config.Comment("Semblance Recharge Delay in Ticks")
+    public static int delayticks = 250;
 
     @Mod.EventBusSubscriber(modid = RWBYModels.MODID)
     private static class Handler
