@@ -26,7 +26,7 @@ public class ApathyRender extends RenderLivingBase<EntityApathy> {
     }
 
     protected void preRenderCallback(EntityApathy entitylivingbaseIn, float partialTickTime) {
-        GlStateManager.scale(1F, 1.5F, 1F);
+        GlStateManager.scale(0.425F, 0.425F, 0.425F);
     }
 
     @Override
