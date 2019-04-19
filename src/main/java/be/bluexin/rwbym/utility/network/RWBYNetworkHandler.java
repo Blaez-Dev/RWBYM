@@ -18,10 +18,11 @@ public class RWBYNetworkHandler {
 	    int i = 0;
 	    
 	    INSTANCE.registerMessage(MessageActivateSemblance.class, MessageActivateSemblance.class, i++, Side.SERVER);
-	    INSTANCE.registerMessage(MessageGetPlayerData.class, MessageGetPlayerData.class, i++, Side.SERVER);
+	    INSTANCE.registerMessage(MessageSendPlayerDataToServer.class, MessageSendPlayerDataToServer.class, i++, Side.SERVER);
 	    INSTANCE.registerMessage(MessageSendPlayerData.class, MessageSendPlayerData.class, i++, Side.CLIENT);
 	    INSTANCE.registerMessage(MessagePosVelUpdate.class, MessagePosVelUpdate.class, i++, Side.CLIENT);
 	    INSTANCE.registerMessage(MessagePlayerMotionUpdate.class, MessagePlayerMotionUpdate.class, i++, Side.SERVER);
+	    INSTANCE.registerMessage(MessagePlayerEXP.class, MessagePlayerEXP.class, i++, Side.SERVER);
 	    
     }
     

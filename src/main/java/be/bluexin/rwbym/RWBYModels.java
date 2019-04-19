@@ -14,6 +14,7 @@ import be.bluexin.rwbym.capabilities.Yang.IYang;
 import be.bluexin.rwbym.capabilities.Yang.Yang;
 import be.bluexin.rwbym.capabilities.Yang.YangStorage;
 import be.bluexin.rwbym.commands.CommandChangeSemblance;
+import be.bluexin.rwbym.gui.GuiScreenScroll;
 import be.bluexin.rwbym.gui.IRWBYGuiFactory;
 import be.bluexin.rwbym.gui.RWBYItemContainerGui;
 import be.bluexin.rwbym.inventory.IRWBYContainerFactory;
@@ -61,6 +62,7 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.VillagerRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import scala.collection.GenTraversableOnce;
+import scala.reflect.internal.Trees.New;
 
 import java.util.List;
 
@@ -176,7 +178,8 @@ public class RWBYModels {
     	
     	public enum GUI {
     		ITEM_CONTAINER_MAINHAND,
-    		ITEM_CONTAINER_OFFHAND;
+    		ITEM_CONTAINER_OFFHAND,
+    		SCROLL;
     	}
     	
         @Override
@@ -189,6 +192,8 @@ public class RWBYModels {
 				case ITEM_CONTAINER_OFFHAND:
 					stack = player.getHeldItemOffhand();
         			return IRWBYContainerFactory.createInstance(((RWBYContainerItem)stack.getItem()).getContainerClass(), player.inventory, stack);
+				case SCROLL:
+					return null;
     			}
         	
         	throw new IllegalArgumentException("No GUI with ID: " + id);
@@ -205,6 +210,8 @@ public class RWBYModels {
 	    		case ITEM_CONTAINER_OFFHAND:
 	    			stack = player.getHeldItemOffhand();
         			return IRWBYGuiFactory.createInstance(((RWBYContainerItem)stack.getItem()).getGuiClass(), player.inventory, stack);
+	    		case SCROLL:
+	    			return new GuiScreenScroll(player);
 	    	}
 	    	
 	    	throw new IllegalArgumentException("No GUI with ID: " + id);        

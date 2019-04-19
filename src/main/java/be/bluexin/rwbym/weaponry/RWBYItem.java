@@ -56,6 +56,7 @@ public class RWBYItem extends Item implements ICustomItem {
     private boolean coiny;
     private boolean ageist;
     private boolean burn;
+    private boolean scroll;
 
     public RWBYItem(String name,String data, boolean isMask,  CreativeTabs creativetab) {
         this.setRegistryName(new ResourceLocation(RWBYModels.MODID, name));
@@ -76,6 +77,7 @@ public class RWBYItem extends Item implements ICustomItem {
         if(name.contains("coinb")) coinb = true;
         if(name.contains("coiny")) coiny = true;
         if(name.contains("armagigas")) ageist = true;
+        scroll = name.contains("scroll");
     }
 
     /*@Override
@@ -157,15 +159,15 @@ public class RWBYItem extends Item implements ICustomItem {
         }
 
         if(coinr)
-    {
-        if(!worldIn.isRemote){
-            ISemblance semblance = CapabilityHandler.getCurrentSemblance(playerIn);
-            if (semblance.toString().equals("Ruby")) {
-                semblance.setLevel(semblance.getLevel() + 1);
-            } else {CapabilityHandler.setSemblance(playerIn, RubyProvider.RUBY_CAP, 1);}
-            itemstack.shrink(1);
-        }
-    }
+		    {
+		        if(!worldIn.isRemote){
+		            ISemblance semblance = CapabilityHandler.getCurrentSemblance(playerIn);
+		            if (semblance.toString().equals("Ruby")) {
+		                semblance.setLevel(semblance.getLevel() + 1);
+		            } else {CapabilityHandler.setSemblance(playerIn, RubyProvider.RUBY_CAP, 1);}
+		            itemstack.shrink(1);
+		        }
+		    }
         if(coinw)
         {
             if(!worldIn.isRemote){
@@ -197,6 +199,10 @@ public class RWBYItem extends Item implements ICustomItem {
                 } else {CapabilityHandler.setSemblance(playerIn, YangProvider.YANG_CAP, 1);}
                 itemstack.shrink(1);
             }
+        }
+        
+        if (scroll) {
+        	playerIn.openGui(RWBYModels.instance, RWBYModels.GuiHandler.GUI.SCROLL.ordinal(), worldIn, 0, 0, 0);
         }
 
         if (itemstack1.isEmpty() && ismask)

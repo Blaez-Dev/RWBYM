@@ -9,7 +9,7 @@ import be.bluexin.rwbym.capabilities.ISemblance;
 import be.bluexin.rwbym.capabilities.Ruby.IRuby;
 import be.bluexin.rwbym.capabilities.Ruby.RubyProvider;
 import be.bluexin.rwbym.utility.ExtraInfo;
-import be.bluexin.rwbym.utility.network.MessageGetPlayerData;
+import be.bluexin.rwbym.utility.network.MessageSendPlayerDataToServer;
 import be.bluexin.rwbym.utility.network.RWBYNetworkHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;

@@ -1,6 +1,9 @@
 package be.bluexin.rwbym.capabilities.Aura;
 
 import be.bluexin.rwbym.RWBYModels;
+import be.bluexin.rwbym.capabilities.CapabilityHandler;
+import be.bluexin.rwbym.utility.network.MessageSendPlayerData;
+import be.bluexin.rwbym.utility.network.RWBYNetworkHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
@@ -12,7 +15,7 @@ public class Aura implements IAura {
 	private float amount = 0;
 	
 	/**Maximum Aura*/
-	private float max = 100;
+	private int max = 100;
 	
 	/**Amount to recharge*/
 	private float recharge = 1;
@@ -34,6 +37,9 @@ public class Aura implements IAura {
 						} else {
 							player.getFoodStats().addExhaustion(recharge / 4);
 							amount += (recharge / 4);
+						}
+						if (!player.world.isRemote) {
+							RWBYNetworkHandler.sendToAll(new MessageSendPlayerData(CapabilityHandler.getCurrentSemblance(player), this, player.getName()));
 						}
 					}
 				}
@@ -62,11 +68,29 @@ public class Aura implements IAura {
 	}
 	
 	@Override
+	public void addToMax(int amount) {
+		this.max += amount;
+		//this.max = 100;
+	}
+	
+	@Override
+	public int getEXPToLevel() {
+		int lvl = max - 100;
+		return (int)(40 + 4 * lvl + 0.1 * lvl * lvl + Math.pow(1.07, lvl));
+	}
+	
+	@Override
+	public int getMaxAura() {
+		return max;
+	}
+	
+	@Override
 	public NBTBase serialize() {
 		NBTTagCompound nbt = new NBTTagCompound();
 		nbt.setFloat("amount", amount);
 		nbt.setFloat("recharge", recharge);
 		nbt.setInteger("rate", rate);
+		nbt.setInteger("max", max);
 		return nbt;
 	}
 
@@ -75,6 +99,7 @@ public class Aura implements IAura {
 		this.amount = nbt.getFloat("amount");
 		this.recharge = nbt.getFloat("recharge");
 		this.rate = nbt.getInteger("rate");
+		this.max = nbt.getInteger("max");
 	}
 
 }
