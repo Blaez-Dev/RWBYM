@@ -1,10 +1,13 @@
 package be.bluexin.rwbym.capabilities.Ruby;
 
 import be.bluexin.rwbym.Init.RWBYItems;
+import be.bluexin.rwbym.capabilities.Aura.AuraProvider;
+import be.bluexin.rwbym.capabilities.Aura.IAura;
 import be.bluexin.rwbym.RWBYModels;
 import be.bluexin.rwbym.client.particle.RosePetal;
 import be.bluexin.rwbym.entity.EntityBeowolf;
 import be.bluexin.rwbym.entity.EntityMutantDeathStalker;
+import be.bluexin.rwbym.utility.RWBYConfig;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
@@ -27,11 +30,7 @@ public class Ruby implements IRuby {
 	private static final int MAX_LEVEL = 3;
 
 	private int invisiblityTimer = 0;
-	
-	private int cooldown = 0;
-	
-	private double playerY = -1;
-	
+			
 	private boolean active = false;
 	
 	private int level1Time = 50;
@@ -51,27 +50,15 @@ public class Ruby implements IRuby {
 
 		switch(this.level) {
 		case 1:
-			if (this.cooldown > 0) {
-				return false;
-			}
-			else {
-				if (player.onGround){
-					this.setInvisisbility(level1Time);
-					this.active = true;
-				}
+			if (player.onGround){
+				this.setInvisisbility(level1Time);
+				this.active = true;
 				return true;
 			}
 		case 2:
 		case 3:
-			if (this.cooldown <= 0) {
-				this.active = false;
-				return false;
-			}
-			if (this.cooldown >= 30) {
-				this.active = true;
-				return true;
-			}
-			return false;
+			this.active = true;
+			return true;
 		default:
 			return false;
 		}
@@ -82,18 +69,19 @@ public class Ruby implements IRuby {
 		
 		switch(level) {
 		case 1:
-			break;
+			return false;
 		case 2:
 		case 3:
-			this.active = false;}
+			this.active = false;
+			return true;
+		}
 		return false;
 	}
 
-	/**sets the invisibility and the cooldown for level one*/
+	/**sets the invisibility for level one*/
 	@Override
 	public void setInvisisbility(int time) {
 		this.invisiblityTimer = time;
-		this.cooldown = time * 3;
 	}
 	
 	@Override
@@ -103,13 +91,13 @@ public class Ruby implements IRuby {
 
 	@Override
 	public void setCooldownTimer(int time) {
-		this.cooldown = time;
+
 	}
 
 	/**currently not used*/
 	@Override
 	public void setPlayerY(double Y) {
-		this.playerY = Y;
+
 	}
 	
 	/**updates the main logic of the semblance*/
@@ -121,6 +109,12 @@ public class Ruby implements IRuby {
 		if (this.active) {
 			
 			if (!this.useAura(player, auraUse)) return;
+			
+			IAura aura = player.getCapability(AuraProvider.AURA_CAP, null);
+			
+			if (aura != null) {
+				aura.delayRecharge(RWBYConfig.delayticks);
+			}
 			
 			player.fallDistance = 0;
 			
@@ -183,24 +177,12 @@ public class Ruby implements IRuby {
 			if (this.invisiblityTimer > 0) {
 				this.invisiblityTimer--;
 			}
-			if (this.invisiblityTimer < 1) {
+			else {
 				this.active = false;
-			}
-			if (this.cooldown > 0) {
-				this.cooldown--;
 			}
 			break;
 		case 2:
 		case 3:
-			if (!this.active && this.cooldown < maxUseTime) {
-				this.cooldown++;
-			}
-			if (this.active) {
-				this.cooldown -= 3;
-			}
-			if (this.cooldown < 1) {
-				this.active = false;
-			}
 			break;
 		}
 	}
@@ -212,7 +194,7 @@ public class Ruby implements IRuby {
 	
 	@Override
 	public int getCooldown() {
-		return this.cooldown;
+		return 0;
 	}
 
 	@Override
@@ -235,7 +217,7 @@ public class Ruby implements IRuby {
 
 	@Override
 	public double getPlayerY() {
-		return this.playerY;
+		return 0;
 	}
 	
 	@Override
@@ -254,7 +236,6 @@ public class Ruby implements IRuby {
 	@Override
 	public void writeToNBT(NBTTagCompound nbt) {
 		nbt.setInteger("Itimer", invisiblityTimer);
-		nbt.setInteger("cooldown", cooldown);
 		nbt.setInteger("level", level);
 		nbt.setBoolean("active", active);
 	}
@@ -262,7 +243,6 @@ public class Ruby implements IRuby {
 	@Override
 	public void readFromNBT(NBTTagCompound nbt) {
 		this.invisiblityTimer = nbt.getInteger("Itimer");
-		this.cooldown = nbt.getInteger("cooldown");
 		this.level = nbt.getInteger("level");
 		this.active = nbt.getBoolean("active");
 	}
