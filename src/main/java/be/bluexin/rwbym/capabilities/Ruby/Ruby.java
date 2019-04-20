@@ -120,18 +120,25 @@ public class Ruby implements IRuby {
 			
 			if (player.onGround || this.level > 1) {
 				//System.out.println(this.cooldown);
+				
+				boolean flag = player.isElytraFlying();
+				
 				Vec3d look = player.getLookVec();
 				
 				//how much speed to keep
-				double decay = 0.95D;
+				double drag = 0.1D;
 				//comment out this line to go back to normal
-				look = look.scale(Math.max(Math.sqrt(player.motionX * player.motionX + player.motionY * player.motionY / 4 + player.motionZ * player.motionZ) * decay, 1));
-				player.motionX = look.x;
-				player.motionY = look.y * 2;
-				player.motionZ = look.z;
+				player.motionX /= flag ? 0.99 : 0.91;
+				player.motionY /= 0.98;
+				player.motionZ /= flag ? 0.99 : 0.91;
+				if (!flag) player.motionY += 0.08;
+				Vec3d motion = look.scale(Math.sqrt(player.motionX * player.motionX + player.motionY * player.motionY + player.motionZ * player.motionZ));
+				player.motionX = Math.abs(motion.x) < Math.abs(look.x) ? look.x : player.motionX + (look.x - player.motionX) * drag;
+				player.motionY = Math.abs(motion.y) < Math.abs(look.y) ? look.y : player.motionY + (look.y - player.motionY) * drag;
+				player.motionZ = Math.abs(motion.z) < Math.abs(look.z) ? look.z : player.motionZ + (look.z - player.motionZ) * drag;
 				player.fallDistance = 0;
 
-				if(this.level >2){
+				if(this.level > 2){
 					AxisAlignedBB axisalignedbb = player.getEntityBoundingBox().grow(2,2,2);
 	
 	

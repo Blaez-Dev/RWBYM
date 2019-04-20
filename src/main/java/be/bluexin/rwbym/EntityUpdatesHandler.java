@@ -17,6 +17,7 @@ import be.bluexin.rwbym.utility.network.RWBYNetworkHandler;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenHellLava;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
@@ -89,6 +90,12 @@ public class EntityUpdatesHandler {
 		semblance = CapabilityHandler.getCapabilityByName(event.getEntityPlayer(), semblance.getCapability().getName());
 		
 		semblance.setLevel(level);
+		
+		IAura oldaura = event.getOriginal().getCapability(AuraProvider.AURA_CAP, null);
+		
+		IAura newaura = event.getEntityPlayer().getCapability(AuraProvider.AURA_CAP, null);
+		
+		newaura.deserialize((NBTTagCompound) oldaura.serialize());
 	}
 	
 	@SubscribeEvent

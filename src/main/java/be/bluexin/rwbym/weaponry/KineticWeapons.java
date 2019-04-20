@@ -170,12 +170,14 @@ public class KineticWeapons extends ItemSword implements ICustomItem {
             if(player.getHeldItemMainhand().getItem() == RWBYItems.reese && player.getHeldItemMainhand().getOrCreateSubCompound("RWBYM").getInteger("inactive") < 2){
 
                 if (world.isRemote) {
+                	
+                	boolean flag = player.isElytraFlying();
 
                     double r = player.rotationYaw * Math.PI / 180;
 
-                    double x = player.motionX / 0.91;
+                    double x = player.motionX / (flag ? 0.99 : 0.91);
                     double y = player.motionY / 0.98;
-                    double z = player.motionZ / 0.91;
+                    double z = player.motionZ / (flag ? 0.99 : 0.91);
                     BlockPos pos;
                     for (pos = new BlockPos(player); world.isAirBlock(pos) && pos.getY() > 0; pos = pos.add(0, -1, 0));
                     
