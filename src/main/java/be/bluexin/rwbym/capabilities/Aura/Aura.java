@@ -31,11 +31,10 @@ public class Aura implements IAura {
 			if (delay == 0) {
 				if (player.world.getTotalWorldTime() % rate == 0) {
 					if (amount < max) {
-						if (player.getFoodStats().getFoodLevel() > 19) {
+						if (player.getFoodStats().getFoodLevel() > 16) {
 							player.getFoodStats().addExhaustion(recharge);
 							amount += recharge;
 						} else {
-							player.getFoodStats().addExhaustion(recharge / 4);
 							amount += (recharge / 4);
 						}
 						if (!player.world.isRemote) {

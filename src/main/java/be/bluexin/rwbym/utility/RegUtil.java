@@ -178,6 +178,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.coinb);
         registerItems(event, RWBYItems.coiny);
         registerItems(event, RWBYItems.scroll);
+        registerItems(event, RWBYItems.scroll2);
         //lien items
         registerItems(event, RWBYItems.lien1);
         registerItems(event, RWBYItems.lien5);

@@ -34,8 +34,7 @@ public class EntityApathy extends EntityMob {
     public EntityApathy(World var3) {
         super(var3);
         world = var3;
-        this.setSize(1.3F, 4.5F);
-        this.setHeldItem(EnumHand.MAIN_HAND, new ItemStack(RWBYItems.armasword));
+        this.setSize(1.3F, 2.5F);
     }
 
     protected void initEntityAI() {
