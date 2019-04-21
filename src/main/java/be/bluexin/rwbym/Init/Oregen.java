@@ -90,6 +90,7 @@ public class Oregen implements IWorldGenerator{
                 this.runGenerator(ice_overworld, world, random, chunkX, chunkZ, RWBYConfig.iceore, 0, 256);
                 generatestructure1(world, random, blockX + 8, blockZ + 8);
                 generatestructure2(world, random, blockX + 8, blockZ + 8);
+                generatestructure3(world, random, blockX + 8, blockZ + 8);
         }
     }
 
@@ -112,6 +113,17 @@ public class Oregen implements IWorldGenerator{
             BlockPos pos = new BlockPos(blockX, y, blockZ);
             WorldGenerator structure2 = new Structure2();
             structure2.generate(world, rand, pos);
+        }
+    }
+
+    private void generatestructure3(World world, Random rand, int blockX, int blockZ)
+    {
+        if ((int) (Math.random() * RWBYConfig.well) == 0)
+        {
+            int y = getGroundFromAbove(world, blockX, blockZ);
+            BlockPos pos = new BlockPos(blockX, y, blockZ);
+            WorldGenerator structure3 = new Structure3();
+            structure3.generate(world, rand, pos);
         }
     }
 

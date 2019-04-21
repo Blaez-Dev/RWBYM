@@ -47,6 +47,8 @@ public class RWBYConfig
     public static int dustshop = 275;
     @Config.Comment("Spawn Chance Crow Bar")
     public static int bar = 275;
+    @Config.Comment("Spawn Chance Well")
+    public static int well = 300;
     @Config.Comment("Spawn Chance Gravity DusT")
     public static int gravityore = 15;
     @Config.Comment("Spawn Chance Fire Dust")
