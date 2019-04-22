@@ -18,12 +18,12 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class GeistRender extends RenderBiped<EntityGeist>
+public class GeistRender extends RenderLivingBase<EntityGeist>
 {
 
     public static GeistRender.Factory FACTORY = new GeistRender.Factory();
 
-    public GeistRender(RenderManager renderManagerIn, ModelBiped modelBaseIn, float shadowSizeIn) {
+    public GeistRender(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
         super(renderManagerIn, modelBaseIn, shadowSizeIn);
     }
 
@@ -32,7 +32,7 @@ public class GeistRender extends RenderBiped<EntityGeist>
     }
 
     protected void preRenderCallback(EntityGeist entitylivingbaseIn, float partialTickTime) {
-        GlStateManager.scale(1F, 1F, 1F);
+        GlStateManager.scale(0.75F, 0.75F, 0.75F);
     }
 
     @Override

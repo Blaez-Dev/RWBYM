@@ -6,7 +6,9 @@ import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.EntityAITarget;
 import net.minecraft.entity.ai.EntityLookHelper;
 import net.minecraft.entity.ai.EntityMoveHelper;
+import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.nbt.NBTTagCompound;
@@ -29,6 +31,11 @@ import java.util.List;
 
 public class EntityQueenLancer extends EntityMob
 {
+    protected static final DataParameter<Byte> DATA_SPELL_CASTING_ID = EntityDataManager.<Byte>createKey(EntityQueenLancer.class, DataSerializers.BYTE);
+    private static final DataParameter<Boolean> ATTACKING = EntityDataManager.<Boolean>createKey(EntityQueenLancer.class, DataSerializers.BOOLEAN);
+    private int spellCastingTickCount;
+    private int spellCastId;
+    private EntitySheep wololoTarget;
     protected static final DataParameter<Byte> VEX_FLAGS = EntityDataManager.<Byte>createKey(be.bluexin.rwbym.entity.EntityQueenLancer.class, DataSerializers.BYTE);
     private EntityLiving owner;
     @Nullable
@@ -87,6 +94,7 @@ public class EntityQueenLancer extends EntityMob
 
     protected void initEntityAI()
     {
+        this.tasks.addTask(0, new EntityQueenLancer.AISummonSpell());
         this.tasks.addTask(1, new be.bluexin.rwbym.entity.EntityQueenLancer.AIPickAttack());
         this.tasks.addTask(2, new be.bluexin.rwbym.entity.EntityQueenLancer.AISweepAttack());
         this.tasks.addTask(3, new be.bluexin.rwbym.entity.EntityQueenLancer.AIOrbitPoint());
@@ -225,6 +233,13 @@ public class EntityQueenLancer extends EntityMob
 
     protected SoundEvent getDeathSound() {
         return SoundEvents.ENTITY_ELDER_GUARDIAN_DEATH;
+    }
+
+    @Override
+    protected void onDeathUpdate() {
+        super.onDeathUpdate();
+         this.world.spawnEntity(new EntityXPOrb(this.world, this.posX, this.posY + 0.5D, this.posZ, 1));
+
     }
 
     class AIAttackPlayer extends EntityAIBase {
@@ -557,4 +572,209 @@ public class EntityQueenLancer extends EntityMob
     private static double abs(double val) {
         return Math.abs(val);
     }
+
+    public boolean isCastingSpell()
+    {
+        return this.world.isRemote ? ((Byte)this.dataManager.get(DATA_SPELL_CASTING_ID)).byteValue() > 0 : this.spellCastingTickCount > 0;
+    }
+
+    public void setIsCastingSpell(int p_190753_1_)
+    {
+        this.dataManager.set(DATA_SPELL_CASTING_ID, Byte.valueOf((byte)p_190753_1_));
+    }
+
+    private int getSpellCastingTime()
+    {
+        return this.spellCastingTickCount;
+    }
+
+    protected void updateAITasks()
+    {
+        super.updateAITasks();
+
+        if (this.spellCastingTickCount > 0)
+        {
+            --this.spellCastingTickCount;
+        }
+    }
+
+    @Nullable
+    private EntitySheep getWololoTarget()
+    {
+        return this.wololoTarget;
+    }
+
+    class AICastingSpell extends EntityAIBase
+    {
+        public AICastingSpell()
+        {
+            this.setMutexBits(3);
+        }
+
+        /**
+         * Returns whether the EntityAIBase should begin execution.
+         */
+        public boolean shouldExecute()
+        {
+            return EntityQueenLancer.this.getSpellCastingTime() > 0;
+        }
+
+        /**
+         * Execute a one shot task or start executing a continuous task
+         */
+        public void startExecuting()
+        {
+            super.startExecuting();
+            EntityQueenLancer.this.setIsCastingSpell(EntityQueenLancer.this.spellCastId);
+            EntityQueenLancer.this.navigator.clearPath();
+        }
+
+        /**
+         * Reset the task's internal state. Called when this task is interrupted by another one
+         */
+        public void resetTask()
+        {
+            super.resetTask();
+            EntityQueenLancer.this.setIsCastingSpell(0);
+        }
+
+        /**
+         * Keep ticking a continuous task that has already been started
+         */
+        public void updateTask()
+        {
+            if (EntityQueenLancer.this.getAttackTarget() != null)
+            {
+                EntityQueenLancer.this.getLookHelper().setLookPositionWithEntity(EntityQueenLancer.this.getAttackTarget(), (float)EntityQueenLancer.this.getHorizontalFaceSpeed(), (float)EntityQueenLancer.this.getVerticalFaceSpeed());
+            }
+            else if (EntityQueenLancer.this.getWololoTarget() != null)
+            {
+                EntityQueenLancer.this.getLookHelper().setLookPositionWithEntity(EntityQueenLancer.this.getWololoTarget(), (float)EntityQueenLancer.this.getHorizontalFaceSpeed(), (float)EntityQueenLancer.this.getVerticalFaceSpeed());
+            }
+        }
+    }
+    
+    class AISummonSpell extends EntityQueenLancer.AIUseSpell
+    {
+        private AISummonSpell()
+        {
+        }
+
+        /**
+         * Returns whether the EntityAIBase should begin execution.
+         */
+        public boolean shouldExecute()
+        {
+            if (!super.shouldExecute())
+            {
+                return false;
+            }
+            else
+            {
+                int i = EntityQueenLancer.this.world.getEntitiesWithinAABB(EntityCreep.class, EntityQueenLancer.this.getEntityBoundingBox().grow(16.0D)).size();
+                return EntityQueenLancer.this.rand.nextInt(8) + 1 > i;
+            }
+        }
+
+        protected int getCastingTime()
+        {
+            return 100;
+        }
+
+        protected int getCastingInterval()
+        {
+            return 340;
+        }
+
+        protected void castSpell()
+        {
+            for (int i = 0; i < 6; ++i)
+            {
+                BlockPos blockpos = (new BlockPos(EntityQueenLancer.this)).add(-2 + EntityQueenLancer.this.rand.nextInt(5), 1, -2 + EntityQueenLancer.this.rand.nextInt(5));
+                EntityLancer entitycreep = new EntityLancer(EntityQueenLancer.this.world);
+                entitycreep.moveToBlockPosAndAngles(blockpos, 0.0F, 0.0F);
+                entitycreep.onInitialSpawn(EntityQueenLancer.this.world.getDifficultyForLocation(blockpos), (IEntityLivingData)null);
+                EntityQueenLancer.this.world.spawnEntity(entitycreep);
+            }
+        }
+
+        protected SoundEvent getSpellPrepareSound()
+        {
+            return SoundEvents.EVOCATION_ILLAGER_PREPARE_SUMMON;
+        }
+
+        protected int getSpellId()
+        {
+            return 1;
+        }
+    }
+
+    abstract class AIUseSpell extends EntityAIBase
+    {
+        protected int spellWarmup;
+        /** When the evoker is this many ticks old cast the next spell */
+        protected int nextCastTime;
+
+        private AIUseSpell()
+        {
+        }
+
+        /**
+         * Returns whether the EntityAIBase should begin execution.
+         */
+        public boolean shouldExecute()
+        {
+            return EntityQueenLancer.this.getAttackTarget() == null ? false : (EntityQueenLancer.this.isCastingSpell() ? false : EntityQueenLancer.this.ticksExisted >= this.nextCastTime);
+        }
+
+        /**
+         * Returns whether an in-progress EntityAIBase should continue executing
+         */
+        public boolean shouldContinueExecuting()
+        {
+            return EntityQueenLancer.this.getAttackTarget() != null && this.spellWarmup > 0;
+        }
+
+        /**
+         * Execute a one shot task or start executing a continuous task
+         */
+        public void startExecuting()
+        {
+            this.spellWarmup = this.getCastWarmupTime();
+            EntityQueenLancer.this.spellCastingTickCount = this.getCastingTime();
+            this.nextCastTime = EntityQueenLancer.this.ticksExisted + this.getCastingInterval();
+            EntityQueenLancer.this.playSound(this.getSpellPrepareSound(), 1.0F, 1.0F);
+            EntityQueenLancer.this.spellCastId = this.getSpellId();
+        }
+
+        /**
+         * Keep ticking a continuous task that has already been started
+         */
+        public void updateTask()
+        {
+            --this.spellWarmup;
+
+            if (this.spellWarmup == 0)
+            {
+                this.castSpell();
+                EntityQueenLancer.this.playSound(SoundEvents.EVOCATION_ILLAGER_CAST_SPELL, 1.0F, 1.0F);
+            }
+        }
+
+        protected abstract void castSpell();
+
+        protected int getCastWarmupTime()
+        {
+            return 20;
+        }
+
+        protected abstract int getCastingTime();
+
+        protected abstract int getCastingInterval();
+
+        protected abstract SoundEvent getSpellPrepareSound();
+
+        protected abstract int getSpellId();
+    }
+
 }

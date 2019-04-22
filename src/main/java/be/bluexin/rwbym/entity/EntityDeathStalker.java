@@ -4,6 +4,7 @@ import be.bluexin.rwbym.ModLootTables;
 import be.bluexin.rwbym.utility.RWBYConfig;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
+import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.monster.EntityIronGolem;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntityVindicator;
@@ -114,6 +115,13 @@ public class EntityDeathStalker extends EntityMob {
     @Override
     protected float getSoundVolume() {
         return 1.0F;
+    }
+
+    @Override
+    protected void onDeathUpdate() {
+        super.onDeathUpdate();
+        this.world.spawnEntity(new EntityXPOrb(this.world, this.posX, this.posY + 0.5D, this.posZ, 1));
+
     }
 
 }
