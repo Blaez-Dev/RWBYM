@@ -41,7 +41,6 @@ public class MessageActivateSemblance extends MessageBase<MessageActivateSemblan
     	
     	if (message.activate) {
     		CapabilityHandler.getCurrentSemblance(player).onActivate(player);
-				player.getCapability(AuraProvider.AURA_CAP, null).delayRecharge(RWBYConfig.delayticks);
     	}
     	else {
     		CapabilityHandler.getCurrentSemblance(player).deActivate(player);

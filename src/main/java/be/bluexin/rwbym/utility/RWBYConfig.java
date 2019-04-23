@@ -65,6 +65,8 @@ public class RWBYConfig
     public static int iceore = 15;
     @Config.Comment("Semblance Recharge Delay in Ticks")
     public static int delayticks = 250;
+    @Config.Comment("Can Aura Block Damage?")
+    public static boolean aurablockdamage = true;
 
     @Mod.EventBusSubscriber(modid = RWBYModels.MODID)
     private static class Handler

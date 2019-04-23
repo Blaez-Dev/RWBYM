@@ -1,7 +1,10 @@
 package be.bluexin.rwbym.capabilities.Weiss;
 
 import be.bluexin.rwbym.RWBYModels;
+import be.bluexin.rwbym.capabilities.Aura.AuraProvider;
+import be.bluexin.rwbym.capabilities.Aura.IAura;
 import be.bluexin.rwbym.entity.*;
+import be.bluexin.rwbym.utility.RWBYConfig;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.BlockPos;
@@ -27,7 +30,13 @@ public class Weiss implements IWeiss {
 		if (this.cooldown > 0) {
 			return false;
 		}
-		
+
+		IAura aura = player.getCapability(AuraProvider.AURA_CAP, null);
+
+		if (aura != null) {
+			aura.delayRecharge(RWBYConfig.delayticks);
+		}
+
 		this.cooldown = cooldowns[level-1];
 		if (player.onGround && !player.world.isRemote){
 			BlockPos blockpos = (new BlockPos(player));

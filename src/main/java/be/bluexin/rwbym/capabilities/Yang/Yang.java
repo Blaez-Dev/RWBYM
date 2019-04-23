@@ -1,5 +1,8 @@
 package be.bluexin.rwbym.capabilities.Yang;
 
+import be.bluexin.rwbym.capabilities.Aura.IAura;
+import be.bluexin.rwbym.utility.RWBYConfig;
+import net.minecraft.util.EnumParticleTypes;
 import org.apache.logging.log4j.Level;
 
 import be.bluexin.rwbym.RWBYModels;
@@ -12,25 +15,56 @@ import net.minecraftforge.common.capabilities.Capability;
 
 public class Yang implements IYang {
 
+	private boolean active = false;
+
+	private int Timer = 0;
+
 	private static final int MAX_LEVEL = 3;
 	
 	private int level = 0;
+
+	private float auraUse = 0.3F;
 	
 	private int strengthMultiplyer = 6;
 
 	@Override
 	public boolean onActivate(EntityPlayer player) {
-		return false;
+		switch(this.level) {
+			case 1:
+			case 2:
+			case 3:
+				this.active = true;
+				this.Timer = 120;
+				return true;
+			default:
+				return false;
+		}
 	}
+
 
 	@Override
 	public boolean deActivate(EntityPlayer player) {
+		switch(level) {
+			case 1:
+			case 2:
+			case 3:
+				return true;
+		}
 		return false;
 	}
 
 	@Override
 	public void onUpdate(EntityPlayer player) {
-		
+		if(this.active){
+
+			if (!this.useAura(player, auraUse)) return;
+
+			IAura aura = player.getCapability(AuraProvider.AURA_CAP, null);
+
+			if (aura != null) {
+				aura.delayRecharge(RWBYConfig.delayticks);
+			}
+
 		float percentage;
 		
 		if (player.hasCapability(AuraProvider.AURA_CAP, null)) {
@@ -40,7 +74,7 @@ public class Yang implements IYang {
 			percentage = Math.min(player.getHealth()/player.getMaxHealth(), 1f);
 		}
 		
-		int strength = Math.round((1f - percentage) * strengthMultiplyer * this.level);
+		int strength = Math.round((1f - percentage) * strengthMultiplyer * 2 * this.level);
 		
 		if (strength > 0) {
 			
@@ -48,16 +82,56 @@ public class Yang implements IYang {
 			player.addPotionEffect(potioneffect);
 			
 		}
+
+
+		}else 	if(!this.active){
+
+			float percentage;
+
+			if (player.hasCapability(AuraProvider.AURA_CAP, null)) {
+				percentage = player.getCapability(AuraProvider.AURA_CAP, null).getPercentage();
+			}
+			else {
+				percentage = Math.min(player.getHealth()/player.getMaxHealth(), 1f);
+			}
+
+			int strength = Math.round((1f - percentage) * strengthMultiplyer /2  * this.level);
+
+			if (strength > 0) {
+
+				PotionEffect potioneffect = new PotionEffect(MobEffects.STRENGTH, 60, strength, false, false);
+				player.addPotionEffect(potioneffect);
+
+			}
+
+		}
+
+		switch(this.level) {
+			case 1:
+			case 2:
+			case 3:
+				if (this.Timer > 0) {
+					this.Timer--;
+				}
+				else {
+					this.active = false;
+				}
+				break;
+		}
 	}
 
 	@Override
 	public void writeToNBT(NBTTagCompound nbt) {
-		nbt.setInteger("level", this.level);
+		nbt.setInteger("timer", Timer);
+		nbt.setInteger("level", level);
+		nbt.setBoolean("active", active);
 	}
 
 	@Override
 	public void readFromNBT(NBTTagCompound nbt) {
+		this.Timer = nbt.getInteger("timer");
 		this.level = nbt.getInteger("level");
+		this.active = nbt.getBoolean("active");
 	}
 
 	@Override
@@ -82,7 +156,7 @@ public class Yang implements IYang {
 
 	@Override
 	public boolean isActive() {
-		return true;
+		return this.active;
 	}
 	
 	@Override

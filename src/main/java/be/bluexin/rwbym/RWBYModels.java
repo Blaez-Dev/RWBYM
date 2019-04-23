@@ -79,7 +79,7 @@ import org.apache.logging.log4j.Logger;
 public class RWBYModels {
     public static final String MODID = "rwbym";
     public static final String MODNAME = "RWBY-M";
-    public static final String VERSION = "3.2";
+    public static final String VERSION = "3.3";
 
     public static List<ICustomItem> items;
 

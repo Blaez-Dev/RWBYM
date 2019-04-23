@@ -2,6 +2,7 @@ package be.bluexin.rwbym;
 
 import java.util.List;
 
+import be.bluexin.rwbym.utility.RWBYConfig;
 import org.apache.logging.log4j.Level;
 
 import be.bluexin.rwbym.capabilities.CapabilityHandler;
@@ -56,6 +57,7 @@ public class EntityUpdatesHandler {
 	
 	@SubscribeEvent
 	public void onEntityDamage(LivingDamageEvent event) {
+		if(RWBYConfig.aurablockdamage){
 		EntityLivingBase entityliving = event.getEntityLiving();
 		if (entityliving instanceof EntityPlayer && !entityliving.world.isRemote) {
 			EntityPlayer player = (EntityPlayer) entityliving;
@@ -65,7 +67,7 @@ public class EntityUpdatesHandler {
 				aura.delayRecharge(600);
 				event.setAmount(overflow / 5);
 			}
-		}
+		}}
 	}
 	
 	@SubscribeEvent

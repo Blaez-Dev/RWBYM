@@ -5,6 +5,7 @@ import be.bluexin.rwbym.capabilities.Aura.AuraProvider;
 import be.bluexin.rwbym.capabilities.Aura.IAura;
 import be.bluexin.rwbym.RWBYModels;
 import be.bluexin.rwbym.entity.*;
+import be.bluexin.rwbym.utility.RWBYConfig;
 import net.minecraft.entity.MoverType;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -61,6 +62,14 @@ public class Blake implements IBlake {
 
 	@Override
 	public void onUpdate(EntityPlayer player) {
+
+		if (!this.useAura(player, auraUse)) return;
+
+		IAura aura = player.getCapability(AuraProvider.AURA_CAP, null);
+
+		if (aura != null) {
+			aura.delayRecharge(RWBYConfig.delayticks);
+		}
 
 		if (!player.onGround) {
 			airTime++;
