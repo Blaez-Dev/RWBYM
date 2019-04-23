@@ -62,7 +62,7 @@ public class EntityMutantDeathStalker extends EntityMob
         super.initEntityAI();
         this.tasks.addTask(0, new EntityAISwimming(this));
         this.tasks.addTask(1, new EntityMutantDeathStalker.AICastingSpell());
-        this.tasks.addTask(2, new EntityAIAttackMelee(this, 1.0D, false));
+        this.tasks.addTask(2, new EntityAIAttackMeleeWithRange(this, 1.0D, false, 0.5F));
         this.tasks.addTask(3, new EntityMutantDeathStalker.AIFireballAttack(this));
         this.tasks.addTask(4, new EntityMutantDeathStalker.AISummonSpell());
         this.tasks.addTask(8, new EntityAIWander(this, 0.6D));
