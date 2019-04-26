@@ -104,14 +104,14 @@ public class Ruby implements IRuby {
 	@Override
 	public void onUpdate(EntityPlayer player) {
 
+		IAura aura = player.getCapability(AuraProvider.AURA_CAP, null);
+
 		//System.out.println(cooldown);
 		
-		if (this.active) {
+		if (this.active && aura.getPercentage() > 0.01) {
 			
 			if (!this.useAura(player, auraUse)) return;
-			
-			IAura aura = player.getCapability(AuraProvider.AURA_CAP, null);
-			
+
 			if (aura != null) {
 				aura.delayRecharge(RWBYConfig.delayticks);
 			}
@@ -177,6 +177,11 @@ public class Ruby implements IRuby {
 					}else RWBYModels.proxy.generateRosepetals(player);
 				}
 			}
+		}
+
+
+		if(aura.getPercentage() < 0.01){
+			this.active = false;
 		}
 
 		switch(this.level) {

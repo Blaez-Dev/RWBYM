@@ -5,6 +5,10 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.Callable;
 
+import be.bluexin.rwbym.capabilities.Ren.IRen;
+import be.bluexin.rwbym.capabilities.Ren.Ren;
+import be.bluexin.rwbym.capabilities.Ren.RenProvider;
+import be.bluexin.rwbym.capabilities.Ren.RenStorage;
 import org.apache.logging.log4j.Level;
 
 import be.bluexin.rwbym.RWBYModels;
@@ -43,6 +47,7 @@ public class CapabilityHandler {
 	public static final ResourceLocation WEISS_KEY = new ResourceLocation(RWBYModels.MODID, "weiss");
 	public static final ResourceLocation YANG_KEY = new ResourceLocation(RWBYModels.MODID, "yang");
 	public static final ResourceLocation BLAKE_KEY = new ResourceLocation(RWBYModels.MODID, "blake");
+	public static final ResourceLocation Ren_KEY = new ResourceLocation(RWBYModels.MODID, "ren");
 	
 	public static final ResourceLocation AURA_KEY = new ResourceLocation(RWBYModels.MODID, "aura");
 	
@@ -56,7 +61,7 @@ public class CapabilityHandler {
 			event.addCapability(WEISS_KEY, new WeissProvider());
 			event.addCapability(YANG_KEY, new YangProvider());
 			event.addCapability(BLAKE_KEY, new BlakeProvider());
-			
+			event.addCapability(Ren_KEY, new RenProvider());
 			event.addCapability(AURA_KEY, new AuraProvider());
 		}
 		
@@ -68,6 +73,7 @@ public class CapabilityHandler {
         register(IWeiss.class, new WeissStorage(), Weiss::new);
         register(IYang.class, new YangStorage(), Yang::new);
         register(IBlake.class, new BlakeStorage(), Blake::new);
+        register(IRen.class, new RenStorage(), Ren::new);
         
         CapabilityManager.INSTANCE.register(IAura.class, new AuraStorage(), Aura::new);
 	}

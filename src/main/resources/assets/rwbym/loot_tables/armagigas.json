@@ -40,6 +40,11 @@
         },
         {
           "type": "item",
+          "name": "rwbym:coin_ren",
+          "weight": 1
+        },
+        {
+          "type": "item",
           "name": "rwbym:coinw",
           "weight": 1
         },{

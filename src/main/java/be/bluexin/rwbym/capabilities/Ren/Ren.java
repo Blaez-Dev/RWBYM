@@ -1,4 +1,4 @@
-package be.bluexin.rwbym.capabilities.Yang;
+package be.bluexin.rwbym.capabilities.Ren;
 
 import be.bluexin.rwbym.capabilities.Aura.IAura;
 import be.bluexin.rwbym.utility.RWBYConfig;
@@ -13,7 +13,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.common.capabilities.Capability;
 
-public class Yang implements IYang {
+public class Ren implements IRen {
 
 	private boolean active = false;
 
@@ -24,8 +24,7 @@ public class Yang implements IYang {
 	private int level = 0;
 
 	private float auraUse = 0.3F;
-	
-	private int strengthMultiplyer = 6;
+
 
 	@Override
 	public boolean onActivate(EntityPlayer player) {
@@ -60,50 +59,22 @@ public class Yang implements IYang {
 
 			if (!this.useAura(player, auraUse)) return;
 
+			if(aura.getPercentage() == 0){
+				this.active = false;
+			}
+
 			if (aura != null) {
 				aura.delayRecharge(RWBYConfig.delayticks);
 			}
 
-		float percentage;
 		
-		if (player.hasCapability(AuraProvider.AURA_CAP, null)) {
-			percentage = player.getCapability(AuraProvider.AURA_CAP, null).getPercentage();
-		}
-		else {
-			percentage = Math.min(player.getHealth()/player.getMaxHealth(), 1f);
-		}
-		
-		int strength = Math.round((1f - percentage) * strengthMultiplyer * 2 * this.level);
+		int strength = Math.round(this.level * 90);
 		
 		if (strength > 0) {
-			
-			PotionEffect potioneffect = new PotionEffect(MobEffects.STRENGTH, 60, strength, false, false);
+			PotionEffect potioneffect = new PotionEffect(MobEffects.INVISIBILITY, strength, 1, true, true);
 			player.addPotionEffect(potioneffect);
-			
-		}
+		}}
 
-
-		}else 	if(!this.active){
-
-			float percentage;
-
-			if (player.hasCapability(AuraProvider.AURA_CAP, null)) {
-				percentage = player.getCapability(AuraProvider.AURA_CAP, null).getPercentage();
-			}
-			else {
-				percentage = Math.min(player.getHealth()/player.getMaxHealth(), 1f);
-			}
-
-			int strength = Math.round((1f - percentage) * strengthMultiplyer /2  * this.level);
-
-			if (strength > 0) {
-
-				PotionEffect potioneffect = new PotionEffect(MobEffects.STRENGTH, 60, strength, false, false);
-				player.addPotionEffect(potioneffect);
-
-			}
-
-		}
 
 
 		if(aura.getPercentage() < 0.01){
@@ -155,7 +126,7 @@ public class Yang implements IYang {
 
 	@Override
 	public Capability getCapability() {
-		return YangProvider.YANG_CAP;
+		return RenProvider.Ren_CAP;
 	}
 
 	@Override
@@ -165,7 +136,7 @@ public class Yang implements IYang {
 	
 	@Override
 	public String toString() {
-		return "Yang";
+		return "Ren";
 	}
 	
 	@Override
@@ -176,8 +147,8 @@ public class Yang implements IYang {
 	@Override
 	public float[] getColor() {
 		float color[] = new float[3];
-		color[0] = 0.7F;
-		color[1] = 0.6F;
+		color[0] = 0F;
+		color[1] = 0.3F;
 		color[2] = 0F;
 		return color;
 	}
