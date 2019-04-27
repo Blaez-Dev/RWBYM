@@ -25,13 +25,11 @@ public class Weiss implements IWeiss {
 	private int[] auraUses = {5, 15, 25, 60};
 
 	public boolean onActivate(EntityPlayer player) {
-		
+		IAura aura = player.getCapability(AuraProvider.AURA_CAP, null);
 		if (!this.useAura(player, auraUses[level - 1])) return false;
 		if (this.cooldown > 0) {
 			return false;
 		}
-
-		IAura aura = player.getCapability(AuraProvider.AURA_CAP, null);
 
 		if (aura != null) {
 			aura.delayRecharge(RWBYConfig.delayticks);

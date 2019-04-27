@@ -24,8 +24,8 @@ public class BeowolfRender extends RenderLivingBase<EntityBeowolf> {
     }
 
     protected void preRenderCallback(EntityBeowolf entitylivingbaseIn, float partialTickTime) {
-        GlStateManager.scale(1.5F, 1.5F, 1.5F);
-        GlStateManager.translate(0, 0.3, 0);
+        GlStateManager.scale(1F, 1F, 1F);
+        GlStateManager.translate(0, 0, 0);
     }
 
     @Override

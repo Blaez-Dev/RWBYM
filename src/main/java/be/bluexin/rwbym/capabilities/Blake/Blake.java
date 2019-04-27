@@ -37,9 +37,9 @@ public class Blake implements IBlake {
 	
 	@Override
 	public boolean onActivate(EntityPlayer player) {
-		
+
 		cooldowntime = (int) (200 / (Math.pow(level, 0.5)));
-		
+
 		if (numShadows > 0) {
 			
 			if (!this.useAura(player, auraUse)) return false;
@@ -62,10 +62,10 @@ public class Blake implements IBlake {
 
 	@Override
 	public void onUpdate(EntityPlayer player) {
+		IAura aura = player.getCapability(AuraProvider.AURA_CAP, null);
+
 
 		if (!this.useAura(player, auraUse)) return;
-
-		IAura aura = player.getCapability(AuraProvider.AURA_CAP, null);
 
 		if (aura != null) {
 			aura.delayRecharge(RWBYConfig.delayticks);
