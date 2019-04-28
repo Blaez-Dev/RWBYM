@@ -1,6 +1,7 @@
 package be.bluexin.rwbym.entity.renderer;
 
 import be.bluexin.rwbym.RWBYModels;
+import be.bluexin.rwbym.entity.EntityBeowolf;
 import be.bluexin.rwbym.entity.EntityWinterBeowolf;
 import be.bluexin.rwbym.entity.ModelBeowolf;
 import net.minecraft.client.model.ModelBase;
@@ -23,9 +24,9 @@ public class WinterBeowolfRender extends RenderLivingBase<EntityWinterBeowolf> {
         return false;
     }
 
-    protected void preRenderCallback(EntityWinterBeowolf entitylivingbaseIn, float partialTickTime) {
-        GlStateManager.scale(1.5F, 1.5F, 1.5F);
-        GlStateManager.translate(0, 0.3, 0);
+    protected void preRenderCallback(EntityBeowolf entitylivingbaseIn, float partialTickTime) {
+        GlStateManager.scale(1F, 1F, 1F);
+        GlStateManager.translate(0, 0, 0);
     }
 
     @Override

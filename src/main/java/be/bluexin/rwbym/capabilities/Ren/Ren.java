@@ -152,5 +152,4 @@ public class Ren implements IRen {
 		color[2] = 0F;
 		return color;
 	}
-
 }
