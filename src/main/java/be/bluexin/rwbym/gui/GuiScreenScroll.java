@@ -67,6 +67,8 @@ public class GuiScreenScroll extends GuiScreen {
 		super.initGui();
 		this.mc = Minecraft.getMinecraft();
 		
+		this.allowUserInput = true;
+		
         this.buttonList.clear();
         this.button1 = this.addButton(new GuiButtonScroll(0, (this.width - 104) / 2, (this.height - 21) / 2 - texturey * 4 / 40, 90, 14, texturex, 0, 90, 14, 12, "Lvl Aura: "));
         this.button2 = this.addButton(new GuiButtonScroll(1, (this.width + 76) / 2, (this.height - 21) / 2 - texturey * 4 / 40, 14, 14, texturex, 0, 90, 14, 12, "M"));
@@ -87,6 +89,13 @@ public class GuiScreenScroll extends GuiScreen {
 			aura.addToMax(1);
 			RWBYNetworkHandler.sendToServer(new MessageSendPlayerDataToServer(this.players[0]));
 			if (button.id == 0) break;
+		}
+	}
+	
+	@Override
+	protected void keyTyped(char typedChar, int keyCode) throws IOException {
+		if (keyCode == this.mc.gameSettings.keyBindInventory.getKeyCode()) {
+			this.mc.displayGuiScreen(null);
 		}
 	}
 	
