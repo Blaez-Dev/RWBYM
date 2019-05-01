@@ -4,6 +4,7 @@ import be.bluexin.rwbym.RWBYModels;
 import be.bluexin.rwbym.entity.EntityBeowolf;
 import be.bluexin.rwbym.entity.EntityWinterBeowolf;
 import be.bluexin.rwbym.entity.ModelBeowolf;
+import be.bluexin.rwbym.entity.ModelWinterbeowolf;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.Render;
@@ -38,7 +39,7 @@ public class WinterBeowolfRender extends RenderLivingBase<EntityWinterBeowolf> {
 
         @Override
         public Render<? super EntityWinterBeowolf> createRenderFor(RenderManager manager) {
-            return new WinterBeowolfRender(manager, new ModelBeowolf(), 0);
+            return new WinterBeowolfRender(manager, new ModelWinterbeowolf(), 0);
         }
 
     }

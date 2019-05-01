@@ -10,7 +10,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class ModelBeowolf extends ModelBase {
+public class ModelWinterbeowolf extends ModelBase {
     private final ModelRenderer beowolf;
     private final ModelRenderer beowolfRotation;
     private final ModelRenderer headMove;
@@ -102,7 +102,7 @@ public class ModelBeowolf extends ModelBase {
     private final ModelRenderer bone35;
     private final ModelRenderer bone36;
 
-    public ModelBeowolf() {
+    public ModelWinterbeowolf() {
         textureWidth = 128;
         textureHeight = 128;
 
@@ -672,12 +672,12 @@ public class ModelBeowolf extends ModelBase {
 
     @Override
     public void render(Entity parEntity, float parTime, float parSwingSuppress, float par4, float parHeadAngleY, float parHeadAngleX, float par7) {
-        renderBeowolf((EntityBeowolf) parEntity, parTime, parSwingSuppress, par4, parHeadAngleY, parHeadAngleX, par7);
+        renderBeowolf((EntityWinterBeowolf) parEntity, parTime, parSwingSuppress, par4, parHeadAngleY, parHeadAngleX, par7);
         parEntity.getEntityId();
 
     }
 
-    public void renderBeowolf(EntityBeowolf parEntity, float parTime, float parSwingSuppress, float par4, float parHeadAngleY, float parHeadAngleX, float par7) {
+    public void renderBeowolf(EntityWinterBeowolf parEntity, float parTime, float parSwingSuppress, float par4, float parHeadAngleY, float parHeadAngleX, float par7) {
         setRotationAngles(parTime, parSwingSuppress, par4, parHeadAngleY, parHeadAngleX, par7, parEntity);
         beowolf.render(par7);
     }

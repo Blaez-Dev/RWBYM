@@ -42,7 +42,7 @@ public class Structure3 extends WorldGenerator{
                     .setReplacedBlock((Block) null).setIgnoreStructureBlock(true);
 
             template.getDataBlocks(position, placementsettings);
-            template.addBlocksToWorld(world, position.add(0, -10, 0), placementsettings);
+            template.addBlocksToWorld(world, position.add(0, -9, 0), placementsettings);
 
 
             Map<BlockPos, String> map = template.getDataBlocks(position, placementsettings);
