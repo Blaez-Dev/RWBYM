@@ -112,6 +112,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.razorboltknife);
         registerItems(event, RWBYItems.chatareus);
         registerItems(event, RWBYItems.chatareusgun);
+        registerItems(event, RWBYItems.hexen);
         registerItems(event, RWBYItems.mariacane);
         registerItems(event, RWBYItems.mariascythe);
         registerItems(event, RWBYItems.mariascythedouble);

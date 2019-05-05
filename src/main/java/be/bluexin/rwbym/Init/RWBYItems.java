@@ -883,7 +883,7 @@ public class RWBYItems {
             1,
             1,
             null);
-    public static final Item ember = new RWBYBow(
+    public static final Item ember = new RWBYShotgun(
             "ember",
             2500,
             72,
@@ -892,12 +892,13 @@ public class RWBYItems {
             "rwbym:ember2",
             "rwbym:emammo,rwbym:emfireammo,rwbym:emflareammo",
             false,
-            1,
+            0.8F,
             true,
+            4,
             2,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static final Item ember2 = new RWBYBow(
+    public static final Item ember2 = new RWBYShotgun(
             "ember2",
             2500,
             72,
@@ -906,8 +907,9 @@ public class RWBYItems {
             "rwbym:ember",
             "rwbym:emammo,rwbym:emfireammo,rwbym:emflareammo",
             false,
-            1,
+            0.8F,
             true,
+            4,
             2,
             0,
             null);
@@ -995,7 +997,7 @@ public class RWBYItems {
             0,
             1,
             null);
-    public static final Item emberv = new RWBYBow(
+    public static final Item emberv = new RWBYShotgun(
             "emberv",
             1250,
             72,
@@ -1006,10 +1008,11 @@ public class RWBYItems {
             false,
             1,
             true,
+            4,
             2,
             1,
             null);
-    public static final Item qrowgun = new RWBYBow(
+    public static final Item qrowgun = new RWBYShotgun(
             "qrowgun",
             2500,
             72,
@@ -1018,8 +1021,9 @@ public class RWBYItems {
             "rwbym:qrowsword",
             "rwbym:emammo,rwbym:emfireammo,rwbym:emflareammo",
             false,
-            1,
+            0.8F,
             true,
+            4,
             0,
             0,
             null);
@@ -1052,7 +1056,7 @@ public class RWBYItems {
             1,
             null);
 
-    public static final Item torchwickgun = new RWBYBow(
+    public static final Item torchwickgun = new RWBYShotgun(
             "torchwickgun",
             2500,
             72,
@@ -1061,12 +1065,13 @@ public class RWBYItems {
             "rwbym:torchwick",
             "rwbym:emammmo,rwbym:emflareammo",
             false,
-            1,
+            0.8F,
             true,
+            1,
             0,
             0,
             null);
-    public static final Item portgun = new RWBYBow(
+    public static final Item portgun = new RWBYShotgun(
             "portgun",
             2500,
             72,
@@ -1075,8 +1080,9 @@ public class RWBYItems {
             "rwbym:port",
             "rwbym:emammo,rwbym:emammmo",
             false,
-            1,
+            0.8F,
             true,
+            4,
             0,
             0,
             null);
@@ -1136,7 +1142,7 @@ public class RWBYItems {
             0,
             0,
             null);
-    public static final Item adamgun = new RWBYBow(
+    public static final Item adamgun = new RWBYShotgun(
             "adamgun",
             2500,
             72,
@@ -1145,8 +1151,9 @@ public class RWBYItems {
             "rwbym:adamswd",
             "rwbym:emammo,rwbym:emfireammo,rwbym:emflareammo",
             false,
-            1,
+            0.8F,
             true,
+            3,
             0,
             0,
             null);
@@ -1162,7 +1169,7 @@ public class RWBYItems {
             false,
             0,
             null);
-    public  static  final  Item sunnunchuck = new RWBYBow(
+    public  static  final  Item sunnunchuck = new RWBYShotgun(
             "sunnunchuck",
             2500,
             72,
@@ -1170,8 +1177,9 @@ public class RWBYItems {
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:14,Operation:0,UUIDMost:99791,UUIDLeast:128916}]}",
             "rwbym:sunstaff", "rwbym:emammo,rwbym:emfireammo,rwbym:emflareammo",
             false,
-            1.0F,
+            0.8F,
             true,
+            2,
             0,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
@@ -1282,6 +1290,20 @@ public class RWBYItems {
             false,
             0,
            null);
+    public  static  final  Item hexen = new RWBYShotgun(
+            "hexen",
+            2500,
+            72,
+            0,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:14,Operation:0,UUIDMost:99791,UUIDLeast:128916}]}",
+            null, "rwbym:emammo,rwbym:emfireammo,rwbym:emflareammo",
+            true,
+            0.8F,
+            true,
+            4,
+            0,
+            0,
+            RWBYCreativeTabs.tab_rwbyweapons);
 
     //------------------------------------------------//
     public static final Item ammo = new RWBYItem("ammo", null, false, RWBYCreativeTabs.tab_rwbyitems);
@@ -1508,7 +1530,7 @@ public class RWBYItems {
             null);
     public static final Item emammo = new RWBYAmmoItem(
             "emammo",
-            RWBYItems.entityshell,
+            RWBYItems.entitysmallbullet,
             1,
             false,
             RWBYAmmoItem.SurviveOnHit.NONE,
@@ -1518,12 +1540,12 @@ public class RWBYItems {
             null,
             null,
             32,
-            8,
+            3,
             RWBYCreativeTabs.tab_rwbyitems,
             null);
     public static final Item emfireammo = new RWBYAmmoItem(
             "emfireammo",
-            RWBYItems.entityfireshell,
+            RWBYItems.entityweissfire,
             1,
             false,
             RWBYAmmoItem.SurviveOnHit.NONE,
@@ -1533,12 +1555,12 @@ public class RWBYItems {
             "",
             null,
             32,
-            8,
+            3,
             RWBYCreativeTabs.tab_rwbyitems,
             new FireAmmoHit(10));
     public static final Item emflareammo = new RWBYAmmoItem(
             "emflareammo",
-            RWBYItems.entityflareshell,
+            RWBYItems.entityweisslight,
             1,
             false,
             RWBYAmmoItem.SurviveOnHit.NONE,
@@ -1548,9 +1570,9 @@ public class RWBYItems {
             "",
             null,
             32,
-            8,
+            3,
             RWBYCreativeTabs.tab_rwbyitems,
-            new ExplosionAmmoHit(1));
+            new ExplosionAmmoHit(0));
     public static final Item crmag = new RWBYAmmoItem(
             "crmag",
             RWBYItems.entitybullet,
