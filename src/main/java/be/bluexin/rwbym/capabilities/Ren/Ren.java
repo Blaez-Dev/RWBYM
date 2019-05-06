@@ -1,8 +1,11 @@
 package be.bluexin.rwbym.capabilities.Ren;
 
 import be.bluexin.rwbym.capabilities.Aura.IAura;
+import be.bluexin.rwbym.entity.EntityRen;
+import be.bluexin.rwbym.entity.EntityWinterBoarbatusk;
 import be.bluexin.rwbym.utility.RWBYConfig;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.math.BlockPos;
 import org.apache.logging.log4j.Level;
 
 import be.bluexin.rwbym.RWBYModels;
@@ -28,12 +31,16 @@ public class Ren implements IRen {
 
 	@Override
 	public boolean onActivate(EntityPlayer player) {
+		BlockPos blockpos = (new BlockPos(player));
 		switch(this.level) {
 			case 1:
 			case 2:
 			case 3:
 				this.active = true;
 				this.Timer = 120;
+				EntityRen entityren = new EntityRen(player.world);
+				entityren.moveToBlockPosAndAngles(blockpos, 0.0F, 0.0F);
+				player.world.spawnEntity(entityren);
 				return true;
 			default:
 				return false;

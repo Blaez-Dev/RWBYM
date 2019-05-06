@@ -61,7 +61,7 @@ public class CapabilityHandler {
 			event.addCapability(WEISS_KEY, new WeissProvider());
 			event.addCapability(YANG_KEY, new YangProvider());
 			event.addCapability(BLAKE_KEY, new BlakeProvider());
-			//event.addCapability(Ren_KEY, new RenProvider());
+			event.addCapability(Ren_KEY, new RenProvider());
 			event.addCapability(AURA_KEY, new AuraProvider());
 		}
 		
@@ -73,7 +73,7 @@ public class CapabilityHandler {
         register(IWeiss.class, new WeissStorage(), Weiss::new);
         register(IYang.class, new YangStorage(), Yang::new);
         register(IBlake.class, new BlakeStorage(), Blake::new);
-        //register(IRen.class, new RenStorage(), Ren::new);
+        register(IRen.class, new RenStorage(), Ren::new);
         
         CapabilityManager.INSTANCE.register(IAura.class, new AuraStorage(), Aura::new);
 	}

@@ -1296,7 +1296,8 @@ public class RWBYItems {
             72,
             0,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:14,Operation:0,UUIDMost:99791,UUIDLeast:128916}]}",
-            null, "rwbym:emammo,rwbym:emfireammo,rwbym:emflareammo",
+            "rwbym:hexenaxe",
+            "rwbym:emammo,rwbym:emfireammo,rwbym:emflareammo",
             true,
             0.8F,
             true,
@@ -1304,6 +1305,21 @@ public class RWBYItems {
             0,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
+    public  static  final  Item hexenaxe = new RWBYShotgun(
+            "hexenaxe",
+            2500,
+            72,
+            0,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:18,Operation:0,UUIDMost:99791,UUIDLeast:128916}]}",
+            "rwbym:hexen",
+            "rwbym:emammo,rwbym:emfireammo,rwbym:emflareammo",
+            false,
+            0.8F,
+            true,
+            4,
+            0,
+            0,
+            null);
 
     //------------------------------------------------//
     public static final Item ammo = new RWBYItem("ammo", null, false, RWBYCreativeTabs.tab_rwbyitems);

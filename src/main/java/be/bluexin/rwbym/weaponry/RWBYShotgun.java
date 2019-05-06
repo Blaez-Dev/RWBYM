@@ -119,6 +119,7 @@ public class RWBYShotgun extends ItemBow implements ICustomItem {
         if(name.contains("neptunegun")) nept = true;
         if(name.contains("sun")) port = true;
         if(name.contains("nadir")) nadir = true;
+        if(name.contains("hexen")) emberc = true;
 
 
         this.addPropertyOverride(new ResourceLocation("pull"), new IItemPropertyGetter()

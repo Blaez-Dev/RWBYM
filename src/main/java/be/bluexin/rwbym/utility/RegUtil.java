@@ -113,6 +113,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.chatareus);
         registerItems(event, RWBYItems.chatareusgun);
         registerItems(event, RWBYItems.hexen);
+        registerItems(event, RWBYItems.hexenaxe);
         registerItems(event, RWBYItems.mariacane);
         registerItems(event, RWBYItems.mariascythe);
         registerItems(event, RWBYItems.mariascythedouble);
@@ -180,7 +181,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.coiny);
         //registerItems(event, RWBYItems.coinjuane);
         //registerItems(event, RWBYItems.coinnora);
-        //registerItems(event, RWBYItems.coin_ren);
+        registerItems(event, RWBYItems.coin_ren);
         //registerItems(event, RWBYItems.coinqrow);
         //registerItems(event, RWBYItems.coinraven);
         registerItems(event, RWBYItems.scroll);
