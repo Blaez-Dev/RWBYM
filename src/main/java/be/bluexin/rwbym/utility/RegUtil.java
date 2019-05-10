@@ -5,6 +5,7 @@ import be.bluexin.rwbym.weaponry.RWBYItem;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraftforge.client.model.ModelLoader;
@@ -300,8 +301,13 @@ public class RegUtil {
         for(Item item : items){
             //System.out.println("Registering Item " + item.getUnlocalizedName().substring(5));
 
-            if(event.getSide() == Side.CLIENT && item != RWBYItems.ragorafireball){
-                ModelLoader.setCustomModelResourceLocation(item,0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
+            if(event.getSide() == Side.CLIENT){
+            	if (item == RWBYItems.ragorafireball) {
+            		ModelLoader.setCustomModelResourceLocation(item,0, new ModelResourceLocation(RWBYItems.entityweissfire.getRegistryName(), "inventory"));
+            	}
+            	else {
+            		ModelLoader.setCustomModelResourceLocation(item,0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
+            	}
                 //System.out.println("Item Model Registered");
             }
             ForgeRegistries.ITEMS.register(item);
