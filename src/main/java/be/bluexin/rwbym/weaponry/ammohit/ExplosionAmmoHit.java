@@ -15,16 +15,16 @@ public class ExplosionAmmoHit implements IAmmoHit {
 	}
 	
 	@Override
-	public void applyBlock(World world, BlockPos pos) {
-		if (!world.isRemote) {
-			world.createExplosion(null, pos.getX(), pos.getY(), pos.getZ(), this.power, world.getGameRules().getBoolean("mobGriefing"));
+	public void applyBlock(EntityLivingBase shooter, BlockPos pos) {
+		if (!shooter.world.isRemote) {
+			shooter.world.createExplosion(shooter, pos.getX(), pos.getY(), pos.getZ(), this.power, shooter.world.getGameRules().getBoolean("mobGriefing"));
 		}
 	}
 
 	@Override
-	public void applyEntity(EntityLivingBase living) {
+	public void applyEntity(EntityLivingBase living, EntityLivingBase shooter) {
 		if (!living.world.isRemote) {
-			living.world.createExplosion(null, living.posX, living.posY, living.posZ, this.power, false);
+			living.world.createExplosion(shooter, living.posX, living.posY, living.posZ, this.power, false);
 		}
 	}
 

@@ -50,9 +50,11 @@ public class Aura implements IAura {
 	}
 	
 	@Override
-	public float useAura(EntityPlayer player, float usage) {
+	public float useAura(EntityPlayer player, float usage, boolean overflow) {
 		float temp = amount - usage;
-		amount = Math.max(temp, 0);
+		if (temp >= 0 || overflow) {
+			amount = Math.max(temp, 0);
+		}
 		return temp < 0 ? -temp : 0;
 	}
 	

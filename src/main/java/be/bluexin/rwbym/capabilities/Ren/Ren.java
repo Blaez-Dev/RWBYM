@@ -64,16 +64,7 @@ public class Ren implements IRen {
 		IAura aura = player.getCapability(AuraProvider.AURA_CAP, null);
 		if(this.active  && aura.getPercentage() > 0.01){
 
-			if (!this.useAura(player, auraUse)) return;
-
-			if(aura.getPercentage() == 0){
-				this.active = false;
-			}
-
-			if (aura != null) {
-				aura.delayRecharge(RWBYConfig.delayticks);
-			}
-
+		if (!this.useAura(player, auraUse)) return;
 		
 		int strength = Math.round(this.level * 90);
 		
@@ -81,12 +72,6 @@ public class Ren implements IRen {
 			PotionEffect potioneffect = new PotionEffect(MobEffects.INVISIBILITY, strength, 1, true, true);
 			player.addPotionEffect(potioneffect);
 		}}
-
-
-
-		if(aura.getPercentage() < 0.01){
-			this.active = false;
-		}
 
 		switch(this.level) {
 			case 1:

@@ -78,10 +78,6 @@ public class Blake implements IBlake {
 					Vec3d motion = new Vec3d(player.motionX, player.motionY, player.motionZ);
 					if (!this.useAura(player, auraUse)) return;
 
-					if (aura != null) {
-						aura.delayRecharge(RWBYConfig.delayticks);
-					}
-
 					if (motion.lengthSquared() > 0.01 && airTime < 8) {
 						motion = motion.normalize();
 						motion = motion.scale(1.5D);

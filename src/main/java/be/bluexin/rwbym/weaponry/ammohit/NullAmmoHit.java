@@ -7,9 +7,9 @@ import net.minecraft.world.World;
 public class NullAmmoHit implements IAmmoHit {
 
 	@Override
-	public void applyBlock(World world, BlockPos pos) {}
+	public void applyBlock(EntityLivingBase shooter, BlockPos pos) {}
 
 	@Override
-	public void applyEntity(EntityLivingBase living) {}
+	public void applyEntity(EntityLivingBase living, EntityLivingBase shooter) {}
 
 }

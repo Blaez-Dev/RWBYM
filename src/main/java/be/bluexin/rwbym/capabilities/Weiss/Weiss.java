@@ -31,10 +31,6 @@ public class Weiss implements IWeiss {
 			return false;
 		}
 
-		if (aura != null) {
-			aura.delayRecharge(RWBYConfig.delayticks);
-		}
-
 		this.cooldown = cooldowns[level-1];
 		if (player.onGround && !player.world.isRemote){
 			BlockPos blockpos = (new BlockPos(player));

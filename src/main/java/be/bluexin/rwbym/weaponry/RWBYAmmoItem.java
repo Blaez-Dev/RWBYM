@@ -6,8 +6,11 @@ import be.bluexin.rwbym.weaponry.ammohit.IAmmoHit;
 import be.bluexin.rwbym.weaponry.ammohit.NullAmmoHit;
 import be.bluexin.rwbym.RWBYModels;
 import mcp.MethodsReturnNonnullByDefault;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
@@ -40,7 +43,7 @@ import com.google.common.collect.ImmutableList;
 @ParametersAreNonnullByDefault
 public class RWBYAmmoItem extends Item implements ICustomItem {
 
-	private ItemStack renderStack;
+	private Object render;
     private boolean canPickup;
     private String texture;
     private double baseDamage;
@@ -58,17 +61,29 @@ public class RWBYAmmoItem extends Item implements ICustomItem {
 
     //public int getAmmoMax;
 
-    public RWBYAmmoItem(String name, Item render, int ammoMax, boolean canPickup, SurviveOnHit canSurvive, String texture, boolean gravity, boolean infinite, String nbt, List<PotionEffect> potion, int durability, double baseDamage, CreativeTabs creativetab, IAmmoHit hitfun) {
+    /**
+     * 
+     * @param name
+     * @param render
+     * @param ammoMax
+     * @param canPickup
+     * @param canSurvive
+     * @param texture
+     * @param gravity
+     * @param infinite
+     * @param nbt
+     * @param potion
+     * @param durability
+     * @param baseDamage
+     * @param creativetab
+     * @param hitfun
+     */
+    public RWBYAmmoItem(String name, Object render, int ammoMax, boolean canPickup, SurviveOnHit canSurvive, String texture, boolean gravity, boolean infinite, String nbt, List<PotionEffect> potion, int durability, double baseDamage, CreativeTabs creativetab, IAmmoHit hitfun) {
         this.setCreativeTab(creativetab);
         this.setRegistryName(new ResourceLocation(RWBYModels.MODID, name));
         this.setUnlocalizedName(this.getRegistryName().toString());
         this.setMaxStackSize(ammoMax);
-        if (render == null) {
-        	this.renderStack = ItemStack.EMPTY;
-        }
-        else {
-        	this.renderStack = new ItemStack(render);
-        }
+        this.render = render;
         this.canPickup = canPickup;
         this.texture = texture;
         this.baseDamage = baseDamage;
@@ -92,8 +107,22 @@ public class RWBYAmmoItem extends Item implements ICustomItem {
         //this.getAmmoMax = from.getAmmoMax();
     }
     
+    public void doRender(float partialTicks, Entity entityIn) {
+        if (render == null) {
+        	return;
+        }
+        else if (render instanceof Item) {
+        	Minecraft.getMinecraft().getRenderItem().renderItem(new ItemStack((Item)render), ItemCameraTransforms.TransformType.HEAD);
+        }
+        else if (render instanceof Entity) {
+        	Entity entity = (Entity)render;
+        	entity.copyLocationAndAnglesFrom(entityIn);
+        	Minecraft.getMinecraft().getRenderManager().renderEntityStatic(entity, partialTicks, true);
+        }
+    }
+    
     public ItemStack getRenderStack() {
-    	return this.renderStack;
+    	return this.render instanceof Item ? new ItemStack((Item)render) : ItemStack.EMPTY; 
     }
 
     public boolean canPickup() {
@@ -143,12 +172,12 @@ public class RWBYAmmoItem extends Item implements ICustomItem {
         return 0;
     }
     
-    public void onBlockHit(World world, BlockPos pos) {
-    	this.hitfun.applyBlock(world, pos);
+    public void onBlockHit(EntityLivingBase shooter, BlockPos pos) {
+    	this.hitfun.applyBlock(shooter, pos);
     }
     
-    public void onEntityHit(EntityLivingBase living) {
-    	this.hitfun.applyEntity(living);
+    public void onEntityHit(EntityLivingBase living, EntityLivingBase shooter) {
+    	this.hitfun.applyEntity(living, shooter);
     }
 
     @Override

@@ -11,10 +11,14 @@ import be.bluexin.rwbym.weaponry.ammohit.FireAmmoHit;
 import be.bluexin.rwbym.weaponry.ammohit.IAmmoHit;
 import be.bluexin.rwbym.weaponry.ammohit.PotionAmmoHit;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.EntityAreaEffectCloud;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.projectile.EntityDragonFireball;
 import net.minecraft.entity.projectile.EntityPotion;
 import net.minecraft.init.Items;
+import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
@@ -24,6 +28,9 @@ import net.minecraft.item.ItemSplashPotion;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.potion.PotionUtils;
+import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.EnumHelper;
@@ -1889,6 +1896,58 @@ public class RWBYItems {
             4,
             null,
             null);
+    public static final Item ragorafireball = new RWBYAmmoItem(
+    		"ragorafireball",
+    		new EntityDragonFireball(null),
+    		0,
+    		false,
+    		null,
+            "textures/entity/projectiles/tipped_arrow.png",
+    		false,
+    		true,
+    		null,
+    		null,
+    		0,
+    		0,
+    		null,
+    		new IAmmoHit() {
+				@Override
+				public void applyEntity(EntityLivingBase living, EntityLivingBase shooter) {
+					if (!living.world.isRemote) {
+						float r = 4;
+						living.world.playSound(null, living.getPosition(), SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.BLOCKS, 3, 1);
+						for (float i = Math.round(-r * 2) / 2; i <= Math.round(r * 2) / 2; i += 0.5) {
+							float radius = (float) Math.sqrt(r*r - i*i);
+							createCloud(shooter, radius, living.posX, living.posY + living.height / 2 + i, living.posZ);
+						}
+					}
+				}
+				
+				@Override
+				public void applyBlock(EntityLivingBase shooter, BlockPos pos) {
+					if (!shooter.world.isRemote) {
+						float r = 4;
+						shooter.world.playSound(null, pos, SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.BLOCKS, 3, 1);
+						for (float i = Math.round(-r * 2) / 2; i <= Math.round(r * 2) / 2; i += 0.5) {
+							float radius = (float) Math.sqrt(r*r - i*i);
+							createCloud(shooter, radius, pos.getX(), pos.getY() + i, pos.getZ());
+						}
+					}
+				}
+				
+				private void createCloud(EntityLivingBase owner, float r, double x, double y, double z) {
+					EntityAreaEffectCloud areaEffectCloud = new EntityAreaEffectCloud(owner.world, x, y, z);
+					areaEffectCloud.setRadius(r);
+					areaEffectCloud.setRadiusOnUse(0F);
+					areaEffectCloud.setWaitTime(0);
+					areaEffectCloud.setDuration(20);
+					areaEffectCloud.setRadiusPerTick(0F);
+					areaEffectCloud.setParticle(EnumParticleTypes.DRAGON_BREATH);
+					areaEffectCloud.addEffect(new PotionEffect(RWBYPotions.INSTANT_DAMAGE, 0, 30));
+					areaEffectCloud.setOwner(owner);
+					owner.world.spawnEntity(areaEffectCloud);
+				}
+			});
 
 
     //Blocks

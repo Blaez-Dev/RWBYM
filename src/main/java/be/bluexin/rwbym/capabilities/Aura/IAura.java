@@ -15,7 +15,7 @@ public interface IAura {
 	 * @param usage amount of aura to use
 	 * @return overflow usage is greater than current aura
 	 */
-	public float useAura(EntityPlayer player, float usage);
+	public float useAura(EntityPlayer player, float usage, boolean overflow);
 	
 	public void delayRecharge(int ticks);
 	

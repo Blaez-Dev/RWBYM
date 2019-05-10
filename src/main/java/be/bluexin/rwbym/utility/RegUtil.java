@@ -241,6 +241,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.ammov);
         registerItems(event, RWBYItems.ammmo);
         registerItems(event, RWBYItems.rzrbolt);
+        registerItems(event, RWBYItems.ragorafireball);
         //mob drops
         registerItems(event, RWBYItems.remnants);
         registerItems(event, RWBYItems.cr1);
@@ -299,7 +300,7 @@ public class RegUtil {
         for(Item item : items){
             //System.out.println("Registering Item " + item.getUnlocalizedName().substring(5));
 
-            if(event.getSide() == Side.CLIENT){
+            if(event.getSide() == Side.CLIENT && item != RWBYItems.ragorafireball){
                 ModelLoader.setCustomModelResourceLocation(item,0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
                 //System.out.println("Item Model Registered");
             }

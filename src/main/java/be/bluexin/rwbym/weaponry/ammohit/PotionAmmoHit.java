@@ -25,21 +25,21 @@ public class PotionAmmoHit implements IAmmoHit {
 	}
 	
 	@Override
-	public void applyBlock(World world, BlockPos pos) {
-		if (!world.isRemote) {
+	public void applyBlock(EntityLivingBase shooter, BlockPos pos) {
+		if (!shooter.world.isRemote) {
 			//EntityPotion potion = new EntityPotion(world, pos.getX(), pos.getY(), pos.getZ(), PotionUtils.appendEffects(new ItemStack(this.type), this.effects));
 			//world.spawnEntity(potion);
-			EntityAreaEffectCloud areaEffectCloud = new EntityAreaEffectCloud(world, pos.getX(), pos.getY(), pos.getZ());
+			EntityAreaEffectCloud areaEffectCloud = new EntityAreaEffectCloud(shooter.world, pos.getX(), pos.getY(), pos.getZ());
 			areaEffectCloud.setRadius(2.0F);
 			areaEffectCloud.setDuration(100);
 			areaEffectCloud.setParticle(EnumParticleTypes.SPELL_INSTANT);
 			for (PotionEffect p : this.effects) areaEffectCloud.addEffect(p);
-			world.spawnEntity(areaEffectCloud);
+			shooter.world.spawnEntity(areaEffectCloud);
 		}
 	}
 
 	@Override
-	public void applyEntity(EntityLivingBase living) {
+	public void applyEntity(EntityLivingBase living, EntityLivingBase shooter) {
 		if (!living.world.isRemote) {
 			//EntityPotion potion = new EntityPotion(living.world, living.posX, living.posY, living.posZ, PotionUtils.appendEffects(new ItemStack(this.type), this.effects));
 			//living.world.spawnEntity(potion);

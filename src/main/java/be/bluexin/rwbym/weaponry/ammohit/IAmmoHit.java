@@ -5,6 +5,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public interface IAmmoHit {
-	public void applyBlock(World world, BlockPos pos);
-	public void applyEntity(EntityLivingBase living);
+	public void applyBlock(EntityLivingBase shooter, BlockPos pos);
+	public void applyEntity(EntityLivingBase living, EntityLivingBase shooter);
 }

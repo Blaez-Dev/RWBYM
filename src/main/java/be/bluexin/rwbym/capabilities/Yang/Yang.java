@@ -44,46 +44,38 @@ public class Yang implements IYang {
 
 	@Override
 	public boolean deActivate(EntityPlayer player) {
-		switch(level) {
-			case 1:
-			case 2:
-			case 3:
-				return true;
-		}
 		return false;
 	}
 
 	@Override
 	public void onUpdate(EntityPlayer player) {
 		IAura aura = player.getCapability(AuraProvider.AURA_CAP, null);
-		if(this.active  && aura.getPercentage() > 0.01){
+		if(this.active){
 
 			if (!this.useAura(player, auraUse)) return;
 
-			if (aura != null) {
-				aura.delayRecharge(RWBYConfig.delayticks);
+			float percentage;
+			
+			if (player.hasCapability(AuraProvider.AURA_CAP, null)) {
+				percentage = player.getCapability(AuraProvider.AURA_CAP, null).getPercentage();
+			}
+			else {
+				percentage = Math.min(player.getHealth()/player.getMaxHealth(), 1f);
+			}
+			
+			int strength = Math.round((1f - percentage) * strengthMultiplyer * 2 * this.level);
+			
+			if (strength > 0) {
+				
+				PotionEffect potioneffect = new PotionEffect(MobEffects.STRENGTH, 60, strength, false, false);
+				player.addPotionEffect(potioneffect);
+				
 			}
 
-		float percentage;
-		
-		if (player.hasCapability(AuraProvider.AURA_CAP, null)) {
-			percentage = player.getCapability(AuraProvider.AURA_CAP, null).getPercentage();
-		}
-		else {
-			percentage = Math.min(player.getHealth()/player.getMaxHealth(), 1f);
-		}
-		
-		int strength = Math.round((1f - percentage) * strengthMultiplyer * 2 * this.level);
-		
-		if (strength > 0) {
-			
-			PotionEffect potioneffect = new PotionEffect(MobEffects.STRENGTH, 60, strength, false, false);
-			player.addPotionEffect(potioneffect);
-			
-		}
 
-
-		}else 	if(!this.active){
+		}else 	
+			
+		if(!this.active){
 
 			float percentage;
 
@@ -94,7 +86,7 @@ public class Yang implements IYang {
 				percentage = Math.min(player.getHealth()/player.getMaxHealth(), 1f);
 			}
 
-			int strength = Math.round((1f - percentage) * strengthMultiplyer /2  * this.level);
+			int strength = Math.round((1f - percentage) * strengthMultiplyer / 2  * this.level);
 
 			if (strength > 0) {
 
@@ -104,12 +96,7 @@ public class Yang implements IYang {
 			}
 
 		}
-
-
-		if(aura.getPercentage() < 0.01){
-			this.active = false;
-		}
-
+		
 		switch(this.level) {
 			case 1:
 			case 2:

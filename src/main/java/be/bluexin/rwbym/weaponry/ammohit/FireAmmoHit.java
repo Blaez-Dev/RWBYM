@@ -15,21 +15,21 @@ public class FireAmmoHit implements IAmmoHit {
 	}
 	
 	@Override
-	public void applyBlock(World world, BlockPos pos) {
+	public void applyBlock(EntityLivingBase shooter, BlockPos pos) {
 		
-		if (!world.isRemote) {
+		if (!shooter.world.isRemote) {
 		
-			IBlockState state = world.getBlockState(pos);
+			IBlockState state = shooter.world.getBlockState(pos);
 			
-			if (world.isAirBlock(pos) || state.getMaterial().getCanBurn()) {
-				world.setBlockState(pos, Blocks.FIRE.getDefaultState());
+			if (shooter.world.isAirBlock(pos) || state.getMaterial().getCanBurn()) {
+				shooter.world.setBlockState(pos, Blocks.FIRE.getDefaultState());
 			}
 		
 		}
 	}
 
 	@Override
-	public void applyEntity(EntityLivingBase living) {
+	public void applyEntity(EntityLivingBase living, EntityLivingBase shooter) {
 		
 		if (!living.world.isRemote) {
 			living.setFire(burntime);

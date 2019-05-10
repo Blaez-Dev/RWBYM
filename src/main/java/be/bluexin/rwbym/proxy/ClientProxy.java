@@ -103,6 +103,7 @@ public class ClientProxy extends CommonProxy {
         RenderingRegistry.registerEntityRenderingHandler(EntityBlackStore.class, BlackStoreRender.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(EntityCrowBar.class, CrowBarRender.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(EntityRen.class, RenRender.FACTORY);
+        RenderingRegistry.registerEntityRenderingHandler(EntityRagora.class, RagoraRender.FACTORY);
         MinecraftForge.EVENT_BUS.register(new TextureStitcher());
     }
 

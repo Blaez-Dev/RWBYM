@@ -19,16 +19,20 @@ public class MessageSendPlayerData extends MessageBase<MessageSendPlayerData> {
 	
 	private NBTTagCompound auranbt = new NBTTagCompound();
 	
-	private String capability;
+	private String capability = "";
 	
-	private String player;
+	private String player = "";
 
 	public MessageSendPlayerData() {}
 	
 	public MessageSendPlayerData(ISemblance semblance, IAura aura, String player) {
-		semblance.writeToNBT(semblancenbt);
-		auranbt = (NBTTagCompound) aura.serialize();
-		this.capability = semblance.getCapability().getName();
+		if (semblance != null) {
+			semblance.writeToNBT(semblancenbt);
+			this.capability = semblance.getCapability().getName();
+		}
+		if (aura != null) {
+			auranbt = (NBTTagCompound) aura.serialize();
+		}
 		this.player = player;
 	}
 	

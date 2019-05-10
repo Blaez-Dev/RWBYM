@@ -47,8 +47,9 @@ package be.bluexin.rwbym.entity;
 
 public class EntityBullet extends EntityArrow implements IThrowableEntity{
 
-    private static final DataParameter<ItemStack> ITEM = EntityDataManager.createKey(RWBYAmmoEntity.class, DataSerializers.ITEM_STACK);
-
+    private static final DataParameter<ItemStack> ITEM = EntityDataManager.createKey(EntityBullet.class, DataSerializers.ITEM_STACK);
+    private static final DataParameter<Integer> PARTICLE = EntityDataManager.createKey(EntityBullet.class, DataSerializers.VARINT);
+    
     private int knockbackStrength;
     private int ticksInAir;
     private int xTile;
@@ -93,6 +94,7 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
     protected void entityInit() {
         super.entityInit();
         dataManager.register(ITEM, ItemStack.EMPTY);
+        dataManager.register(PARTICLE, EnumParticleTypes.CRIT.ordinal());
     }
 
     public ResourceLocation getTexture() {
@@ -103,6 +105,18 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
     public ItemStack getStackForRender() {
         return this.getItem().getRenderStack();
     }
+    
+    public void doRender(float partialTicks) {
+    	this.getItem().doRender(partialTicks, this);
+    }
+    
+    public EnumParticleTypes getParticle() {
+    	return EnumParticleTypes.getParticleFromId(dataManager.get(PARTICLE));
+    }
+    
+    public void setParticle(EnumParticleTypes type) {
+    	dataManager.set(PARTICLE, type.ordinal());
+    }
 
     @Override
     protected void onHit(RayTraceResult raytraceResultIn) {
@@ -110,8 +124,6 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
         Entity entity = raytraceResultIn.entityHit;
 
         RWBYAmmoItem item = this.getItem();
-
-        //RWBYModels.LOGGER.info(item);
 
         if (entity != null)
         {
@@ -213,7 +225,7 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
 
     @Override
     public void onUpdate() {
-        if ((this.firstUpdate || this.ticksExisted % 20 == 0) && !world.isRemote) {
+        if ((this.firstUpdate || this.ticksExisted % 5 == 0) && !world.isRemote) {
             RWBYNetworkHandler.sendToAll(new MessagePosVelUpdate(this));
         }
         if (!this.world.isRemote)
@@ -318,9 +330,9 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
 
             if (this.getIsCritical())
             {
-                for (int k = 0; k < 4; ++k)
+                for (int k = 0; k < 32; ++k)
                 {
-                    this.world.spawnParticle(EnumParticleTypes.CRIT, this.posX + this.motionX * (double)k / 4.0D, this.posY + this.motionY * (double)k / 4.0D, this.posZ + this.motionZ * (double)k / 4.0D, -this.motionX, -this.motionY + 0.2D, -this.motionZ);
+                    this.world.spawnParticle(this.getParticle(), this.posX + this.motionX * (double)k / 32D, this.posY + this.motionY * (double)k / 32D, this.posZ + this.motionZ * (double)k / 32D, this.rand.nextGaussian() / 10, this.rand.nextGaussian() / 10, this.rand.nextGaussian() / 10);
                 }
             }
 
@@ -393,7 +405,7 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
 
         RWBYAmmoItem item = this.getItem();
 
-        item.onEntityHit(living);
+        item.onEntityHit(living, (EntityLivingBase) this.shootingEntity);
 
         living.hurtResistantTime = 0;
 
@@ -419,7 +431,7 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
         }
 
         if(!world.isRemote){
-            item.onBlockHit(world, pos.offset(facing));}
+            item.onBlockHit((EntityLivingBase) this.shootingEntity, pos.offset(facing));}
         //this.setDead();
     }
 

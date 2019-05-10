@@ -108,13 +108,9 @@ public class Ruby implements IRuby {
 
 		//System.out.println(cooldown);
 		
-		if (this.active && aura.getPercentage() > 0.01) {
+		if (this.active) {
 			
 			if (!this.useAura(player, auraUse)) return;
-
-			if (aura != null) {
-				aura.delayRecharge(RWBYConfig.delayticks);
-			}
 			
 			player.fallDistance = 0;
 			
@@ -177,11 +173,6 @@ public class Ruby implements IRuby {
 					}else RWBYModels.proxy.generateRosepetals(player);
 				}
 			}
-		}
-
-
-		if(aura.getPercentage() < 0.01){
-			this.active = false;
 		}
 
 		switch(this.level) {

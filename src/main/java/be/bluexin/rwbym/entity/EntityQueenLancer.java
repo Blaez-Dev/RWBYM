@@ -238,7 +238,9 @@ public class EntityQueenLancer extends EntityMob
     @Override
     protected void onDeathUpdate() {
         super.onDeathUpdate();
-         this.world.spawnEntity(new EntityXPOrb(this.world, this.posX, this.posY + 0.5D, this.posZ, 1));
+        if (!world.isRemote ) {
+        	this.world.spawnEntity(new EntityXPOrb(this.world, this.posX, this.posY + 0.5D, this.posZ, 1));
+        }
 
     }
 
