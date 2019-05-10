@@ -5,6 +5,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 import java.lang.ref.Reference;
 import java.util.ArrayList;
@@ -49,8 +50,9 @@ public class RWBYSoundHandler {
 
     private static SoundEvent registerSound(String name) {
         ResourceLocation location = new ResourceLocation(RWBYModels.MODID, name);
-        SoundEvent e = new SoundEvent(location).setRegistryName(name);
-        SOUNDS.add(e);
+        SoundEvent e = new SoundEvent(location);
+        e.setRegistryName(name);
+        ForgeRegistries.SOUND_EVENTS.register(e);
         return e;
     }
 
