@@ -134,9 +134,9 @@ public class EntityRagora extends EntityTameable {
     			
     			EntityRagora.this.rotationYaw = (float) -RWBYMath.atan2d(dx, dz);
     			EntityRagora.this.getLookHelper().setLookPositionWithEntity(EntityRagora.this.getAttackTarget(), 0, 90);
-    			if (timer < 400) {
+    			if (timer < 100) {
     				timer++;
-    				RWBYModels.LOGGER.info(timer);
+
     			}
     			else {
     				timer = this.attacker.getRNG().nextInt(100);
