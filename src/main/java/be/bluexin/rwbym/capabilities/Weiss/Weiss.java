@@ -122,6 +122,11 @@ public class Weiss implements IWeiss {
 	public boolean isInvisible() {
 		return false;
 	}
+	
+	@Override
+	public boolean isMovementBlocked() {
+		return false;
+	}
 
 	@Override
 	public float[] getColor() {

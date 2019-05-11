@@ -277,6 +277,11 @@ public class Ruby implements IRuby {
 			return false;
 		}
 	}
+	
+	@Override
+	public boolean isMovementBlocked() {
+		return false;
+	}
 
 	@Override
 	public float[] getColor() {

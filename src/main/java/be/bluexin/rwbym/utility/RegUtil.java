@@ -303,7 +303,7 @@ public class RegUtil {
 
             if(event.getSide() == Side.CLIENT){
             	if (item == RWBYItems.ragorafireball) {
-            		ModelLoader.setCustomModelResourceLocation(item,0, new ModelResourceLocation(RWBYItems.entityweissfire.getRegistryName(), "inventory"));
+            		ModelLoader.setCustomModelResourceLocation(item,0, new ModelResourceLocation(Items.FIRE_CHARGE.getRegistryName(), "inventory"));
             	}
             	else {
             		ModelLoader.setCustomModelResourceLocation(item,0, new ModelResourceLocation(item.getRegistryName(), "inventory"));

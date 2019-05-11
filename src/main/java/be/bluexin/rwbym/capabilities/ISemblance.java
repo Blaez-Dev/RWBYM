@@ -31,6 +31,8 @@ public interface ISemblance {
 	
 	public boolean isInvisible();
 	
+	public boolean isMovementBlocked();
+	
 	@Override
 	public String toString();
 	

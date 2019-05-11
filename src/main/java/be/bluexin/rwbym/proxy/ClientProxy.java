@@ -158,5 +158,10 @@ public class ClientProxy extends CommonProxy {
 	public EntityPlayer getPlayer() {
 		return Minecraft.getMinecraft().player;
 	}
+	
+	@Override
+	public World getWorld(int dimension) {
+		return Minecraft.getMinecraft().world;
+	}
 
 }

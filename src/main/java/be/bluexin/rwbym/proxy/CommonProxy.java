@@ -6,6 +6,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
@@ -25,10 +26,7 @@ public class CommonProxy {
     public void preInit() {
     }
 
-
-
     public void registerRenderers(RWBYModels ins) {
-
     }
 
     public void init() {
@@ -41,5 +39,9 @@ public class CommonProxy {
 
 	public EntityPlayer getPlayer() {
 		return null;
+	}
+	
+	public World getWorld (int dimension) {
+		return FMLCommonHandler.instance().getMinecraftServerInstance().getWorld(dimension);
 	}
 }

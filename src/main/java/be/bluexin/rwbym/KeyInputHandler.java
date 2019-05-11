@@ -2,10 +2,12 @@ package be.bluexin.rwbym;
 
 import be.bluexin.rwbym.utility.network.*;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.entity.player.EntityPlayer;
 import be.bluexin.rwbym.RWBYModels;
 import be.bluexin.rwbym.capabilities.CapabilityHandler;
 import be.bluexin.rwbym.capabilities.ISemblance;
+import be.bluexin.rwbym.capabilities.Ragora.IRagora;
 import be.bluexin.rwbym.capabilities.Ruby.IRuby;
 import be.bluexin.rwbym.capabilities.Ruby.RubyProvider;
 import net.minecraft.init.MobEffects;
@@ -32,31 +34,33 @@ public class KeyInputHandler {
 	@SubscribeEvent
 	@SideOnly(Side.CLIENT)
 	public void onKeyInput(KeyInputEvent event) {
+		
+		Minecraft mc = Minecraft.getMinecraft();
 				
-		EntityPlayer player = Minecraft.getMinecraft().player;
+		EntityPlayer player = mc.player;
+				
+		ISemblance semblance = CapabilityHandler.getCurrentSemblance(player);
+		if (semblance instanceof IRagora) {
+			if (semblance.isMovementBlocked()) {
+				KeyBinding.setKeyBindState(mc.gameSettings.keyBindForward.getKeyCode(), false);
+				KeyBinding.setKeyBindState(mc.gameSettings.keyBindBack.getKeyCode(), false);
+				KeyBinding.setKeyBindState(mc.gameSettings.keyBindLeft.getKeyCode(), false);
+				KeyBinding.setKeyBindState(mc.gameSettings.keyBindRight.getKeyCode(), false);
+				KeyBinding.setKeyBindState(mc.gameSettings.keyBindJump.getKeyCode(), false);
+				KeyBinding.setKeyBindState(mc.gameSettings.keyBindSneak.getKeyCode(), false);
+			}
+		}
 	
 		if (KeybindRegistry.activateSemblance.isPressed()) {
 			RWBYModels.LOGGER.log(RWBYModels.debug, "Activating Semblance");
-			
-			ISemblance semblance = CapabilityHandler.getCurrentSemblance(player);
 			if (semblance != null) {
 				RWBYNetworkHandler.sendToServer(new MessageActivateSemblance(true));
 			}
 		}
-		else {
-			ISemblance semblance = CapabilityHandler.getCurrentSemblance(player);
-			
+		else {			
 			if (semblance != null) {
 				RWBYNetworkHandler.sendToServer(new MessageActivateSemblance(false));
 			}
-		}
-
-		//alternatively you could set a variable for key presses and call that variable in other classes with to check if a key is pressed.
-		if (KeybindRegistry.activateSemblance.isKeyDown()) {
-			activateSemblance = true;
-		}
-		else {
-			activateSemblance = false;
 		}
 	}
 }

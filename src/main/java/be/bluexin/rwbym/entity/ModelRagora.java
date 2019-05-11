@@ -4,6 +4,7 @@ package be.bluexin.rwbym.entity;
 import org.lwjgl.opengl.GL11;
 
 import be.bluexin.rwbym.RWBYModels;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
@@ -253,9 +254,24 @@ public class ModelRagora extends ModelBase {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+		EntityRagora entityragora = (EntityRagora) entity;
+		float scale = entityragora.getRenderSizeModifier();
+		GlStateManager.pushMatrix();
+		GlStateManager.scale(scale, scale, scale);
+		GlStateManager.translate(0, 1F * (1/scale - 1), 0);
 		lowerJaw.rotateAngleX = (float) ((Math.cos(f) + 1) * Math.PI / 10) * f1;
 		Ragora.rotateAngleX = (float) (f4 * Math.PI / 180);
+		Ragora.rotationPointX = 0;
+		Ragora.rotationPointY = 23F;
+		Ragora.rotationPointZ = 0;
+		Ragora.offsetX = 0;
+		Ragora.offsetY = 0F;
+		Ragora.offsetZ = 0;
+		float pt = Minecraft.getMinecraft().getRenderPartialTicks();
+		float yaw = (float) ((entityragora.prevRotationYaw + 180) * Math.PI / 180 * (1 - pt) + (entityragora.rotationYaw + 180) * Math.PI / 180 * pt);
+		Ragora.rotateAngleY = yaw;
 		Ragora.render(f5);
+		GlStateManager.popMatrix();
 	}
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
 		modelRenderer.rotateAngleX = x;

@@ -159,6 +159,11 @@ public class Yang implements IYang {
 	public boolean isInvisible() {
 		return false;
 	}
+	
+	@Override
+	public boolean isMovementBlocked() {
+		return false;
+	}
 
 	@Override
 	public float[] getColor() {

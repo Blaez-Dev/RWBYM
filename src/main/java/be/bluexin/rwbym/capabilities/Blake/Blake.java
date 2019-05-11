@@ -172,6 +172,11 @@ public class Blake implements IBlake {
 	public boolean isInvisible() {
 		return active > 0;
 	}
+	
+	@Override
+	public boolean isMovementBlocked() {
+		return false;
+	}
 
 	@Override
 	public void spawnShadow(EntityPlayer player) {

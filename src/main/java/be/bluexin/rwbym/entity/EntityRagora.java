@@ -3,6 +3,8 @@ package be.bluexin.rwbym.entity;
 import be.bluexin.rwbym.ModLootTables;
 import be.bluexin.rwbym.RWBYModels;
 import be.bluexin.rwbym.Init.RWBYItems;
+import be.bluexin.rwbym.capabilities.CapabilityHandler;
+import be.bluexin.rwbym.capabilities.Ragora.IRagora;
 import be.bluexin.rwbym.utility.RWBYConfig;
 import be.bluexin.rwbym.utility.RWBYMath;
 import be.bluexin.rwbym.weaponry.RWBYAmmoItem;
@@ -25,17 +27,22 @@ import net.minecraft.entity.monster.EntityVex;
 import net.minecraft.entity.monster.EntityVindicator;
 import net.minecraft.entity.passive.EntityTameable;
 import net.minecraft.entity.passive.EntityVillager;
+import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.projectile.EntityDragonFireball;
 import net.minecraft.entity.projectile.EntityLargeFireball;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.play.server.SPacketEntity;
+import net.minecraft.network.play.server.SPacketEntityHeadLook;
 import net.minecraft.pathfinding.PathNavigateFlying;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.util.datafix.DataFixer;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -73,11 +80,10 @@ public class EntityRagora extends EntityTameable {
     	this.setTamedBy(player);
     	double x, y, z;
     	x = player.posX;
-    	y = player.posY;
+    	y = player.posY + player.height;
     	z = player.posZ;
-    	y += 3;
-    	this.setLocationAndAngles(x, y, z, player.rotationYaw, 0);
-        this.targetpos = new Vec3d(this.posX, this.posY, this.posZ);
+    	this.setLocationAndAngles(x, y, z, 0, 0);
+        this.targetpos = new Vec3d(x, y, z);
     }
     
     protected void initEntityAI() {
@@ -134,9 +140,9 @@ public class EntityRagora extends EntityTameable {
     			
     			EntityRagora.this.rotationYaw = (float) -RWBYMath.atan2d(dx, dz);
     			EntityRagora.this.getLookHelper().setLookPositionWithEntity(EntityRagora.this.getAttackTarget(), 0, 90);
-    			if (timer < 400) {
+    			if (timer < 100) {
     				timer++;
-    				RWBYModels.LOGGER.info(timer);
+
     			}
     			else {
     				timer = this.attacker.getRNG().nextInt(100);
@@ -146,7 +152,13 @@ public class EntityRagora extends EntityTameable {
     	});
     	tasks.addTask(1, new EntityAIAttackRange(this, 10, 5));
     	EntityAIBase temp = new EntityAIOwnerHurtByTarget(this) {
-    		 @Override
+    		
+    		@Override
+    		public boolean shouldExecute() {
+    			return super.shouldExecute() && EntityRagora.this.ticksExisted > 100;
+    		}
+    		
+    		@Override
     		public void updateTask() {
      	        EntityLivingBase entitylivingbase = EntityRagora.this.getOwner();
      	        if (entitylivingbase == null) {
@@ -161,6 +173,12 @@ public class EntityRagora extends EntityTameable {
     	temp.setMutexBits(0);
     	targetTasks.addTask(1, temp);
     	temp = new EntityAIOwnerHurtTarget(this) {
+    		
+    		@Override
+    		public boolean shouldExecute() {
+    			return super.shouldExecute() && EntityRagora.this.ticksExisted > 100;
+    		}
+    		
     		@Override
     		public void updateTask() {
     	        EntityLivingBase entitylivingbase = EntityRagora.this.getOwner();
@@ -186,7 +204,13 @@ public class EntityRagora extends EntityTameable {
 				}
 				return true;
 			}
-		}) {    		
+		}) {    	
+    		
+    		@Override
+    		public boolean shouldExecute() {
+    			return super.shouldExecute() && EntityRagora.this.ticksExisted > 100;
+    		}
+    		
     	    @Override
     	    protected AxisAlignedBB getTargetableArea(double targetDistance) {
     	    	EntityLivingBase owner = EntityRagora.this.getOwner();
@@ -205,12 +229,20 @@ public class EntityRagora extends EntityTameable {
         this.getAttributeMap().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(5.0D);
     }
     
+    public static void registerFixesWolf(DataFixer fixer)
+    {
+        EntityLiving.registerFixesMob(fixer, EntityRagora.class);
+    }
+    
     @Override
     public void onEntityUpdate() {
     	super.onEntityUpdate();
-    	EntityLivingBase owner = this.getOwner();
+    	EntityPlayer owner = (EntityPlayer) this.getOwner();
     	
-    	if (owner != null) {
+    	this.renderYawOffset = 0;
+    	this.rotationYawHead = this.rotationYaw;
+    	
+    	if (owner != null && CapabilityHandler.getCurrentSemblance(owner) instanceof IRagora) {
 	    	for (int i = 199; i >= 0; i--) {
 	    		if (i == 0) {
 	    			ownertrace[0] = owner.getPositionVector().addVector(0, 0, 0);
@@ -223,6 +255,11 @@ public class EntityRagora extends EntityTameable {
     	else {
     		this.setDead();
     	}
+    }
+    
+    @Override
+    public float getRenderSizeModifier() {
+    	return Math.min(1F, this.ticksExisted / 50F);
     }
     
     @Override
@@ -295,48 +332,66 @@ public class EntityRagora extends EntityTameable {
 		
 		@Override
 		public void updateTask() {
-			EntityPlayer owner = (EntityPlayer) entityragora.getOwner();
+			EntityPlayerMP owner = (EntityPlayerMP) entityragora.getOwner();
 			
-			double dx, dz;
-			
-			double yaw = -owner.rotationYaw;
-			
-			double z = followpos.getZ() * RWBYMath.cosd(yaw) - followpos.getX() * RWBYMath.sind(yaw);
-			double x = followpos.getZ() * RWBYMath.sind(yaw) + followpos.getX() * RWBYMath.cosd(yaw);
-			
-			entityragora.setAIMoveSpeed(0.5F);
-			Vec3d targetpos = new Vec3d(owner.posX + x, owner.posY + followpos.getY(), owner.posZ + z);
-			
-			dx = entityragora.targetpos.x - entityragora.posX;
-			dz = entityragora.targetpos.z - entityragora.posZ;
-			
-			LABEL:
-			if (!entityragora.canSeePos(targetpos)) {
-				int cansee = 0;
-				for (int i = 0; i < 200; i++) {
-					Vec3d pos = ownertrace[i];
-					if (pos != null && entityragora.canSeePos(pos)) {
-						cansee++;
-						if (cansee > 5) {
-							entityragora.targetpos = pos;
-							break LABEL;
-						}
-					}
-					if (pos == null) {
-						entityragora.targetpos = ownertrace[i - 1];
-					}
-				}
-				if (cansee > 0) {
-					entityragora.targetpos = ownertrace[199];
-				}
+			if (entityragora.ticksExisted < 100) {
+				entityragora.setAIMoveSpeed(0.5F);
+				entityragora.targetpos = new Vec3d(owner.posX, owner.posY + owner.height + MathHelper.clamp(2.5F * entityragora.ticksExisted / 50F, 0F, 2.5F), owner.posZ);
+				entityragora.rotationYaw = owner.rotationYaw;
+				
+				float yaw = -entityragora.rotationYaw;
+				float pitch = MathHelper.clamp(60F - entityragora.ticksExisted, 0F, 20F) / 20F * 90F;
+				
+				double x = RWBYMath.cosd(pitch)*RWBYMath.sind(yaw);
+				double y = RWBYMath.sind(pitch);
+				double z = RWBYMath.cosd(pitch)*RWBYMath.cosd(yaw);
+				
+				owner.mcServer.getPlayerList().sendToAllNearExcept(null, entityragora.posX, entityragora.posY, entityragora.posZ, 32, entityragora.dimension, new SPacketEntity.S16PacketEntityLook(entityragora.getEntityId(), (byte)MathHelper.floor(-yaw * 256.0F / 360.0F), (byte)MathHelper.floor(-pitch * 256.0F / 360.0F), false));;
+				
+				entityragora.getLookHelper().setLookPosition(x + entityragora.posX, y + entityragora.posY + entityragora.getEyeHeight(), z + entityragora.posZ, 360, 90);
 			}
 			else {
-				entityragora.targetpos = targetpos;
-				dx = entityragora.getOwner().posX - entityragora.posX;
-				dz = entityragora.getOwner().posZ - entityragora.posZ;
+				double dx, dz;
+				
+				double yaw = -owner.rotationYaw;
+				
+				double z = followpos.getZ() * RWBYMath.cosd(yaw) - followpos.getX() * RWBYMath.sind(yaw);
+				double x = followpos.getZ() * RWBYMath.sind(yaw) + followpos.getX() * RWBYMath.cosd(yaw);
+				
+				entityragora.setAIMoveSpeed(0.5F);
+				Vec3d targetpos = new Vec3d(owner.posX + x, owner.posY + followpos.getY(), owner.posZ + z);
+				
+				dx = entityragora.targetpos.x - entityragora.posX;
+				dz = entityragora.targetpos.z - entityragora.posZ;
+				
+				LABEL:
+				if (!entityragora.canSeePos(targetpos)) {
+					int cansee = 0;
+					for (int i = 0; i < 200; i++) {
+						Vec3d pos = ownertrace[i];
+						if (pos != null && entityragora.canSeePos(pos)) {
+							cansee++;
+							if (cansee > 5) {
+								entityragora.targetpos = pos;
+								break LABEL;
+							}
+						}
+						if (pos == null) {
+							entityragora.targetpos = ownertrace[i - 1];
+						}
+					}
+					if (cansee > 0 && ownertrace[199] != null) {
+						entityragora.targetpos = ownertrace[199];
+					}
+				}
+				else {
+					entityragora.targetpos = targetpos;
+					dx = entityragora.getOwner().posX - entityragora.posX;
+					dz = entityragora.getOwner().posZ - entityragora.posZ;
+				}
+				
+				entityragora.rotationYaw = (float) -RWBYMath.atan2d(dx, dz);
 			}
-			
-			entityragora.rotationYaw = (float) -RWBYMath.atan2d(dx, dz);
 		}
     }
     
@@ -441,7 +496,7 @@ public class EntityRagora extends EntityTameable {
 			Vec3d look = new Vec3d(dx, dy, dz).normalize().scale(2).addVector(EntityRagora.this.getAttackTarget().motionX, EntityRagora.this.getAttackTarget().motionY, EntityRagora.this.getAttackTarget().motionZ);
 			
 			EntityRagora.this.rotationYaw = (float) -RWBYMath.atan2d(look.x, look.z);
-			EntityRagora.this.getLookHelper().setLookPosition(look.x + EntityRagora.this.posX, look.y + EntityRagora.this.posY, look.z + EntityRagora.this.posZ, 0, 90);
+			//EntityRagora.this.getLookHelper().setLookPosition(look.x + EntityRagora.this.posX, look.y + EntityRagora.this.posY, look.z + EntityRagora.this.posZ, 0, 90);
 			
 			angle += angVel;
 			

@@ -35,6 +35,10 @@ public class RagoraRender extends RenderLiving<EntityRagora> {
     protected ResourceLocation getEntityTexture(EntityRagora entity) {
         return new ResourceLocation(RWBYModels.MODID,"textures/entity/modelragora.png");
     }
+    
+    @Override
+    protected void applyRotations(EntityRagora entityLiving, float p_77043_2_, float rotationYaw, float partialTicks) {
+    }
 
     public static class Factory implements IRenderFactory<EntityRagora> {
 

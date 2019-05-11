@@ -135,6 +135,11 @@ public class Ren implements IRen {
 	public boolean isInvisible() {
 		return false;
 	}
+	
+	@Override
+	public boolean isMovementBlocked() {
+		return false;
+	}
 
 	@Override
 	public float[] getColor() {

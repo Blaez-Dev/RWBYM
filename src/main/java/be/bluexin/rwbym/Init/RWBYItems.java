@@ -1914,9 +1914,9 @@ public class RWBYItems {
 				@Override
 				public void applyEntity(EntityLivingBase living, EntityLivingBase shooter) {
 					if (!living.world.isRemote) {
-						float r = 4;
+						float r = 4.5F;
 						living.world.playSound(null, living.getPosition(), SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.BLOCKS, 3, 1);
-						for (float i = Math.round(-r * 2) / 2; i <= Math.round(r * 2) / 2; i += 0.5) {
+						for (float i = Math.round(-r); i <= Math.round(r); i += 1) {
 							float radius = (float) Math.sqrt(r*r - i*i);
 							createCloud(shooter, radius, living.posX, living.posY + living.height / 2 + i, living.posZ);
 						}
@@ -1926,9 +1926,9 @@ public class RWBYItems {
 				@Override
 				public void applyBlock(EntityLivingBase shooter, BlockPos pos) {
 					if (!shooter.world.isRemote) {
-						float r = 4;
+						float r = 4.5F;
 						shooter.world.playSound(null, pos, SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.BLOCKS, 3, 1);
-						for (float i = Math.round(-r * 2) / 2; i <= Math.round(r * 2) / 2; i += 0.5) {
+						for (float i = Math.round(-r); i <= Math.round(r); i += 1) {
 							float radius = (float) Math.sqrt(r*r - i*i);
 							createCloud(shooter, radius, pos.getX(), pos.getY() + i, pos.getZ());
 						}
