@@ -277,6 +277,11 @@ public class RegUtil {
         registerItems(event, RWBYItems.stor5);
         registerItems(event, RWBYItems.stor6);
         registerBlocks(event, RWBYItems.rwbyblock7);
+        //armor
+        registerItems(event, RWBYItems.RagoraHead);
+        registerItems(event, RWBYItems.RagoraChest);
+        registerItems(event, RWBYItems.RagoraLegs);
+        registerItems(event, RWBYItems.RagoraFeet);
 
 
     }

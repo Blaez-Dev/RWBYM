@@ -3,7 +3,9 @@ package be.bluexin.rwbym.weaponry;
         import be.bluexin.rwbym.Init.RWBYCreativeTabs;
         import be.bluexin.rwbym.Init.RWBYItems;
         import be.bluexin.rwbym.RWBYModels;
-        import net.minecraft.client.model.ModelBiped;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.AbstractClientPlayer;
+import net.minecraft.client.model.ModelBiped;
         import net.minecraft.client.model.ModelPlayer;
         import net.minecraft.creativetab.CreativeTabs;
         import net.minecraft.entity.Entity;
@@ -35,10 +37,11 @@ public class ArmourBase extends ItemArmor {
     private boolean fire = false;
     private boolean ice = false;
     private boolean wind = false;
+    private boolean isPlayerModel;
     private final String morph;
     private final String data;
 
-    public ArmourBase(ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn, String name, String morph,String data, CreativeTabs creativetab) {
+    public ArmourBase(ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn, String name, String morph,String data, boolean playerModel, CreativeTabs creativetab) {
         super(materialIn, renderIndexIn, equipmentSlotIn);
         this.morph = morph;
         if (name.contains("korekosmoufire")) fire = true;
@@ -48,16 +51,20 @@ public class ArmourBase extends ItemArmor {
         this.setRegistryName("rwbym", name);
         this.setUnlocalizedName(name);
         this.data = data;
+        this.isPlayerModel = playerModel;
     }
 
     @SideOnly(Side.CLIENT)
     public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped _default) {
-        ModelBiped armorModel = null;
+        ModelBiped armorModel = _default;
         if (!itemStack.isEmpty()) {
-            armorModel = new ModelBiped(0.2F);
-            if (armorModel != null) {
-                armorModel.setModelAttributes(_default);
-                return armorModel;
+        	if (this.isPlayerModel && entityLiving instanceof AbstractClientPlayer) {
+        		AbstractClientPlayer player = (AbstractClientPlayer) entityLiving;
+        		boolean smallarms = player.getSkinType().equals("slim");
+        		armorModel = new ModelPlayer(0.0F, smallarms);
+        	}
+        	else {
+                armorModel = new ModelBiped(0.2F);
             }
         }
 
@@ -121,8 +128,8 @@ public class ArmourBase extends ItemArmor {
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand hand) {
         ItemStack is = playerIn.getHeldItem(hand);
-        ItemStack morph1 = new ItemStack(Item.getByNameOrId(this.morph), is.getCount(), is.getMetadata());
         if (!worldIn.isRemote && playerIn.isSneaking() && this.morph != null) {
+            ItemStack morph1 = new ItemStack(Item.getByNameOrId(this.morph), is.getCount(), is.getMetadata());
             //noinspection ConstantConditions
             if (is.hasTagCompound()) {
                 morph1.setTagCompound(is.getTagCompound());
@@ -131,6 +138,27 @@ public class ArmourBase extends ItemArmor {
                 playerIn.inventory.setInventorySlotContents(playerIn.inventory.currentItem, morph1);
             }}
         return super.onItemRightClick(worldIn, playerIn, hand);
+    }
+    
+    @Override
+    public String getArmorTexture(ItemStack stack, Entity entity, EntityEquipmentSlot slot, String type) {
+    	
+    	String s1 = null;
+    	
+    	if (this.isPlayerModel) {
+	        ItemArmor item = (ItemArmor)stack.getItem();
+	        String texture = item.getArmorMaterial().getName();
+	        String domain = "minecraft";
+	        int idx = texture.indexOf(':');
+	        if (idx != -1)
+	        {
+	            domain = texture.substring(0, idx);
+	            texture = texture.substring(idx + 1);
+	        }
+	        s1 = String.format("%s:textures/models/armor/%s_%s.png", domain, texture, entity instanceof AbstractClientPlayer ? ((AbstractClientPlayer)entity).getSkinType() : "");
+    	}
+
+        return s1;
     }
 
     @Override
