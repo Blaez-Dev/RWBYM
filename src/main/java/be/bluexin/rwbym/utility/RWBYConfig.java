@@ -67,6 +67,14 @@ public class RWBYConfig
     public static int delayticks = 250;
     @Config.Comment("Can Aura Block Damage?")
     public static boolean aurablockdamage = true;
+    @Config.Comment("Ragora Familiar Particles")
+    public static boolean ragoraparticles = true;
+    @Config.Comment("Ragora ShadowBall Resolution")
+    public static float shadowballresolution = 1F;
+    @Config.Comment("Ragora ShadowBall Size")
+    public static float shadowballsize = 4.5F;
+    @Config.Comment("Ragora Summon Particle Count")
+    public static int ragorasummonparticles = 100;
 
     @Mod.EventBusSubscriber(modid = RWBYModels.MODID)
     private static class Handler

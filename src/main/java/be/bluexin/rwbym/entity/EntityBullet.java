@@ -332,7 +332,7 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
                 this.onHit(raytraceresult);
             }
 
-            if (this.getIsCritical())
+            if (this.getIsCritical() && this.world.isRemote)
             {
                 for (int k = 0; k < 32; ++k)
                 {

@@ -5,6 +5,7 @@ import be.bluexin.rwbym.gui.RWBYItemContainerGui;
 import be.bluexin.rwbym.gui.RWBYItemContainerGuiChest;
 import be.bluexin.rwbym.inventory.RWBYItemContainer;
 import be.bluexin.rwbym.inventory.RWBYItemContainerChest;
+import be.bluexin.rwbym.utility.RWBYConfig;
 import be.bluexin.rwbym.weaponry.*;
 import be.bluexin.rwbym.weaponry.ammohit.ExplosionAmmoHit;
 import be.bluexin.rwbym.weaponry.ammohit.FireAmmoHit;
@@ -1915,9 +1916,10 @@ public class RWBYItems {
 				@Override
 				public void applyEntity(EntityLivingBase living, EntityLivingBase shooter) {
 					if (!living.world.isRemote) {
-						float r = 4.5F;
+						float r = RWBYConfig.shadowballsize;
+						float f = RWBYConfig.shadowballresolution;
 						living.world.playSound(null, living.getPosition(), SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.BLOCKS, 3, 1);
-						for (float i = Math.round(-r); i <= Math.round(r); i += 1) {
+						for (float i = Math.round(-r / f) * f; i <= Math.round(r / f) * f; i += f) {
 							float radius = (float) Math.sqrt(r*r - i*i);
 							createCloud(shooter, radius, living.posX, living.posY + living.height / 2 + i, living.posZ);
 						}
@@ -1927,9 +1929,10 @@ public class RWBYItems {
 				@Override
 				public void applyBlock(EntityLivingBase shooter, BlockPos pos) {
 					if (!shooter.world.isRemote) {
-						float r = 4.5F;
+						float r = RWBYConfig.shadowballsize;
+						float f = RWBYConfig.shadowballresolution;
 						shooter.world.playSound(null, pos, SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.BLOCKS, 3, 1);
-						for (float i = Math.round(-r); i <= Math.round(r); i += 1) {
+						for (float i = Math.round(-r / f) * f; i <= Math.round(r / f) * f; i += f) {
 							float radius = (float) Math.sqrt(r*r - i*i);
 							createCloud(shooter, radius, pos.getX(), pos.getY() + i, pos.getZ());
 						}

@@ -91,10 +91,9 @@ public class Ragora implements IRagora {
 		}
 		
 		if (this.summonTime > 0) {
-			summonTime--;
 			if (player.world.isRemote) {
 				Random rand = player.getRNG();
-				for (int i = 0; i < 100; i++) {
+				for (int i = 0; i < (1 - summonTime / 100F) * RWBYConfig.ragorasummonparticles; i++) {
 					player.world.spawnParticle(EnumParticleTypes.DRAGON_BREATH, player.posX + rand.nextGaussian() * player.width / 2, player.posY + player.height + rand.nextGaussian() * player.width / 2 + player.width, player.posZ + rand.nextGaussian() * player.width / 2, rand.nextGaussian() / 100, 1.0 / 50.0, rand.nextGaussian() / 100);
 				}
 			}
@@ -110,6 +109,7 @@ public class Ragora implements IRagora {
 					this.summonTime = 0;
 				}
 			}
+			summonTime--;
 		}
 		
 		if (cooldown > 0) {
