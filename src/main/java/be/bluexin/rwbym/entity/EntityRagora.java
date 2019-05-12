@@ -150,7 +150,7 @@ public class EntityRagora extends EntityTameable {
     			}
     		}
     	});
-    	tasks.addTask(1, new EntityAIAttackRange(this, 10, 5));
+    	tasks.addTask(1, new EntityRagora.EntityAIAttackRange(this, 10, 5));
     	EntityAIBase temp = new EntityAIOwnerHurtByTarget(this) {
     		
     		@Override
@@ -211,6 +211,11 @@ public class EntityRagora extends EntityTameable {
     			return super.shouldExecute() && EntityRagora.this.ticksExisted > 100;
     		}
     		
+    		@Override
+    		protected double getTargetDistance() {
+    			return 16D;
+    		}
+    		
     	    @Override
     	    protected AxisAlignedBB getTargetableArea(double targetDistance) {
     	    	EntityLivingBase owner = EntityRagora.this.getOwner();
@@ -224,7 +229,7 @@ public class EntityRagora extends EntityTameable {
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.3499999940395355D);
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(16);
+        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(RWBYConfig.aggrorange);
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(10000.0D);
         this.getAttributeMap().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(5.0D);
     }

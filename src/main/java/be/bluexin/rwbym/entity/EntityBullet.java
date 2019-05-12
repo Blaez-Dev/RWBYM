@@ -152,6 +152,10 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
                 if (entity instanceof EntityLivingBase)
                 {
                     EntityLivingBase entitylivingbase = (EntityLivingBase)entity;
+                    
+                    if (this.shootingEntity instanceof EntityLivingBase) {
+                    	((EntityLivingBase)this.shootingEntity).setLastAttackedEntity(entitylivingbase);
+                    }
 
                     if (this.knockbackStrength > 0)
                     {
