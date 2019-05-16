@@ -183,8 +183,9 @@ public class RegUtil {
         //registerItems(event, RWBYItems.coinjuane);
         //registerItems(event, RWBYItems.coinnora);
         registerItems(event, RWBYItems.coin_ren);
+        registerItems(event, RWBYItems.coin_ragora);
         //registerItems(event, RWBYItems.coinqrow);
-        //registerItems(event, RWBYItems.coinraven);
+        //registerItems(event, RWBYItems.coin_raven);
         registerItems(event, RWBYItems.scroll);
         registerItems(event, RWBYItems.scroll2);
         //lien items
@@ -281,7 +282,9 @@ public class RegUtil {
         registerItems(event, RWBYItems.RagoraHead);
         registerItems(event, RWBYItems.RagoraChest);
         registerItems(event, RWBYItems.RagoraLegs);
-        registerItems(event, RWBYItems.RagoraFeet);
+        registerItems(event, RWBYItems.QrowChest);
+        registerItems(event, RWBYItems.QrowLegs);
+
 
 
     }

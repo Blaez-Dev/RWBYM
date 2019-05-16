@@ -45,9 +45,9 @@ item.rwbym:pyrrhasword.name=Milo and Akouo
 item.rwbym:noragun.name=Magnhild
 item.rwbym:norahammer.name=Magnhild
 item.rwbym:yatsuhashi.name=Yatsuhashi's Sword
-item.rwbym:fox.name=Fox's Gaunlet
+item.rwbym:fox.name=Sharp Retribution
 item.rwbym:cocobag.name=Coco's Handbag
-item.rwbym:velvet.name=Velvet's Camera
+item.rwbym:velvet.name=Anesidora
 item.rwbym:crescentv.name=Solid Light Crescent Rose
 item.rwbym:crescentgunv.name=Solid Light Crescent Rose
 item.rwbym:emberv.name=Solid Light Ember Celica
@@ -251,6 +251,11 @@ item.rwbym:scroll2.name=Scroll
 item.rwbym:coin_ren.name=Ren Semblance Coin
 item.rwbym:hexen.name=Hexatanz
 item.rwbym:hexenaxe.name=Hexatanz
+item.rwbym:ragora_head.name= Ragora's Hat
+item.rwbym:ragora_chest.name= Ragora's Raiment
+item.rwbym:ragora_legs.name= Ragora's Leggings
+item.rwbym:qrow_legs.name=Qrow's Pants
+item.rwbym:qrow_chest.name-Qrow's Tailcoat
 
 itemGroup.rwby_weapons=RWBY Weapons
 itemGroup.rwby_items=RWBY Items

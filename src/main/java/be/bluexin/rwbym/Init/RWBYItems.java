@@ -1400,7 +1400,8 @@ public class RWBYItems {
     public static final Item coinnora = new RWBYItem("coinnora", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item coin_ren = new RWBYItem("coin_ren", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item coinqrow = new RWBYItem("coinqrow", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static final Item coinraven = new RWBYItem("coinraven", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item coin_raven = new RWBYItem("coin_raven", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item coin_ragora = new RWBYItem("coin_ragora", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item rvnmask = new RWBYItem("rvnmask", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item whtefng =  new RWBYItem("whtefng", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item rubyhood = new RWBYItem("rubyhood", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true, RWBYCreativeTabs.tab_rwbyitems);
@@ -2039,6 +2040,10 @@ public class RWBYItems {
     public static final ItemArmor.ArmorMaterial korekosmouWindMat;
     public static final ItemArmor.ArmorMaterial RagoraMat = EnumHelper.addArmorMaterial("Ragora", "rwbym:ragora", 40, new int[]{0, 4, 4, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 2.0F);
 
+    public static final ItemArmor.ArmorMaterial QrowMat = EnumHelper.addArmorMaterial("Qrow", "rwbym:qrow", 40, new int[]{0, 4, 4, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 2.0F);
+    public static final ItemArmor QrowChest = new ArmourBase(QrowMat, 0, EntityEquipmentSlot.CHEST, "qrow_chest", null, null, true, RWBYCreativeTabs.tab_rwbyitems);
+    public static final ItemArmor QrowLegs = new ArmourBase(QrowMat, 0, EntityEquipmentSlot.LEGS, "qrow_legs", null, null, true, RWBYCreativeTabs.tab_rwbyitems);
+
     public static final ItemArmor korekosmouoff;
     public static final ItemArmor korekosmoufire;
     public static final ItemArmor korekosmouwater;
@@ -2046,8 +2051,6 @@ public class RWBYItems {
     public static final ItemArmor RagoraHead = new ArmourBase(RagoraMat, 0, EntityEquipmentSlot.HEAD, "ragora_head", null, null, true, RWBYCreativeTabs.tab_rwbyitems);
     public static final ItemArmor RagoraChest = new ArmourBase(RagoraMat, 0, EntityEquipmentSlot.CHEST, "ragora_chest", null, null, true, RWBYCreativeTabs.tab_rwbyitems);
     public static final ItemArmor RagoraLegs = new ArmourBase(RagoraMat, 0, EntityEquipmentSlot.LEGS, "ragora_legs", null, null, true, RWBYCreativeTabs.tab_rwbyitems);
-    public static final ItemArmor RagoraFeet = new ArmourBase(RagoraMat, 0, EntityEquipmentSlot.FEET, "ragora_feet", null, null, true, RWBYCreativeTabs.tab_rwbyitems);
-
     //public static final ItemArmor starting_Leggings;
 /*
     public static void init() {
