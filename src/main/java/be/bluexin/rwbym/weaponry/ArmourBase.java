@@ -2,7 +2,8 @@ package be.bluexin.rwbym.weaponry;
 
         import be.bluexin.rwbym.Init.RWBYCreativeTabs;
         import be.bluexin.rwbym.Init.RWBYItems;
-        import be.bluexin.rwbym.RWBYModels;
+import be.bluexin.rwbym.entity.ModelArmor;
+import be.bluexin.rwbym.RWBYModels;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.model.ModelBiped;
@@ -61,7 +62,7 @@ public class ArmourBase extends ItemArmor {
         	if (this.isPlayerModel && entityLiving instanceof AbstractClientPlayer) {
         		AbstractClientPlayer player = (AbstractClientPlayer) entityLiving;
         		boolean smallarms = player.getSkinType().equals("slim");
-        		armorModel = new ModelPlayer(0.0F, smallarms);
+        		armorModel = new ModelArmor(0.0F, smallarms, armorSlot);
         	}
         	else {
                 armorModel = new ModelBiped(0.2F);
@@ -70,7 +71,27 @@ public class ArmourBase extends ItemArmor {
 
         return armorModel;
     }
+    
+    @Override
+    public String getArmorTexture(ItemStack stack, Entity entity, EntityEquipmentSlot slot, String type) {
+    	
+    	String s1 = null;
+    	
+    	if (this.isPlayerModel) {
+	        ItemArmor item = (ItemArmor)stack.getItem();
+	        String texture = item.getArmorMaterial().getName();
+	        String domain = "minecraft";
+	        int idx = texture.indexOf(':');
+	        if (idx != -1)
+	        {
+	            domain = texture.substring(0, idx);
+	            texture = texture.substring(idx + 1);
+	        }
+	        s1 = String.format("%s:textures/models/armor/%s%s.png", domain, texture, entity instanceof AbstractClientPlayer ? "_" + ((AbstractClientPlayer)entity).getSkinType() : "");
+    	}
 
+        return s1;
+    }
 
     @SuppressWarnings("Duplicates")
     @Override
@@ -138,27 +159,6 @@ public class ArmourBase extends ItemArmor {
                 playerIn.inventory.setInventorySlotContents(playerIn.inventory.currentItem, morph1);
             }}
         return super.onItemRightClick(worldIn, playerIn, hand);
-    }
-    
-    @Override
-    public String getArmorTexture(ItemStack stack, Entity entity, EntityEquipmentSlot slot, String type) {
-    	
-    	String s1 = null;
-    	
-    	if (this.isPlayerModel) {
-	        ItemArmor item = (ItemArmor)stack.getItem();
-	        String texture = item.getArmorMaterial().getName();
-	        String domain = "minecraft";
-	        int idx = texture.indexOf(':');
-	        if (idx != -1)
-	        {
-	            domain = texture.substring(0, idx);
-	            texture = texture.substring(idx + 1);
-	        }
-	        s1 = String.format("%s:textures/models/armor/%s_%s.png", domain, texture, entity instanceof AbstractClientPlayer ? ((AbstractClientPlayer)entity).getSkinType() : "");
-    	}
-
-        return s1;
     }
 
     @Override

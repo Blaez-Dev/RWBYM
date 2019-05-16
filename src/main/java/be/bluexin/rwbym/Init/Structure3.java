@@ -4,6 +4,8 @@ import be.bluexin.rwbym.RWBYModels;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
@@ -17,6 +19,7 @@ import net.minecraft.world.gen.structure.template.Template;
 import net.minecraft.world.gen.structure.template.TemplateManager;
 
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Random;
 
 public class Structure3 extends WorldGenerator{
@@ -46,6 +49,18 @@ public class Structure3 extends WorldGenerator{
 
 
             Map<BlockPos, String> map = template.getDataBlocks(position, placementsettings);
+            
+            for (Entry<BlockPos, String> entry : map.entrySet()) {
+            	
+            	if (entry.getValue().equals("loot")) {
+            		TileEntity tileEntity = world.getTileEntity(entry.getKey());
+            		if (tileEntity instanceof TileEntityChest) {
+            			TileEntityChest chest = (TileEntityChest) tileEntity;
+            			chest.setLootTable(new ResourceLocation(RWBYModels.MODID, "lootTable"), world.rand.nextLong());
+            		}
+            	}
+            	
+            }
 
             return true;
         }

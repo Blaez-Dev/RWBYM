@@ -75,6 +75,7 @@ public class EntityRagora extends EntityTameable {
         this.moveHelper = new RagoraMoveHelper(this);
         this.navigator = new PathNavigateFlying(this, world);
         this.experienceValue = 0;
+        this.setAIMoveSpeed(0);
         this.targetpos = new Vec3d(this.posX, this.posY, this.posZ);
     }
     
@@ -86,6 +87,7 @@ public class EntityRagora extends EntityTameable {
     	y = player.posY + player.height;
     	z = player.posZ;
     	this.setLocationAndAngles(x, y, z, 0, 0);
+    	this.setAIMoveSpeed(0.5F);
         this.targetpos = new Vec3d(x, y, z);
     }
     
