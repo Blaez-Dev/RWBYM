@@ -74,7 +74,9 @@ public class RWBYEntities {
         EntityRegistry.registerModEntity(new ResourceLocation("rwbym:blackstore"), EntityBlackStore.class, "blackstore", entityID++, instance, 64, 1, true, (0 << 16) + (0 << 8) + 0, (153 << 16) + (153 << 8) + 153);
         EntityRegistry.registerModEntity(new ResourceLocation("rwbym:crowbar"), EntityCrowBar.class, "crowbar", entityID++, instance, 64, 1, true, (0 << 16) + (0 << 8) + 0, (153 << 16) + (153 << 8) + 153);
         EntityRegistry.registerModEntity(new ResourceLocation("rwbym:ren"), EntityRen.class, "ren", entityID++, instance, 64, 1, true);
-        EntityRegistry.registerModEntity(new ResourceLocation("rwbym:ragora"), EntityRagora.class, "ragora", entityID++, instance, 65, 1, true, 255 << 16 | 0 << 8 | 255, 0 << 16 | 0 << 8 | 0);
+        EntityRegistry.registerModEntity(new ResourceLocation("rwbym:ragora"), EntityRagora.class, "ragora", entityID++, instance, 65, 1, true);
+        EntityRegistry.registerModEntity(new ResourceLocation("rwbym:armorstore"), EntityArmourStore.class, "aegis", entityID++, instance, 64, 1, true, (0 << 16) + (0 << 8) + 0, (153 << 16) + (153 << 8) + 153);
+
         Biome[] biomes = getBiomeList(EntityCreeper.class, EnumCreatureType.MONSTER);
         Biome[] biomes1 = getBiomeList(EntityStray.class, EnumCreatureType.MONSTER);
 

@@ -37,7 +37,7 @@ public class ModelArmor extends ModelPlayer {
 			this.bipedRightArm.showModel = true;
 			this.bipedRightArmwear.showModel = true;
 			this.bipedBody.showModel = true;
-			//this.bipedBodyWear.showModel = true;
+			this.bipedBodyWear.showModel = true;
 			break;
 		case LEGS:
 			this.bipedLeftLeg.showModel = true;

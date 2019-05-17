@@ -2,6 +2,7 @@ package be.bluexin.rwbym.entity;
 
 import be.bluexin.rwbym.Init.RWBYItems;
 import be.bluexin.rwbym.ModLootTables;
+import be.bluexin.rwbym.blocks.RWBYBlock;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
@@ -16,7 +17,6 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
-import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.stats.StatList;
@@ -28,25 +28,43 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
+import net.minecraft.village.Village;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Random;
+import java.util.Set;
 
 
-public class EntityBlackStore extends EntityCreature implements INpc, IMerchant {
+public class EntityArmourStore extends EntityCreature implements INpc, IMerchant{
     World world = null;
     private MerchantRecipeList trades;
+    private int ticksAlive;
     private EntityPlayer buyingPlayer;
+    Village village;
+    private static MerchantRecipe[] weapons = new MerchantRecipe[]{
 
-    public EntityBlackStore(World var3) {
+            new MerchantRecipe(new ItemStack(RWBYItems.lien50,3),new ItemStack(RWBYItems.QrowChest, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien50,3),new ItemStack(RWBYItems.QrowLegs, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien50,3),new ItemStack(RWBYItems.RagoraLegs, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien50,3),new ItemStack(RWBYItems.RagoraChest, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien50,3),new ItemStack(RWBYItems.RagoraHead, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien50,3),new ItemStack(RWBYItems.rvnmask, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien50,3),new ItemStack(RWBYItems.whtefng, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien100,4),new ItemStack(RWBYItems.scroll, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien100,4),new ItemStack(RWBYItems.scroll2, 1))};
+
+    private int randomTickDivider;
+    private boolean isLookingForHome;
+
+    public EntityArmourStore(World var3) {
         super(var3);
         world = var3;
-
-        ItemStack is = new ItemStack(RWBYItems.whtefng, 1);
         this.setSize(1F, 1.5F);
-        this.setItemStackToSlot(EntityEquipmentSlot.HEAD, is);
     }
 
     protected void initEntityAI() {
@@ -64,6 +82,14 @@ public class EntityBlackStore extends EntityCreature implements INpc, IMerchant 
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(30.0D);
     }
 
+    public boolean canBeLeashedTo(EntityPlayer player) {
+        return false;
+    }
+
+    @Override
+    public boolean getCanSpawnHere() {
+        return super.getCanSpawnHere();
+    }
 
     public boolean processInteract(EntityPlayer player, EnumHand hand) {
         ItemStack itemstack = player.getHeldItem(hand);
@@ -103,8 +129,13 @@ public class EntityBlackStore extends EntityCreature implements INpc, IMerchant 
 
     }
 
-    public boolean canBeLeashedTo(EntityPlayer player) {
-        return false;
+    @Override
+    public void onLivingUpdate() {
+        super.onLivingUpdate();
+        this.ticksAlive ++;
+        if(ticksAlive % 18000 == 0) {
+            populateTradingList();
+        }
     }
 
     @SideOnly(Side.CLIENT)
@@ -115,26 +146,30 @@ public class EntityBlackStore extends EntityCreature implements INpc, IMerchant 
 
         this.trades = new MerchantRecipeList();
 
-        //buy//
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,2),new ItemStack(RWBYItems.rvnmask,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,1),new ItemStack(RWBYItems.whtefng,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,1),new ItemStack(RWBYItems.atlasknight,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien50,1),new ItemStack(RWBYItems.wallet,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien50,1),new ItemStack(RWBYItems.dustpouch,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien50,1),new ItemStack(RWBYItems.partspouch,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,10),new ItemStack(RWBYItems.coinr,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,10),new ItemStack(RWBYItems.coinw,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,10),new ItemStack(RWBYItems.coinb,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,10),new ItemStack(RWBYItems.coiny,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,10),new ItemStack(RWBYItems.coin_ren,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,10),new ItemStack(RWBYItems.coin_ragora,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,10),new ItemStack(RWBYItems.scroll,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,10),new ItemStack(RWBYItems.scroll2,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,20),new ItemStack(RWBYItems.container,1)));
-        //sell//
+        //Buy
 
 
-        // add as many trades as you want
+        //Sell
+
+        //Random Weapons
+
+        Random rand = new Random();
+        int nextRandom = rand.nextInt(this.weapons.length);
+        Set<Integer> validate = new HashSet<>();
+        validate.add(nextRandom);
+        for (int i = 0; i < 6; i++) {
+            while(validate.contains(nextRandom)) {
+                nextRandom = rand.nextInt(this.weapons.length);
+            }
+            validate.add(nextRandom);
+        }
+        for (int i : validate) {
+            this.trades.add(this.weapons[i]);
+        }
+
+
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.rwbyblock8,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.remnants,1), new ItemStack(RWBYItems.lien10, 3)));
     }
 
     public void verifySellingItem(ItemStack stack) {
@@ -145,8 +180,6 @@ public class EntityBlackStore extends EntityCreature implements INpc, IMerchant 
 
     }
 
-
-
     public World getWorld() {
         return this.world;
     }
@@ -154,6 +187,29 @@ public class EntityBlackStore extends EntityCreature implements INpc, IMerchant 
     public void useRecipe(MerchantRecipe recipe) {
         this.livingSoundTime = -this.getTalkInterval();
         this.playSound(SoundEvents.ENTITY_VILLAGER_YES, this.getSoundVolume(), this.getSoundPitch());
+
+    }
+
+    protected void updateAITasks() {
+        if (--this.randomTickDivider <= 0) {
+            BlockPos blockpos = new BlockPos(this);
+            this.world.getVillageCollection().addToVillagerPositionList(blockpos);
+            this.randomTickDivider = 70 + this.rand.nextInt(50);
+            this.village = this.world.getVillageCollection().getNearestVillage(blockpos, 32);
+            if (this.village == null) {
+                this.detachHome();
+            } else {
+                BlockPos blockpos1 = this.village.getCenter();
+                this.setHomePosAndDistance(blockpos1, this.village.getVillageRadius());
+                if (this.isLookingForHome) {
+                    this.isLookingForHome = false;
+                    this.village.setDefaultPlayerReputation(5);
+                }
+            }
+        }
+
+
+        super.updateAITasks();
     }
 
     protected boolean canDespawn() {

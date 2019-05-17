@@ -51,6 +51,10 @@
           "weight": 1
         },{
           "type": "item",
+          "name": "rwbym:coin_ragora",
+          "weight": 1
+        },{
+          "type": "item",
           "name": "rwbym:roseiron",
           "weight": 2,
           "count": 2

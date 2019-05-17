@@ -118,6 +118,7 @@ public class EntityCrowBar extends EntityCreature implements INpc, IMerchant{
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien20, 1), new ItemStack(RWBYItems.torchquick)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien50, 1), new ItemStack(RWBYItems.hchoc)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien50, 1), new ItemStack(RWBYItems.plg)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien50, 1), new ItemStack(RWBYItems.pancakes)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien20, 3), new ItemStack(RWBYItems.sunrise)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien20, 3), new ItemStack(RWBYItems.coconutmilk)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien20, 4), new ItemStack(RWBYItems.qrowflask)));

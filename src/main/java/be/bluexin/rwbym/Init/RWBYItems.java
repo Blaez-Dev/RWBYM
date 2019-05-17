@@ -1340,7 +1340,7 @@ public class RWBYItems {
             true,
             1,
             true,
-            1,
+            2,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
     public static final Item magnumsword = new RWBYCRScythe(
@@ -1349,13 +1349,13 @@ public class RWBYItems {
             72,
             0,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:16,Operation:0,UUIDMost:99791,UUIDLeast:128916}]}",
-            "rwbym:magnumsword",
+            "rwbym:magnumgun",
             "rwbym:gammag,rwbym:gamgravmag,rwbym:gamicemag,rwbym:gamfiremag",
             false,
             1,
             true,
             0,
-            RWBYCreativeTabs.tab_rwbyweapons);
+            null);
 
     //------------------------------------------------//
     public static final Item ammo = new RWBYItem("ammo", null, false, RWBYCreativeTabs.tab_rwbyitems);
@@ -1488,6 +1488,7 @@ public class RWBYItems {
     public static final Item qrowflask = new RWBYFood("qrowflask",null, 6, RWBYCreativeTabs.tab_rwbyitems );
     public static final Item sake = new RWBYFood("sake",null, 7, RWBYCreativeTabs.tab_rwbyitems );
     public static final Item coconutmilk = new RWBYFood("coconutmilk",null, 8, RWBYCreativeTabs.tab_rwbyitems );
+    public static final Item pancakes = new RWBYFood("pancakes",null, 9, RWBYCreativeTabs.tab_rwbyitems);
 
     //-----------------------------------------------//
     public static final Item entitybullet = new RWBYItem("entitybullet", null, false, null);

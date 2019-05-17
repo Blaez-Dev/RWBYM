@@ -116,6 +116,17 @@ public class Oregen implements IWorldGenerator{
         }
     }
 
+    private void generatestructure4(World world, Random rand, int blockX, int blockZ)
+    {
+        if ((int) (Math.random() * RWBYConfig.dustshop2) == 0)
+        {
+            int y = getGroundFromAbove(world, blockX, blockZ);
+            BlockPos pos = new BlockPos(blockX, y, blockZ);
+            WorldGenerator structure2 = new Structure2();
+            structure2.generate(world, rand, pos);
+        }
+    }
+
     private void generatestructure3(World world, Random rand, int blockX, int blockZ)
     {
         if ((int) (Math.random() * RWBYConfig.well) == 0)

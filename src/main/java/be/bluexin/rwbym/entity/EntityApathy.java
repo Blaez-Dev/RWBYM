@@ -34,7 +34,7 @@ public class EntityApathy extends EntityMob {
     public EntityApathy(World var3) {
         super(var3);
         world = var3;
-        this.setSize(1.3F, 2.5F);
+        this.setSize(0.5F, 2.5F);
     }
 
     protected void initEntityAI() {

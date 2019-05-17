@@ -211,6 +211,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.qrowflask);
         registerItems(event, RWBYItems.sake);
         registerItems(event, RWBYItems.coconutmilk);
+        registerItems(event, RWBYItems.pancakes);
         //masks
         registerItems(event, RWBYItems.rvnmask);
         registerItems(event, RWBYItems.whtefng);
