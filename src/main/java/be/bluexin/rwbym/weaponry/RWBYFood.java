@@ -1,6 +1,7 @@
 package be.bluexin.rwbym.weaponry;
 
 import be.bluexin.rwbym.Init.RWBYCreativeTabs;
+import be.bluexin.rwbym.Init.RWBYPotions;
 import be.bluexin.rwbym.RWBYModels;
 import be.bluexin.rwbym.capabilities.Blake.Blake;
 import be.bluexin.rwbym.capabilities.Blake.BlakeProvider;
@@ -66,7 +67,7 @@ public class RWBYFood extends Item implements ICustomItem {
         this.setMaxDamage(3);
         this.food = food;
         this.maxStackSize = 2;
-        if(food == 2||food == 6|| food == 7){
+        if(food == 2||food == 6|| food == 7||food ==9){
             this.food6 = true;
         }
         if(food6){
@@ -165,6 +166,14 @@ public class RWBYFood extends Item implements ICustomItem {
                 entityplayer.addPotionEffect(potioneffect1);
                 entityplayer.addPotionEffect(potioneffect2);
                 entityplayer.addPotionEffect(potioneffect3);
+            }
+
+            if(food == 9){
+                //Pancakes
+                PotionEffect potioneffect2 = new PotionEffect(MobEffects.SATURATION, 60, 5, false, false);
+                entityplayer.addPotionEffect(potioneffect2);;
+                PotionEffect potioneffect21 = new PotionEffect(MobEffects.LUCK, 2400, 5, false, false);
+                entityplayer.addPotionEffect(potioneffect21);;
             }
         }
         if(food6){

@@ -84,6 +84,7 @@ public class RWBYCRScythe extends ItemBow implements ICustomItem {
         if(name.contains("coco")) coco = true;
         if(name.contains("qrow")) emberc = true;
         if(name.contains("emberv")) emberc = true;
+        if(name.contains("magnum")) gambols = true;
 
 
     }
