@@ -1329,6 +1329,33 @@ public class RWBYItems {
             0,
             0,
             null);
+    public static final Item magnumgun = new RWBYBow(
+            "magnumgun",
+            2500,
+            72,
+            0,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:12,Operation:0,UUIDMost:99791,UUIDLeast:128916}]}",
+            "rwbym:magnumsword",
+            "rwbym:gammag,rwbym:gamgravmag,rwbym:gamicemag,rwbym:gamfiremag",
+            true,
+            1,
+            true,
+            1,
+            0,
+            RWBYCreativeTabs.tab_rwbyweapons);
+    public static final Item magnumsword = new RWBYCRScythe(
+            "magnumsword",
+            2500,
+            72,
+            0,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:16,Operation:0,UUIDMost:99791,UUIDLeast:128916}]}",
+            "rwbym:magnumsword",
+            "rwbym:gammag,rwbym:gamgravmag,rwbym:gamicemag,rwbym:gamfiremag",
+            false,
+            1,
+            true,
+            0,
+            RWBYCreativeTabs.tab_rwbyweapons);
 
     //------------------------------------------------//
     public static final Item ammo = new RWBYItem("ammo", null, false, RWBYCreativeTabs.tab_rwbyitems);

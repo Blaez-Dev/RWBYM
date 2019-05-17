@@ -41,17 +41,17 @@ public class ModelArmor extends ModelPlayer {
 			break;
 		case LEGS:
 			this.bipedLeftLeg.showModel = true;
-			//this.bipedLeftLegwear.showModel = true;
+			this.bipedLeftLegwear.showModel = true;
 			this.bipedRightLeg.showModel = true;
-			//this.bipedRightLegwear.showModel = true;
+			this.bipedRightLegwear.showModel = true;
 			//this.bipedBody.showModel = true;
-			this.bipedBodyWear.showModel = true;
+			//this.bipedBodyWear.showModel = true;
 			break;
 		case FEET:
 			//this.bipedLeftLeg.showModel = true;
-			this.bipedLeftLegwear.showModel = true;
+			//this.bipedLeftLegwear.showModel = true;
 			//this.bipedRightLeg.showModel = true;
-			this.bipedRightLegwear.showModel = true;
+			//this.bipedRightLegwear.showModel = true;
 			break;
 		default:
 			this.setVisible(true);
