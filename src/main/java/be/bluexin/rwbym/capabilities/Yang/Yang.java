@@ -27,6 +27,8 @@ public class Yang implements IYang {
 	
 	private int strengthMultiplyer = 6;
 
+	private int selectedLevel = -1;
+
 	@Override
 	public boolean onActivate(EntityPlayer player) {
 		switch(this.level) {
@@ -163,6 +165,18 @@ public class Yang implements IYang {
 	@Override
 	public boolean isMovementBlocked() {
 		return false;
+	}
+	
+	@Override
+	public int getSelectedLevel() {
+		return selectedLevel ;
+	}
+	
+	@Override
+	public void setSelectedLevel(int level) {
+		if (level <= this.level) {
+			this.selectedLevel = level;
+		}
 	}
 
 	@Override

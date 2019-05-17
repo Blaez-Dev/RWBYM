@@ -158,6 +158,9 @@ public class CapabilityHandler {
 	public static <T extends ISemblance> void setSemblance(EntityPlayer player, Capability<T> capability, int level) {
 		for (ISemblance semblance : getAllSemblances(player)) {
 			semblance.setLevel(0);
+			if (semblance.getSelectedLevel() != -1) {
+				semblance.setSelectedLevel(0);
+			}
 		}
 		
 		if (player.hasCapability(capability, null)) {

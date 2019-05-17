@@ -41,6 +41,8 @@ public class Ruby implements IRuby {
 	
 	// a level greater than 0 will signal that this is the active semblance
 	private int level = 0;
+
+	private int selectedLevel = 0;
 	
 	/**activates the semblance*/
 	@Override
@@ -48,7 +50,7 @@ public class Ruby implements IRuby {
 		
 		//System.out.println("" + this.level);
 
-		switch(this.level) {
+		switch(this.selectedLevel) {
 		case 1:
 			if (player.onGround){
 				this.setInvisisbility(level1Time);
@@ -67,7 +69,7 @@ public class Ruby implements IRuby {
 	@Override
 	public boolean deActivate(EntityPlayer player) {
 		
-		switch(level) {
+		switch(selectedLevel) {
 		case 1:
 			return false;
 		case 2:
@@ -111,11 +113,11 @@ public class Ruby implements IRuby {
 		if (this.active) {
 			
 			if (!this.useAura(player, auraUse)) return;
-			
-			player.fallDistance = 0;
-			
-			if (player.onGround || this.level > 1) {
+						
+			if (player.onGround || this.selectedLevel > 1) {
 				//System.out.println(this.cooldown);
+				
+				player.fallDistance = 0;
 				
 				boolean flag = player.isElytraFlying();
 				
@@ -134,7 +136,7 @@ public class Ruby implements IRuby {
 				player.motionZ = Math.abs(motion.z) < Math.abs(look.z) ? look.z : player.motionZ + (look.z - player.motionZ) * drag;
 				player.fallDistance = 0;
 
-				if(this.level > 2){
+				if(this.selectedLevel > 2){
 					AxisAlignedBB axisalignedbb = player.getEntityBoundingBox().grow(2,2,2);
 	
 	
@@ -159,7 +161,7 @@ public class Ruby implements IRuby {
 					}
 				}
 
-				for (int i = 0; i < (this.level > 1 ? 32 : 2); i++) {
+				for (int i = 0; i < (this.selectedLevel > 1 ? 32 : 2); i++) {
 					ItemStack is = player.getHeldItemMainhand();
 					ItemStack is2 = player.getHeldItemOffhand();
 					if(is.getItem() == RWBYItems.crescentfrost){
@@ -175,7 +177,7 @@ public class Ruby implements IRuby {
 			}
 		}
 
-		switch(this.level) {
+		switch(this.selectedLevel) {
 		case 1:
 			if (this.invisiblityTimer > 0) {
 				this.invisiblityTimer--;
@@ -202,7 +204,7 @@ public class Ruby implements IRuby {
 
 	@Override
 	public boolean getInvisibility() {
-		switch(this.level) {
+		switch(this.selectedLevel) {
 		case 1: 
 			return false;
 		case 2:
@@ -234,6 +236,7 @@ public class Ruby implements IRuby {
 			return;
 		}
 		this.level = level;
+		this.selectedLevel = level;
 	}
 
 	@Override
@@ -241,6 +244,7 @@ public class Ruby implements IRuby {
 		nbt.setInteger("Itimer", invisiblityTimer);
 		nbt.setInteger("level", level);
 		nbt.setBoolean("active", active);
+		nbt.setInteger("selectedLevel", this.selectedLevel);
 	}
 
 	@Override
@@ -248,6 +252,7 @@ public class Ruby implements IRuby {
 		this.invisiblityTimer = nbt.getInteger("Itimer");
 		this.level = nbt.getInteger("level");
 		this.active = nbt.getBoolean("active");
+		this.selectedLevel = nbt.getInteger("selectedLevel");
 	}
 
 	@Override
@@ -267,7 +272,7 @@ public class Ruby implements IRuby {
 
 	@Override
 	public boolean isInvisible() {
-		switch(this.level) {
+		switch(this.selectedLevel) {
 		case 1: 
 			return false;
 		case 2:
@@ -281,6 +286,18 @@ public class Ruby implements IRuby {
 	@Override
 	public boolean isMovementBlocked() {
 		return false;
+	}
+	
+	@Override
+	public int getSelectedLevel() {
+		return selectedLevel;
+	}
+	
+	@Override
+	public void setSelectedLevel(int level) {
+		if (level <= this.level) {
+			this.selectedLevel = level;
+		}
 	}
 
 	@Override

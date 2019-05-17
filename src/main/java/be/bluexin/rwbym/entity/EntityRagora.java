@@ -425,7 +425,7 @@ public class EntityRagora extends EntityTameable {
 								break LABEL;
 							}
 						}
-						if (pos == null) {
+						if (i > 0 && pos == null && ownertrace[i - 1] != null) {
 							entityragora.targetpos = ownertrace[i - 1];
 						}
 					}

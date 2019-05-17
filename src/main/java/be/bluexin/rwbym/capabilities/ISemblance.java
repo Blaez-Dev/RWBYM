@@ -33,6 +33,10 @@ public interface ISemblance {
 	
 	public boolean isMovementBlocked();
 	
+	public int getSelectedLevel();
+	
+	public void setSelectedLevel(int level);
+	
 	@Override
 	public String toString();
 	

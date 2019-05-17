@@ -41,6 +41,8 @@ public class Ragora implements IRagora {
 	
 	private EntityRagora entityragora = null;
 
+	private int selectedLevel = -1;
+
 	@Override
 	public boolean onActivate(EntityPlayer player) {
 		IAura aura = player.getCapability(AuraProvider.AURA_CAP, null);
@@ -168,6 +170,18 @@ public class Ragora implements IRagora {
 	@Override
 	public boolean isMovementBlocked() {
 		return this.summonTime > 0;
+	}
+	
+	@Override
+	public int getSelectedLevel() {
+		return selectedLevel ;
+	}
+	
+	@Override
+	public void setSelectedLevel(int level) {
+		if (level <= this.level) {
+			this.selectedLevel = level;
+		}
 	}
 	
 	@Override

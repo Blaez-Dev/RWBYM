@@ -28,6 +28,7 @@ public class Ren implements IRen {
 
 	private float auraUse = 0.3F;
 
+	private int selectedLevel = -1;
 
 	@Override
 	public boolean onActivate(EntityPlayer player) {
@@ -139,6 +140,18 @@ public class Ren implements IRen {
 	@Override
 	public boolean isMovementBlocked() {
 		return false;
+	}
+	
+	@Override
+	public int getSelectedLevel() {
+		return selectedLevel ;
+	}
+	
+	@Override
+	public void setSelectedLevel(int level) {
+		if (level <= this.level) {
+			this.selectedLevel = level;
+		}
 	}
 
 	@Override

@@ -30,7 +30,7 @@ public class KeyInputHandler {
 	public boolean activateSemblance;
 	public boolean morphWeapon;
 
-	//this event only fires on client side, so if you need something done serverside you need to send packets,
+	//this event only fires on client side, so if you need something done server side you need to send packets,
 	@SubscribeEvent
 	@SideOnly(Side.CLIENT)
 	public void onKeyInput(KeyInputEvent event) {
@@ -38,18 +38,19 @@ public class KeyInputHandler {
 		Minecraft mc = Minecraft.getMinecraft();
 				
 		EntityPlayer player = mc.player;
-				
+		
 		ISemblance semblance = CapabilityHandler.getCurrentSemblance(player);
-		if (semblance instanceof IRagora) {
-			if (semblance.isMovementBlocked()) {
-				KeyBinding.setKeyBindState(mc.gameSettings.keyBindForward.getKeyCode(), false);
-				KeyBinding.setKeyBindState(mc.gameSettings.keyBindBack.getKeyCode(), false);
-				KeyBinding.setKeyBindState(mc.gameSettings.keyBindLeft.getKeyCode(), false);
-				KeyBinding.setKeyBindState(mc.gameSettings.keyBindRight.getKeyCode(), false);
-				KeyBinding.setKeyBindState(mc.gameSettings.keyBindJump.getKeyCode(), false);
-				KeyBinding.setKeyBindState(mc.gameSettings.keyBindSneak.getKeyCode(), false);
-			}
+		
+		if (semblance != null && semblance.isMovementBlocked()) {
+			KeyBinding.setKeyBindState(mc.gameSettings.keyBindForward.getKeyCode(), false);
+			KeyBinding.setKeyBindState(mc.gameSettings.keyBindBack.getKeyCode(), false);
+			KeyBinding.setKeyBindState(mc.gameSettings.keyBindLeft.getKeyCode(), false);
+			KeyBinding.setKeyBindState(mc.gameSettings.keyBindRight.getKeyCode(), false);
+			KeyBinding.setKeyBindState(mc.gameSettings.keyBindJump.getKeyCode(), false);
+			KeyBinding.setKeyBindState(mc.gameSettings.keyBindSneak.getKeyCode(), false);
 		}
+		
+		
 	
 		if (KeybindRegistry.activateSemblance.isPressed()) {
 			RWBYModels.LOGGER.log(RWBYModels.debug, "Activating Semblance");
@@ -60,6 +61,13 @@ public class KeyInputHandler {
 		else {			
 			if (semblance != null) {
 				RWBYNetworkHandler.sendToServer(new MessageActivateSemblance(false));
+			}
+		}
+		
+		if (KeybindRegistry.cycleLevel.isPressed()) {
+			RWBYModels.LOGGER.log(RWBYModels.debug, "Cycling Level");
+			if (semblance != null) {
+				RWBYNetworkHandler.sendToServer(new MessageCycleLevel());
 			}
 		}
 	}

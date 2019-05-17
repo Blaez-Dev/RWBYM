@@ -23,6 +23,8 @@ public class Blake implements IBlake {
 
 	private int level = 0;
 	
+	private int selectedLevel = -1;
+	
 	private int numShadows = 0;
 	
 	private int cooldown = 0;
@@ -176,6 +178,18 @@ public class Blake implements IBlake {
 	@Override
 	public boolean isMovementBlocked() {
 		return false;
+	}
+	
+	@Override
+	public int getSelectedLevel() {
+		return selectedLevel;
+	}
+	
+	@Override
+	public void setSelectedLevel(int level) {
+		if (level <= this.level) {
+			this.selectedLevel = level;
+		}
 	}
 
 	@Override

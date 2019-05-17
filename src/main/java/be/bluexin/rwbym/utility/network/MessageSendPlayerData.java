@@ -60,8 +60,8 @@ public class MessageSendPlayerData extends MessageBase<MessageSendPlayerData> {
 		}
 		else {
 			ISemblance semblance = CapabilityHandler.getCapabilityByName(requestedPlayer, message.capability);
-			semblance.readFromNBT(message.semblancenbt);
 			CapabilityHandler.setSemblance(requestedPlayer, semblance.getCapability(), semblance.getLevel());
+			semblance.readFromNBT(message.semblancenbt);
 			if (requestedPlayer.hasCapability(AuraProvider.AURA_CAP, null)) {
 				requestedPlayer.getCapability(AuraProvider.AURA_CAP, null).deserialize(message.auranbt);
 			}

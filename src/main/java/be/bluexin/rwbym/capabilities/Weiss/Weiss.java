@@ -24,17 +24,19 @@ public class Weiss implements IWeiss {
 	private int[] cooldowns = {100, 300, 500, 1200};
 	private int[] auraUses = {5, 15, 25, 60};
 
+	private int selectedLevel = 0;
+
 	public boolean onActivate(EntityPlayer player) {
 		IAura aura = player.getCapability(AuraProvider.AURA_CAP, null);
-		if (!this.useAura(player, auraUses[level - 1])) return false;
+		if (!this.useAura(player, auraUses[selectedLevel - 1])) return false;
 		if (this.cooldown > 0) {
 			return false;
 		}
 
-		this.cooldown = cooldowns[level-1];
+		this.cooldown = cooldowns[selectedLevel-1];
 		if (player.onGround && !player.world.isRemote){
 			BlockPos blockpos = (new BlockPos(player));
-			switch(this.level) {
+			switch(this.selectedLevel) {
 			case 1:
 				EntityWinterBoarbatusk entityWinterBoarbatusk = new EntityWinterBoarbatusk(player.world);
 				entityWinterBoarbatusk.moveToBlockPosAndAngles(blockpos, 0.0F, 0.0F);
@@ -80,12 +82,14 @@ public class Weiss implements IWeiss {
 	public void writeToNBT(NBTTagCompound nbt) {
 		nbt.setInteger("level", level);
 		nbt.setInteger("cooldown", cooldown);
+		nbt.setInteger("selectedLevel", selectedLevel);
 	}
 
 	@Override
 	public void readFromNBT(NBTTagCompound nbt) {
 		this.level = nbt.getInteger("level");
 		this.cooldown = nbt.getInteger("cooldown");
+		this.selectedLevel = nbt.getInteger("selectedLevel");
 	}
 
 	@Override
@@ -111,6 +115,7 @@ public class Weiss implements IWeiss {
 		}
 		
 		this.level = level;
+		this.selectedLevel = level;
 	}
 
 	@Override
@@ -126,6 +131,18 @@ public class Weiss implements IWeiss {
 	@Override
 	public boolean isMovementBlocked() {
 		return false;
+	}
+	
+	@Override
+	public int getSelectedLevel() {
+		return selectedLevel ;
+	}
+	
+	@Override
+	public void setSelectedLevel(int level) {
+		if (level <= this.level) {
+			this.selectedLevel = level;
+		}
 	}
 
 	@Override
