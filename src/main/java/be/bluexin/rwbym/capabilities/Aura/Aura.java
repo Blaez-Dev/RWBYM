@@ -71,7 +71,6 @@ public class Aura implements IAura {
 	@Override
 	public void addToMax(int amount) {
 		this.max += amount;
-		//this.max = 100;
 	}
 	
 	@Override
@@ -83,6 +82,26 @@ public class Aura implements IAura {
 	@Override
 	public int getMaxAura() {
 		return max;
+	}
+	
+	@Override
+	public void setMaxAura(int amount) {
+		this.max = amount;
+	}
+	
+	@Override
+	public float getAmount() {
+		return amount;
+	}
+	
+	@Override
+	public void setAmount(float amount) {
+		this.amount = amount;
+	}
+	
+	@Override
+	public void addAmount(float amount) {
+		this.amount += amount;
 	}
 	
 	@Override

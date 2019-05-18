@@ -32,7 +32,7 @@ public class CommandChangeSemblance extends CommandBase{
 
 	@Override
 	public String getUsage(ICommandSender sender) {
-		return "setsemblance [player] <semblance> [level]";
+		return "/setsemblance [player] <semblance> [level]";
 	}
 	
 	@Override

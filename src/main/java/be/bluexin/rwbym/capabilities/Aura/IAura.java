@@ -26,6 +26,14 @@ public interface IAura {
 	public int getEXPToLevel();
 	
 	public int getMaxAura();
+	
+	public void setMaxAura(int amount);
+	
+	public float getAmount();
+	
+	public void setAmount(float amount);
+	
+	public void addAmount(float amount);
 
 	public NBTBase serialize();
 	

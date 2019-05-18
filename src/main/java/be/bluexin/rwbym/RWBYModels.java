@@ -13,6 +13,7 @@ import be.bluexin.rwbym.capabilities.Weiss.WeissStorage;
 import be.bluexin.rwbym.capabilities.Yang.IYang;
 import be.bluexin.rwbym.capabilities.Yang.Yang;
 import be.bluexin.rwbym.capabilities.Yang.YangStorage;
+import be.bluexin.rwbym.commands.CommandAura;
 import be.bluexin.rwbym.commands.CommandChangeSemblance;
 import be.bluexin.rwbym.gui.GuiScreenScroll;
 import be.bluexin.rwbym.gui.IRWBYGuiFactory;
@@ -172,6 +173,7 @@ public class RWBYModels {
     @Mod.EventHandler
     public void serverStart(FMLServerStartingEvent event) {
     	event.registerServerCommand(new CommandChangeSemblance());
+    	event.registerServerCommand(new CommandAura());
     }
 
     public static class GuiHandler implements IGuiHandler {

@@ -270,4 +270,16 @@ key.categories.RWBYM=RWBYM
 key.activatesemblance=Activate Semblance
 
 
+command.aura.usage=/aura [player] ['max'] [set|add|remove] [amount|percent%%|'max']
+command.aura.display=Aura: %f, Max: %d
+command.aura.display.entity=Entity: %s, Aura: %f, Max: %d
+command.aura.noaura=%s Doesn't Have Aura
+command.aura.set=Set Aura of %s to %f
+command.aura.add=Added %f Aura to %s For a Total of %f Aura
+command.aura.remove=Removed %f Aura From %s For a Total of %f Aura
+command.aura.max.set=Set Max Aura of %s to %d
+command.aura.max.add=Added %d Max Aura to %s For a Total of %d Max Aura
+command.aura.max.remove=Removed %d Max Aura From %s For a Total of %d Max Aura
+
+
 
