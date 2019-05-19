@@ -251,8 +251,8 @@ item.rwbym:scroll.name=Scroll
 item.rwbym:scroll2.name=Scroll
 item.rwbym:coin_ren.name=Ren Semblance Coin
 item.rwbym:coin_ragora.name=Ragora Semblance Coin
-item.rwbym:hexen.name=Hexetanz
-item.rwbym:hexenaxe.name=Hexetanz
+item.rwbym:hexen.name=Hexentanz
+item.rwbym:hexenaxe.name=Hexentanz
 item.ragora_head.name= Ragora's Hat
 item.ragora_chest.name= Ragora's Raiment
 item.ragora_legs.name= Ragora's Leggings
@@ -273,8 +273,8 @@ item.blake1_chest.name=Blake's Blouse
 item.blake2_chest.name=Blake's Blouse
 item.blake3_chest.name=Blake's Blouse
 item.blake1_legs.name=Blake's Leggings
-item.blake1_legs.name=Blake's Leggines
-item.blake1_legs.name=Blake's Leggings
+item.blake2_legs.name=Blake's Leggings
+item.blake3_legs.name=Blake's Leggings
 item.rwbym:pancakes.name=Pancakes
 item.rwbym:magnumgun.name=Magnum Opus
 item.rwbym:magnumgun.name=Magnum Opus
@@ -286,6 +286,7 @@ key.categories.RWBYM=RWBYM
 
 key.activatesemblance=Activate Semblance
 
+command.semblance.usage=/setsemblance [player] <semblance> [level]
 
 command.aura.usage=/aura [player] ['max'] [set|add|remove] [amount|percent%%|'max']
 command.aura.display=Aura: %f, Max: %d

@@ -1,9 +1,11 @@
 package be.bluexin.rwbym.commands;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.codehaus.plexus.util.cli.CommandLineException;
 
+import be.bluexin.rwbym.RWBYModels;
 import be.bluexin.rwbym.capabilities.Aura.AuraProvider;
 import be.bluexin.rwbym.capabilities.Aura.IAura;
 import net.minecraft.command.CommandBase;
@@ -17,6 +19,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
+import scala.actors.threadpool.Arrays;
 
 public class CommandAura extends CommandBase {
 
@@ -37,6 +40,31 @@ public class CommandAura extends CommandBase {
 	
 	@Override
 	public List<String> getTabCompletions(MinecraftServer server, ICommandSender sender, String[] args, BlockPos targetPos) {
+		if (args.length == 1) {
+			if (args[0].isEmpty()) {
+				return getListOfStringsMatchingLastWord(args, server.getOnlinePlayerNames());
+			}
+			else {
+				return getListOfStringsMatchingLastWord(args, server.getOnlinePlayerNames(), new String[] {"Max", "Set", "Add", "Remove"});
+			}
+		}
+		else if (args.length == 2) {
+			try {
+				getEntity(server, sender, args[0]);
+				
+				return getListOfStringsMatchingLastWord(args, "Max", "Set", "Add", "Remove");
+			}
+			catch (CommandException e) {
+				if (args[0].toLowerCase().equals("max")) {
+					return getListOfStringsMatchingLastWord(args, "Set", "Add", "Remove");
+				}
+			}
+		}
+		else if (args.length == 3) {
+			if (args[1].toLowerCase().equals("max")) {
+				return getListOfStringsMatchingLastWord(args, "Set", "Add", "Remove");
+			}
+		}
 		return super.getTabCompletions(server, sender, args, targetPos);
 	}
 
@@ -204,20 +232,31 @@ public class CommandAura extends CommandBase {
 				throw new NumberInvalidException("commands.generic.num.invalid", args[3]);
 			}
 			if (usage.toLowerCase().equals("set")) {
-				aura.setAmount(amount);
-				notifyCommandListener(sender, this, "command.aura.set", entity.getName(), amount);
+				aura.setMaxAura(amount);
+				notifyCommandListener(sender, this, "command.aura.max.set", entity.getName(), amount);
 			}
 			else if (usage.toLowerCase().equals("add")) {
-				aura.addAmount(amount);
-				notifyCommandListener(sender, this, "command.aura.add", amount, entity.getName(), aura.getAmount());
+				aura.addToMax(amount);
+				notifyCommandListener(sender, this, "command.aura.max.add", amount, entity.getName(), aura.getMaxAura());
 			}
 			else if (usage.toLowerCase().equals("remove")) {
-				aura.addAmount(-amount);
-				notifyCommandListener(sender, this, "command.aura.remove", amount, entity.getName(), aura.getAmount());
+				aura.addToMax(-amount);
+				notifyCommandListener(sender, this, "command.aura.max.remove", amount, entity.getName(), aura.getMaxAura());
 			}
 			else {
 				throw new WrongUsageException(this.getUsage(sender));
 			}
 		}
+	}
+	
+	private static List<String> getListOfStringsMatchingLastWord(String args[], String[] ... strings) {
+		List<String> list = new ArrayList<String>();
+		for (int i = 0; i < strings.length; i++) {
+			list.addAll(Arrays.asList(strings[i]));
+		}
+		
+		RWBYModels.LOGGER.info(list);
+		
+		return getListOfStringsMatchingLastWord(args, list);
 	}
 }
