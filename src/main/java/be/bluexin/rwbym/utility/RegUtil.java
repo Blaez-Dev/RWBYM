@@ -298,6 +298,12 @@ public class RegUtil {
         registerItems(event, RWBYItems.AtlasLegs);
         registerItems(event, RWBYItems.BeaconChest);
         registerItems(event, RWBYItems.BeaconLegs);
+        registerItems(event, RWBYItems.Blake1Chest);
+        registerItems(event, RWBYItems.Blake1Legs);
+        registerItems(event, RWBYItems.Blake2Chest);
+        registerItems(event, RWBYItems.Blake2Legs);
+        registerItems(event, RWBYItems.Blake3Chest);
+        registerItems(event, RWBYItems.Blake3Legs);
 
 
 
