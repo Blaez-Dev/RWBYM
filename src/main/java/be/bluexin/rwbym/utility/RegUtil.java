@@ -287,6 +287,18 @@ public class RegUtil {
         registerItems(event, RWBYItems.RagoraLegs);
         registerItems(event, RWBYItems.QrowChest);
         registerItems(event, RWBYItems.QrowLegs);
+        registerItems(event, RWBYItems.Juane1Chest);
+        registerItems(event, RWBYItems.Juane1Legs);
+        registerItems(event, RWBYItems.Weiss1Chest);
+        registerItems(event, RWBYItems.Weiss1Legs);
+        registerItems(event, RWBYItems.AdamChest);
+        registerItems(event, RWBYItems.AdamLegs);
+        registerItems(event, RWBYItems.AtlasHead);
+        registerItems(event, RWBYItems.AtlasChest);
+        registerItems(event, RWBYItems.AtlasLegs);
+        registerItems(event, RWBYItems.BeaconChest);
+        registerItems(event, RWBYItems.BeaconLegs);
+
 
 
 
