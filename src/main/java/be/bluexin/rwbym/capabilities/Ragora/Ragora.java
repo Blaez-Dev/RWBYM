@@ -132,7 +132,12 @@ public class Ragora implements IRagora {
 		this.cooldown = nbt.getInteger("cooldown");
 		this.level = nbt.getInteger("level");
 		this.summonTime = nbt.getInteger("summontime");
-		this.entityragora = nbt.getString("UUID").isEmpty() ? null : (EntityRagora) FMLCommonHandler.instance().getMinecraftServerInstance().getEntityFromUuid(UUID.fromString(nbt.getString("UUID")));
+		try {
+			this.entityragora = (EntityRagora) FMLCommonHandler.instance().getMinecraftServerInstance().getEntityFromUuid(UUID.fromString(nbt.getString("UUID")));
+		}
+		catch (Exception e) {
+			this.entityragora = null;
+		}
 	}
 
 	@Override

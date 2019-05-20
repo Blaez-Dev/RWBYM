@@ -1,5 +1,6 @@
 package be.bluexin.rwbym.utility.network;
 
+import be.bluexin.rwbym.RWBYModels;
 import be.bluexin.rwbym.capabilities.CapabilityHandler;
 import be.bluexin.rwbym.capabilities.ISemblance;
 import be.bluexin.rwbym.capabilities.Aura.AuraProvider;
@@ -56,13 +57,18 @@ public class MessageSendPlayerData extends MessageBase<MessageSendPlayerData> {
 	public void handleClientSide(MessageSendPlayerData message, EntityPlayer player) {
 		EntityPlayer requestedPlayer = player.world.getPlayerEntityByName(message.player);
 		if (requestedPlayer == null) {
-			System.out.println("DATA ERROR");
+			//System.out.println("DATA ERROR");
 		}
 		else {
 			ISemblance semblance = CapabilityHandler.getCapabilityByName(requestedPlayer, message.capability);
 			CapabilityHandler.setSemblance(requestedPlayer, semblance.getCapability(), semblance.getLevel());
-			semblance.readFromNBT(message.semblancenbt);
-			if (requestedPlayer.hasCapability(AuraProvider.AURA_CAP, null)) {
+			if (semblancenbt != null) {
+				semblance.readFromNBT(message.semblancenbt);
+			}
+			else {
+				RWBYModels.LOGGER.info("semblancenbt is null");
+			}
+			if (requestedPlayer.hasCapability(AuraProvider.AURA_CAP, null) && message.auranbt != null) {
 				requestedPlayer.getCapability(AuraProvider.AURA_CAP, null).deserialize(message.auranbt);
 			}
 		}
