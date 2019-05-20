@@ -304,7 +304,21 @@ public class RegUtil {
         registerItems(event, RWBYItems.Blake2Legs);
         registerItems(event, RWBYItems.Blake3Chest);
         registerItems(event, RWBYItems.Blake3Legs);
-
+        registerItems(event, RWBYItems.AmberChest);
+        registerItems(event, RWBYItems.AmberLegs);
+        registerItems(event, RWBYItems.Cinder1Chest);
+        registerItems(event, RWBYItems.Cinder1Legs);
+        registerItems(event, RWBYItems.Cinder2Chest);
+        registerItems(event, RWBYItems.Cinder2Legs);
+        registerItems(event, RWBYItems.Cinder3Chest);
+        registerItems(event, RWBYItems.Cinder3Legs);
+        registerItems(event, RWBYItems.CocoHead);
+        registerItems(event, RWBYItems.CocoChest);
+        registerItems(event, RWBYItems.CocoLegs);
+        registerItems(event, RWBYItems.Emerald1Chest);
+        registerItems(event, RWBYItems.Emerald1Legs);
+        registerItems(event, RWBYItems.Emerald2Chest);
+        registerItems(event, RWBYItems.Emerald2Legs);
 
 
 
