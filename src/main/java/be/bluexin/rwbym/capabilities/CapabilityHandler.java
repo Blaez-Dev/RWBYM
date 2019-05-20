@@ -20,6 +20,10 @@ import be.bluexin.rwbym.capabilities.Blake.Blake;
 import be.bluexin.rwbym.capabilities.Blake.BlakeProvider;
 import be.bluexin.rwbym.capabilities.Blake.BlakeStorage;
 import be.bluexin.rwbym.capabilities.Blake.IBlake;
+import be.bluexin.rwbym.capabilities.Jaune.IJaune;
+import be.bluexin.rwbym.capabilities.Jaune.Jaune;
+import be.bluexin.rwbym.capabilities.Jaune.JauneProvider;
+import be.bluexin.rwbym.capabilities.Jaune.JauneStorage;
 import be.bluexin.rwbym.capabilities.Ragora.IRagora;
 import be.bluexin.rwbym.capabilities.Ragora.Ragora;
 import be.bluexin.rwbym.capabilities.Ragora.RagoraProvider;
@@ -53,6 +57,7 @@ public class CapabilityHandler {
 	public static final ResourceLocation BLAKE_KEY = new ResourceLocation(RWBYModels.MODID, "blake");
 	public static final ResourceLocation Ren_KEY = new ResourceLocation(RWBYModels.MODID, "ren");
 	public static final ResourceLocation RAGORA_KEY = new ResourceLocation(RWBYModels.MODID, "ragora");
+	public static final ResourceLocation JAUNE_KEY = new ResourceLocation(RWBYModels.MODID, "jaune");
 	
 	public static final ResourceLocation AURA_KEY = new ResourceLocation(RWBYModels.MODID, "aura");
 	
@@ -69,6 +74,7 @@ public class CapabilityHandler {
 			event.addCapability(Ren_KEY, new RenProvider());
 			event.addCapability(RAGORA_KEY, new RagoraProvider());
 			event.addCapability(AURA_KEY, new AuraProvider());
+			event.addCapability(JAUNE_KEY, new JauneProvider());
 		}
 		
 	}
@@ -81,6 +87,7 @@ public class CapabilityHandler {
         register(IBlake.class, new BlakeStorage(), Blake::new);
         register(IRen.class, new RenStorage(), Ren::new);
         register(IRagora.class, new RagoraStorage(), Ragora::new);
+        register(IJaune.class, new JauneStorage(), Jaune::new);
         
         CapabilityManager.INSTANCE.register(IAura.class, new AuraStorage(), Aura::new);
 	}

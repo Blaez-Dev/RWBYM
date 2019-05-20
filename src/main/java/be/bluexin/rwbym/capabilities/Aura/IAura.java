@@ -19,13 +19,15 @@ public interface IAura {
 	
 	public void delayRecharge(int ticks);
 	
+	public float getModifier(EntityPlayer player);
+	
 	public float getPercentage();
 	
 	public void addToMax(int amount);
 	
 	public int getEXPToLevel();
 	
-	public int getMaxAura();
+	public float getMaxAura();
 	
 	public void setMaxAura(int amount);
 	

@@ -263,6 +263,16 @@ public class EntityRagora extends EntityTameable {
 				double dz = rand.nextGaussian() / 100;
 
 				Particle effect = new ParticleDragonBreath(world, x, y, z, dx, dy, dz) {
+					
+					{
+						float yaw = 180F - EntityRagora.this.rotationYaw;
+						this.posX = EntityRagora.this.posX + RWBYMath.sind(yaw) * EntityRagora.this.width + x;
+						this.posY = EntityRagora.this.posY + EntityRagora.this.height / 2 + y;
+						this.posZ = EntityRagora.this.posZ + RWBYMath.cosd(yaw) * EntityRagora.this.width + z;
+				        this.prevPosX = this.posX;
+				        this.prevPosY = this.posY;
+				        this.prevPosZ = this.posZ;
+			        }
 
 					double offsetX = 0;
 					double offsetY = 0;
@@ -270,14 +280,26 @@ public class EntityRagora extends EntityTameable {
 
 					@Override
 					public void onUpdate() {
-						super.onUpdate();
-						float yaw = 180F - EntityRagora.this.rotationYaw;
-						this.posX = offsetX + EntityRagora.this.posX + RWBYMath.sind(yaw) * EntityRagora.this.width + x;
-						this.posY = offsetY + EntityRagora.this.posY + EntityRagora.this.height / 2 + y;
-						this.posZ = offsetZ + EntityRagora.this.posZ + RWBYMath.cosd(yaw) * EntityRagora.this.width + z;
-						offsetX += dx;
-						offsetY += dy;
-						offsetZ += dz;
+						
+				        this.prevPosX = this.posX;
+				        this.prevPosY = this.posY;
+				        this.prevPosZ = this.posZ;
+
+				        if (this.particleAge++ >= this.particleMaxAge)
+				        {
+				            this.setExpired();
+				        }
+				        else
+				        {
+				            this.setParticleTextureIndex(3 * this.particleAge / this.particleMaxAge + 5);
+							float yaw = 180F - EntityRagora.this.rotationYaw;
+							this.posX = offsetX + EntityRagora.this.posX + RWBYMath.sind(yaw) * EntityRagora.this.width + x;
+							this.posY = offsetY + EntityRagora.this.posY + EntityRagora.this.height / 2 + y;
+							this.posZ = offsetZ + EntityRagora.this.posZ + RWBYMath.cosd(yaw) * EntityRagora.this.width + z;
+							offsetX += dx;
+							offsetY += dy;
+							offsetZ += dz;
+				        }
 					}
 				};
 

@@ -2,6 +2,8 @@ package be.bluexin.rwbym.capabilities.Aura;
 
 import be.bluexin.rwbym.RWBYModels;
 import be.bluexin.rwbym.capabilities.CapabilityHandler;
+import be.bluexin.rwbym.capabilities.ISemblance;
+import be.bluexin.rwbym.capabilities.Jaune.IJaune;
 import be.bluexin.rwbym.utility.network.MessageSendPlayerData;
 import be.bluexin.rwbym.utility.network.RWBYNetworkHandler;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,8 +16,10 @@ public class Aura implements IAura {
 	/**Current Aura amount*/
 	private float amount = 0;
 	
+	private float modifier = 1;
+	
 	/**Maximum Aura*/
-	private int max = 100;
+	private float max = 100;
 	
 	/**Amount to recharge*/
 	private float recharge = 1;
@@ -27,15 +31,20 @@ public class Aura implements IAura {
 
 	@Override
 	public void onUpdate(EntityPlayer player) {
+		
+		ISemblance semblance = CapabilityHandler.getCurrentSemblance(player);
+		
+		modifier = this.getModifier(player);
+				
 		if (player.getFoodStats().getFoodLevel() > 6) {
 			if (delay == 0) {
 				if (player.world.getTotalWorldTime() % rate == 0) {
 					if (amount < max) {
 						if (player.getFoodStats().getFoodLevel() > 16) {
 							player.getFoodStats().addExhaustion(recharge);
-							amount += recharge;
+							this.addAmount(recharge);
 						} else {
-							amount += (recharge / 4);
+							this.addAmount(recharge / 4);
 						}
 						if (!player.world.isRemote) {
 							RWBYNetworkHandler.sendToAll(new MessageSendPlayerData(CapabilityHandler.getCurrentSemblance(player), this, player.getName()));
@@ -51,9 +60,9 @@ public class Aura implements IAura {
 	
 	@Override
 	public float useAura(EntityPlayer player, float usage, boolean overflow) {
-		float temp = amount - usage;
+		float temp = amount - usage / modifier;
 		if (temp >= 0 || overflow) {
-			amount = Math.max(temp, 0);
+			this.setAmount(Math.max(temp, 0));
 		}
 		return temp < 0 ? -temp : 0;
 	}
@@ -64,44 +73,57 @@ public class Aura implements IAura {
 	}
 	
 	@Override
+	public float getModifier(EntityPlayer player) {
+		ISemblance semblance = CapabilityHandler.getCurrentSemblance(player);
+		
+		float modifier = 1;
+		
+		if (semblance instanceof IJaune) {
+			modifier = ((IJaune)semblance).getAuraModifier();
+		}
+		
+		return modifier;
+	}
+	
+	@Override
 	public float getPercentage() {
-		return amount / (float) max;
+		return amount / max;
 	}
 	
 	@Override
 	public void addToMax(int amount) {
-		this.max += amount;
+		this.max += amount / modifier;
 	}
 	
 	@Override
 	public int getEXPToLevel() {
-		int lvl = max - 100;
+		int lvl = (int) (max - 100);
 		return (int)(40 + 4 * lvl + 0.1 * lvl * lvl + Math.pow(1.07, lvl));
 	}
 	
 	@Override
-	public int getMaxAura() {
-		return max;
+	public float getMaxAura() {
+		return max * modifier;
 	}
 	
 	@Override
 	public void setMaxAura(int amount) {
-		this.max = amount;
+		this.max = amount / modifier;
 	}
 	
 	@Override
 	public float getAmount() {
-		return amount;
+		return amount * modifier;
 	}
 	
 	@Override
 	public void setAmount(float amount) {
-		this.amount = amount;
+		this.amount = amount / modifier;
 	}
 	
 	@Override
 	public void addAmount(float amount) {
-		this.amount += amount;
+		this.amount += amount / modifier;
 	}
 	
 	@Override
@@ -110,7 +132,8 @@ public class Aura implements IAura {
 		nbt.setFloat("amount", amount);
 		nbt.setFloat("recharge", recharge);
 		nbt.setInteger("rate", rate);
-		nbt.setInteger("max", max);
+		nbt.setFloat("max", max);
+		nbt.setFloat("modifier", modifier);
 		return nbt;
 	}
 
@@ -119,7 +142,8 @@ public class Aura implements IAura {
 		this.amount = nbt.getFloat("amount");
 		this.recharge = nbt.getFloat("recharge");
 		this.rate = nbt.getInteger("rate");
-		this.max = nbt.getInteger("max");
+		this.max = nbt.getFloat("max");
+		this.modifier = nbt.getFloat("modifier");
 	}
 
 }
