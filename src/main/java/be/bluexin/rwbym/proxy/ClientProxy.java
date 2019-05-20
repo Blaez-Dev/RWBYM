@@ -7,6 +7,8 @@ import be.bluexin.rwbym.client.particle.SummerPetal;
 import be.bluexin.rwbym.client.particle.TextureStitcher;
 import be.bluexin.rwbym.entity.*;
 import be.bluexin.rwbym.entity.renderer.*;
+import be.bluexin.rwbym.utility.RWBYConfig;
+import be.bluexin.rwbym.utility.RWBYMath;
 import be.bluexin.rwbym.weaponry.ICustomItem;
 import be.bluexin.rwbym.weaponry.RWBYAmmoEntity;
 import be.bluexin.rwbym.weaponry.RWBYAmmoRender;
@@ -59,6 +61,8 @@ import net.minecraftforge.fml.common.gameevent.InputEvent.KeyInputEvent;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
 import net.minecraftforge.fml.relauncher.Side;
+
+import java.util.Random;
 
 import javax.swing.text.Utilities;
 
@@ -163,6 +167,72 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public World getWorld(int dimension) {
 		return Minecraft.getMinecraft().world;
+	}
+	
+	@Override
+	public void ragoraParticles(EntityRagora ragora) {
+		
+		World world = ragora.world;
+		
+		if (world.isRemote && RWBYConfig.ragoraparticles) {
+
+			Random rand = ragora.getRNG();
+
+			for (int i = 0; i < 10; i++) {
+
+				double x = rand.nextGaussian() * ragora.width / 4;
+				double y = rand.nextGaussian() * ragora.width / 4;
+				double z = rand.nextGaussian() * ragora.width / 4;
+
+				double dx = rand.nextGaussian() / 100;
+				double dy = rand.nextGaussian() / 100;
+				double dz = rand.nextGaussian() / 100;
+
+				net.minecraft.client.particle.Particle effect = new net.minecraft.client.particle.ParticleDragonBreath(world, x, y, z, dx, dy, dz) {
+					
+					{
+						float yaw = 180F - ragora.rotationYaw;
+						this.posX = ragora.posX + RWBYMath.sind(yaw) * ragora.width + x;
+						this.posY = ragora.posY + ragora.height / 2 + y;
+						this.posZ = ragora.posZ + RWBYMath.cosd(yaw) * ragora.width + z;
+				        this.prevPosX = this.posX;
+				        this.prevPosY = this.posY;
+				        this.prevPosZ = this.posZ;
+			        }
+
+					double offsetX = 0;
+					double offsetY = 0;
+					double offsetZ = 0;
+
+					@Override
+					public void onUpdate() {
+						
+				        this.prevPosX = this.posX;
+				        this.prevPosY = this.posY;
+				        this.prevPosZ = this.posZ;
+
+				        if (this.particleAge++ >= this.particleMaxAge)
+				        {
+				            this.setExpired();
+				        }
+				        else
+				        {
+				            this.setParticleTextureIndex(3 * this.particleAge / this.particleMaxAge + 5);
+							float yaw = 180F - ragora.rotationYaw;
+							this.posX = offsetX + ragora.posX + RWBYMath.sind(yaw) * ragora.width + x;
+							this.posY = offsetY + ragora.posY + ragora.height / 2 + y;
+							this.posZ = offsetZ + ragora.posZ + RWBYMath.cosd(yaw) * ragora.width + z;
+							offsetX += dx;
+							offsetY += dy;
+							offsetZ += dz;
+				        }
+					}
+				};
+
+				Minecraft.getMinecraft().effectRenderer.addEffect(effect);
+				//world.spawnParticle(EnumParticleTypes.DRAGON_BREATH, x + rand.nextGaussian() * this.width / 4, y + rand.nextGaussian() * this.width / 4, z + rand.nextGaussian() * this.width / 4, 0, 0, 0);
+			}
+		}
 	}
 
 }

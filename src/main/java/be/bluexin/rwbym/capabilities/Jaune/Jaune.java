@@ -21,7 +21,7 @@ public class Jaune implements IJaune {
 	
 	private String[] playerUUIDs = new String[5];
 	
-	private float transferRate;
+	private float transferRate = 1F;
 
 	@Override
 	public boolean onActivate(EntityPlayer player) {
@@ -47,7 +47,9 @@ public class Jaune implements IJaune {
 	@Override
 	public void onUpdate(EntityPlayer player) {
 		
-		for (String uuid : playerUUIDs) {
+		for (int i = 0; i < 5; i++) {
+			
+			String uuid = playerUUIDs[i];
 			
 			if (uuid == null || uuid.isEmpty()) {
 				continue;
@@ -69,14 +71,14 @@ public class Jaune implements IJaune {
 				continue;
 			}
 			
-			if (otheraura.getAmount() < otheraura.getMaxAura()) {
+			if (otheraura.getAmount() < otheraura.getMaxAura() && thisaura.getAmount() > transferRate) {
 			
 				thisaura.addAmount(-transferRate);
 				otheraura.addAmount(transferRate);
 			
 			}
 			else {
-				uuid = "";
+				playerUUIDs[i] = "";
 			}
 			
 		}

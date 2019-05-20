@@ -7,6 +7,7 @@ import be.bluexin.rwbym.weaponry.ammohit.NullAmmoHit;
 import be.bluexin.rwbym.RWBYModels;
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -107,17 +108,22 @@ public class RWBYAmmoItem extends Item implements ICustomItem {
         //this.getAmmoMax = from.getAmmoMax();
     }
     
-    public void doRender(float partialTicks, Entity entityIn) {
+    public void doRender(EntityBullet entity, double x, double y, double z, float entityYaw, float partialTicks) {
         if (render == null) {
         	return;
         }
         else if (render instanceof Item) {
-        	Minecraft.getMinecraft().getRenderItem().renderItem(new ItemStack((Item)render), ItemCameraTransforms.TransformType.HEAD);
+            GlStateManager.pushMatrix();
+            GlStateManager.translate((float)x, (float)y, (float)z);
+            GlStateManager.rotate(entity.prevRotationYaw + (entity.rotationYaw - entity.prevRotationYaw) * partialTicks - 90.0F, 0.0F, 1.0F, 0.0F);
+            GlStateManager.rotate(entity.prevRotationPitch + (entity.rotationPitch - entity.prevRotationPitch) * partialTicks, 0.0F, 0.0F, 1.0F);
+    		Minecraft.getMinecraft().getRenderItem().renderItem(new ItemStack((Item)render), ItemCameraTransforms.TransformType.HEAD);
+    		GlStateManager.popMatrix();
         }
         else if (render instanceof Entity) {
-        	Entity entity = (Entity)render;
-        	entity.copyLocationAndAnglesFrom(entityIn);
-        	Minecraft.getMinecraft().getRenderManager().renderEntityStatic(entity, partialTicks, true);
+        	Entity renderEntity = (Entity)render;
+        	renderEntity.copyLocationAndAnglesFrom(entity);
+        	Minecraft.getMinecraft().getRenderManager().renderEntityStatic(renderEntity, partialTicks, true);
         }
     }
     

@@ -106,8 +106,8 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
         return this.getItem().getRenderStack();
     }
     
-    public void doRender(float partialTicks) {
-    	this.getItem().doRender(partialTicks, this);
+    public void doRender(EntityBullet entity, double x, double y, double z, float entityYaw, float partialTicks) {
+    	this.getItem().doRender(entity, x, y, z, entityYaw, partialTicks);
     }
     
     public EnumParticleTypes getParticle() {
@@ -412,6 +412,12 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
         item.onEntityHit(living, (EntityLivingBase) this.shootingEntity);
 
         living.hurtResistantTime = 0;
+        
+        if (item.canSurviveEntityHit()) {
+        	this.motionX *= -0.01;
+        	this.motionZ *= -0.01;
+        	this.motionY *= 0.1;
+        }
 
         if (!item.canSurviveEntityHit() && !(living instanceof EntityEnderman)) {
             this.setDead();
@@ -419,7 +425,6 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
 
         if (item.getPotions() != null) {
             for (PotionEffect potion : item.getPotions()) {
-                RWBYModels.LOGGER.info("Potion: {}, Durration: {}, Power: {}", potion.getPotion().getName(), potion.getDuration(), potion.getAmplifier());
                 PotionEffect effect = new PotionEffect(potion);
                 living.addPotionEffect(effect);
             }

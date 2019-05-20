@@ -12,8 +12,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.particle.Particle;
-import net.minecraft.client.particle.ParticleDragonBreath;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityCreature;
@@ -248,66 +246,8 @@ public class EntityRagora extends EntityTameable {
 	public void onEntityUpdate() {
 		super.onEntityUpdate();
 
-		if (world.isRemote && RWBYConfig.ragoraparticles) {
-
-			Random rand = this.getRNG();
-
-			for (int i = 0; i < 10; i++) {
-
-				double x = rand.nextGaussian() * this.width / 4;
-				double y = rand.nextGaussian() * this.width / 4;
-				double z = rand.nextGaussian() * this.width / 4;
-
-				double dx = rand.nextGaussian() / 100;
-				double dy = rand.nextGaussian() / 100;
-				double dz = rand.nextGaussian() / 100;
-
-				Particle effect = new ParticleDragonBreath(world, x, y, z, dx, dy, dz) {
-					
-					{
-						float yaw = 180F - EntityRagora.this.rotationYaw;
-						this.posX = EntityRagora.this.posX + RWBYMath.sind(yaw) * EntityRagora.this.width + x;
-						this.posY = EntityRagora.this.posY + EntityRagora.this.height / 2 + y;
-						this.posZ = EntityRagora.this.posZ + RWBYMath.cosd(yaw) * EntityRagora.this.width + z;
-				        this.prevPosX = this.posX;
-				        this.prevPosY = this.posY;
-				        this.prevPosZ = this.posZ;
-			        }
-
-					double offsetX = 0;
-					double offsetY = 0;
-					double offsetZ = 0;
-
-					@Override
-					public void onUpdate() {
-						
-				        this.prevPosX = this.posX;
-				        this.prevPosY = this.posY;
-				        this.prevPosZ = this.posZ;
-
-				        if (this.particleAge++ >= this.particleMaxAge)
-				        {
-				            this.setExpired();
-				        }
-				        else
-				        {
-				            this.setParticleTextureIndex(3 * this.particleAge / this.particleMaxAge + 5);
-							float yaw = 180F - EntityRagora.this.rotationYaw;
-							this.posX = offsetX + EntityRagora.this.posX + RWBYMath.sind(yaw) * EntityRagora.this.width + x;
-							this.posY = offsetY + EntityRagora.this.posY + EntityRagora.this.height / 2 + y;
-							this.posZ = offsetZ + EntityRagora.this.posZ + RWBYMath.cosd(yaw) * EntityRagora.this.width + z;
-							offsetX += dx;
-							offsetY += dy;
-							offsetZ += dz;
-				        }
-					}
-				};
-
-				Minecraft.getMinecraft().effectRenderer.addEffect(effect);
-				//world.spawnParticle(EnumParticleTypes.DRAGON_BREATH, x + rand.nextGaussian() * this.width / 4, y + rand.nextGaussian() * this.width / 4, z + rand.nextGaussian() * this.width / 4, 0, 0, 0);
-			}
-		}
-
+		RWBYModels.proxy.ragoraParticles(this);
+		
 		EntityPlayer owner = (EntityPlayer) this.getOwner();
 
 		this.renderYawOffset = 0;

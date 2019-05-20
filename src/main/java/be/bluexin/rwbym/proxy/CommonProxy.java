@@ -1,6 +1,7 @@
 package be.bluexin.rwbym.proxy;
 
 import be.bluexin.rwbym.Init.Oregen;
+import be.bluexin.rwbym.entity.EntityRagora;
 import be.bluexin.rwbym.RWBYModels;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -44,4 +45,6 @@ public class CommonProxy {
 	public World getWorld (int dimension) {
 		return FMLCommonHandler.instance().getMinecraftServerInstance().getWorld(dimension);
 	}
+	
+	public void ragoraParticles(EntityRagora ragora) {};
 }
