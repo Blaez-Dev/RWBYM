@@ -182,7 +182,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.coinw);
         registerItems(event, RWBYItems.coinb);
         registerItems(event, RWBYItems.coiny);
-        //registerItems(event, RWBYItems.coinjuane);
+        registerItems(event, RWBYItems.coinjaune);
         //registerItems(event, RWBYItems.coinnora);
         registerItems(event, RWBYItems.coin_ren);
         registerItems(event, RWBYItems.coin_ragora);
@@ -319,9 +319,37 @@ public class RegUtil {
         registerItems(event, RWBYItems.Emerald1Legs);
         registerItems(event, RWBYItems.Emerald2Chest);
         registerItems(event, RWBYItems.Emerald2Legs);
-
-
-
+        registerItems(event, RWBYItems.pennyChest);
+        registerItems(event, RWBYItems.pennyLegs);
+        registerItems(event, RWBYItems.pyrrhaChest);
+        registerItems(event, RWBYItems.pyrrhaLegs);
+        registerItems(event, RWBYItems.ravenChest);
+        registerItems(event, RWBYItems.ravenLegs);
+        registerItems(event, RWBYItems.ruby1Chest);
+        registerItems(event, RWBYItems.ruby1Legs);
+        registerItems(event, RWBYItems.rubyhood);
+        registerItems(event, RWBYItems.ruby2Chest);
+        registerItems(event, RWBYItems.ruby2Legs);
+        registerItems(event, RWBYItems.ruby3Chest);
+        registerItems(event, RWBYItems.ruby3Legs);
+        registerItems(event, RWBYItems.salemChest);
+        registerItems(event, RWBYItems.salemLegs);
+        registerItems(event, RWBYItems.velvetChest);
+        registerItems(event, RWBYItems.velvetLegs);
+        registerItems(event, RWBYItems.weiss2Chest);
+        registerItems(event, RWBYItems.weiss2Legs);
+        registerItems(event, RWBYItems.weiss3Chest);
+        registerItems(event, RWBYItems.weiss3Legs);
+        registerItems(event, RWBYItems.winterChest);
+        registerItems(event, RWBYItems.winterLegs);
+        registerItems(event, RWBYItems.yang1Chest);
+        registerItems(event, RWBYItems.yang1Legs);
+        registerItems(event, RWBYItems.yang2Chest);
+        registerItems(event, RWBYItems.yang2Legs);
+        registerItems(event, RWBYItems.yang3Chest);
+        registerItems(event, RWBYItems.yang3Legs);
+        registerItems(event, RWBYItems.yang4Chest);
+        registerItems(event, RWBYItems.yang4Legs);
     }
     private static void registerBlocks(FMLPreInitializationEvent event, Block...blocks) {
         for (Block block : blocks) {//New instance of a block for every block passed through

@@ -7,6 +7,7 @@ public class RWBYCreativeTabs {
 
     public static CreativeTabs tab_rwbyitems;
     public static CreativeTabs tab_rwbyweapons;
+    public static CreativeTabs tab_rwbyarmour;
 
     public static void init() {
 
@@ -24,6 +25,15 @@ public class RWBYCreativeTabs {
             @Override
             public ItemStack getTabIconItem() {
                 return new ItemStack(RWBYItems.icon);
+            }
+
+        };
+
+        tab_rwbyarmour = new CreativeTabs("rwby_armour") {
+
+            @Override
+            public ItemStack getTabIconItem() {
+                return new ItemStack(RWBYItems.ruby3Chest);
             }
 
         };

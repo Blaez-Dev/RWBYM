@@ -123,7 +123,7 @@ public class Oregen implements IWorldGenerator{
         {
             int y = getGroundFromAbove(world, blockX, blockZ);
             BlockPos pos = new BlockPos(blockX, y, blockZ);
-            WorldGenerator structure4 = new Structure2();
+            WorldGenerator structure4 = new Structure4();
             structure4.generate(world, rand, pos);
         }
     }
