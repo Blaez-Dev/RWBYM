@@ -60,7 +60,7 @@ public class Aura implements IAura {
 	
 	@Override
 	public float useAura(EntityPlayer player, float usage, boolean overflow) {
-		float temp = amount - usage / modifier;
+		float temp = this.getAmount() - usage;
 		if (temp >= 0 || overflow) {
 			this.setAmount(Math.max(temp, 0));
 		}

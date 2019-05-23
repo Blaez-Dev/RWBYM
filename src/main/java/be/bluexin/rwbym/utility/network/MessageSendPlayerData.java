@@ -62,12 +62,7 @@ public class MessageSendPlayerData extends MessageBase<MessageSendPlayerData> {
 		else {
 			ISemblance semblance = CapabilityHandler.getCapabilityByName(requestedPlayer, message.capability);
 			CapabilityHandler.setSemblance(requestedPlayer, semblance.getCapability(), semblance.getLevel());
-			if (semblancenbt != null) {
-				semblance.readFromNBT(message.semblancenbt);
-			}
-			else {
-				RWBYModels.LOGGER.info("semblancenbt is null");
-			}
+			semblance.readFromNBT(message.semblancenbt);
 			if (requestedPlayer.hasCapability(AuraProvider.AURA_CAP, null) && message.auranbt != null) {
 				requestedPlayer.getCapability(AuraProvider.AURA_CAP, null).deserialize(message.auranbt);
 			}

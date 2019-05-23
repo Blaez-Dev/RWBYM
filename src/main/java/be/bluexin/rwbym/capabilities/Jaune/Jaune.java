@@ -3,6 +3,7 @@ package be.bluexin.rwbym.capabilities.Jaune;
 import java.util.List;
 import java.util.UUID;
 
+import be.bluexin.rwbym.RWBYModels;
 import be.bluexin.rwbym.capabilities.Aura.AuraProvider;
 import be.bluexin.rwbym.capabilities.Aura.IAura;
 import net.minecraft.entity.Entity;
@@ -20,22 +21,35 @@ public class Jaune implements IJaune {
 	private float auraModifier = 2F;
 	
 	private String[] playerUUIDs = new String[5];
+	{
+		for (int i = 0; i < 5; i++) {
+			playerUUIDs[i] = "";
+		}
+	}
 	
-	private float transferRate = 1F;
+	private float transferRate = 0.15F;
 
 	@Override
 	public boolean onActivate(EntityPlayer player) {
 		AxisAlignedBB aabb = player.getEntityBoundingBox().grow(5);
 		List<Entity> list = player.world.getEntitiesWithinAABBExcludingEntity(player, aabb);
-		int i = 0;
-		for (Entity entity : list) {
-			if (entity instanceof EntityPlayer && i < 5) {
-				EntityPlayer otherPlayer = (EntityPlayer) entity;
-				playerUUIDs[i] = otherPlayer.getCachedUniqueIdString();
-				i++;
+		if (this.isActive()) {
+			for (int i = 0; i < 5; i++) {
+				playerUUIDs[i] = "";
 			}
+			return true;
 		}
-		return i > 0;
+		else {
+			int i = 0;
+			for (Entity entity : list) {
+				if (entity instanceof EntityPlayer && i < 5) {
+					EntityPlayer otherPlayer = (EntityPlayer) entity;
+					playerUUIDs[i] = otherPlayer.getCachedUniqueIdString();
+					i++;
+				}
+			}
+			return i > 0;
+		}
 	}
 
 	@Override
@@ -47,38 +61,41 @@ public class Jaune implements IJaune {
 	@Override
 	public void onUpdate(EntityPlayer player) {
 		
-		for (int i = 0; i < 5; i++) {
-			
-			String uuid = playerUUIDs[i];
-			
-			if (uuid == null || uuid.isEmpty()) {
-				continue;
-			}
-			
-			EntityPlayer otherPlayer = player.world.getPlayerEntityByUUID(UUID.fromString(uuid));
-			
-			if (otherPlayer == null) {
-				continue;
-			}
-			
-			IAura thisaura = player.getCapability(AuraProvider.AURA_CAP, null);
-			IAura otheraura = otherPlayer.getCapability(AuraProvider.AURA_CAP, null);
-			
-			if (thisaura == null) {
-				return;
-			}
-			if (otheraura == null) {
-				continue;
-			}
-			
-			if (otheraura.getAmount() < otheraura.getMaxAura() && thisaura.getAmount() > transferRate) {
-			
-				thisaura.addAmount(-transferRate);
-				otheraura.addAmount(transferRate);
-			
-			}
-			else {
-				playerUUIDs[i] = "";
+		//RWBYModels.LOGGER.info(playerUUIDs);
+		if (!player.world.isRemote) {
+			for (int i = 0; i < 5; i++) {
+				
+				String uuid = playerUUIDs[i];
+				
+				if (uuid.isEmpty()) {
+					continue;
+				}
+				
+				EntityPlayer otherPlayer = player.world.getPlayerEntityByUUID(UUID.fromString(uuid));
+				
+				if (otherPlayer == null) {
+					continue;
+				}
+				
+				IAura thisaura = player.getCapability(AuraProvider.AURA_CAP, null);
+				IAura otheraura = otherPlayer.getCapability(AuraProvider.AURA_CAP, null);
+				
+				if (thisaura == null) {
+					return;
+				}
+				if (otheraura == null) {
+					continue;
+				}
+				
+				if (otheraura.getAmount() < otheraura.getMaxAura() && this.useAura(player, transferRate)) {
+				
+					otheraura.addAmount(transferRate);
+				
+				}
+				else {
+					playerUUIDs[i] = "";
+				}
+				
 			}
 			
 		}
@@ -94,12 +111,18 @@ public class Jaune implements IJaune {
 	public void writeToNBT(NBTTagCompound nbt) {
 		nbt.setInteger("level", level);
 		nbt.setFloat("auraModifier", auraModifier);
+		for (int i = 0; i < 5; i++) {
+			nbt.setString("PlayerUUID" + Integer.toString(i), playerUUIDs[i]);
+		}
 	}
 
 	@Override
 	public void readFromNBT(NBTTagCompound nbt) {
 		this.level = nbt.getInteger("level");
 		this.auraModifier = nbt.getFloat("auraModifier");
+		for (int i = 0; i < 5; i++) {
+			playerUUIDs[i] = nbt.getString("PlayerUUID" + Integer.toString(i));
+		}
 	}
 
 	@Override
@@ -127,7 +150,7 @@ public class Jaune implements IJaune {
 	@Override
 	public boolean isActive() {
 		for (String uuid : playerUUIDs) {
-			if (uuid != null && !uuid.isEmpty()) {
+			if (!uuid.isEmpty()) {
 				return true;
 			}
 		}
