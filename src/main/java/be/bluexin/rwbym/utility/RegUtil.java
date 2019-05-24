@@ -183,7 +183,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.coinb);
         registerItems(event, RWBYItems.coiny);
         registerItems(event, RWBYItems.coinjaune);
-        //registerItems(event, RWBYItems.coinnora);
+        registerItems(event, RWBYItems.coinnora);
         registerItems(event, RWBYItems.coin_ren);
         registerItems(event, RWBYItems.coin_ragora);
         //registerItems(event, RWBYItems.coinqrow);
@@ -298,6 +298,8 @@ public class RegUtil {
         registerItems(event, RWBYItems.AtlasLegs);
         registerItems(event, RWBYItems.BeaconChest);
         registerItems(event, RWBYItems.BeaconLegs);
+        registerItems(event, RWBYItems.Beacon1Chest);
+        registerItems(event, RWBYItems.Beacon1Legs);
         registerItems(event, RWBYItems.Blake1Chest);
         registerItems(event, RWBYItems.Blake1Legs);
         registerItems(event, RWBYItems.Blake2Chest);

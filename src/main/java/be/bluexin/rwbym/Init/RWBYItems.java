@@ -1776,7 +1776,7 @@ public class RWBYItems {
             1,
             10,
             RWBYCreativeTabs.tab_rwbyitems,
-            null);
+            new ExplosionAmmoHit(0));
     public static final Item gravitydust = new RWBYAmmoItem(
             "gravitydust",
             RWBYItems.entityweissgravity,
@@ -1896,7 +1896,7 @@ public class RWBYItems {
             32,
             10,
             RWBYCreativeTabs.tab_rwbyitems,
-            null);
+            new ExplosionAmmoHit(0));
     public static final Item neptammo = new RWBYAmmoItem(
             "neptammo",
             RWBYItems.entitybullet,
@@ -2092,6 +2092,12 @@ public class RWBYItems {
     public static final ItemArmor.ArmorMaterial BeaconMat = EnumHelper.addArmorMaterial("Beacon", "rwbym:beacon", 40, new int[]{0, 4, 4, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 2.0F);
     public static final ItemArmor BeaconChest = new ArmourBase(BeaconMat, 0, EntityEquipmentSlot.CHEST, "beacon_chest", null, null, true, RWBYCreativeTabs.tab_rwbyarmour);
     public static final ItemArmor BeaconLegs = new ArmourBase(BeaconMat, 0, EntityEquipmentSlot.LEGS, "beacon_legs", null, null, true, RWBYCreativeTabs.tab_rwbyarmour);
+
+
+    public static final ItemArmor.ArmorMaterial Beacon1Mat = EnumHelper.addArmorMaterial("Beacon1", "rwbym:beacon1", 40, new int[]{0, 4, 4, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 2.0F);
+    public static final ItemArmor Beacon1Chest = new ArmourBase(Beacon1Mat, 0, EntityEquipmentSlot.CHEST, "beacon1_chest", null, null, true, RWBYCreativeTabs.tab_rwbyarmour);
+    public static final ItemArmor Beacon1Legs = new ArmourBase(Beacon1Mat, 0, EntityEquipmentSlot.LEGS, "beacon1_legs", null, null, true, RWBYCreativeTabs.tab_rwbyarmour);
+
 
 
     public static final ItemArmor.ArmorMaterial Blake1Mat = EnumHelper.addArmorMaterial("Blake1", "rwbym:blake1", 40, new int[]{0, 4, 4, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 2.0F);

@@ -7,6 +7,7 @@ import be.bluexin.rwbym.capabilities.Blake.BlakeProvider;
 import be.bluexin.rwbym.capabilities.CapabilityHandler;
 import be.bluexin.rwbym.capabilities.ISemblance;
 import be.bluexin.rwbym.capabilities.Jaune.JauneProvider;
+import be.bluexin.rwbym.capabilities.Nora.NoraProvider;
 import be.bluexin.rwbym.capabilities.Ragora.RagoraProvider;
 import be.bluexin.rwbym.capabilities.Ren.RenProvider;
 import be.bluexin.rwbym.capabilities.Weiss.WeissProvider;
@@ -58,6 +59,7 @@ public class RWBYItem extends Item implements ICustomItem {
     private boolean coinb;
     private boolean coiny;
     private boolean coinjaune;
+    private boolean coinnora;
     private boolean coinren;
     private boolean coinragor;
     private boolean ageist;
@@ -83,6 +85,7 @@ public class RWBYItem extends Item implements ICustomItem {
         if(name.contains("coinb")) coinb = true;
         if(name.contains("coiny")) coiny = true;
         if(name.contains("coinjaune")) coinjaune = true;
+        if(name.contains("coinnora")) coinnora = true;
         if(name.contains("coin_ren")) coinren = true;
         if(name.contains("coin_ragora")) coinragor = true;
         if(name.contains("armagigas")) ageist = true;
@@ -239,6 +242,17 @@ public class RWBYItem extends Item implements ICustomItem {
                 if (semblance.toString().equals("Jaune")) {
                     semblance.setLevel(semblance.getLevel() + 1);
                 } else {CapabilityHandler.setSemblance(playerIn, JauneProvider.JAUNE_CAP, 1);}
+                itemstack.shrink(1);
+            }
+        }
+
+        if(coinnora)
+        {
+            if(!worldIn.isRemote){
+                ISemblance semblance = CapabilityHandler.getCurrentSemblance(playerIn);
+                if (semblance.toString().equals("Nora")) {
+                    semblance.setLevel(semblance.getLevel() + 1);
+                } else {CapabilityHandler.setSemblance(playerIn, NoraProvider.Nora_CAP, 1);}
                 itemstack.shrink(1);
             }
         }

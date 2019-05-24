@@ -51,6 +51,15 @@
           "weight": 1
         },{
           "type": "item",
+          "name": "rwbym:coinjaune",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:coinnora",
+          "weight": 1
+        },{
+          "type": "item",
           "name": "rwbym:coin_ragora",
           "weight": 1
         },{
