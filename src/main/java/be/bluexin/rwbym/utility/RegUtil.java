@@ -167,6 +167,13 @@ public class RegUtil {
         registerItems(event, RWBYItems.lightdust);
         registerItems(event, RWBYItems.gravitydust);
         registerItems(event, RWBYItems.dust);
+        registerBlocks(event, RWBYItems.waterblock);
+        registerBlocks(event, RWBYItems.windblock);
+        registerBlocks(event, RWBYItems.fireblock);
+        registerBlocks(event, RWBYItems.iceblock);
+        registerBlocks(event, RWBYItems.lightblock);
+        registerBlocks(event, RWBYItems.gravityblock);
+        registerBlocks(event, RWBYItems.impureblock);
         //entity spawning items
         registerItems(event, RWBYItems.atlasknight);
         registerItems(event, RWBYItems.armagigas);
@@ -177,6 +184,12 @@ public class RegUtil {
         registerItems(event, RWBYItems.gildediron);
         registerItems(event, RWBYItems.viridianiron);
         registerItems(event, RWBYItems.forestiron);
+        registerBlocks(event, RWBYItems.roseironblock);
+        registerBlocks(event, RWBYItems.frostedironblock);
+        registerBlocks(event, RWBYItems.shadowironblock);
+        registerBlocks(event, RWBYItems.gildedironblock);
+        registerBlocks(event, RWBYItems.viridianironblock);
+        registerBlocks(event, RWBYItems.forestironblock);
         //semblance coins
         registerItems(event, RWBYItems.coinr);
         registerItems(event, RWBYItems.coinw);
@@ -212,9 +225,6 @@ public class RegUtil {
         registerItems(event, RWBYItems.sake);
         registerItems(event, RWBYItems.coconutmilk);
         registerItems(event, RWBYItems.pancakes);
-        //masks
-        registerItems(event, RWBYItems.rvnmask);
-        registerItems(event, RWBYItems.whtefng);
         //repair items
         registerBlocks(event, RWBYItems.rwbyblock8);
         registerItems(event, RWBYItems.scrap);
@@ -282,6 +292,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.stor6);
         registerBlocks(event, RWBYItems.rwbyblock7);
         //armor
+        registerItems(event, RWBYItems.whtefng);
         registerItems(event, RWBYItems.RagoraHead);
         registerItems(event, RWBYItems.RagoraChest);
         registerItems(event, RWBYItems.RagoraLegs);
@@ -325,6 +336,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.pennyLegs);
         registerItems(event, RWBYItems.pyrrhaChest);
         registerItems(event, RWBYItems.pyrrhaLegs);
+        registerItems(event, RWBYItems.rvnmask);
         registerItems(event, RWBYItems.ravenChest);
         registerItems(event, RWBYItems.ravenLegs);
         registerItems(event, RWBYItems.ruby1Chest);

@@ -26,7 +26,7 @@ public class Nora implements INora {
 	private int level = 0;
 
 	private float auraUse = 0.5F;
-	
+
 
 	private int selectedLevel = -1;
 
@@ -56,10 +56,11 @@ public class Nora implements INora {
 		ItemStack is = player.getHeldItemOffhand();
 		if(this.active & is.getItem() == RWBYItems.lightdustcrystal){
 
+
 			if (!this.useAura(player, auraUse)) return;
-				PotionEffect potioneffect = new PotionEffect(MobEffects.STRENGTH, 60, 8, false, false);
+				PotionEffect potioneffect = new PotionEffect(MobEffects.STRENGTH, 60*level, 8*level, false, false);
 				player.addPotionEffect(potioneffect);
-				PotionEffect potioneffect2 = new PotionEffect(MobEffects.SPEED, 60, 6, false, false);
+				PotionEffect potioneffect2 = new PotionEffect(MobEffects.SPEED, 60*level, 6*level, false, false);
 				player.addPotionEffect(potioneffect2);
 
 
@@ -148,9 +149,9 @@ public class Nora implements INora {
 	@Override
 	public float[] getColor() {
 		float color[] = new float[3];
-		color[0] = 0.7F;
-		color[1] = 0.6F;
-		color[2] = 0F;
+		color[0] = 0.90F;
+		color[1] = 0.1F;
+		color[2] = 1F;
 		return color;
 	}
 

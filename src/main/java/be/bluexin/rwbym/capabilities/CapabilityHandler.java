@@ -5,6 +5,10 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.Callable;
 
+import be.bluexin.rwbym.capabilities.Nora.INora;
+import be.bluexin.rwbym.capabilities.Nora.Nora;
+import be.bluexin.rwbym.capabilities.Nora.NoraProvider;
+import be.bluexin.rwbym.capabilities.Nora.NoraStorage;
 import be.bluexin.rwbym.capabilities.Ren.IRen;
 import be.bluexin.rwbym.capabilities.Ren.Ren;
 import be.bluexin.rwbym.capabilities.Ren.RenProvider;
@@ -58,6 +62,7 @@ public class CapabilityHandler {
 	public static final ResourceLocation Ren_KEY = new ResourceLocation(RWBYModels.MODID, "ren");
 	public static final ResourceLocation RAGORA_KEY = new ResourceLocation(RWBYModels.MODID, "ragora");
 	public static final ResourceLocation JAUNE_KEY = new ResourceLocation(RWBYModels.MODID, "jaune");
+	public static final ResourceLocation Nora_KEY = new ResourceLocation(RWBYModels.MODID, "nora");
 	
 	public static final ResourceLocation AURA_KEY = new ResourceLocation(RWBYModels.MODID, "aura");
 	
@@ -75,6 +80,7 @@ public class CapabilityHandler {
 			event.addCapability(RAGORA_KEY, new RagoraProvider());
 			event.addCapability(AURA_KEY, new AuraProvider());
 			event.addCapability(JAUNE_KEY, new JauneProvider());
+			event.addCapability(Nora_KEY, new NoraProvider());
 		}
 		
 	}
@@ -88,8 +94,10 @@ public class CapabilityHandler {
         register(IRen.class, new RenStorage(), Ren::new);
         register(IRagora.class, new RagoraStorage(), Ragora::new);
         register(IJaune.class, new JauneStorage(), Jaune::new);
-        
-        CapabilityManager.INSTANCE.register(IAura.class, new AuraStorage(), Aura::new);
+		register(INora.class, new NoraStorage(), Nora::new);
+
+
+		CapabilityManager.INSTANCE.register(IAura.class, new AuraStorage(), Aura::new);
 	}
 	
 	public static <T extends ISemblance> void register(Class<T> type, Capability.IStorage<T> storage, Callable<? extends T> factory) {

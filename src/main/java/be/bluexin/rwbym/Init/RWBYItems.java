@@ -1423,7 +1423,7 @@ public class RWBYItems {
     public static final Item coinw = new RWBYItem("coinw", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item coinb = new RWBYItem("coinb", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item coiny = new RWBYItem("coiny", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static final Item coinjaune = new RWBYItem("coinjuane", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item coinjaune = new RWBYItem("coinjaune", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item coinnora = new RWBYItem("coinnora", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item coin_ren = new RWBYItem("coin_ren", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item coinqrow = new RWBYItem("coinqrow", null, false, RWBYCreativeTabs.tab_rwbyitems);
@@ -1686,7 +1686,7 @@ public class RWBYItems {
             32,
             10,
             RWBYCreativeTabs.tab_rwbyitems,
-            null);
+            new ExplosionAmmoHit(0));
     public static final Item magnammo = new RWBYAmmoItem(
             "magnammo",
             RWBYItems.entitygrenade,
@@ -2054,10 +2054,112 @@ public class RWBYItems {
             RWBYCreativeTabs.tab_rwbyitems,
             5F,
             15F,
-            "pickaxe",
+            "null",
             1);
-
-
+    public static final Block fireblock = new RWBYNotFullBlock(
+            "fireblock",
+            Material.GLASS,
+            RWBYCreativeTabs.tab_rwbyitems,
+            0F,
+            1F,
+            "null",
+            1);
+    public static final Block gravityblock = new RWBYNotFullBlock(
+            "gravityblock",
+            Material.GLASS,
+            RWBYCreativeTabs.tab_rwbyitems,
+            0F,
+            1F,
+            "null",
+            1);
+    public static final Block iceblock = new RWBYNotFullBlock(
+            "iceblock",
+            Material.GLASS,
+            RWBYCreativeTabs.tab_rwbyitems,
+            0F,
+            1F,
+            "null",
+            1);
+    public static final Block impureblock = new RWBYNotFullBlock(
+            "impureblock",
+            Material.GLASS,
+            RWBYCreativeTabs.tab_rwbyitems,
+            0F,
+            1F,
+            "null",
+            1);
+    public static final Block lightblock = new RWBYNotFullBlock(
+            "lightblock",
+            Material.GLASS,
+            RWBYCreativeTabs.tab_rwbyitems,
+            0F,
+            1F,
+            "null",
+            1);
+    public static final Block waterblock = new RWBYNotFullBlock(
+            "waterblock",
+            Material.GLASS,
+            RWBYCreativeTabs.tab_rwbyitems,
+            0F,
+            1F,
+            "null",
+            1);
+    public static final Block windblock = new RWBYNotFullBlock(
+            "windblock",
+            Material.GLASS,
+            RWBYCreativeTabs.tab_rwbyitems,
+            0F,
+            1F,
+            "null",
+            1);
+    public static final Block forestironblock = new RWBYNotFullBlock(
+            "forestironblock",
+            Material.GLASS,
+            RWBYCreativeTabs.tab_rwbyitems,
+            0F,
+            1F,
+            "null",
+            1);
+    public static final Block frostedironblock = new RWBYNotFullBlock(
+            "frostedironblock",
+            Material.GLASS,
+            RWBYCreativeTabs.tab_rwbyitems,
+            0F,
+            1F,
+            "null",
+            1);
+    public static final Block gildedironblock = new RWBYNotFullBlock(
+            "gildedironblock",
+            Material.GLASS,
+            RWBYCreativeTabs.tab_rwbyitems,
+            0F,
+            1F,
+            "null",
+            1);
+    public static final Block roseironblock = new RWBYNotFullBlock(
+            "roseironblock",
+            Material.GLASS,
+            RWBYCreativeTabs.tab_rwbyitems,
+            0F,
+            1F,
+            "null",
+            1);
+    public static final Block shadowironblock = new RWBYNotFullBlock(
+            "shadowironblock",
+            Material.GLASS,
+            RWBYCreativeTabs.tab_rwbyitems,
+            0F,
+            1F,
+            "null",
+            1);
+    public static final Block viridianironblock = new RWBYNotFullBlock(
+            "viridianironblock",
+            Material.GLASS,
+            RWBYCreativeTabs.tab_rwbyitems,
+            0F,
+            1F,
+            "null",
+            1);
 
     //Armour
 
