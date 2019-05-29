@@ -97,6 +97,7 @@ public class RWBYRapier extends ItemBow implements ICustomItem{
         if(enchantmentglow == 1) this.velvet = true;
         if(name.contains("weiss")) mytre = true;
         if(name.contains("scarlet")) scarlet = true;
+        if(name.contains("pyrrharifle")) port = true;
         this.isShield = shield;
 
         if (this.isShield) this.addPropertyOverride(new ResourceLocation("offhand"), new IItemPropertyGetter() {
@@ -176,6 +177,7 @@ public class RWBYRapier extends ItemBow implements ICustomItem{
 
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         ItemStack is = playerIn.getHeldItem(handIn);
+        boolean flag = !this.findAmmo(playerIn, false).isEmpty();
         if (!worldIn.isRemote && playerIn.isSneaking() && this.morph != null) {
             is = new ItemStack(Item.getByNameOrId(this.morph), is.getCount(), is.getMetadata());
             return new ActionResult<>(EnumActionResult.SUCCESS, is);
@@ -184,7 +186,6 @@ public class RWBYRapier extends ItemBow implements ICustomItem{
             else if (this.isShield && handIn == EnumHand.OFF_HAND) {
             playerIn.setActiveHand(EnumHand.OFF_HAND);
             return new ActionResult<>(EnumActionResult.SUCCESS, is);}
-        boolean flag = !this.findAmmo(playerIn, false).isEmpty();
         if (!flag) if (playerIn.onGround){
             if (recoil3) {
                 Vec3d look = playerIn.getLookVec();
@@ -210,8 +211,7 @@ public class RWBYRapier extends ItemBow implements ICustomItem{
         ItemStack itemstack = playerIn.getHeldItem(handIn);
         ActionResult<ItemStack> ret = net.minecraftforge.event.ForgeEventFactory.onArrowNock(itemstack, worldIn, playerIn, handIn, flag);
         if (ret != null) return ret;
-
-        if (!flag) {
+            if (!flag) {
             return new ActionResult<>(EnumActionResult.FAIL, itemstack);
         } else {
             if (charges) {
@@ -235,6 +235,7 @@ public class RWBYRapier extends ItemBow implements ICustomItem{
 
     @Nonnull
     private ItemStack findAmmo(EntityPlayer player, boolean force) {
+
         Item ammo1 = this.ammo == null ? Items.ARROW : Item.getByNameOrId(this.ammo);
         if (force || (ammo1 instanceof ItemArrow && ((ItemArrow) ammo1).isInfinite(null, player.getActiveItemStack(), player))
                 || (ammo1 instanceof RWBYAmmoItem && ((RWBYAmmoItem) ammo1).isInfinite())) {
@@ -284,19 +285,32 @@ public class RWBYRapier extends ItemBow implements ICustomItem{
             EntityPlayer entityplayer = (EntityPlayer) entityLiving;
             boolean flagger = entityplayer.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantments.INFINITY, stack) > 0;
             boolean flag = false;
+            boolean flag2 = false;
             ItemStack itemstack = this.findAmmo(entityplayer, flag);
+
+            if(!itemstack.isEmpty()){
+                flag2 = true;
+            }
+
+            ItemStack is = entityplayer.getActiveItemStack();
+            if (is.getItem() == RWBYItems.pyrrharifle && entityplayer.getActiveHand() == EnumHand.OFF_HAND)
+            {
+                flag2 = false;
+            }
+
 
             int i = this.getMaxItemUseDuration(stack) - timeLeft;
             i = net.minecraftforge.event.ForgeEventFactory.onArrowLoose(stack, worldIn, (EntityPlayer) entityLiving, i, itemstack != null);
             if (i < 0) return;
 
-            if (!itemstack.isEmpty() || flag) {
+            if (flag2 || flag) {
 
                 float f = getArrowVelocity(72);
 
                 if ((double) f >= 0.1D) {
 
                     if (!worldIn.isRemote) {
+
                         EntityArrow entityarrow = (itemstack.getItem() instanceof RWBYAmmoItem ? ((RWBYAmmoItem) itemstack.getItem()).createArrow(worldIn, itemstack, entityplayer) : ((ItemArrow) Items.ARROW).createArrow(worldIn, itemstack, entityplayer));
                         entityarrow.shoot(entityplayer, entityplayer.rotationPitch, entityplayer.rotationYaw, 0.0F, f * 3.0F * (this.projectileSpeed == 0.0F ? 1.0F : this.projectileSpeed), 2.0F);
 
@@ -331,6 +345,11 @@ public class RWBYRapier extends ItemBow implements ICustomItem{
                         entityplayer.lastTickPosZ = -look.x;
                         entityplayer.lastTickPosX = -look.z;
                     }
+
+                        if (port) {
+                            worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.Port_Shoot, SoundCategory.MASTER, 1.0F, 0.8F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+                        }
+
                     if (!flag){
                         if (cinder & !flagger) {
                             itemstack.shrink(1);

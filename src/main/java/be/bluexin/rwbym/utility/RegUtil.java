@@ -55,6 +55,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.norahammer);
         registerItems(event, RWBYItems.pyrrhaspear);
         registerItems(event, RWBYItems.pyrrhasword);
+        registerItems(event, RWBYItems.pyrrharifle);
         registerItems(event, RWBYItems.stormflower);
         registerItems(event, RWBYItems.rvnswd);
         registerItems(event, RWBYItems.rvnswdele);

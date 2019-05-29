@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "iii",
+        "iii",
+        "iii"
+    ],
+    "key": {
+        "i": {
+            "item": "rwbym:roseiron"
+        }
+    },
+    "result": {
+        "item": "rwbym:roseironblock",
+        "count": 1
+    }
+}

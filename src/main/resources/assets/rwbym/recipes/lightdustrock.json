@@ -1,0 +1,12 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "rwbym:lightblock"
+        }
+    ],
+    "result": {
+        "item": "rwbym:lightdustrock",
+        "count": 9
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "iii",
+        "iii",
+        "iii"
+    ],
+    "key": {
+        "i": {
+            "item": "rwbym:icedustrock"
+        }
+    },
+    "result": {
+        "item": "rwbym:iceblock",
+        "count": 1
+    }
+}

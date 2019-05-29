@@ -118,6 +118,7 @@ public class RWBYBow extends ItemBow implements ICustomItem {
         if(name.contains("sun")) port = true;
         if(name.contains("nadir")) nadir = true;
         if(name.contains("magnum")) gambols = true;
+        if(name.contains("pyrrharifle")) port = true;
 
 
         this.addPropertyOverride(new ResourceLocation("pull"), new IItemPropertyGetter()

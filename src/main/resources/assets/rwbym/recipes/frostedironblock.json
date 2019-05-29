@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "iii",
+        "iii",
+        "iii"
+    ],
+    "key": {
+        "i": {
+            "item": "rwbym:frostediron"
+        }
+    },
+    "result": {
+        "item": "rwbym:frostedironblock",
+        "count": 1
+    }
+}

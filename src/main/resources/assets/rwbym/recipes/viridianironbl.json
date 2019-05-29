@@ -1,0 +1,12 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "rwbym:viridianironblock"
+        }
+    ],
+    "result": {
+        "item": "rwbym:viridianiron",
+        "count": 9
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "iii",
+        "iii",
+        "iii"
+    ],
+    "key": {
+        "i": {
+            "item": "rwbym:shadowiron"
+        }
+    },
+    "result": {
+        "item": "rwbym:shadowironblock",
+        "count": 1
+    }
+}

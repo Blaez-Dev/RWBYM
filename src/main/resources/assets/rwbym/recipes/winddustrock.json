@@ -1,0 +1,12 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "rwbym:windblock"
+        }
+    ],
+    "result": {
+        "item": "rwbym:winddustrock",
+        "count": 9
+    }
+}

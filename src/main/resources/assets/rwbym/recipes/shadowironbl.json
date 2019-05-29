@@ -1,0 +1,12 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "rwbym:shadowironblock"
+        }
+    ],
+    "result": {
+        "item": "rwbym:shadowiron",
+        "count": 9
+    }
+}

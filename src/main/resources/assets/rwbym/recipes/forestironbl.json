@@ -1,0 +1,12 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "rwbym:forestironblock"
+        }
+    ],
+    "result": {
+        "item": "rwbym:forestiron",
+        "count": 9
+    }
+}

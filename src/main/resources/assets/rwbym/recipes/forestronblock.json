@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "iii",
+        "iii",
+        "iii"
+    ],
+    "key": {
+        "i": {
+            "item": "rwbym:forestiron"
+        }
+    },
+    "result": {
+        "item": "rwbym:forestironblock",
+        "count": 1
+    }
+}

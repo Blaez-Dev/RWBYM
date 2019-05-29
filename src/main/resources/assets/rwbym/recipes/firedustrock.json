@@ -1,0 +1,12 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "rwbym:fireblock"
+        }
+    ],
+    "result": {
+        "item": "rwbym:firedustrock",
+        "count": 9
+    }
+}

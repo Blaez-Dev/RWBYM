@@ -2,7 +2,8 @@
 	"credit": "Made with Blockbench",
 	"textures": {
 		"0": "minecraft:blocks/stone",
-		"1": "rwbym:blocks/dustcrystals"
+		"1": "rwbym:blocks/dustcrystals",
+		"particle": "minecraft:blocks/stone"
 	},
 	"elements": [
 		{

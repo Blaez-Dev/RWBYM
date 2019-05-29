@@ -1,0 +1,12 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "rwbym:gildedironblock"
+        }
+    ],
+    "result": {
+        "item": "rwbym:gildediron",
+        "count": 9
+    }
+}

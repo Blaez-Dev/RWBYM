@@ -3,7 +3,7 @@
 	"textures": {
 		"0": "minecraft:blocks/stone",
 		"1": "rwbym:blocks/dustcrystals",
-		"particle": "rwbym:blocks/stone"
+		"particle": "minecraft:blocks/stone"
 	},
 	"elements": [
 		{
