@@ -3,6 +3,7 @@ package be.bluexin.rwbym;
 import be.bluexin.rwbym.Init.RWBYBiomes;
 import be.bluexin.rwbym.Init.RWBYCreativeTabs;
 import be.bluexin.rwbym.Init.RWBYItems;
+import be.bluexin.rwbym.Init.RWBYPotions;
 import be.bluexin.rwbym.capabilities.CapabilityHandler;
 import be.bluexin.rwbym.capabilities.Ruby.IRuby;
 import be.bluexin.rwbym.capabilities.Ruby.Ruby;
@@ -80,7 +81,7 @@ import org.apache.logging.log4j.Logger;
 public class RWBYModels {
     public static final String MODID = "rwbym";
     public static final String MODNAME = "RWBY-M";
-    public static final String VERSION = "3.4";
+    public static final String VERSION = "3.5";
 
     public static List<ICustomItem> items;
 
@@ -143,13 +144,13 @@ public class RWBYModels {
 		MinecraftForge.EVENT_BUS.register(new CapabilityHandler());
 
 		CapabilityHandler.registerAll();
-
         RWBYNetworkHandler.init();
         RWBYCreativeTabs.init();
         RWBYBiomes.registerBiomes();
         RWBYEntities.instance = instance;
         rwbym_1.preInit(event);
         RegUtil.registerAll(event);
+        RegUtil.registerGamePotions();
         MinecraftForge.EVENT_BUS.register(this);
         if (items != null) items.forEach(ICustomItem::register);
         proxy.preInit();
@@ -159,7 +160,7 @@ public class RWBYModels {
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
         proxy.init();
-        System.out.println("Blaez:RWBYM Relz 3.4");
+        System.out.println("Blaez:RWBYM Relz 3.5");
         //if (items != null) items.forEach(ICustomItem::registerRecipes);
         if (event.getSide() == Side.CLIENT) {
             OBJLoader.INSTANCE.addDomain("rwbym");

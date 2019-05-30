@@ -344,6 +344,12 @@ item.yang4_chest.name=Yang's Top
 item.yang4_legs.name=Yang's Shorts
 
 
+effect.aura_regen=Aura Regen
+potion.effect.aura_regen=Potion of Aura Regen
+splash_potion.effect.aura_regen=Splash Potion of Aura Regen
+lingering_potion.effect.aura_regen=Lingering Potion of Aura Regen
+tipped_arrow.effect.aura_regen=Arrowe of Aura Regen
+
 itemGroup.rwby_weapons=RWBY Weapons
 itemGroup.rwby_items=RWBY Items
 itemGroup.rwby_armour=RWBY Armour

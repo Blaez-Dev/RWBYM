@@ -13,6 +13,7 @@ import be.bluexin.rwbym.capabilities.Ruby.RubyProvider;
 import be.bluexin.rwbym.entity.EntityArmorgeist;
 import be.bluexin.rwbym.entity.EntityAtlasKnight;
 import be.bluexin.rwbym.entity.EntityBeowolf;
+import be.bluexin.rwbym.utility.RegUtil;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -174,6 +175,8 @@ public class RWBYFood extends Item implements ICustomItem {
                 entityplayer.addPotionEffect(potioneffect2);;
                 PotionEffect potioneffect21 = new PotionEffect(MobEffects.LUCK, 2400, 5, false, false);
                 entityplayer.addPotionEffect(potioneffect21);;
+                PotionEffect potionEffect3 = new PotionEffect(RegUtil.AURA_REGEN, 2400, 2);
+                entityLiving.addPotionEffect(potionEffect3);
             }
         }
         if(food6){

@@ -1,13 +1,20 @@
 package be.bluexin.rwbym.utility;
 
 import be.bluexin.rwbym.Init.RWBYItems;
+import be.bluexin.rwbym.Init.RWBYPotions;
+import be.bluexin.rwbym.potion.PotionAuraRegen;
 import be.bluexin.rwbym.weaponry.RWBYItem;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
+import net.minecraft.init.PotionTypes;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.potion.PotionHelper;
+import net.minecraft.potion.PotionType;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
@@ -399,6 +406,30 @@ public class RegUtil {
             ForgeRegistries.ITEMS.register(item);
             //System.out.println("Item Registered");
         }
+    }
+
+    public static final Potion AURA_REGEN = new PotionAuraRegen("aura_regen", false, 0);
+    public static final PotionType aura_regen = new PotionType("aura_regen", new PotionEffect(RegUtil.AURA_REGEN, 3600, 0)).setRegistryName("aura_regen");
+    public static final PotionType aura_regen_strong = new PotionType("aura_regen", new PotionEffect(RegUtil.AURA_REGEN, 1200, 3)).setRegistryName("aura_regen_strong");
+    public static final PotionType aura_regen_long = new PotionType("aura_regen", new PotionEffect(RegUtil.AURA_REGEN, 9600, 0)).setRegistryName("aura_regen_long");
+
+
+    public static void registerGamePotions(){
+        registerPotion(aura_regen,aura_regen_long,aura_regen_strong,AURA_REGEN);
+        registerPotionMixes();
+    }
+
+    private static void registerPotion(PotionType defaultPotion, PotionType longPotion, PotionType strongPotion, Potion effect){
+        ForgeRegistries.POTIONS.register(effect);
+        ForgeRegistries.POTION_TYPES.register(defaultPotion);
+        ForgeRegistries.POTION_TYPES.register(longPotion);
+        ForgeRegistries.POTION_TYPES.register(strongPotion);
+    }
+
+    private static void registerPotionMixes(){
+        PotionHelper.addMix(aura_regen, Items.REDSTONE, aura_regen_long);
+        PotionHelper.addMix(aura_regen, Items.GLOWSTONE_DUST, aura_regen_strong);
+        PotionHelper.addMix(PotionTypes.AWKWARD, RWBYItems.remnants, aura_regen);
     }
 
     public static Item getHeadSlot(EntityPlayer player) {
