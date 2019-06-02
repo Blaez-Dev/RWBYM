@@ -79,6 +79,7 @@ public class EntityWinterArmorgeist extends EntityGolem {
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(30.0D);
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(200.0D);
         this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(20D);
     }
 
     public boolean attackEntityAsMob(Entity entityIn)

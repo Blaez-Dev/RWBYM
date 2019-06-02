@@ -296,7 +296,7 @@ public class RWBYCRScythe extends ItemBow implements ICustomItem {
             for (EntityLivingBase entitylivingbase : attacker.world.getEntitiesWithinAABB(EntityLivingBase.class, target.getEntityBoundingBox().grow(3.0D, 0.25D, 3.0D))) {
                 if (entitylivingbase != attacker && entitylivingbase != target && !attacker.isOnSameTeam(entitylivingbase) && attacker.getDistanceSq(entitylivingbase) < 9.0D) {
                     entitylivingbase.knockBack(attacker, 0.4F, (double) MathHelper.sin(attacker.rotationYaw * 0.017453292F), (double) (-MathHelper.cos(attacker.rotationYaw * 0.017453292F)));
-                    entitylivingbase.attackEntityFrom(DamageSource.GENERIC, 8);
+                    entitylivingbase.attackEntityFrom(DamageSource.GENERIC, 16);
                 }
             }
 

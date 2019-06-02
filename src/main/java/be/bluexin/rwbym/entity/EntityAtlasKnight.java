@@ -49,6 +49,7 @@ import javax.annotation.Nullable;
             this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.3499999940395355D);
             this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(12.0D);
             this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(100.0D);
+            this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(20D);
         }
 
      public boolean attackEntityAsMob(Entity entityIn)

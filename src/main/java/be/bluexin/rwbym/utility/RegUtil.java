@@ -233,6 +233,10 @@ public class RegUtil {
         registerItems(event, RWBYItems.sake);
         registerItems(event, RWBYItems.coconutmilk);
         registerItems(event, RWBYItems.pancakes);
+        registerItems(event, RWBYItems.bourbon);
+        registerItems(event, RWBYItems.brandy);
+        registerItems(event, RWBYItems.vodka);
+        registerItems(event, RWBYItems.wine);
         //repair items
         registerBlocks(event, RWBYItems.rwbyblock8);
         registerItems(event, RWBYItems.scrap);

@@ -76,6 +76,7 @@ public class RWBYRapier extends ItemBow implements ICustomItem{
     public final boolean isShield;
     private boolean torch = false;
     private boolean chat = false;
+    private boolean  canBlock = false;
     boolean compensate;
     float lastDamage;
     private boolean emerald2 = false;
@@ -98,6 +99,7 @@ public class RWBYRapier extends ItemBow implements ICustomItem{
         if(name.contains("weiss")) mytre = true;
         if(name.contains("scarlet")) scarlet = true;
         if(name.contains("pyrrharifle")) port = true;
+        if(name.contains("winter")) canBlock = true;
         this.isShield = shield;
 
         if (this.isShield) this.addPropertyOverride(new ResourceLocation("offhand"), new IItemPropertyGetter() {
@@ -185,7 +187,10 @@ public class RWBYRapier extends ItemBow implements ICustomItem{
             return new ActionResult<>(EnumActionResult.FAIL, is);}
             else if (this.isShield && handIn == EnumHand.OFF_HAND) {
             playerIn.setActiveHand(EnumHand.OFF_HAND);
-            return new ActionResult<>(EnumActionResult.SUCCESS, is);}
+            return new ActionResult<>(EnumActionResult.SUCCESS, is);}else if (canBlock && handIn == EnumHand.MAIN_HAND) {
+            playerIn.setActiveHand(EnumHand.MAIN_HAND);
+            return new ActionResult<>(EnumActionResult.SUCCESS, is);
+        }
         if (!flag) if (playerIn.onGround){
             if (recoil3) {
                 Vec3d look = playerIn.getLookVec();
@@ -230,7 +235,7 @@ public class RWBYRapier extends ItemBow implements ICustomItem{
             return EnumAction.BOW;
         }else if(stack.getItem() == RWBYItems.cinderbow){
             return EnumAction.BOW;
-        }else return EnumAction.BLOCK;
+        }else if(canBlock){return  EnumAction.BLOCK;}else return EnumAction.BLOCK;
     }
 
     @Nonnull
@@ -375,7 +380,7 @@ public class RWBYRapier extends ItemBow implements ICustomItem{
         unarm = true; }
 
         if(!unarm){
-            target.attackEntityFrom(DamageSource.GENERIC, 14);
+            target.attackEntityFrom(DamageSource.GENERIC, 35);
         }
 
         stack.damageItem(1, attacker);

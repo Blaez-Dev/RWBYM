@@ -372,17 +372,18 @@ public class RWBYItems {
             false,
             1,
             null);
-    public static final Item winterswd = new RWBYSword(
+    public static final Item winterswd = new RWBYRapier(
             "winterswd",
             2500,
-            10,
+            7200000,
             0,
-            null,
-            null,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:14,Operation:0,UUIDMost:99791,UUIDLeast:128916}]}",
+            "null",
+            "null",
             false,
-            true,
+            1,
             false,
-            false,
+            0,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
     public static final Item pennyswd = new RWBYSword(
@@ -657,7 +658,7 @@ public class RWBYItems {
     public static final Item angelcane = new RWBYSword(
             "angelcane",
             2500,
-            12,
+            10,
             0,
             null,
             "rwbym:angelsword",
@@ -672,7 +673,7 @@ public class RWBYItems {
             2500,
             72,
             0,
-            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}]}",
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:16,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}]}",
             "rwbym:angelcane",
             "none",
             false,
@@ -1503,6 +1504,10 @@ public class RWBYItems {
     public static final Item sake = new RWBYFood("sake",null, 7, RWBYCreativeTabs.tab_rwbyitems );
     public static final Item coconutmilk = new RWBYFood("coconutmilk",null, 8, RWBYCreativeTabs.tab_rwbyitems );
     public static final Item pancakes = new RWBYFood("pancakes",null, 9, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item bourbon = new RWBYFood("bourbon",null, 10, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item brandy = new RWBYFood("brandy",null, 11, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item vodka = new RWBYFood("vodka",null, 12, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item wine = new RWBYFood("wine",null, 13, RWBYCreativeTabs.tab_rwbyitems);
 
     //-----------------------------------------------//
     public static final Item entitybullet = new RWBYItem("entitybullet", null, false, null);

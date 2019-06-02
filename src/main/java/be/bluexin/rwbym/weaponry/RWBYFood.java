@@ -21,6 +21,7 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -68,7 +69,7 @@ public class RWBYFood extends Item implements ICustomItem {
         this.setMaxDamage(3);
         this.food = food;
         this.maxStackSize = 2;
-        if(food == 2||food == 6|| food == 7||food ==9){
+        if(food == 2||food == 6|| food == 7||food ==9||food ==12){
             this.food6 = true;
         }
         if(food6){
@@ -175,7 +176,36 @@ public class RWBYFood extends Item implements ICustomItem {
                 entityplayer.addPotionEffect(potioneffect2);;
                 PotionEffect potioneffect21 = new PotionEffect(MobEffects.LUCK, 2400, 5, false, false);
                 entityplayer.addPotionEffect(potioneffect21);;
-                PotionEffect potionEffect3 = new PotionEffect(RegUtil.AURA_REGEN, 2400, 2);
+                PotionEffect potionEffect3 = new PotionEffect(RegUtil.AURA_REGEN, 2400, 0);
+                entityLiving.addPotionEffect(potionEffect3);
+            }
+
+            if(food == 10){
+                //Boubon
+                PotionEffect potioneffect2 = new PotionEffect(MobEffects.ABSORPTION, 2400, 2, false, false);
+                entityplayer.addPotionEffect(potioneffect2);
+            }
+
+            if(food == 11){
+                //Brandy
+                PotionEffect potioneffect2 = new PotionEffect(MobEffects.STRENGTH, 2400, 1, false, false);
+                entityplayer.addPotionEffect(potioneffect2);
+                PotionEffect potionEffect3 = new PotionEffect(RegUtil.AURA_REGEN, 2400, 0);
+                entityLiving.addPotionEffect(potionEffect3);
+            }
+
+            if(food == 12){
+                //Vodka
+                PotionEffect potioneffect2 = new PotionEffect(MobEffects.STRENGTH, 2400, 2, false, false);
+                entityplayer.addPotionEffect(potioneffect2);
+            }
+
+            if(food == 13){
+                //Wine
+                entityplayer.clearActivePotions();
+                PotionEffect potioneffect2 = new PotionEffect(MobEffects.SPEED, 2400, 0, false, false);
+                entityplayer.addPotionEffect(potioneffect2);
+                PotionEffect potionEffect3 = new PotionEffect(MobEffects.STRENGTH, 2400, 0);
                 entityLiving.addPotionEffect(potionEffect3);
             }
         }
