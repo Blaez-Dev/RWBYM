@@ -98,24 +98,24 @@ public class RWBYFood extends Item implements ICustomItem {
 
     public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entityLiving) {
         if (entityLiving instanceof EntityPlayer) {
-            EntityPlayer entityplayer = (EntityPlayer)entityLiving;
-            worldIn.playSound((EntityPlayer)null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, SoundEvents.ENTITY_PLAYER_BURP, SoundCategory.PLAYERS, 0.5F, worldIn.rand.nextFloat() * 0.1F + 0.9F);
+            EntityPlayer entityplayer = (EntityPlayer) entityLiving;
+            worldIn.playSound((EntityPlayer) null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, SoundEvents.ENTITY_PLAYER_BURP, SoundCategory.PLAYERS, 0.5F, worldIn.rand.nextFloat() * 0.1F + 0.9F);
             //this.onFoodEaten(stack, worldIn, entityplayer);
-            if(food == 1){
+            if (food == 1) {
                 //Hot Chocolate
                 PotionEffect potioneffect = new PotionEffect(MobEffects.REGENERATION, 1200, 0, false, false);
                 PotionEffect potioneffect1 = new PotionEffect(MobEffects.HEALTH_BOOST, 1200, 0, false, false);
                 entityplayer.addPotionEffect(potioneffect);
                 entityplayer.addPotionEffect(potioneffect1);
             }
-            if(food == 2){
+            if (food == 2) {
                 //Coffee
                 PotionEffect potioneffect = new PotionEffect(MobEffects.SPEED, 1200, 1, false, false);
                 PotionEffect potioneffect1 = new PotionEffect(MobEffects.HASTE, 1200, 1, false, false);
                 entityplayer.addPotionEffect(potioneffect);
                 entityplayer.addPotionEffect(potioneffect1);
             }
-            if(food == 3){
+            if (food == 3) {
                 //Strawberry Sunrise
                 PotionEffect potioneffect = new PotionEffect(MobEffects.SPEED, 1200, 1, false, false);
                 PotionEffect potioneffect1 = new PotionEffect(MobEffects.RESISTANCE, 1200, 1, false, false);
@@ -124,14 +124,14 @@ public class RWBYFood extends Item implements ICustomItem {
                 entityplayer.addPotionEffect(potioneffect1);
                 entityplayer.addPotionEffect(potioneffect2);
             }
-            if(food == 4){
+            if (food == 4) {
                 //Grape Soda
                 PotionEffect potioneffect = new PotionEffect(MobEffects.HASTE, 1200, 3, false, false);
                 PotionEffect potioneffect1 = new PotionEffect(MobEffects.INSTANT_HEALTH, 20, 0, false, false);
                 entityplayer.addPotionEffect(potioneffect);
                 entityplayer.addPotionEffect(potioneffect1);
             }
-            if(food == 5){
+            if (food == 5) {
                 //TorchQuick
                 PotionEffect potioneffect = new PotionEffect(MobEffects.BLINDNESS, 1200, 1, false, false);
                 PotionEffect potioneffect1 = new PotionEffect(MobEffects.WEAKNESS, 1200, 1, false, false);
@@ -140,7 +140,7 @@ public class RWBYFood extends Item implements ICustomItem {
                 entityplayer.addPotionEffect(potioneffect1);
                 entityplayer.addPotionEffect(potioneffect2);
             }
-            if(food == 6){
+            if (food == 6) {
                 //Qrow's Flask
                 PotionEffect potioneffect = new PotionEffect(MobEffects.INSTANT_HEALTH, 1, 0, false, false);
                 PotionEffect potioneffect1 = new PotionEffect(MobEffects.NAUSEA, 200, 1, false, false);
@@ -151,14 +151,14 @@ public class RWBYFood extends Item implements ICustomItem {
                 entityplayer.addPotionEffect(potioneffect2);
                 entityplayer.addPotionEffect(potioneffect3);
             }
-            if(food == 7){
+            if (food == 7) {
                 //Sake
                 PotionEffect potioneffect = new PotionEffect(MobEffects.NAUSEA, 100, 3, false, false);
                 PotionEffect potioneffect1 = new PotionEffect(MobEffects.INVISIBILITY, 1200, 2, false, false);
                 entityplayer.addPotionEffect(potioneffect);
                 entityplayer.addPotionEffect(potioneffect1);
             }
-            if(food == 8){
+            if (food == 8) {
                 //Coconut Milk
                 PotionEffect potioneffect = new PotionEffect(MobEffects.SPEED, 1200, 2, false, false);
                 PotionEffect potioneffect1 = new PotionEffect(MobEffects.JUMP_BOOST, 1200, 2, false, false);
@@ -170,23 +170,25 @@ public class RWBYFood extends Item implements ICustomItem {
                 entityplayer.addPotionEffect(potioneffect3);
             }
 
-            if(food == 9){
+            if (food == 9) {
                 //Pancakes
                 PotionEffect potioneffect2 = new PotionEffect(MobEffects.SATURATION, 60, 5, false, false);
-                entityplayer.addPotionEffect(potioneffect2);;
+                entityplayer.addPotionEffect(potioneffect2);
+                ;
                 PotionEffect potioneffect21 = new PotionEffect(MobEffects.LUCK, 2400, 5, false, false);
-                entityplayer.addPotionEffect(potioneffect21);;
-                PotionEffect potionEffect3 = new PotionEffect(RegUtil.AURA_REGEN, 2400, 0);
+                entityplayer.addPotionEffect(potioneffect21);
+                ;
+                PotionEffect potionEffect3 = new PotionEffect(RegUtil.AURA_REGEN, 1200, 0);
                 entityLiving.addPotionEffect(potionEffect3);
             }
 
-            if(food == 10){
+            if (food == 10) {
                 //Boubon
                 PotionEffect potioneffect2 = new PotionEffect(MobEffects.ABSORPTION, 2400, 2, false, false);
                 entityplayer.addPotionEffect(potioneffect2);
             }
 
-            if(food == 11){
+            if (food == 11) {
                 //Brandy
                 PotionEffect potioneffect2 = new PotionEffect(MobEffects.STRENGTH, 2400, 1, false, false);
                 entityplayer.addPotionEffect(potioneffect2);
@@ -194,18 +196,36 @@ public class RWBYFood extends Item implements ICustomItem {
                 entityLiving.addPotionEffect(potionEffect3);
             }
 
-            if(food == 12){
+            if (food == 12) {
                 //Vodka
                 PotionEffect potioneffect2 = new PotionEffect(MobEffects.STRENGTH, 2400, 2, false, false);
                 entityplayer.addPotionEffect(potioneffect2);
             }
 
-            if(food == 13){
+            if (food == 13) {
                 //Wine
                 entityplayer.clearActivePotions();
                 PotionEffect potioneffect2 = new PotionEffect(MobEffects.SPEED, 2400, 0, false, false);
                 entityplayer.addPotionEffect(potioneffect2);
                 PotionEffect potionEffect3 = new PotionEffect(MobEffects.STRENGTH, 2400, 0);
+                entityLiving.addPotionEffect(potionEffect3);
+            }
+
+            if (food == 14) {
+                //Fish Ramen
+                PotionEffect potioneffect2 = new PotionEffect(MobEffects.SATURATION, 60, 5, false, false);
+                entityplayer.addPotionEffect(potioneffect2);
+                PotionEffect potioneffect21 = new PotionEffect(MobEffects.NIGHT_VISION, 2400, 5, false, false);
+                entityplayer.addPotionEffect(potioneffect21);
+                PotionEffect potionEffect3 = new PotionEffect(RegUtil.AURA_REGEN, 2400, 0);
+                entityLiving.addPotionEffect(potionEffect3);
+            }
+
+            if (food == 15) {
+                //Ramen
+                PotionEffect potioneffect2 = new PotionEffect(MobEffects.SATURATION, 60, 5, false, false);
+                entityplayer.addPotionEffect(potioneffect2);
+                PotionEffect potionEffect3 = new PotionEffect(RegUtil.AURA_REGEN, 2400, 0);
                 entityLiving.addPotionEffect(potionEffect3);
             }
         }

@@ -44,14 +44,18 @@ public class ArmourBase extends ItemArmor {
 
     public ArmourBase(ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn, String name, String morph,String data, boolean playerModel, CreativeTabs creativetab) {
         super(materialIn, renderIndexIn, equipmentSlotIn);
+        this.setMaxDamage(2500);
         this.morph = morph;
+        if(this.getEquipmentSlot() == EntityEquipmentSlot.CHEST){this.data = "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"chest\",Amount:10,Operation:0,UUIDMost:11326,UUIDLeast:127298},{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"chest\",Amount:5,Operation:0,UUIDMost:68780,UUIDLeast:119491}]}";}
+        else if(this.getEquipmentSlot() == EntityEquipmentSlot.HEAD){this.data = "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"head\",Amount:6,Operation:0,UUIDMost:69171,UUIDLeast:104277}]}";}
+        else if(this.getEquipmentSlot() == EntityEquipmentSlot.LEGS){this.data = " {AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"legs\",Amount:10,Operation:0,UUIDMost:96062,UUIDLeast:166413},{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"legs\",Amount:5,Operation:0,UUIDMost:42612,UUIDLeast:167904}]}";}
+        else {this.data = data;}
         if (name.contains("korekosmoufire")) fire = true;
         if (name.contains("korekosmouice")) ice = true;
         if (name.contains("korekosmouwind")) wind = true;
         this.setCreativeTab(creativetab);
         this.setRegistryName("rwbym", name);
         this.setUnlocalizedName(name);
-        this.data = data;
         this.isPlayerModel = playerModel;
     }
 

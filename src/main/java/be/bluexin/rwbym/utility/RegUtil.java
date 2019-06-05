@@ -108,6 +108,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.cinderbow);
         registerItems(event, RWBYItems.emeraldblade);
         registerItems(event, RWBYItems.emeraldgun);
+        registerItems(event, RWBYItems.ironwood);
         registerItems(event, RWBYItems.winterswd);
         registerItems(event, RWBYItems.pennyswd);
         registerItems(event, RWBYItems.kkfire);
@@ -237,6 +238,8 @@ public class RegUtil {
         registerItems(event, RWBYItems.brandy);
         registerItems(event, RWBYItems.vodka);
         registerItems(event, RWBYItems.wine);
+        registerItems(event, RWBYItems.fishramen);
+        registerItems(event, RWBYItems.ramen);
         //repair items
         registerBlocks(event, RWBYItems.rwbyblock8);
         registerItems(event, RWBYItems.scrap);
@@ -376,6 +379,16 @@ public class RegUtil {
         registerItems(event, RWBYItems.yang3Legs);
         registerItems(event, RWBYItems.yang4Chest);
         registerItems(event, RWBYItems.yang4Legs);
+        registerItems(event, RWBYItems.ironwood1Chest);
+        registerItems(event, RWBYItems.ironwood1Legs);
+        registerItems(event, RWBYItems.ironwood2Chest);
+        registerItems(event, RWBYItems.ironwood2Legs);
+        registerItems(event, RWBYItems.mercury1Chest);
+        registerItems(event, RWBYItems.mercury1Legs);
+        registerItems(event, RWBYItems.mercury2Chest);
+        registerItems(event, RWBYItems.mercury2Legs);
+        registerItems(event, RWBYItems.ozpinChest);
+        registerItems(event, RWBYItems.ozpinLegs);
     }
     private static void registerBlocks(FMLPreInitializationEvent event, Block...blocks) {
         for (Block block : blocks) {//New instance of a block for every block passed through

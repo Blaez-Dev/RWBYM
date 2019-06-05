@@ -18,29 +18,29 @@ public class RWBYConfig
     @Config.Comment("Spawn Rate Boarbatusk")
     public static int spawnrateboar= 50;
     @Config.Comment("Spawn Rate Goliath")
-    public static int spawnrategoliath= 5;
+    public static int spawnrategoliath= 1;
     @Config.Comment("Spawn Rate Deathstalker")
-    public static int spawnratedeathstalker= 5;
+    public static int spawnratedeathstalker= 1;
     @Config.Comment("Spawn Rate Mutant Deathstalker")
-    public static int spawnratemutantdeathstalker= 5;
+    public static int spawnratemutantdeathstalker= 1;
     @Config.Comment("Spawn Rate Nevermore")
     public static int spawnratenevermore= 50;
     @Config.Comment("Spawn Rate Giant Nevermore")
-    public static int spawnrategiantnevermore= 10;
+    public static int spawnrategiantnevermore= 1;
     @Config.Comment("Spawn Rate Creep")
     public static int spawnratecreep= 50;
     @Config.Comment("Spawn Rate Geist")
-    public static int spawnrategeist= 10;
+    public static int spawnrategeist= 30;
     @Config.Comment("Spawn Rate Lancer")
-    public static int spawnratelancer= 75;
+    public static int spawnratelancer= 50;
     @Config.Comment("Spawn Rate Nuckleeve")
-    public static int spawnratenuckleeve= 10;
+    public static int spawnratenuckleeve= 1;
     @Config.Comment("Spawn Rate Apathy")
-    public static int spawnrateapathy= 75;
+    public static int spawnrateapathy= 50;
     @Config.Comment("Spawn Rate Tiny DeathStalker")
     public static int spawnratetinydeathstalker= 50;
     @Config.Comment("Spawn Rate Queen Lancer")
-    public static int spawnratequeenlancer= 10;
+    public static int spawnratequeenlancer= 1;
     @Config.Comment("Global Aggro Range in Blocks")
     public static float aggrorange = 60;
     @Config.Comment("Spawn Chance Dust Shop")

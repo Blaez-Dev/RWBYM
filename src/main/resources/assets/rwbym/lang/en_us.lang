@@ -342,10 +342,23 @@ item.yang3_chest.name=Yang's Top
 item.yang3_legs.name=Yang's Comfy Pants
 item.yang4_chest.name=Yang's Top
 item.yang4_legs.name=Yang's Shorts
+item.ironwood1_chest.name=Ironwood's Coat
+item.ironwood1_legs.name=Ironwood's Pants
+item.ironwood2_chest.name=Ironwood's Torn Coat
+item.ironwood2_legs.name=Ironwood's Torn Pants
+item.mercury1_chest.name=Mercury's Shirt
+item.mercury1_legs.name=Mercury's Pants
+item.mercury2_chest.name=Mercury's Shirt
+item.mercury2_legs.name=Mercury's Legs
+item.ozpin_chest.name=Ozpin's Suit
+item.ozpin_legs.name=Ozpin's Suit Pants
 item.rwbym:bourbon.name=Bourbon
 item.rwbym:brandy.name=Brandy
 item.rwbym:vodka.name=Vodka
 item.rwbym:wine.name=Wine
+item.rwbym:fishramen.name=Fishy Bowl of Noodles
+item.rwbym:ramen.name=Bowl of Noodles
+item.rwbym:ironwood.name=Ironwood's Revolver
 
 
 effect.aura_regen=Aura Regen

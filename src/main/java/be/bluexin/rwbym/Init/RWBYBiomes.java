@@ -1,6 +1,7 @@
 package be.bluexin.rwbym.Init;
 
 import be.bluexin.rwbym.utility.RWBYConfig;
+import be.bluexin.rwbym.world.biome.BiomeCliffsideForest;
 import be.bluexin.rwbym.world.biome.BiomeForeverFall;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
@@ -13,9 +14,11 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 public class RWBYBiomes {
 
     public static final Biome FOREVER_FALL = new BiomeForeverFall();
+    public static final Biome CLIFF_SIDE = new BiomeCliffsideForest();
 
     public static void registerBiomes() {
         initBiome(FOREVER_FALL, "forever_fall", BiomeType.WARM, Type.FOREST);
+        initBiome(CLIFF_SIDE, "cliff_side", BiomeType.COOL, Type.FOREST);
     }
 
     private static Biome initBiome(Biome biome, String name, BiomeType biomeType, Type... types) {
