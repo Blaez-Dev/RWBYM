@@ -1377,8 +1377,8 @@ public class RWBYItems {
             72,
             0,
             null,
-            "null",
-            "rwbym:neptammo,rwbym:magnaampammo",
+            null,
+            "rwbym:gamammo,rwbym:emammmo",
             false,
             2,
             true,
@@ -1459,8 +1459,9 @@ public class RWBYItems {
     public static final Item coin_raven = new RWBYItem("coin_raven", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item coin_ragora = new RWBYItem("coin_ragora", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item rvnmask = new RWBYItem("rvnmask", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true, RWBYCreativeTabs.tab_rwbyarmour);
-    public static final Item whtefng =  new RWBYItem("whtefng", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true, RWBYCreativeTabs.tab_rwbyarmour);
-    public static final Item rubyhood = new RWBYItem("rubyhood", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true, RWBYCreativeTabs.tab_rwbyarmour);
+    public static final Item whtefng =  new RWBYItem("whtefng", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true,  RWBYCreativeTabs.tab_rwbyarmour);
+    public static final Item rubyhood = new RWBYHood("rubyhood", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true,"rwbym:ruby2_head", RWBYCreativeTabs.tab_rwbyarmour);
+    public static final Item summerhood = new RWBYHood("summerhood", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true, "rwbym:summer2_head",RWBYCreativeTabs.tab_rwbyarmour);
     public static final Item lien1 = new RWBYItem("lien1", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item lien5 = new RWBYItem("lien5", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item lien10 = new RWBYItem("lien10", null, false, RWBYCreativeTabs.tab_rwbyitems);
@@ -2302,7 +2303,8 @@ public class RWBYItems {
     public static final ItemArmor.ArmorMaterial ruby2Mat = EnumHelper.addArmorMaterial("ruby2", "rwbym:ruby2", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
     public static final ItemArmor ruby2Chest = new ArmourBase(ruby2Mat, 0, EntityEquipmentSlot.CHEST, "ruby2_chest", null, null, true, RWBYCreativeTabs.tab_rwbyarmour);
     public static final ItemArmor ruby2Legs = new ArmourBase(ruby2Mat, 0, EntityEquipmentSlot.LEGS, "ruby2_legs", null, null, true, RWBYCreativeTabs.tab_rwbyarmour);
-
+    public static final ItemArmor ruby2Head = new ArmourBase(ruby2Mat, 0, EntityEquipmentSlot.HEAD, "ruby2_head", "rwbym:rubyhood", null, true, null);
+    
     public static final ItemArmor.ArmorMaterial ruby3Mat = EnumHelper.addArmorMaterial("ruby3", "rwbym:ruby3", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
     public static final ItemArmor ruby3Chest = new ArmourBase(ruby3Mat, 0, EntityEquipmentSlot.CHEST, "ruby3_chest", null, null, true, RWBYCreativeTabs.tab_rwbyarmour);
     public static final ItemArmor ruby3Legs = new ArmourBase(ruby3Mat, 0, EntityEquipmentSlot.LEGS, "ruby3_legs", null, null, true, RWBYCreativeTabs.tab_rwbyarmour);
@@ -2362,7 +2364,17 @@ public class RWBYItems {
     public static final ItemArmor.ArmorMaterial ozpinMat = EnumHelper.addArmorMaterial("ozpin", "rwbym:ozpin", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
     public static final ItemArmor ozpinChest = new ArmourBase(ozpinMat, 0, EntityEquipmentSlot.CHEST, "ozpin_chest", null, null, true, RWBYCreativeTabs.tab_rwbyarmour);
     public static final ItemArmor ozpinLegs = new ArmourBase(ozpinMat, 0, EntityEquipmentSlot.LEGS, "ozpin_legs", null, null, true, RWBYCreativeTabs.tab_rwbyarmour);
-    
+
+    public static final ItemArmor.ArmorMaterial summer1Mat = EnumHelper.addArmorMaterial("summer1", "rwbym:summer1", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
+    public static final ItemArmor summer1Chest = new ArmourBase(summer1Mat, 0, EntityEquipmentSlot.CHEST, "summer1_chest", null, null, true, RWBYCreativeTabs.tab_rwbyarmour);
+    public static final ItemArmor summer1Legs = new ArmourBase(summer1Mat, 0, EntityEquipmentSlot.LEGS, "summer1_legs", null, null, true, RWBYCreativeTabs.tab_rwbyarmour);
+
+    public static final ItemArmor.ArmorMaterial summer2Mat = EnumHelper.addArmorMaterial("summer2", "rwbym:summer2", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
+    public static final ItemArmor summer2Chest = new ArmourBase(summer2Mat, 0, EntityEquipmentSlot.CHEST, "summer2_chest", null, null, true, RWBYCreativeTabs.tab_rwbyarmour);
+    public static final ItemArmor summer2Legs = new ArmourBase(summer2Mat, 0, EntityEquipmentSlot.LEGS, "summer2_legs", null, null, true, RWBYCreativeTabs.tab_rwbyarmour);
+    public static final ItemArmor summer2Head = new ArmourBase(summer2Mat, 0, EntityEquipmentSlot.HEAD, "summer2_head", "rwbym:summerhood", null, true, null);
+
+
     public static final ItemArmor korekosmouoff;
     public static final ItemArmor korekosmoufire;
     public static final ItemArmor korekosmouwater;
@@ -2397,10 +2409,10 @@ public class RWBYItems {
 */
 
     static {
-        korekosmouOffMat = EnumHelper.addArmorMaterial("Kore Kosmou", "rwbym:korekosmou", 40, new int[]{0, 4, 4, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 2.0F);
-        korekosmouFireMat = EnumHelper.addArmorMaterial("Kore Kosmou Fire", "rwbym:korekosmoufire", 40, new int[]{0, 4, 4, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 2.0F);
-        korekosmouWaterMat = EnumHelper.addArmorMaterial("Kore Kosmou Water", "rwbym:korekosmouwater", 40, new int[]{0, 4, 4, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 2.0F);
-        korekosmouWindMat = EnumHelper.addArmorMaterial("Kore Kosmou Wind", "rwbym:korekosmouwind", 40, new int[]{0, 4, 4, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 2.0F);
+        korekosmouOffMat = EnumHelper.addArmorMaterial("Kore Kosmou", "rwbym:korekosmou", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0F);
+        korekosmouFireMat = EnumHelper.addArmorMaterial("Kore Kosmou Fire", "rwbym:korekosmoufire", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0F);
+        korekosmouWaterMat = EnumHelper.addArmorMaterial("Kore Kosmou Water", "rwbym:korekosmouwater", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0F);
+        korekosmouWindMat = EnumHelper.addArmorMaterial("Kore Kosmou Wind", "rwbym:korekosmouwind", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0F);
         korekosmouoff = new ArmourBase(korekosmouOffMat, 0, EntityEquipmentSlot.CHEST, "korekosmouoff","rwbym:korekosmoufire", null, false, RWBYCreativeTabs.tab_rwbyweapons);
         korekosmoufire = new ArmourBase(korekosmouFireMat, 0, EntityEquipmentSlot.CHEST, "korekosmoufire","rwbym:korekosmouice",null, false, null);
         korekosmouwater = new ArmourBase(korekosmouWaterMat, 0, EntityEquipmentSlot.CHEST, "korekosmouice","rwbym:korekosmouwind", null, false, null);

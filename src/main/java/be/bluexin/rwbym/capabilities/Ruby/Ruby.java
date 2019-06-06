@@ -13,6 +13,8 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
@@ -164,9 +166,14 @@ public class Ruby implements IRuby {
 				for (int i = 0; i < (this.selectedLevel > 1 ? 32 : 2); i++) {
 					ItemStack is = player.getHeldItemMainhand();
 					ItemStack is2 = player.getHeldItemOffhand();
+					ItemStack is3 = player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
+					ItemStack is4 = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
+					ItemStack is5 = player.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
 					if(is.getItem() == RWBYItems.crescentfrost){
 						RWBYModels.proxy.generateSummerpetals(player);
 					}else if(is.getItem() == RWBYItems.crescentgunfrost){
+						RWBYModels.proxy.generateSummerpetals(player);
+					}else if(is4.getItem() == RWBYItems.summer1Chest && is5.getItem() == RWBYItems.summer1Legs ||  is4.getItem() == RWBYItems.summer2Chest && is5.getItem() == RWBYItems.summer2Legs && is3.getItem() == RWBYItems.summer2Head || is3.getItem() == RWBYItems.summerhood){
 						RWBYModels.proxy.generateSummerpetals(player);
 					}else if(is2.getItem() == RWBYItems.crescentfrost){
 						RWBYModels.proxy.generateSummerpetals(player);

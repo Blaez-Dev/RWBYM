@@ -389,6 +389,13 @@ public class RegUtil {
         registerItems(event, RWBYItems.mercury2Legs);
         registerItems(event, RWBYItems.ozpinChest);
         registerItems(event, RWBYItems.ozpinLegs);
+        registerItems(event, RWBYItems.summer1Chest);
+        registerItems(event, RWBYItems.summer1Legs);
+        registerItems(event, RWBYItems.summer2Head);
+        registerItems(event, RWBYItems.summerhood);
+        registerItems(event, RWBYItems.summer2Chest);
+        registerItems(event, RWBYItems.summer2Legs);
+        registerItems(event, RWBYItems.ruby2Head);
     }
     private static void registerBlocks(FMLPreInitializationEvent event, Block...blocks) {
         for (Block block : blocks) {//New instance of a block for every block passed through
