@@ -1,0 +1,18 @@
+{
+
+          "type": "minecraft:crafting_shaped",
+          "pattern": [
+            "rrs",
+            "rrc",
+            "rr "
+          ],
+          "key": {
+            "c": {"item": "rwbym:shadowiron"},
+			"r": {"item": "rwbym:gamammo"},
+			"s": {"item":"rwbym:firedust"}
+          },
+		  "result": {
+			  "item": "rwbym:splfire",
+			  "count": 1
+		  }
+    }

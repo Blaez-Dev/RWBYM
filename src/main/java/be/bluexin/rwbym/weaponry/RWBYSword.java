@@ -54,6 +54,8 @@ public class RWBYSword extends ItemSword implements ICustomItem {
     private boolean kkfire = false;
     private boolean kkice = false;
     private boolean kkwind = false;
+    private boolean ohblade = false;
+    private float damages = 0;
     public static boolean runhideevent = false;
     private int timer;
     private boolean magna = false;
@@ -73,6 +75,10 @@ public class RWBYSword extends ItemSword implements ICustomItem {
         if(name.contains("neoumb_closed")) neo = true;
         if(name.contains("neoumb_closed_blade")) neo = true;
         if(name.contains("neoumb_handle_blade")) neo = true;
+        if(name.contains("gambol")) {
+            ohblade = true;
+            this.damages = damage;
+        }
 
         this.morph = morph;
         this.fire = fire;
@@ -197,6 +203,23 @@ public class RWBYSword extends ItemSword implements ICustomItem {
 
 
     @Override
+    public void onPlayerStoppedUsing(ItemStack stack, World worldIn, EntityLivingBase entityLiving, int timeLeft) {
+        super.onPlayerStoppedUsing(stack, worldIn, entityLiving, timeLeft);
+        if(ohblade && entityLiving.getHeldItemOffhand() == stack){
+        for (EntityLivingBase entitylivingbase : entityLiving.world.getEntitiesWithinAABB(EntityLivingBase.class, entityLiving.getEntityBoundingBox().grow(1.5D, 0.25D, 1.5D))) {
+            if (entitylivingbase != entityLiving && !entityLiving.isOnSameTeam(entitylivingbase) && entityLiving.getDistanceSq(entitylivingbase) < 9.0D) {
+                entitylivingbase.knockBack(entityLiving, 0.4F, (double) MathHelper.sin(entityLiving.rotationYaw * 0.017453292F), (double) (-MathHelper.cos(entityLiving.rotationYaw * 0.017453292F)));
+                entitylivingbase.attackEntityFrom(DamageSource.GENERIC, damages+4 );
+                stack.damageItem(1, entityLiving);
+                entityLiving.world.playSound((EntityPlayer) null, entityLiving.posX, entityLiving.posY, entityLiving.posZ, SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, entityLiving.getSoundCategory(), 1.0F, 1.0F);
+            }
+        }
+
+
+        }
+    }
+
+    @Override
     public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
         return false;
     }
@@ -208,7 +231,7 @@ public class RWBYSword extends ItemSword implements ICustomItem {
 
     @Override
     public int getMaxItemUseDuration(ItemStack stack) {
-        return this.isShield ? 72000 : this.canBlock ? 72000 : 0;
+        return  this.isShield ? 72000 : this.canBlock ? 72000: 0;
     }
 
     @Override

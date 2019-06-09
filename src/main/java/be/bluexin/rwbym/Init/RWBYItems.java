@@ -93,7 +93,7 @@ public class RWBYItems {
             0,
             null,
             "rwbym:gambolgun",
-            false,
+            true,
             false,
             false,
             false,
@@ -159,7 +159,7 @@ public class RWBYItems {
             null,
             "rwbym:qrow",
             false,
-            false,
+            true,
             false,
             false,
             0,
@@ -799,7 +799,7 @@ public class RWBYItems {
             0,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:14,Operation:0,UUIDMost:99791,UUIDLeast:128916}]}",
             "rwbym:reese",
-            "rwbym:gamammo,rwbym:emammmo",
+            "rwbym:spl,rwbym:splfire,rwbym:splgrav,rwbym:splice,rwbym:spllight",
             false,
             1,
             true,
@@ -832,6 +832,20 @@ public class RWBYItems {
             false,
             0,
             null);
+
+    public static final Item lysettesword = new RWBYSword(
+            "lysettesword",
+            2500,
+            0,
+            0,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:14,Operation:0,UUIDMost:99791,UUIDLeast:128916}]}",
+            null,
+            true,
+            false,
+            false,
+            false,
+            0,
+            RWBYCreativeTabs.tab_rwbyweapons);
 
 
 
@@ -1103,7 +1117,7 @@ public class RWBYItems {
             0,
             null,
             "rwbym:emeraldblade",
-            "rwbym:gamammo,rwbym:emammmo",
+            "rwbym:spl,rwbym:splfire,rwbym:splgrav,rwbym:splice,rwbym:spllight",
             false,
             1,
             true,
@@ -1117,7 +1131,7 @@ public class RWBYItems {
             0,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:14,Operation:0,UUIDMost:99791,UUIDLeast:128916}]}",
             "rwbym:emeraldgun",
-            "rwbym:gamammo,rwbym:emammmo",
+            "rwbym:spl,rwbym:splfire,rwbym:splgrav,rwbym:splice,rwbym:spllight",
             false,
             1,
             true,
@@ -1266,7 +1280,7 @@ public class RWBYItems {
             0,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:14,Operation:0,UUIDMost:99791,UUIDLeast:128916}]}",
             null,
-            "rwbym:gamammo,rwbym:emammmo",
+            "rwbym:spl,rwbym:splfire,rwbym:splgrav,rwbym:splice,rwbym:spllight",
             false,
             1,
             false,
@@ -1378,16 +1392,32 @@ public class RWBYItems {
             0,
             null,
             null,
-            "rwbym:gamammo,rwbym:emammmo",
+            "rwbym:spl,rwbym:splfire,rwbym:splgrav,rwbym:splice,rwbym:spllight",
             false,
             2,
             true,
             0,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
+    public static final Item goodwitch = new RWBYBow(
+            "goodwitch",
+            2500,
+            72,
+            0,
+            "{ench:[{id:19,lvl:5}],AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:16,Operation:0,UUIDMost:99791,UUIDLeast:128916}]}",
+            null,
+            "rwbym:firedust,rwbym:lightdust",
+            false,
+            1,
+            true,
+            0,
+            0,
+            RWBYCreativeTabs.tab_rwbyweapons);
+
 
     //------------------------------------------------//
     public static final Item ammo = new RWBYItem("ammo", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item gamammo = new RWBYItem("gamammo", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item magngrenade = new RWBYItem("magngrenade", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item emshell = new RWBYItem("emshell", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item emflareshell = new RWBYItem("emflareshell", null, false, RWBYCreativeTabs.tab_rwbyitems);
@@ -1458,10 +1488,10 @@ public class RWBYItems {
     public static final Item coinqrow = new RWBYItem("coinqrow", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item coin_raven = new RWBYItem("coin_raven", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item coin_ragora = new RWBYItem("coin_ragora", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static final Item rvnmask = new RWBYItem("rvnmask", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true, RWBYCreativeTabs.tab_rwbyarmour);
-    public static final Item whtefng =  new RWBYItem("whtefng", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true,  RWBYCreativeTabs.tab_rwbyarmour);
+    public static final Item rvnmask = new RWBYHood("rvnmask", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true, null, RWBYCreativeTabs.tab_rwbyarmour);
+    public static final Item whtefng =  new RWBYHood("whtefng", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true, null, RWBYCreativeTabs.tab_rwbyarmour);
     public static final Item rubyhood = new RWBYHood("rubyhood", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true,"rwbym:ruby2_head", RWBYCreativeTabs.tab_rwbyarmour);
-    public static final Item summerhood = new RWBYHood("summerhood", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true, "rwbym:summer2_head",RWBYCreativeTabs.tab_rwbyarmour);
+    public static final Item summerhood = new RWBYHood("summerhood", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:10,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true, "rwbym:summer2_head",RWBYCreativeTabs.tab_rwbyarmour);
     public static final Item lien1 = new RWBYItem("lien1", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item lien5 = new RWBYItem("lien5", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item lien10 = new RWBYItem("lien10", null, false, RWBYCreativeTabs.tab_rwbyitems);
@@ -1543,10 +1573,10 @@ public class RWBYItems {
     public static final Item entityrocket = new RWBYItem("entityrocket", null, false, null);
 
             //------------------------------------------------//
-    public static final Item gamammo = new RWBYAmmoItem(
-            "gamammo",
+    public static final Item spl = new RWBYAmmoItem(
+            "spl",
             RWBYItems.entitysmallbullet,
-            64,
+            1,
             false,
             RWBYAmmoItem.SurviveOnHit.NONE,
             "textures/entity/projectiles/tipped_arrow.png",
@@ -1554,10 +1584,70 @@ public class RWBYItems {
             false,
             null,
             null,
-            1,
-            4,
+            32,
+            8,
             RWBYCreativeTabs.tab_rwbyitems,
             null);
+    public static final Item splfire = new RWBYAmmoItem(
+            "splfire",
+            RWBYItems.entitysmallbullet,
+            1,
+            false,
+            RWBYAmmoItem.SurviveOnHit.NONE,
+            "textures/entity/projectiles/tipped_arrow.png",
+            true,
+            false,
+            "",
+            null,
+            32,
+            8,
+            RWBYCreativeTabs.tab_rwbyitems,
+            new FireAmmoHit(10));
+    public static final Item splice = new RWBYAmmoItem(
+            "splice",
+            RWBYItems.entitysmallbullet,
+            1,
+            false,
+            RWBYAmmoItem.SurviveOnHit.NONE,
+            "textures/entity/projectiles/tipped_arrow.png",
+            true,
+            false,
+            null,
+            ImmutableList.of(new PotionEffect(Potion.getPotionFromResourceLocation("minecraft:slowness"), 100, 5)),
+            32,
+            8,
+            RWBYCreativeTabs.tab_rwbyitems,
+            null);
+    public static final Item splgrav = new RWBYAmmoItem(
+            "splgrav",
+            RWBYItems.entitysmallbullet,
+            1,
+            false,
+            RWBYAmmoItem.SurviveOnHit.NONE,
+            "textures/entity/projectiles/tipped_arrow.png",
+            true,
+            false,
+            null,
+            ImmutableList.of(new PotionEffect(Potion.getPotionFromResourceLocation("minecraft:levitation"), 100, 2)),
+            32,
+            8,
+            RWBYCreativeTabs.tab_rwbyitems,
+            null);
+    public static final Item spllight = new RWBYAmmoItem(
+            "spllight",
+            RWBYItems.entitysmallbullet,
+            1,
+            false,
+            RWBYAmmoItem.SurviveOnHit.NONE,
+            "textures/entity/projectiles/tipped_arrow.png",
+            true,
+            false,
+            "",
+            null,
+            32,
+            8,
+            RWBYCreativeTabs.tab_rwbyitems,
+            new ExplosionAmmoHit(0));
     public static final Item gammag = new RWBYAmmoItem(
             "gammag",
             RWBYItems.entitysmallbullet,
@@ -1570,7 +1660,7 @@ public class RWBYItems {
             null,
             null,
             32,
-            4,
+            6,
             RWBYCreativeTabs.tab_rwbyitems,
             null);
     public static final Item gamfiremag = new RWBYAmmoItem(
@@ -1585,7 +1675,7 @@ public class RWBYItems {
             "",
             null,
             32,
-            4,
+            6,
             RWBYCreativeTabs.tab_rwbyitems,
             new FireAmmoHit(10));
     public static final Item gamicemag = new RWBYAmmoItem(
@@ -1600,7 +1690,7 @@ public class RWBYItems {
             null,
             ImmutableList.of(new PotionEffect(Potion.getPotionFromResourceLocation("minecraft:slowness"), 100, 5)),
             32,
-            4,
+            6,
             RWBYCreativeTabs.tab_rwbyitems,
             null);
     public static final Item gamgravmag = new RWBYAmmoItem(
@@ -1615,7 +1705,7 @@ public class RWBYItems {
             null,
             ImmutableList.of(new PotionEffect(Potion.getPotionFromResourceLocation("minecraft:levitation"), 100, 2)),
             32,
-            4,
+            6,
             RWBYCreativeTabs.tab_rwbyitems,
             null);
     public static final Item emammo = new RWBYAmmoItem(
@@ -2090,7 +2180,7 @@ public class RWBYItems {
             RWBYCreativeTabs.tab_rwbyitems,
             5F,
             15F,
-            "null",
+            "pickaxe",
             1);
     public static final Block fireblock = new RWBYNotFullBlock(
             "fireblock",
@@ -2373,6 +2463,12 @@ public class RWBYItems {
     public static final ItemArmor summer2Chest = new ArmourBase(summer2Mat, 0, EntityEquipmentSlot.CHEST, "summer2_chest", null, null, true, RWBYCreativeTabs.tab_rwbyarmour);
     public static final ItemArmor summer2Legs = new ArmourBase(summer2Mat, 0, EntityEquipmentSlot.LEGS, "summer2_legs", null, null, true, RWBYCreativeTabs.tab_rwbyarmour);
     public static final ItemArmor summer2Head = new ArmourBase(summer2Mat, 0, EntityEquipmentSlot.HEAD, "summer2_head", "rwbym:summerhood", null, true, null);
+
+
+    public static final ItemArmor.ArmorMaterial neptuneMat = EnumHelper.addArmorMaterial("neptune", "rwbym:neptune", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
+    public static final ItemArmor neptuneChest = new ArmourBase(neptuneMat, 0, EntityEquipmentSlot.CHEST, "neptune_chest", null, null, true, RWBYCreativeTabs.tab_rwbyarmour);
+    public static final ItemArmor neptuneLegs = new ArmourBase(neptuneMat, 0, EntityEquipmentSlot.LEGS, "neptune_legs", null, null, true, RWBYCreativeTabs.tab_rwbyarmour);
+    public static final ItemArmor neptuneHead = new ArmourBase(neptuneMat, 0, EntityEquipmentSlot.HEAD, "neptune_head", null, null, true, RWBYCreativeTabs.tab_rwbyarmour);
 
 
     public static final ItemArmor korekosmouoff;

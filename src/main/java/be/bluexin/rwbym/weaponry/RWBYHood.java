@@ -1,6 +1,7 @@
 package be.bluexin.rwbym.weaponry;
 
 import be.bluexin.rwbym.Init.RWBYCreativeTabs;
+import be.bluexin.rwbym.Init.RWBYItems;
 import be.bluexin.rwbym.RWBYModels;
 import be.bluexin.rwbym.capabilities.Blake.Blake;
 import be.bluexin.rwbym.capabilities.Blake.BlakeProvider;
@@ -24,6 +25,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.JsonToNBT;
@@ -62,12 +64,17 @@ public class RWBYHood extends Item implements ICustomItem {
         this.ismask = isMask;
         this.morph = morph;
         this.data = data;
+        this.setMaxDamage(2500);
+        if(name.contains("summer")){
+
+        }
         if(this.ismask){
             maxStackSize = 1;
         }
         this.setCreativeTab(creativetab);
 
     }
+
 
     /*@Override
     public void registerRecipes() {
@@ -86,6 +93,7 @@ public class RWBYHood extends Item implements ICustomItem {
             return false;}
     }
 
+
     //@SuppressWarnings("Duplicates")
     @Override
     public void onUpdate(ItemStack is, World world, Entity entity, int slotIn, boolean inHand) {
@@ -99,7 +107,7 @@ public class RWBYHood extends Item implements ICustomItem {
                 atag.setBoolean(KEY, true);
                 try {
                     is.setTagCompound(JsonToNBT.getTagFromJson(this.data));
-                    //is.getTagCompound().merge(atag);
+                    is.getTagCompound().merge(atag);
                 } catch (NBTException nbtexception) {
                     LogManager.getLogger(RWBYModels.MODID).error("Couldn't load data tag for " + this.getRegistryName());
                 }
@@ -131,9 +139,10 @@ public class RWBYHood extends Item implements ICustomItem {
     }
 
 
+
     @Override
     public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
-        return false;
+        return true;
     }
 
     public int getItemEnchantability()
@@ -156,5 +165,15 @@ public class RWBYHood extends Item implements ICustomItem {
     @Override
     public String toString() {
         return "RWBYItem{" + this.getRegistryName() + "}";
+    }
+
+    @Override
+    public boolean isRepairable() {
+        return true;
+    }
+
+    @Override
+    public boolean getIsRepairable(ItemStack toRepair, ItemStack repair) {
+        return repair.getItem() == RWBYItems.scrap || super.getIsRepairable(toRepair, repair);
     }
 }

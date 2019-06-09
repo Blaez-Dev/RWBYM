@@ -357,6 +357,9 @@ item.summer1_legs.name=Summer's Skirt
 item.summer2_head.name=Summer's Hood
 item.summer2_chest.name=Summer's Cloaked Blouse
 item.summer2_legs.name=Summer's Cloaked Skirt
+item.neptune_head.name=Neptune's Goggles
+item.neptune_chest.name=Neptune's Top
+item.neptune_legs.name=Neptune's Pants
 item.ruby2_head.name=Ruby's Hood
 item.rwbym:summerhood.name=Summer's Hood
 item.rwbym:bourbon.name=Bourbon
@@ -366,6 +369,13 @@ item.rwbym:wine.name=Wine
 item.rwbym:fishramen.name=Fishy Bowl of Noodles
 item.rwbym:ramen.name=Bowl of Noodles
 item.rwbym:ironwood.name=Ironwood's Revolver
+item.rwbym:spl.name=Speed Loader
+item.rwbym:splfire.name=Speed Loader
+item.rwbym:splgrav.name=Speed Loader
+item.rwbym:splice.name=Speed Loader
+item.rwbym:spllight.name=Speed Loader
+item.rwbym:lysettesword.name=Lysette's Sword
+item.rwbym:goodwitch.name=Glynda's Crop
 
 
 effect.aura_regen=Aura Regen

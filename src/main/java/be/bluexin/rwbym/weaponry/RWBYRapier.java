@@ -17,6 +17,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.*;
 import net.minecraft.item.*;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.nbt.JsonToNBT;
 import net.minecraft.nbt.NBTException;
 import net.minecraft.nbt.NBTTagCompound;
@@ -28,6 +29,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.EnumHelper;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.logging.log4j.LogManager;
@@ -100,6 +104,7 @@ public class RWBYRapier extends ItemBow implements ICustomItem{
         if(name.contains("scarlet")) scarlet = true;
         if(name.contains("pyrrharifle")) port = true;
         if(name.contains("winter")) canBlock = true;
+        if(name.contains("scarlet")) port = true;
         this.isShield = shield;
 
         if (this.isShield) this.addPropertyOverride(new ResourceLocation("offhand"), new IItemPropertyGetter() {
@@ -229,6 +234,8 @@ public class RWBYRapier extends ItemBow implements ICustomItem{
             }}
     }
 
+
+
     @Override
     public EnumAction getItemUseAction(ItemStack stack) {
         if(stack.getItem() == RWBYItems.chatareusgun){
@@ -283,6 +290,7 @@ public class RWBYRapier extends ItemBow implements ICustomItem{
     {
         return 0;
     }
+
 
     @Override
     public void onPlayerStoppedUsing(ItemStack stack, World worldIn, EntityLivingBase entityLiving, int timeLeft) { // Mostly copied from ItemBow, with slight edits

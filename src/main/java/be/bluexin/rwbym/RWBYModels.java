@@ -26,6 +26,7 @@ import be.bluexin.rwbym.utility.RegUtil;
 import be.bluexin.rwbym.utility.network.RWBYNetworkHandler;
 import be.bluexin.rwbym.weaponry.ICustomItem;
 import be.bluexin.rwbym.weaponry.RWBYContainerItem;
+import be.bluexin.rwbym.weaponry.RWBYHood;
 import be.bluexin.rwbym.weaponry.RWBYSword;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainer;
@@ -165,8 +166,8 @@ public class RWBYModels {
         if (event.getSide() == Side.CLIENT) {
             OBJLoader.INSTANCE.addDomain("rwbym");
         }
-
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
+        RegUtil.registerAllRecipes(event);
         proxy.registerRenderers(this);
         RWBYSoundHandler.init();
     }
@@ -219,6 +220,19 @@ public class RWBYModels {
 	    	
 	    	throw new IllegalArgumentException("No GUI with ID: " + id);        
     	}
+    }
+
+
+    @SubscribeEvent
+    public void onEntityAttacked(LivingAttackEvent event) {
+        EntityLivingBase base = event.getEntityLiving();
+        ItemStack stack = base.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
+        if (stack != null && stack.getItem() instanceof RWBYHood) {
+            RWBYHood Hood = (RWBYHood) stack.getItem();
+            int damage = (int) event.getAmount();
+            if(damage > 2){
+            stack.damageItem(damage/2, base);}
+        }
     }
 
 

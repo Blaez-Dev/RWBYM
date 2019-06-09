@@ -46,9 +46,12 @@ public class ArmourBase extends ItemArmor {
         super(materialIn, renderIndexIn, equipmentSlotIn);
         this.setMaxDamage(2500);
         this.morph = morph;
-        if(this.getEquipmentSlot() == EntityEquipmentSlot.CHEST){this.data = "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"chest\",Amount:10,Operation:0,UUIDMost:11326,UUIDLeast:127298},{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"chest\",Amount:5,Operation:0,UUIDMost:68780,UUIDLeast:119491}]}";}
-        else if(this.getEquipmentSlot() == EntityEquipmentSlot.HEAD){this.data = "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"head\",Amount:6,Operation:0,UUIDMost:69171,UUIDLeast:104277}]}";}
-        else if(this.getEquipmentSlot() == EntityEquipmentSlot.LEGS){this.data = " {AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"legs\",Amount:10,Operation:0,UUIDMost:96062,UUIDLeast:166413},{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"legs\",Amount:5,Operation:0,UUIDMost:42612,UUIDLeast:167904}]}";}
+        if(this.getEquipmentSlot() == EntityEquipmentSlot.CHEST && !name.contains("summer")){this.data = "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"chest\",Amount:10,Operation:0,UUIDMost:11326,UUIDLeast:127298},{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"chest\",Amount:5,Operation:0,UUIDMost:68780,UUIDLeast:119491}]}";}
+        else if(this.getEquipmentSlot() == EntityEquipmentSlot.HEAD && !name.contains("summer")){this.data = "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"head\",Amount:6,Operation:0,UUIDMost:69171,UUIDLeast:104277}]}";}
+        else if(this.getEquipmentSlot() == EntityEquipmentSlot.LEGS && !name.contains("summer")){this.data = " {AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"legs\",Amount:10,Operation:0,UUIDMost:96062,UUIDLeast:166413},{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"legs\",Amount:5,Operation:0,UUIDMost:42612,UUIDLeast:167904}]}";}
+        else if(this.getEquipmentSlot() == EntityEquipmentSlot.CHEST && name.contains("summer")){this.data = "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"chest\",Amount:14,Operation:0,UUIDMost:11326,UUIDLeast:127298},{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"chest\",Amount:5,Operation:0,UUIDMost:68780,UUIDLeast:119491}]}";}
+        else if(this.getEquipmentSlot() == EntityEquipmentSlot.HEAD && name.contains("summer")){this.data = "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"head\",Amount:10,Operation:0,UUIDMost:69171,UUIDLeast:104277}]}"; }
+        else if(this.getEquipmentSlot() == EntityEquipmentSlot.LEGS && name.contains("summer")){this.data = " {AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"legs\",Amount:14,Operation:0,UUIDMost:96062,UUIDLeast:166413},{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"legs\",Amount:5,Operation:0,UUIDMost:42612,UUIDLeast:167904}]}";}
         else {this.data = data;}
         if (name.contains("korekosmoufire")) fire = true;
         if (name.contains("korekosmouice")) ice = true;
@@ -163,6 +166,11 @@ public class ArmourBase extends ItemArmor {
                 playerIn.inventory.setInventorySlotContents(playerIn.inventory.currentItem, morph1);
             }}
         return super.onItemRightClick(worldIn, playerIn, hand);
+    }
+
+    @Override
+    public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
+        return true;
     }
 
     @Override
