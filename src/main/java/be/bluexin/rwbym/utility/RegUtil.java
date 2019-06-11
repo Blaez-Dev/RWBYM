@@ -69,6 +69,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.ember);
         registerItems(event, RWBYItems.ember2);
         registerItems(event, RWBYItems.juane);
+        registerItems(event, RWBYItems.juaneshieldaxe);
         registerItems(event, RWBYItems.norahammer);
         registerItems(event, RWBYItems.pyrrhaspear);
         registerItems(event, RWBYItems.pyrrhasword);
@@ -106,6 +107,8 @@ public class RegUtil {
         registerItems(event, RWBYItems.port);
         registerItems(event, RWBYItems.portgun);
         registerItems(event, RWBYItems.goodwitch);
+        registerItems(event, RWBYItems.oobleckthermos);
+        registerItems(event, RWBYItems.oobleckflamethrower);
         registerItems(event, RWBYItems.jnrbat);
         registerItems(event, RWBYItems.jnrrocket);
         registerItems(event, RWBYItems.adamgun);

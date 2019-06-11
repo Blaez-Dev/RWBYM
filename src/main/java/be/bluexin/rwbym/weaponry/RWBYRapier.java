@@ -26,6 +26,7 @@ import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.EnumHelper;
@@ -84,7 +85,8 @@ public class RWBYRapier extends ItemBow implements ICustomItem{
     boolean compensate;
     float lastDamage;
     private boolean emerald2 = false;
-
+    private boolean ohblade = true;
+    private float damages = 0;
 
     public RWBYRapier(String name, int durability, int drawSpeed, int enchantability, String data, String morph, String ammo, boolean noCharge, float projectileSpeed, boolean shield, int recoilType, int enchantmentglow, CreativeTabs creativetab) {
         this.setRegistryName(new ResourceLocation(RWBYModels.MODID, name));
@@ -106,6 +108,11 @@ public class RWBYRapier extends ItemBow implements ICustomItem{
         if(name.contains("winter")) canBlock = true;
         if(name.contains("scarlet")) port = true;
         this.isShield = shield;
+
+        if(name.contains("gambol")) {
+            ohblade = true;
+            this.damages = 14;
+        }
 
         if (this.isShield) this.addPropertyOverride(new ResourceLocation("offhand"), new IItemPropertyGetter() {
             @SideOnly(Side.CLIENT)
@@ -312,6 +319,20 @@ public class RWBYRapier extends ItemBow implements ICustomItem{
             }
 
 
+            if(ohblade && entityplayer.getActiveHand() == EnumHand.OFF_HAND){
+            if(ohblade && entityLiving.getHeldItemOffhand() == stack) {
+                for (EntityLivingBase entitylivingbase : entityLiving.world.getEntitiesWithinAABB(EntityLivingBase.class, entityLiving.getEntityBoundingBox().grow(1.5D, 0.25D, 1.5D))) {
+                    if (entitylivingbase != entityLiving && !entityLiving.isOnSameTeam(entitylivingbase) && entityLiving.getDistanceSq(entitylivingbase) < 9.0D) {
+                        entitylivingbase.knockBack(entityLiving, 0.4F, (double) MathHelper.sin(entityLiving.rotationYaw * 0.017453292F), (double) (-MathHelper.cos(entityLiving.rotationYaw * 0.017453292F)));
+                        entitylivingbase.attackEntityFrom(DamageSource.GENERIC, damages + 4);
+                        stack.damageItem(1, entityLiving);
+                        entityLiving.world.playSound((EntityPlayer) null, entityLiving.posX, entityLiving.posY, entityLiving.posZ, SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, entityLiving.getSoundCategory(), 1.0F, 1.0F);
+                    }
+                }
+                flag2 = false;
+            }}
+
+
             int i = this.getMaxItemUseDuration(stack) - timeLeft;
             i = net.minecraftforge.event.ForgeEventFactory.onArrowLoose(stack, worldIn, (EntityPlayer) entityLiving, i, itemstack != null);
             if (i < 0) return;
@@ -387,7 +408,7 @@ public class RWBYRapier extends ItemBow implements ICustomItem{
         if(target.getTotalArmorValue() == 0){
         unarm = true; }
 
-        if(!unarm){
+        if(!unarm && !ohblade){
             target.attackEntityFrom(DamageSource.GENERIC, 35);
         }
 

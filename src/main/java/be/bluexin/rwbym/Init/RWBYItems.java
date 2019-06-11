@@ -106,7 +106,7 @@ public class RWBYItems {
             0,
             null,
             "rwbym:rvnswdele",
-            false,
+            true,
             false,
             true,
             false,
@@ -119,7 +119,7 @@ public class RWBYItems {
             0,
             "{AttributeModifiers:[{AttributeName:\"generic.movementSpeed\",Name:\"generic.movementSpeed\",Amount:0.2,Operation:0,UUIDLeast:763623,UUIDMost:811709,Slot:\"mainhand\"},{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:9,Operation:0,UUIDMost:99791,UUIDLeast:128916}]}",
             "rwbym:rvnswdice",
-            false,
+            true,
             false,
             false,
             false,
@@ -132,7 +132,7 @@ public class RWBYItems {
             0,
             null,
             "rwbym:rvnswd",
-            false,
+            true,
             false,
             false,
             true,
@@ -169,13 +169,25 @@ public class RWBYItems {
             10,
             0,
             null,
-            null,
+            "rwbym:juaneshieldaxe",
             true,
             false,
             false,
             false,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
+    public static final Item juaneshieldaxe = new RWBYSword("juaneshieldaxe",
+            2500,
+            10,
+            0,
+            null,
+            "rwbym:juane",
+            false,
+            true,
+            false,
+            false,
+            0,
+            null);
     public static final Item norahammer = new RWBYSword(
             "norahammer",
             2500,
@@ -228,6 +240,19 @@ public class RWBYItems {
             false,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
+    public static final Item oobleckthermos = new RWBYSword(
+            "oobleckthermos",
+            2500,
+            -4,
+            0,
+            null,
+            "rwbym:oobleckflamethrower",
+            false,
+            false,
+            false,
+            false,
+            0,
+            RWBYCreativeTabs.tab_rwbyweapons);
     public static final Item crescentv = new RWBYCRScythe(
             "crescentv",
             1250,
@@ -262,7 +287,7 @@ public class RWBYItems {
             0,
             "{ench:[{id:51,lvl:1}],HideFlags:3}",
             "rwbym:gambolgunv",
-            false,
+            true,
             false,
             false,
             false,
@@ -937,7 +962,7 @@ public class RWBYItems {
             2,
             0,
             null);
-    public static final Item gambolgun = new RWBYBow(
+    public static final Item gambolgun = new RWBYRapier(
             "gambolgun",
             2500,
             72,
@@ -951,7 +976,7 @@ public class RWBYItems {
             0,
             0,
             null);
-    public static final Item gambolgunv = new RWBYBow(
+    public static final Item gambolgunv = new RWBYRapier(
             "gambolgunv",
             1250,
             72,
@@ -1413,7 +1438,20 @@ public class RWBYItems {
             0,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-
+    public static final Item oobleckflamethrower = new RWBYBow(
+            "oobleckflamethrower",
+            2500,
+            72,
+            0,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:13,Operation:0,UUIDMost:99791,UUIDLeast:128916}]}",
+            "rwbym:oobleckthermos",
+            "rwbym:firedust,rwbym:firedust2",
+            true,
+            1,
+            true,
+            0,
+            0,
+            null);
 
     //------------------------------------------------//
     public static final Item ammo = new RWBYItem("ammo", null, false, RWBYCreativeTabs.tab_rwbyitems);

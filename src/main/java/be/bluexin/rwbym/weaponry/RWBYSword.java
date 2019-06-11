@@ -75,7 +75,7 @@ public class RWBYSword extends ItemSword implements ICustomItem {
         if(name.contains("neoumb_closed")) neo = true;
         if(name.contains("neoumb_closed_blade")) neo = true;
         if(name.contains("neoumb_handle_blade")) neo = true;
-        if(name.contains("gambol")) {
+        if(name.contains("gambol")|| name.contains("rvn")) {
             ohblade = true;
             this.damages = damage;
         }

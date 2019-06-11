@@ -1638,6 +1638,13 @@
 			"type": "cube"
 		}
 	],
+	"overrides": [
+		{
+			"predicate": {
+				"offhand": 1
+			},
+			"model": "rwbym:item/rvnsheath"
+		}],
 	"display": {
 		"thirdperson_righthand": {
 			"rotation": [0, 0, 0],

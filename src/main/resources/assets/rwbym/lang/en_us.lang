@@ -376,6 +376,9 @@ item.rwbym:splice.name=Speed Loader
 item.rwbym:spllight.name=Speed Loader
 item.rwbym:lysettesword.name=Lysette's Sword
 item.rwbym:goodwitch.name=Glynda's Crop
+item.rwbym:juaneshieldaxe.name=Crocea Mors
+item.rwbym:oobleckthermos.name=Oobleck's Thermos
+item.rwbym:oobleckflamethrower.name=Oobleck's Flamethrower
 
 
 effect.aura_regen=Aura Regen
