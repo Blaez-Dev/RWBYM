@@ -7,6 +7,7 @@
 /eclipse/
 /gradle/
 /run/
+/out/
 /.project
 /CREDITS.txt
 /RWBYM-2.0_Client.launch
@@ -27,3 +28,5 @@ forge-1.12.2-14.23.5.2772-changelog.txt
 build.gradle
 build.gradle
 *.gradle
+*.info
+*.mcmeta
