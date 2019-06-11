@@ -22,6 +22,7 @@ import net.minecraft.util.*;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraftforge.client.settings.KeyBindingMap;
@@ -205,18 +206,57 @@ public class RWBYSword extends ItemSword implements ICustomItem {
     @Override
     public void onPlayerStoppedUsing(ItemStack stack, World worldIn, EntityLivingBase entityLiving, int timeLeft) {
         super.onPlayerStoppedUsing(stack, worldIn, entityLiving, timeLeft);
-        if(ohblade && entityLiving.getHeldItemOffhand() == stack){
-        for (EntityLivingBase entitylivingbase : entityLiving.world.getEntitiesWithinAABB(EntityLivingBase.class, entityLiving.getEntityBoundingBox().grow(1.5D, 0.25D, 1.5D))) {
-            if (entitylivingbase != entityLiving && !entityLiving.isOnSameTeam(entitylivingbase) && entityLiving.getDistanceSq(entitylivingbase) < 9.0D) {
-                entitylivingbase.knockBack(entityLiving, 0.4F, (double) MathHelper.sin(entityLiving.rotationYaw * 0.017453292F), (double) (-MathHelper.cos(entityLiving.rotationYaw * 0.017453292F)));
-                entitylivingbase.attackEntityFrom(DamageSource.GENERIC, damages+4 );
-                stack.damageItem(1, entityLiving);
-                entityLiving.world.playSound((EntityPlayer) null, entityLiving.posX, entityLiving.posY, entityLiving.posZ, SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, entityLiving.getSoundCategory(), 1.0F, 1.0F);
+        if(ohblade && entityLiving instanceof EntityPlayer && entityLiving.getHeldItemOffhand() == stack) {
+        	Entity entity = this.findEntityOnPath(worldIn, entityLiving, entityLiving.getEntityAttribute(EntityPlayer.REACH_DISTANCE).getAttributeValue());
+        	if (entity instanceof EntityLivingBase) {
+        		EntityLivingBase entitylivingbase = (EntityLivingBase) entity;
+                if (entitylivingbase != entityLiving && !entityLiving.isOnSameTeam(entitylivingbase) && entityLiving.getDistanceSq(entitylivingbase) < 9.0D) {
+                    entitylivingbase.knockBack(entityLiving, 0.4F, (double) MathHelper.sin(entityLiving.rotationYaw * 0.017453292F), (double) (-MathHelper.cos(entityLiving.rotationYaw * 0.017453292F)));
+                    entitylivingbase.attackEntityFrom(DamageSource.GENERIC, damages + 4);
+                    stack.damageItem(1, entityLiving);
+                    entityLiving.world.playSound((EntityPlayer) null, entityLiving.posX, entityLiving.posY, entityLiving.posZ, SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, entityLiving.getSoundCategory(), 1.0F, 1.0F);
+                }
+            }
+        }
+    }
+    
+    @Nullable
+    protected Entity findEntityOnPath(World world, Entity entityIn, double range)
+    {
+        Entity entity = null;
+        Vec3d start = entityIn.getPositionEyes(1);
+        Vec3d look = entityIn.getLook(1);
+        Vec3d end = start.addVector(look.x * range, look.y * range, look.z * range);
+        RayTraceResult raytraceresult1 = world.rayTraceBlocks(start, end, false, true, false);
+
+        if (raytraceresult1 != null)
+        {
+            end = new Vec3d(raytraceresult1.hitVec.x, raytraceresult1.hitVec.y, raytraceresult1.hitVec.z);
+        }
+        
+		List<Entity> list = world.getEntitiesWithinAABBExcludingEntity(entityIn, new AxisAlignedBB(start, end));
+        double d0 = 0.0D;
+
+        for (int i = 0; i < list.size(); ++i)
+        {
+            Entity entity1 = list.get(i);
+
+            AxisAlignedBB axisalignedbb = entity1.getEntityBoundingBox().grow(0.30000001192092896D);
+            RayTraceResult raytraceresult2 = axisalignedbb.calculateIntercept(start, end);
+
+            if (raytraceresult2 != null)
+            {
+                double d1 = start.squareDistanceTo(raytraceresult2.hitVec);
+
+                if (d1 < d0 || d0 == 0.0D)
+                {
+                    entity = entity1;
+                    d0 = d1;
+                }
             }
         }
 
-
-        }
+        return entity;
     }
 
     @Override
