@@ -1,0 +1,9 @@
+{
+    "type": "rwbym:smelting",
+    "ingredient": {
+        "item": "rwbym:stor2"
+    },
+    "result": "rwbym:forestiron",
+    "experience": 0.4,
+    "cookingtime": 20
+}
