@@ -404,7 +404,7 @@ public class RWBYItems {
             7200000,
             0,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:14,Operation:0,UUIDMost:99791,UUIDLeast:128916}]}",
-            "null",
+            null,
             "null",
             false,
             1,
