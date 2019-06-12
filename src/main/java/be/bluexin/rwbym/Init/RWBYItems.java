@@ -371,17 +371,18 @@ public class RWBYItems {
             false,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static final Item fox = new RWBYSword(
+    public static final Item fox = new RWBYBow(
             "fox",
             2500,
-            10,
-            15,
+            72,
+            0,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:14,Operation:0,UUIDMost:99791,UUIDLeast:128916}]}",
             null,
-            null,
-            false,
-            false,
-            false,
-            false,
+            "rwbym:gammag,rwbym:gamgravmag,rwbym:gamicemag,rwbym:gamfiremag",
+            true,
+            1,
+            true,
+            0,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
     public static final Item cocobagv = new RWBYSword(
