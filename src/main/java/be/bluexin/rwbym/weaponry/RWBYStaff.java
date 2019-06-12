@@ -163,7 +163,7 @@ public class RWBYStaff extends ItemSword implements ICustomItem {
             playerIn.addPotionEffect(potionEffect7);
         }
         }
-        if (!worldIn.isRemote && playerIn.isSneaking() && this.morph != null) {
+        if (!worldIn.isRemote && playerIn.isSneaking() && this.morph != null&& playerIn.getHeldItemMainhand() == is) {
             is = new ItemStack(Item.getByNameOrId(this.morph), is.getCount(), is.getMetadata());
             return new ActionResult<>(EnumActionResult.SUCCESS, is);
         } else if (this.isShield && hand == EnumHand.OFF_HAND) {

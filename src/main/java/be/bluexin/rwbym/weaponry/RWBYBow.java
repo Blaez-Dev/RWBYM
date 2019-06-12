@@ -247,7 +247,7 @@ public class RWBYBow extends ItemBow implements ICustomItem {
 
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         ItemStack is = playerIn.getHeldItem(handIn);
-        if (!worldIn.isRemote && playerIn.isSneaking() && this.morph != null) {
+        if (!worldIn.isRemote && playerIn.isSneaking() && this.morph != null&& playerIn.getHeldItemMainhand() == is) {
             is = new ItemStack(Item.getByNameOrId(this.morph), is.getCount(), is.getMetadata());
             return new ActionResult<>(EnumActionResult.SUCCESS, is);
         }

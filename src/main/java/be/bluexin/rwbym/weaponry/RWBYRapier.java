@@ -195,7 +195,7 @@ public class RWBYRapier extends ItemBow implements ICustomItem{
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         ItemStack is = playerIn.getHeldItem(handIn);
         boolean flag = !this.findAmmo(playerIn, false).isEmpty();
-        if (!worldIn.isRemote && playerIn.isSneaking() && this.morph != null) {
+        if (!worldIn.isRemote && playerIn.isSneaking() && this.morph != null&& playerIn.getHeldItemMainhand() == is) {
             is = new ItemStack(Item.getByNameOrId(this.morph), is.getCount(), is.getMetadata());
             return new ActionResult<>(EnumActionResult.SUCCESS, is);
         } else if (this.scarlet && handIn == EnumHand.MAIN_HAND) {
