@@ -79,6 +79,8 @@ public class RWBYConfig
     public static int ragorasummonparticles = 100;
     @Config.Comment("Dust Ore Random Effect Change")
     public static int dustoreeffect = 20;
+    @Config.Comment("Unsafe Dust Mining")
+    public static boolean unsafemining = true;
 
     @Mod.EventBusSubscriber(modid = RWBYModels.MODID)
     private static class Handler

@@ -97,14 +97,16 @@ public class RWBYBlock extends BlockBase {
         @Override
         public void onBlockDestroyedByExplosion(World worldIn, BlockPos pos, Explosion explosionIn)
         {
+                if(RWBYConfig.unsafemining){
                 if(!worldIn.isRemote){
-                        worldIn.createExplosion((Entity)null, pos.getX(), pos.getY(), pos.getZ(), 4.0F, true); }
+                        worldIn.createExplosion((Entity)null, pos.getX(), pos.getY(), pos.getZ(), 4.0F, true); }}
         }
 
 
         @Override
         public void onBlockDestroyedByPlayer(World worldIn, BlockPos pos, IBlockState state){
+                if(RWBYConfig.unsafemining){
                 if(!worldIn.isRemote){
-                if ((int) (Math.random() *  RWBYConfig.dustoreeffect) == 0) { worldIn.createExplosion((Entity)null, pos.getX(), pos.getY(), pos.getZ(), 4.0F, true); }}
+                if ((int) (Math.random() *  RWBYConfig.dustoreeffect) == 0) { worldIn.createExplosion((Entity)null, pos.getX(), pos.getY(), pos.getZ(), 4.0F, true); }}}
         }
 }
