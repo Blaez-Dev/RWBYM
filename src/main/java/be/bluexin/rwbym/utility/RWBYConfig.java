@@ -44,27 +44,27 @@ public class RWBYConfig
     @Config.Comment("Global Aggro Range in Blocks")
     public static float aggrorange = 60;
     @Config.Comment("Spawn Chance Dust Shop")
-    public static int dustshop = 275;
+    public static int dustshop = 400;
     @Config.Comment("Spawn Chance of Remote Dust shop")
-    public static int dustshop2 = 325;
+    public static int dustshop2 = 400;
     @Config.Comment("Spawn Chance Crow Bar")
-    public static int bar = 275;
+    public static int bar = 400;
     @Config.Comment("Spawn Chance Well")
-    public static int well = 300;
+    public static int well = 350;
     @Config.Comment("Spawn Chance Gravity DusT")
-    public static int gravityore = 15;
+    public static int gravityore = 4;
     @Config.Comment("Spawn Chance Fire Dust")
-    public static int fireore = 15;
+    public static int fireore = 4;
     @Config.Comment("Spawn Chance Wind Dust")
-    public static int windore = 15;
+    public static int windore = 4;
     @Config.Comment("Spawn Chance Impure Dust")
-    public static int impureore = 15;
+    public static int impureore = 8;
     @Config.Comment("Spawn Chance Water Dust")
-    public static int waterore = 15;
+    public static int waterore = 4;
     @Config.Comment("Spawn Chance Lightning Dust")
-    public static int lightore = 15;
+    public static int lightore = 4;
     @Config.Comment("Spawn Chance Ice Dust")
-    public static int iceore = 15;
+    public static int iceore = 4;
     @Config.Comment("Semblance Recharge Delay in Ticks")
     public static int delayticks = 250;
     @Config.Comment("Can Aura Block Damage?")
@@ -77,6 +77,8 @@ public class RWBYConfig
     public static float shadowballsize = 4.5F;
     @Config.Comment("Ragora Summon Particle Count")
     public static int ragorasummonparticles = 100;
+    @Config.Comment("Dust Ore Random Effect Change")
+    public static int dustoreeffect = 20;
 
     @Mod.EventBusSubscriber(modid = RWBYModels.MODID)
     private static class Handler

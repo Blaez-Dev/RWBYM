@@ -2154,7 +2154,7 @@ public class RWBYItems {
             Material.ROCK,
             RWBYCreativeTabs.tab_rwbyitems,
             5F,
-            15F,
+            0F,
             "pickaxe",
             1);
     public static final Block rwbyblock2 = new RWBYBlock(
@@ -2162,7 +2162,7 @@ public class RWBYItems {
             Material.ROCK,
             RWBYCreativeTabs.tab_rwbyitems,
             5F,
-            15F,
+            0F,
             "pickaxe",
             1);
     public static final Block rwbyblock3 = new RWBYBlock(
@@ -2170,7 +2170,7 @@ public class RWBYItems {
             Material.ROCK,
             RWBYCreativeTabs.tab_rwbyitems,
             5F,
-            15F,
+            0F,
             "pickaxe",
             1);
     public static final Block rwbyblock4 = new RWBYBlock(
@@ -2178,7 +2178,7 @@ public class RWBYItems {
             Material.ROCK,
             RWBYCreativeTabs.tab_rwbyitems,
             5F,
-            15F,
+            0F,
             "pickaxe",
             1);
     public static final Block rwbyblock5 = new RWBYBlock(
@@ -2186,7 +2186,7 @@ public class RWBYItems {
             Material.ROCK,
             RWBYCreativeTabs.tab_rwbyitems,
             5F,
-            15F,
+            0F,
             "pickaxe",
             1);
     public static final Block rwbyblock6 = new RWBYBlock(
@@ -2194,7 +2194,7 @@ public class RWBYItems {
             Material.ROCK,
             RWBYCreativeTabs.tab_rwbyitems,
             5F,
-            15F,
+            0F,
             "pickaxe",
             1);
     public static final Block rwbyblock7 = new RWBYNotFullBlock(
@@ -2218,7 +2218,7 @@ public class RWBYItems {
             Material.ROCK,
             RWBYCreativeTabs.tab_rwbyitems,
             5F,
-            15F,
+            0F,
             "pickaxe",
             1);
     public static final Block fireblock = new RWBYNotFullBlock(

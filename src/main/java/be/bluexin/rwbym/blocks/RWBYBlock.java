@@ -1,9 +1,14 @@
 package be.bluexin.rwbym.blocks;
 
 import be.bluexin.rwbym.Init.RWBYItems;
+import be.bluexin.rwbym.Init.Structure4;
+import be.bluexin.rwbym.utility.RWBYConfig;
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.item.EntityTNTPrimed;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -12,7 +17,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.WorldGenerator;
 
 import java.util.Random;
 
@@ -75,5 +82,29 @@ public class RWBYBlock extends BlockBase {
                 {
                         return this.quantityDropped(random);
                 }
+        }
+
+        @Override
+        public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos)
+        {
+                if (worldIn.isBlockPowered(pos))
+                {
+                        this.onBlockDestroyedByPlayer(worldIn, pos, state);
+                        worldIn.setBlockToAir(pos);
+                }
+        }
+
+        @Override
+        public void onBlockDestroyedByExplosion(World worldIn, BlockPos pos, Explosion explosionIn)
+        {
+                if(!worldIn.isRemote){
+                        worldIn.createExplosion((Entity)null, pos.getX(), pos.getY(), pos.getZ(), 4.0F, true); }
+        }
+
+
+        @Override
+        public void onBlockDestroyedByPlayer(World worldIn, BlockPos pos, IBlockState state){
+                if(!worldIn.isRemote){
+                if ((int) (Math.random() *  RWBYConfig.dustoreeffect) == 0) { worldIn.createExplosion((Entity)null, pos.getX(), pos.getY(), pos.getZ(), 4.0F, true); }}
         }
 }
