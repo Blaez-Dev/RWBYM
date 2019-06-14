@@ -4,6 +4,8 @@ import be.bluexin.rwbym.Init.RWBYBiomes;
 import be.bluexin.rwbym.Init.RWBYCreativeTabs;
 import be.bluexin.rwbym.Init.RWBYItems;
 import be.bluexin.rwbym.Init.RWBYPotions;
+import be.bluexin.rwbym.blocks.containers.CrusherContainer;
+import be.bluexin.rwbym.blocks.tileentities.TileEntityRWBYCrusher;
 import be.bluexin.rwbym.capabilities.CapabilityHandler;
 import be.bluexin.rwbym.capabilities.Ruby.IRuby;
 import be.bluexin.rwbym.capabilities.Ruby.Ruby;
@@ -16,6 +18,7 @@ import be.bluexin.rwbym.capabilities.Yang.Yang;
 import be.bluexin.rwbym.capabilities.Yang.YangStorage;
 import be.bluexin.rwbym.commands.CommandAura;
 import be.bluexin.rwbym.commands.CommandChangeSemblance;
+import be.bluexin.rwbym.gui.GUICrusher;
 import be.bluexin.rwbym.gui.GuiScreenScroll;
 import be.bluexin.rwbym.gui.IRWBYGuiFactory;
 import be.bluexin.rwbym.gui.RWBYItemContainerGui;
@@ -62,6 +65,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.IGuiHandler;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.common.registry.VillagerRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import scala.collection.GenTraversableOnce;
@@ -98,6 +102,9 @@ public class RWBYModels {
     @SidedProxy(clientSide = "be.bluexin.rwbym.proxy.ClientProxy", serverSide = "be.bluexin.rwbym.proxy.CommonProxy")
     public static CommonProxy proxy;
     public static Side side = FMLCommonHandler.instance().getSide();
+
+    public static final int GuiCrusher = 1;
+
     /*
      * Basically a copy from EntityLivingBase#canBlockDamageSource(DamageSource) cuz fkin private and this is easier/faster then AT/reflection
      */
@@ -149,6 +156,7 @@ public class RWBYModels {
         RWBYCreativeTabs.init();
         RWBYBiomes.registerBiomes();
         RWBYEntities.instance = instance;
+        GameRegistry.registerTileEntity(TileEntityRWBYCrusher.class, "rwbym:furnace");
         rwbym_1.preInit(event);
         RegUtil.registerAll(event);
         RegUtil.registerGamePotions();
@@ -183,12 +191,13 @@ public class RWBYModels {
     	public enum GUI {
     		ITEM_CONTAINER_MAINHAND,
     		ITEM_CONTAINER_OFFHAND,
-    		SCROLL;
+    		SCROLL,
+    		GUI_Crusher
     	}
     	
         @Override
         public Object getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) {
-        	
+
         	switch (GUI.values()[id]) {
         		case ITEM_CONTAINER_MAINHAND:
         			ItemStack stack = player.getHeldItemMainhand();
@@ -198,15 +207,17 @@ public class RWBYModels {
         			return IRWBYContainerFactory.createInstance(((RWBYContainerItem)stack.getItem()).getContainerClass(), player.inventory, stack);
 				case SCROLL:
 					return null;
+                case GUI_Crusher:
+                    return new CrusherContainer(player.inventory, (TileEntityRWBYCrusher) world.getTileEntity(new BlockPos(x,y,z)));
     			}
-        	
+
         	throw new IllegalArgumentException("No GUI with ID: " + id);
-        	
+
         }
 
         @Override
         public Object getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) {
-        	
+
         	switch (GUI.values()[id]) {
 	    		case ITEM_CONTAINER_MAINHAND:
         			ItemStack stack = player.getHeldItemMainhand();
@@ -216,9 +227,11 @@ public class RWBYModels {
         			return IRWBYGuiFactory.createInstance(((RWBYContainerItem)stack.getItem()).getGuiClass(), player.inventory, stack);
 	    		case SCROLL:
 	    			return new GuiScreenScroll(player);
+                case GUI_Crusher:
+                    return new GUICrusher(player.inventory, (TileEntityRWBYCrusher) world.getTileEntity(new BlockPos(x,y,z)));
 	    	}
 	    	
-	    	throw new IllegalArgumentException("No GUI with ID: " + id);        
+	    	throw new IllegalArgumentException("No GUI with ID: " + id);
     	}
     }
 

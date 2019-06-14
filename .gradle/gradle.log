@@ -22,7 +22,7 @@ Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
 3 warnings
 
-:processResources
+:processResources UP-TO-DATE
 :classes
 :jar
 :sourceTestJava UP-TO-DATE
@@ -39,13 +39,15 @@ Note: Recompile with -Xlint:unchecked for details.
 :extractAnnotationsJar
 :extractRangemapReplacedMain
 C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java
-:retromapReplacedMain
-remapping source...
-:sourceJar
-:assemble
-:check UP-TO-DATE
-:build
 
-BUILD SUCCESSFUL
+FAILURE: Build failed with an exception.
 
-Total time: 13.764 secs
+* What went wrong:
+Build cancelled.
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output.
+
+BUILD FAILED
+
+Total time: 7.729 secs

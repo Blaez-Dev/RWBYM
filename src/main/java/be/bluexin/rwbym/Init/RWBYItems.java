@@ -2205,7 +2205,7 @@ public class RWBYItems {
             15F,
             "pickaxe",
             1);
-    public static final Block rwbyblock8 = new RWBYToolkit(
+    public static final Block rwbyblock8 = new RWBYNotFullBlock(
             "toolkit",
             Material.ROCK,
             RWBYCreativeTabs.tab_rwbyitems,
@@ -2325,6 +2325,8 @@ public class RWBYItems {
             1F,
             "null",
             1);
+    public static final Block furnace = new RWBYCrusher(
+            "furnace");
 
     //Armour
 

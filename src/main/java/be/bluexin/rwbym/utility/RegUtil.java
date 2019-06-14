@@ -1,5 +1,6 @@
 package be.bluexin.rwbym.utility;
 
+import be.bluexin.rwbym.Init.CrusherRecipe;
 import be.bluexin.rwbym.Init.RWBYItems;
 import be.bluexin.rwbym.Init.RWBYPotions;
 import be.bluexin.rwbym.RWBYModels;
@@ -21,11 +22,13 @@ import net.minecraft.potion.PotionHelper;
 import net.minecraft.potion.PotionType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
@@ -170,6 +173,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.nadirgun);
         registerItems(event, RWBYItems.nadirsword);
         //dust items
+        registerBlocks(event, RWBYItems.furnace);
         registerItems(event, RWBYItems.dustcrystal);
         registerItems(event, RWBYItems.firedustcrystal);
         registerItems(event, RWBYItems.winddustcrystal);
@@ -686,6 +690,14 @@ public class RegUtil {
         PotionHelper.addMix(aura_regen, Items.GLOWSTONE_DUST, aura_regen_strong);
         PotionHelper.addMix(PotionTypes.AWKWARD, RWBYItems.remnants, aura_regen);
     }
+
+
+
+    public static void initRegistries(FMLInitializationEvent event)
+    {
+        NetworkRegistry.INSTANCE.registerGuiHandler(RWBYModels.instance, new RWBYModels.GuiHandler());
+    }
+
 
     public static Item getHeadSlot(EntityPlayer player) {
         return player.inventory.armorItemInSlot(3).getItem();
