@@ -81,8 +81,8 @@ public class RWBYConfig
     public static int dustoreeffect = 20;
     @Config.Comment("Unsafe Dust Mining")
     public static boolean unsafemining = true;
-    @Config.Comment("Aura per Level")
-    public static int auraperlevel = 1;
+   // @Config.Comment("Aura per Level")
+    //public static int auraperlevel = 1;
 
     @Mod.EventBusSubscriber(modid = RWBYModels.MODID)
     private static class Handler
