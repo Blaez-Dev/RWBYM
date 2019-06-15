@@ -29,7 +29,12 @@ import net.minecraftforge.items.ItemStackHandler;
 
 public class TileEntityRWBYCrusher extends TileEntity implements ITickable
 {
-    private ItemStackHandler handler = new ItemStackHandler(4);
+    private ItemStackHandler handler = new ItemStackHandler(4) {
+    	@Override
+    	public boolean isItemValid(int slot, ItemStack stack) {
+    		return TileEntityRWBYCrusher.this.isItemValid(slot, stack);
+    	}
+    };
     private String customName;
     private ItemStack smelting = ItemStack.EMPTY;
 
@@ -50,6 +55,18 @@ public class TileEntityRWBYCrusher extends TileEntity implements ITickable
     {
         if(capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) return (T) this.handler;
         return super.getCapability(capability, facing);
+    }
+    
+    public boolean isItemValid(int slot, ItemStack stack) {
+    	if (slot == 0 || slot == 1) {
+    		return true;
+    	}
+    	else if (slot == 2) {
+    		return this.isItemFuel(stack);
+    	}
+    	else {
+    		return false;
+    	}
     }
 
     public boolean hasCustomName()
@@ -144,12 +161,15 @@ public class TileEntityRWBYCrusher extends TileEntity implements ITickable
             {
                 if(handler.getStackInSlot(3).getCount() > 0)
                 {
-                    handler.getStackInSlot(3).grow(1);
+                    handler.getStackInSlot(3).grow(smelting.getCount());
                 }
                 else
                 {
                     handler.insertItem(3, smelting, false);
                 }
+                
+                this.handler.getStackInSlot(0).shrink(1);
+                this.handler.getStackInSlot(1).shrink(1);
 
                 smelting = ItemStack.EMPTY;
                 cookTime = 0;
@@ -163,12 +183,8 @@ public class TileEntityRWBYCrusher extends TileEntity implements ITickable
                 ItemStack output = CrusherRecipe.getInstance().getCrusherResult(inputs[0], inputs[1]);
                 if(!output.isEmpty())
                 {
-                    smelting = output;
+                    smelting = output.copy();
                     cookTime++;
-                    inputs[0].shrink(1);
-                    inputs[1].shrink(1);
-                    handler.setStackInSlot(0, inputs[0]);
-                    handler.setStackInSlot(1, inputs[1]);
                 }
             }
         }
