@@ -1453,6 +1453,15 @@ public class RWBYItems {
             0,
             0,
             null);
+    public static final  Item gravitydustcrystalcut = new RWBYCutGem(
+            "gravitydustcrystalcut",
+            72,
+            0,
+            "{AttributeModifiers:[{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:-0.5,Operation:2,UUIDMost:25912,UUIDLeast:178428}],display:{Lore:[\"Slow Falling and Negate Fall Damage While in offhand.\"]}}",
+            "rwbym:gravitydustcut",
+            true,
+            0.5F,
+            RWBYCreativeTabs.tab_rwbyitems);
 
     //------------------------------------------------//
     public static final Item ammo = new RWBYItem("ammo", null, false, RWBYCreativeTabs.tab_rwbyitems);
@@ -2094,6 +2103,21 @@ public class RWBYItems {
             4,
             null,
             null);
+    public static final Item gravitydustcut = new RWBYAmmoItem(
+            "gravitydustcut",
+            RWBYItems.gravitydustcrystalcut,
+            1,
+            false,
+            RWBYAmmoItem.SurviveOnHit.NONE,
+            "textures/entity/projectiles/tipped_arrow.png",
+            true,
+            true,
+            "",
+            null,
+            6,
+            0,
+            null,
+            new ExplosionAmmoHit(3));
     public static final Item ragorafireball = new RWBYAmmoItem(
     		"ragorafireball",
     		new EntityDragonFireball(null),

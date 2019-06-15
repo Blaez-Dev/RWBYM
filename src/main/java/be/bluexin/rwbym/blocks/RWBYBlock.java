@@ -94,13 +94,6 @@ public class RWBYBlock extends BlockBase {
                 }
         }
 
-        @Override
-        public void onBlockDestroyedByExplosion(World worldIn, BlockPos pos, Explosion explosionIn)
-        {
-                if(RWBYConfig.unsafemining){
-                if(!worldIn.isRemote){
-                        worldIn.createExplosion((Entity)null, pos.getX(), pos.getY(), pos.getZ(), 4.0F, true); }}
-        }
 
 
         @Override
