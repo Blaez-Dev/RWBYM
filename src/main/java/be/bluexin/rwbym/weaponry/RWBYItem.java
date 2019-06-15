@@ -48,6 +48,10 @@ import static be.bluexin.rwbym.capabilities.CapabilityHandler.getCapabilityByNam
  * @author Bluexin
  */
 public class RWBYItem extends Item implements ICustomItem {
+	
+	public interface ContainerItemLambda {
+		public ItemStack apply(ItemStack stack);
+	}
 
     private boolean ismask;
     private final String data;
@@ -67,6 +71,8 @@ public class RWBYItem extends Item implements ICustomItem {
     private boolean scroll;
     private boolean cutter;
     private boolean crush;
+    private boolean hasContainerItem;
+    private ContainerItemLambda containeritemlambda;
 
     public RWBYItem(String name,String data, boolean isMask,  CreativeTabs creativetab) {
         this.setRegistryName(new ResourceLocation(RWBYModels.MODID, name));
@@ -106,6 +112,16 @@ public class RWBYItem extends Item implements ICustomItem {
             recipe.register(this);
         }
     }*/
+    
+    public RWBYItem setContainerItemLambda(ContainerItemLambda lambda) {
+    	this.containeritemlambda = lambda;
+    	return this;
+    }
+    
+    public RWBYItem setHasContainerItem(boolean istool) {
+    	this.hasContainerItem = istool;
+    	return this;
+    }
 
     @Override
     public boolean hasContainerItem(ItemStack stack) {
@@ -117,8 +133,10 @@ public class RWBYItem extends Item implements ICustomItem {
     
     @Override
     public ItemStack getContainerItem(ItemStack itemStack) {
-    	itemStack.attemptDamageItem(1, itemRand, null);
-    	return itemStack;
+    	if (containeritemlambda != null) {
+    		return containeritemlambda.apply(itemStack);
+    	}
+    	return super.getContainerItem(itemStack);
     }
     
     @Override

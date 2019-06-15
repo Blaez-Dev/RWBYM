@@ -35,7 +35,7 @@ import net.minecraftforge.items.ItemStackHandler;
 
 public class TileEntityRWBYCrusher extends TileEntity implements ITickable
 {
-    private ItemStackHandler input = new ItemStackHandler(2) {
+    private ItemStackHandler input = new CrusherItemStackHandler(2) {
     	@Override
     	public boolean isItemValid(int slot, ItemStack stack) {
             if (slot == 0) {
@@ -45,13 +45,13 @@ public class TileEntityRWBYCrusher extends TileEntity implements ITickable
             } else return stack.getItem() == RWBYItems.crush;
         }
     };
-    private ItemStackHandler fuel = new ItemStackHandler(1) {
+    private ItemStackHandler fuel = new CrusherItemStackHandler(1) {
     	@Override
     	public boolean isItemValid(int slot, ItemStack stack) {
     		return TileEntityRWBYCrusher.isItemFuel(stack);
     	}
     };
-    private ItemStackHandler output = new ItemStackHandler(1) {
+    private ItemStackHandler output = new CrusherItemStackHandler(1) {
     	@Override
     	public boolean isItemValid(int slot, ItemStack stack) {
     		return false;

@@ -27,6 +27,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemSplashPotion;
+import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.potion.PotionUtils;
@@ -41,6 +42,7 @@ import net.minecraftforge.fml.relauncher.Side;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
