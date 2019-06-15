@@ -35,10 +35,6 @@ Note: Recompile with -Xlint:unchecked for details.
 :getVersionJson
 :extractUserdev UP-TO-DATE
 :genSrgs SKIPPED
-:reobfJar
-:extractAnnotationsJar
-:extractRangemapReplacedMain
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java
 
 FAILURE: Build failed with an exception.
 
@@ -50,4 +46,4 @@ Run with --stacktrace option to get the stack trace. Run with --info or --debug 
 
 BUILD FAILED
 
-Total time: 7.729 secs
+Total time: 4.991 secs

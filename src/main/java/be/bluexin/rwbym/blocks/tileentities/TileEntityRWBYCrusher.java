@@ -4,6 +4,7 @@ import javax.annotation.Nonnull;
 import be.bluexin.rwbym.Init.CrusherRecipe;
 import be.bluexin.rwbym.Init.RWBYItems;
 import be.bluexin.rwbym.blocks.RWBYCrusher;
+import be.bluexin.rwbym.weaponry.RWBYItem;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
@@ -37,13 +38,12 @@ public class TileEntityRWBYCrusher extends TileEntity implements ITickable
     private ItemStackHandler input = new ItemStackHandler(2) {
     	@Override
     	public boolean isItemValid(int slot, ItemStack stack) {
-    		if (slot == 0) {
-    			return true;
-    		}
-    		else {
-    			return stack.getItem() == RWBYItems.dust_cutter;
-    		}
-    	}
+            if (slot == 0) {
+                return true;
+            } else if (stack.getItem() == RWBYItems.chisel) {
+                return stack.getItem() == RWBYItems.chisel;
+            } else return stack.getItem() == RWBYItems.crush;
+        }
     };
     private ItemStackHandler fuel = new ItemStackHandler(1) {
     	@Override

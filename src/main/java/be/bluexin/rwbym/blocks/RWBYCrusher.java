@@ -24,6 +24,7 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import java.util.Random;
@@ -45,13 +46,13 @@ public class RWBYCrusher extends BlockBase
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return Item.getItemFromBlock(RWBYItems.furnace);
+        return Item.getItemFromBlock(RWBYItems.crusher);
     }
 
     @Override
     public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state)
     {
-        return new ItemStack(RWBYItems.furnace);
+        return new ItemStack(RWBYItems.crusher);
     }
 
     @Override
@@ -156,5 +157,25 @@ public class RWBYCrusher extends BlockBase
     public int getMetaFromState(IBlockState state)
     {
         return ((EnumFacing)state.getValue(FACING)).getIndex();
+    }
+
+
+    @Override
+    public boolean isFullCube(IBlockState p_isFullCube_1_) {
+        return false;
+    }
+    @Override
+    public boolean doesSideBlockRendering(IBlockState p_doesSideBlockRendering_1_, IBlockAccess p_doesSideBlockRendering_2_, BlockPos p_doesSideBlockRendering_3_, EnumFacing p_doesSideBlockRendering_4_) {
+        return false;
+    }
+    @Override
+    public boolean isTranslucent(IBlockState state)
+    {
+        return true;
+    }
+
+    @Override
+    public boolean isOpaqueCube(IBlockState state) {
+        return false;
     }
 }

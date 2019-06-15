@@ -113,6 +113,7 @@ tile.impureore.name=Impure Dust Ore
 tile.waterore.name=Water Dust Ore
 tile.lightore.name=Lightning Dust Ore
 tile.smrgrave.name=Summer's Grave
+tile.crusher.name=Dust Processor
 item.rwbym:gravitydust.name=Gravity Dust
 item.rwbym:gravitydustrock.name=Unrefined Gravity Dust
 item.rwbym:icedustrock.name= Unrefined Ice Dust
@@ -379,6 +380,8 @@ item.rwbym:goodwitch.name=Glynda's Crop
 item.rwbym:juaneshieldaxe.name=Crocea Mors
 item.rwbym:oobleckthermos.name=Oobleck's Thermos
 item.rwbym:oobleckflamethrower.name=Oobleck's Flamethrower
+item.rwbym:chisel.name=Processor Chisel Head
+item.rwbym:crush.name=Processor Crusher Head
 
 
 effect.aura_regen=Aura Regen

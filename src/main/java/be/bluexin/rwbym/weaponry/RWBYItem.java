@@ -66,6 +66,7 @@ public class RWBYItem extends Item implements ICustomItem {
     private boolean burn;
     private boolean scroll;
     private boolean cutter;
+    private boolean crush;
 
     public RWBYItem(String name,String data, boolean isMask,  CreativeTabs creativetab) {
         this.setRegistryName(new ResourceLocation(RWBYModels.MODID, name));
@@ -91,10 +92,11 @@ public class RWBYItem extends Item implements ICustomItem {
         if(name.contains("coin_ragora")) coinragor = true;
         if(name.contains("armagigas")) ageist = true;
         scroll = name.contains("scroll");
-        cutter = name.equals("dust_cutter");
-        
-        if (cutter) {
+        cutter = name.equals("chisel");
+        crush= name.equals("crush");
+        if (cutter || crush) {
         	this.setMaxDamage(256);
+        	maxStackSize =1;
         }
     }
 
@@ -107,7 +109,10 @@ public class RWBYItem extends Item implements ICustomItem {
 
     @Override
     public boolean hasContainerItem(ItemStack stack) {
-    	return this.cutter;
+    	if(this.cutter){
+        return this.cutter;}else if(crush){
+    	    return this.crush;
+        } return false;
     }
     
     @Override

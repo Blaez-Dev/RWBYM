@@ -173,7 +173,9 @@ public class RegUtil {
         registerItems(event, RWBYItems.nadirgun);
         registerItems(event, RWBYItems.nadirsword);
         //dust items
-        registerBlocks(event, RWBYItems.furnace);
+        registerBlocks(event, RWBYItems.crusher);
+        registerItems(event, RWBYItems.chisel);
+        registerItems(event, RWBYItems.crush);
         registerItems(event, RWBYItems.dustcrystal);
         registerItems(event, RWBYItems.firedustcrystal);
         registerItems(event, RWBYItems.winddustcrystal);
@@ -195,7 +197,6 @@ public class RegUtil {
         registerItems(event, RWBYItems.lightdust);
         registerItems(event, RWBYItems.gravitydust);
         registerItems(event, RWBYItems.dust);
-        registerItems(event, RWBYItems.dust_cutter);
         registerBlocks(event, RWBYItems.waterblock);
         registerBlocks(event, RWBYItems.windblock);
         registerBlocks(event, RWBYItems.fireblock);
