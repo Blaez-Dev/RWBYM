@@ -7,6 +7,7 @@ import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IContainerListener;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumFacing;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.items.CapabilityItemHandler;
@@ -21,12 +22,14 @@ public class CrusherContainer extends Container
     public CrusherContainer(InventoryPlayer player, TileEntityRWBYCrusher tileentity)
     {
         this.tileentity = tileentity;
-        IItemHandler handler = tileentity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
+        IItemHandler input = tileentity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, EnumFacing.UP);
+        IItemHandler fuel = tileentity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, EnumFacing.EAST);
+        IItemHandler output = tileentity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, EnumFacing.DOWN);
 
-        this.addSlotToContainer(new SlotItemHandler(handler, 0, 26, 11));
-        this.addSlotToContainer(new SlotItemHandler(handler, 1, 26, 59));
-        this.addSlotToContainer(new SlotItemHandler(handler, 2, 7, 35));
-        this.addSlotToContainer(new SlotItemHandler(handler, 3, 81, 36));
+        this.addSlotToContainer(new SlotItemHandler(input, 0, 26, 11));
+        this.addSlotToContainer(new SlotItemHandler(input, 1, 26, 59));
+        this.addSlotToContainer(new SlotItemHandler(fuel, 0, 7, 35));
+        this.addSlotToContainer(new SlotItemHandler(output, 0, 81, 36));
 
         for(int y = 0; y < 3; y++)
         {

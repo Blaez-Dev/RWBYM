@@ -1,4 +1,6 @@
 package be.bluexin.rwbym.blocks.tileentities;
+import javax.annotation.Nonnull;
+
 import be.bluexin.rwbym.Init.CrusherRecipe;
 import be.bluexin.rwbym.blocks.RWBYCrusher;
 import net.minecraft.block.Block;
@@ -25,15 +27,115 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.items.ItemHandlerHelper;
 import net.minecraftforge.items.ItemStackHandler;
 
 public class TileEntityRWBYCrusher extends TileEntity implements ITickable
 {
-    private ItemStackHandler handler = new ItemStackHandler(4) {
+    private ItemStackHandler input = new ItemStackHandler(2);
+    private ItemStackHandler fuel = new ItemStackHandler(1) {
     	@Override
     	public boolean isItemValid(int slot, ItemStack stack) {
-    		return TileEntityRWBYCrusher.this.isItemValid(slot, stack);
+    		return TileEntityRWBYCrusher.isItemFuel(stack);
     	}
+    	
+    	//because forge is stupid
+    	@Override
+        public ItemStack insertItem(int slot, @Nonnull ItemStack stack, boolean simulate)
+        {
+            if (stack.isEmpty())
+                return ItemStack.EMPTY;
+
+            validateSlotIndex(slot);
+            
+            if (!this.isItemValid(slot, stack)) {
+            	return stack;
+            }
+
+            ItemStack existing = this.stacks.get(slot);
+
+            int limit = getStackLimit(slot, stack);
+
+            if (!existing.isEmpty())
+            {
+                if (!ItemHandlerHelper.canItemStacksStack(stack, existing))
+                    return stack;
+
+                limit -= existing.getCount();
+            }
+
+            if (limit <= 0)
+                return stack;
+
+            boolean reachedLimit = stack.getCount() > limit;
+
+            if (!simulate)
+            {
+                if (existing.isEmpty())
+                {
+                    this.stacks.set(slot, reachedLimit ? ItemHandlerHelper.copyStackWithSize(stack, limit) : stack);
+                }
+                else
+                {
+                    existing.grow(reachedLimit ? limit : stack.getCount());
+                }
+                onContentsChanged(slot);
+            }
+
+            return reachedLimit ? ItemHandlerHelper.copyStackWithSize(stack, stack.getCount()- limit) : ItemStack.EMPTY;
+        }
+    };
+    private ItemStackHandler output = new ItemStackHandler(1) {
+    	@Override
+    	public boolean isItemValid(int slot, ItemStack stack) {
+    		return false;
+    	}
+    	
+    	//because forge is stupid
+    	@Override
+        public ItemStack insertItem(int slot, @Nonnull ItemStack stack, boolean simulate)
+        {
+            if (stack.isEmpty())
+                return ItemStack.EMPTY;
+
+            validateSlotIndex(slot);
+            
+            if (!this.isItemValid(slot, stack)) {
+            	return stack;
+            }
+
+            ItemStack existing = this.stacks.get(slot);
+
+            int limit = getStackLimit(slot, stack);
+
+            if (!existing.isEmpty())
+            {
+                if (!ItemHandlerHelper.canItemStacksStack(stack, existing))
+                    return stack;
+
+                limit -= existing.getCount();
+            }
+
+            if (limit <= 0)
+                return stack;
+
+            boolean reachedLimit = stack.getCount() > limit;
+
+            if (!simulate)
+            {
+                if (existing.isEmpty())
+                {
+                    this.stacks.set(slot, reachedLimit ? ItemHandlerHelper.copyStackWithSize(stack, limit) : stack);
+                }
+                else
+                {
+                    existing.grow(reachedLimit ? limit : stack.getCount());
+                }
+                onContentsChanged(slot);
+            }
+
+            return reachedLimit ? ItemHandlerHelper.copyStackWithSize(stack, stack.getCount()- limit) : ItemStack.EMPTY;
+        }
     };
     private String customName;
     private ItemStack smelting = ItemStack.EMPTY;
@@ -53,20 +155,25 @@ public class TileEntityRWBYCrusher extends TileEntity implements ITickable
     @Override
     public <T> T getCapability(Capability<T> capability, EnumFacing facing)
     {
-        if(capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) return (T) this.handler;
+        if(capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+        	switch(facing) {
+			case DOWN:
+				return (T) this.output;
+			case EAST:
+				return (T) this.fuel;
+			case NORTH:
+				return (T) this.fuel;
+			case SOUTH:
+				return (T) this.fuel;
+			case WEST:
+				return (T) this.fuel;
+			case UP:
+				return (T) this.input;
+			default:
+				break;
+        	}
+        }
         return super.getCapability(capability, facing);
-    }
-    
-    public boolean isItemValid(int slot, ItemStack stack) {
-    	if (slot == 0 || slot == 1) {
-    		return true;
-    	}
-    	else if (slot == 2) {
-    		return this.isItemFuel(stack);
-    	}
-    	else {
-    		return false;
-    	}
     }
 
     public boolean hasCustomName()
@@ -89,11 +196,13 @@ public class TileEntityRWBYCrusher extends TileEntity implements ITickable
     public void readFromNBT(NBTTagCompound compound)
     {
         super.readFromNBT(compound);
-        this.handler.deserializeNBT(compound.getCompoundTag("Inventory"));
+        this.input.deserializeNBT(compound.getCompoundTag("Input"));
+        this.fuel.deserializeNBT(compound.getCompoundTag("Fuel"));
+        this.output.deserializeNBT(compound.getCompoundTag("Output"));
         this.burnTime = compound.getInteger("BurnTime");
         this.cookTime = compound.getInteger("CookTime");
         this.totalCookTime = compound.getInteger("CookTimeTotal");
-        this.currentBurnTime = getItemBurnTime((ItemStack)this.handler.getStackInSlot(2));
+        this.currentBurnTime = getItemBurnTime((ItemStack)this.fuel.getStackInSlot(0));
 
         if(compound.hasKey("CustomName", 8)) this.setCustomName(compound.getString("CustomName"));
     }
@@ -105,7 +214,9 @@ public class TileEntityRWBYCrusher extends TileEntity implements ITickable
         compound.setInteger("BurnTime", (short)this.burnTime);
         compound.setInteger("CookTime", (short)this.cookTime);
         compound.setInteger("CookTimeTotal", (short)this.totalCookTime);
-        compound.setTag("Inventory", this.handler.serializeNBT());
+        compound.setTag("Input", this.input.serializeNBT());
+        compound.setTag("Fuel", this.fuel.serializeNBT());
+        compound.setTag("Output", this.output.serializeNBT());
 
         if(this.hasCustomName()) compound.setString("CustomName", this.customName);
         return compound;
@@ -130,10 +241,10 @@ public class TileEntityRWBYCrusher extends TileEntity implements ITickable
             RWBYCrusher.setState(true, world, pos);
         }
 
-        ItemStack[] inputs = new ItemStack[] {handler.getStackInSlot(0), handler.getStackInSlot(1)};
-        ItemStack fuel = this.handler.getStackInSlot(2);
+        ItemStack[] inputs = new ItemStack[] {input.getStackInSlot(0), input.getStackInSlot(1)};
+        ItemStack fuel = this.fuel.getStackInSlot(0);
 
-        if(this.isBurning() || !fuel.isEmpty() && !this.handler.getStackInSlot(0).isEmpty() || this.handler.getStackInSlot(1).isEmpty())
+        if(this.isBurning() || !fuel.isEmpty() && !this.input.getStackInSlot(0).isEmpty() || this.input.getStackInSlot(1).isEmpty())
         {
             if(!this.isBurning() && this.canSmelt())
             {
@@ -148,7 +259,7 @@ public class TileEntityRWBYCrusher extends TileEntity implements ITickable
                     if(fuel.isEmpty())
                     {
                         ItemStack item1 = item.getContainerItem(fuel);
-                        this.handler.setStackInSlot(2, item1);
+                        this.fuel.setStackInSlot(0, item1);
                     }
                 }
             }
@@ -159,17 +270,17 @@ public class TileEntityRWBYCrusher extends TileEntity implements ITickable
             cookTime++;
             if(cookTime == totalCookTime)
             {
-                if(handler.getStackInSlot(3).getCount() > 0)
+                if(output.getStackInSlot(0).getCount() > 0)
                 {
-                    handler.getStackInSlot(3).grow(smelting.getCount());
+                    output.getStackInSlot(0).grow(smelting.getCount());
                 }
                 else
                 {
-                    handler.insertItem(3, smelting, false);
+                    output.setStackInSlot(0, smelting);
                 }
                 
-                this.handler.getStackInSlot(0).shrink(1);
-                this.handler.getStackInSlot(1).shrink(1);
+                this.input.getStackInSlot(0).shrink(1);
+                this.input.getStackInSlot(1).shrink(1);
 
                 smelting = ItemStack.EMPTY;
                 cookTime = 0;
@@ -192,14 +303,14 @@ public class TileEntityRWBYCrusher extends TileEntity implements ITickable
 
     private boolean canSmelt()
     {
-        if(((ItemStack)this.handler.getStackInSlot(0)).isEmpty() || ((ItemStack)this.handler.getStackInSlot(1)).isEmpty()) return false;
+        if(((ItemStack)this.input.getStackInSlot(0)).isEmpty() || ((ItemStack)this.input.getStackInSlot(1)).isEmpty()) return false;
         else
         {
-            ItemStack result = CrusherRecipe.getInstance().getCrusherResult((ItemStack)this.handler.getStackInSlot(0), (ItemStack)this.handler.getStackInSlot(1));
+            ItemStack result = CrusherRecipe.getInstance().getCrusherResult((ItemStack)this.input.getStackInSlot(0), (ItemStack)this.input.getStackInSlot(1));
             if(result.isEmpty()) return false;
             else
             {
-                ItemStack output = (ItemStack)this.handler.getStackInSlot(3);
+                ItemStack output = (ItemStack)this.output.getStackInSlot(0);
                 if(output.isEmpty()) return true;
                 if(!output.isItemEqual(result)) return false;
                 int res = output.getCount() + result.getCount();
