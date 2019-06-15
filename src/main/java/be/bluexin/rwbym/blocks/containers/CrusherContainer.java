@@ -3,6 +3,7 @@ import be.bluexin.rwbym.Init.CrusherRecipe;
 import be.bluexin.rwbym.blocks.tileentities.TileEntityRWBYCrusher;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.ClickType;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IContainerListener;
 import net.minecraft.inventory.Slot;

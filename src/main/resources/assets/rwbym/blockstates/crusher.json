@@ -1,0 +1,13 @@
+{
+    "variants": 
+    {
+        "burning=false,facing=north": { "model": "rwbym:chrusher" },
+        "burning=false,facing=east": { "model": "rwbym:chrusher", "y": 90 },
+        "burning=false,facing=south": { "model": "rwbym:chrusher", "y": 180 },
+        "burning=false,facing=west": { "model": "rwbym:chrusher", "y": 270 },
+        "burning=true,facing=north": { "model": "rwbym:chrusher" },
+        "burning=true,facing=east": { "model": "rwbym:chrusher", "y": 90 },
+        "burning=true,facing=south": { "model": "rwbym:chrusher", "y": 180 },
+        "burning=true,facing=west": { "model": "rwbym:chrusher", "y":270  }
+    }
+}

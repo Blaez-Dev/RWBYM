@@ -48,6 +48,10 @@ import static be.bluexin.rwbym.capabilities.CapabilityHandler.getCapabilityByNam
  * @author Bluexin
  */
 public class RWBYItem extends Item implements ICustomItem {
+	
+	public interface ContainerItemLambda {
+		public ItemStack apply(ItemStack stack);
+	}
 
     private boolean ismask;
     private final String data;
@@ -65,7 +69,8 @@ public class RWBYItem extends Item implements ICustomItem {
     private boolean ageist;
     private boolean burn;
     private boolean scroll;
-    private boolean cutter;
+    private boolean hasContainerItem;
+    private ContainerItemLambda containeritemlambda;
 
     public RWBYItem(String name,String data, boolean isMask,  CreativeTabs creativetab) {
         this.setRegistryName(new ResourceLocation(RWBYModels.MODID, name));
@@ -91,11 +96,6 @@ public class RWBYItem extends Item implements ICustomItem {
         if(name.contains("coin_ragora")) coinragor = true;
         if(name.contains("armagigas")) ageist = true;
         scroll = name.contains("scroll");
-        cutter = name.equals("dust_cutter");
-        
-        if (cutter) {
-        	this.setMaxDamage(256);
-        }
     }
 
     /*@Override
@@ -104,16 +104,28 @@ public class RWBYItem extends Item implements ICustomItem {
             recipe.register(this);
         }
     }*/
+    
+    public RWBYItem setContainerItemLambda(ContainerItemLambda lambda) {
+    	this.containeritemlambda = lambda;
+    	return this;
+    }
+    
+    public RWBYItem setHasContainerItem(boolean istool) {
+    	this.hasContainerItem = istool;
+    	return this;
+    }
 
     @Override
     public boolean hasContainerItem(ItemStack stack) {
-    	return this.cutter;
+    	return this.hasContainerItem;
     }
     
     @Override
     public ItemStack getContainerItem(ItemStack itemStack) {
-    	itemStack.attemptDamageItem(1, itemRand, null);
-    	return itemStack;
+    	if (containeritemlambda != null) {
+    		return containeritemlambda.apply(itemStack);
+    	}
+    	return super.getContainerItem(itemStack);
     }
     
     @Override
