@@ -23,7 +23,7 @@ public class CrusherRecipe
     private CrusherRecipe()
     {
         //addSinteringRecipe(new ItemStack(Blocks.ACACIA_FENCE), new ItemStack(Blocks.ACACIA_FENCE_GATE), new ItemStack(BlockInit.COPPER_CHEST), 5.0F);
-        addCrusherRecipe(new ItemStack(RWBYItems.dustrock), new ItemStack(RWBYItems.dustrock), new ItemStack(RWBYItems.dust, 2), 0);
+        addCrusherRecipe(new ItemStack(RWBYItems.dustrock), new ItemStack(RWBYItems.dust_cutter, 1, Short.MAX_VALUE), new ItemStack(RWBYItems.dust, 2), 0);
     }
 
 
@@ -36,7 +36,7 @@ public class CrusherRecipe
 
     public ItemStack getCrusherResult(ItemStack input1, ItemStack input2)
     {
-        for(Entry<ItemStack, Map<ItemStack, ItemStack>> entry : this.smeltingList.columnMap().entrySet())
+        for(Entry<ItemStack, Map<ItemStack, ItemStack>> entry : this.smeltingList.rowMap().entrySet())
         {
             if(this.compareItemStacks(input1, (ItemStack)entry.getKey()))
             {
@@ -54,7 +54,7 @@ public class CrusherRecipe
 
     private boolean compareItemStacks(ItemStack stack1, ItemStack stack2)
     {
-        return stack2.getItem() == stack1.getItem() && (stack2.getMetadata() == 32767 || stack2.getMetadata() == stack1.getMetadata());
+        return stack2.getItem() == stack1.getItem() && (stack2.getMetadata() == Short.MAX_VALUE || stack2.getMetadata() == stack1.getMetadata());
     }
 
     public Table<ItemStack, ItemStack, ItemStack> getDualSmeltingList()

@@ -2,6 +2,7 @@ package be.bluexin.rwbym.blocks.tileentities;
 import javax.annotation.Nonnull;
 
 import be.bluexin.rwbym.Init.CrusherRecipe;
+import be.bluexin.rwbym.Init.RWBYItems;
 import be.bluexin.rwbym.blocks.RWBYCrusher;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -19,6 +20,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextComponentTranslation;
@@ -32,109 +34,27 @@ import net.minecraftforge.items.ItemStackHandler;
 
 public class TileEntityRWBYCrusher extends TileEntity implements ITickable
 {
-    private ItemStackHandler input = new ItemStackHandler(2);
+    private ItemStackHandler input = new ItemStackHandler(2) {
+    	@Override
+    	public boolean isItemValid(int slot, ItemStack stack) {
+    		if (slot == 0) {
+    			return true;
+    		}
+    		else {
+    			return stack.getItem() == RWBYItems.dust_cutter;
+    		}
+    	}
+    };
     private ItemStackHandler fuel = new ItemStackHandler(1) {
     	@Override
     	public boolean isItemValid(int slot, ItemStack stack) {
     		return TileEntityRWBYCrusher.isItemFuel(stack);
     	}
-    	
-    	//because forge is stupid
-    	@Override
-        public ItemStack insertItem(int slot, @Nonnull ItemStack stack, boolean simulate)
-        {
-            if (stack.isEmpty())
-                return ItemStack.EMPTY;
-
-            validateSlotIndex(slot);
-            
-            if (!this.isItemValid(slot, stack)) {
-            	return stack;
-            }
-
-            ItemStack existing = this.stacks.get(slot);
-
-            int limit = getStackLimit(slot, stack);
-
-            if (!existing.isEmpty())
-            {
-                if (!ItemHandlerHelper.canItemStacksStack(stack, existing))
-                    return stack;
-
-                limit -= existing.getCount();
-            }
-
-            if (limit <= 0)
-                return stack;
-
-            boolean reachedLimit = stack.getCount() > limit;
-
-            if (!simulate)
-            {
-                if (existing.isEmpty())
-                {
-                    this.stacks.set(slot, reachedLimit ? ItemHandlerHelper.copyStackWithSize(stack, limit) : stack);
-                }
-                else
-                {
-                    existing.grow(reachedLimit ? limit : stack.getCount());
-                }
-                onContentsChanged(slot);
-            }
-
-            return reachedLimit ? ItemHandlerHelper.copyStackWithSize(stack, stack.getCount()- limit) : ItemStack.EMPTY;
-        }
     };
     private ItemStackHandler output = new ItemStackHandler(1) {
     	@Override
     	public boolean isItemValid(int slot, ItemStack stack) {
     		return false;
-    	}
-    	
-    	//because forge is stupid
-    	@Override
-        public ItemStack insertItem(int slot, @Nonnull ItemStack stack, boolean simulate)
-        {
-            if (stack.isEmpty())
-                return ItemStack.EMPTY;
-
-            validateSlotIndex(slot);
-            
-            if (!this.isItemValid(slot, stack)) {
-            	return stack;
-            }
-
-            ItemStack existing = this.stacks.get(slot);
-
-            int limit = getStackLimit(slot, stack);
-
-            if (!existing.isEmpty())
-            {
-                if (!ItemHandlerHelper.canItemStacksStack(stack, existing))
-                    return stack;
-
-                limit -= existing.getCount();
-            }
-
-            if (limit <= 0)
-                return stack;
-
-            boolean reachedLimit = stack.getCount() > limit;
-
-            if (!simulate)
-            {
-                if (existing.isEmpty())
-                {
-                    this.stacks.set(slot, reachedLimit ? ItemHandlerHelper.copyStackWithSize(stack, limit) : stack);
-                }
-                else
-                {
-                    existing.grow(reachedLimit ? limit : stack.getCount());
-                }
-                onContentsChanged(slot);
-            }
-
-            return reachedLimit ? ItemHandlerHelper.copyStackWithSize(stack, stack.getCount()- limit) : ItemStack.EMPTY;
         }
     };
     private String customName;
@@ -241,7 +161,7 @@ public class TileEntityRWBYCrusher extends TileEntity implements ITickable
             RWBYCrusher.setState(true, world, pos);
         }
 
-        ItemStack[] inputs = new ItemStack[] {input.getStackInSlot(0), input.getStackInSlot(1)};
+        ItemStack[] inputs = new ItemStack[] {input.getStackInSlot(0).copy(), input.getStackInSlot(1).copy()};
         ItemStack fuel = this.fuel.getStackInSlot(0);
 
         if(this.isBurning() || !fuel.isEmpty() && !this.input.getStackInSlot(0).isEmpty() || this.input.getStackInSlot(1).isEmpty())
@@ -279,8 +199,21 @@ public class TileEntityRWBYCrusher extends TileEntity implements ITickable
                     output.setStackInSlot(0, smelting);
                 }
                 
-                this.input.getStackInSlot(0).shrink(1);
-                this.input.getStackInSlot(1).shrink(1);
+                if (inputs[0].getItem().hasContainerItem(inputs[0])) {
+                	input.setStackInSlot(0, inputs[0].getItem().getContainerItem(inputs[0]));
+                }
+                else {
+                	inputs[0].shrink(1);
+                	input.setStackInSlot(0, inputs[0]);
+                }
+                
+                if (inputs[1].getItem().hasContainerItem(inputs[1])) {
+                	input.setStackInSlot(1, inputs[1].getItem().getContainerItem(inputs[1]));
+                }
+                else {
+                	inputs[0].shrink(1);
+                	input.setStackInSlot(1, inputs[1]);
+                }
 
                 smelting = ItemStack.EMPTY;
                 cookTime = 0;
@@ -390,6 +323,69 @@ public class TileEntityRWBYCrusher extends TileEntity implements ITickable
                 break;
             case 3:
                 this.totalCookTime = value;
+        }
+    }
+    
+    private class CrusherItemStackHandler extends ItemStackHandler {
+        public CrusherItemStackHandler()
+        {
+            super();
+        }
+
+        public CrusherItemStackHandler(int size)
+        {
+            super(size);
+        }
+
+        public CrusherItemStackHandler(NonNullList<ItemStack> stacks)
+        {
+            super(stacks);
+        }
+        
+        //because forge is stupid
+    	@Override
+        public ItemStack insertItem(int slot, @Nonnull ItemStack stack, boolean simulate)
+        {
+            if (stack.isEmpty())
+                return ItemStack.EMPTY;
+
+            validateSlotIndex(slot);
+            
+            if (!this.isItemValid(slot, stack)) {
+            	return stack;
+            }
+
+            ItemStack existing = this.stacks.get(slot);
+
+            int limit = getStackLimit(slot, stack);
+
+            if (!existing.isEmpty())
+            {
+                if (!ItemHandlerHelper.canItemStacksStack(stack, existing))
+                    return stack;
+
+                limit -= existing.getCount();
+            }
+
+            if (limit <= 0)
+                return stack;
+
+            boolean reachedLimit = stack.getCount() > limit;
+
+            if (!simulate)
+            {
+                if (existing.isEmpty())
+                {
+                    this.stacks.set(slot, reachedLimit ? ItemHandlerHelper.copyStackWithSize(stack, limit) : stack);
+                }
+                else
+                {
+                    existing.grow(reachedLimit ? limit : stack.getCount());
+                }
+                onContentsChanged(slot);
+            }
+
+            return reachedLimit ? ItemHandlerHelper.copyStackWithSize(stack, stack.getCount()- limit) : ItemStack.EMPTY;
         }
     }
 }

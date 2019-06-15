@@ -1527,6 +1527,7 @@ public class RWBYItems {
     public static final Item coinqrow = new RWBYItem("coinqrow", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item coin_raven = new RWBYItem("coin_raven", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item coin_ragora = new RWBYItem("coin_ragora", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item dust_cutter = new RWBYItem("dust_cutter", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item rvnmask = new RWBYHood("rvnmask", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true, null, RWBYCreativeTabs.tab_rwbyarmour);
     public static final Item whtefng =  new RWBYHood("whtefng", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true, null, RWBYCreativeTabs.tab_rwbyarmour);
     public static final Item rubyhood = new RWBYHood("rubyhood", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true,"rwbym:ruby2_head", RWBYCreativeTabs.tab_rwbyarmour);
