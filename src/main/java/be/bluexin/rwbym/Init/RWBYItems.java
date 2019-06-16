@@ -1462,7 +1462,7 @@ public class RWBYItems {
             "{AttributeModifiers:[{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:-0.7,Operation:2,UUIDMost:25912,UUIDLeast:178428}],display:{Lore:[\"Slow Falling and Negate Fall Damage While in offhand and Float Upwards while sneaking in mid-air.\"]}}",
             "rwbym:gravitydustcut",
             true,
-            0.5F,
+            0.3F,
             RWBYCreativeTabs.tab_rwbyitems);
     public static final  Item winddustcrystalcut = new RWBYCutGem(
             "winddustcrystalcut",
@@ -1471,7 +1471,7 @@ public class RWBYItems {
             "{AttributeModifiers:[{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:-0.7,Operation:2,UUIDMost:29285,UUIDLeast:106582},{AttributeName:\"generic.movementSpeed\",Name:\"generic.movementSpeed\",Slot:\"offhand\",Amount:2,Operation:2.5,UUIDMost:72089,UUIDLeast:146615}]}",
             "rwbym:winddustcut",
             true,
-            0.5F,
+            0.3F,
             RWBYCreativeTabs.tab_rwbyitems);
 
     //------------------------------------------------//
