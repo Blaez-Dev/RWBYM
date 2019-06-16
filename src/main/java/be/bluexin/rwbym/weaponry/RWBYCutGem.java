@@ -113,8 +113,9 @@ public class RWBYCutGem extends ItemBow implements ICustomItem {
                 timer ++;
             }
             if(player.getHeldItem(EnumHand.OFF_HAND) == is && water){
-                //PotionEffect potioneffect = new PotionEffect(MobEffects.RESISTANCE, 60, 1, false, false);
-                //player.addPotionEffect(potioneffect);
+                if(player.isInWater()){
+                PotionEffect potioneffect = new PotionEffect(MobEffects.WATER_BREATHING, 60, 1, false, false);
+                player.addPotionEffect(potioneffect);}
                 player.heal(0.1F);
             }
         }

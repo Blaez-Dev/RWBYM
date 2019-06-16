@@ -186,6 +186,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.gravitydustcrystalcut);
         registerItems(event, RWBYItems.winddustcrystalcut);
         registerItems(event, RWBYItems.waterdustcrystalcut);
+        registerItems(event, RWBYItems.firedustcrystalcut);
         registerItems(event, RWBYItems.dustrock);
         registerItems(event, RWBYItems.winddustrock);
         registerItems(event, RWBYItems.firedustrock);
@@ -303,6 +304,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.gravitydustcut);
         registerItems(event, RWBYItems.winddustcut);
         registerItems(event, RWBYItems.waterdustcut);
+        registerItems(event, RWBYItems.firedustcut);
         registerItems(event, RWBYItems.ragorafireball);
         //mob drops
         registerItems(event, RWBYItems.remnants);
@@ -666,6 +668,12 @@ public class RegUtil {
                 }else
                 if(item == RWBYItems.winddustcut){
                     ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.winddustcrystalcut.getRegistryName(), "inventory"));
+                }else
+                if(item == RWBYItems.waterdustcut){
+                    ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.waterdustcrystalcut.getRegistryName(), "inventory"));
+                }else
+                if(item == RWBYItems.firedustcut){
+                    ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.firedustcrystalcut.getRegistryName(), "inventory"));
                 }
             	else {
             		ModelLoader.setCustomModelResourceLocation(item,0, new ModelResourceLocation(item.getRegistryName(), "inventory"));

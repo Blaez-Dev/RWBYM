@@ -135,12 +135,12 @@ public class EntityBlackStore extends EntityCreature implements INpc, IMerchant 
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.rwbyblock7, 1), new ItemStack(RWBYItems.summer2Chest)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.rwbyblock7, 1), new ItemStack(RWBYItems.summer2Legs)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.rwbyblock7, 1), new ItemStack(RWBYItems.summerhood)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,1),new ItemStack(RWBYItems.crush,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,1),new ItemStack(RWBYItems.chisel,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.crusher,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,10),new ItemStack(RWBYItems.scroll,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,10),new ItemStack(RWBYItems.scroll2,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,20),new ItemStack(RWBYItems.container,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,2),new ItemStack(RWBYItems.crush,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,2),new ItemStack(RWBYItems.chisel,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,10),new ItemStack(RWBYItems.crusher,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.scroll,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.scroll2,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,10),new ItemStack(RWBYItems.container,1)));
         //sell//
 
 
