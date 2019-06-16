@@ -1473,6 +1473,16 @@ public class RWBYItems {
             true,
             0.3F,
             RWBYCreativeTabs.tab_rwbyitems);
+    public static final  Item waterdustcrystalcut = new RWBYCutGem(
+            "waterdustcrystalcut",
+            72,
+            0,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"offhand\",Amount:-0.35,Operation:2,UUIDMost:81281,UUIDLeast:160467}],display:{Lore:[\"Provides Faster Health Regeneration while in Offhand.\"]}}",
+            "rwbym:waterdustcut",
+            true,
+            0.3F,
+            RWBYCreativeTabs.tab_rwbyitems);
+
 
     //------------------------------------------------//
     public static final Item ammo = new RWBYItem("ammo", null, false, RWBYCreativeTabs.tab_rwbyitems);
@@ -2132,6 +2142,21 @@ public class RWBYItems {
     public static final Item winddustcut = new RWBYAmmoItem(
             "winddustcut",
             RWBYItems.winddustcrystalcut,
+            1,
+            false,
+            RWBYAmmoItem.SurviveOnHit.NONE,
+            "textures/entity/projectiles/tipped_arrow.png",
+            true,
+            true,
+            "",
+            null,
+            6,
+            0,
+            null,
+            new ExplosionAmmoHit(3));
+    public static final Item waterdustcut = new RWBYAmmoItem(
+            "waterdustcut",
+            RWBYItems.waterdustcrystalcut,
             1,
             false,
             RWBYAmmoItem.SurviveOnHit.NONE,

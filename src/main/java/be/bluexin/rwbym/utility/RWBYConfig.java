@@ -77,7 +77,7 @@ public class RWBYConfig
     public static float shadowballsize = 4.5F;
     @Config.Comment("Ragora Summon Particle Count")
     public static int ragorasummonparticles = 100;
-    @Config.Comment("Dust Ore Random Effect Change")
+    @Config.Comment("Dust Ore Random Effect Chance")
     public static int dustoreeffect = 20;
     @Config.Comment("Unsafe Dust Mining")
     public static boolean unsafemining = true;

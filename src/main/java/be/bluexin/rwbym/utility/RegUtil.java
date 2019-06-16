@@ -185,6 +185,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.icedustcrystal);
         registerItems(event, RWBYItems.gravitydustcrystalcut);
         registerItems(event, RWBYItems.winddustcrystalcut);
+        registerItems(event, RWBYItems.waterdustcrystalcut);
         registerItems(event, RWBYItems.dustrock);
         registerItems(event, RWBYItems.winddustrock);
         registerItems(event, RWBYItems.firedustrock);
@@ -301,6 +302,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.rzrbolt);
         registerItems(event, RWBYItems.gravitydustcut);
         registerItems(event, RWBYItems.winddustcut);
+        registerItems(event, RWBYItems.waterdustcut);
         registerItems(event, RWBYItems.ragorafireball);
         //mob drops
         registerItems(event, RWBYItems.remnants);
