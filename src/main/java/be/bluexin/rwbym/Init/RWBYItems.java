@@ -1459,8 +1459,17 @@ public class RWBYItems {
             "gravitydustcrystalcut",
             72,
             0,
-            "{AttributeModifiers:[{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:-0.5,Operation:2,UUIDMost:25912,UUIDLeast:178428}],display:{Lore:[\"Slow Falling and Negate Fall Damage While in offhand.\"]}}",
+            "{AttributeModifiers:[{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:-0.7,Operation:2,UUIDMost:25912,UUIDLeast:178428}],display:{Lore:[\"Slow Falling and Negate Fall Damage While in offhand and Float Upwards while sneaking in mid-air.\"]}}",
             "rwbym:gravitydustcut",
+            true,
+            0.5F,
+            RWBYCreativeTabs.tab_rwbyitems);
+    public static final  Item winddustcrystalcut = new RWBYCutGem(
+            "winddustcrystalcut",
+            72,
+            0,
+            "{AttributeModifiers:[{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:-0.7,Operation:2,UUIDMost:29285,UUIDLeast:106582},{AttributeName:\"generic.movementSpeed\",Name:\"generic.movementSpeed\",Slot:\"offhand\",Amount:2,Operation:2.5,UUIDMost:72089,UUIDLeast:146615}]}",
+            "rwbym:winddustcut",
             true,
             0.5F,
             RWBYCreativeTabs.tab_rwbyitems);
@@ -1538,8 +1547,8 @@ public class RWBYItems {
     public static final Item coinqrow = new RWBYItem("coinqrow", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item coin_raven = new RWBYItem("coin_raven", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item coin_ragora = new RWBYItem("coin_ragora", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static final Item chisel = new RWBYItem("chisel", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static final Item crush = new RWBYItem("crush", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item chisel = new RWBYItem("chisel", null, false, RWBYCreativeTabs.tab_rwbyitems).setHasContainerItem(true).setContainerItemLambda(stack -> (stack.attemptDamageItem(1, new Random(), null) ? ItemStack.EMPTY : stack)).setMaxDamage(255).setMaxStackSize(1);
+    public static final Item crush = new RWBYItem("crush", null, false, RWBYCreativeTabs.tab_rwbyitems).setHasContainerItem(true).setContainerItemLambda(stack -> (stack.attemptDamageItem(1, new Random(), null) ? ItemStack.EMPTY : stack)).setMaxDamage(255).setMaxStackSize(1);
     public static final Item rvnmask = new RWBYHood("rvnmask", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true, null, RWBYCreativeTabs.tab_rwbyarmour);
     public static final Item whtefng =  new RWBYHood("whtefng", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true, null, RWBYCreativeTabs.tab_rwbyarmour);
     public static final Item rubyhood = new RWBYHood("rubyhood", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true,"rwbym:ruby2_head", RWBYCreativeTabs.tab_rwbyarmour);
@@ -2108,6 +2117,21 @@ public class RWBYItems {
     public static final Item gravitydustcut = new RWBYAmmoItem(
             "gravitydustcut",
             RWBYItems.gravitydustcrystalcut,
+            1,
+            false,
+            RWBYAmmoItem.SurviveOnHit.NONE,
+            "textures/entity/projectiles/tipped_arrow.png",
+            true,
+            true,
+            "",
+            null,
+            6,
+            0,
+            null,
+            new ExplosionAmmoHit(2));
+    public static final Item winddustcut = new RWBYAmmoItem(
+            "winddustcut",
+            RWBYItems.winddustcrystalcut,
             1,
             false,
             RWBYAmmoItem.SurviveOnHit.NONE,

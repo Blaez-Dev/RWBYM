@@ -66,6 +66,7 @@ public class RWBYCutGem extends ItemBow implements ICustomItem {
         this.projectileSpeed = projectileSpeed;
         this.charges = !noCharge;
         this.maxStackSize = 64;
+        this.setMaxDamage(0);
 
 
         if(name.contains("gravitydustcrystal")) gravity = true;

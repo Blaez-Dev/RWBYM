@@ -48,10 +48,10 @@ import static be.bluexin.rwbym.capabilities.CapabilityHandler.getCapabilityByNam
  * @author Bluexin
  */
 public class RWBYItem extends Item implements ICustomItem {
-	
-	public interface ContainerItemLambda {
-		public ItemStack apply(ItemStack stack);
-	}
+
+    public interface ContainerItemLambda {
+        public ItemStack apply(ItemStack stack);
+    }
 
     private boolean ismask;
     private final String data;
@@ -69,8 +69,6 @@ public class RWBYItem extends Item implements ICustomItem {
     private boolean ageist;
     private boolean burn;
     private boolean scroll;
-    private boolean cutter;
-    private boolean crush;
     private boolean hasContainerItem;
     private ContainerItemLambda containeritemlambda;
 
@@ -98,12 +96,6 @@ public class RWBYItem extends Item implements ICustomItem {
         if(name.contains("coin_ragora")) coinragor = true;
         if(name.contains("armagigas")) ageist = true;
         scroll = name.contains("scroll");
-        cutter = name.equals("chisel");
-        crush= name.equals("crush");
-        if (cutter || crush) {
-        	this.setMaxDamage(256);
-        	maxStackSize =1;
-        }
     }
 
     /*@Override
@@ -112,33 +104,30 @@ public class RWBYItem extends Item implements ICustomItem {
             recipe.register(this);
         }
     }*/
-    
+
     public RWBYItem setContainerItemLambda(ContainerItemLambda lambda) {
-    	this.containeritemlambda = lambda;
-    	return this;
+        this.containeritemlambda = lambda;
+        return this;
     }
-    
+
     public RWBYItem setHasContainerItem(boolean istool) {
-    	this.hasContainerItem = istool;
-    	return this;
+        this.hasContainerItem = istool;
+        return this;
     }
 
     @Override
     public boolean hasContainerItem(ItemStack stack) {
-    	if(this.cutter){
-        return this.cutter;}else if(crush){
-    	    return this.crush;
-        } return false;
+        return this.hasContainerItem;
     }
-    
+
     @Override
     public ItemStack getContainerItem(ItemStack itemStack) {
-    	if (containeritemlambda != null) {
-    		return containeritemlambda.apply(itemStack);
-    	}
-    	return super.getContainerItem(itemStack);
+        if (containeritemlambda != null) {
+            return containeritemlambda.apply(itemStack);
+        }
+        return super.getContainerItem(itemStack);
     }
-    
+
     @Override
     public boolean isValidArmor(ItemStack stack, EntityEquipmentSlot armorType, Entity entity) {
         if (ismask){if(armorType == EntityEquipmentSlot.HEAD) {
@@ -146,7 +135,7 @@ public class RWBYItem extends Item implements ICustomItem {
         }else {
             return false;
         }}else {
-        return false;}
+            return false;}
     }
 
     //@SuppressWarnings("Duplicates")
@@ -193,10 +182,10 @@ public class RWBYItem extends Item implements ICustomItem {
 
         if(atlasknight){
             if(!worldIn.isRemote){
-            BlockPos blockpos = (new BlockPos(playerIn));
-            EntityAtlasKnight entityAtlasKnight = new EntityAtlasKnight(playerIn.world);
-            entityAtlasKnight.moveToBlockPosAndAngles(blockpos, 0.0F, 0.0F);
-            playerIn.world.spawnEntity(entityAtlasKnight);}
+                BlockPos blockpos = (new BlockPos(playerIn));
+                EntityAtlasKnight entityAtlasKnight = new EntityAtlasKnight(playerIn.world);
+                entityAtlasKnight.moveToBlockPosAndAngles(blockpos, 0.0F, 0.0F);
+                playerIn.world.spawnEntity(entityAtlasKnight);}
             itemstack.shrink(1);
         }
 
@@ -211,15 +200,15 @@ public class RWBYItem extends Item implements ICustomItem {
         }
 
         if(coinr)
-		    {
-		        if(!worldIn.isRemote){
-		            ISemblance semblance = CapabilityHandler.getCurrentSemblance(playerIn);
-		            if (semblance.toString().equals("Ruby")) {
-		                semblance.setLevel(semblance.getLevel() + 1);
-		            } else {CapabilityHandler.setSemblance(playerIn, RubyProvider.RUBY_CAP, 1);}
-		            itemstack.shrink(1);
-		        }
-		    }
+        {
+            if(!worldIn.isRemote){
+                ISemblance semblance = CapabilityHandler.getCurrentSemblance(playerIn);
+                if (semblance.toString().equals("Ruby")) {
+                    semblance.setLevel(semblance.getLevel() + 1);
+                } else {CapabilityHandler.setSemblance(playerIn, RubyProvider.RUBY_CAP, 1);}
+                itemstack.shrink(1);
+            }
+        }
         if(coinw)
         {
             if(!worldIn.isRemote){
@@ -298,7 +287,7 @@ public class RWBYItem extends Item implements ICustomItem {
         }
 
         if (scroll) {
-        	playerIn.openGui(RWBYModels.instance, RWBYModels.GuiHandler.GUI.SCROLL.ordinal(), worldIn, 0, 0, 0);
+            playerIn.openGui(RWBYModels.instance, RWBYModels.GuiHandler.GUI.SCROLL.ordinal(), worldIn, 0, 0, 0);
         }
 
         if (itemstack1.isEmpty() && ismask)
@@ -327,13 +316,13 @@ public class RWBYItem extends Item implements ICustomItem {
     @Override
     public int getItemBurnTime(ItemStack itemStack) {
         if(burn){
-        return 2400;}else return 0;
+            return 2400;}else return 0;
     }
 
     @SideOnly(Side.CLIENT)
     public boolean hasEffect(ItemStack stack)
     {
-            return false;
+        return false;
     }
 
     @Override
@@ -341,3 +330,4 @@ public class RWBYItem extends Item implements ICustomItem {
         return "RWBYItem{" + this.getRegistryName() + "}";
     }
 }
+
