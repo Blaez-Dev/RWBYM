@@ -48,13 +48,13 @@ public class Oregen implements IWorldGenerator{
     private WorldGenerator ice_overworld;
 
     public Oregen() {
-        gravity_overworld = new WorldGenMinable(RWBYItems.rwbyblock1.getDefaultState(), 24);
-        fire_overworld = new WorldGenMinable(RWBYItems.rwbyblock2.getDefaultState(), 24);
-        wind_overworld = new WorldGenMinable(RWBYItems.rwbyblock3.getDefaultState(), 24);
-        impure_overworld = new WorldGenMinable(RWBYItems.rwbyblock4.getDefaultState(), 24);
-        water_overworld = new WorldGenMinable(RWBYItems.rwbyblock5.getDefaultState(), 24);
-        light_overworld = new WorldGenMinable(RWBYItems.rwbyblock6.getDefaultState(), 24);
-        ice_overworld = new WorldGenMinable(RWBYItems.rwbyblock9.getDefaultState(), 24);
+        gravity_overworld = new WorldGenMinable(RWBYItems.rwbyblock1.getDefaultState(), 16);
+        fire_overworld = new WorldGenMinable(RWBYItems.rwbyblock2.getDefaultState(), 16);
+        wind_overworld = new WorldGenMinable(RWBYItems.rwbyblock3.getDefaultState(), 16);
+        impure_overworld = new WorldGenMinable(RWBYItems.rwbyblock4.getDefaultState(), 16);
+        water_overworld = new WorldGenMinable(RWBYItems.rwbyblock5.getDefaultState(), 16);
+        light_overworld = new WorldGenMinable(RWBYItems.rwbyblock6.getDefaultState(), 16);
+        ice_overworld = new WorldGenMinable(RWBYItems.rwbyblock9.getDefaultState(), 16);
     }
 
 

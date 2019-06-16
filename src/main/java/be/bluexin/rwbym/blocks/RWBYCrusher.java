@@ -14,6 +14,7 @@ import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -26,6 +27,8 @@ import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.items.ItemStackHandler;
 
 import java.util.Random;
 
@@ -41,6 +44,20 @@ public class RWBYCrusher extends BlockBase
         super(name, Material.IRON, RWBYCreativeTabs.tab_rwbyitems, 1F, 1F, "pickaxe", 1);
         setSoundType(SoundType.METAL);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(BURNING, false));
+    }
+
+    public void breakBlock( World worldIn, BlockPos pos, IBlockState state ){
+        TileEntity te = worldIn.getTileEntity( pos );
+        if( te instanceof TileEntityRWBYCrusher ){
+            ItemStackHandler ish = (ItemStackHandler)te.getCapability( CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null );
+            for( int i=0; i<ish.getSlots(); i++ ){
+                if( ish.getStackInSlot( i ) != null ){
+                    worldIn.spawnEntity( new EntityItem( worldIn, pos.getX(), pos.getY(), pos.getZ(), ish.getStackInSlot( i ) ) );
+                }
+            }
+        }
+
+        super.breakBlock(worldIn, pos, state);
     }
 
     @Override

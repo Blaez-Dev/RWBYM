@@ -52,19 +52,19 @@ public class RWBYConfig
     @Config.Comment("Spawn Chance Well")
     public static int well = 350;
     @Config.Comment("Spawn Chance Gravity DusT")
-    public static int gravityore = 4;
+    public static int gravityore = 1;
     @Config.Comment("Spawn Chance Fire Dust")
-    public static int fireore = 4;
+    public static int fireore = 1;
     @Config.Comment("Spawn Chance Wind Dust")
-    public static int windore = 4;
+    public static int windore = 1;
     @Config.Comment("Spawn Chance Impure Dust")
-    public static int impureore = 8;
+    public static int impureore = 2;
     @Config.Comment("Spawn Chance Water Dust")
-    public static int waterore = 4;
+    public static int waterore = 1;
     @Config.Comment("Spawn Chance Lightning Dust")
-    public static int lightore = 4;
+    public static int lightore = 1;
     @Config.Comment("Spawn Chance Ice Dust")
-    public static int iceore = 4;
+    public static int iceore = 1;
     @Config.Comment("Semblance Recharge Delay in Ticks")
     public static int delayticks = 250;
     @Config.Comment("Can Aura Block Damage?")
