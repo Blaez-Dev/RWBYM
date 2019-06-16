@@ -37,6 +37,8 @@ public class CrusherRecipe
         addCrusherRecipe(new ItemStack(RWBYItems.lightdustrock), new ItemStack(RWBYItems.crush, 1, Short.MAX_VALUE), new ItemStack(RWBYItems.lightdust, 2), 3);
         addCrusherRecipe(new ItemStack(RWBYItems.gravitydustcrystal), new ItemStack(RWBYItems.chisel, 1, Short.MAX_VALUE), new ItemStack(RWBYItems.gravitydustcrystalcut, 1), 3);
         addCrusherRecipe(new ItemStack(RWBYItems.winddustcrystal), new ItemStack(RWBYItems.chisel, 1, Short.MAX_VALUE), new ItemStack(RWBYItems.winddustcrystalcut, 1), 3);
+        addCrusherRecipe(new ItemStack(RWBYItems.waterdustcrystal), new ItemStack(RWBYItems.chisel, 1, Short.MAX_VALUE), new ItemStack(RWBYItems.waterdustcrystalcut, 1), 3);
+
     }
 
 
