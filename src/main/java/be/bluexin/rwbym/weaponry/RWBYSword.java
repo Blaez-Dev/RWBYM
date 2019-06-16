@@ -206,17 +206,19 @@ public class RWBYSword extends ItemSword implements ICustomItem {
     @Override
     public void onPlayerStoppedUsing(ItemStack stack, World worldIn, EntityLivingBase entityLiving, int timeLeft) {
         super.onPlayerStoppedUsing(stack, worldIn, entityLiving, timeLeft);
-        if(ohblade && entityLiving instanceof EntityPlayer && entityLiving.getHeldItemOffhand() == stack) {
-        	Entity entity = this.findEntityOnPath(worldIn, entityLiving, entityLiving.getEntityAttribute(EntityPlayer.REACH_DISTANCE).getAttributeValue());
-        	if (entity instanceof EntityLivingBase) {
-        		EntityLivingBase entitylivingbase = (EntityLivingBase) entity;
-                if (entitylivingbase != entityLiving && !entityLiving.isOnSameTeam(entitylivingbase) && entityLiving.getDistanceSq(entitylivingbase) < 9.0D) {
-                    entitylivingbase.knockBack(entityLiving, 0.4F, (double) MathHelper.sin(entityLiving.rotationYaw * 0.017453292F), (double) (-MathHelper.cos(entityLiving.rotationYaw * 0.017453292F)));
-                    entitylivingbase.attackEntityFrom(DamageSource.GENERIC, damages + 4);
-                    stack.damageItem(1, entityLiving);
-                    entityLiving.world.playSound((EntityPlayer) null, entityLiving.posX, entityLiving.posY, entityLiving.posZ, SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, entityLiving.getSoundCategory(), 1.0F, 1.0F);
-                }
-            }
+        if (!worldIn.isRemote) {
+	        if(ohblade && entityLiving instanceof EntityPlayer && entityLiving.getHeldItemOffhand() == stack) {
+	        	Entity entity = this.findEntityOnPath(worldIn, entityLiving, entityLiving.getEntityAttribute(EntityPlayer.REACH_DISTANCE).getAttributeValue());
+	        	if (entity instanceof EntityLivingBase) {
+	        		EntityLivingBase entitylivingbase = (EntityLivingBase) entity;
+	                if (entitylivingbase != entityLiving && !entityLiving.isOnSameTeam(entitylivingbase)) {
+	                    entitylivingbase.knockBack(entityLiving, 0.4F, (double) MathHelper.sin(entityLiving.rotationYaw * 0.017453292F), (double) (-MathHelper.cos(entityLiving.rotationYaw * 0.017453292F)));
+	                    entitylivingbase.attackEntityFrom(DamageSource.GENERIC, damages + 4);
+	                    stack.damageItem(1, entityLiving);
+	                    entityLiving.world.playSound((EntityPlayer) null, entityLiving.posX, entityLiving.posY, entityLiving.posZ, SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, entityLiving.getSoundCategory(), 1.0F, 1.0F);
+	                }
+	            }
+	        }
         }
     }
     
@@ -234,7 +236,7 @@ public class RWBYSword extends ItemSword implements ICustomItem {
             end = new Vec3d(raytraceresult1.hitVec.x, raytraceresult1.hitVec.y, raytraceresult1.hitVec.z);
         }
         
-		List<Entity> list = world.getEntitiesWithinAABBExcludingEntity(entityIn, new AxisAlignedBB(start, end));
+		List<Entity> list = world.getEntitiesWithinAABBExcludingEntity(entityIn, new AxisAlignedBB(start.x, start.y, start.z, end.x, end.y, end.z));
         double d0 = 0.0D;
 
         for (int i = 0; i < list.size(); ++i)
