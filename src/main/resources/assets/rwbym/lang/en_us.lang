@@ -382,6 +382,14 @@ item.rwbym:oobleckthermos.name=Oobleck's Thermos
 item.rwbym:oobleckflamethrower.name=Oobleck's Flamethrower
 item.rwbym:chisel.name=Processor Chisel Head
 item.rwbym:crush.name=Processor Crusher Head
+item.rwbym:firedustcrystalcut.name=Volatile Fire Crystal
+item.rwbym:gravitydustcrystalcut.name=Volatile Gravity Crystal
+item.rwbym:icedustcrystalcut.name=Volatile Ice Crystal
+item.rwbym:lightdustcrystalcut.name=Volatile Lightning Crystal
+item.rwbym:waterdustcrystalcut.name=Volatile Water Crystal
+item.rwbym:winddustcrystalcut.name=Volatile Wind Crystal
+item.rwbym:dustcrystalcut.name=Volatile Impure Crystal
+
 
 
 effect.aura_regen=Aura Regen

@@ -187,6 +187,9 @@ public class RegUtil {
         registerItems(event, RWBYItems.winddustcrystalcut);
         registerItems(event, RWBYItems.waterdustcrystalcut);
         registerItems(event, RWBYItems.firedustcrystalcut);
+        registerItems(event, RWBYItems.dustcrystalcut);
+        registerItems(event, RWBYItems.lightdustcrystalcut);
+        registerItems(event, RWBYItems.icedustcrystalcut);
         registerItems(event, RWBYItems.dustrock);
         registerItems(event, RWBYItems.winddustrock);
         registerItems(event, RWBYItems.firedustrock);
@@ -305,6 +308,9 @@ public class RegUtil {
         registerItems(event, RWBYItems.winddustcut);
         registerItems(event, RWBYItems.waterdustcut);
         registerItems(event, RWBYItems.firedustcut);
+        registerItems(event, RWBYItems.dustcut);
+        registerItems(event, RWBYItems.lightdustcut);
+        registerItems(event, RWBYItems.icedustcut);
         registerItems(event, RWBYItems.ragorafireball);
         //mob drops
         registerItems(event, RWBYItems.remnants);
@@ -674,6 +680,15 @@ public class RegUtil {
                 }else
                 if(item == RWBYItems.firedustcut){
                     ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.firedustcrystalcut.getRegistryName(), "inventory"));
+                }else
+                if(item == RWBYItems.dustcut){
+                    ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.dustcrystalcut.getRegistryName(), "inventory"));
+                }else
+                if(item == RWBYItems.lightdustcut){
+                    ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.lightdustcrystalcut.getRegistryName(), "inventory"));
+                }else
+                if(item == RWBYItems.icedustcut){
+                    ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.icedustcrystalcut.getRegistryName(), "inventory"));
                 }
             	else {
             		ModelLoader.setCustomModelResourceLocation(item,0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
