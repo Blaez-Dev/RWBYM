@@ -87,7 +87,7 @@ public class GuiScreenScroll extends GuiScreen {
 		IAura aura = this.players[0].getCapability(AuraProvider.AURA_CAP, null);
 		while(aura != null && !(this.players[0].experienceTotal < aura.getEXPToLevel())) {
 			RWBYNetworkHandler.sendToServer(new MessagePlayerEXP(-aura.getEXPToLevel()));
-			this.players[0].experienceTotal -= aura.getEXPToLevel();
+			//this.players[0].experienceTotal -= aura.getEXPToLevel();
 			aura.addToMax(1);
 			RWBYNetworkHandler.sendToServer(new MessageSendPlayerDataToServer(this.players[0]));
 			if (button.id == 0) break;

@@ -30,14 +30,22 @@ public class MessagePlayerEXP extends MessageBase<MessagePlayerEXP> {
 
 	@Override
 	public void handleServerSide(MessagePlayerEXP message, EntityPlayer player) {
-		//player.addExperience(message.exp);
-		///*
-		int exp  = player.experienceTotal + message.exp;
-		player.experience = 0;
-		player.experienceLevel = 0;
-		player.experienceTotal = 0;
-		player.addExperience(exp);
-		//*/
+		int xpbaramt = (int) (player.experience * player.xpBarCap() + 0.5f);
+		int exp = message.exp;
+		while (-exp > xpbaramt) {
+			player.addExperienceLevel(-1);
+			player.experience = 1;
+			player.experienceTotal -= xpbaramt;
+			exp += xpbaramt;
+			xpbaramt = player.xpBarCap();
+		}
+		if (exp > 0) {
+			player.addExperience(exp);
+		}
+		else {
+			player.experience += (float)exp / (float)player.xpBarCap();
+			player.experienceTotal += exp;
+		}
 	}
 
 }
