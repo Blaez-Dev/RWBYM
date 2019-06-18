@@ -7,6 +7,7 @@ import be.bluexin.rwbym.RWBYSoundHandler;
 import be.bluexin.rwbym.entity.EntityLargeFireball;
 import be.bluexin.rwbym.entity.EntityNeverMore;
 import mcp.MethodsReturnNonnullByDefault;
+import net.minecraft.client.audio.SoundHandler;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
@@ -70,6 +71,7 @@ public class RWBYBow extends ItemBow implements ICustomItem {
     private boolean chat = false;
     private boolean nept = false;
     private boolean nadir = false;
+    private boolean firecharge = true;
     boolean compensate;
     float lastDamage;
     private boolean emerald2 = false;
@@ -121,6 +123,11 @@ public class RWBYBow extends ItemBow implements ICustomItem {
         if(name.contains("pyrrharifle")) port = true;
         if(name.contains("ironwood")) gambols = true;
         if(name.contains("fox")) gambols = true;
+        if(name.contains("atlasrifle")) port = true;
+        if(name.contains("atlaspistol")) emerald = true;
+        if(name.contains("goodwitch")) mytre = true;
+        if(name.contains("oobleck"))  firecharge = true;
+        if(name.contains("cardin")) mytre = true;
 
 
         this.addPropertyOverride(new ResourceLocation("pull"), new IItemPropertyGetter()
@@ -423,6 +430,10 @@ public class RWBYBow extends ItemBow implements ICustomItem {
                     }
                     if (nadir){
                         worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.StormFlower_Shoot, SoundCategory.MASTER, 1.0F, 0.5F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+                    }
+
+                    if(firecharge){
+                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, SoundEvents.ITEM_FIRECHARGE_USE, SoundCategory.MASTER, 1.0F, 0.5F/ (itemRand.nextFloat() * 0.4F + 1.0F) + f + 0.5F);
                     }
                     if (recoil) {
 	                    Vec3d look = entityplayer.getLookVec();

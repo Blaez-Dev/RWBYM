@@ -30,8 +30,10 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemHandlerHelper;
 import net.minecraftforge.items.ItemStackHandler;
+import net.minecraftforge.items.wrapper.InvWrapper;
 
 public class TileEntityRWBYCrusher extends TileEntity implements ITickable
 {
@@ -76,7 +78,7 @@ public class TileEntityRWBYCrusher extends TileEntity implements ITickable
     public <T> T getCapability(Capability<T> capability, EnumFacing facing)
     {
         if(capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
-        	switch(facing) {
+            switch(facing) {
 			case DOWN:
 				return (T) this.output;
 			case EAST:

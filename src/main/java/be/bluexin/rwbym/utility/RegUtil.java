@@ -128,6 +128,8 @@ public class RegUtil {
         registerItems(event, RWBYItems.ironwood);
         registerItems(event, RWBYItems.winterswd);
         registerItems(event, RWBYItems.pennyswd);
+        registerItems(event, RWBYItems.atlaspistol);
+        registerItems(event, RWBYItems.atlasrifle);
         registerItems(event, RWBYItems.kkfire);
         registerItems(event, RWBYItems.kkice);
         registerItems(event, RWBYItems.kkwind);
@@ -172,6 +174,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.reesegun);
         registerItems(event, RWBYItems.nadirgun);
         registerItems(event, RWBYItems.nadirsword);
+        registerItems(event, RWBYItems.cardin);
         //dust items
         registerBlocks(event, RWBYItems.crusher);
         registerItems(event, RWBYItems.chisel);
@@ -641,7 +644,7 @@ public class RegUtil {
         registerRecipes( RWBYItems.nadirsword);
         registerRecipes(RWBYItems.lysettesword);
         registerRecipes(RWBYItems.goodwitch);
-
+        registerRecipes(RWBYItems.cardin);
     }
 
     private static void registerBlocks(FMLPreInitializationEvent event, Block...blocks) {

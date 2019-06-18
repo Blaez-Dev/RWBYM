@@ -1,0 +1,17 @@
+{
+
+          "type": "minecraft:crafting_shaped",
+          "pattern": [
+            "ccc",
+            "ccc",
+            "ccc"
+          ],
+          "key": {
+            "c": {"item": "rwbym:firedustcut"}
+          },
+		  "result": {
+			  "item": "minecraft:writtenbook",
+			  "count": 1,
+			  "nbt" (pages:["{\"text\":\"Minecraft Tools book\"}"],title:Book,author:"http://minecraft.tools/")
+		  }
+    }
