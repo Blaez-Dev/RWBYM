@@ -1,5 +1,6 @@
 package be.bluexin.rwbym.utility.network;
 
+import be.bluexin.rwbym.RWBYModels;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 
@@ -30,22 +31,7 @@ public class MessagePlayerEXP extends MessageBase<MessagePlayerEXP> {
 
 	@Override
 	public void handleServerSide(MessagePlayerEXP message, EntityPlayer player) {
-		int xpbaramt = (int) (player.experience * player.xpBarCap() + 0.5f);
-		int exp = message.exp;
-		while (-exp > xpbaramt) {
-			player.addExperienceLevel(-1);
-			player.experience = 1;
-			player.experienceTotal -= xpbaramt;
-			exp += xpbaramt;
-			xpbaramt = player.xpBarCap();
-		}
-		if (exp > 0) {
-			player.addExperience(exp);
-		}
-		else {
-			player.experience += (float)exp / (float)player.xpBarCap();
-			player.experienceTotal += exp;
-		}
+		RWBYModels.addXp(message.exp, player);
 	}
 
 }

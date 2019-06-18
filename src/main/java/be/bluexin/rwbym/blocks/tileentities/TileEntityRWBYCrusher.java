@@ -92,7 +92,17 @@ public class TileEntityRWBYCrusher extends TileEntity implements ITickable
 			case UP:
 				return (T) this.input;
 			default:
-				break;
+				NonNullList<ItemStack> list = NonNullList.create();
+				for (int i = 0; i < input.getSlots(); i++) {
+					list.add(input.getStackInSlot(i));
+				}
+				for (int i = 0; i < fuel.getSlots(); i++) {
+					list.add(input.getStackInSlot(i));
+				}
+				for (int i = 0; i < output.getSlots(); i++) {
+					list.add(input.getStackInSlot(i));
+				}
+				return (T) new ItemStackHandler(list);
         	}
         }
         return super.getCapability(capability, facing);

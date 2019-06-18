@@ -374,6 +374,55 @@ public class RWBYModels {
     public static int sign(int x) {
     	return sign((double) x);
     }
+    
+    /**Helper function to get the players true xp count*/
+    public static int getXpTotal(EntityPlayer player) {
+    	int exp = 0;
+    	
+    	for (int i = 0; i < player.experienceLevel; i++) {
+    		exp += xpBarCap(i);
+    	}
+    	
+    	exp += (int) (player.experience * player.xpBarCap() + 0.5f);
+    	
+    	return exp;
+    	
+    }
+    
+    /**Helper function to get the bar cap for the specified experience level*/
+    public static int xpBarCap(int level)
+    {
+    	if (level < 0) {
+    		return 0;
+    	}
+        if (level >= 30)
+        {
+            return 112 + (level - 30) * 9;
+        }
+        else
+        {
+            return level >= 15 ? 37 + (level - 15) * 5 : 7 + level * 2;
+        }
+    }
+    
+    /**Helper function to add/remove exp from player*/
+    public static void addXp(int amount, EntityPlayer player) {
+		int xpbaramt = (int) (player.experience * player.xpBarCap() + 0.5f);
+		int exp = amount;
+		while (-exp > xpbaramt && player.experienceLevel > 0) {
+			player.experienceLevel -= 1;
+			player.experience = 1;
+			exp += xpbaramt;
+			xpbaramt = player.xpBarCap();
+		}
+		if (exp > 0) {
+			player.addExperience(exp);
+		}
+		else {
+			player.experience += (float)exp / (float)player.xpBarCap();
+		}
+		player.experienceTotal = RWBYModels.getXpTotal(player);
+    }
 }
 
 // is this list being updated?

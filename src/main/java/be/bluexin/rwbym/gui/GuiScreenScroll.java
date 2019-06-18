@@ -85,7 +85,8 @@ public class GuiScreenScroll extends GuiScreen {
 	@Override
 	protected void actionPerformed(GuiButton button) throws IOException {
 		IAura aura = this.players[0].getCapability(AuraProvider.AURA_CAP, null);
-		while(aura != null && !(this.players[0].experienceTotal < aura.getEXPToLevel())) {
+		while(aura != null && !(RWBYModels.getXpTotal(players[0]) < aura.getEXPToLevel())) {
+			RWBYModels.addXp(-aura.getEXPToLevel(), players[0]);
 			RWBYNetworkHandler.sendToServer(new MessagePlayerEXP(-aura.getEXPToLevel()));
 			//this.players[0].experienceTotal -= aura.getEXPToLevel();
 			aura.addToMax(1);
@@ -106,7 +107,7 @@ public class GuiScreenScroll extends GuiScreen {
 	public void updateScreen() {
 		IAura aura = this.players[0].getCapability(AuraProvider.AURA_CAP, null);
 		if (aura != null) {
-			this.button1.enabled = aura != null && !(this.players[0].experienceTotal < aura.getEXPToLevel());
+			this.button1.enabled = aura != null && !(RWBYModels.getXpTotal(players[0]) < aura.getEXPToLevel());
 			this.button1.displayString = "Lvl Aura: " + aura.getEXPToLevel();
 		}
 		else {
