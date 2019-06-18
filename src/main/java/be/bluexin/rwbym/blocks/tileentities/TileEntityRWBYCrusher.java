@@ -78,6 +78,19 @@ public class TileEntityRWBYCrusher extends TileEntity implements ITickable
     public <T> T getCapability(Capability<T> capability, EnumFacing facing)
     {
         if(capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+        	if (facing == null) {
+				NonNullList<ItemStack> list = NonNullList.create();
+				for (int i = 0; i < input.getSlots(); i++) {
+					list.add(input.getStackInSlot(i));
+				}
+				for (int i = 0; i < fuel.getSlots(); i++) {
+					list.add(fuel.getStackInSlot(i));
+				}
+				for (int i = 0; i < output.getSlots(); i++) {
+					list.add(output.getStackInSlot(i));
+				}
+				return (T) new ItemStackHandler(list);
+        	}
             switch(facing) {
 			case DOWN:
 				return (T) this.output;
@@ -92,17 +105,7 @@ public class TileEntityRWBYCrusher extends TileEntity implements ITickable
 			case UP:
 				return (T) this.input;
 			default:
-				NonNullList<ItemStack> list = NonNullList.create();
-				for (int i = 0; i < input.getSlots(); i++) {
-					list.add(input.getStackInSlot(i));
-				}
-				for (int i = 0; i < fuel.getSlots(); i++) {
-					list.add(input.getStackInSlot(i));
-				}
-				for (int i = 0; i < output.getSlots(); i++) {
-					list.add(input.getStackInSlot(i));
-				}
-				return (T) new ItemStackHandler(list);
+				break;
         	}
         }
         return super.getCapability(capability, facing);

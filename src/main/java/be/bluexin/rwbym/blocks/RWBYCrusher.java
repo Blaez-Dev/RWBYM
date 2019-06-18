@@ -60,12 +60,14 @@ public class RWBYCrusher extends BlockBase
 
     @Override
     public void breakBlock(World world, BlockPos pos, IBlockState state) {
-        TileEntityRWBYCrusher te = (TileEntityRWBYCrusher) world.getTileEntity(pos);
-        IItemHandler handler = te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
-        for (int slot = 0; slot < handler.getSlots(); slot++) {
-            ItemStack stack = handler.getStackInSlot(slot);
-            InventoryHelper.spawnItemStack(world, pos.getX(), pos.getY(), pos.getZ(), stack);
-        }
+    	if (!world.isRemote) {
+	        TileEntityRWBYCrusher te = (TileEntityRWBYCrusher) world.getTileEntity(pos);
+	        IItemHandler handler = te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
+	        for (int slot = 0; slot < handler.getSlots(); slot++) {
+	            ItemStack stack = handler.getStackInSlot(slot);
+	            InventoryHelper.spawnItemStack(world, pos.getX(), pos.getY(), pos.getZ(), stack);
+	        }
+    	}
         // super.breakBlock(world, pos, state);
     }
 
