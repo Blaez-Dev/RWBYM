@@ -83,6 +83,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.rvnswdice);
         registerItems(event, RWBYItems.qrow);
         registerItems(event, RWBYItems.qrowsword);
+        registerItems(event, RWBYItems.vernal);
         registerItems(event, RWBYItems.cocobag);
         registerItems(event, RWBYItems.fox);
         registerItems(event, RWBYItems.velvet);
@@ -645,6 +646,9 @@ public class RegUtil {
         registerRecipes(RWBYItems.lysettesword);
         registerRecipes(RWBYItems.goodwitch);
         registerRecipes(RWBYItems.cardin);
+        registerRecipes(RWBYItems.atlasrifle);
+        registerRecipes(RWBYItems.atlaspistol);
+        registerRecipes(RWBYItems.vernal);
     }
 
     private static void registerBlocks(FMLPreInitializationEvent event, Block...blocks) {
