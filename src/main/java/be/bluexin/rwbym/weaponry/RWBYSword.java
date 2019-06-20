@@ -118,13 +118,6 @@ public class RWBYSword extends ItemSword implements ICustomItem {
         return true;
     }
 
-    /*@Override
-    public void registerRecipes() {
-        if (this.recipes != null) for (RecipeDTO recipe : this.recipes) {
-            recipe.register(this);
-        }
-    }*/
-
 
     @SideOnly(Side.CLIENT)
     public boolean hasEffect(ItemStack stack)
@@ -188,7 +181,6 @@ public class RWBYSword extends ItemSword implements ICustomItem {
     @Override
     public ActionResult<ItemStack> onItemRightClick( World worldIn, EntityPlayer playerIn, EnumHand hand) {
         ItemStack is = playerIn.getHeldItem(hand);
-        
 
         
         if (!worldIn.isRemote && playerIn.isSneaking() && this.morph != null && playerIn.getHeldItemMainhand() == is) {

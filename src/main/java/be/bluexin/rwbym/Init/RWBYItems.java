@@ -1035,7 +1035,7 @@ public class RWBYItems {
             0,
             1,
             null);
-    public static final Item noragunv = new RWBYBow(
+    public static final Item noragunv = new RWBYGun(
             "noragunv",
             1250,
             72,
@@ -1045,11 +1045,14 @@ public class RWBYItems {
             "rwbym:ammov",
             false,
             1,
-            true,
+            false,
+            false,
             0,
             1,
+            0,
+            6,
             null);
-    public static final Item emberv = new RWBYShotgun(
+    public static final Item emberv = new RWBYGun(
             "emberv",
             1250,
             72,
@@ -1059,12 +1062,14 @@ public class RWBYItems {
             "rwbym:ammov",
             false,
             1,
-            true,
+            false,
+            false,
+            0,
             4,
+            0,
             2,
-            1,
             null);
-    public static final Item qrowgun = new RWBYShotgun(
+    public static final Item qrowgun = new RWBYGun(
             "qrowgun",
             2500,
             72,
@@ -1074,12 +1079,14 @@ public class RWBYItems {
             "rwbym:emammo,rwbym:emfireammo,rwbym:emflareammo",
             false,
             0.8F,
-            true,
+            false,
+            false,
+            0,
             4,
             0,
-            0,
+            2,
             null);
-    public static final Item cocogun = new RWBYBow(
+    public static final Item cocogun = new RWBYGun(
             "cocogun",
             1250,
             72,
@@ -1089,11 +1096,14 @@ public class RWBYItems {
             "rwbym:ammmo",
             true,
             1,
-            true,
+            false,
+            false,
             0,
+            1,
             0,
+            7,
             null);
-    public static final Item cocogunv = new RWBYBow(
+    public static final Item cocogunv = new RWBYGun(
             "cocogunv",
             1250,
             72,
@@ -1103,12 +1113,15 @@ public class RWBYItems {
             "rwbym:ammmo",
             true,
             1,
-            true,
+            false,
+            false,
             0,
             1,
+            1,
+            7,
             null);
 
-    public static final Item torchwickgun = new RWBYShotgun(
+    public static final Item torchwickgun = new RWBYGun(
             "torchwickgun",
             2500,
             72,
@@ -1118,12 +1131,14 @@ public class RWBYItems {
             "rwbym:emammmo,rwbym:emflareammo",
             false,
             0.8F,
-            true,
+            false,
+            false,
+            0,
             1,
             0,
-            0,
+            11,
             null);
-    public static final Item portgun = new RWBYShotgun(
+    public static final Item portgun = new RWBYGun(
             "portgun",
             2500,
             72,
@@ -1133,12 +1148,14 @@ public class RWBYItems {
             "rwbym:emammo,rwbym:emammmo",
             false,
             0.8F,
-            true,
+            false,
+            false,
+            0,
             4,
             0,
-            0,
+            8,
             null);
-    public static final Item emeraldgun = new RWBYBow(
+    public static final Item emeraldgun = new RWBYGun(
             "emeraldgun",
             2500,
             72,
@@ -1148,11 +1165,14 @@ public class RWBYItems {
             "rwbym:spl,rwbym:splfire,rwbym:splgrav,rwbym:splice,rwbym:spllight",
             false,
             1,
-            true,
+            false,
+            false,
+            4,
+            1,
             0,
-            0,
+            5,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static final Item emeraldblade = new RWBYBow(
+    public static final Item emeraldblade = new RWBYGun(
             "emeraldblade",
             2500,
             72,
@@ -1162,25 +1182,31 @@ public class RWBYItems {
             "rwbym:spl,rwbym:splfire,rwbym:splgrav,rwbym:splice,rwbym:spllight",
             false,
             1,
-            true,
+            false,
+            false,
+            4,
+            1,
             0,
-            0,
+            5,
             null);
-    public static final Item jnrrocket = new RWBYBow(
+    public static final Item jnrrocket = new RWBYGun(
             "jnrrocket",
             2500,
             72,
-            0,
+            5,
             null,
             "rwbym:jnrbat",
             "rwbym:jnrammo",
             false,
             1,
-            true,
+            false,
+            false,
             0,
+            1,
             0,
+            10,
             null);
-    public static final Item cinderbow = new RWBYBow(
+    public static final Item cinderbow = new RWBYGun(
             "cinderbow",
             2500,
             72,
@@ -1190,11 +1216,14 @@ public class RWBYItems {
             "minecraft:arrow,minecraft:tipped_arrow",
             false,
             1,
-            true,
+            false,
+            false,
             0,
+            1,
             0,
+            16,
             null);
-    public static final Item adamgun = new RWBYShotgun(
+    public static final Item adamgun = new RWBYGun(
             "adamgun",
             2500,
             72,
@@ -1204,10 +1233,12 @@ public class RWBYItems {
             "rwbym:emammo,rwbym:emfireammo,rwbym:emflareammo",
             false,
             0.8F,
-            true,
+            false,
+            false,
+            0,
             3,
             0,
-            0,
+            2,
             null);
     public  static  final Item sunstaff = new RWBYSword("sunstaff",
             2500,
@@ -1221,7 +1252,7 @@ public class RWBYItems {
             false,
             0,
             null);
-    public  static  final  Item sunnunchuck = new RWBYShotgun(
+    public  static  final  Item sunnunchuck = new RWBYGun(
             "sunnunchuck",
             2500,
             72,
@@ -1230,12 +1261,14 @@ public class RWBYItems {
             "rwbym:sunstaff", "rwbym:emammo,rwbym:emfireammo,rwbym:emflareammo",
             false,
             0.8F,
-            true,
+            false,
+            false,
+            0,
             2,
             0,
-            0,
+            8,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static final Item neptunegun = new RWBYBow(
+    public static final Item neptunegun = new RWBYGun(
             "neptunegun",
             2500,
             72,
@@ -1245,9 +1278,12 @@ public class RWBYItems {
             "rwbym:neptammo,rwbym:magnaampammo",
             false,
             2,
-            true,
+            false,
+            false,
             0,
+            1,
             0,
+            13,
             RWBYCreativeTabs.tab_rwbyweapons);
     public  static  final Item neptunespear = new RWBYSword(
             "neptunespear",
@@ -1301,21 +1337,24 @@ public class RWBYItems {
             false,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static final Item scarletsword = new RWBYRapier(
+    public static final Item scarletsword = new RWBYGun(
             "scarletsword",
             2500,
             72,
-            0,
+            4,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:14,Operation:0,UUIDMost:99791,UUIDLeast:128916}]}",
             null,
             "rwbym:spl,rwbym:splfire,rwbym:splgrav,rwbym:splice,rwbym:spllight",
             false,
             1,
             false,
+            false,
             0,
+            1,
             0,
+            8,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static final Item nadirgun = new RWBYBow(
+    public static final Item nadirgun = new RWBYGun(
             "nadirgun",
             2500,
             72,
@@ -1325,9 +1364,12 @@ public class RWBYItems {
             "rwbym:gammag,rwbym:gamgravmag,rwbym:gamicemag,rwbym:gamfiremag",
             true,
             1,
-            true,
+            false,
+            false,
             0,
+            1,
             0,
+            14,
             RWBYCreativeTabs.tab_rwbyweapons);
     public static final Item nadirsword = new RWBYSword(
             "nadirsword",
@@ -1342,7 +1384,7 @@ public class RWBYItems {
             false,
             0,
            null);
-    public  static  final  Item hexen = new RWBYShotgun(
+    public  static  final  Item hexen = new RWBYGun(
             "hexen",
             2500,
             72,
@@ -1352,27 +1394,31 @@ public class RWBYItems {
             "rwbym:emammo,rwbym:emfireammo,rwbym:emflareammo",
             true,
             0.8F,
-            true,
-            4,
+            false,
+            false,
             0,
+            1,
             0,
+            2,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public  static  final  Item hexenaxe = new RWBYShotgun(
+    public  static  final  Item hexenaxe = new RWBYGun(
             "hexenaxe",
             2500,
             72,
-            0,
+            2,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:18,Operation:0,UUIDMost:99791,UUIDLeast:128916}]}",
             "rwbym:hexen",
             "rwbym:emammo,rwbym:emfireammo,rwbym:emflareammo",
             false,
             0.8F,
-            true,
+            false,
+            false,
+            0,
             4,
             0,
-            0,
+            2,
             null);
-    public static final Item magnumgun = new RWBYBow(
+    public static final Item magnumgun = new RWBYGun(
             "magnumgun",
             2500,
             72,
@@ -1382,24 +1428,31 @@ public class RWBYItems {
             "rwbym:gammag,rwbym:gamgravmag,rwbym:gamicemag,rwbym:gamfiremag",
             true,
             1,
-            true,
-            2,
+            false,
+            false,
             0,
+            1,
+            0,
+            3,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static final Item magnumsword = new RWBYCRScythe(
+    public static final Item magnumsword = new RWBYGun(
             "magnumsword",
             2500,
             72,
-            0,
+            2,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:16,Operation:0,UUIDMost:99791,UUIDLeast:128916}]}",
             "rwbym:magnumgun",
             "rwbym:gammag,rwbym:gamgravmag,rwbym:gamicemag,rwbym:gamfiremag",
             false,
             1,
-            true,
+            false,
+            false,
+            2,
+            1,
             0,
+            3,
             null);
-    public static final Item pyrrharifle = new RWBYRapier(
+    public static final Item pyrrharifle = new RWBYGun(
             "pyrrharifle",
             2500,
             72,
@@ -1410,10 +1463,13 @@ public class RWBYItems {
             false,
             1,
             true,
+            false,
             0,
+            1,
             0,
+            8,
             null);
-    public static final Item ironwood = new RWBYBow(
+    public static final Item ironwood = new RWBYGun(
             "ironwood",
             2500,
             72,
@@ -1423,11 +1479,14 @@ public class RWBYItems {
             "rwbym:spl,rwbym:splfire,rwbym:splgrav,rwbym:splice,rwbym:spllight",
             false,
             2,
-            true,
+            false,
+            false,
             0,
+            1,
             0,
+            3,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static final Item goodwitch = new RWBYBow(
+    public static final Item goodwitch = new RWBYGun(
             "goodwitch",
             2500,
             72,
@@ -1437,11 +1496,14 @@ public class RWBYItems {
             "rwbym:firedust,rwbym:lightdust",
             false,
             1,
-            true,
+            false,
+            false,
             0,
+            2,
             0,
+            4,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static final Item oobleckflamethrower = new RWBYBow(
+    public static final Item oobleckflamethrower = new RWBYGun(
             "oobleckflamethrower",
             2500,
             72,
@@ -1451,9 +1513,12 @@ public class RWBYItems {
             "rwbym:firedust,rwbym:firedust2",
             true,
             1,
-            true,
+            false,
+            false,
             0,
+            1,
             0,
+            15,
             null);
     public static final Item cardin = new RWBYGun(
             "cardin",

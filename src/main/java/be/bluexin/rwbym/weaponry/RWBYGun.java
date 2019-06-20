@@ -69,7 +69,6 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     private boolean port = false;
     private boolean glow = false;
     private boolean cinder = false;
-    private boolean emerald = false;
     private int soundeffect;
     private int bulletCount;
     private int weapontype;
@@ -88,6 +87,9 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     *  5 Junior Rocket Launcher
     *  6 Ember celica 2
     *
+    *
+    * recoiltype
+    *
     * */
 
     public RWBYGun(String name, int durability, int drawSpeed, int weapoontype, String data, String morph, String ammo, boolean noCharge, float projectileSpeed, boolean shield,boolean canBlock, int recoilType, int bulletCount, int enchantmentglow,int soundeffect, CreativeTabs creativetab) {
@@ -102,6 +104,11 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         this.charges = !noCharge;
         this.isShield = shield;
         this.bulletCount = bulletCount;
+        this.recoil = recoilType;
+        this.canBlock = canBlock;
+        this.weapontype = weapoontype;
+        this.setMaxDamage(durability);
+
 
         this.soundeffect = soundeffect;
         if(weapoontype == 3) { ohblade = true; this.damages = 14; }
@@ -183,6 +190,12 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                 return entityIn != null && entityIn.getHeldItemOffhand() == stack ? 1.0F : 0.0F;
             }
         });
+
+
+        if(bulletCount == 0){
+            System.out.println(name + " has no projectiles registered and has temporarily been set to 1.");
+            this.bulletCount = 1;
+        }
     }
 
     @Override
@@ -266,7 +279,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                 playerIn.lastTickPosZ = -look.x;
                 playerIn.lastTickPosX = -look.z;
             }}
-        if (!flag) {if (climbs)  { if (playerIn.collidedHorizontally){
+        if (!flag) {if (recoil == 4)  { if (playerIn.collidedHorizontally){
             //PotionEffect potioneffect = new PotionEffect(MobEffects.JUMP_BOOST, 60, 5, false, false);
             Vec3d look = playerIn.getLookVec();
             playerIn.motionX = look.x/2;
@@ -462,6 +475,10 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                         worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, SoundEvents.ITEM_FIRECHARGE_USE, SoundCategory.MASTER, 1.0F, 0.5F/ (itemRand.nextFloat() * 0.4F + 1.0F) + f + 0.5F);
                     }
 
+                    if(soundeffect == 16){
+                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.MASTER, 1.0F, 0.5F/ (itemRand.nextFloat() * 0.4F + 1.0F) + f + 0.5F);
+                    }
+
 
 
                     //shooting recoil
@@ -583,8 +600,4 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair) {
         return repair.getItem() == RWBYItems.scrap || super.getIsRepairable(toRepair, repair);
     }
-
-
-
-
 }
