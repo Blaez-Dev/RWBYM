@@ -113,7 +113,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         this.soundeffect = soundeffect;
         if(weapoontype == 3) { ohblade = true; this.damages = 14; }
         if(name.contains("weiss")||name.contains("oobleck")||name.contains("goodwitch")){mytre = true;}
-        if(enchantmentglow > 1){glow = true;}
+        if(enchantmentglow == 1){glow = true;}
 
 
         if (this.isShield) this.addPropertyOverride(new ResourceLocation("offhand"), new IItemPropertyGetter() {
@@ -383,6 +383,10 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                 flag2 = false;
             }
 
+
+            if(ohblade && entityplayer.getActiveHand() == EnumHand.OFF_HAND){
+                flag2 = false;
+            }
 
             if(ohblade && entityLiving instanceof EntityPlayer && entityLiving.getHeldItemOffhand() == stack) {
                 Entity entity = this.findEntityOnPath(worldIn, entityLiving, entityLiving.getEntityAttribute(EntityPlayer.REACH_DISTANCE).getAttributeValue());
