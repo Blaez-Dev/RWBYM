@@ -1455,7 +1455,7 @@ public class RWBYItems {
             0,
             0,
             null);
-    public static final Item cardin = new RWBYBow(
+    public static final Item cardin = new RWBYGun(
             "cardin",
             2500,
             72,
@@ -1465,9 +1465,12 @@ public class RWBYItems {
             "rwbym:firedust,rwbym:firedust2",
             false,
             1,
-            true,
+            false,
+            false,
             0,
+            1,
             0,
+            4,
             RWBYCreativeTabs.tab_rwbyweapons);
     public static final  Item gravitydustcrystalcut = new RWBYCutGem(
             "gravitydustcrystalcut",
@@ -1533,7 +1536,7 @@ public class RWBYItems {
             0.3F,
             RWBYCreativeTabs.tab_rwbyitems);
 
-    public static final Item atlaspistol = new RWBYBow(
+    public static final Item atlaspistol = new RWBYGun(
             "atlaspistol",
             2500,
             72,
@@ -1543,11 +1546,14 @@ public class RWBYItems {
             "rwbym:gammag,rwbym:gamgravmag,rwbym:gamicemag,rwbym:gamfiremag",
             false,
             1,
-            true,
+            false,
+            false,
             0,
+            1,
             0,
+            9,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static final Item atlasrifle = new RWBYBow(
+    public static final Item atlasrifle = new RWBYGun(
             "atlasrifle",
             2500,
             72,
@@ -1557,11 +1563,14 @@ public class RWBYItems {
             "rwbym:crmag,rwbym:crfiremag,rwbym:crgravmag,rwbym:crelectricmag",
             false,
             1,
-            true,
+            false,
+            false,
             0,
+            1,
             0,
+            8,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static final Item vernal = new RWBYShotgun(
+    public static final Item vernal = new RWBYGun(
             "vernal",
             2500,
             72,
@@ -1572,9 +1581,28 @@ public class RWBYItems {
             false,
             0.8F,
             true,
+            false,
+            0,
             2,
             0,
+            8,
+            RWBYCreativeTabs.tab_rwbyweapons);
+    public static final Item dove = new RWBYGun(
+            "dove",
+            2500,
+            72,
             0,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:15,Operation:0,UUIDMost:99791,UUIDLeast:128916}]}",
+            null,
+            "rwbym:spl,rwbym:splfire,rwbym:splgrav,rwbym:splice,rwbym:spllight",
+            false,
+            2,
+            false,
+            false,
+            0,
+            2,
+            0,
+            3,
             RWBYCreativeTabs.tab_rwbyweapons);
 
 

@@ -75,6 +75,9 @@ public class RWBYFood extends Item implements ICustomItem {
         if(food6){
             maxStackSize = 1;
         }
+        if(food == 14 || food == 15){
+            maxStackSize = 64;
+        }
     }
 
     @SuppressWarnings("Duplicates")
