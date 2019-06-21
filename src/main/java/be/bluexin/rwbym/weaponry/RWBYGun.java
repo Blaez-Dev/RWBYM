@@ -73,12 +73,15 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     private int bulletCount;
     private int weapontype;
     public final boolean isShield;
-    private boolean  canBlock = false;
+    public final boolean  canBlock;
     boolean compensate;
     float lastDamage;
     private boolean climbs = false;
     private boolean ohblade = true;
+    private boolean dualwield = false;
     private float damages = 0;
+    private int shotcount;
+    private int finishshot;
     //Weapon Type Numbers//
     /* 1 Rapier
     *  2 Scythe
@@ -89,6 +92,10 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     *
     *
     * recoiltype
+    * 1 crescent rose shoots backwards
+    * 2 ember celica shoots backwards slightly less
+    * 3 mytrenaster shoots forward when no ammo is present
+    * 4 emerald/stormflower climb walls
     *
     * */
 
@@ -108,11 +115,13 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         this.canBlock = canBlock;
         this.weapontype = weapoontype;
         this.setMaxDamage(durability);
+        this.shotcount = 1;
 
 
         this.soundeffect = soundeffect;
         if(weapoontype == 3) { ohblade = true; this.damages = 14; }
         if(name.contains("weiss")||name.contains("oobleck")||name.contains("goodwitch")){mytre = true;}
+        if(name.contains("stormflower")||name.contains("ember")||name.contains("tyrian")||name.contains("fox")||name.contains("emerald")||name.contains("maria")||name.contains("sunnunchuck")){dualwield = true;}
         if(enchantmentglow == 1){glow = true;}
 
 
@@ -388,6 +397,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                 flag2 = false;
             }
 
+
             if(ohblade && entityLiving instanceof EntityPlayer && entityLiving.getHeldItemOffhand() == stack) {
                 Entity entity = this.findEntityOnPath(worldIn, entityLiving, entityLiving.getEntityAttribute(EntityPlayer.REACH_DISTANCE).getAttributeValue());
                 if (entity instanceof EntityLivingBase) {
@@ -401,6 +411,16 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                 }
             }
 
+            if(dualwield){
+                ItemStack is1 = entityLiving.getHeldItemMainhand();
+                ItemStack is2 = entityLiving.getHeldItemOffhand();
+                if(ItemStack.areItemsEqual(is1, is2)){
+                    shotcount = 2;
+                    is2.damageItem(1, null);
+                }
+            }else shotcount = 1;
+
+            finishshot = bulletCount*shotcount;
 
             int i = this.getMaxItemUseDuration(stack) - timeLeft;
             i = net.minecraftforge.event.ForgeEventFactory.onArrowLoose(stack, worldIn, (EntityPlayer) entityLiving, i, itemstack != null);
@@ -413,7 +433,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                 if ((double) f >= 0.1D) {
 
                     if (!worldIn.isRemote) {
-                        for (int i2 = 0; i2 < bulletCount; i2++) {
+                        for (int i2 = 0; i2 < finishshot; i2++) {
                             EntityArrow entityarrow = (itemstack.getItem() instanceof RWBYAmmoItem ? ((RWBYAmmoItem) itemstack.getItem()).createArrow(worldIn, itemstack, entityplayer) : ((ItemArrow) Items.ARROW).createArrow(worldIn, itemstack, entityplayer));
                             entityarrow.shoot(entityplayer, entityplayer.rotationPitch, entityplayer.rotationYaw, 0.0F, f * 3.0F * (this.projectileSpeed == 0.0F ? 1.0F : this.projectileSpeed), 5.0F);
 

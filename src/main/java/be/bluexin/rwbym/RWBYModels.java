@@ -83,7 +83,7 @@ import org.apache.logging.log4j.Logger;
 public class RWBYModels {
     public static final String MODID = "rwbym";
     public static final String MODNAME = "RWBY-M";
-    public static final String VERSION = "3.6";
+    public static final String VERSION = "3.7";
 
     public static List<ICustomItem> items;
 
@@ -355,7 +355,117 @@ public class RWBYModels {
             }
         }
     }
-    
+
+
+    @SubscribeEvent
+    public void damagegunshield(LivingAttackEvent e) { // Fuck hardcoded vanilla shit
+        if (e.getEntityLiving().isEntityInvulnerable(e.getSource()) || !(e.getEntityLiving() instanceof EntityPlayer) || !canBlockDamageSource(e.getSource(), e.getEntityLiving()))
+            return;
+
+        EntityPlayer player = (EntityPlayer) e.getEntityLiving();
+        if (player.getActiveItemStack().isEmpty()) return;
+        float damage = e.getAmount();
+        ItemStack activeItemStack = player.getActiveItemStack();
+
+
+
+        if (damage > 0.0F && !activeItemStack.isEmpty() && activeItemStack.getItem() instanceof RWBYGun && ((RWBYGun) activeItemStack.getItem()).isShield) {
+            activeItemStack.damageItem(1 + MathHelper.floor(damage), player);
+
+            if (activeItemStack.getCount() <= 0) {
+                EnumHand enumhand = player.getActiveHand();
+                net.minecraftforge.event.ForgeEventFactory.onPlayerDestroyItem(player, activeItemStack, enumhand);
+
+                if (enumhand == EnumHand.MAIN_HAND) {
+                    player.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, null);
+                } else {
+                    player.setItemStackToSlot(EntityEquipmentSlot.OFFHAND, null);
+                }
+
+                player.setActiveHand(enumhand);
+                if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
+                    player.playSound(SoundEvents.ITEM_SHIELD_BREAK, 0.8F, 0.8F + player.world.rand.nextFloat() * 0.4F);
+                }
+            }
+
+
+
+            if (!player.world.isRemote && e.getSource().getTrueSource() instanceof EntityLivingBase) {
+                EntityLivingBase el = (EntityLivingBase) e.getSource().getTrueSource();
+                ItemStack is = el.getHeldItemMainhand();
+                if (!is.isEmpty() && is.getItem() instanceof ItemAxe) {
+                    float f3 = 0.25F + (float) EnchantmentHelper.getEfficiencyModifier(el) * 0.05F;
+
+                    if (el instanceof EntityPlayer) {
+                        float f2 = ((EntityPlayer) el).getCooledAttackStrength(0.5F);
+
+                        if (el.isSprinting() && f2 > 0.9F) {
+                            el.world.playSound(null, el.posX, el.posY, el.posZ, SoundEvents.ENTITY_PLAYER_ATTACK_KNOCKBACK, el.getSoundCategory(), 1.0F, 1.0F);
+                            f3 += 0.75F;
+                        }
+                    }
+
+                    if (Math.random() /* yeah not using the entity's rand... private */ < f3) {
+                        player.getCooldownTracker().setCooldown(Items.SHIELD, 100);
+                        player.world.setEntityState(player, (byte) 30);
+                    }
+                }
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public void damagegunblock(LivingAttackEvent e) { // Fuck hardcoded vanilla shit
+        if (e.getEntityLiving().isEntityInvulnerable(e.getSource()) || !(e.getEntityLiving() instanceof EntityPlayer) || !canBlockDamageSource(e.getSource(), e.getEntityLiving()))
+            return;
+
+        EntityPlayer player = (EntityPlayer) e.getEntityLiving();
+        if (player.getActiveItemStack().isEmpty()) return;
+        float damage = e.getAmount();
+        ItemStack activeItemStack = player.getActiveItemStack();
+
+        if (damage > 0.0F && !activeItemStack.isEmpty() && activeItemStack.getItem() instanceof RWBYGun && ((RWBYGun) activeItemStack.getItem()).canBlock) {
+            activeItemStack.damageItem(1 + MathHelper.floor(damage), player);
+
+            if (activeItemStack.getCount() <= 0) {
+                EnumHand enumhand = player.getActiveHand();
+                net.minecraftforge.event.ForgeEventFactory.onPlayerDestroyItem(player, activeItemStack, enumhand);
+
+                if (enumhand == EnumHand.MAIN_HAND) {
+                    player.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, null);
+                } else {
+                    player.setItemStackToSlot(EntityEquipmentSlot.OFFHAND, null);
+                }
+
+                player.setActiveHand(enumhand);
+                if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
+                    player.playSound(SoundEvents.ITEM_SHIELD_BREAK, 0.8F, 0.8F + player.world.rand.nextFloat() * 0.4F);
+                }
+            }
+
+            if (!player.world.isRemote && e.getSource().getTrueSource() instanceof EntityLivingBase) {
+                EntityLivingBase el = (EntityLivingBase) e.getSource().getTrueSource();
+                ItemStack is = el.getHeldItemMainhand();
+                if (!is.isEmpty() && is.getItem() instanceof ItemAxe) {
+                    float f3 = 0.25F + (float) EnchantmentHelper.getEfficiencyModifier(el) * 0.05F;
+
+                    if (el instanceof EntityPlayer) {
+                        float f2 = ((EntityPlayer) el).getCooledAttackStrength(0.5F);
+
+                        if (el.isSprinting() && f2 > 0.9F) {
+                            el.world.playSound(null, el.posX, el.posY, el.posZ, SoundEvents.ENTITY_PLAYER_ATTACK_KNOCKBACK, el.getSoundCategory(), 1.0F, 1.0F);
+                            f3 += 0.75F;
+                        }
+                    }
+
+                    if (Math.random() /* yeah not using the entity's rand... private */ < f3) {
+                        player.getCooldownTracker().setCooldown(Items.SHIELD, 100);
+                        player.world.setEntityState(player, (byte) 30);
+                    }
+                }
+            }
+        }
+    }
     
     /**Helper function to get the sign of a number*/
     public static int sign(double x) {

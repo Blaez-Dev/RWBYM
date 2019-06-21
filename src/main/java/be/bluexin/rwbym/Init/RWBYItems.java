@@ -1700,6 +1700,23 @@ public class RWBYItems {
             0,
             3,
             RWBYCreativeTabs.tab_rwbyweapons);
+    public static final Item tyrian = new RWBYGun(
+            "tyrian",
+            2500,
+            72,
+            0,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:15,Operation:0,UUIDMost:99791,UUIDLeast:128916}]}",
+            null,
+            "rwbym:gammag,rwbym:gamgravmag,rwbym:gamicemag,rwbym:gamfiremag",
+            true,
+            1,
+            false,
+            false,
+            0,
+            2,
+            0,
+            5,
+            RWBYCreativeTabs.tab_rwbyweapons);
 
 
     //------------------------------------------------//
