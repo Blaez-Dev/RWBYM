@@ -167,12 +167,8 @@ public class BlockGrimmBait extends BlockBase {
     }
 
 
-    @Override
-    @SideOnly(Side.CLIENT)
-    public BlockRenderLayer getBlockLayer()
-    {
-        return BlockRenderLayer.TRANSLUCENT;
-    }
+
+    
     @Override
     public int quantityDropped(Random par1Random)
     {
