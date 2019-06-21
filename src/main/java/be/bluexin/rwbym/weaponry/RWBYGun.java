@@ -411,13 +411,16 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                 }
             }
 
+            shotcount = 1;
+            finishshot = 0;
+
             if(dualwield){
                 ItemStack is1 = entityLiving.getHeldItemMainhand();
                 ItemStack is2 = entityLiving.getHeldItemOffhand();
                 if(ItemStack.areItemsEqual(is1, is2)){
                     shotcount = 2;
                 }
-            }else shotcount = 1;
+            }
 
             finishshot = bulletCount*shotcount;
 

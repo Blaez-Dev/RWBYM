@@ -252,7 +252,7 @@ public class RWBYCutGem extends ItemBow implements ICustomItem {
 
     @Override
     public String toString() {
-        return "RWBYBow{" + this.getRegistryName() + "}";
+        return "RWBYCutGem{" + this.getRegistryName() + "}";
     }
 
     @Override

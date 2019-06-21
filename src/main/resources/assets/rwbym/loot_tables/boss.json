@@ -90,6 +90,11 @@
           "count": 2
         },{
           "type": "item",
+          "name": "rwbym:smrgrave",
+          "weight": 5,
+          "count": 1
+        },{
+          "type": "item",
           "name": "rwbym:viridianiron",
           "weight":2,
           "count": 2
