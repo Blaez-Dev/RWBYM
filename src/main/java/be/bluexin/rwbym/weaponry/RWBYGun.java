@@ -416,7 +416,6 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                 ItemStack is2 = entityLiving.getHeldItemOffhand();
                 if(ItemStack.areItemsEqual(is1, is2)){
                     shotcount = 2;
-                    is2.damageItem(1, null);
                 }
             }else shotcount = 1;
 
@@ -443,7 +442,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                             //if (f >= 1.0F) entityarrow.setIsCritical(true);
                         }
                         if (weapontype == 5) {stack.damageItem(30,entityplayer);}
-                        else stack.damageItem(1, entityplayer);
+                        else stack.damageItem(2, entityplayer);
                     }
 
                     if (soundeffect == 1) {
@@ -501,6 +500,10 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
                     if(soundeffect == 16){
                         worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.MASTER, 1.0F, 0.5F/ (itemRand.nextFloat() * 0.4F + 1.0F) + f + 0.5F);
+                    }
+
+                    if(soundeffect == 17){
+                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, SoundEvents.ENTITY_ENDERPEARL_THROW, SoundCategory.MASTER, 1.0F, 0.5F/ (itemRand.nextFloat() * 0.4F + 1.0F) + f + 0.5F);
                     }
 
 

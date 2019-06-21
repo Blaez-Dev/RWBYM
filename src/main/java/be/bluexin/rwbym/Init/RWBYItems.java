@@ -62,31 +62,39 @@ public class RWBYItems {
             false,
             0,
             null);
-    public static final Item crescent = new RWBYCRScythe(
+    public static final Item crescent = new RWBYGun(
             "crescent",
             2500,
             72,
-            0,
+            2,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:16,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}]}",
             "rwbym:crescentgun",
             "rwbym:crmag,rwbym:crfiremag,rwbym:crgravmag,rwbym:crelectricmag",
             false,
             1,
-            true,
+            false,
+            false,
             0,
+            1,
+            0,
+            1,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static final Item crescentfrost = new RWBYCRScythe(
+    public static final Item crescentfrost = new RWBYGun(
             "crescentfrost",
             2500,
             72,
-            0,
+            2,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:16,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}]}",
             "rwbym:crescentgunfrost",
             "rwbym:crmag,rwbym:crfiremag,rwbym:crgravmag,rwbym:crelectricmag",
             false,
             1,
-            true,
+            false,
+            false,
             0,
+            1,
+            0,
+            1,
            null);
     public static final Item gambol = new RWBYSword(
             "gambol",
@@ -140,17 +148,21 @@ public class RWBYItems {
             true,
             0,
             null);
-    public static final Item qrow = new RWBYCRScythe(
+    public static final Item qrow = new RWBYGun(
             "qrow",
             2500,
             15,
-            0,
+            2,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:16,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}]}",
             "rwbym:qrowgun",
-            "rwbym:ammmmo",
+            "rwbym:ammmmo,rwbym:ammmmmmo",
             false,
             1,
-            true,
+            false,
+            false,
+            0,
+            0,
+            0,
             0,
             null);
     public static final Item qrowsword = new RWBYSword(
@@ -255,32 +267,39 @@ public class RWBYItems {
             false,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static final Item crescentv = new RWBYCRScythe(
+    public static final Item crescentv = new RWBYGun(
             "crescentv",
             1250,
             72,
-            0,
+            2,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:16,Operation:0,UUIDLeast:531774,UUIDMost:709040,Slot:\"mainhand\"},{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Amount:3,Operation:0,UUIDLeast:811643,UUIDMost:138699}]}",
             "rwbym:crescentgunv",
             "rwbym:ammov",
             false,
             1,
             false,
+            false,
+            1,
+            1,
+            1,
             1,
             null);
-    public static final Item weissv = new RWBYRapier(
+    public static final Item weissv = new RWBYGun(
             "weissv",
             1250,
             72,
-            0,
+            1,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:10,Operation:0,UUIDMost:99791,UUIDLeast:128916}]}",
             "rwbym:gambolv",
             "rwbym:ammmmo",
             false,
             1,
             false,
-            2,
+            false,
+            0,
             1,
+            1,
+            4,
             null);
     public static final Item gambolv = new RWBYSword(
             "gambolv",
@@ -373,7 +392,7 @@ public class RWBYItems {
             false,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static final Item fox = new RWBYBow(
+    public static final Item fox = new RWBYGun(
             "fox",
             2500,
             72,
@@ -383,7 +402,10 @@ public class RWBYItems {
             "rwbym:gammag,rwbym:gamgravmag,rwbym:gamicemag,rwbym:gamfiremag",
             true,
             1,
-            true,
+            false,
+            false,
+            0,
+            1,
             0,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
@@ -400,17 +422,20 @@ public class RWBYItems {
             false,
             1,
             null);
-    public static final Item winterswd = new RWBYRapier(
+    public static final Item winterswd = new RWBYGun(
             "winterswd",
             2500,
             7200000,
-            0,
+            1,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:14,Operation:0,UUIDMost:99791,UUIDLeast:128916}]}",
             null,
-            "null",
+            "rwbym:nuller,rwbym:nullest",
             false,
             1,
             false,
+            true,
+            0,
+            1,
             0,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
@@ -670,18 +695,22 @@ public class RWBYItems {
             false,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static final Item mariascythe = new RWBYCRScythe(
+    public static final Item mariascythe = new RWBYGun(
             "mariascythe",
             2500,
             72,
-            0,
+            2,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:16,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}]}",
             "rwbym:mariascythedouble",
             "rwbym:gammag,rwbym:gamgravmag,rwbym:gamicemag,rwbym:gamfiremag",
             false,
             1,
-            true,
+            false,
+            false,
+            4,
+            1,
             0,
+            3,
             null);
     public static final Item angelcane = new RWBYSword(
             "angelcane",
@@ -696,7 +725,7 @@ public class RWBYItems {
             false,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static final Item angelsword = new RWBYRapier(
+    public static final Item angelsword = new RWBYGun(
             "angelsword",
             2500,
             72,
@@ -707,6 +736,9 @@ public class RWBYItems {
             false,
             1,
             true,
+            false,
+            0,
+            0,
             0,
             0,
             null);
@@ -723,7 +755,7 @@ public class RWBYItems {
             false,
             0,
             null);
-    public static final Item chatareus = new RWBYBow(
+    public static final Item chatareus = new RWBYGun(
             "chatareus",
             2500,
             72,
@@ -733,11 +765,14 @@ public class RWBYItems {
             "rwbym:chatmag,rwbym:chatfiremag,rwbym:chatgravmag,rwbym:chatelectricmag",
             false,
             1,
-            true,
+            false,
+            false,
             0,
+            1,
             0,
+            12,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static final Item chatareusgun = new RWBYBow(
+    public static final Item chatareusgun = new RWBYGun(
             "chatareusgun",
             2500,
             7200,
@@ -747,9 +782,12 @@ public class RWBYItems {
             "rwbym:chatmag,rwbym:chatfiremag,rwbym:chatgravmag,rwbym:chatelectricmag",
             false,
             1,
-            true,
+            false,
+            false,
             0,
+            1,
             0,
+            12,
             null);
 
     public static final Item armasword = new RWBYSword(
@@ -792,7 +830,7 @@ public class RWBYItems {
             false,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static final Item razorboltknife = new RWBYBow(
+    public static final Item razorboltknife = new RWBYGun(
             "razorboltknife",
             2500,
             72,
@@ -803,8 +841,11 @@ public class RWBYItems {
             false,
             1,
             false,
+            false,
             0,
+            1,
             0,
+            17,
             null);
     public static final Item reese = new KineticWeapons(
             "reese",
@@ -820,7 +861,7 @@ public class RWBYItems {
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
 
-    public static final Item reesegun = new RWBYBow(
+    public static final Item reesegun = new RWBYGun(
             "reesegun",
             2500,
             72,
@@ -830,9 +871,12 @@ public class RWBYItems {
             "rwbym:spl,rwbym:splfire,rwbym:splgrav,rwbym:splice,rwbym:spllight",
             false,
             1,
-            true,
+            false,
+            false,
             0,
+            1,
             0,
+            14,
             null);
     public static final Item bolin = new RWBYSword(
             "bolin",
@@ -959,7 +1003,7 @@ public class RWBYItems {
             0.8F,
             false,
             false,
-            2,
+            0,
             4,
             0,
             2,
@@ -976,7 +1020,7 @@ public class RWBYItems {
             0.8F,
             false,
             false,
-            2,
+            0,
             4,
             0,
             2,
@@ -1114,7 +1158,7 @@ public class RWBYItems {
             false,
             0,
             4,
-            1,
+            0,
             2,
             null);
     public static final Item cocogun = new RWBYGun(
@@ -1295,7 +1339,7 @@ public class RWBYItems {
             false,
             false,
             0,
-            2,
+            4,
             0,
             8,
             RWBYCreativeTabs.tab_rwbyweapons);
@@ -1428,7 +1472,7 @@ public class RWBYItems {
             false,
             false,
             0,
-            1,
+            4,
             0,
             2,
             RWBYCreativeTabs.tab_rwbyweapons);
@@ -1547,7 +1591,7 @@ public class RWBYItems {
             false,
             false,
             0,
-            1,
+            3,
             0,
             15,
             null);
