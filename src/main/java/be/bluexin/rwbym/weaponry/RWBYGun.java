@@ -247,7 +247,6 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         }
 
 
-
         if (!world.isRemote && this.data != null) {
             NBTTagCompound atag = is.getTagCompound();
             if (atag == null) atag = new NBTTagCompound();
