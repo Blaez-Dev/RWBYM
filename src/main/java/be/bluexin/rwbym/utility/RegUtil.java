@@ -320,6 +320,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.ragorafireball);
         //mob drops
         registerItems(event, RWBYItems.remnants);
+        registerBlocks(event, RWBYItems.bait);
         registerItems(event, RWBYItems.cr1);
         registerItems(event, RWBYItems.cr2);
         registerItems(event, RWBYItems.cr3);

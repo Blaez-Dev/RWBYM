@@ -2741,6 +2741,14 @@ public class RWBYItems {
             1F,
             "null",
             1);
+    public static final Block bait = new BlockGrimmBait(
+            "bait",
+            Material.GLASS,
+            RWBYCreativeTabs.tab_rwbyitems,
+            0F,
+            1F,
+            "null",
+            1);
     public static final Block crusher = new RWBYCrusher(
             "crusher");
 
