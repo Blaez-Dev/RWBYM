@@ -6,6 +6,7 @@ import be.bluexin.rwbym.Init.RWBYItems;
 import be.bluexin.rwbym.Init.RWBYPotions;
 import be.bluexin.rwbym.blocks.containers.CrusherContainer;
 import be.bluexin.rwbym.blocks.tileentities.TileEntityRWBYCrusher;
+import be.bluexin.rwbym.blocks.tileentities.TileEntityRWBYGrimmBait;
 import be.bluexin.rwbym.capabilities.CapabilityHandler;
 import be.bluexin.rwbym.capabilities.Ruby.IRuby;
 import be.bluexin.rwbym.capabilities.Ruby.Ruby;
@@ -131,9 +132,9 @@ public class RWBYModels {
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        LOGGER.log(Level.ALL, "all"); // does not log to console but can be found in the forge log file // should only be used to set logger level, which can't be done without copying and modifying forge files
-    	LOGGER.log(Level.TRACE, "trace"); // does not log to console but can be found in the forge log file
-    	LOGGER.log(Level.DEBUG, "debug"); // does not log to console but can be found in the forge log file
+        //LOGGER.log(Level.ALL, "all"); // does not log to console but can be found in the forge log file // should only be used to set logger level, which can't be done without copying and modifying forge files
+    	//LOGGER.log(Level.TRACE, "trace"); // does not log to console but can be found in the forge log file
+    	//LOGGER.log(Level.DEBUG, "debug"); // does not log to console but can be found in the forge log file
     	//LOGGER.log(Level.INFO, "info");
     	//LOGGER.log(Level.WARN, "warn");
     	//LOGGER.log(Level.ERROR, "error");
@@ -153,7 +154,8 @@ public class RWBYModels {
         RWBYCreativeTabs.init();
         RWBYBiomes.registerBiomes();
         RWBYEntities.instance = instance;
-        GameRegistry.registerTileEntity(TileEntityRWBYCrusher.class, "rwbym:furnace");
+        GameRegistry.registerTileEntity(TileEntityRWBYCrusher.class, new ResourceLocation(this.MODID, "furnace"));
+        GameRegistry.registerTileEntity(TileEntityRWBYGrimmBait.class, new ResourceLocation(this.MODID, "bait"));
         rwbym_1.preInit(event);
         RegUtil.registerAll(event);
         RegUtil.registerGamePotions();

@@ -63,7 +63,7 @@ public class ArmourBase extends ItemArmor {
         	if (this.isPlayerModel && entityLiving instanceof AbstractClientPlayer) {
         		AbstractClientPlayer player = (AbstractClientPlayer) entityLiving;
         		boolean smallarms = player.getSkinType().equals("slim");
-        		armorModel = new ModelArmor(0.2F, smallarms, armorSlot);
+        		armorModel = new ModelArmor(0.01F, smallarms, armorSlot);
         	}
         	else {
                 armorModel = new ModelBiped(0.2F);

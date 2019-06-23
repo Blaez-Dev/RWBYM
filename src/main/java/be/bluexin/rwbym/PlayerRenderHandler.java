@@ -11,11 +11,13 @@ import be.bluexin.rwbym.capabilities.Ruby.RubyProvider;
 import be.bluexin.rwbym.utility.ExtraInfo;
 import be.bluexin.rwbym.utility.network.MessageSendPlayerDataToServer;
 import be.bluexin.rwbym.utility.network.RWBYNetworkHandler;
+import be.bluexin.rwbym.weaponry.ArmourBase;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.EnumHand;
@@ -45,7 +47,31 @@ public class PlayerRenderHandler {
 			}
 		}
 
-
+		if (renderedPlayer.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem() instanceof ArmourBase) {
+			event.getRenderer().getMainModel().bipedHeadwear.showModel = false;
+		}
+		else {
+			event.getRenderer().getMainModel().bipedHeadwear.showModel = true;
+		}
+		if (renderedPlayer.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() instanceof ArmourBase) {
+			event.getRenderer().getMainModel().bipedBodyWear.showModel = false;
+			event.getRenderer().getMainModel().bipedLeftArmwear.showModel = false;
+			event.getRenderer().getMainModel().bipedRightArmwear.showModel = false;
+		}
+		else {
+			event.getRenderer().getMainModel().bipedBodyWear.showModel = true;
+			event.getRenderer().getMainModel().bipedLeftArmwear.showModel = true;
+			event.getRenderer().getMainModel().bipedRightArmwear.showModel = true;
+		}
+		if (renderedPlayer.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem() instanceof ArmourBase) {
+			event.getRenderer().getMainModel().bipedLeftLegwear.showModel = false;
+			event.getRenderer().getMainModel().bipedRightLegwear.showModel = false;
+		}
+		else {
+			event.getRenderer().getMainModel().bipedLeftLegwear.showModel = true;
+			event.getRenderer().getMainModel().bipedRightLegwear.showModel = true;
+		}
+		
 		if(!event.isCanceled() && renderedPlayer.getHeldItemMainhand().getItem() == RWBYItems.reese && renderedPlayer.getHeldItemMainhand().getOrCreateSubCompound("RWBYM").getInteger("inactive") < 2){
 			renderedPlayer.limbSwingAmount = 0;
 			renderedPlayer.prevLimbSwingAmount = 0;
