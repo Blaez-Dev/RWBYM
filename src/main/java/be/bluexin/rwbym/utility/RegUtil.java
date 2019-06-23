@@ -446,6 +446,9 @@ public class RegUtil {
         registerItems(event, RWBYItems.neptuneHead);
         registerItems(event, RWBYItems.neptuneChest);
         registerItems(event, RWBYItems.neptuneLegs);
+        registerItems(event, RWBYItems.romanHead);
+        registerItems(event, RWBYItems.romanChest);
+        registerItems(event, RWBYItems.romanLegs);
 
     }
 
@@ -654,6 +657,9 @@ public class RegUtil {
         registerRecipes(RWBYItems.vernal);
         registerRecipes(RWBYItems.dove);
         registerRecipes(RWBYItems.tyrian);
+        registerRecipes(RWBYItems.romanHead);
+        registerRecipes(RWBYItems.romanChest);
+        registerRecipes(RWBYItems.romanLegs);
     }
 
     private static void registerBlocks(FMLPreInitializationEvent event, Block...blocks) {
