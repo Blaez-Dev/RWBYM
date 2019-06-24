@@ -4692,9 +4692,8 @@
 			"translation": [0, 1.25, 0]
 		},
 		"firstperson_lefthand": {
-			"rotation": [0, 0, 40],
-			"translation": [0, 1.25, 0],
-			"scale": [-1, 1, 1]
+			"rotation": [0, 0, -126],
+			"translation": [0, 1.25, 0]
 		},
 		"ground": {
 			"translation": [0, -2.25, 0],

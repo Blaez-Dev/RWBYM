@@ -165,7 +165,7 @@ public class TileEntityRWBYGrimmBait extends TileEntity implements ITickable {
 	
 	@Override
 	public void readFromNBT(NBTTagCompound nbt) {
-		RWBYModels.LOGGER.info("Read");
+		//RWBYModels.LOGGER.info("Read");
 		super.readFromNBT(nbt);
 		this.wavecount = nbt.getInteger("wavecount");
 		if (nbt.hasKey("wavelist", 10)) {
@@ -182,7 +182,7 @@ public class TileEntityRWBYGrimmBait extends TileEntity implements ITickable {
 	
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
-		RWBYModels.LOGGER.info("Write");
+		//RWBYModels.LOGGER.info("Write");
 		nbt.setInteger("wavecount", wavecount);
 		if (!this.world.isRemote) {
 			NBTTagCompound entities = new NBTTagCompound();

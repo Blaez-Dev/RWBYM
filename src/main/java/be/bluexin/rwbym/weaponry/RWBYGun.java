@@ -77,7 +77,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     boolean compensate;
     float lastDamage;
     private boolean climbs = false;
-    private boolean ohblade = true;
+    private boolean ohblade;
     private boolean dualwield = false;
     private float damages = 0;
     private int shotcount;
@@ -90,7 +90,6 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     *  5 Junior Rocket Launcher
     *  6 Ember celica 2
     *
-    *
     * recoiltype
     * 1 crescent rose shoots backwards
     * 2 ember celica shoots backwards slightly less
@@ -99,7 +98,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     *
     * */
 
-    public RWBYGun(String name, int durability, int drawSpeed, int weapoontype, String data, String morph, String ammo, boolean noCharge, float projectileSpeed, boolean shield,boolean canBlock, int recoilType, int bulletCount, int enchantmentglow,int soundeffect, CreativeTabs creativetab) {
+    public RWBYGun(String name, int durability, int drawSpeed, int weapontype, String data, String morph, String ammo, boolean noCharge, float projectileSpeed, boolean shield,boolean canBlock, int recoilType, int bulletCount, int enchantmentglow,int soundeffect, CreativeTabs creativetab) {
         this.setRegistryName(new ResourceLocation(RWBYModels.MODID, name));
         this.setUnlocalizedName(this.getRegistryName().toString());
         this.setCreativeTab(creativetab);
@@ -113,13 +112,13 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         this.bulletCount = bulletCount;
         this.recoil = recoilType;
         this.canBlock = canBlock;
-        this.weapontype = weapoontype;
+        this.weapontype = weapontype;
         this.setMaxDamage(durability);
         this.shotcount = 1;
 
 
         this.soundeffect = soundeffect;
-        if(weapoontype == 3) { ohblade = true; this.damages = 14; }
+        if(weapontype == 3) { ohblade = true; this.damages = 14; }
         if(name.contains("weiss")||name.contains("oobleck")||name.contains("goodwitch")){mytre = true;}
         if(name.contains("stormflower")||name.contains("ember")||name.contains("tyrian")||name.contains("fox")||name.contains("emerald")||name.contains("maria")||name.contains("sunnunchuck")||name.contains("reese")){dualwield = true;}
         if(enchantmentglow == 1){glow = true;}
@@ -138,6 +137,14 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             @ParametersAreNonnullByDefault
             public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
                 return entityIn != null && entityIn.getHeldItemOffhand() == stack ? 1.0F : 0.0F;
+            }
+        });
+
+        if (weapontype == 6) this.addPropertyOverride(new ResourceLocation("mainhand"), new IItemPropertyGetter() {
+            @SideOnly(Side.CLIENT)
+            @ParametersAreNonnullByDefault
+            public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
+                return entityIn != null && entityIn.getHeldItemMainhand() == stack ? 1.0F : 0.0F;
             }
         });
 
@@ -188,15 +195,6 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn)
             {
                 return entityIn != null && entityIn.isHandActive() && entityIn.getActiveItemStack() == stack ? 1.0F : 0.0F;
-            }
-        });
-
-
-        if (weapoontype == 6) this.addPropertyOverride(new ResourceLocation("offhand"), new IItemPropertyGetter() {
-            @SideOnly(Side.CLIENT)
-            @ParametersAreNonnullByDefault
-            public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
-                return entityIn != null && entityIn.getHeldItemOffhand() == stack ? 1.0F : 0.0F;
             }
         });
 

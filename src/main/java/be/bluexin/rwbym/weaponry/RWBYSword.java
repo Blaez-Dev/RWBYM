@@ -158,6 +158,16 @@ public class RWBYSword extends ItemSword implements ICustomItem {
             }}
         }
 
+        if(entity instanceof EntityPlayer && neo){
+            final EntityPlayer player = (EntityPlayer)entity;
+            if (!player.onGround && player.getItemInUseCount() > 1)
+            {
+                player.motionY += 0.05;
+                player.fallDistance = 0;
+                player.velocityChanged = true;
+            }
+        }
+
         if (!world.isRemote && this.data != null) {
             NBTTagCompound atag = is.getTagCompound();
             if (atag == null) atag = new NBTTagCompound();
@@ -182,7 +192,6 @@ public class RWBYSword extends ItemSword implements ICustomItem {
     public ActionResult<ItemStack> onItemRightClick( World worldIn, EntityPlayer playerIn, EnumHand hand) {
         ItemStack is = playerIn.getHeldItem(hand);
 
-        
         if (!worldIn.isRemote && playerIn.isSneaking() && this.morph != null && playerIn.getHeldItemMainhand() == is) {
             is = new ItemStack(Item.getByNameOrId(this.morph), is.getCount(), is.getMetadata());
             return new ActionResult<>(EnumActionResult.SUCCESS, is);

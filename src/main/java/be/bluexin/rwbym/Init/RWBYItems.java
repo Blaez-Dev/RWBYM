@@ -407,7 +407,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            0,
+            5,
             RWBYCreativeTabs.tab_rwbyweapons);
     public static final Item cocobagv = new RWBYSword(
             "cocobagv",
@@ -1417,11 +1417,11 @@ public class RWBYItems {
             2500,
             72,
             4,
-            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:14,Operation:0,UUIDMost:99791,UUIDLeast:128916}]}",
+            null,
             null,
             "rwbym:spl,rwbym:splfire,rwbym:splgrav,rwbym:splice,rwbym:spllight",
             false,
-            1,
+            2,
             false,
             false,
             0,
@@ -2010,7 +2010,7 @@ public class RWBYItems {
             null,
             null,
             32,
-            6,
+            8,
             RWBYCreativeTabs.tab_rwbyitems,
             null);
     public static final Item gamfiremag = new RWBYAmmoItem(
@@ -2025,7 +2025,7 @@ public class RWBYItems {
             "",
             null,
             32,
-            6,
+            8,
             RWBYCreativeTabs.tab_rwbyitems,
             new FireAmmoHit(10));
     public static final Item gamicemag = new RWBYAmmoItem(
@@ -2040,7 +2040,7 @@ public class RWBYItems {
             null,
             ImmutableList.of(new PotionEffect(Potion.getPotionFromResourceLocation("minecraft:slowness"), 100, 5)),
             32,
-            6,
+            8,
             RWBYCreativeTabs.tab_rwbyitems,
             null);
     public static final Item gamgravmag = new RWBYAmmoItem(
@@ -2055,7 +2055,7 @@ public class RWBYItems {
             null,
             ImmutableList.of(new PotionEffect(Potion.getPotionFromResourceLocation("minecraft:levitation"), 100, 2)),
             32,
-            6,
+            8,
             RWBYCreativeTabs.tab_rwbyitems,
             null);
     public static final Item emammo = new RWBYAmmoItem(
