@@ -89,6 +89,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     *  4 Scarlet Weapon Behaviour
     *  5 Junior Rocket Launcher
     *  6 Ember celica 2
+    *  7 Winter's Sword
     *
     * recoiltype
     * 1 crescent rose shoots backwards
@@ -118,7 +119,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
 
         this.soundeffect = soundeffect;
-        if(weapontype == 3) { ohblade = true; this.damages = 14; }
+        if(weapontype == 3 || weapontype == 7) { ohblade = true; this.damages = 14; }
         if(name.contains("weiss")||name.contains("oobleck")||name.contains("goodwitch")){mytre = true;}
         if(name.contains("stormflower")||name.contains("ember")||name.contains("tyrian")||name.contains("fox")||name.contains("emerald")||name.contains("maria")||name.contains("sunnunchuck")||name.contains("reese")){dualwield = true;}
         if(enchantmentglow == 1){glow = true;}
@@ -148,6 +149,14 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             }
         });
 
+        if (weapontype == 7) this.addPropertyOverride(new ResourceLocation("mainhand1"), new IItemPropertyGetter() {
+            @SideOnly(Side.CLIENT)
+            @ParametersAreNonnullByDefault
+            public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
+                ItemStack winter = new ItemStack(RWBYItems.winterswd);
+                return entityIn != null && entityIn.getHeldItemMainhand().getItem() == RWBYItems.winterswd && entityIn.getHeldItemOffhand().getItem() == RWBYItems.winterswd ? 1.0F : 0.0F;
+            }
+        });
 
         this.addPropertyOverride(new ResourceLocation("pull"), new IItemPropertyGetter()
         {
@@ -198,6 +207,30 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             }
         });
 
+
+        this.addPropertyOverride(new ResourceLocation("pull2"), new IItemPropertyGetter()
+        {
+            @SideOnly(Side.CLIENT)
+            public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn)
+            {
+                if (entityIn == null)
+                {
+                    return 0.0F;
+                }
+                else
+                {
+                    return entityIn.getActiveItemStack().getItem() != RWBYItems.nebulabow ? 0.0F : (float)(stack.getMaxItemUseDuration() - entityIn.getItemInUseCount()) / 20.0F;
+                }
+            }
+        });
+        this.addPropertyOverride(new ResourceLocation("pulling2"), new IItemPropertyGetter()
+        {
+            @SideOnly(Side.CLIENT)
+            public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn)
+            {
+                return entityIn != null && entityIn.isHandActive() && entityIn.getActiveItemStack() == stack ? 1.0F : 0.0F;
+            }
+        });
 
         if(bulletCount == 0){
             System.out.println(name + " has no projectiles registered and has temporarily been set to 1.");
@@ -586,7 +619,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
     @Override
     public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker)
-    {  if(weapontype == 1){
+    {  if(weapontype == 1 || weapontype == 7){
         //Rapier
         boolean unarm = false;
         if(target.getTotalArmorValue() == 0){

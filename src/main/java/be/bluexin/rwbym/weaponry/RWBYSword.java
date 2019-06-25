@@ -2,7 +2,10 @@ package be.bluexin.rwbym.weaponry;
 
 import be.bluexin.rwbym.Init.RWBYItems;
 import be.bluexin.rwbym.RWBYModels;
+import com.google.common.collect.Sets;
 import mcp.MethodsReturnNonnullByDefault;
+import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.creativetab.CreativeTabs;
@@ -10,6 +13,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.MoverType;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -34,6 +38,7 @@ import org.apache.logging.log4j.LogManager;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Part of rwbym
@@ -42,6 +47,7 @@ import java.util.List;
  */
 @MethodsReturnNonnullByDefault
 public class RWBYSword extends ItemSword implements ICustomItem {
+    private static final Set<Block> EFFECTIVE_ON = Sets.newHashSet(Blocks.PLANKS, Blocks.BOOKSHELF, Blocks.LOG, Blocks.LOG2, Blocks.CHEST, Blocks.PUMPKIN, Blocks.LIT_PUMPKIN, Blocks.MELON_BLOCK, Blocks.LADDER, Blocks.WOODEN_BUTTON, Blocks.WOODEN_PRESSURE_PLATE);
     public final boolean isShield;
     public boolean neo = false;
     public final boolean canBlock;
@@ -310,4 +316,14 @@ public class RWBYSword extends ItemSword implements ICustomItem {
         else return repair.getItem() == RWBYItems.scrap || super.getIsRepairable(toRepair, repair);
     }
 
+    @Override
+    public float getDestroySpeed(ItemStack stack, IBlockState state) {
+        if(stack.getItem() == RWBYItems.lieutenant){return 10.0F;}
+        else return super.getDestroySpeed(stack, state);
+    }
+
+    @Override
+    public int getHarvestLevel(ItemStack stack, String toolClass, @Nullable EntityPlayer player, @Nullable IBlockState blockState) {
+        return super.getHarvestLevel(stack, toolClass, player, blockState);
+    }
 }

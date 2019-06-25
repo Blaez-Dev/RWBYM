@@ -122,6 +122,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.neoumb_closed);
         registerItems(event, RWBYItems.neoumb_closed_blade);
         registerItems(event, RWBYItems.neoumb_handle_blade);
+        registerItems(event, RWBYItems.lieutenant);
         registerItems(event, RWBYItems.cinder);
         registerItems(event, RWBYItems.cinderbow);
         registerItems(event, RWBYItems.emeraldblade);
@@ -155,6 +156,9 @@ public class RegUtil {
         registerItems(event, RWBYItems.armaswordsummon);
         registerItems(event, RWBYItems.angelcane);
         registerItems(event, RWBYItems.angelsword);
+        registerItems(event, RWBYItems.vidian);
+        registerItems(event, RWBYItems.vidiangun);
+        registerItems(event, RWBYItems.vidianhammer);
         registerItems(event, RWBYItems.ozmacane);
         registerItems(event, RWBYItems.ozmacanefire);
         registerItems(event, RWBYItems.ozmacanegravity);
@@ -178,6 +182,12 @@ public class RegUtil {
         registerItems(event, RWBYItems.nadirsword);
         registerItems(event, RWBYItems.cardin);
         registerItems(event, RWBYItems.dove);
+        registerItems(event, RWBYItems.russelnormal);
+        registerItems(event, RWBYItems.russelfire);
+        registerItems(event, RWBYItems.russelice);
+        registerItems(event, RWBYItems.russelwind);
+        registerItems(event, RWBYItems.nebulabow);
+        registerItems(event, RWBYItems.nebulasword);
         //dust items
         registerBlocks(event, RWBYItems.crusher);
         registerItems(event, RWBYItems.chisel);
@@ -660,6 +670,13 @@ public class RegUtil {
         registerRecipes(RWBYItems.romanHead);
         registerRecipes(RWBYItems.romanChest);
         registerRecipes(RWBYItems.romanLegs);
+        registerRecipes(RWBYItems.russelnormal);
+        registerRecipes(RWBYItems.russelwind);
+        registerRecipes(RWBYItems.russelice);
+        registerRecipes(RWBYItems.russelfire);
+        registerRecipes(RWBYItems.nebulabow);
+        registerRecipes(RWBYItems.nebulasword);
+        registerRecipes(RWBYItems.lieutenant);
     }
 
     private static void registerBlocks(FMLPreInitializationEvent event, Block...blocks) {

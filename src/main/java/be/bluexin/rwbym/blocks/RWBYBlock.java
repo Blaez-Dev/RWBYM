@@ -18,6 +18,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Explosion;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
@@ -102,4 +103,6 @@ public class RWBYBlock extends BlockBase {
                 if(!worldIn.isRemote){
                 if ((int) (Math.random() *  RWBYConfig.dustoreeffect) == 0) { worldIn.createExplosion((Entity)null, pos.getX(), pos.getY(), pos.getZ(), 4.0F, true); }}}
         }
+
+
 }
