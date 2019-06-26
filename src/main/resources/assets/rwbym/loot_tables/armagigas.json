@@ -69,7 +69,14 @@
           "name": "rwbym:smrgrave",
           "weight": 5,
           "count": 1
-        },{
+        },
+        {
+          "type": "item",
+          "name": "rwbym:sanrei",
+          "weight": 1,
+          "count": 1
+        },
+        {
           "type": "item",
           "name": "rwbym:roseiron",
           "weight": 2,

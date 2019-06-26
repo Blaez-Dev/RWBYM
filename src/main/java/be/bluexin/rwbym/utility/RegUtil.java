@@ -188,6 +188,8 @@ public class RegUtil {
         registerItems(event, RWBYItems.russelwind);
         registerItems(event, RWBYItems.nebulabow);
         registerItems(event, RWBYItems.nebulasword);
+        registerItems(event, RWBYItems.sanrei);
+        registerItems(event, RWBYItems.sanreiammo);
         //dust items
         registerBlocks(event, RWBYItems.crusher);
         registerItems(event, RWBYItems.chisel);
@@ -724,6 +726,9 @@ public class RegUtil {
                 }else
                 if(item == RWBYItems.icedustcut){
                     ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.icedustcrystalcut.getRegistryName(), "inventory"));
+                }else
+                if(item == RWBYItems.sanreiammo){
+                    ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.sanrei.getRegistryName(), "inventory"));
                 }
             	else {
             		ModelLoader.setCustomModelResourceLocation(item,0, new ModelResourceLocation(item.getRegistryName(), "inventory"));

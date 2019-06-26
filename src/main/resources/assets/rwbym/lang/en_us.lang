@@ -407,7 +407,8 @@ item.rwbym:vidiangun.name=Noctus Ire
 item.rwbym:vidianhammer.name=Noctus Ire
 item.rwbym:nebulabow.name=Nebula's Bow
 item.rwbym:nebulasword.name=Nebula's Sword
-
+item.rwbym:sanrei.name=Leiden Hant
+item.rwbym:lieutenant.name=Lieutenant's Chainsaw
 
 
 effect.aura_regen=Aura Regen

@@ -4,6 +4,7 @@ import be.bluexin.rwbym.Init.RWBYCreativeTabs;
 import be.bluexin.rwbym.Init.RWBYItems;
 import be.bluexin.rwbym.RWBYModels;
 import be.bluexin.rwbym.RWBYSoundHandler;
+import be.bluexin.rwbym.capabilities.Aura.AuraProvider;
 import be.bluexin.rwbym.entity.EntityLargeFireball;
 import be.bluexin.rwbym.entity.EntityNeverMore;
 import com.google.common.collect.Sets;
@@ -12,7 +13,9 @@ import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.MoverType;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.*;
@@ -90,6 +93,10 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     *  5 Junior Rocket Launcher
     *  6 Ember celica 2
     *  7 Winter's Sword
+    *
+    *
+    *
+    *  99 Sanrei Shunto
     *
     * recoiltype
     * 1 crescent rose shoots backwards
@@ -232,6 +239,30 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             }
         });
 
+        this.addPropertyOverride(new ResourceLocation("pull3"), new IItemPropertyGetter()
+        {
+            @SideOnly(Side.CLIENT)
+            public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn)
+            {
+                if (entityIn == null)
+                {
+                    return 0.0F;
+                }
+                else
+                {
+                    return entityIn.getActiveItemStack().getItem() != RWBYItems.sanrei ? 0.0F : (float)(stack.getMaxItemUseDuration() - entityIn.getItemInUseCount()) / 20.0F;
+                }
+            }
+        });
+        this.addPropertyOverride(new ResourceLocation("pulling3"), new IItemPropertyGetter()
+        {
+            @SideOnly(Side.CLIENT)
+            public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn)
+            {
+                return entityIn != null && entityIn.isHandActive() && entityIn.getActiveItemStack() == stack ? 1.0F : 0.0F;
+            }
+        });
+
         if(bulletCount == 0){
             System.out.println(name + " has no projectiles registered and has temporarily been set to 1.");
             this.bulletCount = 1;
@@ -246,7 +277,8 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
     @Override
     public int getMaxItemUseDuration(ItemStack stack) {
-        return this.drawSpeed;
+
+        return weapontype == 99 ? 72000 : this.drawSpeed;
     }
 
 
@@ -274,8 +306,31 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                         }
                     }
                 }
-                }}
+                }
+
+            }
         }
+
+
+            if(entity instanceof EntityPlayer){
+                EntityPlayer player = (EntityPlayer) entity;{
+                if(weapontype == 99 && player.isSneaking() && player.onGround){
+                    boolean flag = player.isElytraFlying();
+                    Vec3d look = player.getLookVec();
+                    int drag = -10;
+                    player.motionX /= flag ? 0.99 : 0.91;
+                    player.motionY /= 0.98;
+                    player.motionZ /= flag ? 0.99 : 0.91;
+                    if (!flag) player.motionY += 0.08;
+                    Vec3d motion = look.scale(Math.sqrt(player.motionX * player.motionX + player.motionY * player.motionY + player.motionZ * player.motionZ));
+                    player.motionX = Math.abs(motion.x) < Math.abs(look.x) ? look.x : player.motionX + (look.x - player.motionX) * drag;
+                    player.motionY = Math.abs(motion.y) < Math.abs(look.y) ? look.y : player.motionY + (look.y - player.motionY) * drag;
+                    player.motionZ = Math.abs(motion.z) < Math.abs(look.z) ? look.z : player.motionZ + (look.z - player.motionZ) * drag;
+                    player.fallDistance = 0;
+                }}
+
+            }
+        
 
 
         if (!world.isRemote && this.data != null) {
@@ -331,6 +386,18 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             playerIn.fallDistance = 0;
         }}}
 
+        {
+            if(weapontype == 99 && playerIn.isSneaking() && playerIn.onGround){
+                Vec3d look = playerIn.getLookVec();
+                int drag = -200;
+                Vec3d motion = look.scale(Math.sqrt(playerIn.motionX * playerIn.motionX + playerIn.motionY * playerIn.motionY + playerIn.motionZ * playerIn.motionZ));
+                playerIn.motionX = Math.abs(motion.x) < Math.abs(look.x) ? look.x : playerIn.motionX + (look.x - playerIn.motionX) * drag;
+                playerIn.motionY = Math.abs(motion.y) < Math.abs(look.y) ? look.y : playerIn.motionY + (look.y - playerIn.motionY) * drag;
+                playerIn.motionZ = Math.abs(motion.z) < Math.abs(look.z) ? look.z : playerIn.motionZ + (look.z - playerIn.motionZ) * drag;
+                playerIn.fallDistance = 0;
+            }}
+
+
         ItemStack itemstack = playerIn.getHeldItem(handIn);
         ActionResult<ItemStack> ret = net.minecraftforge.event.ForgeEventFactory.onArrowNock(itemstack, worldIn, playerIn, handIn, flag);
         if (ret != null) return ret;
@@ -351,7 +418,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
     @Override
     public EnumAction getItemUseAction(ItemStack stack) {
-        if(stack.getItem() == RWBYItems.chatareusgun){
+        if(stack.getItem() == RWBYItems.chatareusgun || weapontype == 99){
             return EnumAction.BOW;
         }else if(stack.getItem() == RWBYItems.cinderbow){
             return EnumAction.BOW;
@@ -403,6 +470,8 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     }
 
 
+
+
     @Override
     public void onPlayerStoppedUsing(ItemStack stack, World worldIn, EntityLivingBase entityLiving, int timeLeft) { // Mostly copied from ItemBow, with slight edits
         if (entityLiving instanceof EntityPlayer) {
@@ -427,6 +496,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                 flag2 = false;
             }
 
+            if(weapontype == 99 && entityplayer.getCapability(AuraProvider.AURA_CAP, null).getAmount() < 10){flag2 = false;}
 
             if(ohblade && entityLiving instanceof EntityPlayer && entityLiving.getHeldItemOffhand() == stack) {
                 Entity entity = this.findEntityOnPath(worldIn, entityLiving, entityLiving.getEntityAttribute(EntityPlayer.REACH_DISTANCE).getAttributeValue());
@@ -460,7 +530,12 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
             if (flag2 || flag) {
 
+
                 float f = getArrowVelocity(72);
+            if(weapontype == 99){
+                f = getArrowVelocity(i);
+            }
+
 
                 if ((double) f >= 0.1D) {
 
@@ -474,7 +549,12 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                             worldIn.spawnEntity(entityarrow);
                             //if (f >= 1.0F) entityarrow.setIsCritical(true);
                         }
-                        if (weapontype == 5) {stack.damageItem(30,entityplayer);}
+                        if(weapontype == 99){
+                            if (entityplayer.hasCapability(AuraProvider.AURA_CAP, null)) {
+                                entityplayer.getCapability(AuraProvider.AURA_CAP, null).useAura(entityplayer, 10F, false);
+                            }
+                        }
+                        else if (weapontype == 5) {stack.damageItem(30,entityplayer);}
                         else stack.damageItem(2, entityplayer);
                     }
 
@@ -577,6 +657,8 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             }
         }
     }
+
+
 
     @Nullable
     protected Entity findEntityOnPath(World world, Entity entityIn, double range)

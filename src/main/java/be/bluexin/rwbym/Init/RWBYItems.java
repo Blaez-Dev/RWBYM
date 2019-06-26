@@ -1196,6 +1196,24 @@ public class RWBYItems {
             7,
             null);
 
+    public static final Item sanrei = new RWBYGun(
+            "sanrei",
+            0,
+            72,
+            99,
+            null,
+            null,
+            "rwbym:sanreiammo",
+            false,
+            1,
+            false,
+            false,
+            0,
+            3,
+            0,
+            16,
+            null);
+
     public static final Item torchwickgun = new RWBYGun(
             "torchwickgun",
             2500,
@@ -1629,6 +1647,7 @@ public class RWBYItems {
             0,
             16,
             null);
+
     public static final Item nebulasword = new RWBYSword(
             "nebulasword",
             2500,
@@ -2436,6 +2455,21 @@ public class RWBYItems {
             null,
             1,
             10,
+            null,
+            null);
+    public static final Item sanreiammo = new RWBYAmmoItem(
+            "sanreiammo",
+            RWBYItems.entitybulletv,
+            1,
+            false,
+            RWBYAmmoItem.SurviveOnHit.NONE,
+            "textures/entity/projectiles/tipped_arrow.png",
+            true,
+            true,
+            null,
+            null,
+            1,
+            25,
             null,
             null);
     public static final Item ammmo = new RWBYAmmoItem(
