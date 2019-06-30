@@ -409,6 +409,11 @@ item.rwbym:nebulabow.name=Nebula's Bow
 item.rwbym:nebulasword.name=Nebula's Sword
 item.rwbym:sanrei.name=Leiden Hant
 item.rwbym:lieutenant.name=Lieutenant's Chainsaw
+item.rwbym:letztstil.name=Letzt Stil
+item.rwbym:octavia.name=Octavia's Kris
+item.rwbym:dew.name=Dew's Spear
+item.rwbym:lark.name=Lark's Axe
+item.rwbym:bangle.name=Sosingu
 
 
 effect.aura_regen=Aura Regen

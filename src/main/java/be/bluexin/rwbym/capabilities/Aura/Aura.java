@@ -72,6 +72,9 @@ public class Aura implements IAura {
 	public void delayRecharge(int ticks) {
 		this.delay = ticks;
 	}
+
+	@Override
+	public int getDelay(){return delay;}
 	
 	@Override
 	public float getModifier(EntityPlayer player) {

@@ -40,7 +40,7 @@ public class PotionAuraRegen extends Potion {
     {
         if(entityLivingBaseIn instanceof EntityPlayer){
         IAura otheraura = entityLivingBaseIn.getCapability(AuraProvider.AURA_CAP, null);
-        if (otheraura.getAmount() < otheraura.getMaxAura() && otheraura != null) {
+        if (otheraura.getAmount() < otheraura.getMaxAura() && otheraura != null && otheraura.getDelay() < 45) {
 
             otheraura.addAmount(0.35F*amplifier);
         }}

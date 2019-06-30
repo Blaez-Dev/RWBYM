@@ -6,6 +6,7 @@ import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Table;
 
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
@@ -44,6 +45,7 @@ public class CrusherRecipe
         addCrusherRecipe(new ItemStack(RWBYItems.dustcrystal), new ItemStack(RWBYItems.chisel, 1, Short.MAX_VALUE), new ItemStack(RWBYItems.dustcrystalcut, 1), 3);
         addCrusherRecipe(new ItemStack(RWBYItems.lightdustcrystal), new ItemStack(RWBYItems.chisel, 1, Short.MAX_VALUE), new ItemStack(RWBYItems.lightdustcrystalcut, 1), 3);
         addCrusherRecipe(new ItemStack(RWBYItems.icedustcrystal), new ItemStack(RWBYItems.chisel, 1, Short.MAX_VALUE), new ItemStack(RWBYItems.icedustcrystalcut, 1), 3);
+        addCrusherRecipe(new ItemStack(RWBYItems.scrap), new ItemStack(RWBYItems.chisel, 1, Short.MAX_VALUE), new ItemStack(Items.IRON_NUGGET, 9), 3);
 
     }
 

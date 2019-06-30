@@ -173,7 +173,7 @@ public class Ruby implements IRuby {
 						RWBYModels.proxy.generateSummerpetals(player);
 					}else if(is.getItem() == RWBYItems.crescentgunfrost){
 						RWBYModels.proxy.generateSummerpetals(player);
-					}else if(is4.getItem() == RWBYItems.summer1Chest && is5.getItem() == RWBYItems.summer1Legs ||  is4.getItem() == RWBYItems.summer2Chest && is5.getItem() == RWBYItems.summer2Legs && is3.getItem() == RWBYItems.summer2Head || is3.getItem() == RWBYItems.summerhood){
+					}else if(is4.getItem() == RWBYItems.summer1Chest && is5.getItem() == RWBYItems.summer1Legs ||  is4.getItem() == RWBYItems.summer2Chest && is5.getItem() == RWBYItems.summer2Legs && is3.getItem() == RWBYItems.summer2Head || is4.getItem() == RWBYItems.summer1Chest && is5.getItem() == RWBYItems.summer1Legs ||  is4.getItem() == RWBYItems.summer2Chest && is5.getItem() == RWBYItems.summer2Legs && is3.getItem() == RWBYItems.summerhood){
 						RWBYModels.proxy.generateSummerpetals(player);
 					}else if(is2.getItem() == RWBYItems.crescentfrost){
 						RWBYModels.proxy.generateSummerpetals(player);

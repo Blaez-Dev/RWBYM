@@ -186,10 +186,16 @@ public class RegUtil {
         registerItems(event, RWBYItems.russelfire);
         registerItems(event, RWBYItems.russelice);
         registerItems(event, RWBYItems.russelwind);
+        registerItems(event, RWBYItems.lark);
         registerItems(event, RWBYItems.nebulabow);
+        registerItems(event, RWBYItems.dew);
+        registerItems(event, RWBYItems.octavia);
         registerItems(event, RWBYItems.nebulasword);
         registerItems(event, RWBYItems.sanrei);
         registerItems(event, RWBYItems.sanreiammo);
+        registerItems(event, RWBYItems.letztstil);
+        registerItems(event, RWBYItems.letztammo);
+        registerItems(event, RWBYItems.bangle);
         //dust items
         registerBlocks(event, RWBYItems.crusher);
         registerItems(event, RWBYItems.chisel);
@@ -679,6 +685,9 @@ public class RegUtil {
         registerRecipes(RWBYItems.nebulabow);
         registerRecipes(RWBYItems.nebulasword);
         registerRecipes(RWBYItems.lieutenant);
+        registerRecipes(RWBYItems.dew);
+        registerRecipes(RWBYItems.lark);
+        registerRecipes(RWBYItems.octavia);
     }
 
     private static void registerBlocks(FMLPreInitializationEvent event, Block...blocks) {
@@ -729,6 +738,9 @@ public class RegUtil {
                 }else
                 if(item == RWBYItems.sanreiammo){
                     ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.sanrei.getRegistryName(), "inventory"));
+                }else
+                if(item == RWBYItems.letztammo){
+                    ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.letztstil.getRegistryName(), "inventory"));
                 }
             	else {
             		ModelLoader.setCustomModelResourceLocation(item,0, new ModelResourceLocation(item.getRegistryName(), "inventory"));

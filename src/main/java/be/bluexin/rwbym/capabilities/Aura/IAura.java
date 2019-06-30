@@ -32,6 +32,8 @@ public interface IAura {
 	public void setMaxAura(int amount);
 	
 	public float getAmount();
+
+	public int getDelay();
 	
 	public void setAmount(float amount);
 	

@@ -19,6 +19,7 @@ import net.minecraft.entity.MoverType;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.*;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.*;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.nbt.JsonToNBT;
@@ -93,10 +94,12 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     *  5 Junior Rocket Launcher
     *  6 Ember celica 2
     *  7 Winter's Sword
+    *  8 Bows
     *
     *
     *
     *  99 Sanrei Shunto
+    * 100 letzt stil
     *
     * recoiltype
     * 1 crescent rose shoots backwards
@@ -263,6 +266,30 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             }
         });
 
+        this.addPropertyOverride(new ResourceLocation("pull4"), new IItemPropertyGetter()
+        {
+            @SideOnly(Side.CLIENT)
+            public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn)
+            {
+                if (entityIn == null)
+                {
+                    return 0.0F;
+                }
+                else
+                {
+                    return entityIn.getActiveItemStack().getItem() != RWBYItems.letztstil ? 0.0F : (float)(stack.getMaxItemUseDuration() - entityIn.getItemInUseCount()) / 20.0F;
+                }
+            }
+        });
+        this.addPropertyOverride(new ResourceLocation("pulling4"), new IItemPropertyGetter()
+        {
+            @SideOnly(Side.CLIENT)
+            public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn)
+            {
+                return entityIn != null && entityIn.isHandActive() && entityIn.getActiveItemStack() == stack ? 1.0F : 0.0F;
+            }
+        });
+
         if(bulletCount == 0){
             System.out.println(name + " has no projectiles registered and has temporarily been set to 1.");
             this.bulletCount = 1;
@@ -278,7 +305,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     @Override
     public int getMaxItemUseDuration(ItemStack stack) {
 
-        return weapontype == 99 ? 72000 : this.drawSpeed;
+        return weapontype == 99 ? 72000 : weapontype == 100 ? 72000 : this.drawSpeed;
     }
 
 
@@ -312,28 +339,28 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         }
 
 
-            if(entity instanceof EntityPlayer){
-                EntityPlayer player = (EntityPlayer) entity;{
-                if(weapontype == 99 && player.isSneaking() && player.onGround){
-                    boolean flag = player.isElytraFlying();
-                    Vec3d look = player.getLookVec();
-                    int drag = -10;
-                    player.motionX /= flag ? 0.99 : 0.91;
-                    player.motionY /= 0.98;
-                    player.motionZ /= flag ? 0.99 : 0.91;
-                    if (!flag) player.motionY += 0.08;
-                    Vec3d motion = look.scale(Math.sqrt(player.motionX * player.motionX + player.motionY * player.motionY + player.motionZ * player.motionZ));
-                    player.motionX = Math.abs(motion.x) < Math.abs(look.x) ? look.x : player.motionX + (look.x - player.motionX) * drag;
-                    player.motionY = Math.abs(motion.y) < Math.abs(look.y) ? look.y : player.motionY + (look.y - player.motionY) * drag;
-                    player.motionZ = Math.abs(motion.z) < Math.abs(look.z) ? look.z : player.motionZ + (look.z - player.motionZ) * drag;
-                    player.fallDistance = 0;
-                }}
-
+        if(weapontype == 100 || weapontype == 99){
+            EntityPlayer player = (EntityPlayer) entity;
+            if(weapontype == 99){
+            player.getCapability(AuraProvider.AURA_CAP, null).useAura(player, 0.1F, false);}
+            else if(weapontype == 100){
+                player.getCapability(AuraProvider.AURA_CAP, null).useAura(player, 0.2F, false);
             }
-        
+            if(player.getCapability(AuraProvider.AURA_CAP, null).getAmount() < 1F && player.getHeldItem(EnumHand.MAIN_HAND) == is ){
+                is = new ItemStack(Item.getByNameOrId(this.morph), is.getCount(), is.getMetadata());
+                player.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, is);
+            }
 
 
-        if (!world.isRemote && this.data != null) {
+
+            if(player.getCapability(AuraProvider.AURA_CAP, null).getAmount() < 1F && player.getHeldItem(EnumHand.OFF_HAND) == is ){
+                is = new ItemStack(Item.getByNameOrId(this.morph), is.getCount(), is.getMetadata());
+                player.setItemStackToSlot(EntityEquipmentSlot.OFFHAND, is);
+            }
+        }
+
+
+            if (!world.isRemote && this.data != null) {
             NBTTagCompound atag = is.getTagCompound();
             if (atag == null) atag = new NBTTagCompound();
             if (!atag.hasKey(KEY)) {
@@ -386,16 +413,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             playerIn.fallDistance = 0;
         }}}
 
-        {
-            if(weapontype == 99 && playerIn.isSneaking() && playerIn.onGround){
-                Vec3d look = playerIn.getLookVec();
-                int drag = -200;
-                Vec3d motion = look.scale(Math.sqrt(playerIn.motionX * playerIn.motionX + playerIn.motionY * playerIn.motionY + playerIn.motionZ * playerIn.motionZ));
-                playerIn.motionX = Math.abs(motion.x) < Math.abs(look.x) ? look.x : playerIn.motionX + (look.x - playerIn.motionX) * drag;
-                playerIn.motionY = Math.abs(motion.y) < Math.abs(look.y) ? look.y : playerIn.motionY + (look.y - playerIn.motionY) * drag;
-                playerIn.motionZ = Math.abs(motion.z) < Math.abs(look.z) ? look.z : playerIn.motionZ + (look.z - playerIn.motionZ) * drag;
-                playerIn.fallDistance = 0;
-            }}
+
 
 
         ItemStack itemstack = playerIn.getHeldItem(handIn);
@@ -418,7 +436,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
     @Override
     public EnumAction getItemUseAction(ItemStack stack) {
-        if(stack.getItem() == RWBYItems.chatareusgun || weapontype == 99){
+        if(stack.getItem() == RWBYItems.chatareusgun || weapontype == 99 || weapontype == 100){
             return EnumAction.BOW;
         }else if(stack.getItem() == RWBYItems.cinderbow){
             return EnumAction.BOW;
@@ -498,6 +516,8 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
             if(weapontype == 99 && entityplayer.getCapability(AuraProvider.AURA_CAP, null).getAmount() < 10){flag2 = false;}
 
+            if(weapontype == 100 && entityplayer.getCapability(AuraProvider.AURA_CAP, null).getAmount() < 20){flag2 = false;}
+
             if(ohblade && entityLiving instanceof EntityPlayer && entityLiving.getHeldItemOffhand() == stack) {
                 Entity entity = this.findEntityOnPath(worldIn, entityLiving, entityLiving.getEntityAttribute(EntityPlayer.REACH_DISTANCE).getAttributeValue());
                 if (entity instanceof EntityLivingBase) {
@@ -532,7 +552,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
 
                 float f = getArrowVelocity(72);
-            if(weapontype == 99){
+            if(weapontype == 99 || weapontype == 100){
                 f = getArrowVelocity(i);
             }
 
@@ -552,6 +572,12 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                         if(weapontype == 99){
                             if (entityplayer.hasCapability(AuraProvider.AURA_CAP, null)) {
                                 entityplayer.getCapability(AuraProvider.AURA_CAP, null).useAura(entityplayer, 10F, false);
+                                entityplayer.getCapability(AuraProvider.AURA_CAP, null).delayRecharge(60);
+                            }
+                        }else if(weapontype == 100){
+                            if (entityplayer.hasCapability(AuraProvider.AURA_CAP, null)) {
+                                entityplayer.getCapability(AuraProvider.AURA_CAP, null).useAura(entityplayer, 20F, false);
+                                entityplayer.getCapability(AuraProvider.AURA_CAP, null).delayRecharge(60);
                             }
                         }
                         else if (weapontype == 5) {stack.damageItem(30,entityplayer);}
@@ -641,7 +667,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                         entityplayer.lastTickPosX = -look.z;
                     }
                     if (!flag){
-                        if (cinder & !flagger) {
+                        if (weapontype == 8 && !flagger) {
                             itemstack.shrink(1);
                         }
                     }

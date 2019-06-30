@@ -790,6 +790,24 @@ public class RWBYItems {
             12,
             null);
 
+    public static final Item lark = new RWBYGun(
+            "lark",
+            2500,
+            7200,
+            2,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:16,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}]}",
+            null,
+            "rwbym:chatmag,rwbym:chatfiremag,rwbym:chatgravmag,rwbym:chatelectricmag",
+            false,
+            1,
+            false,
+            false,
+            0,
+            1,
+            0,
+            12,
+            RWBYCreativeTabs.tab_rwbyweapons);
+
     public static final Item armasword = new RWBYSword(
             "armasword",
             2500,
@@ -904,6 +922,33 @@ public class RWBYItems {
             false,
             0,
             null);
+
+    public static final Item dew = new RWBYSword(
+            "dew",
+            2500,
+            13,
+            0,
+            null,
+            null,
+            false,
+            true,
+            false,
+            false,
+            0,
+            RWBYCreativeTabs.tab_rwbyweapons);
+    public static final Item octavia = new RWBYSword(
+            "octavia",
+            2500,
+            10,
+            0,
+            null,
+            null,
+            false,
+            true,
+            false,
+            false,
+            0,
+            RWBYCreativeTabs.tab_rwbyweapons);
 
     public static final Item lysettesword = new RWBYSword(
             "lysettesword",
@@ -1202,7 +1247,7 @@ public class RWBYItems {
             72,
             99,
             null,
-            null,
+            "rwbym:letztstil",
             "rwbym:sanreiammo",
             false,
             1,
@@ -1213,6 +1258,38 @@ public class RWBYItems {
             0,
             16,
             null);
+
+    public static final Item letztstil = new RWBYGun(
+            "letztstil",
+            0,
+            72,
+            100,
+            null,
+            "rwbym:bangle",
+            "rwbym:letztammo",
+            false,
+            1,
+            false,
+            false,
+            0,
+            1,
+            0,
+            16,
+            null);
+    public static final Item bangle = new RWBYSword(
+            "bangle",
+            0,
+            -1,
+            0,
+            "{display:{Lore:[\"\\\"Hums with a Faint Energy\\\"\"]},ench:[{id:51,lvl:1}],HideFlags:3}",
+            "rwbym:sanrei",
+            false,
+            false,
+            false,
+            false,
+            0,
+            null);
+
 
     public static final Item torchwickgun = new RWBYGun(
             "torchwickgun",
@@ -1303,7 +1380,7 @@ public class RWBYItems {
             "cinderbow",
             2500,
             72,
-            0,
+            8,
             null,
             "rwbym:cinder",
             "minecraft:arrow,minecraft:tipped_arrow",
@@ -1634,7 +1711,7 @@ public class RWBYItems {
             "nebulabow",
             2500,
             72,
-            0,
+            8,
             null,
             "rwbym:nebulasword",
             "minecraft:arrow,minecraft:tipped_arrow",
@@ -2472,6 +2549,22 @@ public class RWBYItems {
             25,
             null,
             null);
+    public static final Item letztammo = new RWBYAmmoItem(
+            "letztammo",
+            RWBYItems.entitybulletv,
+            1,
+            false,
+            RWBYAmmoItem.SurviveOnHit.NONE,
+            "textures/entity/projectiles/tipped_arrow.png",
+            true,
+            true,
+            null,
+            null,
+            1,
+            100,
+            null,
+            new ExplosionAmmoHit(10));
+
     public static final Item ammmo = new RWBYAmmoItem(
             "ammmo",
             RWBYItems.entitybullet,
