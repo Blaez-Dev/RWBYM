@@ -60,9 +60,12 @@ public class ArmourBase extends ItemArmor {
     public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped _default) {
         ModelBiped armorModel = _default;
         if (!itemStack.isEmpty()) {
-        	if (this.isPlayerModel && entityLiving instanceof AbstractClientPlayer) {
-        		AbstractClientPlayer player = (AbstractClientPlayer) entityLiving;
-        		boolean smallarms = player.getSkinType().equals("slim");
+        	if (this.isPlayerModel) {
+        		boolean smallarms = false;
+        		if (entityLiving instanceof AbstractClientPlayer) {
+	        		AbstractClientPlayer player = (AbstractClientPlayer) entityLiving;
+	        		smallarms = player.getSkinType().equals("slim");
+        		}
         		armorModel = new ModelArmor(0.01F, smallarms, armorSlot);
         	}
         	else {
@@ -88,7 +91,7 @@ public class ArmourBase extends ItemArmor {
 	            domain = texture.substring(0, idx);
 	            texture = texture.substring(idx + 1);
 	        }
-	        s1 = String.format("%s:textures/models/armor/%s%s.png", domain, texture, entity instanceof AbstractClientPlayer ? "_" + ((AbstractClientPlayer)entity).getSkinType() : "");
+	        s1 = String.format("%s:textures/models/armor/%s%s.png", domain, texture, entity instanceof AbstractClientPlayer ? "_" + ((AbstractClientPlayer)entity).getSkinType() : "_default");
     	}
 
         return s1;
