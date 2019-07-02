@@ -1,0 +1,17 @@
+{
+
+          "type": "minecraft:crafting_shaped",
+          "pattern": [
+            "III",
+            "IDI",
+            "III"
+          ],
+          "key": {
+            "I": {"item": "rwbym:remnants"},
+			"D": {"item": "rwbym:bangle"}
+          },
+		  "result": {
+			  "item": "rwbym:hbangle",
+			  "count": 1
+		  }
+    }

@@ -1279,7 +1279,7 @@ public class RWBYItems {
     public static final Item bangle = new RWBYSword(
             "bangle",
             0,
-            -1,
+            0,
             0,
             "{display:{Lore:[\"\\\"Hums with a Faint Energy\\\"\"]},ench:[{id:51,lvl:1}],HideFlags:3}",
             "rwbym:sanrei",
@@ -1289,6 +1289,39 @@ public class RWBYItems {
             false,
             0,
             null);
+
+    public static final Item hbangle = new RWBYSword(
+            "hbangle",
+            0,
+            0,
+            0,
+            "{display:{Lore:[\"\\\"Hums with a Faint Dark Energy\\\"\"]},ench:[{id:51,lvl:1}],HideFlags:3}",
+            "rwbym:hsanrei",
+            false,
+            false,
+            false,
+            false,
+            0,
+            null);
+
+    public static final Item hsanrei = new RWBYGun(
+            "hsanrei",
+            0,
+            72,
+            99,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:18,Operation:0,UUIDMost:99791,UUIDLeast:128916}]}",
+            "rwbym:hbangle",
+            "rwbym:sanreiammo",
+            false,
+            1,
+            false,
+            false,
+            0,
+            3,
+            0,
+            16,
+            null);
+
 
 
     public static final Item torchwickgun = new RWBYGun(

@@ -196,6 +196,8 @@ public class RegUtil {
         registerItems(event, RWBYItems.letztstil);
         registerItems(event, RWBYItems.letztammo);
         registerItems(event, RWBYItems.bangle);
+        registerItems(event, RWBYItems.hbangle);
+        registerItems(event, RWBYItems.hsanrei);
         //dust items
         registerBlocks(event, RWBYItems.crusher);
         registerItems(event, RWBYItems.chisel);
@@ -741,6 +743,9 @@ public class RegUtil {
                 }else
                 if(item == RWBYItems.letztammo){
                     ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.letztstil.getRegistryName(), "inventory"));
+                }else
+                if(item == RWBYItems.hbangle){
+                    ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.bangle.getRegistryName(), "inventory"));
                 }
             	else {
             		ModelLoader.setCustomModelResourceLocation(item,0, new ModelResourceLocation(item.getRegistryName(), "inventory"));

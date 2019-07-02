@@ -413,7 +413,9 @@ item.rwbym:letztstil.name=Letzt Stil
 item.rwbym:octavia.name=Octavia's Kris
 item.rwbym:dew.name=Dew's Spear
 item.rwbym:lark.name=Lark's Axe
-item.rwbym:bangle.name=Sosingu
+item.rwbym:bangle.name=Soshingu
+item.rwbym:hbangle.name=Soshingu
+item.rwbym:hsanrei.name=Kuroi Getsuga
 
 
 effect.aura_regen=Aura Regen
