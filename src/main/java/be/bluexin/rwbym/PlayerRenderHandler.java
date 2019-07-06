@@ -14,8 +14,10 @@ import be.bluexin.rwbym.utility.network.RWBYNetworkHandler;
 import be.bluexin.rwbym.weaponry.ArmourBase;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
+import net.minecraft.client.model.ModelPlayer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
@@ -36,7 +38,9 @@ public class PlayerRenderHandler {
 		EntityPlayer renderingPlayer = Minecraft.getMinecraft().player;
 
 		ISemblance semblance = CapabilityHandler.getCurrentSemblance(renderedPlayer);
-		 
+		
+		renderAccessories(renderedPlayer, event.getRenderer().getMainModel(), event.getPartialRenderTick());
+				 
 		if (semblance != null) {
 			if (semblance.isInvisible()) {
 				event.setCanceled(true);
@@ -145,6 +149,50 @@ public class PlayerRenderHandler {
 
 		}
 		
+	}
+	
+	private void renderAccessories(EntityPlayer player, ModelPlayer model, float partialTicks) {
+		
+		float entangy = (1 - partialTicks) * player.prevRenderYawOffset + partialTicks * player.renderYawOffset;
+		
+		GlStateManager.pushMatrix();
+		GlStateManager.rotate(entangy, 0, -1, 0);
+		
+		float larmangx = model.bipedLeftArm.rotateAngleX * 180 / (float)Math.PI;
+		float larmangy = model.bipedLeftArm.rotateAngleY * 180 / (float)Math.PI;
+		float larmangz = model.bipedLeftArm.rotateAngleZ * 180 / (float)Math.PI;
+		
+		float rarmangx = model.bipedRightArm.rotateAngleX * 180 / (float)Math.PI;
+		float rarmangy = model.bipedRightArm.rotateAngleY * 180 / (float)Math.PI;
+		float rarmangz = model.bipedRightArm.rotateAngleZ * 180 / (float)Math.PI;
+
+		GlStateManager.pushMatrix();
+		model.bipedLeftArm.isHidden = true;
+		
+		GlStateManager.scale(0.6, 0.6, 0.6);
+		GlStateManager.rotate(180, 0, 1, 0);
+		GlStateManager.rotate(135, 1, 0, 0);
+		
+		GlStateManager.translate(-0.7, -1.2, -1.2);
+		if (player.isSneaking()) {
+			GlStateManager.translate(0, 0.5, 0.5);
+		}
+		GlStateManager.pushMatrix();
+		GlStateManager.translate(0, -0.4, -0.4);
+		GlStateManager.rotate(larmangz, 0, 0, -1);
+		GlStateManager.rotate(larmangy, 0, 1, 0);
+		GlStateManager.rotate(larmangx, -1, 0, 0);
+		GlStateManager.translate(0, 0.4, 0.4);
+		renderItem(player, new ItemStack(RWBYItems.emberv));
+		GlStateManager.popMatrix();
+		GlStateManager.popMatrix();
+		GlStateManager.popMatrix();
+		
+		
+	}
+	
+	private void renderItem(EntityLivingBase entity, ItemStack stack) {
+		Minecraft.getMinecraft().getItemRenderer().renderItem(entity, stack, TransformType.HEAD);
 	}
 
 }
