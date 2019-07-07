@@ -2,6 +2,12 @@ package be.bluexin.rwbym;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.UUID;
+
+import org.apache.commons.lang3.StringUtils;
+
+import com.mojang.authlib.GameProfile;
 
 import be.bluexin.rwbym.Init.RWBYItems;
 import be.bluexin.rwbym.capabilities.CapabilityHandler;
@@ -15,13 +21,27 @@ import be.bluexin.rwbym.weaponry.ArmourBase;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.model.ModelPlayer;
+import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
+import net.minecraft.client.renderer.entity.RenderPlayer;
+import net.minecraft.client.renderer.entity.layers.LayerRenderer;
+import net.minecraft.client.renderer.tileentity.TileEntitySkullRenderer;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.monster.EntityZombieVillager;
+import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTUtil;
 import net.minecraft.potion.Potion;
+import net.minecraft.tileentity.TileEntitySkull;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.client.event.RenderPlayerEvent;
@@ -38,8 +58,8 @@ public class PlayerRenderHandler {
 		EntityPlayer renderingPlayer = Minecraft.getMinecraft().player;
 
 		ISemblance semblance = CapabilityHandler.getCurrentSemblance(renderedPlayer);
-		
-		renderAccessories(renderedPlayer, event.getRenderer().getMainModel(), event.getPartialRenderTick());
+				
+		//event.getRenderer().addLayer(new LayerAccessories(event.getRenderer().getMainModel().bipedBody));
 				 
 		if (semblance != null) {
 			if (semblance.isInvisible()) {
@@ -151,48 +171,157 @@ public class PlayerRenderHandler {
 		
 	}
 	
-	private void renderAccessories(EntityPlayer player, ModelPlayer model, float partialTicks) {
-		
-		float entangy = (1 - partialTicks) * player.prevRenderYawOffset + partialTicks * player.renderYawOffset;
-		
-		GlStateManager.pushMatrix();
-		GlStateManager.rotate(entangy, 0, -1, 0);
-		
-		float larmangx = model.bipedLeftArm.rotateAngleX * 180 / (float)Math.PI;
-		float larmangy = model.bipedLeftArm.rotateAngleY * 180 / (float)Math.PI;
-		float larmangz = model.bipedLeftArm.rotateAngleZ * 180 / (float)Math.PI;
-		
-		float rarmangx = model.bipedRightArm.rotateAngleX * 180 / (float)Math.PI;
-		float rarmangy = model.bipedRightArm.rotateAngleY * 180 / (float)Math.PI;
-		float rarmangz = model.bipedRightArm.rotateAngleZ * 180 / (float)Math.PI;
-
-		GlStateManager.pushMatrix();
-		model.bipedLeftArm.isHidden = true;
-		
-		GlStateManager.scale(0.6, 0.6, 0.6);
-		GlStateManager.rotate(180, 0, 1, 0);
-		GlStateManager.rotate(135, 1, 0, 0);
-		
-		GlStateManager.translate(-0.7, -1.2, -1.2);
-		if (player.isSneaking()) {
-			GlStateManager.translate(0, 0.5, 0.5);
+	public static void addRenderLayers(Map<String, RenderPlayer> map) {
+		for (Entry<String, RenderPlayer> entry : map.entrySet()) {
+			ModelPlayer model = entry.getValue().getMainModel();
+			entry.getValue().addLayer(new LayerAccessories(model.bipedRightArm));
 		}
-		GlStateManager.pushMatrix();
-		GlStateManager.translate(0, -0.4, -0.4);
-		GlStateManager.rotate(larmangz, 0, 0, -1);
-		GlStateManager.rotate(larmangy, 0, 1, 0);
-		GlStateManager.rotate(larmangx, -1, 0, 0);
-		GlStateManager.translate(0, 0.4, 0.4);
-		renderItem(player, new ItemStack(RWBYItems.emberv));
-		GlStateManager.popMatrix();
-		GlStateManager.popMatrix();
-		GlStateManager.popMatrix();
-		
+	}
+	
+	public static class LayerAccessories implements LayerRenderer<EntityLivingBase> {
+
+		 private final ModelRenderer modelRenderer;
+
+		    public LayerAccessories(ModelRenderer modelRenderer)
+		    {
+		        this.modelRenderer = modelRenderer;
+		    }
+
+		    public void doRenderLayer(EntityLivingBase entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale)
+		    {
+		        ItemStack itemstack = new ItemStack(RWBYItems.rgrimmarm);
+		        //itemstack = ItemStack.EMPTY;
+
+		        if (!itemstack.isEmpty())
+		        {
+		            Item item = itemstack.getItem();
+		            Minecraft minecraft = Minecraft.getMinecraft();
+		            GlStateManager.pushMatrix();
+
+		            if (entitylivingbaseIn.isSneaking())
+		            {
+		                GlStateManager.translate(0.0F, 0.2F, 0.0F);
+		            }
+
+		            boolean flag = entitylivingbaseIn instanceof EntityVillager || entitylivingbaseIn instanceof EntityZombieVillager;
+
+		            if (entitylivingbaseIn.isChild() && !(entitylivingbaseIn instanceof EntityVillager))
+		            {
+		                float f = 2.0F;
+		                float f1 = 1.4F;
+		                GlStateManager.translate(0.0F, 0.5F * scale, 0.0F);
+		                GlStateManager.scale(0.7F, 0.7F, 0.7F);
+		                GlStateManager.translate(0.0F, 16.0F * scale, 0.0F);
+		            }
+		            this.modelRenderer.isHidden = false;
+		            this.modelRenderer.postRender(0.0625F);
+		        	this.modelRenderer.isHidden = !itemstack.isEmpty();
+		            GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+
+		            if (item == Items.SKULL)
+		            {
+		                float f2 = 1.1875F;
+		                GlStateManager.scale(1.1875F, -1.1875F, -1.1875F);
+
+		                if (flag)
+		                {
+		                    GlStateManager.translate(0.0F, 0.0625F, 0.0F);
+		                }
+
+		                GameProfile gameprofile = null;
+
+		                if (itemstack.hasTagCompound())
+		                {
+		                    NBTTagCompound nbttagcompound = itemstack.getTagCompound();
+
+		                    if (nbttagcompound.hasKey("SkullOwner", 10))
+		                    {
+		                        gameprofile = NBTUtil.readGameProfileFromNBT(nbttagcompound.getCompoundTag("SkullOwner"));
+		                    }
+		                    else if (nbttagcompound.hasKey("SkullOwner", 8))
+		                    {
+		                        String s = nbttagcompound.getString("SkullOwner");
+
+		                        if (!StringUtils.isBlank(s))
+		                        {
+		                            gameprofile = TileEntitySkull.updateGameprofile(new GameProfile((UUID)null, s));
+		                            nbttagcompound.setTag("SkullOwner", NBTUtil.writeGameProfile(new NBTTagCompound(), gameprofile));
+		                        }
+		                    }
+		                }
+
+		                TileEntitySkullRenderer.instance.renderSkull(-0.5F, 0.0F, -0.5F, EnumFacing.UP, 180.0F, itemstack.getMetadata(), gameprofile, -1, limbSwing);
+		            }
+		            else if (!(item instanceof ItemArmor) || ((ItemArmor)item).getEquipmentSlot() != EntityEquipmentSlot.HEAD)
+		            {
+		                float f3 = 0.625F;
+		                GlStateManager.translate(0.0F, -0.25F, 0.0F);
+		                GlStateManager.rotate(180.0F, 0.0F, 1.0F, 0.0F);
+		                GlStateManager.scale(0.625F, -0.625F, -0.625F);
+
+		                if (flag)
+		                {
+		                    GlStateManager.translate(0.0F, 0.1875F, 0.0F);
+		                }
+
+		                minecraft.getItemRenderer().renderItem(entitylivingbaseIn, itemstack, ItemCameraTransforms.TransformType.HEAD);
+		            }
+
+		            GlStateManager.popMatrix();
+		        }
+		    }
+
+		    public boolean shouldCombineTextures()
+		    {
+		        return false;
+		    }
 		
 	}
 	
 	private void renderItem(EntityLivingBase entity, ItemStack stack) {
 		Minecraft.getMinecraft().getItemRenderer().renderItem(entity, stack, TransformType.HEAD);
+	}
+	
+	private void renderItemHead(EntityLivingBase entity, ModelPlayer model, ItemStack stack) {
+		
+		float scale = 0;
+		
+        Item item = stack.getItem();
+        Minecraft minecraft = Minecraft.getMinecraft();
+        GlStateManager.pushMatrix();
+
+        if (entity.isSneaking())
+        {
+            GlStateManager.translate(0.0F, 0.2F, 0.0F);
+        }
+
+        boolean flag = entity instanceof EntityVillager || entity instanceof EntityZombieVillager;
+
+        if (entity.isChild() && !(entity instanceof EntityVillager))
+        {
+            float f = 2.0F;
+            float f1 = 1.4F;
+            GlStateManager.translate(0.0F, 0.5F * scale, 0.0F);
+            GlStateManager.scale(0.7F, 0.7F, 0.7F);
+            GlStateManager.translate(0.0F, 16.0F * scale, 0.0F);
+        }
+
+        //model.bipedBody.postRender(0.0625F);
+        GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+
+        float f3 = 0.625F;
+        GlStateManager.translate(0.0F, -0.25F, 0.0F);
+        //GlStateManager.rotate(180.0F, 0.0F, 1.0F, 0.0F);
+        GlStateManager.scale(0.625F, -0.625F, -0.625F);
+
+        if (flag)
+        {
+            GlStateManager.translate(0.0F, 0.1875F, 0.0F);
+        }
+
+        minecraft.getItemRenderer().renderItem(entity, stack, ItemCameraTransforms.TransformType.HEAD);
+
+        GlStateManager.popMatrix();
 	}
 
 }

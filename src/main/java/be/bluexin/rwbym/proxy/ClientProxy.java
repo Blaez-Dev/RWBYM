@@ -114,6 +114,7 @@ public class ClientProxy extends CommonProxy {
 
     public void init() {
         super.init();
+        
         if (RWBYModels.items != null) RWBYModels.items.forEach(ICustomItem::registerModel);
         MinecraftForge.EVENT_BUS.register(new RenderEvents());
     }
