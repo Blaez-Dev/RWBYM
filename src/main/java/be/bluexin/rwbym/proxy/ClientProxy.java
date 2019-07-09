@@ -1,5 +1,6 @@
 package be.bluexin.rwbym.proxy;
 
+import be.bluexin.rwbym.PlayerRenderHandler;
 import be.bluexin.rwbym.RWBYModels;
 import be.bluexin.rwbym.client.particle.RenderEvents;
 import be.bluexin.rwbym.client.particle.RosePetal;
@@ -17,6 +18,8 @@ import ibxm.Player;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.particle.ParticleManager;
+import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -62,6 +65,8 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
 import net.minecraftforge.fml.relauncher.Side;
 
+import java.lang.reflect.Field;
+import java.util.Map;
 import java.util.Random;
 
 import javax.swing.text.Utilities;
@@ -114,6 +119,16 @@ public class ClientProxy extends CommonProxy {
 
     public void init() {
         super.init();
+        Field skinMap = ReflectionHelper.findField(RenderManager.class, "skinMap", "field_178636_l");
+        try {
+			PlayerRenderHandler.replacePlayerRenderers((Map<String, RenderPlayer>) skinMap.get(Minecraft.getMinecraft().getRenderManager()));
+		} catch (IllegalArgumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         if (RWBYModels.items != null) RWBYModels.items.forEach(ICustomItem::registerModel);
         MinecraftForge.EVENT_BUS.register(new RenderEvents());
     }
