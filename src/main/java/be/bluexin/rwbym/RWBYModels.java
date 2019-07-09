@@ -168,7 +168,6 @@ public class RWBYModels {
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
         proxy.init();
-        PlayerRenderHandler.addRenderLayers(Minecraft.getMinecraft().getRenderManager().getSkinMap());
         System.out.println("Blaez:RWBYM Relz 3.8");
         //if (items != null) items.forEach(ICustomItem::registerRecipes);
         if (event.getSide() == Side.CLIENT) {
