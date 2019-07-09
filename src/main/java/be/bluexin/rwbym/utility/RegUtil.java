@@ -115,8 +115,13 @@ public class RegUtil {
         registerItems(event, RWBYItems.oobleckflamethrower);
         registerItems(event, RWBYItems.jnrbat);
         registerItems(event, RWBYItems.jnrrocket);
+        registerItems(event, RWBYItems.henchmen);
         registerItems(event, RWBYItems.adamgun);
         registerItems(event, RWBYItems.adamswd);
+        registerItems(event, RWBYItems.corsac);
+        registerItems(event, RWBYItems.fennec);
+        registerItems(event, RWBYItems.fennecdouble);
+        registerItems(event, RWBYItems.corsacdouble);
         registerItems(event, RWBYItems.torchwick);
         registerItems(event, RWBYItems.torchwickgun);
         registerItems(event, RWBYItems.neoumb_closed);
@@ -125,6 +130,8 @@ public class RegUtil {
         registerItems(event, RWBYItems.lieutenant);
         registerItems(event, RWBYItems.cinder);
         registerItems(event, RWBYItems.cinderbow);
+        registerItems(event, RWBYItems.cinderglass);
+        registerItems(event, RWBYItems.cinderbowglass);
         registerItems(event, RWBYItems.emeraldblade);
         registerItems(event, RWBYItems.emeraldgun);
         registerItems(event, RWBYItems.tyrian);
@@ -690,6 +697,13 @@ public class RegUtil {
         registerRecipes(RWBYItems.dew);
         registerRecipes(RWBYItems.lark);
         registerRecipes(RWBYItems.octavia);
+        registerRecipes(RWBYItems.cinderbowglass);
+        registerRecipes(RWBYItems.cinderglass);
+        registerRecipes(RWBYItems.henchmen);
+        registerRecipes(RWBYItems.fennec);
+        registerRecipes(RWBYItems.corsac);
+        registerRecipes(RWBYItems.corsacdouble);
+        registerRecipes(RWBYItems.fennecdouble);
     }
 
     private static void registerBlocks(FMLPreInitializationEvent event, Block...blocks) {

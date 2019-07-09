@@ -48,6 +48,9 @@ public class EntityWeaponStore extends EntityCreature implements INpc, IMerchant
     Village village;
     private static MerchantRecipe[] weapons = new MerchantRecipe[]{
             new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.pennyswd,1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.henchmen,1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.fennec,1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.corsac,1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.neoumb_closed,1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.torchwick,1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.lieutenant,1)),
@@ -61,6 +64,7 @@ public class EntityWeaponStore extends EntityCreature implements INpc, IMerchant
             new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.atlaspistol,1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.atlasrifle,1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.frostediron,4), new ItemStack(RWBYItems.cinder, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.shadowiron,4), new ItemStack(RWBYItems.cinderglass, 1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.shadowiron,8), new ItemStack(RWBYItems.jnrbat, 1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.forestiron,4), new ItemStack(RWBYItems.emeraldgun, 1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.shadowiron,4), new ItemStack(RWBYItems.adamswd, 1)),

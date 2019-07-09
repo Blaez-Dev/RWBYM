@@ -416,6 +416,13 @@ item.rwbym:lark.name=Lark's Axe
 item.rwbym:bangle.name=Soshingu
 item.rwbym:hbangle.name=Soshingu
 item.rwbym:hsanrei.name=Kuroi Getsuga
+item.rwbym:cinderglass.name=Cinder's Stealth Sword
+item.rwbym:cinderbowglass.nameCinder's Stealth Bow
+item.rwbym:henchmen.name=Henchmen's Sword
+item.rwbym:corsac.name=Corsac's Sai
+item.rwbym:fennec.name=Fennec's Sai
+item.rwbym:fennecdouble.name=Fennec's Dual Sai
+item.rwbym:corsacdouble.name=Corsac's Dual Sai
 
 
 effect.aura_regen=Aura Regen
