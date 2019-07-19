@@ -1,5 +1,4 @@
 {
-	"credit": "Made with Blockbench",
 	"textures": {
 		"0": "rwbym:blocks/awool_colored_darkblack",
 		"1": "rwbym:blocks/awool_colored_darkpurewhite",
@@ -616,6 +615,11 @@
 		},
 		"firstperson_lefthand": {
 			"translation": [1.75, 0.5, 4.5]
+		},
+		"head": {
+			"rotation": [-90, 0, 0],
+			"translation": [-9.25, -9.5, 0],
+			"scale": [1.5, 1.5, 1.5]
 		}
 	}
 }

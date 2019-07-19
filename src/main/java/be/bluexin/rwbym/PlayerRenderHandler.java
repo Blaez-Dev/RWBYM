@@ -76,6 +76,17 @@ public class PlayerRenderHandler {
 			}
 		}
 
+		setLayersForArmor(event, renderedPlayer);
+		
+		if(!event.isCanceled() && renderedPlayer.getHeldItemMainhand().getItem() == RWBYItems.reese && renderedPlayer.getHeldItemMainhand().getOrCreateSubCompound("RWBYM").getInteger("inactive") < 2){
+
+			renderHoverboard(event, renderedPlayer, renderingPlayer);
+			
+		}
+		
+	}
+	
+	private void setLayersForArmor(RenderPlayerEvent.Pre event, EntityPlayer renderedPlayer) {
 		if (renderedPlayer.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem() instanceof ArmourBase) {
 			event.getRenderer().getMainModel().bipedHeadwear.showModel = false;
 		}
@@ -100,179 +111,211 @@ public class PlayerRenderHandler {
 			event.getRenderer().getMainModel().bipedLeftLegwear.showModel = true;
 			event.getRenderer().getMainModel().bipedRightLegwear.showModel = true;
 		}
-		
-		if(!event.isCanceled() && renderedPlayer.getHeldItemMainhand().getItem() == RWBYItems.reese && renderedPlayer.getHeldItemMainhand().getOrCreateSubCompound("RWBYM").getInteger("inactive") < 2){
-			renderedPlayer.limbSwingAmount = 0;
-			renderedPlayer.prevLimbSwingAmount = 0;
-			GlStateManager.pushMatrix();				
-				if (renderedPlayer.isSneaking()) {
-					GlStateManager.translate(0, -0.125, 0);
-				}
-				
-				GlStateManager.translate(0, 0.1, 0);
-				
-				if (Minecraft.getMinecraft().player != renderedPlayer) {
-					GlStateManager.translate(renderedPlayer.posX - renderingPlayer.posX, renderedPlayer.posY - renderingPlayer.posY, renderedPlayer.posZ - renderingPlayer.posZ);
-				}
-				
-				ExtraInfo info = playerInfo.get(renderedPlayer);
-				
-				if (info != null) {
-					
-					renderedPlayer.prevRenderYawOffset = (float) (info.prevAngle + renderedPlayer.prevRotationYawHead);
-					renderedPlayer.renderYawOffset = (float) (info.angle + renderedPlayer.rotationYawHead);
-					
-					float y1 = renderedPlayer.prevRenderYawOffset;
-					float y2 = renderedPlayer.renderYawOffset;
-					
-					float pt = event.getPartialRenderTick();
-					
-					float y3 = (1 - pt) * y1 + pt * y2;
-					
-					GlStateManager.rotate(90 - y3, 0, 1, 0);
-					
-					float dt = y2 - y1;
-					
-					double a2 = info.accelR;
-					double a1 = info.prevAccelR;
-					
-					double a = (1 - pt) * a1 + pt * a2;
-					
-					GlStateManager.rotate((float) (-Math.atan2(a, 0.08) / Math.PI * 180), 1, 0, 0);
-					
-					double f = 0.08;
-					
-					a2 = Math.abs(info.motionU) > 0.05 ? info.motionU : 0;
-					a1 = Math.abs(info.prevMotionU) > 0.05 ? info.prevMotionU : 0;
-					
-					double b2 = Math.abs(info.motionF) > 0.05 ? info.motionF : 0;
-					double b1 = Math.abs(info.prevMotionF) > 0.05 ? info.prevMotionF : 0;
-					
-					double ang1 = -Math.atan(a1 / b1) / Math.PI * 180;
-					double ang2 = -Math.atan(a2 / b2) / Math.PI * 180;
-					
-					if (Math.abs(b1) < 0.1) {
-						ang1 = 0;
-					}
-					
-					if (Math.abs(b2) < 0.1) {
-						ang2 = 0;
-					}
-					
-					ang1 = MathHelper.clamp(ang1, -30, 30);
-					ang2 = MathHelper.clamp(ang2, -30, 30);
-					
-					double ang = (1 - pt) * ang1 + pt * ang2;
-										
-					GlStateManager.rotate((float) ang, 0, 0, 1);
-					
-				}
-				
-				Minecraft.getMinecraft().getItemRenderer().renderItem(renderedPlayer, renderedPlayer.getHeldItemMainhand(), TransformType.HEAD);
+	}
+	
+	private void renderHoverboard(RenderPlayerEvent.Pre event, EntityPlayer renderedPlayer, EntityPlayer renderingPlayer) {
+		renderedPlayer.limbSwingAmount = 0;
+		renderedPlayer.prevLimbSwingAmount = 0;
+		GlStateManager.pushMatrix();				
+			if (renderedPlayer.isSneaking()) {
+				GlStateManager.translate(0, -0.125, 0);
+			}
 			
-			GlStateManager.popMatrix();
-
-		}
+			GlStateManager.translate(0, 0.1, 0);
+			
+			if (Minecraft.getMinecraft().player != renderedPlayer) {
+				GlStateManager.translate(renderedPlayer.posX - renderingPlayer.posX, renderedPlayer.posY - renderingPlayer.posY, renderedPlayer.posZ - renderingPlayer.posZ);
+			}
+			
+			ExtraInfo info = playerInfo.get(renderedPlayer);
+			
+			if (info != null) {
+				
+				renderedPlayer.prevRenderYawOffset = (float) (info.prevAngle + renderedPlayer.prevRotationYawHead);
+				renderedPlayer.renderYawOffset = (float) (info.angle + renderedPlayer.rotationYawHead);
+				
+				float y1 = renderedPlayer.prevRenderYawOffset;
+				float y2 = renderedPlayer.renderYawOffset;
+				
+				float pt = event.getPartialRenderTick();
+				
+				float y3 = (1 - pt) * y1 + pt * y2;
+				
+				GlStateManager.rotate(90 - y3, 0, 1, 0);
+				
+				float dt = y2 - y1;
+				
+				double a2 = info.accelR;
+				double a1 = info.prevAccelR;
+				
+				double a = (1 - pt) * a1 + pt * a2;
+				
+				GlStateManager.rotate((float) (-Math.atan2(a, 0.08) / Math.PI * 180), 1, 0, 0);
+				
+				double f = 0.08;
+				
+				a2 = Math.abs(info.motionU) > 0.05 ? info.motionU : 0;
+				a1 = Math.abs(info.prevMotionU) > 0.05 ? info.prevMotionU : 0;
+				
+				double b2 = Math.abs(info.motionF) > 0.05 ? info.motionF : 0;
+				double b1 = Math.abs(info.prevMotionF) > 0.05 ? info.prevMotionF : 0;
+				
+				double ang1 = -Math.atan(a1 / b1) / Math.PI * 180;
+				double ang2 = -Math.atan(a2 / b2) / Math.PI * 180;
+				
+				if (Math.abs(b1) < 0.1) {
+					ang1 = 0;
+				}
+				
+				if (Math.abs(b2) < 0.1) {
+					ang2 = 0;
+				}
+				
+				ang1 = MathHelper.clamp(ang1, -30, 30);
+				ang2 = MathHelper.clamp(ang2, -30, 30);
+				
+				double ang = (1 - pt) * ang1 + pt * ang2;
+									
+				GlStateManager.rotate((float) ang, 0, 0, 1);
+				
+			}
+			
+			Minecraft.getMinecraft().getItemRenderer().renderItem(renderedPlayer, renderedPlayer.getHeldItemMainhand(), TransformType.HEAD);
 		
+		GlStateManager.popMatrix();
+
 	}
 	
 	public static class LayerAccessories implements LayerRenderer<EntityLivingBase> {
 
 		 private final ModelRenderer modelRenderer;
+		 
+		 private final String slot;
+		 
+		 private final Part part;
 
-		    public LayerAccessories(ModelRenderer modelRenderer)
-		    {
-		        this.modelRenderer = modelRenderer;
-		    }
+	    public LayerAccessories(ModelRenderer modelRenderer, String slot, Part part)
+	    {
+	        this.modelRenderer = modelRenderer;
+	        
+	        this.slot = slot;
+	        
+	        this.part = part;
+	    }
 
-		    public void doRenderLayer(EntityLivingBase entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale)
-		    {
-		        ItemStack itemstack = new ItemStack(RWBYItems.rgrimmarm);
-		        //itemstack = ItemStack.EMPTY;
+	    public void doRenderLayer(EntityLivingBase entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale)
+	    {
+	    	
+	    	NBTTagCompound nbt = entitylivingbaseIn.getEntityData().getCompoundTag(RWBYModels.MODID);
+	    	
+	        ItemStack itemstack = new ItemStack(Item.getByNameOrId(nbt.getString(slot)));
+	        //itemstack = ItemStack.EMPTY;
 
-		        if (!itemstack.isEmpty())
-		        {
-		            Item item = itemstack.getItem();
-		            Minecraft minecraft = Minecraft.getMinecraft();
-		            GlStateManager.pushMatrix();
+	        if (!itemstack.isEmpty())
+	        {
+	            Item item = itemstack.getItem();
+	            Minecraft minecraft = Minecraft.getMinecraft();
+	            GlStateManager.pushMatrix();
 
-		            if (entitylivingbaseIn.isSneaking())
-		            {
-		                GlStateManager.translate(0.0F, 0.2F, 0.0F);
-		            }
+	            if (entitylivingbaseIn.isSneaking())
+	            {
+	                GlStateManager.translate(0.0F, 0.2F, 0.0F);
+	            }
 
-		            boolean flag = entitylivingbaseIn instanceof EntityVillager || entitylivingbaseIn instanceof EntityZombieVillager;
+	            boolean flag = entitylivingbaseIn instanceof EntityVillager || entitylivingbaseIn instanceof EntityZombieVillager;
 
-		            if (entitylivingbaseIn.isChild() && !(entitylivingbaseIn instanceof EntityVillager))
-		            {
-		                float f = 2.0F;
-		                float f1 = 1.4F;
-		                GlStateManager.translate(0.0F, 0.5F * scale, 0.0F);
-		                GlStateManager.scale(0.7F, 0.7F, 0.7F);
-		                GlStateManager.translate(0.0F, 16.0F * scale, 0.0F);
-		            }
-		            this.modelRenderer.isHidden = false;
-		            this.modelRenderer.postRender(0.0625F);
-		        	this.modelRenderer.isHidden = !itemstack.isEmpty();
-		            GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+	            if (entitylivingbaseIn.isChild() && !(entitylivingbaseIn instanceof EntityVillager))
+	            {
+	                float f = 2.0F;
+	                float f1 = 1.4F;
+	                GlStateManager.translate(0.0F, 0.5F * scale, 0.0F);
+	                GlStateManager.scale(0.7F, 0.7F, 0.7F);
+	                GlStateManager.translate(0.0F, 16.0F * scale, 0.0F);
+	            }
+	            this.modelRenderer.isHidden = false;
+	            this.modelRenderer.postRender(0.0625F);
+	        	this.modelRenderer.isHidden = !itemstack.isEmpty();
+	            GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
 
-		            if (item == Items.SKULL)
-		            {
-		                float f2 = 1.1875F;
-		                GlStateManager.scale(1.1875F, -1.1875F, -1.1875F);
+	            if (item == Items.SKULL)
+	            {
+	                float f2 = 1.1875F;
+	                GlStateManager.scale(1.1875F, -1.1875F, -1.1875F);
 
-		                if (flag)
-		                {
-		                    GlStateManager.translate(0.0F, 0.0625F, 0.0F);
-		                }
+	                if (flag)
+	                {
+	                    GlStateManager.translate(0.0F, 0.0625F, 0.0F);
+	                }
 
-		                GameProfile gameprofile = null;
+	                GameProfile gameprofile = null;
 
-		                if (itemstack.hasTagCompound())
-		                {
-		                    NBTTagCompound nbttagcompound = itemstack.getTagCompound();
+	                if (itemstack.hasTagCompound())
+	                {
+	                    NBTTagCompound nbttagcompound = itemstack.getTagCompound();
 
-		                    if (nbttagcompound.hasKey("SkullOwner", 10))
-		                    {
-		                        gameprofile = NBTUtil.readGameProfileFromNBT(nbttagcompound.getCompoundTag("SkullOwner"));
-		                    }
-		                    else if (nbttagcompound.hasKey("SkullOwner", 8))
-		                    {
-		                        String s = nbttagcompound.getString("SkullOwner");
+	                    if (nbttagcompound.hasKey("SkullOwner", 10))
+	                    {
+	                        gameprofile = NBTUtil.readGameProfileFromNBT(nbttagcompound.getCompoundTag("SkullOwner"));
+	                    }
+	                    else if (nbttagcompound.hasKey("SkullOwner", 8))
+	                    {
+	                        String s = nbttagcompound.getString("SkullOwner");
 
-		                        if (!StringUtils.isBlank(s))
-		                        {
-		                            gameprofile = TileEntitySkull.updateGameprofile(new GameProfile((UUID)null, s));
-		                            nbttagcompound.setTag("SkullOwner", NBTUtil.writeGameProfile(new NBTTagCompound(), gameprofile));
-		                        }
-		                    }
-		                }
+	                        if (!StringUtils.isBlank(s))
+	                        {
+	                            gameprofile = TileEntitySkull.updateGameprofile(new GameProfile((UUID)null, s));
+	                            nbttagcompound.setTag("SkullOwner", NBTUtil.writeGameProfile(new NBTTagCompound(), gameprofile));
+	                        }
+	                    }
+	                }
 
-		                TileEntitySkullRenderer.instance.renderSkull(-0.5F, 0.0F, -0.5F, EnumFacing.UP, 180.0F, itemstack.getMetadata(), gameprofile, -1, limbSwing);
-		            }
-		            else if (!(item instanceof ItemArmor) || ((ItemArmor)item).getEquipmentSlot() != EntityEquipmentSlot.HEAD)
-		            {
-		                float f3 = 0.625F;
-		                GlStateManager.translate(0.0F, -0.25F, 0.0F);
-		                GlStateManager.rotate(180.0F, 0.0F, 1.0F, 0.0F);
-		                GlStateManager.scale(0.625F, -0.625F, -0.625F);
+	                TileEntitySkullRenderer.instance.renderSkull(-0.5F, 0.0F, -0.5F, EnumFacing.UP, 180.0F, itemstack.getMetadata(), gameprofile, -1, limbSwing);
+	            }
+	            else if (!(item instanceof ItemArmor) || ((ItemArmor)item).getEquipmentSlot() != EntityEquipmentSlot.HEAD)
+	            {
+	                float f3 = 0.625F;
+	                GlStateManager.translate(0.0F, -0.25F, 0.0F);
+	                GlStateManager.rotate(180.0F, 0.0F, 1.0F, 0.0F);
+	                GlStateManager.scale(0.625F, -0.625F, -0.625F);
+	                
+	                switch(part) {
+	                case HEAD:
+	                	break;
+	                case RIGHT_ARM:
+	                	GlStateManager.translate(-0.5, 0.1875, 0);
+	                	break;
+	                case LEFT_ARM:
+	                	GlStateManager.translate(0.5, 0.1875, 0);
+	                	break;
+	                case RIGHT_LEG:
+	                	GlStateManager.translate(-0.1875, 1.1875, 0);
+	                	break;
+	                case LEFT_LEG:
+	                	GlStateManager.translate(0.1875, 1.1875, 0);
+	                	break;
+	                case BODY:
+	                	break;
+	                }
 
-		                if (flag)
-		                {
-		                    GlStateManager.translate(0.0F, 0.1875F, 0.0F);
-		                }
+	                if (flag)
+	                {
+	                    GlStateManager.translate(0.0F, 0.1875F, 0.0F);
+	                }
 
-		                minecraft.getItemRenderer().renderItem(entitylivingbaseIn, itemstack, ItemCameraTransforms.TransformType.HEAD);
-		            }
+	                minecraft.getItemRenderer().renderItem(entitylivingbaseIn, itemstack, ItemCameraTransforms.TransformType.HEAD);
+	            }
 
-		            GlStateManager.popMatrix();
-		        }
-		    }
+	            GlStateManager.popMatrix();
+	        }
+	        else {
+	        	this.modelRenderer.isHidden = false;
+	        }
+	    }
 
-		    public boolean shouldCombineTextures()
-		    {
-		        return false;
-		    }
+	    public boolean shouldCombineTextures()
+	    {
+	        return false;
+	    }
 		
 	}
 	
@@ -401,6 +444,15 @@ public class PlayerRenderHandler {
 		for (Entry<String, RenderPlayer> entry : skinMap.entrySet()) {
 			entry.setValue(new RWBYRenderPlayer(entry.getValue().getRenderManager(), entry.getKey().equals("slim")));
 		}
+	}
+	
+	public enum Part{
+		HEAD,
+		RIGHT_ARM,
+		LEFT_ARM,
+		RIGHT_LEG,
+		LEFT_LEG,
+		BODY;
 	}
 
 }

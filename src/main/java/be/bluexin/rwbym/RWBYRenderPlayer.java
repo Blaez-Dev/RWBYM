@@ -1,6 +1,7 @@
 package be.bluexin.rwbym;
 
 import be.bluexin.rwbym.PlayerRenderHandler.LayerAccessories;
+import be.bluexin.rwbym.PlayerRenderHandler.Part;
 import be.bluexin.rwbym.PlayerRenderHandler.RWBYLayerHeldItem;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.model.ModelBiped;
@@ -54,7 +55,12 @@ public class RWBYRenderPlayer extends RenderPlayer
         this.addLayer(new LayerCustomHead(this.getMainModel().bipedHead));
         this.addLayer(new LayerElytra(this));
         this.addLayer(new LayerEntityOnShoulder(renderManager));
-        this.addLayer(new LayerAccessories(this.getMainModel().bipedRightArm));
+        this.addLayer(new LayerAccessories(this.getMainModel().bipedHead, "Head", Part.HEAD));
+        this.addLayer(new LayerAccessories(this.getMainModel().bipedRightArm, "RightArm", Part.RIGHT_ARM));
+        this.addLayer(new LayerAccessories(this.getMainModel().bipedLeftArm, "LeftArm", Part.LEFT_ARM));
+        this.addLayer(new LayerAccessories(this.getMainModel().bipedRightLeg, "RightLeg", Part.RIGHT_LEG));
+        this.addLayer(new LayerAccessories(this.getMainModel().bipedLeftLeg, "LeftLeg", Part.LEFT_LEG));
+        this.addLayer(new LayerAccessories(this.getMainModel().bipedHead, "Body", Part.BODY));
     }
 
     public ModelPlayer getMainModel()

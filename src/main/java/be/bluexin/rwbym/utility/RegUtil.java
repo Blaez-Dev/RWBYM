@@ -245,6 +245,9 @@ public class RegUtil {
         registerBlocks(event, RWBYItems.gravityblock);
         registerBlocks(event, RWBYItems.impureblock);
         registerItems(event, RWBYItems.rgrimmarm);
+        registerItems(event, RWBYItems.lgrimmarm);
+        registerItems(event, RWBYItems.rgrimmleg);
+        registerItems(event, RWBYItems.lgrimmleg);
         //entity spawning items
         registerItems(event, RWBYItems.atlasknight);
         registerItems(event, RWBYItems.armagigas);
