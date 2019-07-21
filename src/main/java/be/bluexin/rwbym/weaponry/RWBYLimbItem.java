@@ -62,6 +62,8 @@ public class RWBYLimbItem extends Item implements ICustomItem {
         this.setUnlocalizedName(this.getRegistryName().toString());
         this.setCreativeTab(RWBYCreativeTabs.tab_rwbyitems);
         this.maxStackSize = 1;
+        this.name = name;
+        this.slot = slot;
     }
 
 
@@ -88,7 +90,7 @@ public class RWBYLimbItem extends Item implements ICustomItem {
     public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         NBTTagCompound nbt1 = new NBTTagCompound();
         NBTTagCompound nbt2 = new NBTTagCompound();
-        nbt2.setString(slot,  RWBYModels.MODID + name);
+        nbt2.setString(slot,  this.getRegistryName().toString());
         nbt1.setTag("rwbym", nbt2);
         player.getEntityData().merge(nbt1);
         return super.onItemUse(player, worldIn, pos, hand, facing, hitX, hitY, hitZ);
