@@ -2233,10 +2233,10 @@ public class RWBYItems {
     public static final Item signdust = new RWBYItem("signdust", null, false, null);
     public static final Item scroll = new RWBYItem("scroll", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item scroll2 = new RWBYItem("scroll2", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static final Item rgrimmarm = new RWBYItem("rgrimmarm", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static final Item lgrimmarm = new RWBYItem("lgrimmarm", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static final Item rgrimmleg = new RWBYItem("rgrimmleg", null, false, RWBYCreativeTabs.tab_rwbyitems);
-    public static final Item lgrimmleg = new RWBYItem("lgrimmleg", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item rgrimmarm = new RWBYLimbItem("rgrimmarm", "RightArm");
+    public static final Item lgrimmarm = new RWBYLimbItem("lgrimmarm", "LeftArm");
+    public static final Item rgrimmleg = new RWBYLimbItem("rgrimmleg", "RightLeg");
+    public static final Item lgrimmleg = new RWBYLimbItem("lgrimmleg", "LeftLeg");
 
     //------------------------------------------------//
     public static final Item wallet = new RWBYContainerItem(
