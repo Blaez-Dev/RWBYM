@@ -48,7 +48,7 @@ public class Aura implements IAura {
 							this.addAmount(recharge / 4);
 						}
 						if (!player.world.isRemote) {
-							RWBYNetworkHandler.sendToAll(new MessageSendPlayerData(CapabilityHandler.getCurrentSemblance(player), this, player.getName()));
+							RWBYNetworkHandler.sendToAll(new MessageSendPlayerData(CapabilityHandler.getCurrentSemblance(player), this, player.getEntityData().getCompoundTag(RWBYModels.MODID), player.getName()));
 						}
 					}
 				}

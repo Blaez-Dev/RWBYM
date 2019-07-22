@@ -1,5 +1,6 @@
 package be.bluexin.rwbym.utility.network;
 
+import be.bluexin.rwbym.RWBYModels;
 import be.bluexin.rwbym.capabilities.CapabilityHandler;
 import be.bluexin.rwbym.capabilities.ISemblance;
 import be.bluexin.rwbym.capabilities.Aura.AuraProvider;
@@ -67,7 +68,7 @@ public class MessageSendPlayerDataToServer extends MessageBase<MessageSendPlayer
 			IAura aura = requestedPlayer.getCapability(AuraProvider.AURA_CAP, null);
 			semblance.readFromNBT(message.semblanceNBT);
 			aura.deserialize(message.auraNBT);
-			RWBYNetworkHandler.sendToAll(new MessageSendPlayerData(semblance, aura, message.name));
+			RWBYNetworkHandler.sendToAll(new MessageSendPlayerData(semblance, aura, requestedPlayer.getEntityData().getCompoundTag(RWBYModels.MODID), message.name));
 		}
 	}
 

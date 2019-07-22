@@ -50,7 +50,7 @@ public class EntityUpdatesHandler {
 				semblance.onUpdate(player);
 			}
 			if (!player.world.isRemote) {
-				RWBYNetworkHandler.sendToAll(new MessageSendPlayerData(semblance, aura, player.getName()));
+				RWBYNetworkHandler.sendToAll(new MessageSendPlayerData(semblance, aura, player.getEntityData().getCompoundTag(RWBYModels.MODID), player.getName()));
 			}
 		}
 	}

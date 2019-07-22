@@ -1,5 +1,6 @@
 package be.bluexin.rwbym.utility.network;
 
+import be.bluexin.rwbym.RWBYModels;
 import be.bluexin.rwbym.capabilities.Aura.AuraProvider;
 import be.bluexin.rwbym.capabilities.Aura.IAura;
 import be.bluexin.rwbym.capabilities.Ruby.IRuby;
@@ -46,7 +47,7 @@ public class MessageGetPlayerData extends MessageBase<MessageGetPlayerData> {
 		else {
 			IRuby Ruby = requestedPlayer.getCapability(RubyProvider.RUBY_CAP, null);
 			IAura aura = requestedPlayer.getCapability(AuraProvider.AURA_CAP, null);
-			RWBYNetworkHandler.sendToClient(new MessageSendPlayerData(Ruby, aura, message.name), (EntityPlayerMP) player);
+			RWBYNetworkHandler.sendToClient(new MessageSendPlayerData(Ruby, aura, requestedPlayer.getEntityData().getCompoundTag(RWBYModels.MODID), message.name), (EntityPlayerMP) player);
 		}
 	}
 

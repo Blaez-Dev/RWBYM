@@ -93,6 +93,9 @@ public class RWBYLimbItem extends Item implements ICustomItem {
         nbt2.setString(slot,  this.getRegistryName().toString());
         nbt1.setTag("rwbym", nbt2);
         player.getEntityData().merge(nbt1);
+        
+        NBTTagCompound nbt3 = player.getEntityData();
+        
         return super.onItemUse(player, worldIn, pos, hand, facing, hitX, hitY, hitZ);
     }
 

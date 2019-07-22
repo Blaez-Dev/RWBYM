@@ -23,10 +23,12 @@ public class MessageSendPlayerData extends MessageBase<MessageSendPlayerData> {
 	private String capability = "";
 	
 	private String player = "";
+	
+	private NBTTagCompound cutomData = new NBTTagCompound();
 
 	public MessageSendPlayerData() {}
 	
-	public MessageSendPlayerData(ISemblance semblance, IAura aura, String player) {
+	public MessageSendPlayerData(ISemblance semblance, IAura aura, NBTTagCompound customData, String player) {
 		if (semblance != null) {
 			semblance.writeToNBT(semblancenbt);
 			this.capability = semblance.getCapability().getName();
@@ -34,6 +36,7 @@ public class MessageSendPlayerData extends MessageBase<MessageSendPlayerData> {
 		if (aura != null) {
 			auranbt = (NBTTagCompound) aura.serialize();
 		}
+		this.cutomData = customData;
 		this.player = player;
 	}
 	
@@ -41,6 +44,7 @@ public class MessageSendPlayerData extends MessageBase<MessageSendPlayerData> {
 	public void fromBytes(ByteBuf buf) {
 		semblancenbt = ByteBufUtils.readTag(buf);
 		auranbt = ByteBufUtils.readTag(buf);
+		cutomData = ByteBufUtils.readTag(buf);
 		capability = ByteBufUtils.readUTF8String(buf);
 		player = ByteBufUtils.readUTF8String(buf);
 	}
@@ -49,6 +53,7 @@ public class MessageSendPlayerData extends MessageBase<MessageSendPlayerData> {
 	public void toBytes(ByteBuf buf) {
 		ByteBufUtils.writeTag(buf, semblancenbt);
 		ByteBufUtils.writeTag(buf, auranbt);
+		ByteBufUtils.writeTag(buf, cutomData);
 		ByteBufUtils.writeUTF8String(buf, capability);
 		ByteBufUtils.writeUTF8String(buf, player);
 	}
@@ -66,6 +71,7 @@ public class MessageSendPlayerData extends MessageBase<MessageSendPlayerData> {
 			if (requestedPlayer.hasCapability(AuraProvider.AURA_CAP, null) && message.auranbt != null) {
 				requestedPlayer.getCapability(AuraProvider.AURA_CAP, null).deserialize(message.auranbt);
 			}
+			requestedPlayer.getEntityData().setTag(RWBYModels.MODID, cutomData);
 		}
 	}
 
