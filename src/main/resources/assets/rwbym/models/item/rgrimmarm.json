@@ -603,6 +603,14 @@
 			}
 		}
 	],
+	"overrides": [
+		{
+			"predicate": {
+				"inv": 1
+			},
+			"model": "rwbym:item/injectg"
+		}
+	],
 	"display": {
 		"thirdperson_righthand": {
 			"translation": [-0.25, -2, 9.5]

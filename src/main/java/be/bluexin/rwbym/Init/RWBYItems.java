@@ -2161,7 +2161,7 @@ public class RWBYItems {
     public static final Item aquaealatlsword = new RWBYSword(
             "aquaealatlsword",
             2500,
-            10,
+            12,
             0,
             null,
             "rwbym:aquaealatlbow",

@@ -595,6 +595,14 @@
 			}
 		}
 	],
+	"overrides": [
+		{
+			"predicate": {
+				"inv": 1
+			},
+			"model": "rwbym:item/inject"
+		}
+	],
 	"display": {
 		"head": {
 			"scale": [1.6, 1.6, 1.6]

@@ -66,6 +66,14 @@ public class RWBYLimbItem extends Item implements ICustomItem {
         this.maxStackSize = 1;
         this.name = name;
         this.slot = slot;
+
+        this.addPropertyOverride(new ResourceLocation("inv"), new IItemPropertyGetter() {
+            @SideOnly(Side.CLIENT)
+            public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn)
+            {
+                return worldIn == null || entityIn != null && entityIn.getHeldItemOffhand() == stack ||  entityIn != null && entityIn.getHeldItemMainhand() == stack ? 1.0F : 0.0F;
+            }
+        });
     }
 
 
