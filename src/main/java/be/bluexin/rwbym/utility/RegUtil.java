@@ -250,6 +250,11 @@ public class RegUtil {
         registerItems(event, RWBYItems.lgrimmarm);
         registerItems(event, RWBYItems.rgrimmleg);
         registerItems(event, RWBYItems.lgrimmleg);
+        registerItems(event, RWBYItems.blackcatear);
+        registerItems(event, RWBYItems.blondecatear);
+        registerItems(event, RWBYItems.browncatear);
+        registerItems(event, RWBYItems.greycatear);
+        registerItems(event, RWBYItems.orangecatear);
         //entity spawning items
         registerItems(event, RWBYItems.atlasknight);
         registerItems(event, RWBYItems.armagigas);

@@ -2267,6 +2267,11 @@ public class RWBYItems {
     public static final Item lgrimmarm = new RWBYLimbItem("lgrimmarm", "LeftArm");
     public static final Item rgrimmleg = new RWBYLimbItem("rgrimmleg", "RightLeg");
     public static final Item lgrimmleg = new RWBYLimbItem("lgrimmleg", "LeftLeg");
+    public static final Item blackcatear = new RWBYLimbItem("blackcatear", "Head");
+    public static final Item blondecatear = new RWBYLimbItem("blondecatear", "Head");
+    public static final Item browncatear = new RWBYLimbItem("browncatear", "Head");
+    public static final Item greycatear = new RWBYLimbItem("greycatear", "Head");
+    public static final Item orangecatear = new RWBYLimbItem("orangecatear", "Head");
 
     //------------------------------------------------//
     public static final Item wallet = new RWBYContainerItem(

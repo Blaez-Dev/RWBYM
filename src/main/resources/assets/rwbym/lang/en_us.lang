@@ -434,6 +434,7 @@ tipped_arrow.effect.aura_regen=Arrow of Aura Regen
 itemGroup.rwby_weapons=RWBY Weapons
 itemGroup.rwby_items=RWBY Items
 itemGroup.rwby_armour=RWBY Armour
+itemGroup.rwby_limbs=RWBY Limbs
 
 key.categories.RWBYM=RWBYM
 

@@ -1,6 +1,7 @@
 package be.bluexin.rwbym.weaponry;
 
 import be.bluexin.rwbym.Init.RWBYCreativeTabs;
+import be.bluexin.rwbym.Init.RWBYItems;
 import be.bluexin.rwbym.Init.RWBYPotions;
 import be.bluexin.rwbym.RWBYModels;
 import be.bluexin.rwbym.capabilities.Blake.Blake;
@@ -15,6 +16,7 @@ import be.bluexin.rwbym.entity.EntityAtlasKnight;
 import be.bluexin.rwbym.entity.EntityBeowolf;
 import be.bluexin.rwbym.utility.RegUtil;
 import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -25,10 +27,7 @@ import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.EnumAction;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemFood;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.*;
 import net.minecraft.nbt.JsonToNBT;
 import net.minecraft.nbt.NBTException;
 import net.minecraft.nbt.NBTTagCompound;
@@ -39,10 +38,13 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.logging.log4j.LogManager;
+
+import javax.annotation.Nullable;
 
 import static be.bluexin.rwbym.capabilities.CapabilityHandler.getCapabilityByName;
 
@@ -60,7 +62,7 @@ public class RWBYLimbItem extends Item implements ICustomItem {
     public RWBYLimbItem(String name, String slot) {
         this.setRegistryName(new ResourceLocation(RWBYModels.MODID, name));
         this.setUnlocalizedName(this.getRegistryName().toString());
-        this.setCreativeTab(RWBYCreativeTabs.tab_rwbyitems);
+        this.setCreativeTab(RWBYCreativeTabs.tab_rwbylimbs);
         this.maxStackSize = 1;
         this.name = name;
         this.slot = slot;
@@ -85,18 +87,17 @@ public class RWBYLimbItem extends Item implements ICustomItem {
         }
     }
 
-
     @Override
-    public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+    public void onPlayerStoppedUsing(ItemStack stack, World worldIn, EntityLivingBase entityLiving, int timeLeft) {
         NBTTagCompound nbt1 = new NBTTagCompound();
         NBTTagCompound nbt2 = new NBTTagCompound();
         nbt2.setString(slot,  this.getRegistryName().toString());
         nbt1.setTag("rwbym", nbt2);
-        player.getEntityData().merge(nbt1);
-        
-        NBTTagCompound nbt3 = player.getEntityData();
-        
-        return super.onItemUse(player, worldIn, pos, hand, facing, hitX, hitY, hitZ);
+        entityLiving.getEntityData().merge(nbt1);
+
+        NBTTagCompound nbt3 = entityLiving.getEntityData();
+        stack.shrink(1);
+        super.onPlayerStoppedUsing(stack, worldIn, entityLiving, timeLeft);
     }
 
     @Override
