@@ -2171,6 +2171,105 @@ public class RWBYItems {
             false,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
+    public static final Item brawnz = new RWBYSword(
+            "brawnz",
+            2500,
+            12,
+            0,
+            null,
+            null,
+            false,
+            true,
+            false,
+            false,
+            0,
+            RWBYCreativeTabs.tab_rwbyweapons);
+    public static final Item mayaxe = new RWBYGun(
+            "mayaxe",
+            2500,
+            72,
+            2,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:16,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}]}",
+            "rwbym:mayrifle",
+            "rwbym:crmag32,rwbym:crfiremag32",
+            false,
+            1,
+            false,
+            false,
+            0,
+            1,
+            0,
+            1,
+            null);
+    public static final Item mayrifle = new RWBYGun(
+            "mayrifle",
+            2500,
+            72,
+            0,
+            null,
+            "rwbym:mayaxe",
+            "rwbym:chatmag,rwbym:chatfiremag,rwbym:chatgravmag,rwbym:chatelectricmag",
+            false,
+            1,
+            false,
+            false,
+            0,
+            1,
+            0,
+            1,
+            RWBYCreativeTabs.tab_rwbyweapons);
+    public static final Item whitefangspear = new RWBYGun(
+            "whitefangspear",
+            2500,
+            72,
+            2,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:15,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}]}",
+            null,
+            "rwbym:crmag32,rwbym:crfiremag32",
+            false,
+            1,
+            false,
+            false,
+            0,
+            1,
+            0,
+            1,
+            RWBYCreativeTabs.tab_rwbyweapons);
+
+    public static final Item scarletstormgun = new RWBYGun(
+            "scarletstormgun",
+            1250,
+            72,
+            9,
+            null,
+            "rwbym:scarletstormaxe",
+            "rwbym:ammmo",
+            true,
+            1,
+            false,
+            false,
+            0,
+            1,
+            0,
+            7,
+            RWBYCreativeTabs.tab_rwbyweapons);
+    public static final Item scarletstormaxe = new RWBYGun(
+            "scarletstormaxe",
+            2500,
+            72,
+            2,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:16,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}]}",
+            "rwbym:scarletstormgun",
+            "rwbym:crmag32,rwbym:crfiremag32",
+            false,
+            1,
+            false,
+            false,
+            0,
+            1,
+            0,
+            1,
+            null);
 
 
     //------------------------------------------------//
@@ -2272,6 +2371,11 @@ public class RWBYItems {
     public static final Item browncatear = new RWBYLimbItem("browncatear", "Head");
     public static final Item greycatear = new RWBYLimbItem("greycatear", "Head");
     public static final Item orangecatear = new RWBYLimbItem("orangecatear", "Head");
+    public static final Item blackfoxear = new RWBYLimbItem("blackfoxear", "Head");
+    public static final Item blondefoxear = new RWBYLimbItem("blondefoxear", "Head");
+    public static final Item brownfoxear = new RWBYLimbItem("brownfoxear", "Head");
+    public static final Item greyfoxear = new RWBYLimbItem("greyfoxear", "Head");
+    public static final Item orangefoxear = new RWBYLimbItem("orangefoxear", "Head");
 
     //------------------------------------------------//
     public static final Item wallet = new RWBYContainerItem(
@@ -3390,6 +3494,19 @@ public class RWBYItems {
     public static final ItemArmor neptuneChest = new ArmourBase(neptuneMat, 0, EntityEquipmentSlot.CHEST, "neptune_chest", null, "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"chest\",Amount:10,Operation:0,UUIDMost:11326,UUIDLeast:127298},{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"chest\",Amount:5,Operation:0,UUIDMost:68780,UUIDLeast:119491}]}", true, RWBYCreativeTabs.tab_rwbyarmour);
     public static final ItemArmor neptuneLegs = new ArmourBase(neptuneMat, 0, EntityEquipmentSlot.LEGS, "neptune_legs", null, " {AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"legs\",Amount:10,Operation:0,UUIDMost:96062,UUIDLeast:166413},{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"legs\",Amount:5,Operation:0,UUIDMost:42612,UUIDLeast:167904}]}", true, RWBYCreativeTabs.tab_rwbyarmour);
     public static final ItemArmor neptuneHead = new ArmourBase(neptuneMat, 0, EntityEquipmentSlot.HEAD, "neptune_head", null, "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"head\",Amount:6,Operation:0,UUIDMost:69171,UUIDLeast:104277}]}", true, RWBYCreativeTabs.tab_rwbyarmour);
+
+
+    public static final ItemArmor.ArmorMaterial scarletMat = EnumHelper.addArmorMaterial("scarlet", "rwbym:scarlet", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
+    public static final ItemArmor scarletChest = new ArmourBase(scarletMat, 0, EntityEquipmentSlot.CHEST, "scarlet_chest", null, "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"chest\",Amount:14,Operation:0,UUIDMost:11326,UUIDLeast:127298},{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"chest\",Amount:5,Operation:0,UUIDMost:68780,UUIDLeast:119491}]}", true, RWBYCreativeTabs.tab_rwbyarmour);
+    public static final ItemArmor scarletLegs = new ArmourBase(scarletMat, 0, EntityEquipmentSlot.LEGS, "scarlet_legs", null, " {AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"legs\",Amount:14,Operation:0,UUIDMost:96062,UUIDLeast:166413},{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"legs\",Amount:5,Operation:0,UUIDMost:42612,UUIDLeast:167904}]}", true, RWBYCreativeTabs.tab_rwbyarmour);
+
+    public static final ItemArmor.ArmorMaterial sunMat = EnumHelper.addArmorMaterial("sun", "rwbym:sun", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
+    public static final ItemArmor sunChest = new ArmourBase(sunMat, 0, EntityEquipmentSlot.CHEST, "sun_chest", null, "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"chest\",Amount:14,Operation:0,UUIDMost:11326,UUIDLeast:127298},{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"chest\",Amount:5,Operation:0,UUIDMost:68780,UUIDLeast:119491}]}", true, RWBYCreativeTabs.tab_rwbyarmour);
+    public static final ItemArmor sunLegs = new ArmourBase(sunMat, 0, EntityEquipmentSlot.LEGS, "sun_legs", null, " {AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"legs\",Amount:14,Operation:0,UUIDMost:96062,UUIDLeast:166413},{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"legs\",Amount:5,Operation:0,UUIDMost:42612,UUIDLeast:167904}]}", true, RWBYCreativeTabs.tab_rwbyarmour);
+
+    public static final ItemArmor.ArmorMaterial sageMat = EnumHelper.addArmorMaterial("sage", "rwbym:sage", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
+    public static final ItemArmor sageChest = new ArmourBase(sageMat, 0, EntityEquipmentSlot.CHEST, "sage_chest", null, "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"chest\",Amount:14,Operation:0,UUIDMost:11326,UUIDLeast:127298},{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"chest\",Amount:5,Operation:0,UUIDMost:68780,UUIDLeast:119491}]}", true, RWBYCreativeTabs.tab_rwbyarmour);
+    public static final ItemArmor sageLegs = new ArmourBase(sageMat, 0, EntityEquipmentSlot.LEGS, "sage_legs", null, " {AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"legs\",Amount:14,Operation:0,UUIDMost:96062,UUIDLeast:166413},{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"legs\",Amount:5,Operation:0,UUIDMost:42612,UUIDLeast:167904}]}", true, RWBYCreativeTabs.tab_rwbyarmour);
 
 
     public static final ItemArmor korekosmouoff;

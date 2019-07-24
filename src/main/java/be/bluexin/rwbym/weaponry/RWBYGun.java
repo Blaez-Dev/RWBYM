@@ -95,7 +95,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     *  6 Ember celica 2
     *  7 Winter's Sword
     *  8 Bows
-    *
+    *  9 Internal Magazine
     *
     *
     *  99 Sanrei Shunto
@@ -282,6 +282,30 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             }
         });
         this.addPropertyOverride(new ResourceLocation("pulling4"), new IItemPropertyGetter()
+        {
+            @SideOnly(Side.CLIENT)
+            public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn)
+            {
+                return entityIn != null && entityIn.isHandActive() && entityIn.getActiveItemStack() == stack ? 1.0F : 0.0F;
+            }
+        });
+
+        this.addPropertyOverride(new ResourceLocation("pull5"), new IItemPropertyGetter()
+        {
+            @SideOnly(Side.CLIENT)
+            public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn)
+            {
+                if (entityIn == null)
+                {
+                    return 0.0F;
+                }
+                else
+                {
+                    return entityIn.getActiveItemStack().getItem() != stack.getItem() ? 0.0F : (float)(stack.getMaxItemUseDuration() - entityIn.getItemInUseCount()) / 20.0F;
+                }
+            }
+        });
+        this.addPropertyOverride(new ResourceLocation("pulling5"), new IItemPropertyGetter()
         {
             @SideOnly(Side.CLIENT)
             public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn)
@@ -581,6 +605,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                             }
                         }
                         else if (weapontype == 5) {stack.damageItem(30,entityplayer);}
+                        else if(weapontype == 9) {stack.damageItem(4, entityplayer);}
                         else stack.damageItem(2, entityplayer);
                     }
 

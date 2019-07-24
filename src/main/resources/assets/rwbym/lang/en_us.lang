@@ -417,7 +417,7 @@ item.rwbym:bangle.name=Soshingu
 item.rwbym:hbangle.name=Soshingu
 item.rwbym:hsanrei.name=Kuroi Getsuga
 item.rwbym:cinderglass.name=Cinder's Stealth Sword
-item.rwbym:cinderbowglass.nameCinder's Stealth Bow
+item.rwbym:cinderbowglass.name=Cinder's Stealth Bow
 item.rwbym:henchmen.name=Henchmen's Sword
 item.rwbym:corsac.name=Corsac's Sai
 item.rwbym:fennec.name=Fennec's Sai
@@ -425,6 +425,19 @@ item.rwbym:fennecdouble.name=Fennec's Dual Sai
 item.rwbym:corsacdouble.name=Corsac's Dual Sai
 item.rwbym:aquaealatlbow.name=Aquae Alatl
 item.rwbym:aquaealatlsword.name=Aquae Alatl
+item.scarlet_chest.name=Scarlet's Top
+item.scarlet_legs.name=Scarlet's Pants
+item.sage_chest.name=Sage's Jacket
+item.sage_legs.name=Sage's Pants
+item.sun_chest.name=Sun's Shirt
+item.sun_legs.name=Sun's Pants
+item.rwbym:brawnz.name=Brawn's Claws
+item.rwbym:mayrifle.name=May's Rifle
+item.rwbym:mayaxe.name=May's Axe
+item.rwbym:whitefangspear.name=White Fang Spear
+item.rwbym:scarletstormaxe.name=Scarlet Storm
+item.rwbym:scarletstormgun.name=Scarlet Storm
+
 
 item.rwbym:blackcatear.name=Black Cat Ears
 item.rwbym:blondecatear.name=Blonde Cat Ears
@@ -435,6 +448,11 @@ item.rwbym:lgrimmarm.name=Left Grimm Arm
 item.rwbym:rgrimmarm.name=Right Grimm Arm
 item.rwbym:lgrimmleg.name=Left Grimm Leg
 item.rwbym:rgrimmleg.name=Right Grimm Leg
+item.rwbym:blackfoxear.name=Black Fox Ears
+item.rwbym:blondefoxear.name=Blonde Fox Ears
+item.rwbym:brownfoxear.name=Brown Fox Ears
+item.rwbym:greyfoxear.name=Grey Fox Ears
+item.rwbym:orangefoxear.name=Orange Fox Ears
 
 
 effect.aura_regen=Aura Regen
