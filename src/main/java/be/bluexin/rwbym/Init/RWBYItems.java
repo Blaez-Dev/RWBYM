@@ -2141,6 +2141,36 @@ public class RWBYItems {
             0,
             4,
             null);
+    public static final Item aquaealatlbow = new RWBYGun(
+            "aquaealatlbow",
+            2500,
+            72,
+            8,
+            null,
+            "rwbym:aquaealatlsword",
+            "minecraft:arrow,minecraft:tipped_arrow",
+            false,
+            1,
+            false,
+            false,
+            0,
+            1,
+            0,
+            16,
+            null);
+    public static final Item aquaealatlsword = new RWBYSword(
+            "aquaealatlsword",
+            2500,
+            10,
+            0,
+            null,
+            "rwbym:aquaealatlbow",
+            false,
+            true,
+            false,
+            false,
+            0,
+            RWBYCreativeTabs.tab_rwbyweapons);
 
 
     //------------------------------------------------//

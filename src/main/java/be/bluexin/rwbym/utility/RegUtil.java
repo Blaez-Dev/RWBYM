@@ -166,6 +166,8 @@ public class RegUtil {
         registerItems(event, RWBYItems.vidian);
         registerItems(event, RWBYItems.vidiangun);
         registerItems(event, RWBYItems.vidianhammer);
+        registerItems(event, RWBYItems.aquaealatlsword);
+        registerItems(event, RWBYItems.aquaealatlbow);
         registerItems(event, RWBYItems.ozmacane);
         registerItems(event, RWBYItems.ozmacanefire);
         registerItems(event, RWBYItems.ozmacanegravity);
@@ -708,6 +710,8 @@ public class RegUtil {
         registerRecipes(RWBYItems.corsac);
         registerRecipes(RWBYItems.corsacdouble);
         registerRecipes(RWBYItems.fennecdouble);
+        registerRecipes(RWBYItems.aquaealatlbow);
+        registerRecipes(RWBYItems.aquaealatlsword);
     }
 
     private static void registerBlocks(FMLPreInitializationEvent event, Block...blocks) {
