@@ -2270,6 +2270,71 @@ public class RWBYItems {
             0,
             1,
             null);
+    public static final Item iliasword = new RWBYGun(
+            "iliasword",
+            2500,
+            72,
+            10,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:12,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}]}",
+            null,
+            "rwbym:crmag32,rwbym:crfiremag32",
+            false,
+            1,
+            false,
+            true,
+            0,
+            1,
+            0,
+            1,
+            RWBYCreativeTabs.tab_rwbyweapons);
+    public static final Item lionheart = new RWBYGun(
+            "lionheart",
+            2500,
+            72,
+            11,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:6,Operation:0,UUIDMost:99791,UUIDLeast:128916}]}",
+            null,
+            "rwbym:firedust,rwbym:firedust2",
+            false,
+            1,
+            false,
+            true,
+            0,
+            1,
+            0,
+            4,
+            RWBYCreativeTabs.tab_rwbyweapons);
+    public static final Item nolan = new RWBYSword(
+            "nolan",
+            2500,
+            10,
+            0,
+            null,
+            null,
+            true,
+            false,
+            false,
+            true,
+            0,
+            RWBYCreativeTabs.tab_rwbyweapons);
+    public static final Item royg = new RWBYGun(
+            "royg",
+            2500,
+            72,
+            0,
+            null,
+            null,
+            "rwbym:sawblade",
+            false,
+            1,
+            false,
+            false,
+            0,
+            1,
+            0,
+            17,
+            RWBYCreativeTabs.tab_rwbyweapons);
+
 
 
     //------------------------------------------------//
@@ -2444,6 +2509,7 @@ public class RWBYItems {
     public static final Item entityweisswater = new RWBYItem("entityweisswater", null, false, null);
     public static final Item entityweisswind = new RWBYItem("entityweisswind", null, false, null);
     public static final Item entityrocket = new RWBYItem("entityrocket", null, false, null);
+    public static final Item saw = new RWBYItem("saw", null, false, null);
 
             //------------------------------------------------//
     public static final Item spl = new RWBYAmmoItem(
@@ -2945,6 +3011,21 @@ public class RWBYItems {
     public static final Item rzrbolt = new RWBYAmmoItem(
             "rzrbolt",
             RWBYItems.razorboltknife,
+            1,
+            false,
+            RWBYAmmoItem.SurviveOnHit.ENTITY,
+            "textures/entity/projectiles/tipped_arrow.png",
+            true,
+            true,
+            null,
+            null,
+            1,
+            4,
+            null,
+            null);
+    public static final Item sawblade = new RWBYAmmoItem(
+            "sawblade",
+            RWBYItems.saw,
             1,
             false,
             RWBYAmmoItem.SurviveOnHit.ENTITY,

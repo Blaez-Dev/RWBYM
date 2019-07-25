@@ -96,6 +96,8 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     *  7 Winter's Sword
     *  8 Bows
     *  9 Internal Magazine
+    * 10 Ilia Whip Range
+    * 11 Leonhart's Shield
     *
     *
     *  99 Sanrei Shunto
@@ -130,6 +132,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
         this.soundeffect = soundeffect;
         if(weapontype == 3 || weapontype == 7) { ohblade = true; this.damages = 14; }
+        if(weapontype == 10){this.damages = 14;}
         if(name.contains("weiss")||name.contains("oobleck")||name.contains("goodwitch")){mytre = true;}
         if(name.contains("stormflower")||name.contains("ember")||name.contains("tyrian")||name.contains("fox")||name.contains("emerald")||name.contains("maria")||name.contains("sunnunchuck")||name.contains("reese")){dualwield = true;}
         if(enchantmentglow == 1){glow = true;}
@@ -555,6 +558,21 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                 }
             }
 
+            if(weapontype == 10 && entityLiving instanceof EntityPlayer && entityLiving.getHeldItemMainhand() == stack) {
+                Entity entity = this.findEntityOnPath(worldIn, entityLiving, entityLiving.getEntityAttribute(EntityPlayer.REACH_DISTANCE).getAttributeValue()+4);
+                if (entity instanceof EntityLivingBase) {
+                    EntityLivingBase entitylivingbase = (EntityLivingBase) entity;
+                    if (entitylivingbase != entityLiving && !entityLiving.isOnSameTeam(entitylivingbase)) {
+                        entitylivingbase.knockBack(entityLiving, 0.4F, (double) MathHelper.sin(entityLiving.rotationYaw * 0.017453292F), (double) (-MathHelper.cos(entityLiving.rotationYaw * 0.017453292F)));
+                        entitylivingbase.attackEntityFrom(DamageSource.GENERIC, damages);
+                        PotionEffect potioneffect = new PotionEffect(MobEffects.SLOWNESS, 100, 5, false, false);
+                        entitylivingbase.addPotionEffect(potioneffect);
+                        stack.damageItem(5, entityLiving);
+                        entityLiving.world.playSound((EntityPlayer) null, entityLiving.posX, entityLiving.posY, entityLiving.posZ, SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, entityLiving.getSoundCategory(), 1.0F, 1.0F);
+                    }
+                }
+            }
+
             shotcount = 1;
             finishshot = 0;
 
@@ -571,6 +589,10 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             int i = this.getMaxItemUseDuration(stack) - timeLeft;
             i = net.minecraftforge.event.ForgeEventFactory.onArrowLoose(stack, worldIn, (EntityPlayer) entityLiving, i, itemstack != null);
             if (i < 0) return;
+
+            if(entityplayer.getItemInUseCount() < 60 && weapontype == 11){
+                flag2 = false;
+            }
 
             if (flag2 || flag) {
 

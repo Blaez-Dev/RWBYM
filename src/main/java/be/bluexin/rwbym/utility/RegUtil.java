@@ -113,6 +113,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.goodwitch);
         registerItems(event, RWBYItems.oobleckthermos);
         registerItems(event, RWBYItems.oobleckflamethrower);
+        registerItems(event, RWBYItems.lionheart);
         registerItems(event, RWBYItems.jnrbat);
         registerItems(event, RWBYItems.jnrrocket);
         registerItems(event, RWBYItems.henchmen);
@@ -120,6 +121,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.adamswd);
         registerItems(event, RWBYItems.corsac);
         registerItems(event, RWBYItems.fennec);
+        registerItems(event, RWBYItems.iliasword);
         registerItems(event, RWBYItems.fennecdouble);
         registerItems(event, RWBYItems.corsacdouble);
         registerItems(event, RWBYItems.torchwick);
@@ -204,6 +206,8 @@ public class RegUtil {
         registerItems(event, RWBYItems.octavia);
         registerItems(event, RWBYItems.nebulasword);
         registerItems(event, RWBYItems.brawnz);
+        registerItems(event, RWBYItems.royg);
+        registerItems(event, RWBYItems.nolan);
         registerItems(event, RWBYItems.mayrifle);
         registerItems(event, RWBYItems.mayaxe);
         registerItems(event, RWBYItems.sanrei);
@@ -359,6 +363,8 @@ public class RegUtil {
         registerItems(event, RWBYItems.ammov);
         registerItems(event, RWBYItems.ammmo);
         registerItems(event, RWBYItems.rzrbolt);
+        registerItems(event, RWBYItems.saw);
+        registerItems(event, RWBYItems.sawblade);
         registerItems(event, RWBYItems.gravitydustcut);
         registerItems(event, RWBYItems.winddustcut);
         registerItems(event, RWBYItems.waterdustcut);
@@ -741,6 +747,14 @@ public class RegUtil {
         registerRecipes( RWBYItems.sageChest);
         registerRecipes( RWBYItems.sageLegs);
         registerRecipes(RWBYItems.brawnz);
+        registerRecipes(RWBYItems.iliasword);
+        registerRecipes(RWBYItems.scarletstormgun);
+        registerRecipes(RWBYItems.scarletstormaxe);
+        registerRecipes(RWBYItems.mayrifle);
+        registerRecipes(RWBYItems.mayaxe);
+        registerRecipes(RWBYItems.lionheart);
+        registerRecipes(RWBYItems.nolan);
+        registerRecipes(RWBYItems.royg);
     }
 
     private static void registerBlocks(FMLPreInitializationEvent event, Block...blocks) {
@@ -797,6 +811,9 @@ public class RegUtil {
                 }else
                 if(item == RWBYItems.hbangle){
                     ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.bangle.getRegistryName(), "inventory"));
+                }else
+                if(item == RWBYItems.sawblade){
+                    ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.saw.getRegistryName(), "inventory"));
                 }
             	else {
             		ModelLoader.setCustomModelResourceLocation(item,0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
