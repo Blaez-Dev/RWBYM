@@ -55,12 +55,14 @@ public class RWBYRenderPlayer extends RenderPlayer
         this.addLayer(new LayerCustomHead(this.getMainModel().bipedHead));
         this.addLayer(new LayerElytra(this));
         this.addLayer(new LayerEntityOnShoulder(renderManager));
-        this.addLayer(new LayerAccessories(this.getMainModel().bipedHead, "Head", Part.HEAD));
-        this.addLayer(new LayerAccessories(this.getMainModel().bipedRightArm, "RightArm", Part.RIGHT_ARM));
-        this.addLayer(new LayerAccessories(this.getMainModel().bipedLeftArm, "LeftArm", Part.LEFT_ARM));
-        this.addLayer(new LayerAccessories(this.getMainModel().bipedRightLeg, "RightLeg", Part.RIGHT_LEG));
-        this.addLayer(new LayerAccessories(this.getMainModel().bipedLeftLeg, "LeftLeg", Part.LEFT_LEG));
-        this.addLayer(new LayerAccessories(this.getMainModel().bipedHead, "Body", Part.BODY));
+        this.addLayer(new LayerAccessories(this.getMainModel().bipedHead, "Head", Part.HEAD, true));
+        this.addLayer(new LayerAccessories(this.getMainModel().bipedHead, "Ears", Part.HEAD, false));
+        this.addLayer(new LayerAccessories(this.getMainModel().bipedRightArm, "RightArm", Part.RIGHT_ARM, true));
+        this.addLayer(new LayerAccessories(this.getMainModel().bipedLeftArm, "LeftArm", Part.LEFT_ARM, true));
+        this.addLayer(new LayerAccessories(this.getMainModel().bipedRightLeg, "RightLeg", Part.RIGHT_LEG, true));
+        this.addLayer(new LayerAccessories(this.getMainModel().bipedLeftLeg, "LeftLeg", Part.LEFT_LEG, true));
+        this.addLayer(new LayerAccessories(this.getMainModel().bipedBody, "Body", Part.BODY, true));
+        this.addLayer(new LayerAccessories(this.getMainModel().bipedBody, "Tail", Part.BODY, false));
     }
 
     public ModelPlayer getMainModel()

@@ -194,13 +194,17 @@ public class PlayerRenderHandler {
 		 
 		 private final Part part;
 
-	    public LayerAccessories(ModelRenderer modelRenderer, String slot, Part part)
+		 private final boolean replace;
+		 
+	    public LayerAccessories(ModelRenderer modelRenderer, String slot, Part part, boolean replace)
 	    {
 	        this.modelRenderer = modelRenderer;
 	        
 	        this.slot = slot;
 	        
 	        this.part = part;
+	        
+	        this.replace = replace;
 	    }
 
 	    public void doRenderLayer(EntityLivingBase entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale)
@@ -213,6 +217,16 @@ public class PlayerRenderHandler {
 
 	        if (!itemstack.isEmpty())
 	        {
+	        	
+	        	boolean flag1;
+	        	
+	        	if (!replace) {
+	        		flag1 = this.modelRenderer.isHidden;
+	        	}
+	        	else {
+	        		flag1 = true;
+	        	}
+	        	
 	            Item item = itemstack.getItem();
 	            Minecraft minecraft = Minecraft.getMinecraft();
 	            GlStateManager.pushMatrix();
@@ -234,7 +248,7 @@ public class PlayerRenderHandler {
 	            }
 	            this.modelRenderer.isHidden = false;
 	            this.modelRenderer.postRender(0.0625F);
-	        	this.modelRenderer.isHidden = !itemstack.isEmpty();
+	        	this.modelRenderer.isHidden = flag1;
 	            GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
 
 	            if (item == Items.SKULL)
@@ -308,7 +322,9 @@ public class PlayerRenderHandler {
 	            GlStateManager.popMatrix();
 	        }
 	        else {
-	        	this.modelRenderer.isHidden = false;
+	        	if (replace) {
+	        		this.modelRenderer.isHidden = false;
+	        	}
 	        }
 	    }
 
@@ -321,48 +337,6 @@ public class PlayerRenderHandler {
 	
 	private void renderItem(EntityLivingBase entity, ItemStack stack) {
 		Minecraft.getMinecraft().getItemRenderer().renderItem(entity, stack, TransformType.HEAD);
-	}
-	
-	private void renderItemHead(EntityLivingBase entity, ModelPlayer model, ItemStack stack) {
-		
-		float scale = 0;
-		
-        Item item = stack.getItem();
-        Minecraft minecraft = Minecraft.getMinecraft();
-        GlStateManager.pushMatrix();
-
-        if (entity.isSneaking())
-        {
-            GlStateManager.translate(0.0F, 0.2F, 0.0F);
-        }
-
-        boolean flag = entity instanceof EntityVillager || entity instanceof EntityZombieVillager;
-
-        if (entity.isChild() && !(entity instanceof EntityVillager))
-        {
-            float f = 2.0F;
-            float f1 = 1.4F;
-            GlStateManager.translate(0.0F, 0.5F * scale, 0.0F);
-            GlStateManager.scale(0.7F, 0.7F, 0.7F);
-            GlStateManager.translate(0.0F, 16.0F * scale, 0.0F);
-        }
-
-        //model.bipedBody.postRender(0.0625F);
-        GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-
-        float f3 = 0.625F;
-        GlStateManager.translate(0.0F, -0.25F, 0.0F);
-        //GlStateManager.rotate(180.0F, 0.0F, 1.0F, 0.0F);
-        GlStateManager.scale(0.625F, -0.625F, -0.625F);
-
-        if (flag)
-        {
-            GlStateManager.translate(0.0F, 0.1875F, 0.0F);
-        }
-
-        minecraft.getItemRenderer().renderItem(entity, stack, ItemCameraTransforms.TransformType.HEAD);
-
-        GlStateManager.popMatrix();
 	}
 	
 	@SideOnly(Side.CLIENT)
