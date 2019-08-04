@@ -131,6 +131,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.neoumb_handle_blade);
         registerItems(event, RWBYItems.lieutenant);
         registerItems(event, RWBYItems.whitefangspear);
+        registerItems(event, RWBYItems.wfp);
         registerItems(event, RWBYItems.cinder);
         registerItems(event, RWBYItems.cinderbow);
         registerItems(event, RWBYItems.cinderglass);
@@ -203,6 +204,8 @@ public class RegUtil {
         registerItems(event, RWBYItems.lark);
         registerItems(event, RWBYItems.nebulabow);
         registerItems(event, RWBYItems.dew);
+        registerItems(event, RWBYItems.gwenknife);
+        registerItems(event, RWBYItems.gwen);
         registerItems(event, RWBYItems.octavia);
         registerItems(event, RWBYItems.nebulasword);
         registerItems(event, RWBYItems.brawnz);
@@ -755,6 +758,8 @@ public class RegUtil {
         registerRecipes(RWBYItems.lionheart);
         registerRecipes(RWBYItems.nolan);
         registerRecipes(RWBYItems.royg);
+        registerRecipes(RWBYItems.wfp);
+        registerRecipes(RWBYItems.gwen);
     }
 
     private static void registerBlocks(FMLPreInitializationEvent event, Block...blocks) {
