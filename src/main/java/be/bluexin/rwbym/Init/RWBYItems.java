@@ -2368,6 +2368,19 @@ public class RWBYItems {
             0,
             17,
             RWBYCreativeTabs.tab_rwbyweapons);
+    public static final Item deemace = new RWBYSword(
+            "deemace",
+            2500,
+            14,
+            0,
+            null,
+            null,
+            false,
+            true,
+            false,
+            false,
+            0,
+            RWBYCreativeTabs.tab_rwbyweapons);
 
 
 
@@ -2476,6 +2489,10 @@ public class RWBYItems {
     public static final Item greyfoxear = new RWBYLimbItem("greyfoxear", "Ears");
     public static final Item orangefoxear = new RWBYLimbItem("orangefoxear", "Ears");
     public static final Item cattail = new RWBYLimbItem("cattail", "Tail");
+    public static final Item cattailblonde = new RWBYLimbItem("cattailblonde", "Tail");
+    public static final Item cattailbrown = new RWBYLimbItem("cattailbrown", "Tail");
+    public static final Item cattailgrey = new RWBYLimbItem("cattailgrey", "Tail");
+    public static final Item cattailorange = new RWBYLimbItem("cattailorange", "Tail");
 
     //------------------------------------------------//
     public static final Item wallet = new RWBYContainerItem(
@@ -3306,7 +3323,7 @@ public class RWBYItems {
             15F,
             "pickaxe",
             1);
-    public static final Block rwbyblock8 = new RWBYNotFullBlock(
+    public static final Block rwbyblock8 = new RWBYToolkit(
             "toolkit",
             Material.ROCK,
             RWBYCreativeTabs.tab_rwbyitems,

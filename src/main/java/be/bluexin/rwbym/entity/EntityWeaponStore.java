@@ -57,6 +57,7 @@ public class EntityWeaponStore extends EntityCreature implements INpc, IMerchant
             new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.whitefangspear,1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.wfp,1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.iliasword,1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.deemace,1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.cardin,1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.dove,1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.russelnormal,1)),

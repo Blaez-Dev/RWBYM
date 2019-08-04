@@ -443,6 +443,7 @@ item.rwbym:royg.name=Roy's Gaunlet
 item.rwbym:nolan.name=Nolan's Baton
 item.rwbym:gwenknife.name=Gwen's Knife
 item.rwbym:wfp.name=White Fang Pistol
+item.rwbym:deemace.name=Dee's Mace
 
 
 item.rwbym:blackcatear.name=Black Cat Ears
@@ -459,6 +460,11 @@ item.rwbym:blondefoxear.name=Blonde Fox Ears
 item.rwbym:brownfoxear.name=Brown Fox Ears
 item.rwbym:greyfoxear.name=Grey Fox Ears
 item.rwbym:orangefoxear.name=Orange Fox Ears
+item.rwbym:cattail.name=Black Cat Tail
+item.rwbym:cattailblonde.name=Blonde Cat Tail
+item.rwbym:cattailbrown.name=Brown Cat Tail
+item.rwbym:cattailgrey.name=Grey Cat Tail
+item.rwbym:cattailorange.name=Orange Cat Tail
 
 
 effect.aura_regen=Aura Regen

@@ -44,7 +44,7 @@ public class RWBYToolkit extends BlockBase {
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!playerIn.inventory.getCurrentItem().isEmpty() && playerIn.inventory.getCurrentItem().isItemDamaged()){
-            playerIn.inventory.getCurrentItem().damageItem(-90000, playerIn);
+            playerIn.inventory.getCurrentItem().setItemDamage(0);
             playerIn.addExperienceLevel(-5);
             worldIn.setBlockToAir(pos);
         }

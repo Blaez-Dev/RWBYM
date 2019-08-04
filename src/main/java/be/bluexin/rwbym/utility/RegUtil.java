@@ -213,6 +213,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.nolan);
         registerItems(event, RWBYItems.mayrifle);
         registerItems(event, RWBYItems.mayaxe);
+        registerItems(event, RWBYItems.deemace);
         registerItems(event, RWBYItems.sanrei);
         registerItems(event, RWBYItems.sanreiammo);
         registerItems(event, RWBYItems.letztstil);
@@ -274,6 +275,10 @@ public class RegUtil {
         registerItems(event, RWBYItems.greyfoxear);
         registerItems(event, RWBYItems.orangefoxear);
         registerItems(event, RWBYItems.cattail);
+        registerItems(event, RWBYItems.cattailblonde);
+        registerItems(event, RWBYItems.cattailbrown);
+        registerItems(event, RWBYItems.cattailgrey);
+        registerItems(event, RWBYItems.cattailorange);
         //entity spawning items
         registerItems(event, RWBYItems.atlasknight);
         registerItems(event, RWBYItems.armagigas);
@@ -820,6 +825,8 @@ public class RegUtil {
                 }else
                 if(item == RWBYItems.sawblade){
                     ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.saw.getRegistryName(), "inventory"));
+                }else if(item == RWBYItems.gwenknife){
+                    ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.gwen.getRegistryName(), "inventory"));
                 }
             	else {
             		ModelLoader.setCustomModelResourceLocation(item,0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
