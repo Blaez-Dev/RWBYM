@@ -273,6 +273,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.brownfoxear);
         registerItems(event, RWBYItems.greyfoxear);
         registerItems(event, RWBYItems.orangefoxear);
+        registerItems(event, RWBYItems.cattail);
         //entity spawning items
         registerItems(event, RWBYItems.atlasknight);
         registerItems(event, RWBYItems.armagigas);

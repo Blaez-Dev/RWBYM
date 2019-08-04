@@ -2465,16 +2465,17 @@ public class RWBYItems {
     public static final Item lgrimmarm = new RWBYLimbItem("lgrimmarm", "LeftArm");
     public static final Item rgrimmleg = new RWBYLimbItem("rgrimmleg", "RightLeg");
     public static final Item lgrimmleg = new RWBYLimbItem("lgrimmleg", "LeftLeg");
-    public static final Item blackcatear = new RWBYLimbItem("blackcatear", "Head");
-    public static final Item blondecatear = new RWBYLimbItem("blondecatear", "Head");
-    public static final Item browncatear = new RWBYLimbItem("browncatear", "Head");
-    public static final Item greycatear = new RWBYLimbItem("greycatear", "Head");
-    public static final Item orangecatear = new RWBYLimbItem("orangecatear", "Head");
-    public static final Item blackfoxear = new RWBYLimbItem("blackfoxear", "Head");
-    public static final Item blondefoxear = new RWBYLimbItem("blondefoxear", "Head");
-    public static final Item brownfoxear = new RWBYLimbItem("brownfoxear", "Head");
-    public static final Item greyfoxear = new RWBYLimbItem("greyfoxear", "Head");
-    public static final Item orangefoxear = new RWBYLimbItem("orangefoxear", "Head");
+    public static final Item blackcatear = new RWBYLimbItem("blackcatear", "Ears");
+    public static final Item blondecatear = new RWBYLimbItem("blondecatear", "Ears");
+    public static final Item browncatear = new RWBYLimbItem("browncatear", "Ears");
+    public static final Item greycatear = new RWBYLimbItem("greycatear", "Ears");
+    public static final Item orangecatear = new RWBYLimbItem("orangecatear", "Ears");
+    public static final Item blackfoxear = new RWBYLimbItem("blackfoxear", "Ears");
+    public static final Item blondefoxear = new RWBYLimbItem("blondefoxear", "Ears");
+    public static final Item brownfoxear = new RWBYLimbItem("brownfoxear", "Ears");
+    public static final Item greyfoxear = new RWBYLimbItem("greyfoxear", "Ears");
+    public static final Item orangefoxear = new RWBYLimbItem("orangefoxear", "Ears");
+    public static final Item cattail = new RWBYLimbItem("cattail", "Tail");
 
     //------------------------------------------------//
     public static final Item wallet = new RWBYContainerItem(
