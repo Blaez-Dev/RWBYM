@@ -465,6 +465,16 @@ item.rwbym:cattailblonde.name=Blonde Cat Tail
 item.rwbym:cattailbrown.name=Brown Cat Tail
 item.rwbym:cattailgrey.name=Grey Cat Tail
 item.rwbym:cattailorange.name=Orange Cat Tail
+item.rwbym:dorsalfinblack.name=Black Dorsal Fin
+item.rwbym:dorsalfingrey.name=Grey Dorsal Fin
+item.rwbym:dorsalfinpearl.name=Pearlescent Dorsal Fin
+item.rwbym:dorsalfinsilver.name=Silver Dorsal Fin
+item.rwbym:rabbittailblack.name=Black Rabbit Tail
+item.rwbym:rabbittailblonde.name=Blonde Rabbit Tail
+item.rwbym:rabbittailbrown.name=Brown Rabbit Tail
+item.rwbym:rabbittailgrey.name=Grey Rabbit Tail
+item.rwbym:rabbittailorange.name=Orange Rabbit Tail
+item.rwbym:rabbittailwhite.name=White Rabbit Tail
 
 
 effect.aura_regen=Aura Regen
@@ -476,7 +486,7 @@ tipped_arrow.effect.aura_regen=Arrow of Aura Regen
 itemGroup.rwby_weapons=RWBY Weapons
 itemGroup.rwby_items=RWBY Items
 itemGroup.rwby_armour=RWBY Armour
-itemGroup.rwby_limbs=RWBY Limbs
+itemGroup.rwby_limbs=RWBY Parts
 
 key.categories.RWBYM=RWBYM
 

@@ -2493,6 +2493,16 @@ public class RWBYItems {
     public static final Item cattailbrown = new RWBYLimbItem("cattailbrown", "Tail");
     public static final Item cattailgrey = new RWBYLimbItem("cattailgrey", "Tail");
     public static final Item cattailorange = new RWBYLimbItem("cattailorange", "Tail");
+    public static final Item dorsalfinblack = new RWBYLimbItem("dorsalfinblack", "Tail");
+    public static final Item dorsalfingrey = new RWBYLimbItem("dorsalfingrey", "Tail");
+    public static final Item dorsalfinpearl = new RWBYLimbItem("dorsalfinpearl", "Tail");
+    public static final Item dorsalfinsilver = new RWBYLimbItem("dorsalfinsilver", "Tail");
+    public static final Item rabbittailblack = new RWBYLimbItem("rabbittailblack", "Tail");
+    public static final Item rabbittailblonde = new RWBYLimbItem("rabbittailblonde", "Tail");
+    public static final Item rabbittailbrown = new RWBYLimbItem("rabbittailbrown", "Tail");
+    public static final Item rabbittailgrey = new RWBYLimbItem("rabbittailgrey", "Tail");
+    public static final Item rabbittailorange = new RWBYLimbItem("rabbittailorange", "Tail");
+    public static final Item rabbittailwhite = new RWBYLimbItem("rabbittailwhite", "Tail");
 
     //------------------------------------------------//
     public static final Item wallet = new RWBYContainerItem(
