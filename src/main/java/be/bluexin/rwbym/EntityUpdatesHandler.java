@@ -8,6 +8,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.init.MobEffects;
 import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.logging.log4j.Level;
 
 import be.bluexin.rwbym.capabilities.CapabilityHandler;
@@ -137,9 +139,7 @@ public class EntityUpdatesHandler {
 
 	@SubscribeEvent
 	public void onClientTick(TickEvent.PlayerTickEvent event){
-		final Minecraft minecraft = Minecraft.getMinecraft();
-		final EntityPlayer player = event.player;
-		final World world = player.world;
+		EntityPlayer player = event.player;
 		biome =	player.world.getBiome(player.getPosition()).getBiomeName();
 		if(biome == "Grimm Wastes" && player.isInWater()){
 			PotionEffect potioneffect = new PotionEffect(MobEffects.POISON, 60, 3, false, false);
@@ -147,6 +147,5 @@ public class EntityUpdatesHandler {
 			player.addPotionEffect(potioneffect);
 			player.addPotionEffect(potioneffect1);
 		}
-		//System.out.println(biome);
 	}
 }
