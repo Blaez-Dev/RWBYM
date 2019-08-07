@@ -97,15 +97,15 @@ public class RWBYLimbItem extends Item implements ICustomItem {
 
     @Override
     public void onPlayerStoppedUsing(ItemStack stack, World worldIn, EntityLivingBase entityLiving, int timeLeft) {
-        NBTTagCompound nbt1 = new NBTTagCompound();
-        NBTTagCompound nbt2 = new NBTTagCompound();
-        nbt2.setString(slot,  this.getRegistryName().toString());
-        nbt1.setTag("rwbym", nbt2);
-        entityLiving.getEntityData().merge(nbt1);
-
-        NBTTagCompound nbt3 = entityLiving.getEntityData();
+    	if (!worldIn.isRemote) {
+	        NBTTagCompound nbt1 = new NBTTagCompound();
+	        NBTTagCompound nbt2 = new NBTTagCompound();
+	        nbt2.setString(slot,  this.getRegistryName().toString());
+	        nbt1.setTag("rwbym", nbt2);
+	        entityLiving.getEntityData().merge(nbt1);
+	        NBTTagCompound nbt3 = entityLiving.getEntityData();
+    	}
         stack.shrink(1);
-        super.onPlayerStoppedUsing(stack, worldIn, entityLiving, timeLeft);
     }
 
     @Override

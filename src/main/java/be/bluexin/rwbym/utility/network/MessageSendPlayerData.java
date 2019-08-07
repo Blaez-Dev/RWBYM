@@ -71,7 +71,7 @@ public class MessageSendPlayerData extends MessageBase<MessageSendPlayerData> {
 			if (requestedPlayer.hasCapability(AuraProvider.AURA_CAP, null) && message.auranbt != null) {
 				requestedPlayer.getCapability(AuraProvider.AURA_CAP, null).deserialize(message.auranbt);
 			}
-			requestedPlayer.getEntityData().setTag(RWBYModels.MODID, cutomData);
+			requestedPlayer.getEntityData().setTag(RWBYModels.MODID, message.cutomData);
 		}
 	}
 

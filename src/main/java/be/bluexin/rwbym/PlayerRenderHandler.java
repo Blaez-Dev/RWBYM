@@ -63,8 +63,6 @@ public class PlayerRenderHandler {
 		EntityPlayer renderingPlayer = Minecraft.getMinecraft().player;
 
 		ISemblance semblance = CapabilityHandler.getCurrentSemblance(renderedPlayer);
-				
-		//event.getRenderer().addLayer(new LayerAccessories(event.getRenderer().getMainModel().bipedBody));
 				 
 		if (semblance != null) {
 			if (semblance.isInvisible()) {
