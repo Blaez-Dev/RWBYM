@@ -1,13 +1,16 @@
 package be.bluexin.rwbym;
 
+import be.bluexin.rwbym.Init.RWBYBiomes;
 import be.bluexin.rwbym.entity.*;
 import be.bluexin.rwbym.utility.RWBYConfig;
 import be.bluexin.rwbym.weaponry.RWBYAmmoEntity;
 
+import be.bluexin.rwbym.world.biome.BiomeDarkGrimm;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntityStray;
+import net.minecraft.init.Biomes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
@@ -17,10 +20,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
@@ -95,11 +95,28 @@ public class RWBYEntities {
         EntityRegistry.addSpawn(EntityGiantNeverMore.class, RWBYConfig.spawnrategiantnevermore, 0, 1, EnumCreatureType.MONSTER, biomes);
         EntityRegistry.addSpawn(EntityCreep.class, RWBYConfig.spawnratecreep, 0, 3, EnumCreatureType.MONSTER, biomes);
         EntityRegistry.addSpawn(EntityGeist.class, RWBYConfig.spawnrategeist, 0, 3, EnumCreatureType.MONSTER, biomes);
-        EntityRegistry.addSpawn(EntityApathy.class, RWBYConfig.spawnrateapathy, 0, 3, EnumCreatureType.MONSTER, biomes1);
+        EntityRegistry.addSpawn(EntityApathy.class, RWBYConfig.spawnrateapathy, 0, 3, EnumCreatureType.MONSTER, biomes);
         EntityRegistry.addSpawn(EntityNuckleeve.class, RWBYConfig.spawnratenuckleeve, 0, 1, EnumCreatureType.MONSTER, biomes);
         EntityRegistry.addSpawn(EntityLancer.class, RWBYConfig.spawnratelancer, 0, 3, EnumCreatureType.MONSTER, biomes);
         EntityRegistry.addSpawn(EntityJuvenileDeathstalker.class, RWBYConfig.spawnratetinydeathstalker, 0, 3, EnumCreatureType.MONSTER, biomes);
         EntityRegistry.addSpawn(EntityQueenLancer.class, RWBYConfig.spawnratequeenlancer, 0, 1, EnumCreatureType.MONSTER, biomes);
+
+
+        EntityRegistry.addSpawn(EntityBeowolf.class, 10, 2, 3, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);
+        EntityRegistry.addSpawn(EntityUrsa.class, 10, 2, 3, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);
+        EntityRegistry.addSpawn(EntityBoarbatusk.class, 10, 2, 3, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);
+        EntityRegistry.addSpawn(EntityGoliath.class, RWBYConfig.spawnrategoliath, 0, 1, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);
+        EntityRegistry.addSpawn(EntityDeathStalker.class, RWBYConfig.spawnratedeathstalker, 0, 1, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);
+        EntityRegistry.addSpawn(EntityMutantDeathStalker.class, RWBYConfig.spawnratemutantdeathstalker, 0, 1, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);
+        EntityRegistry.addSpawn(EntityNeverMore.class, 10, 2, 3, EnumCreatureType.CREATURE, biomes);
+        EntityRegistry.addSpawn(EntityGiantNeverMore.class, RWBYConfig.spawnrategiantnevermore, 0, 1, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);
+        EntityRegistry.addSpawn(EntityCreep.class, 10, 2, 3, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);
+        EntityRegistry.addSpawn(EntityGeist.class, RWBYConfig.spawnrategeist, 2, 3, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);
+        EntityRegistry.addSpawn(EntityApathy.class, RWBYConfig.spawnrateapathy, 2, 3, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);
+        EntityRegistry.addSpawn(EntityNuckleeve.class, RWBYConfig.spawnratenuckleeve, 0, 1, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);
+        EntityRegistry.addSpawn(EntityLancer.class, 10, 2, 3, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);
+        EntityRegistry.addSpawn(EntityJuvenileDeathstalker.class, 10, 2, 3, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);
+        EntityRegistry.addSpawn(EntityQueenLancer.class, RWBYConfig.spawnratequeenlancer, 0, 1, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);
 
 
         //DungeonHooks.addDungeonMob(new ResourceLocation("rwbym:beowolf"), 180);

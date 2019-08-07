@@ -180,10 +180,10 @@ public class Oregen implements IWorldGenerator{
     {
         int y = 255;
         boolean foundGround = false;
-        while(!foundGround && y-- >= 31)
+        while(!foundGround && y-- >= 30)
         {
             Block blockAt = world.getBlockState(new BlockPos(x,y,z)).getBlock();
-            foundGround =  /*blockAt == Blocks.WATER||blockAt == Blocks.FLOWING_WATER||*/blockAt == Blocks.GRASS || blockAt == Blocks.SAND || blockAt == Blocks.SNOW || blockAt == Blocks.SNOW_LAYER || blockAt == Blocks.GLASS||blockAt == Blocks.MYCELIUM;
+            foundGround =  blockAt == Blocks.GRASS;
         }
 
         return y;

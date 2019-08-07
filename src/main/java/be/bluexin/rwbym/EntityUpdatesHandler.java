@@ -3,6 +3,11 @@ package be.bluexin.rwbym;
 import java.util.List;
 
 import be.bluexin.rwbym.utility.RWBYConfig;
+import be.bluexin.rwbym.world.biome.BiomeDarkGrimm;
+import net.minecraft.client.Minecraft;
+import net.minecraft.init.MobEffects;
+import net.minecraft.potion.PotionEffect;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
 import org.apache.logging.log4j.Level;
 
 import be.bluexin.rwbym.capabilities.CapabilityHandler;
@@ -31,6 +36,7 @@ import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerRespawnEvent;
 import net.minecraftforge.fml.common.network.FMLNetworkEvent.ClientConnectedToServerEvent;
 
 public class EntityUpdatesHandler {
+	public String biome;
 	@SubscribeEvent
 	public void onUpdate(LivingUpdateEvent event) {
 		EntityLivingBase entityLiving = event.getEntityLiving();
@@ -127,5 +133,20 @@ public class EntityUpdatesHandler {
 	@SubscribeEvent
 	public void clientConnectedToServer(ClientConnectedToServerEvent event) {
 		RWBYModels.LOGGER.log(RWBYModels.debug, "Client Connected");
+	}
+
+	@SubscribeEvent
+	public void onClientTick(TickEvent.PlayerTickEvent event){
+		final Minecraft minecraft = Minecraft.getMinecraft();
+		final EntityPlayer player = event.player;
+		final World world = player.world;
+		biome =	player.world.getBiome(player.getPosition()).getBiomeName();
+		if(biome == "Grimm Wastes" && player.isInWater()){
+			PotionEffect potioneffect = new PotionEffect(MobEffects.POISON, 60, 3, false, false);
+			PotionEffect potioneffect1 = new PotionEffect(MobEffects.WITHER, 60, 2, false, false);
+			player.addPotionEffect(potioneffect);
+			player.addPotionEffect(potioneffect1);
+		}
+		//System.out.println(biome);
 	}
 }
