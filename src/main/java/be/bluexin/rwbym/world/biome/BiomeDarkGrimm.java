@@ -48,4 +48,9 @@ public class BiomeDarkGrimm extends Biome {
 
     @Override
     public int getWaterColorMultiplier() {return 0x000000; }
+    
+    @Override
+    public int getSkyColorByTemp(float currentTemperature) {
+    	return 0x000000;
+    }
 }

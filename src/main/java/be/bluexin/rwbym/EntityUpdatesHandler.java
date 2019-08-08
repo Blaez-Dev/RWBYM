@@ -12,6 +12,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.logging.log4j.Level;
 
+import be.bluexin.rwbym.Init.RWBYBiomes;
 import be.bluexin.rwbym.capabilities.CapabilityHandler;
 import be.bluexin.rwbym.capabilities.ISemblance;
 import be.bluexin.rwbym.capabilities.Aura.AuraProvider;
@@ -27,6 +28,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.WorldGenHellLava;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
@@ -38,7 +40,7 @@ import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerRespawnEvent;
 import net.minecraftforge.fml.common.network.FMLNetworkEvent.ClientConnectedToServerEvent;
 
 public class EntityUpdatesHandler {
-	public String biome;
+
 	@SubscribeEvent
 	public void onUpdate(LivingUpdateEvent event) {
 		EntityLivingBase entityLiving = event.getEntityLiving();
@@ -139,9 +141,11 @@ public class EntityUpdatesHandler {
 
 	@SubscribeEvent
 	public void onClientTick(TickEvent.PlayerTickEvent event){
+		
 		EntityPlayer player = event.player;
-		biome =	player.world.getBiome(player.getPosition()).getBiomeName();
-		if(biome == "Grimm Wastes" && player.isInWater()){
+		Biome biome = player.world.getBiome(player.getPosition());
+		
+		if(biome == RWBYBiomes.GrimmWastes && player.isInWater()) {
 			PotionEffect potioneffect = new PotionEffect(MobEffects.POISON, 60, 3, false, false);
 			PotionEffect potioneffect1 = new PotionEffect(MobEffects.WITHER, 60, 2, false, false);
 			player.addPotionEffect(potioneffect);
