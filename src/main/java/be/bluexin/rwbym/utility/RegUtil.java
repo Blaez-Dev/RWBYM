@@ -289,6 +289,19 @@ public class RegUtil {
         registerItems(event, RWBYItems.rabbittailgrey);
         registerItems(event, RWBYItems.rabbittailorange);
         registerItems(event, RWBYItems.rabbittailwhite);
+        registerItems(event, RWBYItems.rabbitearsblack);
+        registerItems(event, RWBYItems.rabbitearsblonde);
+        registerItems(event, RWBYItems.rabbitearsbrown);
+        registerItems(event, RWBYItems.rabbitearsgrey);
+        registerItems(event, RWBYItems.rabbitearsorange);
+        registerItems(event, RWBYItems.rabbitearswhite);
+        registerItems(event, RWBYItems.clearears);
+        registerItems(event, RWBYItems.clearhead);
+        registerItems(event, RWBYItems.clearleftarm);
+        registerItems(event, RWBYItems.clearleftleg);
+        registerItems(event, RWBYItems.clearrightarm);
+        registerItems(event, RWBYItems.clearrightleg);
+        registerItems(event, RWBYItems.cleartail);
         //entity spawning items
         registerItems(event, RWBYItems.atlasknight);
         registerItems(event, RWBYItems.armagigas);

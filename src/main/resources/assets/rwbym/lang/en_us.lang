@@ -475,6 +475,12 @@ item.rwbym:rabbittailbrown.name=Brown Rabbit Tail
 item.rwbym:rabbittailgrey.name=Grey Rabbit Tail
 item.rwbym:rabbittailorange.name=Orange Rabbit Tail
 item.rwbym:rabbittailwhite.name=White Rabbit Tail
+item.rwbym:rabbitearsblack.name=Black Rabbit Ears
+item.rwbym:rabbitearsblonde.name=Blonde Rabbit Ears
+item.rwbym:rabbitearsbrown.name=Brown Rabbit Ears
+item.rwbym:rabbitearsgrey.name=Grey Rabbit Ears
+item.rwbym:rabbitearsorange.name=Orange Rabbit Ears
+item.rwbym:rabbitearswhite.name=White Rabbit Ears
 
 
 effect.aura_regen=Aura Regen

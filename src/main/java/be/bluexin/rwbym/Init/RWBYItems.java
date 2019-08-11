@@ -2503,6 +2503,19 @@ public class RWBYItems {
     public static final Item rabbittailgrey = new RWBYLimbItem("rabbittailgrey", "Tail");
     public static final Item rabbittailorange = new RWBYLimbItem("rabbittailorange", "Tail");
     public static final Item rabbittailwhite = new RWBYLimbItem("rabbittailwhite", "Tail");
+    public static final Item rabbitearsblack = new RWBYLimbItem("rabbitearsblack", "Ears");
+    public static final Item rabbitearsblonde = new RWBYLimbItem("rabbitearsblonde", "Ears");
+    public static final Item rabbitearsbrown = new RWBYLimbItem("rabbitearsbrown", "Ears");
+    public static final Item rabbitearsgrey = new RWBYLimbItem("rabbitearsgrey", "Ears");
+    public static final Item rabbitearsorange = new RWBYLimbItem("rabbitearsorange", "Ears");
+    public static final Item rabbitearswhite = new RWBYLimbItem("rabbitearswhite", "Ears");
+    public static final Item clearears = new RWBYLimbItem("clearears", "Ears");
+    public static final Item clearhead = new RWBYLimbItem("clearhead", "Head");
+    public static final Item cleartail = new RWBYLimbItem("cleartail", "Tail");
+    public static final Item clearleftarm = new RWBYLimbItem("clearleftarm", "LeftArm");
+    public static final Item clearrightarm = new RWBYLimbItem("clearrightarm", "RightArm");
+    public static final Item clearrightleg = new RWBYLimbItem("clearrightleg", "RightLeg");
+    public static final Item clearleftleg = new RWBYLimbItem("clearleftleg",  "LeftLeg");
 
     //------------------------------------------------//
     public static final Item wallet = new RWBYContainerItem(
