@@ -1,6 +1,7 @@
 package be.bluexin.rwbym.Init;
 
 import be.bluexin.rwbym.RWBYModels;
+import be.bluexin.rwbym.world.biome.BiomeDarkGrimm;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Biomes;

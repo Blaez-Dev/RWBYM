@@ -12,6 +12,7 @@ public class ModLootTables {
     public static final ResourceLocation Boss = register("boss");
     public static final ResourceLocation Demiboss = register("demiboss");
     public static final ResourceLocation Armagigas = register("armagigas");
+    public static final ResourceLocation MutantDeath = register("mutantdeath");
 
     private static ResourceLocation register(String id) {
         return LootTableList.register(new ResourceLocation(MODID, id));

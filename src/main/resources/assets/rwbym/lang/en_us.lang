@@ -481,6 +481,13 @@ item.rwbym:rabbitearsbrown.name=Brown Rabbit Ears
 item.rwbym:rabbitearsgrey.name=Grey Rabbit Ears
 item.rwbym:rabbitearsorange.name=Orange Rabbit Ears
 item.rwbym:rabbitearswhite.name=White Rabbit Ears
+item.rwbym:clearears.name=Clear Ears Slot
+item.rwbym:clearhead.name=Clear Head Slot
+item.rwbym:cleartail.name=Clear Tail Slot
+item.rwbym:clearleftarm.name=Clear Left Arm Slot
+item.rwbym:clearrightarm.name=Clear Right Arm Slot
+item.rwbym:clearrightleg.name=Clear Right Leg Slot
+item.rwbym:clearleftleg.name=Clear Left Leg Slot
 
 
 effect.aura_regen=Aura Regen

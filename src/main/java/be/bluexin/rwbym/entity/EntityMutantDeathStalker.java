@@ -233,7 +233,7 @@ public class EntityMutantDeathStalker extends EntityMob
 
 
     protected ResourceLocation getLootTable() {
-        return ModLootTables.Boss;
+        return ModLootTables.MutantDeath;
     }
 
     protected SoundEvent getAmbientSound() {
