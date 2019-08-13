@@ -45,7 +45,7 @@ public class Structure3 extends WorldGenerator{
         
         Class<? extends Biome> biome = world.getBiome(position).getClass();
 
-        if(Oregen.canSpawnHere(template, worldserver, position) && BIOMES.contains(biome)) {
+        if(Oregen.canSpawnHere(template, worldserver, position)) {
             IBlockState iblockstate = world.getBlockState(position);
             world.notifyBlockUpdate(position, iblockstate, iblockstate, 3);
 

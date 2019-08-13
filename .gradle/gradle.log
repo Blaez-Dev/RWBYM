@@ -1,6 +1,7 @@
 This mapping 'snapshot_20171003' was designed for MC 1.12! Use at your own peril.This mapping 'snapshot_20171003' was designed for MC 1.12! Use at your own peril.
 
 :deobfCompileDummyTask
+:deobfProvidedDummyTask
 :getVersionJson
 :extractUserdev UP-TO-DATE
 :downloadClient SKIPPED
@@ -8,7 +9,6 @@ This mapping 'snapshot_20171003' was designed for MC 1.12! Use at your own peril
 :splitServerJar SKIPPED
 :mergeJars SKIPPED
 :applyBinaryPatches SKIPPED
-:deobfProvidedDummyTask
 :extractDependencyATs SKIPPED
 :extractMcpData SKIPPED
 :extractMcpMappings SKIPPED
@@ -37,22 +37,33 @@ Note: Recompile with -Xlint:unchecked for details.
 :processResources UP-TO-DATE
 :classes
 :jar
-:sourceTestJava UP-TO-DATE
-:compileTestJava UP-TO-DATE
-:processTestResources UP-TO-DATE
-:testClasses UP-TO-DATE
-:test UP-TO-DATE
-:reobfJar
-:extractAnnotationsJar
-:extractRangemapReplacedMain
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java
-:retromapReplacedMain
-remapping source...
-:sourceJar
-:assemble
-:check UP-TO-DATE
-:build
+:extractNatives SKIPPED
+:getAssetIndex UP-TO-DATE
+:getAssets
+:makeStart
+:runClient
+[08:26:29] [main/INFO]: Extra: []
+[08:26:29] [main/INFO]: Running with arguments: [--userProperties, {}, --assetsDir, C:/Users/Izumi/.gradle/caches/minecraft/assets, --assetIndex, 1.12, --accessToken{REDACTED}, --version, 1.12.2, --tweakClass, net.minecraftforge.fml.common.launcher.FMLTweaker, --tweakClass, net.minecraftforge.gradle.tweakers.CoremodTweaker]
+[08:26:30] [main/INFO]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLTweaker
+[08:26:30] [main/INFO]: Using primary tweak class name net.minecraftforge.fml.common.launcher.FMLTweaker
+[08:26:30] [main/INFO]: Loading tweak class name net.minecraftforge.gradle.tweakers.CoremodTweaker
+[08:26:30] [main/INFO]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLTweaker
+[08:26:30] [main/INFO]: Forge Mod Loader version 14.23.5.2772 for Minecraft 1.12.2 loading
+[08:26:30] [main/INFO]: Java is Java HotSpot(TM) 64-Bit Server VM, version 1.8.0_211, running on Windows 10:amd64:10.0, installed at C:\Program Files\Java\jdk1.8.0_211\jre
+[08:26:30] [main/ERROR]: Apache Maven library folder was not in the format expected. Using default libraries directory.
+[08:26:30] [main/ERROR]: Full: C:\Users\Izumi\.gradle\caches\modules-2\files-2.1\org.apache.maven\maven-artifact\3.5.3\7dc72b6d6d8a6dced3d294ed54c2cc3515ade9f4\maven-artifact-3.5.3.jar
+[08:26:30] [main/ERROR]: Trimmed: c:/users/izumi/.gradle/caches/modules-2/files-2.1/org.apache.maven/maven-artifact/3.5.3/
+[08:26:30] [main/INFO]: Managed to load a deobfuscated Minecraft name- we are in a deobfuscated environment. Skipping runtime deobfuscation
+[08:26:30] [main/INFO]: Detected deobfuscated environment, loading log configs for colored console logs.
+2019-08-13 08:26:30,234 main ERROR Error processing element LoggerNamePatternSelector ([PatternLayout: null]): CLASS_NOT_FOUND
+2019-08-13 08:26:30,235 main ERROR Error processing element TerminalConsole ([Appenders: null]): CLASS_NOT_FOUND
+2019-08-13 08:26:30,236 main ERROR Error processing element LoggerNamePatternSelector ([PatternLayout: null]): CLASS_NOT_FOUND
+2019-08-13 08:26:30,255 main ERROR Unable to locate appender "Console" for logger config "root"
+2019-08-13 08:26:30,408 main ERROR Error processing element LoggerNamePatternSelector ([PatternLayout: null]): CLASS_NOT_FOUND
+2019-08-13 08:26:30,409 main ERROR Error processing element TerminalConsole ([Appenders: null]): CLASS_NOT_FOUND
+2019-08-13 08:26:30,409 main ERROR Error processing element LoggerNamePatternSelector ([PatternLayout: null]): CLASS_NOT_FOUND
+2019-08-13 08:26:30,414 main ERROR Unable to locate appender "Console" for logger config "root"
 
 BUILD SUCCESSFUL
 
-Total time: 18.216 secs
+Total time: 3 mins 3.124 secs
