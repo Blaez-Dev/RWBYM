@@ -97,19 +97,17 @@ public class Oregen implements IWorldGenerator{
 
     private void generatestructure1(World world, Random rand, int blockX, int blockZ)
     {
-        if ((int) (Math.random() * RWBYConfig.dustshop) == 0)
-        	{
-        int y = getGroundFromAbove(world, blockX, blockZ);
-        BlockPos pos = new BlockPos(blockX, y, blockZ);
-        WorldGenerator structure = new Structure1();
-        structure.generate(world, rand, pos);
+        if (rand.nextInt(RWBYConfig.dustshop) == 0) {
+	        int y = getGroundFromAbove(world, blockX, blockZ);
+	        BlockPos pos = new BlockPos(blockX, y, blockZ);
+	        WorldGenerator structure = new Structure1();
+	        structure.generate(world, rand, pos);
         }
     }
 
     private void generatestructure2(World world, Random rand, int blockX, int blockZ)
     {
-        if ((int) (Math.random() * RWBYConfig.bar) == 0)
-        {
+        if (rand.nextInt(RWBYConfig.bar) == 0) {
             int y = getGroundFromAbove(world, blockX, blockZ);
             BlockPos pos = new BlockPos(blockX, y, blockZ);
             WorldGenerator structure2 = new Structure2();
@@ -119,7 +117,7 @@ public class Oregen implements IWorldGenerator{
 
     private void generatestructure4(World world, Random rand, int blockX, int blockZ)
     {
-        if ((int) (Math.random() * RWBYConfig.dustshop2) == 0)
+        if (rand.nextInt(RWBYConfig.dustshop2) == 0)
         {
             int y = getGroundFromAbove(world, blockX, blockZ);
             BlockPos pos = new BlockPos(blockX, y, blockZ);
@@ -130,7 +128,7 @@ public class Oregen implements IWorldGenerator{
 
     private void generatestructure3(World world, Random rand, int blockX, int blockZ)
     {
-        if ((int) (Math.random() * RWBYConfig.well) == 0)
+        if (rand.nextInt(RWBYConfig.well) == 0)
         {
             int y = getGroundFromAbove(world, blockX, blockZ);
             BlockPos pos = new BlockPos(blockX, y, blockZ);

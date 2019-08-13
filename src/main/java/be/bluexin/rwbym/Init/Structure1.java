@@ -4,6 +4,7 @@ import be.bluexin.rwbym.ModLootTables;
 import be.bluexin.rwbym.RWBYModels;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.init.PotionTypes;
@@ -20,16 +21,21 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraft.world.gen.structure.template.PlacementSettings;
 import net.minecraft.world.gen.structure.template.Template;
 import net.minecraft.world.gen.structure.template.TemplateManager;
 import net.minecraft.world.storage.loot.LootTableList;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
 public class Structure1 extends WorldGenerator {
+	
+	private static final List<Class<? extends Biome>> BIOMES = Arrays.asList(Biomes.FOREST.getClass());
 
     @Override
     public boolean generate(World world, Random rand, BlockPos position) {
@@ -44,8 +50,10 @@ public class Structure1 extends WorldGenerator {
             System.out.println("NO STRUCTURE");
             return false;
         }
+        
+        Class<? extends Biome> biome = world.getBiome(position).getClass();
 
-        if(Oregen.canSpawnHere(template, worldserver, position)) {
+        if(Oregen.canSpawnHere(template, worldserver, position) && BIOMES.contains(biome)) {
             IBlockState iblockstate = world.getBlockState(position);
             world.notifyBlockUpdate(position, iblockstate, iblockstate, 3);
 
