@@ -114,6 +114,7 @@ tile.waterore.name=Water Dust Ore
 tile.lightore.name=Lightning Dust Ore
 tile.smrgrave.name=Summer's Grave
 tile.crusher.name=Dust Processor
+tile.bait.name=Dark Crystal
 item.rwbym:gravitydust.name=Gravity Dust
 item.rwbym:gravitydustrock.name=Unrefined Gravity Dust
 item.rwbym:icedustrock.name= Unrefined Ice Dust

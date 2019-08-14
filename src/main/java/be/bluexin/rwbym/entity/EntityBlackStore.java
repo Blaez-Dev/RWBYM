@@ -143,7 +143,7 @@ public class EntityBlackStore extends EntityCreature implements INpc, IMerchant 
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,10),new ItemStack(RWBYItems.container,1)));
         //sell//
 
-
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.bait,1), new ItemStack(RWBYItems.lien500, 1)));
         // add as many trades as you want
     }
 

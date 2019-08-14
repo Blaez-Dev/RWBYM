@@ -92,7 +92,7 @@ public class Oregen implements IWorldGenerator{
                 generatestructure2(world, random, blockX + 8, blockZ + 8);
                 generatestructure3(world, random, blockX + 8, blockZ + 8);
                 generatestructure4(world, random, blockX + 8, blockZ + 8);
-                generatestructure4(world, random, blockX + 8, blockZ + 8);
+                generateraid(world, random, blockX + 8, blockZ + 8);
         }
     }
 
@@ -134,8 +134,8 @@ public class Oregen implements IWorldGenerator{
         {
             int y = getGroundFromAbove(world, blockX, blockZ);
             BlockPos pos = new BlockPos(blockX, y, blockZ);
-            WorldGenerator structure4 = new Structure4();
-            structure4.generate(world, rand, pos);
+            WorldGenerator raid = new RaidStructure();
+            raid.generate(world, rand, pos);
         }
     }
 

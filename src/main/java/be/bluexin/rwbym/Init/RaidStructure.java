@@ -51,7 +51,7 @@ public class RaidStructure extends WorldGenerator{
                     .setReplacedBlock((Block) null).setIgnoreStructureBlock(true);
 
             template.getDataBlocks(position, placementsettings);
-            template.addBlocksToWorld(world, position.add(0, +3, 0), placementsettings);
+            template.addBlocksToWorld(world, position.add(0, +1, 0), placementsettings);
 
 
             Map<BlockPos, String> map = template.getDataBlocks(position, placementsettings);

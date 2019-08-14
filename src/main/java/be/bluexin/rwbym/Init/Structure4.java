@@ -25,7 +25,7 @@ import java.util.Random;
 
 public class Structure4 extends WorldGenerator{
 	
-	private static final List<Class<? extends Biome>> BIOMES = Arrays.asList(Biomes.FOREST.getClass());
+	private static final List<Class<? extends Biome>> BIOMES = Arrays.asList(RWBYBiomes.GrimmWastes.getClass());
 	
     @Override
     public boolean generate(World world, Random rand, BlockPos position) {
@@ -42,7 +42,7 @@ public class Structure4 extends WorldGenerator{
         
         Class<? extends Biome> biome = world.getBiome(position).getClass();
 
-        if(Oregen.canSpawnHere(template, worldserver, position)) {
+        if(Oregen.canSpawnHere(template, worldserver, position) && !BIOMES.contains(biome)) {
             IBlockState iblockstate = world.getBlockState(position);
             world.notifyBlockUpdate(position, iblockstate, iblockstate, 3);
 

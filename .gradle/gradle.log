@@ -1,24 +1,21 @@
 This mapping 'snapshot_20171003' was designed for MC 1.12! Use at your own peril.This mapping 'snapshot_20171003' was designed for MC 1.12! Use at your own peril.
 
+#################################################
+         ForgeGradle 2.3-SNAPSHOT-7764e3e        
+  https://github.com/MinecraftForge/ForgeGradle  
+#################################################
+                 Powered by MCP                  
+             http://modcoderpack.com             
+     by: Searge, ProfMobius, R4wk, ZeuX          
+     Fesh0r, IngisKahn, bspkrs, LexManos         
+#################################################
 :deobfCompileDummyTask
 :deobfProvidedDummyTask
-:getVersionJson
-:extractUserdev UP-TO-DATE
-:downloadClient SKIPPED
-:downloadServer SKIPPED
-:splitServerJar SKIPPED
-:mergeJars SKIPPED
-:applyBinaryPatches SKIPPED
-:extractDependencyATs SKIPPED
-:extractMcpData SKIPPED
-:extractMcpMappings SKIPPED
-:genSrgs SKIPPED
-:deobfMcMCP SKIPPED
 :sourceApiJava UP-TO-DATE
 :compileApiJava UP-TO-DATE
 :processApiResources UP-TO-DATE
 :apiClasses UP-TO-DATE
-:sourceMainJava
+:sourceMainJava UP-TO-DATE
 :compileJavaC:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\be\bluexin\rwbym\entity\EntityApathy.java:28: warning: AudioPlayer is internal proprietary API and may be removed in a future release
 import static sun.audio.AudioPlayer.player;
                        ^
@@ -36,34 +33,200 @@ Note: Recompile with -Xlint:unchecked for details.
 
 :processResources UP-TO-DATE
 :classes
-:jar
+:jar UP-TO-DATE
+:getVersionJson
 :extractNatives SKIPPED
+:extractUserdev UP-TO-DATE
 :getAssetIndex UP-TO-DATE
 :getAssets
 :makeStart
 :runClient
-[08:26:29] [main/INFO]: Extra: []
-[08:26:29] [main/INFO]: Running with arguments: [--userProperties, {}, --assetsDir, C:/Users/Izumi/.gradle/caches/minecraft/assets, --assetIndex, 1.12, --accessToken{REDACTED}, --version, 1.12.2, --tweakClass, net.minecraftforge.fml.common.launcher.FMLTweaker, --tweakClass, net.minecraftforge.gradle.tweakers.CoremodTweaker]
-[08:26:30] [main/INFO]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLTweaker
-[08:26:30] [main/INFO]: Using primary tweak class name net.minecraftforge.fml.common.launcher.FMLTweaker
-[08:26:30] [main/INFO]: Loading tweak class name net.minecraftforge.gradle.tweakers.CoremodTweaker
-[08:26:30] [main/INFO]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLTweaker
-[08:26:30] [main/INFO]: Forge Mod Loader version 14.23.5.2772 for Minecraft 1.12.2 loading
-[08:26:30] [main/INFO]: Java is Java HotSpot(TM) 64-Bit Server VM, version 1.8.0_211, running on Windows 10:amd64:10.0, installed at C:\Program Files\Java\jdk1.8.0_211\jre
-[08:26:30] [main/ERROR]: Apache Maven library folder was not in the format expected. Using default libraries directory.
-[08:26:30] [main/ERROR]: Full: C:\Users\Izumi\.gradle\caches\modules-2\files-2.1\org.apache.maven\maven-artifact\3.5.3\7dc72b6d6d8a6dced3d294ed54c2cc3515ade9f4\maven-artifact-3.5.3.jar
-[08:26:30] [main/ERROR]: Trimmed: c:/users/izumi/.gradle/caches/modules-2/files-2.1/org.apache.maven/maven-artifact/3.5.3/
-[08:26:30] [main/INFO]: Managed to load a deobfuscated Minecraft name- we are in a deobfuscated environment. Skipping runtime deobfuscation
-[08:26:30] [main/INFO]: Detected deobfuscated environment, loading log configs for colored console logs.
-2019-08-13 08:26:30,234 main ERROR Error processing element LoggerNamePatternSelector ([PatternLayout: null]): CLASS_NOT_FOUND
-2019-08-13 08:26:30,235 main ERROR Error processing element TerminalConsole ([Appenders: null]): CLASS_NOT_FOUND
-2019-08-13 08:26:30,236 main ERROR Error processing element LoggerNamePatternSelector ([PatternLayout: null]): CLASS_NOT_FOUND
-2019-08-13 08:26:30,255 main ERROR Unable to locate appender "Console" for logger config "root"
-2019-08-13 08:26:30,408 main ERROR Error processing element LoggerNamePatternSelector ([PatternLayout: null]): CLASS_NOT_FOUND
-2019-08-13 08:26:30,409 main ERROR Error processing element TerminalConsole ([Appenders: null]): CLASS_NOT_FOUND
-2019-08-13 08:26:30,409 main ERROR Error processing element LoggerNamePatternSelector ([PatternLayout: null]): CLASS_NOT_FOUND
-2019-08-13 08:26:30,414 main ERROR Unable to locate appender "Console" for logger config "root"
+2019-08-13 17:43:07,986 main ERROR Unable to move file C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\run\logs\latest.log to C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\run\logs\2019-08-13-7.log: java.nio.file.FileSystemException C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\run\logs\latest.log -> C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\run\logs\2019-08-13-7.log: The process cannot access the file because it is being used by another process.
+
+2019-08-13 17:43:07,990 main ERROR Unable to delete file C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\run\logs\latest.log: java.nio.file.FileSystemException C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\run\logs\latest.log: The process cannot access the file because it is being used by another process.
+
+2019-08-13 17:43:08,004 main ERROR Unable to move file C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\run\logs\debug.log to C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\run\logs\debug-1.log: java.nio.file.FileSystemException C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\run\logs\debug.log -> C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\run\logs\debug-1.log: The process cannot access the file because it is being used by another process.
+
+2019-08-13 17:43:08,010 main ERROR Unable to delete file C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\run\logs\debug.log: java.nio.file.FileSystemException C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\run\logs\debug.log: The process cannot access the file because it is being used by another process.
+
+[17:43:08] [main/INFO] [GradleStart]: Extra: []
+[17:43:08] [main/INFO] [GradleStart]: Running with arguments: [--userProperties, {}, --assetsDir, C:/Users/Izumi/.gradle/caches/minecraft/assets, --assetIndex, 1.12, --accessToken{REDACTED}, --version, 1.12.2, --tweakClass, net.minecraftforge.fml.common.launcher.FMLTweaker, --tweakClass, net.minecraftforge.gradle.tweakers.CoremodTweaker]
+[17:43:08] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLTweaker
+[17:43:08] [main/INFO] [LaunchWrapper]: Using primary tweak class name net.minecraftforge.fml.common.launcher.FMLTweaker
+[17:43:08] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.gradle.tweakers.CoremodTweaker
+[17:43:08] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLTweaker
+[17:43:08] [main/INFO] [FML]: Forge Mod Loader version 14.23.5.2772 for Minecraft 1.12.2 loading
+[17:43:08] [main/INFO] [FML]: Java is Java HotSpot(TM) 64-Bit Server VM, version 1.8.0_211, running on Windows 10:amd64:10.0, installed at C:\Program Files\Java\jdk1.8.0_211\jre
+[17:43:08] [main/ERROR] [FML]: Apache Maven library folder was not in the format expected. Using default libraries directory.
+[17:43:08] [main/ERROR] [FML]: Full: C:\Users\Izumi\.gradle\caches\modules-2\files-2.1\org.apache.maven\maven-artifact\3.5.3\7dc72b6d6d8a6dced3d294ed54c2cc3515ade9f4\maven-artifact-3.5.3.jar
+[17:43:08] [main/ERROR] [FML]: Trimmed: c:/users/izumi/.gradle/caches/modules-2/files-2.1/org.apache.maven/maven-artifact/3.5.3/
+[17:43:08] [main/INFO] [FML]: Managed to load a deobfuscated Minecraft name- we are in a deobfuscated environment. Skipping runtime deobfuscation
+[17:43:08] [main/INFO] [FML]: Detected deobfuscated environment, loading log configs for colored console logs.
+2019-08-13 17:43:08,805 main WARN Disabling terminal, you're running in an unsupported environment.
+[17:43:08] [main/INFO] [FML]: Ignoring missing certificate for coremod FMLCorePlugin (net.minecraftforge.fml.relauncher.FMLCorePlugin), we are in deobf and it's a forge core plugin
+[17:43:08] [main/INFO] [FML]: Ignoring missing certificate for coremod FMLForgePlugin (net.minecraftforge.classloading.FMLForgePlugin), we are in deobf and it's a forge core plugin
+[17:43:08] [main/INFO] [FML]: Searching C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\run\.\mods for mods
+[17:43:08] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.gradle.tweakers.CoremodTweaker
+[17:43:08] [main/INFO] [GradleStart]: Injecting location in coremod net.minecraftforge.fml.relauncher.FMLCorePlugin
+[17:43:08] [main/INFO] [GradleStart]: Injecting location in coremod net.minecraftforge.classloading.FMLForgePlugin
+[17:43:08] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
+[17:43:08] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLDeobfTweaker
+[17:43:08] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
+[17:43:08] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
+[17:43:08] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
+[17:43:08] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
+[17:43:09] [main/ERROR] [FML]: FML appears to be missing any signature data. This is not a good thing
+[17:43:09] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
+[17:43:09] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLDeobfTweaker
+[17:43:09] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
+[17:43:09] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.TerminalTweaker
+[17:43:09] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.TerminalTweaker
+[17:43:09] [main/INFO] [LaunchWrapper]: Launching wrapped minecraft {net.minecraft.client.main.Main}
+[17:43:10] [main/INFO] [minecraft/Minecraft]: Setting user: Player750
+[17:43:12] [main/WARN] [minecraft/GameSettings]: Skipping bad option: lastServer:
+[17:43:12] [main/INFO] [minecraft/Minecraft]: LWJGL Version: 2.9.4
+[17:43:13] [main/INFO] [FML]: -- System Details --
+Details:
+	Minecraft Version: 1.12.2
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 1.8.0_211, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 103925752 bytes (99 MB) / 480772096 bytes (458 MB) up to 3793747968 bytes (3618 MB)
+	JVM Flags: 0 total; 
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
+	FML: 
+	Loaded coremods (and transformers): 
+	GL info: ' Vendor: 'ATI Technologies Inc.' Version: '4.6.13558 Compatibility Profile Context 26.20.11015.9003' Renderer: 'AMD Radeon (TM) RX 580'
+[17:43:13] [main/INFO] [FML]: MinecraftForge v14.23.5.2772 Initialized
+[17:43:13] [main/INFO] [FML]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[17:43:13] [main/INFO] [FML]: Replaced 1036 ore ingredients
+[17:43:13] [main/INFO] [FML]: Searching C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\run\.\mods for mods
+[17:43:15] [main/INFO] [FML]: Forge Mod Loader has identified 7 mods to load
+[17:43:15] [main/INFO] [FML]: FML has found a non-mod file output.jar in your mods directory. It will now be injected into your classpath. This could severe stability issues, it should be removed if possible.
+[17:43:15] [main/INFO] [FML]: Attempting connection with missing mods [minecraft, mcp, FML, forge, rwbym, naturescompass, torohealthmod] at CLIENT
+[17:43:15] [main/INFO] [FML]: Attempting connection with missing mods [minecraft, mcp, FML, forge, rwbym, naturescompass, torohealthmod] at SERVER
+[17:43:15] [Thread-3/INFO] [FML]: Using sync timing. 200 frames of Display.update took 430904311 nanos
+[17:43:15] [main/INFO] [minecraft/SimpleReloadableResourceManager]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:RWBYM, FMLFileResourcePack:Nature's Compass, FMLFileResourcePack:ToroHealth Damage Indicators
+[17:43:16] [main/INFO] [FML]: Processing ObjectHolder annotations
+[17:43:16] [main/INFO] [FML]: Found 1168 ObjectHolder annotations
+[17:43:16] [main/INFO] [FML]: Identifying ItemStackHolder annotations
+[17:43:16] [main/INFO] [FML]: Found 0 ItemStackHolder annotations
+[17:43:16] [main/INFO] [FML]: Configured a dormant chunk cache size of 0
+[17:43:16] [Forge Version Check/INFO] [forge.VersionCheck]: [forge] Starting version check at http://files.minecraftforge.net/maven/net/minecraftforge/forge/promotions_slim.json
+[17:43:16] [Forge Version Check/INFO] [forge.VersionCheck]: [forge] Found status: OUTDATED Target: 14.23.5.2838
+[17:43:16] [main/INFO] [STDOUT]: [be.bluexin.rwbym.Init.RWBYBiomes:initBiome:31]: Registered Biome: forever_fall
+[17:43:16] [main/INFO] [STDOUT]: [be.bluexin.rwbym.Init.RWBYBiomes:initBiome:31]: Registered Biome: cliff_side
+[17:43:16] [main/INFO] [STDOUT]: [be.bluexin.rwbym.Init.RWBYBiomes:initBiome:31]: Registered Biome: grimmwastes
+[17:43:16] [main/INFO] [STDOUT]: [be.bluexin.rwbym.weaponry.RWBYGun:<init>:321]: qrow has no projectiles registered and has temporarily been set to 1.
+[17:43:16] [main/INFO] [STDOUT]: [be.bluexin.rwbym.weaponry.RWBYGun:<init>:321]: angelsword has no projectiles registered and has temporarily been set to 1.
+[17:43:17] [main/INFO] [FML]: Applying holder lookups
+[17:43:17] [main/INFO] [FML]: Holder lookups applied
+[17:43:17] [main/INFO] [FML]: Applying holder lookups
+[17:43:17] [main/INFO] [FML]: Holder lookups applied
+[17:43:17] [main/INFO] [FML]: Applying holder lookups
+[17:43:17] [main/INFO] [FML]: Holder lookups applied
+[17:43:17] [main/INFO] [FML]: Applying holder lookups
+[17:43:17] [main/INFO] [FML]: Holder lookups applied
+[17:43:17] [main/INFO] [FML]: Injecting itemstacks
+[17:43:17] [main/INFO] [FML]: Itemstack injection complete
+[17:43:20] [Sound Library Loader/INFO] [minecraft/SoundManager]: Starting up SoundSystem...
+[17:43:20] [Thread-5/INFO] [minecraft/SoundManager]: Initializing LWJGL OpenAL
+[17:43:20] [Thread-5/INFO] [minecraft/SoundManager]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[17:43:20] [Thread-5/INFO] [minecraft/SoundManager]: OpenAL initialized.
+[17:43:20] [Sound Library Loader/INFO] [minecraft/SoundManager]: Sound engine started
+[17:43:27] [main/INFO] [FML]: Max texture size: 16384
+[17:43:28] [main/INFO] [minecraft/TextureMap]: Created: 2048x2048 textures-atlas
+[17:43:30] [main/INFO] [FML]: Applying holder lookups
+[17:43:30] [main/INFO] [FML]: Holder lookups applied
+[17:43:30] [main/INFO] [STDOUT]: [be.bluexin.rwbym.RWBYModels:init:171]: Blaez:RWBYM Relz 3.8
+[17:43:30] [main/INFO] [FML]: OBJLoader: Domain rwbym has been added.
+[17:43:30] [main/INFO] [FML]: Injecting itemstacks
+[17:43:30] [main/INFO] [FML]: Itemstack injection complete
+[17:43:30] [main/INFO] [FML]: Forge Mod Loader has successfully loaded 7 mods
+[17:43:30] [main/WARN] [minecraft/GameSettings]: Skipping bad option: lastServer:
+[17:43:30] [main/INFO] [mojang/NarratorWindows]: Narrator library for x64 successfully loaded
+[17:43:31] [Realms Notification Availability checker #1/INFO] [mojang/RealmsClient]: Could not authorize you against Realms server: Invalid session id
+[17:43:39] [main/INFO] [minecraft/GuiConnecting]: Connecting to localhost, 25565
+[17:43:39] [Server Connector #1/ERROR] [minecraft/GuiConnecting]: Couldn't connect to server
+java.lang.NullPointerException: group
+	at io.netty.bootstrap.AbstractBootstrap.group(AbstractBootstrap.java:84) ~[AbstractBootstrap.class:?]
+	at net.minecraft.network.NetworkManager.createNetworkManagerAndConnect(NetworkManager.java:367) ~[NetworkManager.class:?]
+	at net.minecraft.client.multiplayer.GuiConnecting$1.run(GuiConnecting.java:68) [GuiConnecting$1.class:?]
+[17:43:39] [Netty Client IO #0/INFO] [FML]: Attempting connection with missing mods [torohealthmod] at SERVER
+[17:43:46] [main/INFO] [minecraft/GuiConnecting]: Connecting to localhost, 25565
+[17:43:46] [Netty Client IO #1/INFO] [FML]: Server protocol version 2
+[17:43:46] [Netty Client IO #1/INFO] [FML]: Attempting connection with missing mods [torohealthmod] at SERVER
+[17:43:46] [main/INFO] [FML]: Injecting existing registry data into this client instance
+[17:43:46] [main/INFO] [FML]: Applying holder lookups
+[17:43:46] [main/INFO] [FML]: Holder lookups applied
+[17:43:46] [Netty Client IO #1/INFO] [FML]: [Netty Client IO #1] Client side modded connection established
+[17:43:49] [main/INFO] [rwbym]: No Current Semblance
+[17:43:56] [main/INFO] [minecraft/GuiNewChat]: [CHAT] You do not have permission to use this command
+[17:45:28] [main/INFO] [FML]: Applying holder lookups
+[17:45:28] [main/INFO] [FML]: Holder lookups applied
+[17:45:30] [Netty Client IO #2/INFO] [FML]: Attempting connection with missing mods [torohealthmod] at SERVER
+[17:46:55] [main/INFO] [minecraft/GuiConnecting]: Connecting to localhost, 25565
+[17:46:55] [Netty Client IO #3/INFO] [FML]: Server protocol version 2
+[17:46:55] [Netty Client IO #3/INFO] [FML]: Attempting connection with missing mods [torohealthmod] at SERVER
+[17:46:55] [main/INFO] [FML]: Injecting existing registry data into this client instance
+[17:46:55] [main/INFO] [FML]: Applying holder lookups
+[17:46:55] [main/INFO] [FML]: Holder lookups applied
+[17:46:55] [Netty Client IO #3/INFO] [FML]: [Netty Client IO #3] Client side modded connection established
+[17:46:57] [main/INFO] [rwbym]: No Current Semblance
+[17:46:57] [main/INFO] [rwbym]: No Current Semblance
+[17:46:57] [main/INFO] [rwbym]: No Current Semblance
+[17:46:57] [main/INFO] [rwbym]: No Current Semblance
+[17:46:57] [main/INFO] [rwbym]: No Current Semblance
+[17:46:57] [main/INFO] [rwbym]: No Current Semblance
+[17:46:57] [main/INFO] [rwbym]: No Current Semblance
+[17:46:57] [main/INFO] [rwbym]: No Current Semblance
+[17:46:57] [main/INFO] [rwbym]: No Current Semblance
+[17:46:57] [main/INFO] [rwbym]: No Current Semblance
+[17:46:57] [main/INFO] [rwbym]: No Current Semblance
+[17:46:57] [main/INFO] [rwbym]: No Current Semblance
+[17:49:54] [main/INFO] [minecraft/Minecraft]: Stopping!
+[17:49:54] [main/INFO] [minecraft/SoundManager]: SoundSystem shutting down...
+[17:49:54] [main/WARN] [minecraft/SoundManager]: Author: Paul Lamb, www.paulscode.com
 
 BUILD SUCCESSFUL
 
-Total time: 3 mins 3.124 secs
+Total time: 7 mins 3.653 secs
+7:41:55] [Netty Server IO #3/ERROR] [FML]: NetworkDispatcher exception
+java.io.IOException: An existing connection was forcibly closed by the remote host
+	at sun.nio.ch.SocketDispatcher.read0(Native Method) ~[?:1.8.0_211]
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43) ~[?:1.8.0_211]
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223) ~[?:1.8.0_211]
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192) ~[?:1.8.0_211]
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380) ~[?:1.8.0_211]
+	at io.netty.buffer.PooledUnsafeDirectByteBuf.setBytes(PooledUnsafeDirectByteBuf.java:288) ~[PooledUnsafeDirectByteBuf.class:4.1.9.Final]
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1100) ~[AbstractByteBuf.class:4.1.9.Final]
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:372) ~[NioSocketChannel.class:4.1.9.Final]
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:123) [AbstractNioByteChannel$NioByteUnsafe.class:4.1.9.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:624) [NioEventLoop.class:4.1.9.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:559) [NioEventLoop.class:4.1.9.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:476) [NioEventLoop.class:4.1.9.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:438) [NioEventLoop.class:4.1.9.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:858) [SingleThreadEventExecutor$5.class:4.1.9.Final]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_211]
+[17:41:55] [Server thread/INFO] [minecraft/NetHandlerPlayServer]: Player878 lost connection: Internal Exception: java.io.IOException: An existing connection was forcibly closed by the remote host
+[17:41:55] [Server thread/INFO] [minecraft/DedicatedServer]: Player878 left the game
+[17:42:22] [Server thread/INFO] [minecraft/NetHandlerPlayServer]: Blaez lost connection: Timed out
+[17:42:22] [Server thread/INFO] [minecraft/DedicatedServer]: Blaez left the game
+[17:43:46] [Netty Server IO #6/INFO] [FML]: Client protocol version 2
+[17:43:46] [Netty Server IO #6/INFO] [FML]: Client attempting to join with 7 mods : minecraft@1.12.2,FML@8.0.99.99,forge@14.23.5.2772,torohealthmod@1.12.2-11,mcp@9.42,rwbym@3.8,naturescompass@1.5.1
+[17:43:46] [Server thread/INFO] [FML]: [Server thread] Server side modded connection established
+[17:43:46] [Server thread/INFO] [minecraft/PlayerList]: Player750[/127.0.0.1:51833] logged in with entity id 730 at (177.5, 70.0, 250.5)
+[17:43:46] [Server thread/INFO] [minecraft/DedicatedServer]: Player750 joined the game
+[17:43:46] [Server thread/INFO] [rwbym]: No Current Semblance
+[17:45:28] [Server thread/INFO] [minecraft/NetHandlerPlayServer]: Player750 lost connection: Disconnected
+[17:45:28] [Server thread/INFO] [minecraft/DedicatedServer]: Player750 left the game
+[17:45:53] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[17:45:53] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[17:45:53] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[17:45:53] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'world'/overworld
+[17:45:53] [Server thread/INFO] [FML]: Unloading dimension 0
+[17:45:53] [Server Shutdown Thread/INFO] [minecraft/MinecraftServer]: Stopping server
+Exception in thread "AWT-EventQueue-0" 
+BUILD SUCCESSFUL
+
+Total time: 5 mins 34.75 secs

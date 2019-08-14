@@ -82,7 +82,7 @@ public class RWBYConfig
     @Config.Comment("Unsafe Dust Mining")
     public static boolean unsafemining = true;
     @Config.Comment("Dark Crystal Spawnrate")
-    public static int darkcrystalrate = 200;
+    public static int darkcrystalrate = 20;
 
    // @Config.Comment("Aura per Level")
     //public static int auraperlevel = 1;
