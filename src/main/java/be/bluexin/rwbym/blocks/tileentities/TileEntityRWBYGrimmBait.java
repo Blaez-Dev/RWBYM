@@ -28,6 +28,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -77,6 +78,7 @@ public class TileEntityRWBYGrimmBait extends TileEntity implements ITickable {
 				this.stop();
 				return;
 			}
+
 			
 			if (wavelist.isEmpty() || this.getAlivePercent() < 0.4) {
 				wavecount++;

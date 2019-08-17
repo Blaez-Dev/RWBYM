@@ -73,7 +73,7 @@ public class BlockGrimmBait extends BlockBase {
     @Override
     public int quantityDropped(Random par1Random)
     {
-        return 0;
+        return 1;
     }
 
     @Override

@@ -601,14 +601,14 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             if(weapontype == 99 || weapontype == 100){
                 f = getArrowVelocity(i);
             }
-
-
+            float inaccuracy = 1;
+            if(shotcount == 1 && charges){ inaccuracy = 0F; }else if(shotcount > 2){inaccuracy = 3F;}
                 if ((double) f >= 0.1D) {
 
                     if (!worldIn.isRemote) {
                         for (int i2 = 0; i2 < finishshot; i2++) {
                             EntityArrow entityarrow = (itemstack.getItem() instanceof RWBYAmmoItem ? ((RWBYAmmoItem) itemstack.getItem()).createArrow(worldIn, itemstack, entityplayer) : ((ItemArrow) Items.ARROW).createArrow(worldIn, itemstack, entityplayer));
-                            entityarrow.shoot(entityplayer, entityplayer.rotationPitch, entityplayer.rotationYaw, 0.0F, f * 3.0F * (this.projectileSpeed == 0.0F ? 1.0F : this.projectileSpeed), 5.0F);
+                            entityarrow.shoot(entityplayer, entityplayer.rotationPitch, entityplayer.rotationYaw, 0.0F, f * 3.0F * (this.projectileSpeed == 0.0F ? 1.0F : this.projectileSpeed), inaccuracy);
 
                             entityarrow.setIsCritical(true);
 
