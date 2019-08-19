@@ -32,6 +32,10 @@
           "type": "item",
           "name": "rwbym:coinr",
           "weight": 1
+        }, {
+          "type": "item",
+          "name": "rwbym:bait",
+          "weight": 1
         },
         {
           "type": "item",
