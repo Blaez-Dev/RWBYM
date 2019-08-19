@@ -241,6 +241,11 @@
           "name": "rwbym:clearrightleg",
           "weight":20,
           "count": 1
+        },		{
+          "type": "item",
+          "name": "rwbym:kag",
+          "weight":20,
+          "count": 1
         }
       ]
     }

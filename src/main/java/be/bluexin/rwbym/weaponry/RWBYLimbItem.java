@@ -67,6 +67,10 @@ public class RWBYLimbItem extends Item implements ICustomItem {
         this.name = name;
         this.slot = slot;
 
+        if(name.contains("kag")){
+            this.setCreativeTab(null);
+        }
+
         this.addPropertyOverride(new ResourceLocation("inv"), new IItemPropertyGetter() {
             @SideOnly(Side.CLIENT)
             public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn)

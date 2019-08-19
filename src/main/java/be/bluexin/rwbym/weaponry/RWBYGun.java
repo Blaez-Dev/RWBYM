@@ -83,6 +83,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     private boolean climbs = false;
     private boolean ohblade;
     private boolean dualwield = false;
+    private boolean grimm = false;
     private float damages = 0;
     private int shotcount;
     private int finishshot;
@@ -136,6 +137,10 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         if(name.contains("weiss")||name.contains("oobleck")||name.contains("goodwitch")){mytre = true;}
         if(name.contains("stormflower")||name.contains("ember")||name.contains("tyrian")||name.contains("fox")||name.contains("emerald")||name.contains("maria")||name.contains("sunnunchuck")||name.contains("reese")){dualwield = true;}
         if(enchantmentglow == 1){glow = true;}
+        if(name.contains("grimm")){
+            grimm = true;
+        this.damages = 14;
+        }
 
 
         if (this.isShield) this.addPropertyOverride(new ResourceLocation("offhand"), new IItemPropertyGetter() {
@@ -573,6 +578,19 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                 }
             }
 
+            if(grimm && entityLiving instanceof EntityPlayer && entityLiving.getHeldItemMainhand() == stack) {
+                Entity entity = this.findEntityOnPath(worldIn, entityLiving, entityLiving.getEntityAttribute(EntityPlayer.REACH_DISTANCE).getAttributeValue()+4);
+                if (entity instanceof EntityLivingBase) {
+                    EntityLivingBase entitylivingbase = (EntityLivingBase) entity;
+                    if (entitylivingbase != entityLiving && !entityLiving.isOnSameTeam(entitylivingbase)) {
+                        entitylivingbase.knockBack(entityLiving, 0.4F, (double) MathHelper.sin(entityLiving.rotationYaw * 0.017453292F), (double) (-MathHelper.cos(entityLiving.rotationYaw * 0.017453292F)));
+                        entitylivingbase.attackEntityFrom(DamageSource.GENERIC, damages);
+                        stack.damageItem(5, entityLiving);
+                        entityLiving.world.playSound((EntityPlayer) null, entityLiving.posX, entityLiving.posY, entityLiving.posZ, SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, entityLiving.getSoundCategory(), 1.0F, 1.0F);
+                    }
+                }
+            }
+
             shotcount = 1;
             finishshot = 0;
 
@@ -601,14 +619,12 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             if(weapontype == 99 || weapontype == 100){
                 f = getArrowVelocity(i);
             }
-            float inaccuracy = 1;
-            if(shotcount == 1 && charges){ inaccuracy = 0F; }else if(shotcount > 2){inaccuracy = 3F;}
                 if ((double) f >= 0.1D) {
 
                     if (!worldIn.isRemote) {
                         for (int i2 = 0; i2 < finishshot; i2++) {
                             EntityArrow entityarrow = (itemstack.getItem() instanceof RWBYAmmoItem ? ((RWBYAmmoItem) itemstack.getItem()).createArrow(worldIn, itemstack, entityplayer) : ((ItemArrow) Items.ARROW).createArrow(worldIn, itemstack, entityplayer));
-                            entityarrow.shoot(entityplayer, entityplayer.rotationPitch, entityplayer.rotationYaw, 0.0F, f * 3.0F * (this.projectileSpeed == 0.0F ? 1.0F : this.projectileSpeed), inaccuracy);
+                            entityarrow.shoot(entityplayer, entityplayer.rotationPitch, entityplayer.rotationYaw, 0.0F, f * 3.0F * (this.projectileSpeed == 0.0F ? 1.0F : this.projectileSpeed), shotcount*3);
 
                             entityarrow.setIsCritical(true);
 

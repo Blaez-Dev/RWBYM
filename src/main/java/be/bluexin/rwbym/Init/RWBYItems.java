@@ -79,6 +79,40 @@ public class RWBYItems {
             0,
             1,
             RWBYCreativeTabs.tab_rwbyweapons);
+    public static final Item grimmscy = new RWBYGun(
+            "grimmscy",
+            2500,
+            72,
+            2,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:16,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}]}",
+            null,
+            "rwbym:nuller,rwbym:nulls",
+            false,
+            1,
+            false,
+            true,
+            0,
+            1,
+            0,
+            0,
+            RWBYCreativeTabs.tab_rwbyweapons);
+    public static final Item grimmrapier = new RWBYGun(
+            "grimmrapier",
+            2500,
+            72,
+            1,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}]}",
+            null,
+            "rwbym:nuller,rwbym:nulls",
+            false,
+            1,
+            false,
+            true,
+            0,
+            1,
+            0,
+            0,
+            RWBYCreativeTabs.tab_rwbyweapons);
     public static final Item crescentfrost = new RWBYGun(
             "crescentfrost",
             2500,
@@ -2516,6 +2550,8 @@ public class RWBYItems {
     public static final Item clearrightarm = new RWBYLimbItem("clearrightarm", "RightArm");
     public static final Item clearrightleg = new RWBYLimbItem("clearrightleg", "RightLeg");
     public static final Item clearleftleg = new RWBYLimbItem("clearleftleg",  "LeftLeg");
+    public static final Item kag = new RWBYLimbItem("kag", "Tail");
+    public static final Item kag2 = new RWBYLimbItem("kag2", "Tail");
 
     //------------------------------------------------//
     public static final Item wallet = new RWBYContainerItem(

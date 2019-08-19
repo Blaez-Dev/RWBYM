@@ -6,6 +6,8 @@ import be.bluexin.rwbym.utility.RWBYConfig;
 import be.bluexin.rwbym.world.biome.BiomeDarkGrimm;
 import net.minecraft.client.Minecraft;
 import net.minecraft.init.MobEffects;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.relauncher.Side;
@@ -141,9 +143,9 @@ public class EntityUpdatesHandler {
 
 	@SubscribeEvent
 	public void onClientTick(TickEvent.PlayerTickEvent event){
-		
 		EntityPlayer player = event.player;
 		Biome biome = player.world.getBiome(player.getPosition());
+
 		
 		if(biome == RWBYBiomes.GrimmWastes && player.isInWater()) {
 			PotionEffect potioneffect = new PotionEffect(MobEffects.POISON, 60, 3, false, false);
@@ -151,5 +153,7 @@ public class EntityUpdatesHandler {
 			player.addPotionEffect(potioneffect);
 			player.addPotionEffect(potioneffect1);
 		}
+
+
 	}
 }

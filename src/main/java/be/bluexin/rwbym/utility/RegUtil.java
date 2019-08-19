@@ -221,6 +221,10 @@ public class RegUtil {
         registerItems(event, RWBYItems.bangle);
         registerItems(event, RWBYItems.hbangle);
         registerItems(event, RWBYItems.hsanrei);
+        registerItems(event, RWBYItems.grimmrapier);
+        registerItems(event, RWBYItems.grimmscy);
+        registerItems(event, RWBYItems.kag);
+        registerItems(event, RWBYItems.kag2);
         //dust items
         registerBlocks(event, RWBYItems.crusher);
         registerItems(event, RWBYItems.chisel);

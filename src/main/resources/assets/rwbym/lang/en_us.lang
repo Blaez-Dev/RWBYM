@@ -445,6 +445,8 @@ item.rwbym:nolan.name=Nolan's Baton
 item.rwbym:gwenknife.name=Gwen's Knife
 item.rwbym:wfp.name=White Fang Pistol
 item.rwbym:deemace.name=Dee's Mace
+item.rwbym:grimmrapier.name=Grimm Aster
+item.rwbym:grimmscy.name=Grimm Rose
 
 
 item.rwbym:blackcatear.name=Black Cat Ears
@@ -489,6 +491,8 @@ item.rwbym:clearleftarm.name=Clear Left Arm Slot
 item.rwbym:clearrightarm.name=Clear Right Arm Slot
 item.rwbym:clearrightleg.name=Clear Right Leg Slot
 item.rwbym:clearleftleg.name=Clear Left Leg Slot
+item.rwbym:kag.name=Kagune
+item.rwbym:kag2.name=Kagune
 
 
 effect.aura_regen=Aura Regen
