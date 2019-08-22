@@ -493,6 +493,16 @@ item.rwbym:clearrightleg.name=Clear Right Leg Slot
 item.rwbym:clearleftleg.name=Clear Left Leg Slot
 item.rwbym:kag.name=Kagune
 item.rwbym:kag2.name=Kagune
+item.rwbym:noctustraumnormal.name=Noctustraum (Normal)
+item.rwbym:noctustraumfire.name=Noctustraum (Fire)
+item.rwbym:noctustraumice.name=Noctustraum (Ice)
+item.rwbym:noctustraumlight.name=Noctustraum (Lightning)
+item.rwbym:noctustraumgrav.name=Noctustraum (Gravity)
+item.rwbym:noctustraumnormalscy.name=Noctustraum (Normal)
+item.rwbym:noctustraumfirescy.name=Noctustraum (Fire)
+item.rwbym:noctustraumicescy.name=Noctustraum (Ice)
+item.rwbym:noctustraumlightscy.name=Noctustraum (Lightning)
+item.rwbym:noctustraumgravscy.name=Noctustraum (Gravity)
 
 
 effect.aura_regen=Aura Regen

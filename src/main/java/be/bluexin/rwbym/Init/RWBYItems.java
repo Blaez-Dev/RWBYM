@@ -2415,6 +2415,176 @@ public class RWBYItems {
             false,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
+    public static final Item noctustraumnormal = new RWBYGun(
+            "noctustraumnormal",
+            2500,
+            72,
+            0,
+            null,
+            "rwbym:noctustraumnormalscy",
+            "rwbym:noctu",
+            false,
+            2,
+            false,
+            false,
+            0,
+            1,
+            0,
+            3,
+            RWBYCreativeTabs.tab_rwbyweapons).setElement("rwbym:noctustraumfire");
+    public static final Item noctustraumfire = new RWBYGun(
+            "noctustraumfire",
+            2500,
+            72,
+            0,
+            null,
+            "rwbym:noctustraumfirescy",
+            "rwbym:noctufire",
+            false,
+            2,
+            false,
+            false,
+            0,
+            1,
+            0,
+            3,
+            null).setElement("rwbym:noctustraumice");
+    public static final Item noctustraumice = new RWBYGun(
+            "noctustraumice",
+            2500,
+            72,
+            0,
+            null,
+            "rwbym:noctustraumicescy",
+            "rwbym:noctuice",
+            false,
+            2,
+            false,
+            false,
+            0,
+            1,
+            0,
+            3,
+            null).setElement("rwbym:noctustraumlight");
+    public static final Item noctustraumlight = new RWBYGun(
+            "noctustraumlight",
+            2500,
+            72,
+            0,
+            null,
+            "rwbym:noctustraumlightscy",
+            "rwbym:noctulight",
+            false,
+            2,
+            false,
+            false,
+            0,
+            1,
+            0,
+            3,
+           null).setElement("rwbym:noctustraumgrav");
+    public static final Item noctustraumgrav = new RWBYGun(
+            "noctustraumgrav",
+            2500,
+            72,
+            0,
+            null,
+            "rwbym:noctustraumgravscy",
+            "rwbym:noctugrav",
+            false,
+            2,
+            false,
+            false,
+            0,
+            1,
+            0,
+            3,
+           null).setElement("rwbym:noctustraumnormal");
+    public static final Item noctustraumnormalscy = new RWBYGun(
+            "noctustraumnormalscy",
+            2500,
+            72,
+            2,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:16,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}]}",
+            "rwbym:noctustraumnormal",
+            "rwbym:crmag32,rwbym:crfiremag32",
+            false,
+            1,
+            false,
+            false,
+            0,
+            1,
+            0,
+            1,
+            null);
+    public static final Item noctustraumfirescy = new RWBYGun(
+            "noctustraumfirescy",
+            2500,
+            72,
+            2,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:16,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}]}",
+            "rwbym:noctustraumfire",
+            "rwbym:crmag32,rwbym:crfiremag32",
+            false,
+            1,
+            false,
+            false,
+            0,
+            1,
+            0,
+            1,
+            null).setElementMelee("fire");
+    public static final Item noctustraumicescy = new RWBYGun(
+            "noctustraumicescy",
+            2500,
+            72,
+            2,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:16,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}]}",
+            "rwbym:noctustraumice",
+            "rwbym:crmag32,rwbym:crfiremag32",
+            false,
+            1,
+            false,
+            false,
+            0,
+            1,
+            0,
+            1,
+            null).setElementMelee("ice");
+    public static final Item noctustraumgravscy = new RWBYGun(
+            "noctustraumgravscy",
+            2500,
+            72,
+            2,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:16,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}]}",
+            "rwbym:noctustraumgrav",
+            "rwbym:crmag32,rwbym:crfiremag32",
+            false,
+            1,
+            false,
+            false,
+            0,
+            1,
+            0,
+            1,
+            null).setElementMelee("grav");
+    public static final Item noctustraumlightscy = new RWBYGun(
+            "noctustraumlightscy",
+            2500,
+            72,
+            2,
+            "{AttributeModifiers:[{AttributeName:\"generic.movementSpeed\",Name:\"generic.movementSpeed\",Amount:0.2,Operation:0,UUIDLeast:763623,UUIDMost:811709,Slot:\"mainhand\"},{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:16,Operation:0,UUIDMost:99791,UUIDLeast:128916}]}",
+            "rwbym:noctustraumlight",
+            "rwbym:crmag32,rwbym:crfiremag32",
+            false,
+            1,
+            false,
+            false,
+            0,
+            1,
+            0,
+            1,
+            null);
 
 
 
@@ -2622,7 +2792,82 @@ public class RWBYItems {
     public static final Item entityrocket = new RWBYItem("entityrocket", null, false, null);
     public static final Item saw = new RWBYItem("saw", null, false, null);
 
-            //------------------------------------------------//
+    //------------------------------------------------//
+    public static final Item noctu = new RWBYAmmoItem(
+            "noctu",
+            RWBYItems.entitysmallbullet,
+            1,
+            false,
+            RWBYAmmoItem.SurviveOnHit.NONE,
+            "textures/entity/projectiles/tipped_arrow.png",
+            true,
+            true,
+            null,
+            null,
+            32,
+            8,
+            null,
+            null);
+    public static final Item noctufire = new RWBYAmmoItem(
+            "noctufire",
+            RWBYItems.entitysmallbullet,
+            1,
+            false,
+            RWBYAmmoItem.SurviveOnHit.NONE,
+            "textures/entity/projectiles/tipped_arrow.png",
+            true,
+            true,
+            "",
+            null,
+            32,
+            8,
+            null,
+            new FireAmmoHit(10));
+    public static final Item noctuice = new RWBYAmmoItem(
+            "noctuice",
+            RWBYItems.entitysmallbullet,
+            1,
+            false,
+            RWBYAmmoItem.SurviveOnHit.NONE,
+            "textures/entity/projectiles/tipped_arrow.png",
+            true,
+            true,
+            null,
+            ImmutableList.of(new PotionEffect(Potion.getPotionFromResourceLocation("minecraft:slowness"), 100, 5)),
+            32,
+            8,
+            null,
+            null);
+    public static final Item noctugrav = new RWBYAmmoItem(
+            "noctugrav",
+            RWBYItems.entitysmallbullet,
+            1,
+            false,
+            RWBYAmmoItem.SurviveOnHit.NONE,
+            "textures/entity/projectiles/tipped_arrow.png",
+            true,
+            true,
+            null,
+            ImmutableList.of(new PotionEffect(Potion.getPotionFromResourceLocation("minecraft:levitation"), 100, 2)),
+            32,
+            8,
+            null,
+            null);
+    public static final Item noctulight = new RWBYAmmoItem(
+            "noctulight",
+            RWBYItems.entitysmallbullet,
+            1,
+            false,
+            RWBYAmmoItem.SurviveOnHit.NONE,
+            "textures/entity/projectiles/tipped_arrow.png",
+            true,
+            true,
+            "",
+            null,
+            32,
+            8,
+            null,
+            new ExplosionAmmoHit(0));
     public static final Item spl = new RWBYAmmoItem(
             "spl",
             RWBYItems.entitysmallbullet,
@@ -3704,16 +3949,16 @@ public class RWBYItems {
 
 
     public static final ItemArmor.ArmorMaterial scarletMat = EnumHelper.addArmorMaterial("scarlet", "rwbym:scarlet", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
-    public static final ItemArmor scarletChest = new ArmourBase(scarletMat, 0, EntityEquipmentSlot.CHEST, "scarlet_chest", null, "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"chest\",Amount:14,Operation:0,UUIDMost:11326,UUIDLeast:127298},{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"chest\",Amount:5,Operation:0,UUIDMost:68780,UUIDLeast:119491}]}", true, RWBYCreativeTabs.tab_rwbyarmour);
-    public static final ItemArmor scarletLegs = new ArmourBase(scarletMat, 0, EntityEquipmentSlot.LEGS, "scarlet_legs", null, " {AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"legs\",Amount:14,Operation:0,UUIDMost:96062,UUIDLeast:166413},{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"legs\",Amount:5,Operation:0,UUIDMost:42612,UUIDLeast:167904}]}", true, RWBYCreativeTabs.tab_rwbyarmour);
+    public static final ItemArmor scarletChest = new ArmourBase(scarletMat, 0, EntityEquipmentSlot.CHEST, "scarlet_chest", null, "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"chest\",Amount:10,Operation:0,UUIDMost:11326,UUIDLeast:127298},{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"chest\",Amount:5,Operation:0,UUIDMost:68780,UUIDLeast:119491}]}", true, RWBYCreativeTabs.tab_rwbyarmour);
+    public static final ItemArmor scarletLegs = new ArmourBase(scarletMat, 0, EntityEquipmentSlot.LEGS, "scarlet_legs", null, " {AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"legs\",Amount:10,Operation:0,UUIDMost:96062,UUIDLeast:166413},{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"legs\",Amount:5,Operation:0,UUIDMost:42612,UUIDLeast:167904}]}", true, RWBYCreativeTabs.tab_rwbyarmour);
 
     public static final ItemArmor.ArmorMaterial sunMat = EnumHelper.addArmorMaterial("sun", "rwbym:sun", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
-    public static final ItemArmor sunChest = new ArmourBase(sunMat, 0, EntityEquipmentSlot.CHEST, "sun_chest", null, "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"chest\",Amount:14,Operation:0,UUIDMost:11326,UUIDLeast:127298},{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"chest\",Amount:5,Operation:0,UUIDMost:68780,UUIDLeast:119491}]}", true, RWBYCreativeTabs.tab_rwbyarmour);
-    public static final ItemArmor sunLegs = new ArmourBase(sunMat, 0, EntityEquipmentSlot.LEGS, "sun_legs", null, " {AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"legs\",Amount:14,Operation:0,UUIDMost:96062,UUIDLeast:166413},{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"legs\",Amount:5,Operation:0,UUIDMost:42612,UUIDLeast:167904}]}", true, RWBYCreativeTabs.tab_rwbyarmour);
+    public static final ItemArmor sunChest = new ArmourBase(sunMat, 0, EntityEquipmentSlot.CHEST, "sun_chest", null, "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"chest\",Amount:10,Operation:0,UUIDMost:11326,UUIDLeast:127298},{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"chest\",Amount:5,Operation:0,UUIDMost:68780,UUIDLeast:119491}]}", true, RWBYCreativeTabs.tab_rwbyarmour);
+    public static final ItemArmor sunLegs = new ArmourBase(sunMat, 0, EntityEquipmentSlot.LEGS, "sun_legs", null, " {AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"legs\",Amount:10,Operation:0,UUIDMost:96062,UUIDLeast:166413},{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"legs\",Amount:5,Operation:0,UUIDMost:42612,UUIDLeast:167904}]}", true, RWBYCreativeTabs.tab_rwbyarmour);
 
     public static final ItemArmor.ArmorMaterial sageMat = EnumHelper.addArmorMaterial("sage", "rwbym:sage", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
-    public static final ItemArmor sageChest = new ArmourBase(sageMat, 0, EntityEquipmentSlot.CHEST, "sage_chest", null, "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"chest\",Amount:14,Operation:0,UUIDMost:11326,UUIDLeast:127298},{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"chest\",Amount:5,Operation:0,UUIDMost:68780,UUIDLeast:119491}]}", true, RWBYCreativeTabs.tab_rwbyarmour);
-    public static final ItemArmor sageLegs = new ArmourBase(sageMat, 0, EntityEquipmentSlot.LEGS, "sage_legs", null, " {AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"legs\",Amount:14,Operation:0,UUIDMost:96062,UUIDLeast:166413},{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"legs\",Amount:5,Operation:0,UUIDMost:42612,UUIDLeast:167904}]}", true, RWBYCreativeTabs.tab_rwbyarmour);
+    public static final ItemArmor sageChest = new ArmourBase(sageMat, 0, EntityEquipmentSlot.CHEST, "sage_chest", null, "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"chest\",Amount:10,Operation:0,UUIDMost:11326,UUIDLeast:127298},{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"chest\",Amount:5,Operation:0,UUIDMost:68780,UUIDLeast:119491}]}", true, RWBYCreativeTabs.tab_rwbyarmour);
+    public static final ItemArmor sageLegs = new ArmourBase(sageMat, 0, EntityEquipmentSlot.LEGS, "sage_legs", null, " {AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"legs\",Amount:10,Operation:0,UUIDMost:96062,UUIDLeast:166413},{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"legs\",Amount:5,Operation:0,UUIDMost:42612,UUIDLeast:167904}]}", true, RWBYCreativeTabs.tab_rwbyarmour);
 
 
     public static final ItemArmor korekosmouoff;

@@ -225,6 +225,16 @@ public class RegUtil {
         registerItems(event, RWBYItems.grimmscy);
         registerItems(event, RWBYItems.kag);
         registerItems(event, RWBYItems.kag2);
+        registerItems(event, RWBYItems.noctustraumfire);
+        registerItems(event, RWBYItems.noctustraumgrav);
+        registerItems(event, RWBYItems.noctustraumice);
+        registerItems(event, RWBYItems.noctustraumlight);
+        registerItems(event, RWBYItems.noctustraumnormal);
+        registerItems(event, RWBYItems.noctustraumfirescy);
+        registerItems(event, RWBYItems.noctustraumgravscy);
+        registerItems(event, RWBYItems.noctustraumicescy);
+        registerItems(event, RWBYItems.noctustraumlightscy);
+        registerItems(event, RWBYItems.noctustraumnormalscy);
         //dust items
         registerBlocks(event, RWBYItems.crusher);
         registerItems(event, RWBYItems.chisel);
@@ -409,6 +419,11 @@ public class RegUtil {
         registerItems(event, RWBYItems.lightdustcut);
         registerItems(event, RWBYItems.icedustcut);
         registerItems(event, RWBYItems.ragorafireball);
+        registerItems(event, RWBYItems.noctu);
+        registerItems(event, RWBYItems.noctufire);
+        registerItems(event, RWBYItems.noctugrav);
+        registerItems(event, RWBYItems.noctuice);
+        registerItems(event, RWBYItems.noctulight);
         //mob drops
         registerItems(event, RWBYItems.remnants);
         registerBlocks(event, RWBYItems.bait);
@@ -793,6 +808,16 @@ public class RegUtil {
         registerRecipes(RWBYItems.royg);
         registerRecipes(RWBYItems.wfp);
         registerRecipes(RWBYItems.gwen);
+        registerRecipes(RWBYItems.noctustraumnormal);
+        registerRecipes(RWBYItems.noctustraumlight);
+        registerRecipes(RWBYItems.noctustraumice);
+        registerRecipes(RWBYItems.noctustraumgrav);
+        registerRecipes(RWBYItems.noctustraumfire);
+        registerRecipes(RWBYItems.noctustraumnormalscy);
+        registerRecipes(RWBYItems.noctustraumfirescy);
+        registerRecipes(RWBYItems.noctustraumgravscy);
+        registerRecipes(RWBYItems.noctustraumicescy);
+        registerRecipes(RWBYItems.noctustraumlightscy);
     }
 
     private static void registerBlocks(FMLPreInitializationEvent event, Block...blocks) {
@@ -853,6 +878,16 @@ public class RegUtil {
                 if(item == RWBYItems.sawblade){
                     ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.saw.getRegistryName(), "inventory"));
                 }else if(item == RWBYItems.gwenknife){
+                    ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.gwen.getRegistryName(), "inventory"));
+                }else if(item == RWBYItems.noctu){
+                    ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.gwen.getRegistryName(), "inventory"));
+                }else if(item == RWBYItems.noctufire){
+                    ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.gwen.getRegistryName(), "inventory"));
+                }else if(item == RWBYItems.noctuice){
+                    ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.gwen.getRegistryName(), "inventory"));
+                }else if(item == RWBYItems.noctugrav){
+                    ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.gwen.getRegistryName(), "inventory"));
+                }else if(item == RWBYItems.noctulight){
                     ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.gwen.getRegistryName(), "inventory"));
                 }
             	else {

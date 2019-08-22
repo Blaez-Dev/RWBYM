@@ -10,6 +10,7 @@ import be.bluexin.rwbym.entity.EntityNeverMore;
 import com.google.common.collect.Sets;
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
@@ -38,6 +39,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -87,6 +89,19 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     private float damages = 0;
     private int shotcount;
     private int finishshot;
+
+    private String element = null;
+    private String elementmelee = null;
+
+    public RWBYGun setElement(String element) {
+        this.element = element;
+        return this;
+    }
+
+    public RWBYGun setElementMelee(String elementmelee) {
+        this.elementmelee = elementmelee;
+        return this;
+    }
     //Weapon Type Numbers//
     /* 1 Rapier
     *  2 Scythe
@@ -519,7 +534,15 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         return 0;
     }
 
-
+    @Override
+    public boolean onEntitySwing(EntityLivingBase entityLiving, ItemStack stack){
+        EntityPlayer playerIn = (EntityPlayer)entityLiving;
+        if (!playerIn.world.isRemote && playerIn.isSneaking()&& this.element != null&& playerIn.getHeldItemMainhand() == stack) {
+            stack = new ItemStack(Item.getByNameOrId(this.element), stack.getCount(), stack.getMetadata());
+            playerIn.setHeldItem(EnumHand.MAIN_HAND, stack);
+        }
+        return false;
+    }
 
 
     @Override
@@ -812,6 +835,15 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             attacker.world.playSound((EntityPlayer) null, attacker.posX, attacker.posY, attacker.posZ, SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, attacker.getSoundCategory(), 1.0F, 1.0F);
         }
 
+            PotionEffect potioneffect = new PotionEffect(MobEffects.SLOWNESS, 200, 5, true, true);
+            PotionEffect potioneffect2 = new PotionEffect(MobEffects.LEVITATION, 200, 5, true, true);
+            if (elementmelee == "fire"){target.setFire(10);}
+            if (elementmelee == "ice"){
+                target.addPotionEffect(potioneffect);
+            }
+            if (elementmelee == "grav"){
+                target.addPotionEffect(potioneffect2);
+            }
         stack.damageItem(1, attacker);
         return true;
     }
