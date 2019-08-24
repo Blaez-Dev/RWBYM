@@ -1,6 +1,8 @@
 package be.bluexin.rwbym.Init;
 
+import be.bluexin.rwbym.RWBYModels;
 import be.bluexin.rwbym.blocks.*;
+import be.bluexin.rwbym.blocks.fence.RWBYBlockFence;
 import be.bluexin.rwbym.gui.RWBYItemContainerGui;
 import be.bluexin.rwbym.gui.RWBYItemContainerGuiChest;
 import be.bluexin.rwbym.inventory.RWBYItemContainer;
@@ -11,6 +13,7 @@ import be.bluexin.rwbym.weaponry.ammohit.ExplosionAmmoHit;
 import be.bluexin.rwbym.weaponry.ammohit.FireAmmoHit;
 import be.bluexin.rwbym.weaponry.ammohit.IAmmoHit;
 import be.bluexin.rwbym.weaponry.ammohit.PotionAmmoHit;
+import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
@@ -3757,7 +3760,10 @@ public class RWBYItems {
             1);
     public static final Block crusher = new RWBYCrusher(
             "crusher");
-
+    public static final Block hrdltfence = new RWBYBlockFence(Material.GLASS, MapColor.CYAN)
+    		.setRegistryName(RWBYModels.MODID, "hrdltfence")
+    		.setUnlocalizedName("hrdltfence")
+    		.setCreativeTab(RWBYCreativeTabs.tab_rwbyitems);
     //Armour
 
     public static List<Item> ITEMS = new ArrayList();
