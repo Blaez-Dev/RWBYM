@@ -486,7 +486,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             return EnumAction.BOW;
         }else if(stack.getItem() == RWBYItems.cinderbow){
             return EnumAction.BOW;
-        }else if(canBlock){return  EnumAction.BLOCK;}else return EnumAction.BLOCK;
+        }else if(canBlock){return  EnumAction.BLOCK;}else return EnumAction.BOW;
     }
 
     @Nonnull
@@ -563,10 +563,10 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                 flag2 = false;
             }
 
-
+            /*
             if(ohblade && entityplayer.getActiveHand() == EnumHand.OFF_HAND){
                 flag2 = false;
-            }
+            }*/
 
             if(weapontype == 99 && entityplayer.getCapability(AuraProvider.AURA_CAP, null).getAmount() < 10){flag2 = false;}
 
