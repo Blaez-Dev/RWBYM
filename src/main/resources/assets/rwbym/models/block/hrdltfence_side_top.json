@@ -1,32 +1,16 @@
 {
-	"credit": "by LauraDarkez",
+	"credit": "Made with Blockbench",
 	"textures": {
-		"7": "rwbym:blocks/awool_colored_cyanv",
 		"8": "rwbym:blocks/hrdltfence"
 	},
 	"elements": [
 		{
 			"name": "hexadecagon",
-			"from": [7.875, 16.625, 0],
-			"to": [8.125, 16.75, 8],
-			"faces": {
-				"north": {"uv": [0, 0, 0.25, 0.25], "texture": "#7"},
-				"east": {"uv": [0, 0, 0.25, 0.25], "texture": "#7"},
-				"south": {"uv": [0, 0, 0.25, 0.25], "texture": "#7", "cullface": "south"},
-				"west": {"uv": [0, 0, 0.25, 0.25], "texture": "#7"},
-				"up": {"uv": [0, 0, 0.25, 0.25], "rotation": 270, "texture": "#7"}
-			}
-		},
-		{
-			"name": "hexadecagon",
 			"from": [7.875, 0, 0],
 			"to": [8.125, 12.625, 8],
 			"faces": {
-				"north": {"uv": [2.438, 1.813, 2.688, 2.063], "texture": "#8", "cullface": "north"},
 				"east": {"uv": [8, 3.375, 16, 16], "texture": "#8"},
-				"south": {"uv": [2.438, 1.813, 2.688, 2.063], "texture": "#8", "cullface": "south"},
-				"west": {"uv": [8, 3.375, 16, 16], "texture": "#8"},
-				"down": {"uv": [2.438, 1.813, 2.688, 2.063], "rotation": 90, "texture": "#8", "cullface": "down"}
+				"west": {"uv": [8, 3.375, 16, 16], "texture": "#8"}
 			}
 		},
 		{
@@ -34,9 +18,7 @@
 			"from": [7.875, 12.625, 0],
 			"to": [8.125, 16.625, 8],
 			"faces": {
-				"north": {"uv": [15, 0.375, 15.687, 1.063], "texture": "#8", "cullface": "north"},
 				"east": {"uv": [8, 10.75, 16, 14.75], "texture": "#8"},
-				"south": {"uv": [15, 0.532, 15.625, 1.218], "texture": "#8", "cullface": "south"},
 				"west": {"uv": [8, 10.75, 16, 14.75], "texture": "#8"}
 			}
 		}
@@ -64,7 +46,7 @@
 						{
 							"name": "group",
 							"origin": [8.0013, 15.5, 7.9987],
-							"children": [0, 1, 2]
+							"children": [0, 1]
 						}
 					]
 				}
