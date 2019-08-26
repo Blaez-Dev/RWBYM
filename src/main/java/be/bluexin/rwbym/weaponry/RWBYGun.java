@@ -147,7 +147,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
 
         this.soundeffect = soundeffect;
-        if(weapontype == 3 || weapontype == 7) { ohblade = true; this.damages = 14; }
+        if(weapontype == 3 | weapontype == 7) { ohblade = true; this.damages = 14; }
         if(weapontype == 10){this.damages = 14;}
         if(name.contains("weiss")||name.contains("oobleck")||name.contains("goodwitch")){mytre = true;}
         if(name.contains("stormflower")||name.contains("ember")||name.contains("tyrian")||name.contains("fox")||name.contains("emerald")||name.contains("maria")||name.contains("sunnunchuck")||name.contains("reese")){dualwield = true;}
@@ -430,14 +430,13 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         if (!worldIn.isRemote && playerIn.isSneaking() && this.morph != null&& playerIn.getHeldItemMainhand() == is) {
             is = new ItemStack(Item.getByNameOrId(this.morph), is.getCount(), is.getMetadata());
             return new ActionResult<>(EnumActionResult.SUCCESS, is);
-        } else if (weapontype == 4 && handIn == EnumHand.MAIN_HAND) {
-            return new ActionResult<>(EnumActionResult.FAIL, is);}
-        else if (this.isShield && handIn == EnumHand.OFF_HAND) {
+        } else if (this.isShield && handIn == EnumHand.OFF_HAND) {
             playerIn.setActiveHand(EnumHand.OFF_HAND);
             return new ActionResult<>(EnumActionResult.SUCCESS, is);}else if (canBlock && handIn == EnumHand.MAIN_HAND) {
             playerIn.setActiveHand(EnumHand.MAIN_HAND);
             return new ActionResult<>(EnumActionResult.SUCCESS, is);
-        }
+        }else if (weapontype == 4 && handIn == EnumHand.MAIN_HAND) {
+            return new ActionResult<>(EnumActionResult.FAIL, is);}
         if (!flag) if (playerIn.onGround){
             if (recoil == 3) {
                 Vec3d look = playerIn.getLookVec();

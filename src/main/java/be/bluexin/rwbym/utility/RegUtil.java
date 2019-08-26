@@ -236,6 +236,10 @@ public class RegUtil {
         registerItems(event, RWBYItems.noctustraumicescy);
         registerItems(event, RWBYItems.noctustraumlightscy);
         registerItems(event, RWBYItems.noctustraumnormalscy);
+        registerItems(event, RWBYItems.neonfire);
+        registerItems(event, RWBYItems.neonice);
+        registerItems(event, RWBYItems.neonwind);
+        registerItems(event, RWBYItems.neonnormal);
         //dust items
         registerBlocks(event, RWBYItems.crusher);
         registerItems(event, RWBYItems.chisel);
@@ -255,6 +259,8 @@ public class RegUtil {
         registerItems(event, RWBYItems.lightdustcrystalcut);
         registerItems(event, RWBYItems.icedustcrystalcut);
         registerItems(event, RWBYItems.dustrock);
+        registerItems(event, RWBYItems.dustrockhardlight);
+        registerItems(event, RWBYItems.dustcrystalhardlight);
         registerItems(event, RWBYItems.winddustrock);
         registerItems(event, RWBYItems.firedustrock);
         registerItems(event, RWBYItems.gravitydustrock);
@@ -819,6 +825,10 @@ public class RegUtil {
         registerRecipes(RWBYItems.noctustraumgravscy);
         registerRecipes(RWBYItems.noctustraumicescy);
         registerRecipes(RWBYItems.noctustraumlightscy);
+        registerRecipes(RWBYItems.neonnormal);
+        registerRecipes(RWBYItems.neonfire);
+        registerRecipes(RWBYItems.neonice);
+        registerRecipes(RWBYItems.neonwind);
     }
 
     private static void registerBlocks(FMLPreInitializationEvent event, Block...blocks) {

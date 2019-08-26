@@ -2589,6 +2589,76 @@ public class RWBYItems {
             1,
             null);
 
+    public static final Item neonnormal = new RWBYGun(
+            "neonnormal",
+            2500,
+            72,
+            2,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}]}",
+            "rwbym:neonfire",
+            "rwbym:crmag32,rwbym:crfiremag32",
+            false,
+            1,
+            false,
+            false,
+            0,
+            1,
+            0,
+            1,
+            RWBYCreativeTabs.tab_rwbyweapons);
+    public static final Item neonfire = new RWBYGun(
+            "neonfire",
+            2500,
+            72,
+            2,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}]}",
+            "rwbym:neonice",
+            "rwbym:crmag32,rwbym:crfiremag32",
+            false,
+            1,
+            false,
+            false,
+            0,
+            1,
+            0,
+            1,
+            null).setElementMelee("fire");
+    public static final Item neonice = new RWBYGun(
+            "neonice",
+            2500,
+            72,
+            2,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}]}",
+            "rwbym:neonwind",
+            "rwbym:crmag32,rwbym:crfiremag32",
+            false,
+            1,
+            false,
+            false,
+            0,
+            1,
+            0,
+            1,
+            null).setElementMelee("ice");
+    public static final Item neonwind = new RWBYGun(
+            "neonwind",
+            2500,
+            72,
+            2,
+            "{AttributeModifiers:[{AttributeName:\"generic.movementSpeed\",Name:\"generic.movementSpeed\",Amount:0.2,Operation:0,UUIDLeast:763623,UUIDMost:811709,Slot:\"mainhand\"},{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:14,Operation:0,UUIDMost:99791,UUIDLeast:128914}]}",
+            "rwbym:neonnormal",
+            "rwbym:crmag32,rwbym:crfiremag32",
+            false,
+            1,
+            false,
+            false,
+            0,
+            1,
+            0,
+            1,
+            null);
+
+
 
 
     //------------------------------------------------//
@@ -2606,6 +2676,8 @@ public class RWBYItems {
     public static final Item lightdustcrystal = new RWBYItem("lightdustcrystal", "{AttributeModifiers:[{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:-0.50,Operation:2,UUIDMost:17934,UUIDLeast:125321},{AttributeName:\"generic.movementSpeed\",Name:\"generic.movementSpeed\",Slot:\"offhand\",Amount:1.2,Operation:2,UUIDMost:13043,UUIDLeast:147969},{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"offhand\",Amount:2,Operation:2,UUIDMost:14080,UUIDLeast:163727}]}", false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item icedustcrystal = new RWBYItem("icedustcrystal", " {AttributeModifiers:[{AttributeName:\"generic.movementSpeed\",Name:\"generic.movementSpeed\",Slot:\"offhand\",Amount:-0.3,Operation:2,UUIDMost:79372,UUIDLeast:112384},{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:0.5,Operation:2,UUIDMost:25912,UUIDLeast:178428}]}", false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item dustrock = new RWBYItem("dustrock", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item dustrockhardlight = new RWBYItem("dustrockhardlight", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item dustcrystalhardlight = new RWBYItem("dustcrystalhardlight",  " {AttributeModifiers:[{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"offhand\",Amount:0.20,Operation:2,UUIDMost:55673,UUIDLeast:113518},{AttributeName:\"generic.knockbackResistance\",Name:\"generic.knockbackResistance\",Slot:\"offhand\",Amount:1,Operation:2,UUIDMost:43088,UUIDLeast:115545},{AttributeName:\"generic.movementSpeed\",Name:\"generic.movementSpeed\",Slot:\"offhand\",Amount:0.20,Operation:2,UUIDMost:52996,UUIDLeast:169334}]}", false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item dust = new RWBYItem("dust", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item winddustrock = new RWBYItem("winddustrock", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item firedustrock = new RWBYItem("firedustrock", null, false, RWBYCreativeTabs.tab_rwbyitems);
@@ -2737,7 +2809,7 @@ public class RWBYItems {
     		.setCreativeTab(RWBYCreativeTabs.tab_rwbyitems);
     public static final Item dustpouch = new RWBYContainerItem(
             "dustpouch",
-            "rwbym:dustcrystalcut,rwbym:winddustcrystalcut,rwbym:firedustcrystalcut,rwbym:gravitydustcrystalcut,rwbym:waterdustcrystalcut,rwbym:lightdustcrystalcut,rwbym:icedustcrystalcut,rwbym:fireblock,rwbym:gravityblock,rwbym:iceblock,rwbym:impureblock,rwbym:lightblock,rwbym:waterblock,rwbym:windblock,rwbym:dustcrystal,rwbym:winddustcrystal,rwbym:firedustcrystal,rwbym:gravitydustcrystal,rwbym:waterdustcrystal,rwbym:lightdustcrystal,rwbym:icedustcrystal,rwbym:dustrock,rwbym:winddustrock,rwbym:firedustrock,rwbym:gravitydustrock,rwbym:waterdustrock,rwbym:lightdustrock,rwbym:icedustrock,rwbym:dust,rwbym:winddust,rwbym:firedust,rwbym:gravitydust,rwbym:waterdust,rwbym:lightdust,rwbym:icedust",
+            "rwbym:dustrockhardlight,rwbym:dustcrystalhardlight,rwbym:dustcrystalcut,rwbym:winddustcrystalcut,rwbym:firedustcrystalcut,rwbym:gravitydustcrystalcut,rwbym:waterdustcrystalcut,rwbym:lightdustcrystalcut,rwbym:icedustcrystalcut,rwbym:fireblock,rwbym:gravityblock,rwbym:iceblock,rwbym:impureblock,rwbym:lightblock,rwbym:waterblock,rwbym:windblock,rwbym:dustcrystal,rwbym:winddustcrystal,rwbym:firedustcrystal,rwbym:gravitydustcrystal,rwbym:waterdustcrystal,rwbym:lightdustcrystal,rwbym:icedustcrystal,rwbym:dustrock,rwbym:winddustrock,rwbym:firedustrock,rwbym:gravitydustrock,rwbym:waterdustrock,rwbym:lightdustrock,rwbym:icedustrock,rwbym:dust,rwbym:winddust,rwbym:firedust,rwbym:gravitydust,rwbym:waterdust,rwbym:lightdust,rwbym:icedust",
             9,
             1,
             FMLCommonHandler.instance().getSide() == Side.CLIENT ? RWBYItemContainerGui.class : null,
@@ -2753,7 +2825,7 @@ public class RWBYItems {
             .setCreativeTab(RWBYCreativeTabs.tab_rwbyitems);
     public static final Item container = new RWBYContainerItem(
     		"container",
-    		"rwbym:dustcrystalcut,rwbym:winddustcrystalcut,rwbym:firedustcrystalcut,rwbym:gravitydustcrystalcut,rwbym:waterdustcrystalcut,rwbym:lightdustcrystalcut,rwbym:icedustcrystalcut,rwbym:forestironblock,rwbym:frostedironblock,rwbym:gildedironblock,rwbym:roseironblock,rwbym:shadowironblock,rwbym:viridianironblock,rwbym:fireblock,rwbym:gravityblock,rwbym:iceblock,rwbym:impureblock,rwbym:lightblock,rwbym:waterblock,rwbym:windblock,rwbym:dustcrystal,rwbym:winddustcrystal,rwbym:firedustcrystal,rwbym:gravitydustcrystal,rwbym:waterdustcrystal,rwbym:lightdustcrystal,rwbym:icedustcrystal,rwbym:cr1,rwbym:cr2,rwbym:cr3,rwbym:cr4,rwbym:cr5,rwbym:cr6,rwbym:mytre1,rwbym:mytre2,rwbym:mytre3,rwbym:gam1,rwbym:gam2,rwbym:gam3,rwbym:em1,rwbym:em2,rwbym:em3,rwbym:cro1,rwbym:cro2,rwbym:cro3,rwbym:magn1,rwbym:magn2,rwbym:magn3,rwbym:magn4,rwbym:milo1,rwbym:milo2,rwbym:milo3,rwbym:stor1,rwbym:stor2,rwbym:stor3,rwbym:stor4,rwbym:stor5,rwbym:stor6,rwbym:scrap,rwbym:remnants,rwbym:dustrock,rwbym:winddustrock,rwbym:firedustrock,rwbym:gravitydustrock,rwbym:waterdustrock,rwbym:lightdustrock,rwbym:icedustrock,rwbym:dust,rwbym:winddust,rwbym:firedust,rwbym:gravitydust,rwbym:waterdust,rwbym:lightdust,rwbym:icedust,rwbym:lien1,rwbym:lien5,rwbym:lien10,rwbym:lien20,rwbym:lien50,rwbym:lien100,rwbym:lien500,rwbym:roseiron,rwbym:gildediron,rwbym:frostediron,rwbym:shadowiron,rwbym:viridianiron,rwbym:forestiron",
+    		"rwbym:dustrockhardlight,rwbym:dustcrystalhardlight,rwbym:dustcrystalcut,rwbym:winddustcrystalcut,rwbym:firedustcrystalcut,rwbym:gravitydustcrystalcut,rwbym:waterdustcrystalcut,rwbym:lightdustcrystalcut,rwbym:icedustcrystalcut,rwbym:forestironblock,rwbym:frostedironblock,rwbym:gildedironblock,rwbym:roseironblock,rwbym:shadowironblock,rwbym:viridianironblock,rwbym:fireblock,rwbym:gravityblock,rwbym:iceblock,rwbym:impureblock,rwbym:lightblock,rwbym:waterblock,rwbym:windblock,rwbym:dustcrystal,rwbym:winddustcrystal,rwbym:firedustcrystal,rwbym:gravitydustcrystal,rwbym:waterdustcrystal,rwbym:lightdustcrystal,rwbym:icedustcrystal,rwbym:cr1,rwbym:cr2,rwbym:cr3,rwbym:cr4,rwbym:cr5,rwbym:cr6,rwbym:mytre1,rwbym:mytre2,rwbym:mytre3,rwbym:gam1,rwbym:gam2,rwbym:gam3,rwbym:em1,rwbym:em2,rwbym:em3,rwbym:cro1,rwbym:cro2,rwbym:cro3,rwbym:magn1,rwbym:magn2,rwbym:magn3,rwbym:magn4,rwbym:milo1,rwbym:milo2,rwbym:milo3,rwbym:stor1,rwbym:stor2,rwbym:stor3,rwbym:stor4,rwbym:stor5,rwbym:stor6,rwbym:scrap,rwbym:remnants,rwbym:dustrock,rwbym:winddustrock,rwbym:firedustrock,rwbym:gravitydustrock,rwbym:waterdustrock,rwbym:lightdustrock,rwbym:icedustrock,rwbym:dust,rwbym:winddust,rwbym:firedust,rwbym:gravitydust,rwbym:waterdust,rwbym:lightdust,rwbym:icedust,rwbym:lien1,rwbym:lien5,rwbym:lien10,rwbym:lien20,rwbym:lien50,rwbym:lien100,rwbym:lien500,rwbym:roseiron,rwbym:gildediron,rwbym:frostediron,rwbym:shadowiron,rwbym:viridianiron,rwbym:forestiron",
     		54,
     		1,
     		FMLCommonHandler.instance().getSide() == Side.CLIENT ? RWBYItemContainerGuiChest.class : null,

@@ -171,6 +171,7 @@ tile.shadowironblock.name=Shadow Iron Block
 tile.viridianironblock.name=Viridian Iron Block
 tile.waterblock.name=Case of Water Dust
 tile.windblock.name=Case of Wind Dust
+tile.hrdltfence.name=Hardlight Fence
 item.rwbym:ozpincane.name=Ozpin's Cane
 item.rwbym:port.name=Port's BlunderAxe
 item.rwbym:portgun.name=Port's BlunderAxe
@@ -503,6 +504,13 @@ item.rwbym:noctustraumfirescy.name=Noctustraum (Fire)
 item.rwbym:noctustraumicescy.name=Noctustraum (Ice)
 item.rwbym:noctustraumlightscy.name=Noctustraum (Lightning)
 item.rwbym:noctustraumgravscy.name=Noctustraum (Gravity)
+item.rwbym:neonwind.name=Neon's Nunchucks
+item.rwbym:neonnormal.name=Neon's Nunchucks
+item.rwbym:neonice.name=Neon's Nunchucks
+item.rwbym:neonfire.name=Neon's Nunchucks
+item.rwbym:neonwind.name=Neon's Nunchucks
+item.rwbym:dustcrystalhardlight.name=Hard Light Crystal
+item.rwbym:dustrockhardlight.name=Unrefined Hardlight Dust
 
 
 effect.aura_regen=Aura Regen
