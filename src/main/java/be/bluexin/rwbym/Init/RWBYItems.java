@@ -116,6 +116,23 @@ public class RWBYItems {
             0,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
+    public static final Item grimmwhip = new RWBYGun(
+            "grimmwhip",
+            2500,
+            72,
+            12,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}]}",
+            null,
+            "rwbym:gammag32",
+            false,
+            1,
+            false,
+            true,
+            4,
+            1,
+            0,
+            3,
+            RWBYCreativeTabs.tab_rwbyweapons);
     public static final Item crescentfrost = new RWBYGun(
             "crescentfrost",
             2500,
@@ -2801,6 +2818,7 @@ public class RWBYItems {
     public static final Item clearleftleg = new RWBYLimbItem("clearleftleg",  "LeftLeg");
     public static final Item kag = new RWBYLimbItem("kag", "Tail");
     public static final Item kag2 = new RWBYLimbItem("kag2", "Tail");
+    public static final Item grimmbody = new RWBYLimbItem("grimmbody", "Body");
 
     //------------------------------------------------//
     public static final Item wallet = new RWBYContainerItem(

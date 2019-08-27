@@ -224,8 +224,10 @@ public class RegUtil {
         registerItems(event, RWBYItems.hsanrei);
         registerItems(event, RWBYItems.grimmrapier);
         registerItems(event, RWBYItems.grimmscy);
+        registerItems(event, RWBYItems.grimmwhip);
         registerItems(event, RWBYItems.kag);
         registerItems(event, RWBYItems.kag2);
+        registerItems(event, RWBYItems.grimmbody);
         registerItems(event, RWBYItems.noctustraumfire);
         registerItems(event, RWBYItems.noctustraumgrav);
         registerItems(event, RWBYItems.noctustraumice);

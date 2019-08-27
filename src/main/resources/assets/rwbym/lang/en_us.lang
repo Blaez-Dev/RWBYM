@@ -494,6 +494,9 @@ item.rwbym:clearrightleg.name=Clear Right Leg Slot
 item.rwbym:clearleftleg.name=Clear Left Leg Slot
 item.rwbym:kag.name=Kagune
 item.rwbym:kag2.name=Kagune
+item.rwbym:grimmbody.name=Grimm Torso
+item.rwbym:grimmwhip.name=Grimm Shroud
+
 item.rwbym:noctustraumnormal.name=Noctustraum (Normal)
 item.rwbym:noctustraumfire.name=Noctustraum (Fire)
 item.rwbym:noctustraumice.name=Noctustraum (Ice)
