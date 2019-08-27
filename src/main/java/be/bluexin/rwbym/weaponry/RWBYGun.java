@@ -51,6 +51,7 @@ import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import java.util.List;
+import java.util.Random;
 import java.util.Set;
 
 import static net.minecraft.item.ItemBow.getArrowVelocity;
@@ -93,6 +94,8 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     private String element = null;
     private String elementmelee = null;
 
+    private boolean gwen;
+
     public RWBYGun setElement(String element) {
         this.element = element;
         return this;
@@ -114,6 +117,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     *  9 Internal Magazine
     * 10 Ilia Whip Range
     * 11 Leonhart's Shield
+    * 12 Daggers Critical
     *
     *
     *  99 Sanrei Shunto
@@ -147,6 +151,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
 
         this.soundeffect = soundeffect;
+        if(name.contains("gwenknife")){gwen = true;}
         if(weapontype == 3 | weapontype == 7) { ohblade = true; this.damages = 14; }
         if(weapontype == 10){this.damages = 14;}
         if(name.contains("weiss")||name.contains("oobleck")||name.contains("goodwitch")){mytre = true;}
@@ -563,10 +568,10 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                 flag2 = false;
             }
 
-            /*
+
             if(ohblade && entityplayer.getActiveHand() == EnumHand.OFF_HAND){
                 flag2 = false;
-            }*/
+            }
 
             if(weapontype == 99 && entityplayer.getCapability(AuraProvider.AURA_CAP, null).getAmount() < 10){flag2 = false;}
 
@@ -820,6 +825,15 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
         if(!unarm && !ohblade){
             target.attackEntityFrom(DamageSource.GENERIC, 35);
+        }}
+
+        if(weapontype == 12 || gwen){
+        if (target.getHealth() >= 100.0F && (new Random()).nextInt(100) <= 30) {
+            if (attacker instanceof EntityPlayer) {
+                target.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer)attacker), 100.0F);
+            } else {
+                target.attackEntityFrom(DamageSource.WITHER, 100.0F);
+            }
         }}
 
         if(weapontype == 2){
