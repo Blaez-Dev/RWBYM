@@ -55,15 +55,10 @@ public class RWBYAmmoItem extends Item implements ICustomItem {
     private IAmmoHit hitfun;
     private SurviveOnHit survives;
 
-    public boolean pierce;
-
     private List<PotionEffect> potions;
 
 
-    public RWBYAmmoItem setPierce(Boolean pierce) {
-        this.pierce = pierce;
-        return this;
-    }
+
 
     //public int getAmmoMax;
 

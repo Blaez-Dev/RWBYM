@@ -37,10 +37,8 @@ public class RWBYBlockFence extends BlockFence {
 	public static final IProperty<Boolean> ON = PropertyBool.create("on");
 	public static final IProperty<Boolean> POST = PropertyBool.create("post");
 
-	public RWBYBlockFence(Material blockMaterialIn, MapColor blockMapColorIn, float hardness, float resistence) {
+	public RWBYBlockFence(Material blockMaterialIn, MapColor blockMapColorIn) {
 		super(blockMaterialIn, blockMapColorIn);
-		setHardness(hardness);
-		setResistance(resistence);
 		this.setDefaultState(this.getDefaultState().withProperty(TOP, false).withProperty(ON, false).withProperty(POST, true));
 	}
 
@@ -121,7 +119,6 @@ public class RWBYBlockFence extends BlockFence {
 	public float getBlockHardness(IBlockState blockState, World worldIn, BlockPos pos) {
 		return blockState.getValue(POST) ? super.getBlockHardness(blockState, worldIn, pos) : -1F;
 	}
-
 	
 	@Override
 	public int getMetaFromState(IBlockState state) {

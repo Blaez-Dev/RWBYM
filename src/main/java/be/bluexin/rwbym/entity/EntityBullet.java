@@ -412,8 +412,7 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
         item.onEntityHit(living, (EntityLivingBase) this.shootingEntity);
 
         living.hurtResistantTime = 0;
-
-        if(!item.pierce){
+        
         if (item.canSurviveEntityHit()) {
         	this.motionX *= -0.01;
         	this.motionZ *= -0.01;
@@ -422,7 +421,7 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
 
         if (!item.canSurviveEntityHit() && !(living instanceof EntityEnderman)) {
             this.setDead();
-        }}
+        }
 
         if (item.getPotions() != null) {
             for (PotionEffect potion : item.getPotions()) {

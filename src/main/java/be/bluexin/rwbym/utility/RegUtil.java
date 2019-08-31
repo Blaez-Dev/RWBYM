@@ -225,9 +225,6 @@ public class RegUtil {
         registerItems(event, RWBYItems.grimmrapier);
         registerItems(event, RWBYItems.grimmscy);
         registerItems(event, RWBYItems.grimmwhip);
-        registerItems(event, RWBYItems.hadesgun);
-        registerItems(event, RWBYItems.hadesgunrecoil);
-        registerItems(event, RWBYItems.hadesscy);
         registerItems(event, RWBYItems.kag);
         registerItems(event, RWBYItems.kag2);
         registerItems(event, RWBYItems.grimmbody);
@@ -328,7 +325,6 @@ public class RegUtil {
         registerItems(event, RWBYItems.clearrightarm);
         registerItems(event, RWBYItems.clearrightleg);
         registerItems(event, RWBYItems.cleartail);
-        registerItems(event, RWBYItems.clearbody);
         //entity spawning items
         registerItems(event, RWBYItems.atlasknight);
         registerItems(event, RWBYItems.armagigas);
@@ -412,7 +408,6 @@ public class RegUtil {
         registerItems(event, RWBYItems.crgravmag);
         registerItems(event, RWBYItems.crfiremag);
         registerItems(event, RWBYItems.crelectricmag);
-        registerItems(event, RWBYItems.hadesmag);
         registerItems(event, RWBYItems.magnammo);
         registerItems(event, RWBYItems.chatmag);
         registerItems(event, RWBYItems.chatelectricmag);
@@ -472,12 +467,6 @@ public class RegUtil {
         registerItems(event, RWBYItems.stor4);
         registerItems(event, RWBYItems.stor5);
         registerItems(event, RWBYItems.stor6);
-        registerItems(event, RWBYItems.he1);
-        registerItems(event, RWBYItems.he2);
-        registerItems(event, RWBYItems.he3);
-        registerItems(event, RWBYItems.he4);
-        registerItems(event, RWBYItems.he5);
-        registerItems(event, RWBYItems.he6);
         registerBlocks(event, RWBYItems.rwbyblock7);
         //armor
         registerItems(event, RWBYItems.whtefng);
@@ -842,14 +831,6 @@ public class RegUtil {
         registerRecipes(RWBYItems.neonfire);
         registerRecipes(RWBYItems.neonice);
         registerRecipes(RWBYItems.neonwind);
-        registerRecipes(RWBYItems.hadesscy);
-        registerRecipes(RWBYItems.hadesgun);
-        registerRecipes(RWBYItems.he1);
-        registerRecipes(RWBYItems.he2);
-        registerRecipes(RWBYItems.he3);
-        registerRecipes(RWBYItems.he4);
-        registerRecipes(RWBYItems.he5);
-        registerRecipes(RWBYItems.he6);
     }
 
     private static void registerBlocks(FMLPreInitializationEvent event, Block...blocks) {

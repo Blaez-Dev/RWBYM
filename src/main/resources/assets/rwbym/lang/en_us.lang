@@ -496,17 +496,6 @@ item.rwbym:kag.name=Kagune
 item.rwbym:kag2.name=Kagune
 item.rwbym:grimmbody.name=Grimm Torso
 item.rwbym:grimmwhip.name=Grimm Shroud
-item.rwbym:hadesmag.name=Tenebrous Cinder Magazine
-item.rwbym:hadesscy.name=Tenebrous Cinder
-item.rwbym:hadesgun.name=Tenebrous Cinder
-item.rwbym:hadesgunrecoil.name=Tenebrous Cinder
-item.rwbym:clearbody.name=Clear Body
-item.rwbym:he1.name=Tenebrous Cinder Part 1
-item.rwbym:he2.name=Tenebrous Cinder Part 2
-item.rwbym:he3.name=Tenebrous Cinder Part 3
-item.rwbym:he4.name=Tenebrous Cinder Part 4
-item.rwbym:he5.name=Tenebrous Cinder Part 5
-item.rwbym:he6.name=Tenebrous Cinder Part 6
 
 item.rwbym:noctustraumnormal.name=Noctustraum (Normal)
 item.rwbym:noctustraumfire.name=Noctustraum (Fire)

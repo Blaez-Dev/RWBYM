@@ -491,7 +491,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             return EnumAction.BOW;
         }else if(stack.getItem() == RWBYItems.cinderbow){
             return EnumAction.BOW;
-        }else if(canBlock){return  EnumAction.BLOCK;}else return EnumAction.NONE;
+        }else if(canBlock){return  EnumAction.BLOCK;}else return EnumAction.BOW;
     }
 
     @Nonnull
