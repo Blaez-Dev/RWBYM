@@ -1,0 +1,19 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "fch",
+    "rrr",
+    "rrr"
+  ],
+  "key": {
+    "c": {"item": "rwbym:shadowiron"},
+    "r": {"item": "rwbym:ammo"},
+    "f": {"item": "rwbym:lightdustcrystal"},
+    "h": {"item": "rwbym:dustcrystalhardlight"}
+  },
+  "result": {
+    "item": "rwbym:hadesmag",
+    "count": 1
+  }
+}
