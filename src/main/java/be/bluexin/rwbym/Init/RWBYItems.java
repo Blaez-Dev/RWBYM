@@ -82,6 +82,57 @@ public class RWBYItems {
             0,
             1,
             RWBYCreativeTabs.tab_rwbyweapons);
+    public static final Item hadesgun = new RWBYGun(
+            "hadesgun",
+            2500,
+            72,
+            0,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}]}",
+            "rwbym:hadesscy",
+            "rwbym:crmag32,rwbym:hadesmag",
+            false,
+            1,
+            false,
+            false,
+            0,
+            1,
+            0,
+            7,
+            null).setElement("rwbym:hadesgunrecoil");
+    public static final Item hadesgunrecoil = new RWBYGun(
+            "hadesgunrecoil",
+            2500,
+            72,
+            0,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}]}",
+            "rwbym:hadesscy",
+            "rwbym:crmag32,rwbym:hadesmag",
+            false,
+            1,
+            false,
+            false,
+            1,
+            1,
+            0,
+            7,
+            RWBYCreativeTabs.tab_rwbyweapons).setElement("rwbym:hadesgun");
+    public static final Item hadesscy = new RWBYGun(
+            "hadesscy",
+            2500,
+            72,
+            2,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:22,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}]}",
+            "rwbym:hadesgunrecoil",
+            "rwbym:crmag32",
+            false,
+            1,
+            false,
+            false,
+            0,
+            1,
+            0,
+            7,
+            null);
     public static final Item grimmscy = new RWBYGun(
             "grimmscy",
             2500,
@@ -128,7 +179,7 @@ public class RWBYItems {
             1,
             false,
             true,
-            4,
+            0,
             1,
             0,
             3,
@@ -2743,6 +2794,12 @@ public class RWBYItems {
     public static final Item stor4 = new RWBYItem("stor4", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item stor5 = new RWBYItem("stor5", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item stor6 = new RWBYItem("stor6", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item he1 = new RWBYItem("he1", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item he2 = new RWBYItem("he2", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item he3 = new RWBYItem("he3", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item he4 = new RWBYItem("he4", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item he5 = new RWBYItem("he5", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item he6 = new RWBYItem("he6", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item scrap = new RWBYItem("scrap", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item atlasknight = new RWBYItem("atlasknight", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item remnants = new RWBYItem("remnants", null, false, RWBYCreativeTabs.tab_rwbyitems);
@@ -2809,6 +2866,7 @@ public class RWBYItems {
     public static final Item rabbitearsgrey = new RWBYLimbItem("rabbitearsgrey", "Ears");
     public static final Item rabbitearsorange = new RWBYLimbItem("rabbitearsorange", "Ears");
     public static final Item rabbitearswhite = new RWBYLimbItem("rabbitearswhite", "Ears");
+    public static final Item clearbody = new RWBYLimbItem("clearbody", "Body");
     public static final Item clearears = new RWBYLimbItem("clearears", "Ears");
     public static final Item clearhead = new RWBYLimbItem("clearhead", "Head");
     public static final Item cleartail = new RWBYLimbItem("cleartail", "Tail");
@@ -3205,6 +3263,21 @@ public class RWBYItems {
             10,
             RWBYCreativeTabs.tab_rwbyitems,
             new ExplosionAmmoHit(0));
+    public static final Item hadesmag = new RWBYAmmoItem(
+            "hadesmag",
+            RWBYItems.entitybullet,
+            1,
+            false,
+            RWBYAmmoItem.SurviveOnHit.NONE,
+            "textures/entity/projectiles/tipped_arrow.png",
+            true,
+            false,
+            null,
+            null,
+            16,
+            20,
+            RWBYCreativeTabs.tab_rwbyitems,
+            new ExplosionAmmoHit(0)).setPierce(true);
     public static final Item magnammo = new RWBYAmmoItem(
             "magnammo",
             RWBYItems.entitygrenade,
@@ -3848,13 +3921,13 @@ public class RWBYItems {
             "bait",
             Material.GLASS,
             RWBYCreativeTabs.tab_rwbyitems,
-            0F,
-            1F,
+            2.5F,
+            45.0F,
             "null",
             1);
     public static final Block crusher = new RWBYCrusher(
             "crusher");
-    public static final Block hrdltfence = new RWBYBlockFence(Material.GLASS, MapColor.CYAN)
+    public static final Block hrdltfence = new RWBYBlockFence(Material.GLASS, MapColor.CYAN, 2.5F, 45.0F)
     		.setRegistryName(RWBYModels.MODID, "hrdltfence")
     		.setUnlocalizedName("hrdltfence")
     		.setCreativeTab(RWBYCreativeTabs.tab_rwbyitems);
