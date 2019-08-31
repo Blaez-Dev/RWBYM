@@ -1,0 +1,21 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "fec",
+    " bd",
+    "a  "
+  ],
+  "key": {
+    "a": {"item": "rwbym:he1"},
+    "b": {"item": "rwbym:he2"},
+    "c": {"item": "rwbym:he3"},
+    "d": {"item": "rwbym:he4"},
+    "e": {"item": "rwbym:he5"},
+    "f": {"item": "rwbym:he6"}
+  },
+  "result": {
+    "item": "rwbym:hadesgunrecoil",
+    "count": 1
+  }
+}

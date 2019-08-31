@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
+import be.bluexin.rwbym.Init.RWBYItems;
 import be.bluexin.rwbym.RWBYModels;
 import be.bluexin.rwbym.entity.EntityApathy;
 import be.bluexin.rwbym.entity.EntityBeowolf;
@@ -23,8 +24,11 @@ import be.bluexin.rwbym.entity.EntityQueenLancer;
 import be.bluexin.rwbym.entity.EntityUrsa;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.passive.EntityMule;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
@@ -56,6 +60,43 @@ public class TileEntityRWBYGrimmBait extends TileEntity implements ITickable {
     
     public void stop() {
     	this.world.setBlockToAir(this.getPos());
+
+		int i1 = rand.nextInt(100)+5;
+		while (i1 > 0)
+		{
+			i1 --;
+			ArrayList<ItemStack> drops = new ArrayList<>();
+			drops.add(new ItemStack(RWBYItems.lien50, world.rand.nextInt(3) + 1));
+			drops.add(new ItemStack(RWBYItems.lien100, world.rand.nextInt(3)+1));
+			drops.add(new ItemStack(RWBYItems.remnants, rand.nextInt(3)+1));
+			drops.add(new ItemStack(RWBYItems.lien500, 1));
+			drops.add(new ItemStack(RWBYItems.rwbyblock8, 1));
+			drops.add(new ItemStack(RWBYItems.waterblock, 1));
+			drops.add(new ItemStack(RWBYItems.windblock, 1));
+			drops.add(new ItemStack(RWBYItems.lightblock, 1));
+			drops.add(new ItemStack(RWBYItems.fireblock, 1));
+			drops.add(new ItemStack(RWBYItems.iceblock, 1));
+			drops.add(new ItemStack(RWBYItems.impureblock, 1));
+			drops.add(new ItemStack(RWBYItems.gravityblock, 1));
+
+			EntityItem item = new EntityItem(this.world, this.getPos().getX(), this.getPos().getY(), this.getPos().getZ(), drops.get(rand.nextInt(drops.size())));
+			this.world.spawnEntity(item);
+		}
+		ArrayList<ItemStack> drops2 = new ArrayList<>();
+		drops2.add(new ItemStack(RWBYItems.grimmrapier, 1));
+		drops2.add(new ItemStack(RWBYItems.grimmscy, 1));
+		drops2.add(new ItemStack(RWBYItems.grimmwhip, 1));
+		drops2.add(new ItemStack(RWBYItems.noctustraumnormal, 1));
+		drops2.add(new ItemStack(RWBYItems.he1, 1));
+		drops2.add(new ItemStack(RWBYItems.he2, 1));
+		drops2.add(new ItemStack(RWBYItems.he3, 1));
+		drops2.add(new ItemStack(RWBYItems.he4, 1));
+		drops2.add(new ItemStack(RWBYItems.he5, 1));
+		drops2.add(new ItemStack(RWBYItems.he6, 1));
+
+		EntityItem item2 = new EntityItem(this.world, this.getPos().getX(), this.getPos().getY(), this.getPos().getZ(), drops2.get(rand.nextInt(drops2.size())));
+		this.world.spawnEntity(item2);
+
     	this.wavecount = 0;
     	this.wavelist.clear();
     	this.player = null;
