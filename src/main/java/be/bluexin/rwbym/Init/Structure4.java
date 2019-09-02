@@ -39,10 +39,11 @@ public class Structure4 extends WorldGenerator{
             System.out.println("NO STRUCTURE");
             return false;
         }
-        
+
+
         Class<? extends Biome> biome = world.getBiome(position).getClass();
 
-        if(Oregen.canSpawnHere(template, worldserver, position) && !BIOMES.contains(biome)) {
+        if(Oregen.canSpawnHere(template, worldserver, position) && !BIOMES.contains(biome)&& world.findNearestStructure("Village", position, true).getDistance(position.getX(), position.getY(), position.getZ()) < 60 && world.findNearestStructure("Village", position, true).getDistance(position.getX(), position.getY(), position.getZ()) > 50) {
             IBlockState iblockstate = world.getBlockState(position);
             world.notifyBlockUpdate(position, iblockstate, iblockstate, 3);
 

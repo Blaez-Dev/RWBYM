@@ -44,11 +44,11 @@ public class RWBYConfig
     @Config.Comment("Global Aggro Range in Blocks")
     public static float aggrorange = 60;
     @Config.Comment("Spawn Chance Dust Shop")
-    public static int dustshop = 400;
+    public static int dustshop = 10;
     @Config.Comment("Spawn Chance of Remote Dust shop")
-    public static int dustshop2 = 400;
+    public static int dustshop2 = 10;
     @Config.Comment("Spawn Chance Crow Bar")
-    public static int bar = 400;
+    public static int bar = 10;
     @Config.Comment("Spawn Chance Well")
     public static int well = 350;
     @Config.Comment("Spawn Chance Gravity DusT")

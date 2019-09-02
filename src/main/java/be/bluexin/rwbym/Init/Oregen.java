@@ -194,7 +194,7 @@ public class Oregen implements IWorldGenerator{
         while(!foundGround && y-- >= 30)
         {
             Block blockAt = world.getBlockState(new BlockPos(x,y,z)).getBlock();
-            foundGround =  blockAt == Blocks.GRASS;
+            foundGround =  blockAt == Blocks.GRASS || blockAt == Blocks.SAND;
         }
 
         return y;
