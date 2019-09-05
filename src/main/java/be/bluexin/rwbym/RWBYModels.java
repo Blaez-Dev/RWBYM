@@ -20,9 +20,9 @@ import be.bluexin.rwbym.capabilities.Yang.YangStorage;
 import be.bluexin.rwbym.commands.CommandAura;
 import be.bluexin.rwbym.commands.CommandChangeSemblance;
 import be.bluexin.rwbym.gui.GUICrusher;
-import be.bluexin.rwbym.gui.GuiScreenScroll;
 import be.bluexin.rwbym.gui.IRWBYGuiFactory;
 import be.bluexin.rwbym.gui.RWBYItemContainerGui;
+import be.bluexin.rwbym.gui.scroll.GuiScreenScrollTeam;
 import be.bluexin.rwbym.inventory.IRWBYContainerFactory;
 import be.bluexin.rwbym.inventory.RWBYItemContainer;
 import be.bluexin.rwbym.proxy.CommonProxy;
@@ -225,7 +225,7 @@ public class RWBYModels {
 	    			stack = player.getHeldItemOffhand();
         			return IRWBYGuiFactory.createInstance(((RWBYContainerItem)stack.getItem()).getGuiClass(), player.inventory, stack);
 	    		case SCROLL:
-	    			return new GuiScreenScroll(player);
+	    			return new GuiScreenScrollTeam(player);
                 case GUI_Crusher:
                     return new GUICrusher(player.inventory, (TileEntityRWBYCrusher) world.getTileEntity(new BlockPos(x,y,z)));
 	    	}

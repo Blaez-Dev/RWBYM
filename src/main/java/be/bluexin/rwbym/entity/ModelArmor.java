@@ -19,9 +19,9 @@ public class ModelArmor extends ModelPlayer {
 		this.setVisiblePart();
 		
 		super.render(entityIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+		
 	}
 	
-	@SuppressWarnings("incomplete-switch")
 	private void setVisiblePart() {
 		
 		this.setVisible(false);

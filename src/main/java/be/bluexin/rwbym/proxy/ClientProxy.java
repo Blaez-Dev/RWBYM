@@ -16,6 +16,7 @@ import be.bluexin.rwbym.weaponry.RWBYAmmoRender;
 //import com.sun.org.apache.regexp.internal.RE;
 import ibxm.Player;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.EntityOtherPlayerMP;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.particle.ParticleManager;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -23,6 +24,8 @@ import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.tileentity.TileEntitySkull;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
@@ -68,8 +71,11 @@ import net.minecraftforge.fml.relauncher.Side;
 import java.lang.reflect.Field;
 import java.util.Map;
 import java.util.Random;
+import java.util.UUID;
 
 import javax.swing.text.Utilities;
+
+import com.mojang.authlib.GameProfile;
 
 /**
  * Part of rwbym
@@ -248,6 +254,23 @@ public class ClientProxy extends CommonProxy {
 				//world.spawnParticle(EnumParticleTypes.DRAGON_BREATH, x + rand.nextGaussian() * this.width / 4, y + rand.nextGaussian() * this.width / 4, z + rand.nextGaussian() * this.width / 4, 0, 0, 0);
 			}
 		}
+	}
+	
+	@Override
+	public EntityPlayer loadPlayer(NBTTagCompound teamnbt, String key, World world) {
+		EntityPlayer member;
+		if (world.isRemote) {
+			GameProfile profile = new GameProfile(UUID.fromString(teamnbt.getString(key)), teamnbt.getString(key + "name"));
+			TileEntitySkull.updateGameprofile(profile);
+			member = new EntityOtherPlayerMP(world, profile);
+			member.deserializeNBT(teamnbt.getCompoundTag(key + "data"));
+			member.setEntityId(teamnbt.getInteger(key + "id"));
+		}
+		else {
+			member = super.loadPlayer(teamnbt, key, world);
+		}
+		
+		return member;
 	}
 
 }

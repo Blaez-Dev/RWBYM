@@ -1,6 +1,6 @@
 
 
-package be.bluexin.rwbym.gui;
+package be.bluexin.rwbym.gui.scroll;
 
 import java.io.IOException;
 
@@ -13,6 +13,9 @@ import be.bluexin.rwbym.capabilities.CapabilityHandler;
 import be.bluexin.rwbym.capabilities.ISemblance;
 import be.bluexin.rwbym.capabilities.Aura.AuraProvider;
 import be.bluexin.rwbym.capabilities.Aura.IAura;
+import be.bluexin.rwbym.capabilities.team.ITeam;
+import be.bluexin.rwbym.capabilities.team.TeamProvider;
+import be.bluexin.rwbym.gui.GuiButtonScroll;
 import be.bluexin.rwbym.utility.network.MessageSendPlayerDataToServer;
 import be.bluexin.rwbym.utility.network.MessagePlayerEXP;
 import be.bluexin.rwbym.utility.network.RWBYNetworkHandler;
@@ -38,12 +41,15 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
-public class GuiScreenScroll extends GuiScreen {
+public class GuiScreenScrollTeam extends GuiScreen {
 
 	private static final ResourceLocation SCROLL_GUI_TEXTURE = new ResourceLocation(RWBYModels.MODID, "textures/gui/scroll.png");
 
 	private final int texturex = 128;
 	private final int texturey = 210;
+	
+	private int x;
+	private int y;
 
 	private final int barx = 81;
 	private final int bary = 9;
@@ -53,27 +59,45 @@ public class GuiScreenScroll extends GuiScreen {
 	private EntityPlayer players[] = new EntityPlayer[4];
 
 	private ItemStack heads[] = {ItemStack.EMPTY, ItemStack.EMPTY, ItemStack.EMPTY, ItemStack.EMPTY};
+	
+	private GuiButton leaveButton;
 
-	private GuiButton button1, button2, button3, button4;
-
-	public GuiScreenScroll(EntityPlayer player) {
+	public GuiScreenScrollTeam(EntityPlayer player) {
+		
 		this.addPlayer(player, 0);
-
-		//this.addPlayer(player, 1);
-		//this.addPlayer(player, 2);
-		//this.addPlayer(player, 3);
+		
+		if (Minecraft.getMinecraft().world.hasCapability(TeamProvider.TEAM_CAP, null)) {
+			
+			ITeam team = Minecraft.getMinecraft().world.getCapability(TeamProvider.TEAM_CAP, null);
+			int i = 1;
+			for (EntityPlayer member : team.getTeam(player)) {
+				this.addPlayer(member, i);
+				i++;
+			}
+			
+		}
+		
 	}
 
 	@Override
 	public void initGui() {
 		super.initGui();
+		
+		x = (this.width - texturex) / 2;
+		y = (this.height - 21 - texturey) / 2;
+		
 		this.mc = Minecraft.getMinecraft();
 
 		this.allowUserInput = true;
 
 		this.buttonList.clear();
-		this.button1 = this.addButton(new GuiButtonScroll(0, (this.width - 104) / 2, (this.height - 21) / 2 - texturey * 4 / 40, 90, 14, texturex, 0, 90, 14, 12, "Lvl Aura: "));
-		this.button2 = this.addButton(new GuiButtonScroll(1, (this.width + 76) / 2, (this.height - 21) / 2 - texturey * 4 / 40, 14, 14, texturex, 0, 90, 14, 12, "M"));
+		this.addButton(new GuiButtonScroll(0, x+2, y+2, 9, 9, 0, 227, 9, 9, 0, ""));
+		this.addButton(new GuiButtonScroll(1, x+2 + 8, y+2, 9, 9, 8, 227, 9, 9, 0, ""));
+		this.addButton(new GuiButtonScroll(2, x+2 + 16, y+2, 9, 9, 16, 227, 9, 9, 0, ""));
+		this.addButton(new GuiButtonScroll(3, x+2 + 24, y+2, 9, 9, 24, 227, 9, 9, 0, ""));
+		
+		leaveButton = this.addButton(new GuiButtonScroll(4, x + (texturex - 70) / 2, y + 90, 70, 14, texturex, 0, 90, 14, 12, "Leave Team"));
+		leaveButton.visible = false;
 
 	}
 
@@ -84,15 +108,22 @@ public class GuiScreenScroll extends GuiScreen {
 
 	@Override
 	protected void actionPerformed(GuiButton button) throws IOException {
-		IAura aura = this.players[0].getCapability(AuraProvider.AURA_CAP, null);
-		while(aura != null && !(RWBYModels.getXpTotal(players[0]) < aura.getEXPToLevel())) {
-			RWBYModels.addXp(-aura.getEXPToLevel(), players[0]);
-			RWBYNetworkHandler.sendToServer(new MessagePlayerEXP(-aura.getEXPToLevel()));
-			//this.players[0].experienceTotal -= aura.getEXPToLevel();
-			aura.addToMax(1);
-			RWBYNetworkHandler.sendToServer(new MessageSendPlayerDataToServer(this.players[0]));
-			if (button.id == 0) break;
+		
+		if (button.id == 0) {
+			Minecraft.getMinecraft().displayGuiScreen(new GuiScreenScrollTeam(this.players[0]));
 		}
+		else if (button.id == 2) {
+			Minecraft.getMinecraft().displayGuiScreen(new GuiScreenScrollRequests(this.players[0]));
+		}
+		else if (button.id == 3) {
+			Minecraft.getMinecraft().displayGuiScreen(new GuiScreenScrollLevel(this.players[0]));
+		}
+		else if (button.id == 4) {
+			if (Minecraft.getMinecraft().world.hasCapability(TeamProvider.TEAM_CAP, null)) {
+				Minecraft.getMinecraft().world.getCapability(TeamProvider.TEAM_CAP, null).leaveTeam(this.players[0]);
+			}
+		}
+		
 	}
 
 	@Override
@@ -105,15 +136,7 @@ public class GuiScreenScroll extends GuiScreen {
 
 	@Override
 	public void updateScreen() {
-		IAura aura = this.players[0].getCapability(AuraProvider.AURA_CAP, null);
-		if (aura != null) {
-			this.button1.enabled = aura != null && !(RWBYModels.getXpTotal(players[0]) < aura.getEXPToLevel());
-			this.button1.displayString = "Lvl Aura: " + aura.getEXPToLevel();
-		}
-		else {
-			this.button1.enabled = false;
-		}
-		this.button2.enabled = this.button1.enabled;
+		leaveButton.visible = players[1] != null || players[2] != null || players[3] != null;
 	}
 
 	@Override
@@ -124,7 +147,9 @@ public class GuiScreenScroll extends GuiScreen {
 		mc.getTextureManager().bindTexture(SCROLL_GUI_TEXTURE);
 		int sizex = this.width;
 		int sizey = this.height - 21;
-		this.drawTexturedModalRect((sizex - texturex) / 2, (sizey - texturey) / 2, 0, 0, texturex, texturey);
+		this.drawTexturedModalRect(x, y, 0, 0, texturex, texturey);
+		
+		this.drawTexturedModalRect(x + 42, y + 11, texturex, 38, 43, 42);
 
 		this.renderBar((sizex - barx) / 2, sizey / 2 - texturey * 9 / 40, players[0]);
 
@@ -294,4 +319,6 @@ public class GuiScreenScroll extends GuiScreen {
 			this.renderItemModelIntoGUI(heads[index], sizex / 2 - 45, sizey / 2 - texturey * (1 - 3*index) / 20, 2);
 
 		}
-	}}
+	}
+	
+}

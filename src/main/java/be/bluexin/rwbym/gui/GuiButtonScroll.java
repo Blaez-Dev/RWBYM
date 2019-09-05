@@ -23,19 +23,9 @@ public class GuiButtonScroll extends GuiButton
     public int texturedx = 0;
     public int texturedy = 0;
     public int deltay = 0;
-
-    public GuiButtonScroll(int buttonId, int x, int y, String buttonText)
-    {
-        this(buttonId, x, y, 200, 20, buttonText);
-    }
-
-    public GuiButtonScroll(int buttonId, int x, int y, int widthIn, int heightIn, String buttonText)
-    {
-    	super(buttonId, x, y, widthIn, heightIn, buttonText);
-    }
     
     public GuiButtonScroll(int buttonId, int x, int y, int widthIn, int heightIn, int texturex, int texturey, int texturedx, int texturedy, int deltay, String buttonText) {
-    	this(buttonId, x, y, widthIn, heightIn, buttonText);
+    	super(buttonId, x, y, widthIn, heightIn, buttonText);
     	this.texturex = texturex;
     	this.texturey = texturey;
     	this.texturedx = texturedx;
@@ -80,10 +70,17 @@ public class GuiButtonScroll extends GuiButton
             GlStateManager.enableBlend();
             GlStateManager.tryBlendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
             GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
-            this.drawTexturedModalRect(this.x, this.y, texturex, texturey + i * deltay, this.width / 2, this.height / 2);
-            this.drawTexturedModalRect(this.x + this.width / 2, this.y, texturex + offsetx, texturey + i * deltay, this.width / 2, this.height / 2);
-            this.drawTexturedModalRect(this.x, this.y + this.height / 2, texturex, texturey + offsety + i * deltay, this.width / 2, this.height / 2);
-            this.drawTexturedModalRect(this.x + this.width / 2, this.y + this.height / 2, texturex + offsetx, texturey + offsety + i * deltay, this.width / 2, this.height / 2);
+            
+            int w1 = this.width / 2;
+            int w2 = Math.round(this.width / 2F + 0.01F);
+            
+            int h1 = this.height / 2;
+            int h2 = Math.round(this.height / 2F + 0.01F);
+            
+            this.drawTexturedModalRect(this.x, this.y, texturex, texturey + i * deltay, w1, h1);
+            this.drawTexturedModalRect(this.x + w1, this.y, texturex + texturedx - w2, texturey + i * deltay, w2, h1);
+            this.drawTexturedModalRect(this.x, this.y + h1, texturex, texturey + texturedy - h2 + i * deltay, w1, h2);
+            this.drawTexturedModalRect(this.x + w1, this.y + h1, texturex + texturedx - w2, texturey + texturedy- h2 + i * deltay, w2, h2);
             this.mouseDragged(mc, mouseX, mouseY);
             int j = 14737632;
 

@@ -40,12 +40,17 @@ import be.bluexin.rwbym.capabilities.Yang.IYang;
 import be.bluexin.rwbym.capabilities.Yang.Yang;
 import be.bluexin.rwbym.capabilities.Yang.YangProvider;
 import be.bluexin.rwbym.capabilities.Yang.YangStorage;
+import be.bluexin.rwbym.capabilities.team.ITeam;
+import be.bluexin.rwbym.capabilities.team.Team;
+import be.bluexin.rwbym.capabilities.team.TeamProvider;
+import be.bluexin.rwbym.capabilities.team.TeamStorage;
 import be.bluexin.rwbym.capabilities.Ruby.IRuby;
 import be.bluexin.rwbym.capabilities.Ruby.Ruby;
 import be.bluexin.rwbym.capabilities.Ruby.RubyProvider;
 import be.bluexin.rwbym.capabilities.Ruby.RubyStorage;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
@@ -65,6 +70,7 @@ public class CapabilityHandler {
 	public static final ResourceLocation Nora_KEY = new ResourceLocation(RWBYModels.MODID, "nora");
 	
 	public static final ResourceLocation AURA_KEY = new ResourceLocation(RWBYModels.MODID, "aura");
+	public static final ResourceLocation TEAM_KEY = new ResourceLocation(RWBYModels.MODID, "team");
 	
 	private static List<Capability> capabilities = new ArrayList<Capability>();
 	
@@ -83,6 +89,10 @@ public class CapabilityHandler {
 			event.addCapability(Nora_KEY, new NoraProvider());
 		}
 		
+		if (event.getObject() instanceof World) {
+			event.addCapability(TEAM_KEY, new TeamProvider((World) event.getObject()));
+		}
+		
 	}
 	
 	public static void registerAll() {
@@ -98,6 +108,7 @@ public class CapabilityHandler {
 
 
 		CapabilityManager.INSTANCE.register(IAura.class, new AuraStorage(), Aura::new);
+		CapabilityManager.INSTANCE.register(ITeam.class, new TeamStorage(), Team::new);
 	}
 	
 	public static <T extends ISemblance> void register(Class<T> type, Capability.IStorage<T> storage, Callable<? extends T> factory) {

@@ -66,7 +66,7 @@ public class ArmourBase extends ItemArmor {
 	        		AbstractClientPlayer player = (AbstractClientPlayer) entityLiving;
 	        		smallarms = player.getSkinType().equals("slim");
         		}
-        		armorModel = new ModelArmor(0.01F, smallarms, armorSlot);
+        		armorModel = new ModelArmor(0.02F, smallarms, armorSlot);
         	}
         	else {
                 armorModel = new ModelBiped(0.2F);
@@ -97,7 +97,6 @@ public class ArmourBase extends ItemArmor {
         return s1;
     }
 
-    @SuppressWarnings("Duplicates")
     @Override
     public void onUpdate(ItemStack is, World world, Entity entity, int slotIn, boolean inHand) {
         if (!world.isRemote && this.data != null) {
