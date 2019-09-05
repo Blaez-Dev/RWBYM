@@ -2729,6 +2729,23 @@ public class RWBYItems {
             0,
             1,
             null);
+    public static final Item tocksword = new RWBYGun(
+            "tocksword",
+            2500,
+            72,
+            7,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}]}",
+            null,
+            "rwbym:gammag32",
+            false,
+            1,
+            true,
+            false,
+            0,
+            1,
+            0,
+            3,
+            RWBYCreativeTabs.tab_rwbyweapons);
 
 
 

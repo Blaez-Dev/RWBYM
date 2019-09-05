@@ -525,6 +525,7 @@ item.rwbym:neonfire.name=Neon's Nunchucks
 item.rwbym:neonwind.name=Neon's Nunchucks
 item.rwbym:dustcrystalhardlight.name=Hard Light Crystal
 item.rwbym:dustrockhardlight.name=Unrefined Hardlight Dust
+item.rwbym:tocksword.name=Tock's Cutlass
 
 
 effect.aura_regen=Aura Regen
