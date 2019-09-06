@@ -439,7 +439,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                         is.setTagCompound(JsonToNBT.getTagFromJson(this.data +",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-2.6,Operation:0,UUIDMost:42182,UUIDLeast:178330}]}"));
                     }else if(weapontype == 12){
                         is.setTagCompound(JsonToNBT.getTagFromJson(this.data +",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:1,Operation:0,UUIDMost:42182,UUIDLeast:178330}]}"));
-                    }else {is.setTagCompound(JsonToNBT.getTagFromJson(this.data +",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:1,Operation:0,UUIDMost:42182,UUIDLeast:178330}]}"));}
+                    }else {is.setTagCompound(JsonToNBT.getTagFromJson(this.data +",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:0,Operation:0,UUIDMost:42182,UUIDLeast:178330}]}"));}
                 } catch (NBTException nbtexception) {
                     LogManager.getLogger(RWBYModels.MODID).error("Couldn't load data tag for " + this.getRegistryName());
                 }
@@ -450,7 +450,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             if (!btag.hasKey(KEY)) {
                 btag.setBoolean(KEY, true);
                 try {
-                    is.setTagCompound(JsonToNBT.getTagFromJson("{AttributeModifiers:[{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:1,Operation:0,UUIDMost:60527,UUIDLeast:119972}]}"));
+                    is.setTagCompound(JsonToNBT.getTagFromJson("{AttributeModifiers:[{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:0,Operation:0,UUIDMost:60527,UUIDLeast:119972}]}"));
                     //is.getTagCompound().merge(atag);
                 } catch (NBTException nbtexception) {
                     LogManager.getLogger(RWBYModels.MODID).error("Couldn't load data tag for " + this.getRegistryName());
