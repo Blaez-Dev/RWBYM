@@ -7,16 +7,15 @@ import be.bluexin.rwbym.RWBYSoundHandler;
 import be.bluexin.rwbym.capabilities.Aura.AuraProvider;
 import be.bluexin.rwbym.entity.EntityLargeFireball;
 import be.bluexin.rwbym.entity.EntityNeverMore;
+import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.MoverType;
+import net.minecraft.entity.*;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.*;
@@ -424,13 +423,39 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             if (!atag.hasKey(KEY)) {
                 atag.setBoolean(KEY, true);
                 try {
-                    is.setTagCompound(JsonToNBT.getTagFromJson(this.data));
-                    //is.getTagCompound().merge(atag);
+                    if(weapontype == 1){
+                    is.setTagCompound(JsonToNBT.getTagFromJson(this.data +",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-1.0,Operation:0,UUIDMost:42182,UUIDLeast:178330}]}"));
+                    }else if(weapontype == 2){
+                        is.setTagCompound(JsonToNBT.getTagFromJson(this.data +",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-3.0,Operation:0,UUIDMost:42182,UUIDLeast:178330}]}"));
+                    }else if(weapontype == 3){
+                        is.setTagCompound(JsonToNBT.getTagFromJson(this.data +",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-2.6,Operation:0,UUIDMost:42182,UUIDLeast:178330}]}"));
+                    }else if(weapontype == 7){
+                        is.setTagCompound(JsonToNBT.getTagFromJson(this.data +",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-1.0,Operation:0,UUIDMost:42182,UUIDLeast:178330}]}"));
+                    }else if(weapontype == 4){
+                        is.setTagCompound(JsonToNBT.getTagFromJson(this.data +",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-1.0,Operation:0,UUIDMost:42182,UUIDLeast:178330}]}"));
+                    }else if(weapontype == 10){
+                        is.setTagCompound(JsonToNBT.getTagFromJson(this.data +",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-1.0,Operation:0,UUIDMost:42182,UUIDLeast:178330}]}"));
+                    }else if(weapontype == 11){
+                        is.setTagCompound(JsonToNBT.getTagFromJson(this.data +",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-2.6,Operation:0,UUIDMost:42182,UUIDLeast:178330}]}"));
+                    }else if(weapontype == 12){
+                        is.setTagCompound(JsonToNBT.getTagFromJson(this.data +",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:1,Operation:0,UUIDMost:42182,UUIDLeast:178330}]}"));
+                    }else {is.setTagCompound(JsonToNBT.getTagFromJson(this.data +",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:1,Operation:0,UUIDMost:42182,UUIDLeast:178330}]}"));}
                 } catch (NBTException nbtexception) {
                     LogManager.getLogger(RWBYModels.MODID).error("Couldn't load data tag for " + this.getRegistryName());
                 }
             }
         }
+            if(!world.isRemote && this.data == null){{NBTTagCompound btag = is.getTagCompound();
+            if (btag == null) btag = new NBTTagCompound();
+            if (!btag.hasKey(KEY)) {
+                btag.setBoolean(KEY, true);
+                try {
+                    is.setTagCompound(JsonToNBT.getTagFromJson("{AttributeModifiers:[{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:1,Operation:0,UUIDMost:60527,UUIDLeast:119972}]}"));
+                    //is.getTagCompound().merge(atag);
+                } catch (NBTException nbtexception) {
+                    LogManager.getLogger(RWBYModels.MODID).error("Couldn't load data tag for " + this.getRegistryName());
+                }
+            }}}
     }
 
 

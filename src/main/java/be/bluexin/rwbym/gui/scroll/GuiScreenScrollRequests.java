@@ -172,7 +172,7 @@ public class GuiScreenScrollRequests extends GuiScreen {
 			Minecraft.getMinecraft().displayGuiScreen(new GuiScreenScrollLevel(this.player));
 		}
 		else if (button.id == 4) {
-			System.out.println("Request");
+			//System.out.println("Request");
 			EntityPlayer otherPlayer = mc.world.getPlayerEntityByName(textbox.getText());
 			if (otherPlayer != null) {
 				mc.world.getCapability(TeamProvider.TEAM_CAP, null).sendRequest(player, otherPlayer);
