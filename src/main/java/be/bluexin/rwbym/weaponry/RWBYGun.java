@@ -90,6 +90,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     private float damages = 0;
     private int shotcount;
     private int finishshot;
+    private int shotrecoil;
 
     private String element = null;
     private String elementmelee = null;
@@ -103,6 +104,11 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
     public RWBYGun setElementMelee(String elementmelee) {
         this.elementmelee = elementmelee;
+        return this;
+    }
+
+    public RWBYGun setRecoil(int shotrecoil) {
+        this.shotrecoil = shotrecoil;
         return this;
     }
     //Weapon Type Numbers//
@@ -734,6 +740,10 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                     if(soundeffect == 17){
                         worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, SoundEvents.ENTITY_ENDERPEARL_THROW, SoundCategory.MASTER, 1.0F, 0.5F/ (itemRand.nextFloat() * 0.4F + 1.0F) + f + 0.5F);
                     }
+
+                        for (int timer = shotrecoil; timer>1; timer --){
+                        entityplayer.rotationPitch -= 1.0F;
+                        }
 
 
 

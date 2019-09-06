@@ -81,7 +81,7 @@ public class RWBYItems {
             1,
             0,
             1,
-            RWBYCreativeTabs.tab_rwbyweapons);
+            RWBYCreativeTabs.tab_rwbyweapons).setRecoil(5);
     public static final Item hadesgun = new RWBYGun(
             "hadesgun",
             2500,
@@ -98,7 +98,7 @@ public class RWBYItems {
             1,
             0,
             7,
-            null).setElement("rwbym:hadesgunrecoil");
+            null).setElement("rwbym:hadesgunrecoil").setRecoil(8);
     public static final Item hadesgunrecoil = new RWBYGun(
             "hadesgunrecoil",
             2500,
@@ -115,7 +115,7 @@ public class RWBYItems {
             1,
             0,
             7,
-            RWBYCreativeTabs.tab_rwbyweapons).setElement("rwbym:hadesgun");
+            RWBYCreativeTabs.tab_rwbyweapons).setElement("rwbym:hadesgun").setRecoil(20);
     public static final Item hadesscy = new RWBYGun(
             "hadesscy",
             2500,
@@ -132,7 +132,7 @@ public class RWBYItems {
             1,
             0,
             7,
-            null);
+            null).setRecoil(15);
     public static final Item grimmscy = new RWBYGun(
             "grimmscy",
             2500,
@@ -200,7 +200,7 @@ public class RWBYItems {
             1,
             0,
             1,
-           null);
+           null).setRecoil(5);
     public static final Item gambol = new RWBYSword(
             "gambol",
             2500,
@@ -388,7 +388,7 @@ public class RWBYItems {
             1,
             1,
             1,
-            null);
+            null).setRecoil(5);
     public static final Item weissv = new RWBYGun(
             "weissv",
             1250,
@@ -513,7 +513,7 @@ public class RWBYItems {
             1,
             0,
             5,
-            RWBYCreativeTabs.tab_rwbyweapons);
+            RWBYCreativeTabs.tab_rwbyweapons).setRecoil(5);
     public static final Item cocobagv = new RWBYSword(
             "cocobagv",
             1250,
@@ -816,7 +816,7 @@ public class RWBYItems {
             1,
             0,
             3,
-            null);
+            null).setRecoil(5);
     public static final Item angelcane = new RWBYSword(
             "angelcane",
             2500,
@@ -876,7 +876,7 @@ public class RWBYItems {
             1,
             0,
             12,
-            RWBYCreativeTabs.tab_rwbyweapons);
+            RWBYCreativeTabs.tab_rwbyweapons).setRecoil(10);
     public static final Item chatareusgun = new RWBYGun(
             "chatareusgun",
             2500,
@@ -893,7 +893,7 @@ public class RWBYItems {
             1,
             0,
             12,
-            null);
+            null).setRecoil(10);
 
     public static final Item lark = new RWBYGun(
             "lark",
@@ -911,7 +911,7 @@ public class RWBYItems {
             1,
             0,
             12,
-            RWBYCreativeTabs.tab_rwbyweapons);
+            RWBYCreativeTabs.tab_rwbyweapons).setRecoil(10);
 
     public static final Item armasword = new RWBYSword(
             "armasword",
@@ -1000,7 +1000,7 @@ public class RWBYItems {
             1,
             0,
             14,
-            null);
+            null).setRecoil(5);
     public static final Item bolin = new RWBYSword(
             "bolin",
             2500,
@@ -1089,7 +1089,7 @@ public class RWBYItems {
             1,
             0,
             1,
-            null);
+            null).setRecoil(10);
     public static final Item crescentgunfrost = new RWBYGun(
             "crescentgunfrost",
             2500,
@@ -1106,7 +1106,7 @@ public class RWBYItems {
             1,
             0,
             1,
-            null);
+            null).setRecoil(10);
     public static final Item weiss = new RWBYGun(
             "weiss",
             2500,
@@ -1123,7 +1123,7 @@ public class RWBYItems {
             1,
             0,
             4,
-            RWBYCreativeTabs.tab_rwbyweapons);
+            RWBYCreativeTabs.tab_rwbyweapons).setRecoil(3);
     public static final Item crescentgunv = new RWBYGun(
             "crescentgunv",
             1250,
@@ -1140,7 +1140,7 @@ public class RWBYItems {
             1,
             1,
             1,
-            null);
+            null).setRecoil(10);
     public static final Item ember = new RWBYGun(
             "ember",
             2500,
@@ -1157,7 +1157,7 @@ public class RWBYItems {
             4,
             0,
             2,
-            RWBYCreativeTabs.tab_rwbyweapons);
+            RWBYCreativeTabs.tab_rwbyweapons).setRecoil(7);
     public static final Item ember2 = new RWBYGun(
             "ember2",
             2500,
@@ -1174,7 +1174,7 @@ public class RWBYItems {
             4,
             0,
             2,
-            null);
+            null).setRecoil(7);
     public static final Item gambolgun = new RWBYGun(
             "gambolgun",
             2500,
@@ -1191,7 +1191,7 @@ public class RWBYItems {
             1,
             0,
             3,
-            null);
+            null).setRecoil(5);
     public static final Item gambolgunv = new RWBYGun(
             "gambolgunv",
             1250,
@@ -1208,7 +1208,7 @@ public class RWBYItems {
             1,
             1,
             3,
-            null);
+            null).setRecoil(5);
     public static final Item stormflower = new RWBYGun(
             "stormflower",
             2500,
@@ -1225,7 +1225,7 @@ public class RWBYItems {
             1,
             0,
             5,
-            RWBYCreativeTabs.tab_rwbyweapons);
+            RWBYCreativeTabs.tab_rwbyweapons).setRecoil(3);
     public static final Item noragun = new RWBYGun(
             "noragun",
             2500,
@@ -1242,7 +1242,7 @@ public class RWBYItems {
             1,
             0,
             6,
-            null);
+            null).setRecoil(7);
     public static final Item stormflowerv = new RWBYGun(
             "stormflowerv",
             1250,
@@ -1259,7 +1259,7 @@ public class RWBYItems {
             1,
             1,
             5,
-            null);
+            null).setRecoil(3);
     public static final Item noragunv = new RWBYGun(
             "noragunv",
             1250,
@@ -1276,7 +1276,7 @@ public class RWBYItems {
             1,
             1,
             6,
-            null);
+            null).setRecoil(7);
     public static final Item emberv = new RWBYGun(
             "emberv",
             1250,
@@ -1293,7 +1293,7 @@ public class RWBYItems {
             4,
             1,
             2,
-            null);
+            null).setRecoil(7);
     public static final Item qrowgun = new RWBYGun(
             "qrowgun",
             2500,
@@ -1310,7 +1310,7 @@ public class RWBYItems {
             4,
             0,
             2,
-            null);
+            null).setRecoil(7);
     public static final Item cocogun = new RWBYGun(
             "cocogun",
             1250,
@@ -1327,7 +1327,7 @@ public class RWBYItems {
             1,
             0,
             7,
-            null);
+            null).setRecoil(3);
     public static final Item cocogunv = new RWBYGun(
             "cocogunv",
             1250,
@@ -1344,7 +1344,7 @@ public class RWBYItems {
             1,
             1,
             7,
-            null);
+            null).setRecoil(3);
 
     public static final Item sanrei = new RWBYGun(
             "sanrei",
@@ -1445,7 +1445,7 @@ public class RWBYItems {
             1,
             0,
             11,
-            null);
+            null).setRecoil(7);
     public static final Item portgun = new RWBYGun(
             "portgun",
             2500,
@@ -1462,7 +1462,7 @@ public class RWBYItems {
             4,
             0,
             8,
-            null);
+            null).setRecoil(7);
     public static final Item emeraldgun = new RWBYGun(
             "emeraldgun",
             2500,
@@ -1479,7 +1479,7 @@ public class RWBYItems {
             1,
             0,
             5,
-            RWBYCreativeTabs.tab_rwbyweapons);
+            RWBYCreativeTabs.tab_rwbyweapons).setRecoil(5);
     public static final Item emeraldblade = new RWBYGun(
             "emeraldblade",
             2500,
@@ -1496,7 +1496,7 @@ public class RWBYItems {
             1,
             0,
             5,
-            null);
+            null).setRecoil(5);
     public static final Item jnrrocket = new RWBYGun(
             "jnrrocket",
             2500,
@@ -1513,7 +1513,7 @@ public class RWBYItems {
             1,
             0,
             10,
-            null);
+            null).setRecoil(20);
     public static final Item cinderbow = new RWBYGun(
             "cinderbow",
             2500,
@@ -1547,7 +1547,7 @@ public class RWBYItems {
             3,
             0,
             2,
-            null);
+            null).setRecoil(7);
     public  static  final Item sunstaff = new RWBYSword("sunstaff",
             2500,
             12.0F,
@@ -1575,7 +1575,7 @@ public class RWBYItems {
             4,
             0,
             8,
-            RWBYCreativeTabs.tab_rwbyweapons);
+            RWBYCreativeTabs.tab_rwbyweapons).setRecoil(7);
     public static final Item neptunegun = new RWBYGun(
             "neptunegun",
             2500,
@@ -1592,7 +1592,7 @@ public class RWBYItems {
             1,
             0,
             13,
-            RWBYCreativeTabs.tab_rwbyweapons);
+            RWBYCreativeTabs.tab_rwbyweapons).setRecoil(8);
     public  static  final Item neptunespear = new RWBYSword(
             "neptunespear",
             2500,
@@ -1665,7 +1665,7 @@ public class RWBYItems {
             1,
             0,
             8,
-            RWBYCreativeTabs.tab_rwbyweapons);
+            RWBYCreativeTabs.tab_rwbyweapons).setRecoil(8);
     public static final Item nadirgun = new RWBYGun(
             "nadirgun",
             2500,
@@ -1682,7 +1682,7 @@ public class RWBYItems {
             1,
             0,
             14,
-            RWBYCreativeTabs.tab_rwbyweapons);
+            RWBYCreativeTabs.tab_rwbyweapons).setRecoil(5);
     public static final Item nadirsword = new RWBYSword(
             "nadirsword",
             2500,
@@ -1712,7 +1712,7 @@ public class RWBYItems {
             4,
             0,
             2,
-            RWBYCreativeTabs.tab_rwbyweapons);
+            RWBYCreativeTabs.tab_rwbyweapons).setRecoil(5);
     public  static  final  Item hexenaxe = new RWBYGun(
             "hexenaxe",
             2500,
@@ -1729,7 +1729,7 @@ public class RWBYItems {
             4,
             0,
             2,
-            null);
+            null).setRecoil(2);
     public static final Item magnumgun = new RWBYGun(
             "magnumgun",
             2500,
@@ -1746,7 +1746,7 @@ public class RWBYItems {
             1,
             0,
             3,
-            RWBYCreativeTabs.tab_rwbyweapons);
+            RWBYCreativeTabs.tab_rwbyweapons).setRecoil(5);
     public static final Item magnumsword = new RWBYGun(
             "magnumsword",
             2500,
@@ -1763,7 +1763,7 @@ public class RWBYItems {
             1,
             0,
             3,
-            null);
+            null).setRecoil(5);
     public static final Item pyrrharifle = new RWBYGun(
             "pyrrharifle",
             2500,
@@ -1780,7 +1780,7 @@ public class RWBYItems {
             1,
             0,
             8,
-            null);
+            null).setRecoil(10);
     public static final Item ironwood = new RWBYGun(
             "ironwood",
             2500,
@@ -1797,7 +1797,7 @@ public class RWBYItems {
             1,
             0,
             3,
-            RWBYCreativeTabs.tab_rwbyweapons);
+            RWBYCreativeTabs.tab_rwbyweapons).setRecoil(4);
     public static final Item goodwitch = new RWBYGun(
             "goodwitch",
             2500,
@@ -1814,7 +1814,7 @@ public class RWBYItems {
             2,
             0,
             4,
-            RWBYCreativeTabs.tab_rwbyweapons);
+            RWBYCreativeTabs.tab_rwbyweapons).setRecoil(3);
     public static final Item oobleckflamethrower = new RWBYGun(
             "oobleckflamethrower",
             2500,
@@ -1831,7 +1831,7 @@ public class RWBYItems {
             3,
             0,
             15,
-            null);
+            null).setRecoil(3);
     public static final Item cardin = new RWBYGun(
             "cardin",
             2500,
@@ -1848,7 +1848,7 @@ public class RWBYItems {
             1,
             0,
             4,
-            RWBYCreativeTabs.tab_rwbyweapons);
+            RWBYCreativeTabs.tab_rwbyweapons).setRecoil(3);
     public static final Item nebulabow = new RWBYGun(
             "nebulabow",
             2500,
@@ -1894,7 +1894,6 @@ public class RWBYItems {
             false,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-
     public static final  Item gravitydustcrystalcut = new RWBYCutGem(
             "gravitydustcrystalcut",
             72,
@@ -1958,7 +1957,6 @@ public class RWBYItems {
             true,
             0.3F,
             RWBYCreativeTabs.tab_rwbyitems);
-
     public static final Item atlaspistol = new RWBYGun(
             "atlaspistol",
             2500,
@@ -1975,7 +1973,7 @@ public class RWBYItems {
             1,
             0,
             9,
-            RWBYCreativeTabs.tab_rwbyweapons);
+            RWBYCreativeTabs.tab_rwbyweapons).setRecoil(3);
     public static final Item atlasrifle = new RWBYGun(
             "atlasrifle",
             2500,
@@ -1992,7 +1990,7 @@ public class RWBYItems {
             1,
             0,
             8,
-            RWBYCreativeTabs.tab_rwbyweapons);
+            RWBYCreativeTabs.tab_rwbyweapons).setRecoil(4);
     public static final Item vernal = new RWBYGun(
             "vernal",
             2500,
@@ -2009,7 +2007,7 @@ public class RWBYItems {
             2,
             0,
             8,
-            RWBYCreativeTabs.tab_rwbyweapons);
+            RWBYCreativeTabs.tab_rwbyweapons).setRecoil(7);
     public static final Item dove = new RWBYGun(
             "dove",
             2500,
@@ -2026,7 +2024,7 @@ public class RWBYItems {
             2,
             0,
             3,
-            RWBYCreativeTabs.tab_rwbyweapons);
+            RWBYCreativeTabs.tab_rwbyweapons).setRecoil(5);
     public static final Item tyrian = new RWBYGun(
             "tyrian",
             2500,
@@ -2043,7 +2041,7 @@ public class RWBYItems {
             2,
             0,
             5,
-            RWBYCreativeTabs.tab_rwbyweapons);
+            RWBYCreativeTabs.tab_rwbyweapons).setRecoil(5);
     public static final Item russelnormal = new RWBYSword(
             "russelnormal",
             2500,
@@ -2112,7 +2110,7 @@ public class RWBYItems {
             1,
             0,
             7,
-            null);
+            null).setRecoil(3);
     public static final Item vidian = new RWBYSword(
             "vidian",
             2500,
@@ -2198,7 +2196,7 @@ public class RWBYItems {
             1,
             0,
             4,
-            RWBYCreativeTabs.tab_rwbyweapons);
+            RWBYCreativeTabs.tab_rwbyweapons).setRecoil(3);
     public static final Item fennecdouble = new RWBYGun(
             "fennecdouble",
             2500,
@@ -2215,7 +2213,7 @@ public class RWBYItems {
             1,
             0,
             4,
-            null);
+            null).setRecoil(3);
     public static final Item corsac = new RWBYGun(
             "corsac",
             2500,
@@ -2326,7 +2324,7 @@ public class RWBYItems {
             1,
             0,
             1,
-            RWBYCreativeTabs.tab_rwbyweapons);
+            RWBYCreativeTabs.tab_rwbyweapons).setRecoil(10);
     public static final Item whitefangspear = new RWBYGun(
             "whitefangspear",
             2500,
@@ -2361,7 +2359,7 @@ public class RWBYItems {
             1,
             0,
             7,
-            RWBYCreativeTabs.tab_rwbyweapons);
+            RWBYCreativeTabs.tab_rwbyweapons).setRecoil(5);
     public static final Item scarletstormaxe = new RWBYGun(
             "scarletstormaxe",
             2500,
@@ -2412,7 +2410,7 @@ public class RWBYItems {
             1,
             0,
             4,
-            RWBYCreativeTabs.tab_rwbyweapons);
+            RWBYCreativeTabs.tab_rwbyweapons).setRecoil(3);
     public static final Item nolan = new RWBYSword(
             "nolan",
             2500,
@@ -2459,7 +2457,7 @@ public class RWBYItems {
             1,
             0,
             3,
-            RWBYCreativeTabs.tab_rwbyweapons);
+            RWBYCreativeTabs.tab_rwbyweapons).setRecoil(5);
     public static final Item gwenknife = new RWBYGun(
             "gwenknife",
             2500,
@@ -2506,7 +2504,7 @@ public class RWBYItems {
             1,
             0,
             3,
-            RWBYCreativeTabs.tab_rwbyweapons).setElement("rwbym:noctustraumfire");
+            RWBYCreativeTabs.tab_rwbyweapons).setElement("rwbym:noctustraumfire").setRecoil(5);
     public static final Item noctustraumfire = new RWBYGun(
             "noctustraumfire",
             2500,
@@ -2523,7 +2521,7 @@ public class RWBYItems {
             1,
             0,
             3,
-            null).setElement("rwbym:noctustraumice");
+            null).setElement("rwbym:noctustraumice").setRecoil(5);
     public static final Item noctustraumice = new RWBYGun(
             "noctustraumice",
             2500,
@@ -2540,7 +2538,7 @@ public class RWBYItems {
             1,
             0,
             3,
-            null).setElement("rwbym:noctustraumlight");
+            null).setElement("rwbym:noctustraumlight").setRecoil(5);
     public static final Item noctustraumlight = new RWBYGun(
             "noctustraumlight",
             2500,
@@ -2557,7 +2555,7 @@ public class RWBYItems {
             1,
             0,
             3,
-           null).setElement("rwbym:noctustraumgrav");
+           null).setElement("rwbym:noctustraumgrav").setRecoil(5);
     public static final Item noctustraumgrav = new RWBYGun(
             "noctustraumgrav",
             2500,
@@ -2574,7 +2572,7 @@ public class RWBYItems {
             1,
             0,
             3,
-           null).setElement("rwbym:noctustraumnormal");
+           null).setElement("rwbym:noctustraumnormal").setRecoil(5);
     public static final Item noctustraumnormalscy = new RWBYGun(
             "noctustraumnormalscy",
             2500,
@@ -2745,7 +2743,7 @@ public class RWBYItems {
             1,
             0,
             3,
-            RWBYCreativeTabs.tab_rwbyweapons);
+            RWBYCreativeTabs.tab_rwbyweapons).setRecoil(10);
 
 
 
