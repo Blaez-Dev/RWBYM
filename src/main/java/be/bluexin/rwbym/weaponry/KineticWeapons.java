@@ -15,6 +15,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.MoverType;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -134,6 +135,13 @@ public class KineticWeapons extends ItemSword implements ICustomItem {
         else
             return false;
     }
+
+    @Override
+    public boolean canApplyAtEnchantingTable(ItemStack stack, net.minecraft.enchantment.Enchantment enchantment)
+    {
+        return enchantment.type.canEnchantItem(Items.DIAMOND_HOE);
+    }
+
 
     @SuppressWarnings("Duplicates")
     public void onUpdate(ItemStack is, World world, Entity entity, int slotIn, boolean inHand) {
@@ -371,7 +379,19 @@ public class KineticWeapons extends ItemSword implements ICustomItem {
                 }
             }
         }
+        if(!world.isRemote && this.data == null){{NBTTagCompound btag = is.getTagCompound();
+            if (btag == null) btag = new NBTTagCompound();
+            if (!btag.hasKey(KEY)) {
+                btag.setBoolean(KEY, true);
+                try {
+                    is.setTagCompound(JsonToNBT.getTagFromJson("{AttributeModifiers:[{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:0,Operation:0,UUIDMost:60527,UUIDLeast:119972}]}"));
+                    //is.getTagCompound().merge(atag);
+                } catch (NBTException nbtexception) {
+                    LogManager.getLogger(RWBYModels.MODID).error("Couldn't load data tag for " + this.getRegistryName());
+                }
+            }}}
     }
+
 
 
 

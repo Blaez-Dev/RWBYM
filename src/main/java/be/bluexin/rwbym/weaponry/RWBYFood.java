@@ -99,6 +99,13 @@ public class RWBYFood extends Item implements ICustomItem {
         }
     }
 
+    @Override
+    public boolean canApplyAtEnchantingTable(ItemStack stack, net.minecraft.enchantment.Enchantment enchantment)
+    {
+        return enchantment.type.canEnchantItem(Items.CAKE);
+    }
+
+
     public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entityLiving) {
         if (entityLiving instanceof EntityPlayer) {
             EntityPlayer entityplayer = (EntityPlayer) entityLiving;

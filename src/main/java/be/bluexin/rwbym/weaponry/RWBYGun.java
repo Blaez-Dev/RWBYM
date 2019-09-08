@@ -458,6 +458,12 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             }}}
     }
 
+    @Override
+    public boolean canApplyAtEnchantingTable(ItemStack stack, net.minecraft.enchantment.Enchantment enchantment)
+    {
+        return enchantment.type.canEnchantItem(Items.CAULDRON);
+    }
+
 
 
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
