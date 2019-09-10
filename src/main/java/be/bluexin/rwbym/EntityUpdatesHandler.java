@@ -110,6 +110,8 @@ public class EntityUpdatesHandler {
 		IAura newaura = event.getEntityPlayer().getCapability(AuraProvider.AURA_CAP, null);
 		
 		newaura.deserialize((NBTTagCompound) oldaura.serialize());
+		
+		event.getEntityPlayer().getEntityData().merge(event.getOriginal().getEntityData());
 	}
 	
 	@SubscribeEvent

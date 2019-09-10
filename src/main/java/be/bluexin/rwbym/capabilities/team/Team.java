@@ -247,8 +247,6 @@ public class Team implements ITeam {
 		nbt.setTag("requests", requestsnbt);
 		nbt.setInteger("requestSize", i);
 		
-		//System.out.println(nbt);
-		
 		return nbt;
 		
 	}
