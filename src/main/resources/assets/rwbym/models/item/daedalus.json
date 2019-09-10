@@ -9,7 +9,7 @@
 		"42": "rwbym:blocks/chatareus",
 		"1_8_1": "rwbym:blocks/awool_colored_black",
 		"1_8_2": "rwbym:blocks/awool_colored_darkblack",
-		"2_1": "rwbym:blocks/afire",
+		"2_1": "rwbym:blocks/doom",
 		"2_2": "rwbym:blocks/awool_colored_black",
 		"2_3": "rwbym:blocks/dustcrystals",
 		"2_4": "rwbym:blocks/awool_colored_silver",
@@ -19,7 +19,7 @@
 		"2_30": "rwbym:items/gambol/mag",
 		"2_31": "rwbym:blocks/awool_colored_black",
 		"2_32": "rwbym:blocks/awool_colored_silver",
-		"2_33": "rwbym:blocks/afire",
+		"2_33": "rwbym:blocks/doom",
 		"2_1_1": "rwbym:blocks/awool_colored_darkblack",
 		"2_1_2": "rwbym:blocks/awool_colored_silver",
 		"2_1_3": "rwbym:blocks/dustcrystals",
@@ -3269,7 +3269,7 @@
 				"north": {"uv": [14.563, 0, 15.999, 2.375], "texture": "#2_3"},
 				"east": {"uv": [14.563, 0, 15.999, 2.375], "texture": "#2_3"},
 				"south": {"uv": [14.563, 0, 15.999, 2.375], "texture": "#2_3"},
-				"west": {"uv": [14.563, 0, 15.999, 2.375], "texture": "#2_3"},
+				"west": {"uv": [14.563, 0, 15.999, 2.375], "texture": "#2_1_3"},
 				"up": {"uv": [14.563, 0, 15.999, 2.375], "texture": "#2_3"},
 				"down": {"uv": [14.563, 0, 15.999, 2.375], "texture": "#2_3"}
 			}
