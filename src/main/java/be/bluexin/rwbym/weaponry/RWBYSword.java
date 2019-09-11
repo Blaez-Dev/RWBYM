@@ -134,43 +134,9 @@ public class RWBYSword extends ItemSword implements ICustomItem {
     @SuppressWarnings("Duplicates")
     public void onUpdate(ItemStack is, World world, Entity entity, int slotIn, boolean inHand) {
 
-        if(entity instanceof EntityPlayer) {
-            EntityPlayer player = (EntityPlayer) entity;
-            if (kkfire){if(player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() == RWBYItems.korekosmoufire){
-                ItemStack chest = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
-                    is.setItemDamage(chest.getItemDamage());
-                    chest.setItemDamage(is.getItemDamage());}
-                else{is.damageItem(365, player);
-            }}
-        }
-        if(entity instanceof EntityPlayer) {
-            EntityPlayer player = (EntityPlayer) entity;
-            if (kkice){if(player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() == RWBYItems.korekosmouwater){
-                ItemStack chest = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
-                is.setItemDamage(chest.getItemDamage());
-                chest.setItemDamage(is.getItemDamage());}
-            else{is.damageItem(365, player);
-            }}
-        }
-        if(entity instanceof EntityPlayer) {
-            EntityPlayer player = (EntityPlayer) entity;
-            if (kkwind){if(player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() == RWBYItems.korekosmouwind){
-                ItemStack chest = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
-                is.setItemDamage(chest.getItemDamage());
-                chest.setItemDamage(is.getItemDamage());}
-            else{is.damageItem(365, player);
-            }}
-        }
 
-        if(entity instanceof EntityPlayer && neo){
-            final EntityPlayer player = (EntityPlayer)entity;
-            if (!player.onGround && player.getItemInUseCount() > 1)
-            {
-                player.motionY += 0.05;
-                player.fallDistance = 0;
-                player.velocityChanged = true;
-            }
-        }
+
+
 
         if (!world.isRemote && this.data != null) {
             NBTTagCompound atag = is.getTagCompound();

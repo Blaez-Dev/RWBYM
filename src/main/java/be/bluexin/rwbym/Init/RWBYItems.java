@@ -240,11 +240,11 @@ public class RWBYItems {
             0,
             0,
             null).setElementMelee("wind");
-    public static final Item rvnswdice = new RWBYSword(
+    public static final Item rvnswdice = new RWBYGun(
             "rvnswdice",
             2500,
-            10,
-            0,
+            72,
+            13,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             "rwbym:rvnswd",
             "rwbym:nuller,rwbym:nullest",
@@ -274,11 +274,11 @@ public class RWBYItems {
             0,
             0,
             null);
-    public static final Item qrowsword = new RWBYSword(
+    public static final Item qrowsword = new RWBYGun(
             "qrowsword",
             2500,
-            10,
-            0,
+            72,
+            13,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             "rwbym:qrow",
             "rwbym:nuller,rwbym:nullest",
@@ -291,10 +291,10 @@ public class RWBYItems {
             0,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static final Item juane = new RWBYSword("juane",
+    public static final Item juane = new RWBYGun("juane",
             2500,
-            10,
-            0,
+            72,
+            13,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             "rwbym:juaneshieldaxe",
             "rwbym:nuller,rwbym:nullest",
@@ -307,10 +307,10 @@ public class RWBYItems {
             0,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static final Item juaneshieldaxe = new RWBYSword("juaneshieldaxe",
+    public static final Item juaneshieldaxe = new RWBYGun("juaneshieldaxe",
             2500,
-            10,
-            0,
+            72,
+            13,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:16,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             "rwbym:juane",
             "rwbym:nuller,rwbym:nullest",
@@ -323,12 +323,12 @@ public class RWBYItems {
             0,
             0,
             null);
-    public static final Item norahammer = new RWBYSword(
+    public static final Item norahammer = new RWBYGun(
             "norahammer",
             2500,
-            12,
+            72,
             0,
-            "{ench:[{id:19,lvl:2}",
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:16,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             "rwbym:noragun",
             "rwbym:nuller,rwbym:nullest",
             false,
@@ -340,11 +340,11 @@ public class RWBYItems {
             0,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static final Item pyrrhaspear = new RWBYSword(
+    public static final Item pyrrhaspear = new RWBYGun(
             "pyrrhaspear",
             2500,
-            10,
-            0,
+            72,
+            2,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             "rwbym:pyrrharifle",
             "rwbym:nuller,rwbym:nullest",
@@ -357,11 +357,11 @@ public class RWBYItems {
             0,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static final Item pyrrhasword = new RWBYSword(
+    public static final Item pyrrhasword = new RWBYGun(
             "pyrrhasword",
             2500,
-            10,
-            0,
+            72,
+            12,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             "rwbym:pyrrhaspear",
             "rwbym:nuller,rwbym:nullest",
@@ -374,10 +374,10 @@ public class RWBYItems {
             0,
             0,
             null);
-    public static final Item velvet = new RWBYSword(
+    public static final Item velvet = new RWBYGun(
             "velvet",
             1250,
-            -4,
+            72,
             0,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:0,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             "rwbym:crescentv",
@@ -391,10 +391,10 @@ public class RWBYItems {
             0,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static final Item oobleckthermos = new RWBYSword(
+    public static final Item oobleckthermos = new RWBYGun(
             "oobleckthermos",
             2500,
-            -4,
+            72,
             0,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:0,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             "rwbym:oobleckflamethrower",
@@ -442,12 +442,12 @@ public class RWBYItems {
             1,
             4,
             null);
-    public static final Item gambolv = new RWBYSword(
+    public static final Item gambolv = new RWBYGun(
             "gambolv",
             1250,
-            10,
-            0,
-            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",,
+            72,
+            13,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             "rwbym:gambolgunv",
             "rwbym:nuller,rwbym:nullest",
             false,
@@ -456,15 +456,15 @@ public class RWBYItems {
             false,
             0,
             1,
-            0,
+            1,
             0,
             null);
-    public static final Item juanev = new RWBYSword(
+    public static final Item juanev = new RWBYGun(
             "juanev",
             1250,
-            10,
-            0,
-            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",,
+            72,
+            13,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             "rwbym:norahammerv",
             "rwbym:nuller,rwbym:nullest",
             false,
@@ -473,15 +473,15 @@ public class RWBYItems {
             false,
             0,
             1,
-            0,
+            1,
             0,
             null);
-    public static final Item norahammerv = new RWBYSword(
+    public static final Item norahammerv = new RWBYGun(
             "norahammerv",
             1250,
-            12,
+            72,
             0,
-            "{ench:[{id:19,lvl:2}],HideFlags:3}",
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:16,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             "rwbym:noragunv",
             "rwbym:nuller,rwbym:nullest",
             false,
@@ -490,15 +490,15 @@ public class RWBYItems {
             false,
             0,
             1,
-            0,
+            1,
             0,
             null);
-    public static final Item pyrrhaspearv = new RWBYSword(
+    public static final Item pyrrhaspearv = new RWBYGun(
             "pyrrhaspearv",
             1250,
-            10,
-            0,
-            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",,
+            72,
+            2,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             "rwbym:pyrrhaswordv",
             "rwbym:nuller,rwbym:nullest",
             false,
@@ -507,15 +507,15 @@ public class RWBYItems {
             false,
             0,
             1,
-            0,
+            1,
             0,
             null);
-    public static final Item pyrrhaswordv = new RWBYSword(
+    public static final Item pyrrhaswordv = new RWBYGun(
             "pyrrhaswordv",
             1250,
-            10,
-            0,
-            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",,
+            72,
+            12,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             "rwbym:stormflowerv",
             "rwbym:nuller,rwbym:nullest",
             false,
@@ -524,15 +524,15 @@ public class RWBYItems {
             false,
             0,
             1,
-            0,
+            1,
             0,
             null);
-    public static final Item yatsuhashi = new RWBYSword(
+    public static final Item yatsuhashi = new RWBYGun(
             "yatsuhashi",
             2500,
-            15,
-            15,
-            null,
+            72,
+            13,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:19,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             null,
             "rwbym:nuller,rwbym:nullest",
             false,
@@ -544,11 +544,11 @@ public class RWBYItems {
             0,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static final Item cocobag = new RWBYSword(
+    public static final Item cocobag = new RWBYGun(
             "cocobag",
             1250,
-            10,
-            15,
+            72,
+            0,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             "rwbym:cocogun",
             "rwbym:nuller,rwbym:nullest",
@@ -578,12 +578,12 @@ public class RWBYItems {
             0,
             5,
             RWBYCreativeTabs.tab_rwbyweapons).setRecoil(5);
-    public static final Item cocobagv = new RWBYSword(
+    public static final Item cocobagv = new RWBYGun(
             "cocobagv",
             1250,
-            10,
-            15,
-            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",,
+            72,
+            0,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             "rwbym:cocogunv",
             "rwbym:nuller,rwbym:nullest",
             false,
@@ -592,7 +592,7 @@ public class RWBYItems {
             false,
             0,
             1,
-            0,
+            1,
             0,
             null);
     public static final Item winterswd = new RWBYGun(
@@ -612,12 +612,12 @@ public class RWBYItems {
             0,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static final Item pennyswd = new RWBYSword(
+    public static final Item pennyswd = new RWBYGun(
             "pennyswd",
             2500,
-            9,
-            0,
-            null,
+            72,
+            13,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:13,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             null,
             "rwbym:nuller,rwbym:nullest",
             false,
@@ -629,10 +629,10 @@ public class RWBYItems {
             0,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static final Item ozpincane = new RWBYSword(
+    public static final Item ozpincane = new RWBYGun(
             "ozpincane",
             2500,
-            10,
+            72,
             0,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             null,
@@ -646,12 +646,12 @@ public class RWBYItems {
             0,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static final Item port = new RWBYSword(
+    public static final Item port = new RWBYGun(
             "port",
             2500,
-            12,
+            72,
             0,
-            null,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:16,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             "rwbym:portgun",
             "rwbym:nuller,rwbym:nullest",
             false,
@@ -663,12 +663,12 @@ public class RWBYItems {
             0,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static final Item kkfire = new RWBYSword(
+    public static final Item kkfire = new RWBYGun(
             "kkfire",
             640,
-            15,
-            0,
-            null,
+            72,
+            13,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:19,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             null,
             "rwbym:nuller,rwbym:nullest",
             false,
@@ -679,13 +679,13 @@ public class RWBYItems {
             1,
             0,
             0,
-            null);
-    public static final Item kkice = new RWBYSword(
+            null).setElementMelee("fire");
+    public static final Item kkice = new RWBYGun(
             "kkice",
             640,
-            10,
-            0,
-            null,
+            72,
+            13,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             null,
             "rwbym:nuller,rwbym:nullest",
             false,
@@ -696,13 +696,13 @@ public class RWBYItems {
             1,
             0,
             0,
-            null);
-    public static final Item kkwind = new RWBYSword(
+            null).setElementMelee("ice");
+    public static final Item kkwind = new RWBYGun(
             "kkwind",
             640,
-            8,
-            0,
-            "{ench:[{id:19,lvl:4}",
+            72,
+            1,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             null,
             "rwbym:nuller,rwbym:nullest",
             false,
@@ -713,11 +713,11 @@ public class RWBYItems {
             1,
             0,
             0,
-            null);
-    public static final Item torchwick = new RWBYSword(
+            null).setElementMelee("wind");
+    public static final Item torchwick = new RWBYGun(
             "torchwick",
             2500,
-            10,
+            72,
             0,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             "rwbym:torchwickgun",
@@ -731,12 +731,12 @@ public class RWBYItems {
             0,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static final Item neoumb_closed = new RWBYSword(
+    public static final Item neoumb_closed = new RWBYGun(
             "neoumb_closed",
             2500,
-            9,
+            72,
             0,
-            null,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:13,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             "rwbym:neoumb_closed_blade",
             "rwbym:nuller,rwbym:nullest",
             false,
@@ -748,12 +748,12 @@ public class RWBYItems {
             0,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static final Item neoumb_closed_blade = new RWBYSword(
+    public static final Item neoumb_closed_blade = new RWBYGun(
             "neoumb_closed_blade",
             2500,
-            9,
-            0,
-            null,
+            72,
+            1,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:13,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             "rwbym:neoumb_handle_blade",
             "rwbym:nuller,rwbym:nullest",
             false,
@@ -765,11 +765,11 @@ public class RWBYItems {
             0,
             0,
            null);
-    public static final Item neoumb_handle_blade = new RWBYSword(
+    public static final Item neoumb_handle_blade = new RWBYGun(
             "neoumb_handle_blade",
             2500,
-            10,
-            0,
+            72,
+            1,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             "rwbym:neoumb_closed",
             "rwbym:nuller,rwbym:nullest",
@@ -782,12 +782,12 @@ public class RWBYItems {
             0,
             0,
             null);
-    public static final Item jnrbat = new RWBYSword(
+    public static final Item jnrbat = new RWBYGun(
             "jnrbat",
             2500,
-            11,
+            72,
             0,
-            null,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:15,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             "rwbym:jnrrocket",
             "rwbym:nuller,rwbym:nullest",
             false,
@@ -799,12 +799,12 @@ public class RWBYItems {
             0,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static final Item adamswd = new RWBYSword(
+    public static final Item adamswd = new RWBYGun(
             "adamswd",
             2500,
-            9,
-            0,
-            null,
+            72,
+            13,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:13,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             "rwbym:adamgun",
             "rwbym:nuller,rwbym:nullest",
             false,
@@ -816,11 +816,11 @@ public class RWBYItems {
             0,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static final Item cinder = new RWBYSword(
+    public static final Item cinder = new RWBYGun(
             "cinder",
             2500,
-            10,
-            0,
+            72,
+            13,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             "rwbym:cinderbow",
             "rwbym:nuller,rwbym:nullest",
@@ -907,12 +907,12 @@ public class RWBYItems {
             true,
             null
     );
-    public static final Item mariacane = new RWBYSword(
+    public static final Item mariacane = new RWBYGun(
             "mariacane",
             2500,
-            12,
+            72,
             0,
-            null,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:16,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             "rwbym:mariascythe",
             "rwbym:nuller,rwbym:nullest",
             false,
@@ -941,10 +941,10 @@ public class RWBYItems {
             0,
             3,
             null).setRecoil(5);
-    public static final Item angelcane = new RWBYSword(
+    public static final Item angelcane = new RWBYGun(
             "angelcane",
             2500,
-            10,
+            72,
             0,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             "rwbym:angelsword",
@@ -975,12 +975,12 @@ public class RWBYItems {
             0,
             0,
             null);
-    public static final Item mariascythedouble = new RWBYSword(
+    public static final Item mariascythedouble = new RWBYGun(
             "mariascythedouble",
             2500,
-            14,
-            0,
-            null,
+            72,
+            2,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:18,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             "rwbym:mariacane",
             "rwbym:nuller,rwbym:nullest",
             false,
@@ -1045,12 +1045,12 @@ public class RWBYItems {
             12,
             RWBYCreativeTabs.tab_rwbyweapons).setRecoil(10);
 
-    public static final Item armasword = new RWBYSword(
+    public static final Item armasword = new RWBYGun(
             "armasword",
             2500,
-            15,
-            15,
-            null,
+            72,
+            13,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:19,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             null,
             "rwbym:nuller,rwbym:nullest",
             false,
@@ -1063,12 +1063,12 @@ public class RWBYItems {
             0,
             null);
 
-    public static final Item armaswordsummon = new RWBYSword(
+    public static final Item armaswordsummon = new RWBYGun(
             "armaswordsummon",
             2500,
-            15,
-            15,
-            null,
+            72,
+            13,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:19,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             null,
             "rwbym:nuller,rwbym:nullest",
             false,
@@ -1080,12 +1080,12 @@ public class RWBYItems {
             0,
             0,
             null);
-    public static final Item razorbolt = new RWBYSword(
+    public static final Item razorbolt = new RWBYGun(
             "razorbolt",
             2500,
-            12,
+            72,
             0,
-            null,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:16,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             "rwbym:razorboltknife",
             "rwbym:nuller,rwbym:nullest",
             false,
@@ -1101,8 +1101,8 @@ public class RWBYItems {
             "razorboltknife",
             2500,
             72,
-            0,
-            null,
+            12,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:8,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             "rwbym:razorbolt",
             "rwbym:rzrbolt",
             false,
@@ -1142,12 +1142,12 @@ public class RWBYItems {
             0,
             14,
             null).setRecoil(5);
-    public static final Item bolin = new RWBYSword(
+    public static final Item bolin = new RWBYGun(
             "bolin",
             2500,
-            12,
+            72,
             0,
-            null,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:16,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             "rwbym:bolinblade",
             "rwbym:nuller,rwbym:nullest",
             false,
@@ -1159,12 +1159,12 @@ public class RWBYItems {
             0,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static final Item bolinblade = new RWBYSword(
+    public static final Item bolinblade = new RWBYGun(
             "bolinblade",
             2500,
-            13,
+            72,
             0,
-            null,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:17,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             "rwbym:bolin",
             "rwbym:nuller,rwbym:nullest",
             false,
@@ -1177,12 +1177,12 @@ public class RWBYItems {
             0,
             null);
 
-    public static final Item dew = new RWBYSword(
+    public static final Item dew = new RWBYGun(
             "dew",
             2500,
-            13,
-            0,
-            null,
+            72,
+            2,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:17,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             null,
             "rwbym:nuller,rwbym:nullest",
             false,
@@ -1194,11 +1194,11 @@ public class RWBYItems {
             0,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static final Item octavia = new RWBYSword(
+    public static final Item octavia = new RWBYGun(
             "octavia",
             2500,
-            10,
-            0,
+            72,
+            12,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             null,
             "rwbym:nuller,rwbym:nullest",
@@ -1212,11 +1212,11 @@ public class RWBYItems {
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
 
-    public static final Item lysettesword = new RWBYSword(
+    public static final Item lysettesword = new RWBYGun(
             "lysettesword",
             2500,
-            0,
-            0,
+            72,
+            13,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:14,Operation:0,UUIDMost:99791,UUIDLeast:128916}",
             null,
             "rwbym:nuller,rwbym:nullest",
@@ -1542,7 +1542,7 @@ public class RWBYItems {
             0,
             16,
             null);
-    public static final Item bangle = new RWBYSword(
+    public static final Item bangle = new RWBYGun(
             "bangle",
             0,
             0,
@@ -1560,7 +1560,7 @@ public class RWBYItems {
             0,
             null);
 
-    public static final Item hbangle = new RWBYSword(
+    public static final Item hbangle = new RWBYGun(
             "hbangle",
             0,
             0,
@@ -1717,11 +1717,11 @@ public class RWBYItems {
             0,
             2,
             null).setRecoil(7);
-    public  static  final Item sunstaff = new RWBYSword("sunstaff",
+    public  static  final Item sunstaff = new RWBYGun("sunstaff",
             2500,
-            12.0F,
-            0,
-            null,
+            72,
+            2,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:16,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             "rwbym:sunnunchuck",
             "rwbym:nuller,rwbym:nullest",
             false,
@@ -1766,12 +1766,12 @@ public class RWBYItems {
             0,
             13,
             RWBYCreativeTabs.tab_rwbyweapons).setRecoil(8);
-    public  static  final Item neptunespear = new RWBYSword(
+    public  static  final Item neptunespear = new RWBYGun(
             "neptunespear",
             2500,
-            11.0F,
-            0,
-            null,
+            72,
+            2,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:15,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             "rwbym:neptunetrident",
             "rwbym:nuller,rwbym:nullest",
             false,
@@ -1783,12 +1783,12 @@ public class RWBYItems {
             0,
             0,
             null);
-    public  static  final Item neptunetrident = new RWBYSword(
+    public  static  final Item neptunetrident = new RWBYGun(
             "neptunetrident",
             2500,
-            12.0F,
-            0,
-            null,
+            72,
+            2,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:16,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             "rwbym:neptunegun",
             "rwbym:nuller,rwbym:nullest",
             false,
@@ -1800,12 +1800,12 @@ public class RWBYItems {
             0,
             0,
             null);
-    public static final Item sage = new RWBYSword(
+    public static final Item sage = new RWBYGun(
             "sage",
             2500,
             15,
             15,
-            null,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:19,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             null,
             "rwbym:nuller,rwbym:nullest",
             false,
@@ -1839,7 +1839,7 @@ public class RWBYItems {
             2500,
             72,
             4,
-            null,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:14,Operation:0,UUIDMost:99791,UUIDLeast:128916}",
             null,
             "rwbym:spl,rwbym:splfire,rwbym:splgrav,rwbym:splice,rwbym:spllight",
             false,
@@ -1868,11 +1868,11 @@ public class RWBYItems {
             0,
             14,
             RWBYCreativeTabs.tab_rwbyweapons).setRecoil(5);
-    public static final Item nadirsword = new RWBYSword(
+    public static final Item nadirsword = new RWBYGun(
             "nadirsword",
             2500,
-            10,
-            0,
+            72,
+            13,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             "rwbym:nadirgun",
             "rwbym:nuller,rwbym:nullest",
@@ -2037,7 +2037,7 @@ public class RWBYItems {
             1,
             0,
             4,
-            RWBYCreativeTabs.tab_rwbyweapons).setRecoil(3);
+            RWBYCreativeTabs.tab_rwbyweapons).setRecoil(3).setElementMelee("fire");
     public static final Item nebulabow = new RWBYGun(
             "nebulabow",
             2500,
@@ -2056,11 +2056,11 @@ public class RWBYItems {
             16,
             null);
 
-    public static final Item nebulasword = new RWBYSword(
+    public static final Item nebulasword = new RWBYGun(
             "nebulasword",
             2500,
-            10,
-            0,
+            72,
+            13,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             "rwbym:nebulabow",
             "rwbym:nuller,rwbym:nullest",
@@ -2235,11 +2235,11 @@ public class RWBYItems {
             0,
             5,
             RWBYCreativeTabs.tab_rwbyweapons).setRecoil(5);
-    public static final Item russelnormal = new RWBYSword(
+    public static final Item russelnormal = new RWBYGun(
             "russelnormal",
             2500,
-            10,
-            0,
+            72,
+            12,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             "rwbym:russelfire",
             "rwbym:nuller,rwbym:nullest",
@@ -2252,11 +2252,11 @@ public class RWBYItems {
             0,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static final Item russelfire = new RWBYSword(
+    public static final Item russelfire = new RWBYGun(
             "russelfire",
             2500,
-            10,
-            0,
+            72,
+            12,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             "rwbym:russelice",
             "rwbym:nuller,rwbym:nullest",
@@ -2268,12 +2268,12 @@ public class RWBYItems {
             1,
             0,
             0,
-            null);
-    public static final Item russelice = new RWBYSword(
+            null).setElementMelee("fire");
+    public static final Item russelice = new RWBYGun(
             "russelice",
             2500,
-            10,
-            0,
+            72,
+            12,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             "rwbym:russelwind",
             "rwbym:nuller,rwbym:nullest",
@@ -2285,12 +2285,12 @@ public class RWBYItems {
             1,
             0,
             0,
-            null);
-    public static final Item russelwind = new RWBYSword(
+            null).setElementMelee("ice");
+    public static final Item russelwind = new RWBYGun(
             "russelwind",
             2500,
-            10,
-            0,
+            72,
+            12,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             "rwbym:russelnormal",
             "rwbym:nuller,rwbym:nullest",
@@ -2302,7 +2302,7 @@ public class RWBYItems {
             1,
             0,
             0,
-            null);
+            null).setElementMelee("wind");
     public static final Item vidiangun = new RWBYGun(
             "vidiangun",
             2500,
@@ -2320,11 +2320,11 @@ public class RWBYItems {
             0,
             7,
             null).setRecoil(3);
-    public static final Item vidian = new RWBYSword(
+    public static final Item vidian = new RWBYGun(
             "vidian",
             2500,
-            10,
-            15,
+            72,
+            0,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             "rwbym:vidiangun",
             "rwbym:nuller,rwbym:nullest",
@@ -2337,12 +2337,12 @@ public class RWBYItems {
             0,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static final Item vidianhammer = new RWBYSword(
+    public static final Item vidianhammer = new RWBYGun(
             "vidianhammer",
             2500,
-            12,
+            72,
             0,
-            "{ench:[{id:19,lvl:2}",
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:16,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             "rwbym:vidian",
             "rwbym:nuller,rwbym:nullest",
             false,
@@ -2371,11 +2371,11 @@ public class RWBYItems {
             0,
             16,
             null);
-    public static final Item cinderglass = new RWBYSword(
+    public static final Item cinderglass = new RWBYGun(
             "cinderglass",
             2500,
-            10,
-            0,
+            72,
+            13,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             "rwbym:cinderbowglass",
             "rwbym:nuller,rwbym:nullest",
@@ -2388,11 +2388,11 @@ public class RWBYItems {
             0,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static final Item henchmen = new RWBYSword(
+    public static final Item henchmen = new RWBYGun(
             "henchmen",
             2500,
-            10,
-            0,
+            72,
+            13,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             null,
             "rwbym:nuller,rwbym:nullest",
@@ -2490,12 +2490,12 @@ public class RWBYItems {
             0,
             16,
             null);
-    public static final Item aquaealatlsword = new RWBYSword(
+    public static final Item aquaealatlsword = new RWBYGun(
             "aquaealatlsword",
             2500,
-            12,
-            0,
-            null,
+            72,
+            13,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:16,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             "rwbym:aquaealatlbow",
             "rwbym:nuller,rwbym:nullest",
             false,
@@ -2507,12 +2507,12 @@ public class RWBYItems {
             0,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static final Item brawnz = new RWBYSword(
+    public static final Item brawnz = new RWBYGun(
             "brawnz",
             2500,
-            12,
+            72,
             0,
-            null,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:16,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             null,
             "rwbym:nuller,rwbym:nullest",
             false,
@@ -2644,10 +2644,10 @@ public class RWBYItems {
             0,
             4,
             RWBYCreativeTabs.tab_rwbyweapons).setRecoil(3);
-    public static final Item nolan = new RWBYSword(
+    public static final Item nolan = new RWBYGun(
             "nolan",
             2500,
-            10,
+            72,
             0,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             null,
@@ -2712,12 +2712,12 @@ public class RWBYItems {
             0,
             17,
             RWBYCreativeTabs.tab_rwbyweapons);
-    public static final Item deemace = new RWBYSword(
+    public static final Item deemace = new RWBYGun(
             "deemace",
             2500,
-            14,
+            72,
             0,
-            null,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:18,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
             null,
             "rwbym:nuller,rwbym:nullest",
             false,

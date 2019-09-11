@@ -15,10 +15,4 @@ import javax.swing.text.html.parser.Entity;
 public class HideUtil {
 
 
-    @SubscribeEvent
-    public void pre(RenderPlayerEvent.Pre event)
-    {
-        if (RWBYSword.runhideevent){
-        event.setCanceled(true);}
-    }
 }
