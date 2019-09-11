@@ -15,7 +15,9 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.*;
+import net.minecraft.entity.ai.attributes.AttributeMap;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.*;
@@ -72,9 +74,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     private final boolean charges; // TODO: use this
     private int recoil;
     private boolean mytre = false;
-    private boolean port = false;
     private boolean glow = false;
-    private boolean cinder = false;
     private int soundeffect;
     private int bulletCount;
     private int weapontype;
@@ -106,6 +106,11 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         return this;
     }
 
+    public RWBYGun setGlow(boolean glow) {
+        this.glow = glow;
+        return this;
+    }
+
     public RWBYGun setRecoil(int shotrecoil) {
         this.shotrecoil = shotrecoil;
         return this;
@@ -123,6 +128,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     * 10 Ilia Whip Range
     * 11 Leonhart's Shield
     * 12 Daggers Critical
+    * 13 Sword
     *
     *
     *  99 Sanrei Shunto
@@ -141,7 +147,9 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         this.setUnlocalizedName(this.getRegistryName().toString());
         this.setCreativeTab(creativetab);
         this.drawSpeed = drawSpeed;
-        this.data = data;
+        if(elementmelee == "wind"){
+            this.data = data+",{AttributeName:\"generic.movementSpeed\",Name:\"generic.movementSpeed\",Amount:0.2,Operation:0,UUIDLeast:763623,UUIDMost:811709,Slot:\"mainhand\"},{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:9,Operation:0,UUIDMost:99791,UUIDLeast:128916}";
+        }else{this.data = data;}
         this.morph = morph;
         this.ammo = ammo;
         this.projectileSpeed = projectileSpeed;
@@ -428,7 +436,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                     }else if(weapontype == 2){
                         is.setTagCompound(JsonToNBT.getTagFromJson(this.data +",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-3.0,Operation:0,UUIDMost:42182,UUIDLeast:178330}]}"));
                     }else if(weapontype == 3){
-                        is.setTagCompound(JsonToNBT.getTagFromJson(this.data +",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-2.6,Operation:0,UUIDMost:42182,UUIDLeast:178330}]}"));
+                        is.setTagCompound(JsonToNBT.getTagFromJson(this.data +",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-2.4,Operation:0,UUIDMost:42182,UUIDLeast:178330}]}"));
                     }else if(weapontype == 7){
                         is.setTagCompound(JsonToNBT.getTagFromJson(this.data +",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-1.0,Operation:0,UUIDMost:42182,UUIDLeast:178330}]}"));
                     }else if(weapontype == 4){
@@ -436,7 +444,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                     }else if(weapontype == 10){
                         is.setTagCompound(JsonToNBT.getTagFromJson(this.data +",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-1.0,Operation:0,UUIDMost:42182,UUIDLeast:178330}]}"));
                     }else if(weapontype == 11){
-                        is.setTagCompound(JsonToNBT.getTagFromJson(this.data +",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-2.6,Operation:0,UUIDMost:42182,UUIDLeast:178330}]}"));
+                        is.setTagCompound(JsonToNBT.getTagFromJson(this.data +",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-2.4,Operation:0,UUIDMost:42182,UUIDLeast:178330}]}"));
                     }else if(weapontype == 12){
                         is.setTagCompound(JsonToNBT.getTagFromJson(this.data +",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:1,Operation:0,UUIDMost:42182,UUIDLeast:178330}]}"));
                     }else {is.setTagCompound(JsonToNBT.getTagFromJson(this.data +",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:0,Operation:0,UUIDMost:42182,UUIDLeast:178330}]}"));}
@@ -882,7 +890,31 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             for (EntityLivingBase entitylivingbase : attacker.world.getEntitiesWithinAABB(EntityLivingBase.class, target.getEntityBoundingBox().grow(3.0D, 0.25D, 3.0D))) {
                 if (entitylivingbase != attacker && entitylivingbase != target && !attacker.isOnSameTeam(entitylivingbase) && attacker.getDistanceSq(entitylivingbase) < 9.0D) {
                     entitylivingbase.knockBack(attacker, 0.4F, (double) MathHelper.sin(attacker.rotationYaw * 0.017453292F), (double) (-MathHelper.cos(attacker.rotationYaw * 0.017453292F)));
-                    entitylivingbase.attackEntityFrom(DamageSource.GENERIC, 16);
+                    IAttributeInstance attackerdamages = new AttributeMap().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE);
+                    for (AttributeModifier modifier : attacker.getHeldItemMainhand().getAttributeModifiers(EntityEquipmentSlot.MAINHAND).get(SharedMonsterAttributes.ATTACK_DAMAGE.getName()))
+                        attackerdamages.applyModifier(modifier);
+
+                    double dm = attackerdamages.getAttributeValue();
+                    int attackerdamage = (int)dm;
+                    entitylivingbase.attackEntityFrom(DamageSource.GENERIC, attackerdamage);
+                }
+            }
+
+            attacker.world.playSound((EntityPlayer) null, attacker.posX, attacker.posY, attacker.posZ, SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, attacker.getSoundCategory(), 1.0F, 1.0F);
+        }
+
+        if(weapontype == 13){
+            //Sword
+            for (EntityLivingBase entitylivingbase : attacker.world.getEntitiesWithinAABB(EntityLivingBase.class, target.getEntityBoundingBox().grow(3.0D, 0.25D, 3.0D))) {
+                if (entitylivingbase != attacker && entitylivingbase != target && !attacker.isOnSameTeam(entitylivingbase) && attacker.getDistanceSq(entitylivingbase) < 9.0D) {
+                    entitylivingbase.knockBack(attacker, 0.4F, (double) MathHelper.sin(attacker.rotationYaw * 0.017453292F), (double) (-MathHelper.cos(attacker.rotationYaw * 0.017453292F)));
+                    IAttributeInstance attackerdamages = new AttributeMap().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE);
+                    for (AttributeModifier modifier : attacker.getHeldItemMainhand().getAttributeModifiers(EntityEquipmentSlot.MAINHAND).get(SharedMonsterAttributes.ATTACK_DAMAGE.getName()))
+                            attackerdamages.applyModifier(modifier);
+
+                    double dm = attackerdamages.getAttributeValue();
+                    int attackerdamage = (int)dm;
+                    entitylivingbase.attackEntityFrom(DamageSource.GENERIC, attackerdamage);
                 }
             }
 

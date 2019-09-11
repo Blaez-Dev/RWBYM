@@ -65,7 +65,7 @@ public class KineticWeapons extends ItemSword implements ICustomItem {
     private int timer;
     private boolean magna = false;
 
-    public KineticWeapons(String name, int durability, float damage, int enchantability, String data, String morph, boolean shield, boolean canBlock, boolean fire, boolean ice, int enchantmentglow, CreativeTabs creativetab) {
+    public KineticWeapons(String name, int durability, float damage, int enchantability, String data, String morph, boolean shield, boolean canBlock, CreativeTabs creativetab) {
         super(EnumHelper.addToolMaterial(RWBYModels.MODID + ":" + name, 0, durability, 1.0F, damage, enchantability));
         this.setRegistryName(new ResourceLocation(RWBYModels.MODID, name));
         this.setUnlocalizedName(this.getRegistryName().toString());
@@ -88,7 +88,6 @@ public class KineticWeapons extends ItemSword implements ICustomItem {
         this.ice = ice;
         this.canBlock = canBlock;
         this.isShield = shield;
-        if(enchantmentglow == 1) this.velvet = true;
 
         if (this.neo) this.addPropertyOverride(new ResourceLocation("blocking"), new IItemPropertyGetter() {
             @SideOnly(Side.CLIENT)
@@ -119,13 +118,6 @@ public class KineticWeapons extends ItemSword implements ICustomItem {
         stack.damageItem(1, attacker);
         return true;
     }
-
-    /*@Override
-    public void registerRecipes() {
-        if (this.recipes != null) for (RecipeDTO recipe : this.recipes) {
-            recipe.register(this);
-        }
-    }*/
 
 
     @SideOnly(Side.CLIENT)

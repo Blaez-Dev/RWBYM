@@ -64,12 +64,10 @@ public class RWBYSword extends ItemSword implements ICustomItem {
     private boolean kkwind = false;
     private boolean ohblade = false;
     private float damages = 0;
-    public static boolean runhideevent = false;
-    private int timer;
     private boolean magna = false;
 
-    public RWBYSword(String name, int durability, float damage, int enchantability, String data, String morph, boolean shield, boolean canBlock, boolean fire, boolean ice, int enchantmentglow, CreativeTabs creativetab) {
-        super(EnumHelper.addToolMaterial(RWBYModels.MODID + ":" + name, 0, durability, 1.0F, damage, enchantability));
+    public RWBYSword(String name, int durability, float damage, int weapontype, String data, String morph,String ammo, boolean noCharge, float projectileSpeed, boolean shield, boolean canBlock, int recoilType, int bulletCount, int enchantmentglow,int soundeffect,  CreativeTabs creativetab) {
+        super(EnumHelper.addToolMaterial(RWBYModels.MODID + ":" + name, 0, durability, 1.0F, damage, weapontype));
         this.setRegistryName(new ResourceLocation(RWBYModels.MODID, name));
         this.setUnlocalizedName(this.getRegistryName().toString());
         this.setCreativeTab(creativetab);
@@ -93,7 +91,6 @@ public class RWBYSword extends ItemSword implements ICustomItem {
         this.ice = ice;
         this.canBlock = canBlock;
         this.isShield = shield;
-        if(enchantmentglow == 1) this.velvet = true;
 
         if (this.neo) this.addPropertyOverride(new ResourceLocation("blocking"), new IItemPropertyGetter() {
             @SideOnly(Side.CLIENT)
