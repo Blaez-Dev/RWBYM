@@ -69,6 +69,8 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
     private String data;
     private final int drawSpeed;
+    private final int weapondamage;
+    private final double weaponspeed;
     private final String morph;
     private final String ammo;
     private final float projectileSpeed;
@@ -108,12 +110,6 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
     public RWBYGun setElementMelee(String elementmelee) {
         this.elementmelee = elementmelee;
-        this.loadData();
-        return this;
-    }
-
-    public RWBYGun setGlow(boolean glow) {
-        this.glow = glow;
         return this;
     }
 
@@ -122,26 +118,6 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         return this;
     }
 
-    public void loadData() {
-        StringBuffer sb = new StringBuffer();
-        if(elementmelee == "wind"){sb.append(",{AttributeName:\"generic.movementSpeed\",Name:\"generic.movementSpeed\",Amount:0.2,Operation:0,UUIDLeast:763623,UUIDMost:811709,Slot:\"mainhand\"}");}
-        if(weapontype == 0){sb.append(",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-2.4,Operation:0,UUIDMost:42182,UUIDLeast:178330}]}");}
-        if((weapontype) == RAPIER){sb.append(",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-1.0,Operation:0,UUIDMost:42182,UUIDLeast:178330}]");}
-        if((weapontype) == SCYTHE){sb.append(",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-3.0,Operation:0,UUIDMost:42182,UUIDLeast:178330}]");}
-        if((weapontype) == OFFHAND){sb.append(",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-2.4,Operation:0,UUIDMost:42182,UUIDLeast:178330}]");}
-        if((weapontype) == SCARLET){sb.append(",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-1.0,Operation:0,UUIDMost:42182,UUIDLeast:178330}]");}
-        if((weapontype) == WINTER){sb.append(",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-1.0,Operation:0,UUIDMost:42182,UUIDLeast:178330}]");}
-        if((weapontype) == WHIP){sb.append(",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-1.0,Operation:0,UUIDMost:42182,UUIDLeast:178330}]");}
-        if((weapontype) == LION_HEART){sb.append(",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-2.4,Operation:0,UUIDMost:42182,UUIDLeast:178330}]");}
-        if((weapontype) == DAGGER){sb.append(",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:1,Operation:0,UUIDMost:42182,UUIDLeast:178330}]");}
-        if((weapontype) == SWORD){sb.append(",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-2.4,Operation:0,UUIDMost:42182,UUIDLeast:178330}]");}
-        if(elementmelee == "wind"){sb.append(",ench:[{id:19,lvl:2}]");}
-        sb.append("}");
-        String attributativedata = attributedata+sb.toString();
-        attributedata = attributativedata;
-        this.data = attributedata;
-    }
-    
     //wtf do you do this, just use public(private) static final int or an enum
     //Weapon Type Numbers//
     /* 1 Rapier
@@ -197,12 +173,12 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 	
 
 
-    public RWBYGun(String name, int durability, int drawSpeed, int weapontype, String data, String morph, String ammo, boolean noCharge, float projectileSpeed, boolean shield,boolean canBlock, int recoilType, int bulletCount, int enchantmentglow,int soundeffect, CreativeTabs creativetab) {
+    public RWBYGun(String name, int durability, int weapondamage, int weapontype, String data, String morph, String ammo, boolean noCharge, float projectileSpeed, boolean shield,boolean canBlock, int recoilType, int bulletCount, int enchantmentglow,int soundeffect, CreativeTabs creativetab) {
         this.setRegistryName(new ResourceLocation(RWBYModels.MODID, name));
         this.setUnlocalizedName(this.getRegistryName().toString());
         this.setCreativeTab(creativetab);
-        this.drawSpeed = drawSpeed;
-        this.attributedata = data;
+        if(weapontype == BOW){this.drawSpeed = 72;}else {this.drawSpeed = 72000;}
+        if(weapondamage == 0){this.weapondamage = 1;}else {this.weapondamage = weapondamage;}
         this.morph = morph;
         this.ammo = ammo;
         this.projectileSpeed = projectileSpeed;
@@ -214,6 +190,20 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         this.weapontype = weapontype;
         this.setMaxDamage(durability);
         this.shotcount = 1;
+
+        if(weapontype == OFFHAND){this.weaponspeed = -2D;}
+        else if(weapontype == SWORD){this.weaponspeed = -2.4D;}
+        else if(weapontype == LION_HEART){this.weaponspeed = -2.4D;}
+        else if(weapontype == RAPIER){this.weaponspeed = -1D;}
+        else if(weapontype == SCARLET){this.weaponspeed = -1D;}
+        else if(weapontype == WINTER){this.weaponspeed = -1D;}
+        else if(weapontype == WHIP){this.weaponspeed = -1D;}
+        else if(weapontype == SCYTHE){this.weaponspeed = -3D;}
+        else if(weapontype == DAGGER){this.weaponspeed = 1D;}
+        else {this.weaponspeed = -3;}
+        /*
+        if(elementmelee == "wind"){sb.append(",{AttributeName:\"generic.movementSpeed\",Name:\"generic.movementSpeed\",Amount:0.2,Operation:0,UUIDLeast:763623,UUIDMost:811709,Slot:\"mainhand\"}");
+        if(elementmelee == "wind"){sb.append(",ench:[{id:19,lvl:2}]");}*/
 
 
         this.soundeffect = soundeffect;
@@ -229,10 +219,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             grimm = true;
         this.damages = 14;
         }
-        
-        this.loadData();
 
-        
         
         if (this.neo) this.addPropertyOverride(new ResourceLocation("blocking"), new IItemPropertyGetter() {
             @SideOnly(Side.CLIENT)
@@ -536,20 +523,6 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                 chest.setItemDamage(is.getItemDamage());}
             else{is.damageItem(365, player);
             }}
-        }
-
-
-        if (!world.isRemote && this.data != null) {
-            NBTTagCompound atag = is.getTagCompound();
-            if (atag == null) atag = new NBTTagCompound();
-            if (atag.getBoolean(KEY)) {
-                atag.setBoolean(KEY, true);
-                try {
-                    is.setTagCompound(JsonToNBT.getTagFromJson(this.data));
-                } catch (NBTException nbtexception) {
-                    LogManager.getLogger(RWBYModels.MODID).error("Couldn't load data tag for " + this.getRegistryName());
-                }
-            }
         }
     }
 
@@ -1031,6 +1004,17 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         if (kkice || kkfire || kkwind){return false;}else return true;
     }
 
+
+
+    public Multimap<String, AttributeModifier> getItemAttributeModifiers(EntityEquipmentSlot p_getItemAttributeModifiers_1_) {
+        Multimap<String, AttributeModifier> multimap = super.getItemAttributeModifiers(p_getItemAttributeModifiers_1_);
+        if (p_getItemAttributeModifiers_1_ == EntityEquipmentSlot.MAINHAND) {
+            multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", (double)this.weapondamage-1, 0));
+            multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", this.weaponspeed, 0));
+        }
+
+        return multimap;
+    }
 
     @Override
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair) {
