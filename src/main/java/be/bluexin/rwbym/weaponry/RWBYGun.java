@@ -65,8 +65,9 @@ import static net.minecraft.item.ItemBow.getArrowVelocity;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 public class RWBYGun extends ItemBow implements ICustomItem{
+	
 
-    private final String data;
+    private String data;
     private final int drawSpeed;
     private final String morph;
     private final String ammo;
@@ -119,6 +120,29 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         this.shotrecoil = shotrecoil;
         return this;
     }
+    
+    public RWBYGun loadData() {
+        StringBuffer sb = new StringBuffer();
+        sb.append(data);
+        if(elementmelee == "wind"){sb.append(",{AttributeName:\"generic.movementSpeed\",Name:\"generic.movementSpeed\",Amount:0.2,Operation:0,UUIDLeast:763623,UUIDMost:811709,Slot:\"mainhand\"}");}
+        if(weapontype == 0){sb.append(",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-2.4,Operation:0,UUIDMost:42182,UUIDLeast:178330}]}");}
+        if((weapontype & RAPIER) != 0){sb.append(",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-1.0,Operation:0,UUIDMost:42182,UUIDLeast:178330}]");}
+        if((weapontype & SCYTHE) != 0){sb.append(",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-3.0,Operation:0,UUIDMost:42182,UUIDLeast:178330}]");}
+        if((weapontype & OFFHAND) != 0){sb.append(",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-2.4,Operation:0,UUIDMost:42182,UUIDLeast:178330}]");}
+        if((weapontype & SCARLET) != 0){sb.append(",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-1.0,Operation:0,UUIDMost:42182,UUIDLeast:178330}]");}
+        if((weapontype & WINTER) != 0){sb.append(",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-1.0,Operation:0,UUIDMost:42182,UUIDLeast:178330}]");}
+        if((weapontype & WHIP) != 0){sb.append(",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-1.0,Operation:0,UUIDMost:42182,UUIDLeast:178330}]");}
+        if((weapontype & LION_HEART) != 0){sb.append(",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-2.4,Operation:0,UUIDMost:42182,UUIDLeast:178330}]");}
+        if((weapontype & DAGGER) != 0){sb.append(",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:1,Operation:0,UUIDMost:42182,UUIDLeast:178330}]");}
+        if((weapontype & SWORD) != 0){sb.append(",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-2.4,Operation:0,UUIDMost:42182,UUIDLeast:178330}]");}
+        StringBuffer sb2 = new StringBuffer();
+        if(elementmelee == "wind"){sb2.append(",ench:[{id:19,lvl:2}]");}
+        if(sb.toString() != null){sb2.append("}");}
+        this.data = sb.toString();
+        return this;
+    }
+    
+    //wtf do you do this, just use public(private) static final int or an enum
     //Weapon Type Numbers//
     /* 1 Rapier
     *  2 Scythe
@@ -145,13 +169,38 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     * 4 emerald/stormflower climb walls
     *
     * */
+    
+    //now you can also combine properties together like "BOW | INT_MAG"
+	public static final int RAPIER =       0x0001;
+	public static final int SCYTHE =       0x0002;
+	public static final int OFFHAND =      0x0004;
+	public static final int SCARLET =      0x0008;
+	public static final int JUNIOR =       0x0010;
+	public static final int EMBER_CELICA = 0x0020;
+	public static final int WINTER =       0x0040;
+	public static final int BOW =          0x0080;
+	public static final int INT_MAG =      0x0100;
+	public static final int WHIP =         0x0200;
+	public static final int LION_HEART =   0x0400;
+	public static final int DAGGER =       0x0800;
+	public static final int SWORD =        0x1000;
+	
+	public static final int SANREI =       0x2000;
+	public static final int LETZT =        0x4000;
+	
+	public static final int RCL_BACK =      1;
+	public static final int RCL_BACK_WEAK = 2;
+	public static final int RCL_FORWARD =   3;
+	public static final int RCL_CLIMB =     4;
+	
+
 
     public RWBYGun(String name, int durability, int drawSpeed, int weapontype, String data, String morph, String ammo, boolean noCharge, float projectileSpeed, boolean shield,boolean canBlock, int recoilType, int bulletCount, int enchantmentglow,int soundeffect, CreativeTabs creativetab) {
         this.setRegistryName(new ResourceLocation(RWBYModels.MODID, name));
         this.setUnlocalizedName(this.getRegistryName().toString());
         this.setCreativeTab(creativetab);
         this.drawSpeed = drawSpeed;
-       this.attributedata = data;
+        this.attributedata = data;
         this.morph = morph;
         this.ammo = ammo;
         this.projectileSpeed = projectileSpeed;
@@ -164,30 +213,10 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         this.setMaxDamage(durability);
         this.shotcount = 1;
 
-
-        StringBuffer sb = new StringBuffer();
-        sb.append(data);
-        if(elementmelee == "wind"){sb.append(",{AttributeName:\"generic.movementSpeed\",Name:\"generic.movementSpeed\",Amount:0.2,Operation:0,UUIDLeast:763623,UUIDMost:811709,Slot:\"mainhand\"}");}
-        if(weapontype == 0){sb.append(",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-2.4,Operation:0,UUIDMost:42182,UUIDLeast:178330}]}");}
-        if(weapontype == 1){sb.append(",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-1.0,Operation:0,UUIDMost:42182,UUIDLeast:178330}]");}
-        if(weapontype == 2){sb.append(",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-3.0,Operation:0,UUIDMost:42182,UUIDLeast:178330}]");}
-        if(weapontype == 3){sb.append(",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-2.4,Operation:0,UUIDMost:42182,UUIDLeast:178330}]");}
-        if(weapontype == 4){sb.append(",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-1.0,Operation:0,UUIDMost:42182,UUIDLeast:178330}]");}
-        if(weapontype == 7){sb.append(",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-1.0,Operation:0,UUIDMost:42182,UUIDLeast:178330}]");}
-        if(weapontype == 10){sb.append(",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-1.0,Operation:0,UUIDMost:42182,UUIDLeast:178330}]");}
-        if(weapontype == 11){sb.append(",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-2.4,Operation:0,UUIDMost:42182,UUIDLeast:178330}]");}
-        if(weapontype == 12){sb.append(",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:1,Operation:0,UUIDMost:42182,UUIDLeast:178330}]");}
-        if(weapontype == 13){sb.append(",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-2.4,Operation:0,UUIDMost:42182,UUIDLeast:178330}]");}
-        StringBuffer sb2 = new StringBuffer();
-        if(elementmelee == "wind"){sb2.append(",ench:[{id:19,lvl:2}]");}
-        if(sb.toString() != null){sb2.append("}");}
-        this.data = sb.toString();
-
-
         this.soundeffect = soundeffect;
         if(name.contains("kkfire")) kkfire = true; if(name.contains("kkice")) kkice = true; if(name.contains("kkwind")) kkwind = true; if(name.contains("gwenknife")){gwen = true;}
-        if(weapontype == 3 | weapontype == 7) { ohblade = true; this.damages = 14; }
-        if(weapontype == 10){this.damages = 14;}
+        if((weapontype & (OFFHAND | WINTER)) != 0) { ohblade = true; this.damages = 14; }
+        if((weapontype & WHIP) != 0) {this.damages = 14;}
         if(name.contains("neoumb_closed")) neo = true; if(name.contains("neoumb_closed_blade")) neo = true; if(name.contains("neoumb_handle_blade")) neo = true;
         if(name.contains("gambol")|| name.contains("rvn")) { ohblade = true; this.damages = 14; }
         if(name.contains("weiss")||name.contains("oobleck")||name.contains("goodwitch")){mytre = true;}
@@ -402,7 +431,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     @Override
     public int getMaxItemUseDuration(ItemStack stack) {
 
-        return weapontype == 99 ? 72000 : weapontype == 100 ? 72000 : this.drawSpeed;
+        return (weapontype & (SANREI | LETZT)) != 0 ? 72000 : this.drawSpeed;
     }
 
 
@@ -455,11 +484,11 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             }
         }
 
-        if(weapontype == 100 || weapontype == 99){
+        if((weapontype & (SANREI | LETZT)) != 0){
             EntityPlayer player = (EntityPlayer) entity;
-            if(weapontype == 99){
+            if((weapontype & SANREI) != 0){
             player.getCapability(AuraProvider.AURA_CAP, null).useAura(player, 0.1F, false);}
-            else if(weapontype == 100){
+            else if((weapontype & LETZT) != 0){
                 player.getCapability(AuraProvider.AURA_CAP, null).useAura(player, 0.2F, false);
             }
             if(player.getCapability(AuraProvider.AURA_CAP, null).getAmount() < 1F && player.getHeldItem(EnumHand.MAIN_HAND) == is ){
@@ -475,13 +504,10 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             }
         }
 
-
-
-
-            if (!world.isRemote && this.data != null) {
+        if (!world.isRemote && this.data != null) {
             NBTTagCompound atag = is.getTagCompound();
             if (atag == null) atag = new NBTTagCompound();
-            if (!atag.hasKey(KEY)) {
+            if (atag.getBoolean(KEY)) {
                 atag.setBoolean(KEY, true);
                 try {
                     is.setTagCompound(JsonToNBT.getTagFromJson(this.data));
@@ -551,7 +577,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             return new ActionResult<>(EnumActionResult.SUCCESS, is);}else if (canBlock && handIn == EnumHand.MAIN_HAND) {
             playerIn.setActiveHand(EnumHand.MAIN_HAND);
             return new ActionResult<>(EnumActionResult.SUCCESS, is);
-        }else if (weapontype == 4 && handIn == EnumHand.MAIN_HAND) {
+        }else if ((weapontype & SCARLET) != 0 && handIn == EnumHand.MAIN_HAND) {
             return new ActionResult<>(EnumActionResult.FAIL, is);}
         if (!flag) if (playerIn.onGround){
             if (recoil == 3) {
@@ -598,7 +624,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
     @Override
     public EnumAction getItemUseAction(ItemStack stack) {
-        if(stack.getItem() == RWBYItems.chatareusgun || weapontype == 99 || weapontype == 100){
+        if(stack.getItem() == RWBYItems.chatareusgun || (weapontype & (SANREI | LETZT)) != 0){
             return EnumAction.BOW;
         }else if(stack.getItem() == RWBYItems.cinderbow){
             return EnumAction.BOW;
@@ -684,9 +710,9 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                 flag2 = false;
             }
 
-            if(weapontype == 99 && entityplayer.getCapability(AuraProvider.AURA_CAP, null).getAmount() < 10){flag2 = false;}
+            if((weapontype & SANREI) != 0 && entityplayer.getCapability(AuraProvider.AURA_CAP, null).getAmount() < 10){flag2 = false;}
 
-            if(weapontype == 100 && entityplayer.getCapability(AuraProvider.AURA_CAP, null).getAmount() < 20){flag2 = false;}
+            if((weapontype & LETZT) != 0 && entityplayer.getCapability(AuraProvider.AURA_CAP, null).getAmount() < 20){flag2 = false;}
 
             if(ohblade && entityLiving instanceof EntityPlayer && entityLiving.getHeldItemOffhand() == stack) {
                 Entity entity = this.findEntityOnPath(worldIn, entityLiving, entityLiving.getEntityAttribute(EntityPlayer.REACH_DISTANCE).getAttributeValue());
@@ -701,7 +727,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                 }
             }
 
-            if(weapontype == 10 && entityLiving instanceof EntityPlayer && entityLiving.getHeldItemMainhand() == stack) {
+            if((weapontype & WHIP) != 0 && entityLiving instanceof EntityPlayer && entityLiving.getHeldItemMainhand() == stack) {
                 Entity entity = this.findEntityOnPath(worldIn, entityLiving, entityLiving.getEntityAttribute(EntityPlayer.REACH_DISTANCE).getAttributeValue()+4);
                 if (entity instanceof EntityLivingBase) {
                     EntityLivingBase entitylivingbase = (EntityLivingBase) entity;
@@ -746,7 +772,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             i = net.minecraftforge.event.ForgeEventFactory.onArrowLoose(stack, worldIn, (EntityPlayer) entityLiving, i, itemstack != null);
             if (i < 0) return;
 
-            if(entityplayer.getItemInUseCount() < 60 && weapontype == 11){
+            if(entityplayer.getItemInUseCount() < 60 && (weapontype & LION_HEART) != 0){
                 flag2 = false;
             }
 
@@ -754,7 +780,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
 
                 float f = getArrowVelocity(72);
-            if(weapontype == 99 || weapontype == 100){
+            if((weapontype & (SANREI | LETZT)) != 0){
                 f = getArrowVelocity(i);
             }
                 if ((double) f >= 0.1D) {
@@ -769,19 +795,19 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                             worldIn.spawnEntity(entityarrow);
                             //if (f >= 1.0F) entityarrow.setIsCritical(true);
                         }
-                        if(weapontype == 99){
+                        if((weapontype & SANREI) != 0){
                             if (entityplayer.hasCapability(AuraProvider.AURA_CAP, null)) {
                                 entityplayer.getCapability(AuraProvider.AURA_CAP, null).useAura(entityplayer, 10F, false);
                                 entityplayer.getCapability(AuraProvider.AURA_CAP, null).delayRecharge(60);
                             }
-                        }else if(weapontype == 100){
+                        }else if((weapontype & LETZT) != 0){
                             if (entityplayer.hasCapability(AuraProvider.AURA_CAP, null)) {
                                 entityplayer.getCapability(AuraProvider.AURA_CAP, null).useAura(entityplayer, 20F, false);
                                 entityplayer.getCapability(AuraProvider.AURA_CAP, null).delayRecharge(60);
                             }
                         }
-                        else if (weapontype == 5) {stack.damageItem(30,entityplayer);}
-                        else if(weapontype == 9) {stack.damageItem(4, entityplayer);}
+                        else if ((weapontype & JUNIOR) != 0) {stack.damageItem(30,entityplayer);}
+                        else if ((weapontype & INT_MAG) != 0) {stack.damageItem(4, entityplayer);}
                         else stack.damageItem(2, entityplayer);
                     }
 
@@ -872,7 +898,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                         entityplayer.lastTickPosX = -look.z;
                     }
                     if (!flag){
-                        if (weapontype == 8 && !flagger) {
+                        if ((weapontype & BOW) != 0 && !flagger) {
                             itemstack.shrink(1);
                         }
                     }
@@ -932,7 +958,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
     @Override
     public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker)
-    {  if(weapontype == 1 || weapontype == 7){
+    {  if((weapontype & (RAPIER | WINTER)) != 0){
         //Rapier
         boolean unarm = false;
         if(target.getTotalArmorValue() == 0){
@@ -942,7 +968,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             target.attackEntityFrom(DamageSource.GENERIC, 35);
         }}
 
-        if(weapontype == 12 || gwen){
+        if((weapontype & DAGGER) != 0 || gwen){
         if (target.getHealth() >= 100.0F && (new Random()).nextInt(100) <= 30) {
             if (attacker instanceof EntityPlayer) {
                 target.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer)attacker), 100.0F);
@@ -951,7 +977,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             }
         }}
 
-        if(weapontype == 2){
+        if((weapontype & SCYTHE) != 0){
             //Scythe
             for (EntityLivingBase entitylivingbase : attacker.world.getEntitiesWithinAABB(EntityLivingBase.class, target.getEntityBoundingBox().grow(3.0D, 0.25D, 3.0D))) {
                 if (entitylivingbase != attacker && entitylivingbase != target && !attacker.isOnSameTeam(entitylivingbase) && attacker.getDistanceSq(entitylivingbase) < 9.0D) {
@@ -969,7 +995,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             attacker.world.playSound((EntityPlayer) null, attacker.posX, attacker.posY, attacker.posZ, SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, attacker.getSoundCategory(), 1.0F, 1.0F);
         }
 
-        if(weapontype == 13){
+        if((weapontype & SWORD) != 0){
             //Sword
             for (EntityLivingBase entitylivingbase : attacker.world.getEntitiesWithinAABB(EntityLivingBase.class, target.getEntityBoundingBox().grow(3.0D, 0.25D, 3.0D))) {
                 if (entitylivingbase != attacker && entitylivingbase != target && !attacker.isOnSameTeam(entitylivingbase) && attacker.getDistanceSq(entitylivingbase) < 9.0D) {
@@ -1016,6 +1042,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         if (kkice || kkfire || kkwind){return false;}
         else return repair.getItem() == RWBYItems.scrap || super.getIsRepairable(toRepair, repair);
     }
+    
 }
 
 
