@@ -665,7 +665,7 @@ public class RWBYItems {
             RWBYCreativeTabs.tab_rwbyweapons);
     public static final Item kkfire = new RWBYGun(
             "kkfire",
-            640,
+            2500,
             72,
             13,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:19,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
@@ -682,7 +682,7 @@ public class RWBYItems {
             null).setElementMelee("fire");
     public static final Item kkice = new RWBYGun(
             "kkice",
-            640,
+            2500,
             72,
             13,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
@@ -699,7 +699,7 @@ public class RWBYItems {
             null).setElementMelee("ice");
     public static final Item kkwind = new RWBYGun(
             "kkwind",
-            640,
+            2500,
             72,
             1,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}",
@@ -2887,7 +2887,7 @@ public class RWBYItems {
             2500,
             72,
             2,
-            "{AttributeModifiers:[{AttributeName:\"generic.movementSpeed\",Name:\"generic.movementSpeed\",Amount:0.2,Operation:0,UUIDLeast:763623,UUIDMost:811709,Slot:\"mainhand\"},{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:16,Operation:0,UUIDMost:99791,UUIDLeast:128916}",
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:16,Operation:0,UUIDMost:99791,UUIDLeast:128916}",
             "rwbym:noctustraumlight",
             "rwbym:crmag32,rwbym:crfiremag32",
             false,
@@ -2898,7 +2898,7 @@ public class RWBYItems {
             1,
             0,
             1,
-            null);
+            null).setElementMelee("wind");
 
     public static final Item neonnormal = new RWBYGun(
             "neonnormal",

@@ -96,6 +96,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     private boolean kkice = false;
     private boolean kkwind = false;
     public boolean neo = false;
+    public String attributedata;
 
     private boolean gwen;
 
@@ -150,9 +151,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         this.setUnlocalizedName(this.getRegistryName().toString());
         this.setCreativeTab(creativetab);
         this.drawSpeed = drawSpeed;
-        if(elementmelee == "wind"){
-            this.data = data;
-        }else{this.data = data;}
+       this.attributedata = data;
         this.morph = morph;
         this.ammo = ammo;
         this.projectileSpeed = projectileSpeed;
@@ -166,8 +165,27 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         this.shotcount = 1;
 
 
+        StringBuffer sb = new StringBuffer();
+        sb.append(data);
+        if(elementmelee == "wind"){sb.append(",{AttributeName:\"generic.movementSpeed\",Name:\"generic.movementSpeed\",Amount:0.2,Operation:0,UUIDLeast:763623,UUIDMost:811709,Slot:\"mainhand\"}");}
+        if(weapontype == 0){sb.append(",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-2.4,Operation:0,UUIDMost:42182,UUIDLeast:178330}]}");}
+        if(weapontype == 1){sb.append(",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-1.0,Operation:0,UUIDMost:42182,UUIDLeast:178330}]");}
+        if(weapontype == 2){sb.append(",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-3.0,Operation:0,UUIDMost:42182,UUIDLeast:178330}]");}
+        if(weapontype == 3){sb.append(",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-2.4,Operation:0,UUIDMost:42182,UUIDLeast:178330}]");}
+        if(weapontype == 4){sb.append(",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-1.0,Operation:0,UUIDMost:42182,UUIDLeast:178330}]");}
+        if(weapontype == 7){sb.append(",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-1.0,Operation:0,UUIDMost:42182,UUIDLeast:178330}]");}
+        if(weapontype == 10){sb.append(",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-1.0,Operation:0,UUIDMost:42182,UUIDLeast:178330}]");}
+        if(weapontype == 11){sb.append(",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-2.4,Operation:0,UUIDMost:42182,UUIDLeast:178330}]");}
+        if(weapontype == 12){sb.append(",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:1,Operation:0,UUIDMost:42182,UUIDLeast:178330}]");}
+        if(weapontype == 13){sb.append(",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-2.4,Operation:0,UUIDMost:42182,UUIDLeast:178330}]");}
+        StringBuffer sb2 = new StringBuffer();
+        if(elementmelee == "wind"){sb2.append(",ench:[{id:19,lvl:2}]");}
+        if(sb.toString() != null){sb2.append("}");}
+        this.data = sb.toString();
+
+
         this.soundeffect = soundeffect;
-        if(name.contains("gwenknife")){gwen = true;}
+        if(name.contains("kkfire")) kkfire = true; if(name.contains("kkice")) kkice = true; if(name.contains("kkwind")) kkwind = true; if(name.contains("gwenknife")){gwen = true;}
         if(weapontype == 3 | weapontype == 7) { ohblade = true; this.damages = 14; }
         if(weapontype == 10){this.damages = 14;}
         if(name.contains("neoumb_closed")) neo = true; if(name.contains("neoumb_closed_blade")) neo = true; if(name.contains("neoumb_handle_blade")) neo = true;
@@ -180,6 +198,8 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         this.damages = 14;
         }
 
+        
+        
         if (this.neo) this.addPropertyOverride(new ResourceLocation("blocking"), new IItemPropertyGetter() {
             @SideOnly(Side.CLIENT)
             public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn)
@@ -424,33 +444,6 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             }
         }
 
-        if(entity instanceof EntityPlayer) {
-            EntityPlayer player = (EntityPlayer) entity;
-            if (kkfire){if(player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() == RWBYItems.korekosmoufire){
-                ItemStack chest = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
-                is.setItemDamage(chest.getItemDamage());
-                chest.setItemDamage(is.getItemDamage());}
-            else{is.damageItem(365, player);
-            }}
-        }
-        if(entity instanceof EntityPlayer) {
-            EntityPlayer player = (EntityPlayer) entity;
-            if (kkice){if(player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() == RWBYItems.korekosmouwater){
-                ItemStack chest = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
-                is.setItemDamage(chest.getItemDamage());
-                chest.setItemDamage(is.getItemDamage());}
-            else{is.damageItem(365, player);
-            }}
-        }
-        if(entity instanceof EntityPlayer) {
-            EntityPlayer player = (EntityPlayer) entity;
-            if (kkwind){if(player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() == RWBYItems.korekosmouwind){
-                ItemStack chest = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
-                is.setItemDamage(chest.getItemDamage());
-                chest.setItemDamage(is.getItemDamage());}
-            else{is.damageItem(365, player);
-            }}
-        }
 
         if(entity instanceof EntityPlayer && neo){
             final EntityPlayer player = (EntityPlayer)entity;
@@ -483,36 +476,49 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         }
 
 
+
+
             if (!world.isRemote && this.data != null) {
             NBTTagCompound atag = is.getTagCompound();
             if (atag == null) atag = new NBTTagCompound();
             if (!atag.hasKey(KEY)) {
                 atag.setBoolean(KEY, true);
                 try {
-                    if(weapontype == 1){
-                    is.setTagCompound(JsonToNBT.getTagFromJson(this.data +",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-1.0,Operation:0,UUIDMost:42182,UUIDLeast:178330}]}"));
-                    }else if(weapontype == 2){
-                        is.setTagCompound(JsonToNBT.getTagFromJson(this.data +",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-3.0,Operation:0,UUIDMost:42182,UUIDLeast:178330}]}"));
-                    }else if(weapontype == 3){
-                        is.setTagCompound(JsonToNBT.getTagFromJson(this.data +",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-2.4,Operation:0,UUIDMost:42182,UUIDLeast:178330}]}"));
-                    }else if(weapontype == 7){
-                        is.setTagCompound(JsonToNBT.getTagFromJson(this.data +",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-1.0,Operation:0,UUIDMost:42182,UUIDLeast:178330}]}"));
-                    }else if(weapontype == 4){
-                        is.setTagCompound(JsonToNBT.getTagFromJson(this.data +",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-1.0,Operation:0,UUIDMost:42182,UUIDLeast:178330}]}"));
-                    }else if(weapontype == 10){
-                        is.setTagCompound(JsonToNBT.getTagFromJson(this.data +",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-1.0,Operation:0,UUIDMost:42182,UUIDLeast:178330}]}"));
-                    }else if(weapontype == 11){
-                        is.setTagCompound(JsonToNBT.getTagFromJson(this.data +",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-2.4,Operation:0,UUIDMost:42182,UUIDLeast:178330}]}"));
-                    }else if(weapontype == 12){
-                        is.setTagCompound(JsonToNBT.getTagFromJson(this.data +",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:1,Operation:0,UUIDMost:42182,UUIDLeast:178330}]}"));
-                    }else if(weapontype == 13){
-                        is.setTagCompound(JsonToNBT.getTagFromJson(this.data +",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-2.4,Operation:0,UUIDMost:42182,UUIDLeast:178330}]}"));
-                    }else {is.setTagCompound(JsonToNBT.getTagFromJson(this.data +",{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:-2.4,Operation:0,UUIDMost:42182,UUIDLeast:178330}]}"));}
+                    is.setTagCompound(JsonToNBT.getTagFromJson(this.data));
                 } catch (NBTException nbtexception) {
                     LogManager.getLogger(RWBYModels.MODID).error("Couldn't load data tag for " + this.getRegistryName());
                 }
             }
         }
+
+        if(entity instanceof EntityPlayer) {
+            EntityPlayer player = (EntityPlayer) entity;
+            if (kkfire){if(player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() == RWBYItems.korekosmoufire){
+                ItemStack chest = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
+                is.setItemDamage(chest.getItemDamage());
+                chest.setItemDamage(is.getItemDamage());}
+            else{is.damageItem(365, player);
+            }}
+        }
+        if(entity instanceof EntityPlayer) {
+            EntityPlayer player = (EntityPlayer) entity;
+            if (kkice){if(player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() == RWBYItems.korekosmouwater){
+                ItemStack chest = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
+                is.setItemDamage(chest.getItemDamage());
+                chest.setItemDamage(is.getItemDamage());}
+            else{is.damageItem(365, player);
+            }}
+        }
+        if(entity instanceof EntityPlayer) {
+            EntityPlayer player = (EntityPlayer) entity;
+            if (kkwind){if(player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() == RWBYItems.korekosmouwind){
+                ItemStack chest = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
+                is.setItemDamage(chest.getItemDamage());
+                chest.setItemDamage(is.getItemDamage());}
+            else{is.damageItem(365, player);
+            }}
+        }
+
             if(!world.isRemote && this.data == null){{NBTTagCompound btag = is.getTagCompound();
             if (btag == null) btag = new NBTTagCompound();
             if (!btag.hasKey(KEY)) {
@@ -1011,3 +1017,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         else return repair.getItem() == RWBYItems.scrap || super.getIsRepairable(toRepair, repair);
     }
 }
+
+
+
+
