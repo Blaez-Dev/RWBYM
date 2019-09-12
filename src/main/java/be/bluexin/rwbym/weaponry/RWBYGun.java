@@ -108,6 +108,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
     public RWBYGun setElementMelee(String elementmelee) {
         this.elementmelee = elementmelee;
+        this.loadData();
         return this;
     }
 
@@ -121,7 +122,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         return this;
     }
     
-    public RWBYGun loadData() {
+    public void loadData() {
         StringBuffer sb = new StringBuffer();
         sb.append(data);
         if(elementmelee == "wind"){sb.append(",{AttributeName:\"generic.movementSpeed\",Name:\"generic.movementSpeed\",Amount:0.2,Operation:0,UUIDLeast:763623,UUIDMost:811709,Slot:\"mainhand\"}");}
@@ -139,7 +140,6 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         if(elementmelee == "wind"){sb2.append(",ench:[{id:19,lvl:2}]");}
         if(sb.toString() != null){sb2.append("}");}
         this.data = sb.toString();
-        return this;
     }
     
     //wtf do you do this, just use public(private) static final int or an enum
@@ -226,6 +226,8 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             grimm = true;
         this.damages = 14;
         }
+        
+        this.loadData();
 
         
         
