@@ -121,7 +121,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         this.shotrecoil = shotrecoil;
         return this;
     }
-    
+
     public void loadData() {
         StringBuffer sb = new StringBuffer();
         sb.append(data);
@@ -169,6 +169,8 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     * 4 emerald/stormflower climb walls
     *
     * */
+
+
     
     //now you can also combine properties together like "BOW | INT_MAG"
 	public static final int RAPIER =       0x0001;
@@ -212,6 +214,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         this.weapontype = weapontype;
         this.setMaxDamage(durability);
         this.shotcount = 1;
+
 
         this.soundeffect = soundeffect;
         if(name.contains("kkfire")) kkfire = true; if(name.contains("kkice")) kkice = true; if(name.contains("kkwind")) kkwind = true; if(name.contains("gwenknife")){gwen = true;}
