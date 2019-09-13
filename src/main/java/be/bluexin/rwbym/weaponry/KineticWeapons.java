@@ -53,8 +53,6 @@ public class KineticWeapons extends ItemSword implements ICustomItem {
     private final String data;
     //private final RecipeDTO[] recipes;
     private final String morph;
-    private boolean fire;
-    private boolean ice;
     private boolean velvet = false;
     private boolean crescentr = false;
     private boolean kkfire = false;
@@ -84,8 +82,6 @@ public class KineticWeapons extends ItemSword implements ICustomItem {
         if(name.contains("reese")) reese = true;
 
         this.morph = morph;
-        this.fire = fire;
-        this.ice = ice;
         this.canBlock = canBlock;
         this.isShield = shield;
 
@@ -109,12 +105,6 @@ public class KineticWeapons extends ItemSword implements ICustomItem {
     @Override
     public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker)
     {
-        PotionEffect potioneffect = new PotionEffect(MobEffects.SLOWNESS, 200, 5, true, true);
-        if (fire){target.setFire(10);}
-        if (ice){
-            target.addPotionEffect(potioneffect);
-        }
-
         stack.damageItem(1, attacker);
         return true;
     }
@@ -138,33 +128,6 @@ public class KineticWeapons extends ItemSword implements ICustomItem {
     @SuppressWarnings("Duplicates")
     public void onUpdate(ItemStack is, World world, Entity entity, int slotIn, boolean inHand) {
 
-        if(entity instanceof EntityPlayer) {
-            EntityPlayer player = (EntityPlayer) entity;
-            if (kkfire){if(player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() == RWBYItems.korekosmoufire){
-                ItemStack chest = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
-                is.setItemDamage(chest.getItemDamage());
-                chest.setItemDamage(is.getItemDamage());}
-            else{is.damageItem(365, player);
-            }}
-        }
-        if(entity instanceof EntityPlayer) {
-            EntityPlayer player = (EntityPlayer) entity;
-            if (kkice){if(player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() == RWBYItems.korekosmouwater){
-                ItemStack chest = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
-                is.setItemDamage(chest.getItemDamage());
-                chest.setItemDamage(is.getItemDamage());}
-            else{is.damageItem(365, player);
-            }}
-        }
-        if(entity instanceof EntityPlayer) {
-            EntityPlayer player = (EntityPlayer) entity;
-            if (kkwind){if(player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() == RWBYItems.korekosmouwind){
-                ItemStack chest = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
-                is.setItemDamage(chest.getItemDamage());
-                chest.setItemDamage(is.getItemDamage());}
-            else{is.damageItem(365, player);
-            }}
-        }
         if(entity instanceof  EntityPlayer){
             EntityPlayer player = (EntityPlayer) entity;
             if(player.getHeldItemMainhand().getItem() == RWBYItems.reese && player.getHeldItemMainhand().getOrCreateSubCompound("RWBYM").getInteger("inactive") < 2){
@@ -238,7 +201,7 @@ public class KineticWeapons extends ItemSword implements ICustomItem {
                     double py = y;
                     
                     if (Minecraft.getMinecraft().gameSettings.keyBindJump.isKeyDown() && dy > 0 && !player.isInWater()) {
-                		y += 2;
+                		y += 1;
                     }
 
                     double du = mu - u;
@@ -371,17 +334,6 @@ public class KineticWeapons extends ItemSword implements ICustomItem {
                 }
             }
         }
-        if(!world.isRemote && this.data == null){{NBTTagCompound btag = is.getTagCompound();
-            if (btag == null) btag = new NBTTagCompound();
-            if (!btag.hasKey(KEY)) {
-                btag.setBoolean(KEY, true);
-                try {
-                    is.setTagCompound(JsonToNBT.getTagFromJson("{AttributeModifiers:[{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:0,Operation:0,UUIDMost:60527,UUIDLeast:119972}]}"));
-                    //is.getTagCompound().merge(atag);
-                } catch (NBTException nbtexception) {
-                    LogManager.getLogger(RWBYModels.MODID).error("Couldn't load data tag for " + this.getRegistryName());
-                }
-            }}}
     }
 
 
@@ -397,10 +349,7 @@ public class KineticWeapons extends ItemSword implements ICustomItem {
         if (!worldIn.isRemote && playerIn.isSneaking() && this.morph != null) {
             is = new ItemStack(Item.getByNameOrId(this.morph), is.getCount(), is.getMetadata());
             return new ActionResult<>(EnumActionResult.SUCCESS, is);
-        } else if (this.isShield && hand == EnumHand.OFF_HAND) {
-            playerIn.setActiveHand(EnumHand.OFF_HAND);
-            return new ActionResult<>(EnumActionResult.SUCCESS, is);
-        }else if ((canBlock || reese) && hand == EnumHand.MAIN_HAND) {
+        } else if ((canBlock || reese) && hand == EnumHand.MAIN_HAND) {
             playerIn.setActiveHand(EnumHand.MAIN_HAND);
             NBTTagCompound nbt = is.getOrCreateSubCompound("RWBYM");
             nbt.setInteger("inactive", 0);
@@ -435,26 +384,16 @@ public class KineticWeapons extends ItemSword implements ICustomItem {
         return "RWBYSword{" + this.getRegistryName() + "}";
     }
 
-    @Override
-    public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
-        if (kkfire || kkwind || kkice){
-            ItemStack chest = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
-            chest.damageItem(1, player);
-        }
-        return super.onLeftClickEntity(stack, player, entity);
-    }
 
 
     @Override
     public boolean isRepairable() {
-        if (kkice || kkfire || kkwind){return false;}
-        else return true;
+      return true;
     }
 
     @Override
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair) {
-        if (kkice || kkfire || kkwind){return false;}
-        else return repair.getItem() == RWBYItems.scrap || super.getIsRepairable(toRepair, repair);
+        return repair.getItem() == RWBYItems.scrap || super.getIsRepairable(toRepair, repair);
     }
 
 }

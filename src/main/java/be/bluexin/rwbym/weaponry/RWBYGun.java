@@ -430,30 +430,31 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 	        for (int i = 0; i < itemIds.length; i++) {
 	            Item item = Item.getByNameOrId(itemIds[i]);
 	            if (item != null) {
-	            	tooltip.add(com.mojang.realmsclient.gui.ChatFormatting.BLUE +"•" + I18n.format(item.getUnlocalizedName() + ".name"));
+	            	tooltip.add(com.mojang.realmsclient.gui.ChatFormatting.BLUE +"-" + I18n.format(item.getUnlocalizedName() + ".name"));
 	            }
 	        }
         }
         tooltip.add("Weapon Type:");
-        if(weapontype == OFFHAND){tooltip.add(ChatFormatting.BLUE +"•" +  "Offhand Capable Blade");}
-        else if(weapontype == SWORD){tooltip.add(ChatFormatting.BLUE +"•" +  "Sword");}
-        else if(weapontype == LION_HEART){tooltip.add(ChatFormatting.BLUE +"•" +  "Lion Heart Shield");}
-        else if(weapontype == RAPIER){tooltip.add(ChatFormatting.BLUE +"•" +  "Rapier");}
-        else if(weapontype == SCARLET){tooltip.add(ChatFormatting.BLUE +"•" +  "Offhand Gun Only");}
-        else if(weapontype == WINTER){tooltip.add(ChatFormatting.BLUE +"•" +  "Rapier / Offhand Capable");}
-        else if(weapontype == WHIP){tooltip.add(ChatFormatting.BLUE +"•" +  "Whip");}
-        else if(weapontype == SCYTHE){tooltip.add(ChatFormatting.BLUE +"•" +  "Scythe");}
-        else if(weapontype == DAGGER){tooltip.add(ChatFormatting.BLUE +"•" +  "Dagger");}
-        else if(weapontype == INT_MAG){tooltip.add(ChatFormatting.BLUE +"•" +  "Internal Magazine");}
-        else if(weapontype == JUNIOR){tooltip.add(ChatFormatting.BLUE +"•" +  "Internal Magazine");}
-        else{tooltip.add(ChatFormatting.BLUE +"•" +  "None");}
+        if(weapontype == OFFHAND){tooltip.add(ChatFormatting.BLUE +"-" +  "Offhand Capable Blade");}
+        else if(weapontype == SWORD){tooltip.add(ChatFormatting.BLUE +"-" +  "Sword");}
+        else if(weapontype == LION_HEART){tooltip.add(ChatFormatting.BLUE +"-" +  "Lion Heart Shield");}
+        else if(weapontype == RAPIER){tooltip.add(ChatFormatting.BLUE +"-" +  "Rapier");}
+        else if(weapontype == SCARLET){tooltip.add(ChatFormatting.BLUE +"-" +  "Offhand Gun Only");}
+        else if(weapontype == WINTER){tooltip.add(ChatFormatting.BLUE +"-" +  "Rapier / Offhand Capable");}
+        else if(weapontype == WHIP){tooltip.add(ChatFormatting.BLUE +"-" +  "Whip");}
+        else if(weapontype == SCYTHE){tooltip.add(ChatFormatting.BLUE +"-" +  "Scythe");}
+        else if(weapontype == DAGGER){tooltip.add(ChatFormatting.BLUE +"-" +  "Dagger");}
+        else if(weapontype == INT_MAG){tooltip.add(ChatFormatting.BLUE +"-" +  "Internal Magazine");}
+        else if(weapontype == JUNIOR){tooltip.add(ChatFormatting.BLUE +"-" +  "Internal Magazine");}
+        else if(dualwield){tooltip.add(ChatFormatting.BLUE + "-" + "Dual-wieldable Gun");}
+        else{tooltip.add(ChatFormatting.BLUE +"-" +  "None");}
         if(shotrecoil > 0){
             String shotrecoils = Integer.toString(shotrecoil);
             tooltip.add("Shot Recoil Amount:");
-            tooltip.add(ChatFormatting.BLUE +"•" +  shotrecoils);
+            tooltip.add(ChatFormatting.BLUE +"-" +  shotrecoils);
         }
-        if(stack.getItem() == RWBYItems.bangle){tooltip.add(" "); tooltip.add(ChatFormatting.BLUE+"•" +  "Hums with a Faint Energy");}
-        if(stack.getItem() == RWBYItems.hbangle){tooltip.add(" "); tooltip.add(ChatFormatting.BLUE +"•" +  "Hums with a Faint Dark Energy");}
+        if(stack.getItem() == RWBYItems.bangle){tooltip.add(" "); tooltip.add(ChatFormatting.BLUE+"-" +  "Hums with a Faint Energy");}
+        if(stack.getItem() == RWBYItems.hbangle){tooltip.add(" "); tooltip.add(ChatFormatting.BLUE +"-" +  "Hums with a Faint Dark Energy");}
         super.addInformation(stack, worldIn, tooltip, flagIn);
     }
 
@@ -573,7 +574,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     @Override
     public boolean canApplyAtEnchantingTable(ItemStack stack, net.minecraft.enchantment.Enchantment enchantment)
     {
-        return enchantment.type.canEnchantItem(Items.DIAMOND_AXE);
+        return enchantment.type.canEnchantItem(Items.DIAMOND_SWORD);
     }
 
 
@@ -584,10 +585,9 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         if (!worldIn.isRemote && playerIn.isSneaking() && this.morph != null) {
             ItemStack morph1 = new ItemStack(Item.getByNameOrId(this.morph), is.getCount(), is.getMetadata());
             //noinspection ConstantConditions
-            if(!getRegistryName().toString().contains("reese")){
             if (is.hasTagCompound()) {
                 morph1.setTagCompound(is.getTagCompound());
-            }}
+            }
             if (handIn == EnumHand.MAIN_HAND) {
                 playerIn.inventory.setInventorySlotContents(playerIn.inventory.currentItem, morph1);
             }} else if (this.isShield && handIn == EnumHand.OFF_HAND) {
@@ -646,7 +646,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             return EnumAction.BOW;
         }else if(stack.getItem() == RWBYItems.cinderbow){
             return EnumAction.BOW;
-        }else if(canBlock){return  EnumAction.BLOCK;}else return EnumAction.NONE;
+        }else if(canBlock||isShield){return  EnumAction.BLOCK;}else return EnumAction.NONE;
     }
 
     @Nonnull

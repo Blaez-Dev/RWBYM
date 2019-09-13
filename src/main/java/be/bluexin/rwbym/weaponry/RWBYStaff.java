@@ -130,17 +130,6 @@ public class RWBYStaff extends ItemSword implements ICustomItem {
 
         }
 
-        if(!world.isRemote && this.data == null){{NBTTagCompound btag = is.getTagCompound();
-            if (btag == null) btag = new NBTTagCompound();
-            if (!btag.hasKey(KEY)) {
-                btag.setBoolean(KEY, true);
-                try {
-                    is.setTagCompound(JsonToNBT.getTagFromJson("{AttributeModifiers:[{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:0,Operation:0,UUIDMost:60527,UUIDLeast:119972}]}"));
-                    //is.getTagCompound().merge(atag);
-                } catch (NBTException nbtexception) {
-                    LogManager.getLogger(RWBYModels.MODID).error("Couldn't load data tag for " + this.getRegistryName());
-                }
-            }}}
     }
 
 
