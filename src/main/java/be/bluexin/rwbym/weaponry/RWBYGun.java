@@ -453,6 +453,11 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             tooltip.add("Shot Recoil Amount:");
             tooltip.add(ChatFormatting.BLUE +"-" +  shotrecoils);
         }
+        if(bulletCount > 1){
+            String shotcounter = Integer.toString(bulletCount);
+            tooltip.add("Number of Projectiles:");
+            tooltip.add(ChatFormatting.BLUE + "-"+shotcounter);
+        }
         if(stack.getItem() == RWBYItems.bangle){tooltip.add(" "); tooltip.add(ChatFormatting.BLUE+"-" +  "Hums with a Faint Energy");}
         if(stack.getItem() == RWBYItems.hbangle){tooltip.add(" "); tooltip.add(ChatFormatting.BLUE +"-" +  "Hums with a Faint Dark Energy");}
         super.addInformation(stack, worldIn, tooltip, flagIn);
