@@ -5,10 +5,12 @@ import be.bluexin.rwbym.entity.EntityBullet;
 import be.bluexin.rwbym.weaponry.ammohit.IAmmoHit;
 import be.bluexin.rwbym.weaponry.ammohit.NullAmmoHit;
 import be.bluexin.rwbym.RWBYModels;
+import com.mojang.realmsclient.gui.ChatFormatting;
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
@@ -131,7 +133,15 @@ public class RWBYAmmoItem extends Item implements ICustomItem {
         	Minecraft.getMinecraft().getRenderManager().renderEntityStatic(renderEntity, partialTicks, true);
         }
     }
-    
+
+
+    @Override
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+        tooltip.add("Bullet Impact Damage:");
+        tooltip.add(ChatFormatting.BLUE + "-"+baseDamage);
+        super.addInformation(stack, worldIn, tooltip, flagIn);
+    }
+
     public ItemStack getRenderStack() {
     	return this.render instanceof Item ? new ItemStack((Item)render) : ItemStack.EMPTY; 
     }
