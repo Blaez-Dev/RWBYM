@@ -13,6 +13,7 @@ import com.mojang.realmsclient.gui.ChatFormatting;
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -420,15 +421,18 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         String recall = Integer.toString(weapontype);
         String ammmo = ammo;
-        ammmo = ammmo.replace("rwbym:", "");
-        ammmo = ammmo.replace("nuller", "");
-        ammmo = ammmo.replace("nullest", "");
-        ammmo = ammmo.replace("nulls", "");
-        tooltip.add("Ammo Required:");
+        ammmo = ammmo.replace("rwbym:nuller", "");
+        ammmo = ammmo.replace("rwbym:nullest", "");
+        ammmo = ammmo.replace("rwbym:nulls", "");
         String[] itemIds = ammmo.split(",");
-        for (int i = 0; i < itemIds.length; i++) {
-            String item = itemIds[i];
-            tooltip.add(com.mojang.realmsclient.gui.ChatFormatting.BLUE +"•" + item);
+        if (itemIds.length > 0) {
+            tooltip.add("Ammo Required:");
+	        for (int i = 0; i < itemIds.length; i++) {
+	            Item item = Item.getByNameOrId(itemIds[i]);
+	            if (item != null) {
+	            	tooltip.add(com.mojang.realmsclient.gui.ChatFormatting.BLUE +"• " + I18n.format(item.getUnlocalizedName() + ".name"));
+	            }
+	        }
         }
         tooltip.add("Weapon Type:");
         if(weapontype == OFFHAND){tooltip.add(ChatFormatting.BLUE + "Offhand Capable Blade");}
