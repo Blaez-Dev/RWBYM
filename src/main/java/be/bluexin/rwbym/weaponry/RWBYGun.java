@@ -560,7 +560,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     @Override
     public boolean canApplyAtEnchantingTable(ItemStack stack, net.minecraft.enchantment.Enchantment enchantment)
     {
-        return enchantment.type.canEnchantItem(Items.DIAMOND_AXE);
+        return enchantment.type.canEnchantItem(Items.DIAMOND_SWORD);
     }
 
 
