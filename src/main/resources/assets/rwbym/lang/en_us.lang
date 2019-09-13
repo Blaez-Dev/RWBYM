@@ -69,7 +69,7 @@ item.rwbym:gamammo.name=Pistol Bullet
 item.rwbym:emshell.name=Shell
 item.rwbym:emfireshell.name=Fire Shell
 item.rwbym:magngrenade.name=Grenade
-item.rwbym:ammov.name=???
+item.rwbym:ammov.name=None
 item.rwbym:cr1.name=Crescent Rose Part 1
 item.rwbym:cr2.name=Crescent Rose Part 2
 item.rwbym:cr3.name=Crescent Rose Part 3
@@ -147,7 +147,7 @@ item.rwbym:rvnswd.name=Raven's Sword
 item.rwbym:rvnmask.name= Raven's Mask
 item.rwbym:rvnswdice.name= Raven's Sword
 item.rwbym:rvnswdele.name= Raven's Sword
-item.rwbym:ammmo.name=???
+item.rwbym:ammmo.name=None
 item.korekosmoufire.name=Kore Kosmou - Fire
 item.korekosmouice.name=Kore Kosmou - Ice
 item.korekosmouwind.name=Kore Kosmou - Wind
@@ -448,6 +448,18 @@ item.rwbym:wfp.name=White Fang Pistol
 item.rwbym:deemace.name=Dee's Mace
 item.rwbym:grimmrapier.name=§6Grimm Aster
 item.rwbym:grimmscy.name=§6Grimm Rose
+item.rwbym:gwen.name=None
+item.rwbym:jnrammo.name=None
+item.rwbym:sawblade.name=None
+item.rwbym:rzrbolt.name=None
+item.rwbym:sanreiammo.name=Aura
+item.rwbym:letztammo.name=Aura
+item.rwbym:noctu.name=None
+item.rwbym:noctufire.name=None
+item.rwbym:noctuice.name=None
+item.rwbym:noctulight.name=None
+item.rwbym:noctugrav.name=None
+
 
 
 item.rwbym:blackcatear.name=Black Cat Ears
