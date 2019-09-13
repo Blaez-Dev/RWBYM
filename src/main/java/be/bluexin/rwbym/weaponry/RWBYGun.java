@@ -9,9 +9,11 @@ import be.bluexin.rwbym.entity.EntityLargeFireball;
 import be.bluexin.rwbym.entity.EntityNeverMore;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
+import com.mojang.realmsclient.gui.ChatFormatting;
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.*;
@@ -415,8 +417,37 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     }
 
     @Override
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+        String recall = Integer.toString(weapontype);
+        String ammmo = ammo;
+        ammmo = ammmo.replace("rwbym:", "");
+        ammmo = ammmo.replace("nuller", "");
+        ammmo = ammmo.replace("nullest", "");
+        ammmo = ammmo.replace("nulls", "");
+        tooltip.add("Ammo Required:");
+        String[] itemIds = ammmo.split(",");
+        for (int i = 0; i < itemIds.length; i++) {
+            String item = itemIds[i];
+            tooltip.add(com.mojang.realmsclient.gui.ChatFormatting.BLUE +"•" + item);
+        }
+        tooltip.add("Weapon Type:");
+        if(weapontype == OFFHAND){tooltip.add(ChatFormatting.BLUE + "Offhand Capable Blade");}
+        else if(weapontype == SWORD){tooltip.add(ChatFormatting.BLUE + "Sword");}
+        else if(weapontype == LION_HEART){tooltip.add(ChatFormatting.BLUE + "Lion Heart Shield");}
+        else if(weapontype == RAPIER){tooltip.add(ChatFormatting.BLUE + "Rapier");}
+        else if(weapontype == SCARLET){tooltip.add(ChatFormatting.BLUE + "Offhand Gun Only");}
+        else if(weapontype == WINTER){tooltip.add(ChatFormatting.BLUE + "Rapier / Offhand Capable");}
+        else if(weapontype == WHIP){tooltip.add(ChatFormatting.BLUE + "Whip");}
+        else if(weapontype == SCYTHE){tooltip.add(ChatFormatting.BLUE + "Scythe");}
+        else if(weapontype == DAGGER){tooltip.add(ChatFormatting.BLUE + "Dagger");}
+        else{tooltip.add(ChatFormatting.BLUE + "None");}
+        super.addInformation(stack, worldIn, tooltip, flagIn);
+    }
+
+
+    @Override
     public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
-        return false;
+        return true;
     }
 
 
@@ -529,7 +560,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     @Override
     public boolean canApplyAtEnchantingTable(ItemStack stack, net.minecraft.enchantment.Enchantment enchantment)
     {
-        return enchantment.type.canEnchantItem(Items.CAULDRON);
+        return enchantment.type.canEnchantItem(Items.DIAMOND_AXE);
     }
 
 
@@ -537,10 +568,15 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         ItemStack is = playerIn.getHeldItem(handIn);
         boolean flag = !this.findAmmo(playerIn, false).isEmpty();
-        if (!worldIn.isRemote && playerIn.isSneaking() && this.morph != null&& playerIn.getHeldItemMainhand() == is) {
-            is = new ItemStack(Item.getByNameOrId(this.morph), is.getCount(), is.getMetadata());
-            return new ActionResult<>(EnumActionResult.SUCCESS, is);
-        } else if (this.isShield && handIn == EnumHand.OFF_HAND) {
+        if (!worldIn.isRemote && playerIn.isSneaking() && this.morph != null) {
+            ItemStack morph1 = new ItemStack(Item.getByNameOrId(this.morph), is.getCount(), is.getMetadata());
+            //noinspection ConstantConditions
+            if (is.hasTagCompound()) {
+                morph1.setTagCompound(is.getTagCompound());
+            }
+            if (handIn == EnumHand.MAIN_HAND) {
+                playerIn.inventory.setInventorySlotContents(playerIn.inventory.currentItem, morph1);
+            }} else if (this.isShield && handIn == EnumHand.OFF_HAND) {
             playerIn.setActiveHand(EnumHand.OFF_HAND);
             return new ActionResult<>(EnumActionResult.SUCCESS, is);}else if (canBlock && handIn == EnumHand.MAIN_HAND) {
             playerIn.setActiveHand(EnumHand.MAIN_HAND);
@@ -640,7 +676,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
     public int getItemEnchantability()
     {
-        return 0;
+        return 1;
     }
 
     @Override
