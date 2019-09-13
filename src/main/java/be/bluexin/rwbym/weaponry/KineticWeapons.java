@@ -149,9 +149,9 @@ public class KineticWeapons extends ItemSword implements ICustomItem {
 
                     double mu = 0;
                     double mv = 0;
-                    double my = 0;
-                    if(player.isInWater() || player.isOnLadder()){
-                    my = 0;}else my = 2;
+                    double my = 2;
+                    //if(player.isInWater() || player.isOnLadder()){
+                    //my = 0;}else my = 2;
                     
                     if (Minecraft.getMinecraft().gameSettings.keyBindForward.isKeyDown()) {
                         mu += player.getAIMoveSpeed() * 5;
@@ -201,7 +201,7 @@ public class KineticWeapons extends ItemSword implements ICustomItem {
                     double py = y;
                     
                     if (Minecraft.getMinecraft().gameSettings.keyBindJump.isKeyDown() && dy > 0 && !player.isInWater()) {
-                		y += 1;
+                		y = 1;
                     }
 
                     double du = mu - u;
