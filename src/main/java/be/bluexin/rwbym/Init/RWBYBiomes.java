@@ -29,7 +29,7 @@ public class RWBYBiomes {
         ForgeRegistries.BIOMES.register(biome);
         BiomeDictionary.addTypes(biome, types);
         System.out.println("Registered Biome: " + name);
-        BiomeManager.addBiome(biomeType, new BiomeEntry(biome, 20));
+        BiomeManager.addBiome(biomeType, new BiomeEntry(biome, RWBYConfig.biomerarity));
         //BiomeManager.addSpawnBiome(biome);
         return biome;
     }

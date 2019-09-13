@@ -83,6 +83,8 @@ public class RWBYConfig
     public static boolean unsafemining = true;
     @Config.Comment("Dark Crystal Spawnrate")
     public static int darkcrystalrate = 20;
+    @Config.Comment("Rarity of RWBYM Biomes")
+    public static int biomerarity = 20;
 
    // @Config.Comment("Aura per Level")
     //public static int auraperlevel = 1;

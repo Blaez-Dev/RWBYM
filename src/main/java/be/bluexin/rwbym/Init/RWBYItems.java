@@ -1083,7 +1083,7 @@ public class RWBYItems {
     public static final Item razorbolt = new RWBYGun(
             "razorbolt",
             2500,
-            0,
+            16,
             16,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:16,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}]}",
             "rwbym:razorboltknife",
