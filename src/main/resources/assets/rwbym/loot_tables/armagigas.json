@@ -76,6 +76,13 @@
           "weight": 1,
           "count": 1
         },
+
+        {
+          "type": "item",
+          "name": "rwbym:heroshield",
+          "weight": 1,
+          "count": 1
+        },
         {
           "type": "item",
           "name": "rwbym:roseiron",

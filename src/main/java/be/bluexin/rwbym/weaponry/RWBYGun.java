@@ -23,6 +23,7 @@ import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
+import net.minecraft.entity.projectile.EntityEvokerFangs;
 import net.minecraft.init.*;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.*;
@@ -167,6 +168,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 	
 	public static final int SANREI =       0x2000;
 	public static final int LETZT =        0x4000;
+    public static final int AURAWEAP =     0x8000;
 	
 	public static final int RCL_BACK =      1;
 	public static final int RCL_BACK_WEAK = 2;
@@ -196,6 +198,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         if(weapontype == OFFHAND){this.weaponspeed = -2D;}
         else if(weapontype == SWORD){this.weaponspeed = -2.4D;}
         else if(weapontype == LION_HEART){this.weaponspeed = -2.4D;}
+        else if(weapontype == AURAWEAP){this.weaponspeed = -2.4D;}
         else if(weapontype == RAPIER){this.weaponspeed = -1D;}
         else if(weapontype == SCARLET){this.weaponspeed = -1D;}
         else if(weapontype == WINTER){this.weaponspeed = -1D;}
@@ -447,6 +450,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         else if(weapontype == INT_MAG){tooltip.add(ChatFormatting.BLUE +"-" +  "Internal Magazine");}
         else if(weapontype == JUNIOR){tooltip.add(ChatFormatting.BLUE +"-" +  "Internal Magazine");}
         else if(dualwield){tooltip.add(ChatFormatting.BLUE + "-" + "Dual-wieldable Gun");}
+        else if(weapontype == AURAWEAP||weapontype == LETZT||weapontype == SANREI){tooltip.add(ChatFormatting.BLUE + "-" + "Aura Weapon");}
         else{tooltip.add(ChatFormatting.BLUE +"-" +  "None");}
         if(shotrecoil > 0){
             String shotrecoils = Integer.toString(shotrecoil);
@@ -526,9 +530,9 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             }
         }
 
-        if(weapontype == (SANREI | LETZT)){
+        if(weapontype == SANREI || weapontype == LETZT ||weapontype == AURAWEAP){
             EntityPlayer player = (EntityPlayer) entity;
-            if(weapontype == SANREI){
+            if(weapontype == SANREI || weapontype == AURAWEAP){
             player.getCapability(AuraProvider.AURA_CAP, null).useAura(player, 0.1F, false);}
             else if(weapontype == LETZT){
                 player.getCapability(AuraProvider.AURA_CAP, null).useAura(player, 0.2F, false);
@@ -999,6 +1003,23 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                 target.attackEntityFrom(DamageSource.WITHER, 100.0F);
             }
         }}
+
+        if(stack.getItem() == RWBYItems.rageshield && attacker.isSneaking()){
+            EntityEvokerFangs entity = new EntityEvokerFangs(target.world);
+            entity.setPosition(target.posX, target.posY, target.posZ);
+            target.world.spawnEntity(entity);
+            target.attackEntityFrom(DamageSource.DRAGON_BREATH, 14);
+            PotionEffect potioneffect1 = new PotionEffect(MobEffects.WITHER, 200, 10, true, true);
+            target.addPotionEffect(potioneffect1);
+
+            if (attacker instanceof EntityPlayer) {
+                EntityPlayer entityplayer = (EntityPlayer) attacker;
+            if (entityplayer.hasCapability(AuraProvider.AURA_CAP, null)) {
+                entityplayer.getCapability(AuraProvider.AURA_CAP, null).useAura(entityplayer, 10F, false);
+                entityplayer.getCapability(AuraProvider.AURA_CAP, null).delayRecharge(60);
+            }}
+
+        }
 
         if(weapontype == SCYTHE){
             //Scythe

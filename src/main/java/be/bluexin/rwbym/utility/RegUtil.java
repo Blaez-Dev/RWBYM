@@ -231,6 +231,8 @@ public class RegUtil {
         registerItems(event, RWBYItems.hadesscy);
         registerItems(event, RWBYItems.kag);
         registerItems(event, RWBYItems.kag2);
+        registerItems(event, RWBYItems.heroshield);
+        registerItems(event, RWBYItems.rageshield);
         registerItems(event, RWBYItems.grimmbody);
         registerItems(event, RWBYItems.noctustraumfire);
         registerItems(event, RWBYItems.noctustraumgrav);
@@ -852,6 +854,8 @@ public class RegUtil {
         registerRecipes(RWBYItems.he5);
         registerRecipes(RWBYItems.he6);
         registerRecipes(RWBYItems.tocksword);
+        registerRecipes(RWBYItems.rageshield);
+        registerRecipes(RWBYItems.heroshield);
     }
 
     private static void registerBlocks(FMLPreInitializationEvent event, Block...blocks) {
