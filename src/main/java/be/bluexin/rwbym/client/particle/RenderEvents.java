@@ -5,6 +5,7 @@ import be.bluexin.rwbym.capabilities.CapabilityHandler;
 import be.bluexin.rwbym.capabilities.ISemblance;
 import be.bluexin.rwbym.capabilities.Aura.AuraProvider;
 import be.bluexin.rwbym.capabilities.Aura.IAura;
+import be.bluexin.rwbym.utility.RWBYConfig;
 import be.bluexin.rwbym.utility.RegUtil;
 import be.bluexin.rwbym.weaponry.ArmourBase;
 import net.minecraft.client.Minecraft;
@@ -49,7 +50,7 @@ public class RenderEvents {
     @SubscribeEvent
     public void RenderGameOverlay(RenderGameOverlayEvent.Pre event) {
     	
-    	if (event.getType() == ElementType.ALL) {
+    	if (event.getType() == ElementType.ALL & RWBYConfig.RenderAurabar) {
     		Minecraft mc = Minecraft.getMinecraft();
     		
     		EntityPlayer player = mc.player;
@@ -62,8 +63,8 @@ public class RenderEvents {
 	    		GlStateManager.enableAlpha();
 	    		GlStateManager.enableBlend();
 		    	
-		    	int posx = event.getResolution().getScaledWidth() / 2 - 175;
-		    	int posy = event.getResolution().getScaledHeight() - 39;
+		    	int posx = event.getResolution().getScaledWidth() / 2 - RWBYConfig.aurapositionx;
+		    	int posy = event.getResolution().getScaledHeight() - RWBYConfig.aurapositiony;
 		    	
 		    	mc.renderEngine.bindTexture(new ResourceLocation(RWBYModels.MODID, "textures/overlay/aura.png"));
 		    	

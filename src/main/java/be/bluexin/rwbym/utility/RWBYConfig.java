@@ -85,6 +85,13 @@ public class RWBYConfig
     public static int darkcrystalrate = 20;
     @Config.Comment("Rarity of RWBYM Biomes")
     public static int biomerarity = 20;
+    @Config.Comment("Render Aura Bar?")
+    public static boolean RenderAurabar = true;
+    @Config.Comment("Position X")
+    public static int aurapositionx = 175;
+    @Config.Comment("Position Y")
+    public static int aurapositiony = 39;
+
 
    // @Config.Comment("Aura per Level")
     //public static int auraperlevel = 1;
