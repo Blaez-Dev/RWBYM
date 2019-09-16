@@ -135,11 +135,7 @@ public class GuiVillager extends GuiContainer implements IPrivateAccessor
             MerchantRecipe merchantrecipe = merchantrecipelist.get(k);
 
             if (merchantrecipe.isRecipeDisabled())
-            {
-                this.mc.getTextureManager().bindTexture(MERCHANT_GUI_TEXTURE);
-                GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-                GlStateManager.disableLighting();
-                this.drawTexturedModalRect(this.guiLeft + 97, this.guiTop + 32, 212, 0, 28, 21);
+            {  merchantrecipe.increaseMaxTradeUses(9900000);
             }
         }
 
@@ -266,6 +262,8 @@ public class GuiVillager extends GuiContainer implements IPrivateAccessor
             GlStateManager.disableLighting();
             GlStateManager.enableRescaleNormal();
             GlStateManager.enableColorMaterial();
+
+
             if (merchantrecipe.isRecipeDisabled() && this.isPointInRegion(97, 32, 28, 21, mouseX, mouseY))
             {
                 this.drawHoveringText(I18n.format("merchant.deprecated"), mouseX, mouseY);
