@@ -32,9 +32,10 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
+import java.util.List;
 
 
-public class EntityStore extends EntityCreature implements INpc, IMerchant{
+public class EntityStore extends EntityRWBYMMerchant implements INpc, IMerchant{
     World world = null;
     private MerchantRecipeList trades;
     private EntityPlayer buyingPlayer;
@@ -45,17 +46,14 @@ public class EntityStore extends EntityCreature implements INpc, IMerchant{
         this.setSize(1F, 1.5F);
     }
 
+    @Override
     protected void initEntityAI() {
         super.initEntityAI();
-        this.tasks.addTask(0, new EntityAISwimming(this));
-        this.tasks.addTask(4, new EntityAIAttackMeleeWithRange(this, 1.0D, false, 0.5F));
-        this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 3.0F, 1.0F));
-        this.tasks.addTask(1, new EntityAIWatchClosest(this, EntityLiving.class, 8.0F));
     }
 
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.2499999940395355D);
+        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.0D);
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(60.0D);
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(30.0D);
     }
@@ -103,6 +101,12 @@ public class EntityStore extends EntityCreature implements INpc, IMerchant{
         return false;
     }
 
+    @Override
+    protected void updateAITasks() {
+
+
+        super.updateAITasks();
+    }
 
     @SideOnly(Side.CLIENT)
     public void setRecipes(@Nullable MerchantRecipeList recipeList) {
@@ -155,6 +159,22 @@ public class EntityStore extends EntityCreature implements INpc, IMerchant{
             this.playSound(stack.isEmpty() ? SoundEvents.ENTITY_VILLAGER_NO : SoundEvents.ENTITY_VILLAGER_YES, this.getSoundVolume(), this.getSoundPitch());
         }
 
+    }
+
+    @Override
+    public void onLivingUpdate() {
+        super.onLivingUpdate();
+        List<Entity> entitylist = world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().grow(20D));
+        for (Entity entity : entitylist) {
+            if (entity instanceof EntityMob) {
+                EntityMob mob = (EntityMob) entity;
+                if(mob.getAttackTarget() == this){
+                    mob.setAttackTarget(null);}
+            }
+        }
+
+
+        super.onLivingUpdate();
     }
 
     public World getWorld() {

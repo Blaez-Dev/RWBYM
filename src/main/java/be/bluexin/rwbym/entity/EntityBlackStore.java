@@ -33,9 +33,10 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
+import java.util.List;
 
 
-public class EntityBlackStore extends EntityCreature implements INpc, IMerchant {
+public class EntityBlackStore extends EntityRWBYMMerchant implements INpc, IMerchant{
     World world = null;
     private MerchantRecipeList trades;
     private EntityPlayer buyingPlayer;
@@ -49,21 +50,25 @@ public class EntityBlackStore extends EntityCreature implements INpc, IMerchant 
         this.setItemStackToSlot(EntityEquipmentSlot.HEAD, is);
     }
 
+    @Override
     protected void initEntityAI() {
         super.initEntityAI();
-        this.tasks.addTask(0, new EntityAISwimming(this));
-        this.tasks.addTask(4, new EntityAIAttackMeleeWithRange(this, 1.0D, false, 0.5F));
-        this.tasks.addTask(9, new EntityAIWatchClosest(this, EntityPlayer.class, 3.0F, 1.0F));
-        this.tasks.addTask(1, new EntityAIWatchClosest(this, EntityLiving.class, 8.0F));
     }
 
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.2499999940395355D);
+        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.0D);
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(60.0D);
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(30.0D);
     }
 
+
+    @Override
+    protected void updateAITasks() {
+
+
+        super.updateAITasks();
+    }
 
     public boolean processInteract(EntityPlayer player, EnumHand hand) {
         ItemStack itemstack = player.getHeldItem(hand);
@@ -155,7 +160,20 @@ public class EntityBlackStore extends EntityCreature implements INpc, IMerchant 
 
     }
 
+    @Override
+    public void onLivingUpdate() {
+        super.onLivingUpdate();
+        List<Entity> entitylist = world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().grow(20D));
+        for (Entity entity : entitylist) {
+            if (entity instanceof EntityMob) {
+                EntityMob mob = (EntityMob) entity;
+                if(mob.getAttackTarget() == this){
+                    mob.setAttackTarget(null);}
+            }
+        }
 
+        super.onLivingUpdate();
+    }
 
     public World getWorld() {
         return this.world;

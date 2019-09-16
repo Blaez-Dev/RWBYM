@@ -34,13 +34,10 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 
 
-public class EntityWeaponStore extends EntityCreature implements INpc, IMerchant{
+public class EntityWeaponStore extends EntityRWBYMMerchant implements INpc, IMerchant{
     World world = null;
     private MerchantRecipeList trades;
     private int ticksAlive;
@@ -132,18 +129,16 @@ public class EntityWeaponStore extends EntityCreature implements INpc, IMerchant
         world = var3;
         this.setSize(1F, 1.5F);
     }
-
+@Override
     protected void initEntityAI() {
         super.initEntityAI();
-        this.tasks.addTask(0, new EntityAISwimming(this));
-        this.tasks.addTask(4, new EntityAIAttackMeleeWithRange(this, 1.0D, false, 0.5F));
-        this.tasks.addTask(9, new EntityAIWatchClosest(this, EntityPlayer.class, 3.0F, 1.0F));
-        this.tasks.addTask(1, new EntityAIWatchClosest(this, EntityLiving.class, 8.0F));
     }
+
+
 
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.2499999940395355D);
+        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.0D);
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(60.0D);
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(30.0D);
     }
@@ -181,6 +176,8 @@ public class EntityWeaponStore extends EntityCreature implements INpc, IMerchant
         }
     }
 
+
+
     @Override
 
     public MerchantRecipeList getRecipes(EntityPlayer player) {
@@ -198,6 +195,16 @@ public class EntityWeaponStore extends EntityCreature implements INpc, IMerchant
     @Override
     public void onLivingUpdate() {
         super.onLivingUpdate();
+        List<Entity> entitylist = world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().grow(20D));
+        for (Entity entity : entitylist) {
+            if (entity instanceof EntityMob) {
+                EntityMob mob = (EntityMob) entity;
+                if(mob.getAttackTarget() == this){
+                    mob.setAttackTarget(null);}
+            }
+        }
+        super.onLivingUpdate();
+
         this.ticksAlive ++;
         if(ticksAlive % 18000 == 0) {
             populateTradingList();
@@ -220,7 +227,6 @@ public class EntityWeaponStore extends EntityCreature implements INpc, IMerchant
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien50,1),new ItemStack(RWBYItems.viridianiron,1)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien50,1),new ItemStack(RWBYItems.forestiron,1)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien20,1),new ItemStack(RWBYItems.scrap,10)));
-
 
         //Sell
 
@@ -261,23 +267,8 @@ public class EntityWeaponStore extends EntityCreature implements INpc, IMerchant
 
     }
 
+    @Override
     protected void updateAITasks() {
-        if (--this.randomTickDivider <= 0) {
-            BlockPos blockpos = new BlockPos(this);
-            this.world.getVillageCollection().addToVillagerPositionList(blockpos);
-            this.randomTickDivider = 70 + this.rand.nextInt(50);
-            this.village = this.world.getVillageCollection().getNearestVillage(blockpos, 32);
-            if (this.village == null) {
-                this.detachHome();
-            } else {
-                BlockPos blockpos1 = this.village.getCenter();
-                this.setHomePosAndDistance(blockpos1, this.village.getVillageRadius());
-                if (this.isLookingForHome) {
-                    this.isLookingForHome = false;
-                    this.village.setDefaultPlayerReputation(5);
-                }
-            }
-        }
 
 
         super.updateAITasks();

@@ -23,7 +23,7 @@ This mapping 'snapshot_20171003' was designed for MC 1.12! Use at your own peril
 :extractMcpMappings SKIPPED
 :genSrgs SKIPPED
 :deobfMcMCP SKIPPED
-:sourceApiJava UP-TO-DATE
+:sourceApiJava
 :compileApiJava UP-TO-DATE
 :processApiResources UP-TO-DATE
 :apiClasses UP-TO-DATE
@@ -64,4 +64,4 @@ remapping source...
 
 BUILD SUCCESSFUL
 
-Total time: 35.236 secs
+Total time: 34.039 secs

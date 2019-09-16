@@ -29,7 +29,7 @@ import com.mojang.authlib.GameProfile;
  *
  * @author Bluexin
  */
-public class CommonProxy {
+public abstract class CommonProxy {
 
     public void preInit() {
     }
@@ -66,4 +66,10 @@ public class CommonProxy {
 		return member;
 
 	}
+
+	public abstract EntityPlayer getClientPlayer();
+
+	public abstract void showGuiScreen(Object clientGuiElement);
+
+
 }

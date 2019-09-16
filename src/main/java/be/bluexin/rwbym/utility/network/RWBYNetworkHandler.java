@@ -1,5 +1,8 @@
 package be.bluexin.rwbym.utility.network;
 
+import be.bluexin.rwbym.utility.network.messages.MessageOpenWindow;
+import be.bluexin.rwbym.utility.network.messages.MessageTradingData;
+import be.bluexin.rwbym.utility.network.messages.MessageTradingList;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
@@ -32,7 +35,9 @@ public class RWBYNetworkHandler {
 	    registerMessage(MessageDenyRequest.class, Side.SERVER);
 	    registerMessage(MessageSendTeams.class, Side.CLIENT);
 	    registerMessage(MessageLeaveTeam.class, Side.SERVER);
-	    
+	    registerMessage(MessageOpenWindow.class, Side.CLIENT);
+	    registerMessage(MessageTradingList.class, Side.CLIENT);
+	    registerMessage(MessageTradingData.class, Side.SERVER);
     }
     
     public static void sendToServer(IMessage message){
@@ -50,4 +55,17 @@ public class RWBYNetworkHandler {
     private static <T extends MessageBase> void registerMessage(Class<T> clazz, Side side) {
     	INSTANCE.registerMessage((Class<? extends IMessageHandler<T, T>>)clazz, clazz, i++, side);
     }
+
+
+	public static void sendTo(IMessage message, EntityPlayerMP player){
+		INSTANCE.sendTo(message, player);
+	}
+
+	public static void sendToAllAround(IMessage message, NetworkRegistry.TargetPoint point){
+		INSTANCE.sendToAllAround(message, point);
+	}
+
+	public static void sendToDimension(IMessage message, int dimensionId){
+		INSTANCE.sendToDimension(message, dimensionId);
+	}
 }

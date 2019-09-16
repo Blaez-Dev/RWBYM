@@ -273,4 +273,15 @@ public class ClientProxy extends CommonProxy {
 		return member;
 	}
 
+	@Override
+	public EntityPlayer getClientPlayer() {
+		return Minecraft.getMinecraft().player;
+	}
+
+	@Override
+	public void showGuiScreen(Object clientGuiElement) {
+		GuiScreen gui = (GuiScreen) clientGuiElement;
+		Minecraft.getMinecraft().displayGuiScreen(gui);
+	}
+
 }

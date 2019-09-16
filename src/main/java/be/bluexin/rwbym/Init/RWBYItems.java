@@ -2654,13 +2654,13 @@ public class RWBYItems {
             "rwbym:nuller,rwbym:nullest",
             false,
             1,
-            false,
+            true,
             true,
             0,
             1,
             0,
             4,
-            RWBYCreativeTabs.tab_rwbyweapons);
+            null);
     public static final Item rageshield = new RWBYGun(
             "rageshield",
             0,
@@ -2671,13 +2671,13 @@ public class RWBYItems {
             "rwbym:nuller,rwbym:nullest",
             false,
             1,
-            false,
+            true,
             true,
             0,
             1,
             0,
             4,
-            RWBYCreativeTabs.tab_rwbyweapons);
+            null);
     public static final Item nolan = new RWBYGun(
             "nolan",
             2500,

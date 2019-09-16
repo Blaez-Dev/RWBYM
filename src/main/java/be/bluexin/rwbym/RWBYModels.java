@@ -23,6 +23,7 @@ import be.bluexin.rwbym.gui.GUICrusher;
 import be.bluexin.rwbym.gui.IRWBYGuiFactory;
 import be.bluexin.rwbym.gui.RWBYItemContainerGui;
 import be.bluexin.rwbym.gui.scroll.GuiScreenScrollTeam;
+import be.bluexin.rwbym.handler.ModEventHandler;
 import be.bluexin.rwbym.inventory.IRWBYContainerFactory;
 import be.bluexin.rwbym.inventory.RWBYItemContainer;
 import be.bluexin.rwbym.proxy.CommonProxy;
@@ -85,7 +86,8 @@ public class RWBYModels {
     public static final String MODID = "rwbym";
     public static final String MODNAME = "RWBY-M";
     public static final String VERSION = "3.9.5";
-
+    public static final String RANGE = "[1.12.2]";
+    public static final String DEPENDENCIES = "required-after:forge@[14.23.5.2779,)";
     public static List<ICustomItem> items;
 
     public static final Logger LOGGER = LogManager.getLogger(MODID);
@@ -140,6 +142,8 @@ public class RWBYModels {
     	//LOGGER.log(Level.ERROR, "error");
     	//LOGGER.log(Level.FATAL, "fatal");
     	//LOGGER.log(Level.OFF, "off"); // should only be used to set logger level, which can't be done without copying and modifying forge files
+
+        MinecraftForge.EVENT_BUS.register(new ModEventHandler());
 
         if (event.getSide() == Side.CLIENT){
             KeybindRegistry.register();
