@@ -203,7 +203,7 @@ public class EntityWeaponStore extends EntityRWBYMMerchant implements INpc, IMer
                     mob.setAttackTarget(null);}
             }
         }
-        super.onLivingUpdate();
+        //super.onLivingUpdate();
 
         this.ticksAlive ++;
         if(ticksAlive % 18000 == 0) {

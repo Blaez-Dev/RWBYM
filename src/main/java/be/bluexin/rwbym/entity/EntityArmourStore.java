@@ -212,7 +212,7 @@ public class EntityArmourStore extends EntityRWBYMMerchant implements INpc, IMer
 
     @Override
     public void onLivingUpdate() {
-        super.onLivingUpdate();
+        //super.onLivingUpdate();
         List<Entity> entitylist = world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().grow(20D));
         for (Entity entity : entitylist) {
             if (entity instanceof EntityMob) {

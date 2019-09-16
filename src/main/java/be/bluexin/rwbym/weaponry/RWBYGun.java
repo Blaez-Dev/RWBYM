@@ -40,6 +40,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.event.HoverEvent;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.RegistryEvent;
@@ -121,25 +125,9 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         return this;
     }
 
-    //wtf do you do this, just use public(private) static final int or an enum
-    //Weapon Type Numbers//
-    /* 1 Rapier
-    *  2 Scythe
-    *  3 Offhand Blades
-    *  4 Scarlet Weapon Behaviour
-    *  5 Junior Rocket Launcher
-    *  6 Ember celica 2
-    *  7 Winter's Sword
-    *  8 Bows
-    *  9 Internal Magazine
-    * 10 Ilia Whip Range
-    * 11 Leonhart's Shield
-    * 12 Daggers Critical
-    * 13 Sword
-    *
-    *
-    *  99 Sanrei Shunto
-    * 100 letzt stil
+
+
+    /*
     *
     * recoiltype
     * 1 crescent rose shoots backwards
@@ -420,6 +408,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         }
     }
 
+
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         String recall = Integer.toString(weapontype);
@@ -467,6 +456,10 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         super.addInformation(stack, worldIn, tooltip, flagIn);
     }
 
+/*
+    public String getItemStackDisplayName(ItemStack stack) {
+        return ChatFormatting.GOLD + super.getItemStackDisplayName(stack);
+    }*/
 
     @Override
     public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
@@ -497,6 +490,9 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         else
             return false;
     }
+
+
+
 
     @SuppressWarnings("Duplicates")
     @Override

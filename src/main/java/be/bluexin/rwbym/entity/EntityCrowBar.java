@@ -56,7 +56,7 @@ public class EntityCrowBar extends EntityRWBYMMerchant implements INpc, IMerchan
 
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.222D);
+        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.23000000417232513D);
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(60.0D);
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(30.0D);
     }
@@ -158,7 +158,7 @@ public class EntityCrowBar extends EntityRWBYMMerchant implements INpc, IMerchan
 
     @Override
     public void onLivingUpdate() {
-        super.onLivingUpdate();
+        //super.onLivingUpdate();
         List<Entity> entitylist = world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().grow(20D));
         for (Entity entity : entitylist) {
             if (entity instanceof EntityMob) {
