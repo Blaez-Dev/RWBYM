@@ -77,7 +77,7 @@ public class EntityApathy extends EntityMob {
         for (EntityPlayer entityplayer : list2)
         {
             entityplayer.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 120, 1, true, true));
-            entityplayer.addPotionEffect(new PotionEffect(MobEffects.WEAKNESS, 120, 1, true, true));
+            entityplayer.addPotionEffect(new PotionEffect(MobEffects.WEAKNESS, 120, 0, true, true));
         }}
 
 
