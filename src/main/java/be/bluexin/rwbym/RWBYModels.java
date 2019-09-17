@@ -99,7 +99,7 @@ public class RWBYModels {
     // used to control the level of logs used for debugging
     public static Level debug = Level.DEBUG;
 
-    @SidedProxy(clientSide = "be.bluexin.rwbym.proxy.ClientProxy", serverSide = "be.bluexin.rwbym.proxy.CommonProxy")
+    @SidedProxy(clientSide = "be.bluexin.rwbym.proxy.ClientProxy", serverSide = "be.bluexin.rwbym.proxy.ServerProxy")
     public static CommonProxy proxy;
     public static Side side = FMLCommonHandler.instance().getSide();
 
