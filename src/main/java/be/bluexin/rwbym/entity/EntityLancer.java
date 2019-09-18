@@ -6,6 +6,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import be.bluexin.rwbym.ModLootTables;
+import be.bluexin.rwbym.utility.RWBYConfig;
 import net.minecraft.entity.EntityBodyHelper;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLiving;
@@ -116,8 +117,8 @@ public class EntityLancer extends EntityMob
     protected void applyEntityAttributes()
     {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(10.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(4.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(10.0D*RWBYConfig.grimmhealthmult);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(4.0D* RWBYConfig.grimmattackmult);
         this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(5D);
     }
 

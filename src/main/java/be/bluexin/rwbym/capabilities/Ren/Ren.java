@@ -36,6 +36,7 @@ public class Ren implements IRen {
 		switch(this.level) {
 			case 1:
 			case 2:
+
 			case 3:
 				this.active = true;
 				this.Timer = 120;
@@ -163,3 +164,26 @@ public class Ren implements IRen {
 		return color;
 	}
 }
+
+//					float f = (float)Math.min(16, 2 + level);
+//					BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos(0, 0, 0);
+//
+//					for (BlockPos.MutableBlockPos blockpos$mutableblockpos1 : BlockPos.getAllInBoxMutable(blockpos.add((double)(-f), -1.0D, (double)(-f)), blockpos.add((double)f, -1.0D, (double)f)))
+//					{
+//						if (blockpos$mutableblockpos1.distanceSqToCenter(player.posX, player.posY, player.posZ) <= (double)(f * f))
+//						{
+//							blockpos$mutableblockpos.setPos(blockpos$mutableblockpos1.getX(), blockpos$mutableblockpos1.getY() + 1, blockpos$mutableblockpos1.getZ());
+//							IBlockState iblockstate = player.world.getBlockState(blockpos$mutableblockpos);
+//
+//							if (iblockstate.getMaterial() == Material.AIR)
+//							{
+//								IBlockState iblockstate1 = player.world.getBlockState(blockpos$mutableblockpos1);
+//
+//								if (iblockstate1.getMaterial() == Material.WATER && (iblockstate1.getBlock() == net.minecraft.init.Blocks.WATER || iblockstate1.getBlock() == net.minecraft.init.Blocks.FLOWING_WATER) && ((Integer)iblockstate1.getValue(BlockLiquid.LEVEL)).intValue() == 0 && player.world.mayPlace(Blocks.FROSTED_ICE, blockpos$mutableblockpos1, false, EnumFacing.DOWN, (Entity)null))
+//								{
+//									player.world.setBlockState(blockpos$mutableblockpos1, Blocks.FROSTED_ICE.getDefaultState());
+//									player.world.scheduleUpdate(blockpos$mutableblockpos1.toImmutable(), Blocks.FROSTED_ICE, MathHelper.getInt(player.getRNG(), 60, 120));
+//								}
+//							}
+//						}
+//					}

@@ -91,6 +91,11 @@ public class RWBYConfig
     public static int aurapositionx = 175;
     @Config.Comment("Position Y")
     public static int aurapositiony = 39;
+    @Config.Comment("Grimm Health Multiplier")
+    public static float grimmhealthmult = 1.0F;
+    @Config.Comment("Grimm Attack Damage Multiplier")
+    public static float grimmattackmult = 1.0F;
+
 
 
    // @Config.Comment("Aura per Level")

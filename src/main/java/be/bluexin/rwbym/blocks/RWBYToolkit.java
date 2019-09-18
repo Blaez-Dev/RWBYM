@@ -3,7 +3,6 @@ package be.bluexin.rwbym.blocks;
 import be.bluexin.rwbym.Init.RWBYItems;
 import be.bluexin.rwbym.utility.RegUtil;
 import be.bluexin.rwbym.weaponry.RWBYItem;
-import be.bluexin.rwbym.weaponry.RWBYSword;
 import net.minecraft.block.BlockAnvil;
 import net.minecraft.block.BlockWorkbench;
 import net.minecraft.block.material.Material;

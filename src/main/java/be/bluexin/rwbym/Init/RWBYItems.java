@@ -2074,17 +2074,21 @@ public class RWBYItems {
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
 
-    public static final Item lieutenant = new RWBYTool(
+    public static final Item lieutenant = new RWBYGun(
             "lieutenant",
             2500,
             10,
+            RWBYGun.TOOL|RWBYGun.SWORD,
+            null,
+            null,
+            "rwbym:nuller,rwbym:nullest",
+            false,
             0,
-            null,
-            null,
             false,
             true,
-            false,
-            false,
+            0,
+            1,
+            0,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
     public static final  Item gravitydustcrystalcut = new RWBYCutGem(
@@ -2455,7 +2459,7 @@ public class RWBYItems {
             1,
             0,
             4,
-            RWBYCreativeTabs.tab_rwbyweapons);
+            RWBYCreativeTabs.tab_rwbyweapons).setElementMelee("wind");
     public static final Item corsacdouble = new RWBYGun(
             "corsacdouble",
             2500,
@@ -2472,7 +2476,7 @@ public class RWBYItems {
             1,
             0,
             4,
-            null);
+            null).setElementMelee("wind");
     public static final Item aquaealatlbow = new RWBYGun(
             "aquaealatlbow",
             2500,
@@ -3001,7 +3005,7 @@ public class RWBYItems {
             1,
             0,
             1,
-            null);
+            null).setElementMelee("wind");
     public static final Item tocksword = new RWBYGun(
             "tocksword",
             2500,

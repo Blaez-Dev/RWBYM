@@ -12,6 +12,7 @@ import com.google.common.collect.Sets;
 import com.mojang.realmsclient.gui.ChatFormatting;
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
@@ -62,6 +63,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
+import java.util.UUID;
 
 import static net.minecraft.item.ItemBow.getArrowVelocity;
 
@@ -110,6 +112,8 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
     private boolean gwen;
 
+    protected static final UUID MOVEMENT_SPEED = UUID.fromString("86b77fe8-3674-4b95-a14f-680951daf5a1");
+
     public RWBYGun setElement(String element) {
         this.element = element;
         return this;
@@ -140,23 +144,24 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
     
     //now you can also combine properties together like "BOW | INT_MAG"
-	public static final int RAPIER =       0x0001;
-	public static final int SCYTHE =       0x0002;
-	public static final int OFFHAND =      0x0004;
-	public static final int SCARLET =      0x0008;
-	public static final int JUNIOR =       0x0010;
-	public static final int EMBER_CELICA = 0x0020;
-	public static final int WINTER =       0x0040;
-	public static final int BOW =          0x0080;
-	public static final int INT_MAG =      0x0100;
-	public static final int WHIP =         0x0200;
-	public static final int LION_HEART =   0x0400;
-	public static final int DAGGER =       0x0800;
-	public static final int SWORD =        0x1000;
+	public static final int RAPIER =       0x00001;
+	public static final int SCYTHE =       0x00002;
+	public static final int OFFHAND =      0x00004;
+	public static final int SCARLET =      0x00008;
+	public static final int JUNIOR =       0x00010;
+	public static final int EMBER_CELICA = 0x00020;
+	public static final int WINTER =       0x00040;
+	public static final int BOW =          0x00080;
+	public static final int INT_MAG =      0x00100;
+	public static final int WHIP =         0x00200;
+	public static final int LION_HEART =   0x00400;
+	public static final int DAGGER =       0x00800;
+	public static final int SWORD =        0x01000;
 	
-	public static final int SANREI =       0x2000;
-	public static final int LETZT =        0x4000;
-    public static final int AURAWEAP =     0x8000;
+	public static final int SANREI =       0x02000;
+	public static final int LETZT =        0x04000;
+    public static final int AURAWEAP =     0x08000;
+    public static final int TOOL =         0x10000;
 	
 	public static final int RCL_BACK =      1;
 	public static final int RCL_BACK_WEAK = 2;
@@ -169,7 +174,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         this.setRegistryName(new ResourceLocation(RWBYModels.MODID, name));
         this.setUnlocalizedName(this.getRegistryName().toString());
         this.setCreativeTab(creativetab);
-        if(weapontype == BOW){this.drawSpeed = 72;}else {this.drawSpeed = 72000;}
+        if((weapontype & BOW) !=0){this.drawSpeed = 72;}else {this.drawSpeed = 72000;}
         if(weapondamage == 0){this.weapondamage = 1;}else {this.weapondamage = weapondamage;}
         this.morph = morph;
         this.ammo = ammo;
@@ -183,27 +188,23 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         this.setMaxDamage(durability);
         this.shotcount = 1;
 
-        if(weapontype == OFFHAND){this.weaponspeed = -2D;}
-        else if(weapontype == SWORD){this.weaponspeed = -2.4D;}
-        else if(weapontype == LION_HEART){this.weaponspeed = -2.4D;}
-        else if(weapontype == AURAWEAP){this.weaponspeed = -2.4D;}
-        else if(weapontype == RAPIER){this.weaponspeed = -1D;}
-        else if(weapontype == SCARLET){this.weaponspeed = -1D;}
-        else if(weapontype == WINTER){this.weaponspeed = -1D;}
-        else if(weapontype == WHIP){this.weaponspeed = -1D;}
-        else if(weapontype == SCYTHE){this.weaponspeed = -3D;}
-        else if(weapontype == DAGGER){this.weaponspeed = 1D;}
+        if((weapontype & OFFHAND) !=0){this.weaponspeed = -2D;}
+        else if((weapontype & SWORD) !=0){this.weaponspeed = -2.4D;}
+        else if((weapontype & LION_HEART) !=0){this.weaponspeed = -2.4D;}
+        else if((weapontype & AURAWEAP) !=0){this.weaponspeed = -2.4D;}
+        else if((weapontype & RAPIER) !=0){this.weaponspeed = -1D;}
+        else if((weapontype & SCARLET) !=0){this.weaponspeed = -1D;}
+        else if((weapontype & WINTER) !=0){this.weaponspeed = -1D;}
+        else if((weapontype & WHIP) !=0){this.weaponspeed = -1D;}
+        else if((weapontype & SCYTHE) !=0){this.weaponspeed = -3D;}
+        else if((weapontype & DAGGER) !=0){this.weaponspeed = 1D;}
         else {this.weaponspeed = -3;}
-
-        /*
-        if(elementmelee == "wind"){sb.append(",{AttributeName:\"generic.movementSpeed\",Name:\"generic.movementSpeed\",Amount:0.2,Operation:0,UUIDLeast:763623,UUIDMost:811709,Slot:\"mainhand\"}");
-        if(elementmelee == "wind"){sb.append(",ench:[{id:19,lvl:2}]");}*/
 
 
         this.soundeffect = soundeffect;
         if(name.contains("kkfire")) kkfire = true; if(name.contains("kkice")) kkice = true; if(name.contains("kkwind")) kkwind = true; if(name.contains("gwenknife")){gwen = true;}
-        if((weapontype) == (OFFHAND | WINTER)) { ohblade = true; this.damages = 14; }
-        if((weapontype) == WHIP) {this.damages = 14;}
+        if((weapontype & (OFFHAND | WINTER)) !=0) { ohblade = true; this.damages = 14; }
+        if((weapontype & WHIP) !=0) {this.damages = 14;}
         if(name.contains("neoumb_closed")) neo = true; if(name.contains("neoumb_closed_blade")) neo = true; if(name.contains("neoumb_handle_blade")) neo = true;
         if(name.contains("gambol")|| name.contains("rvn")) { ohblade = true; this.damages = 14; }
         if(name.contains("weiss")||name.contains("oobleck")||name.contains("goodwitch")){mytre = true;}
@@ -231,7 +232,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             }
         });
 
-        if (weapontype == SCARLET) this.addPropertyOverride(new ResourceLocation("offhand1"), new IItemPropertyGetter() {
+        if ((weapontype & SCARLET) !=0) this.addPropertyOverride(new ResourceLocation("offhand1"), new IItemPropertyGetter() {
             @SideOnly(Side.CLIENT)
             @ParametersAreNonnullByDefault
             public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
@@ -239,7 +240,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             }
         });
 
-        if (weapontype == EMBER_CELICA) this.addPropertyOverride(new ResourceLocation("mainhand"), new IItemPropertyGetter() {
+        if ((weapontype & EMBER_CELICA) !=0) this.addPropertyOverride(new ResourceLocation("mainhand"), new IItemPropertyGetter() {
             @SideOnly(Side.CLIENT)
             @ParametersAreNonnullByDefault
             public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
@@ -247,7 +248,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             }
         });
 
-        if (weapontype == WINTER) this.addPropertyOverride(new ResourceLocation("mainhand1"), new IItemPropertyGetter() {
+        if ((weapontype & WINTER) !=0) this.addPropertyOverride(new ResourceLocation("mainhand1"), new IItemPropertyGetter() {
             @SideOnly(Side.CLIENT)
             @ParametersAreNonnullByDefault
             public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
@@ -426,21 +427,22 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 	            }
 	        }
         }
-        tooltip.add("Weapon Type:");
-        if(weapontype == OFFHAND){tooltip.add(ChatFormatting.BLUE +"-" +  "Offhand Capable Blade");}
-        else if(weapontype == SWORD){tooltip.add(ChatFormatting.BLUE +"-" +  "Sword");}
-        else if(weapontype == LION_HEART){tooltip.add(ChatFormatting.BLUE +"-" +  "Lion Heart Shield");}
-        else if(weapontype == RAPIER){tooltip.add(ChatFormatting.BLUE +"-" +  "Rapier");}
-        else if(weapontype == SCARLET){tooltip.add(ChatFormatting.BLUE +"-" +  "Offhand Gun Only");}
-        else if(weapontype == WINTER){tooltip.add(ChatFormatting.BLUE +"-" +  "Rapier / Offhand Capable");}
-        else if(weapontype == WHIP){tooltip.add(ChatFormatting.BLUE +"-" +  "Whip");}
-        else if(weapontype == SCYTHE){tooltip.add(ChatFormatting.BLUE +"-" +  "Scythe");}
-        else if(weapontype == DAGGER){tooltip.add(ChatFormatting.BLUE +"-" +  "Dagger");}
-        else if(weapontype == INT_MAG){tooltip.add(ChatFormatting.BLUE +"-" +  "Internal Magazine");}
-        else if(weapontype == JUNIOR){tooltip.add(ChatFormatting.BLUE +"-" +  "Internal Magazine");}
-        else if(dualwield){tooltip.add(ChatFormatting.BLUE + "-" + "Dual-wieldable Gun");}
-        else if(weapontype == AURAWEAP||weapontype == LETZT||weapontype == SANREI){tooltip.add(ChatFormatting.BLUE + "-" + "Aura Weapon");}
-        else{tooltip.add(ChatFormatting.BLUE +"-" +  "None");}
+        if(weapontype > 0){tooltip.add("Weapon Type:");}
+        if((weapontype & OFFHAND) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Offhand Capable Blade");}
+         if((weapontype & SWORD) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Sword");}
+         if((weapontype & LION_HEART) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Lion Heart Shield");}
+         if((weapontype & RAPIER) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Rapier");}
+         if((weapontype & SCARLET) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Offhand Gun Only");}
+         if((weapontype & WINTER) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Rapier / Offhand Capable");}
+         if((weapontype & WHIP) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Whip");}
+         if((weapontype & SCYTHE) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Scythe");}
+         if((weapontype & DAGGER) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Dagger");}
+         if((weapontype & INT_MAG) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Internal Magazine");}
+         if((weapontype & JUNIOR) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Internal Magazine");}
+         if(dualwield){tooltip.add(ChatFormatting.BLUE + "-" + "Dual-wieldable Gun");}
+         if((weapontype & TOOL) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Tool");}
+        if((weapontype & BOW) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Bow");}
+         if((weapontype & (AURAWEAP|LETZT|SANREI)) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Aura Weapon");}
         if(shotrecoil > 0){
             String shotrecoils = Integer.toString(shotrecoil);
             tooltip.add("Shot Recoil Amount:");
@@ -453,6 +455,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         }
         if(stack.getItem() == RWBYItems.bangle){tooltip.add(" "); tooltip.add(ChatFormatting.BLUE+"-" +  "Hums with a Faint Energy");}
         if(stack.getItem() == RWBYItems.hbangle){tooltip.add(" "); tooltip.add(ChatFormatting.BLUE +"-" +  "Hums with a Faint Dark Energy");}
+
         super.addInformation(stack, worldIn, tooltip, flagIn);
     }
 
@@ -470,7 +473,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     @Override
     public int getMaxItemUseDuration(ItemStack stack) {
 
-        return (weapontype == (SANREI | LETZT)) ? 72000 : this.drawSpeed;
+        return ((weapontype & (SANREI | LETZT)) !=0) ? 72000 : this.drawSpeed;
     }
 
 
@@ -526,11 +529,11 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             }
         }
 
-        if(weapontype == SANREI || weapontype == LETZT ||weapontype == AURAWEAP){
+        if((weapontype & (SANREI|LETZT|AURAWEAP)) !=0){
             EntityPlayer player = (EntityPlayer) entity;
-            if(weapontype == SANREI || weapontype == AURAWEAP){
+            if((weapontype & (SANREI|AURAWEAP)) !=0){
             player.getCapability(AuraProvider.AURA_CAP, null).useAura(player, 0.1F, false);}
-            else if(weapontype == LETZT){
+            if((weapontype & LETZT) !=0){
                 player.getCapability(AuraProvider.AURA_CAP, null).useAura(player, 0.2F, false);
             }
             if(player.getCapability(AuraProvider.AURA_CAP, null).getAmount() < 1F && player.getHeldItem(EnumHand.MAIN_HAND) == is ){
@@ -582,7 +585,30 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         return enchantment.type.canEnchantItem(Items.DIAMOND_SWORD);
     }
 
+    @Override
+    public float getDestroySpeed(ItemStack stack, IBlockState state) {
+        if((weapontype & TOOL) !=0) {return 5F;}else return 0;
+    }
 
+    @Override
+    public boolean canHarvestBlock(IBlockState blockIn)
+    {
+        if((weapontype & TOOL) !=0)return true; else return false;
+    }
+
+    public boolean onBlockDestroyed(ItemStack stack, World worldIn, IBlockState state, BlockPos pos, EntityLivingBase entityLiving)
+    {
+        if (!worldIn.isRemote && (double)state.getBlockHardness(worldIn, pos) != 0.0D && (weapontype & TOOL) !=0)
+        {
+        stack.damageItem(20, entityLiving);
+        }
+        if (!worldIn.isRemote && (double)state.getBlockHardness(worldIn, pos) != 0.0D)
+        {
+            stack.damageItem(1, entityLiving);
+        }
+
+        return true;
+    }
 
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         ItemStack is = playerIn.getHeldItem(handIn);
@@ -600,7 +626,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             return new ActionResult<>(EnumActionResult.SUCCESS, is);}else if (canBlock && handIn == EnumHand.MAIN_HAND) {
             playerIn.setActiveHand(EnumHand.MAIN_HAND);
             return new ActionResult<>(EnumActionResult.SUCCESS, is);
-        }else if (weapontype == SCARLET && handIn == EnumHand.MAIN_HAND) {
+        }else if ((weapontype & SCARLET) !=0 && handIn == EnumHand.MAIN_HAND) {
             return new ActionResult<>(EnumActionResult.FAIL, is);}
         if (!flag) if (playerIn.onGround){
             if (recoil == 3) {
@@ -647,7 +673,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
     @Override
     public EnumAction getItemUseAction(ItemStack stack) {
-        if(stack.getItem() == RWBYItems.chatareusgun || weapontype == (SANREI | LETZT)){
+        if(stack.getItem() == RWBYItems.chatareusgun || (weapontype & (SANREI | LETZT)) !=0){
             return EnumAction.BOW;
         }else if(stack.getItem() == RWBYItems.cinderbow){
             return EnumAction.BOW;
@@ -702,8 +728,13 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     public boolean onEntitySwing(EntityLivingBase entityLiving, ItemStack stack){
         EntityPlayer playerIn = (EntityPlayer)entityLiving;
         if (!playerIn.world.isRemote && playerIn.isSneaking()&& this.element != null&& playerIn.getHeldItemMainhand() == stack) {
-            stack = new ItemStack(Item.getByNameOrId(this.element), stack.getCount(), stack.getMetadata());
-            playerIn.setHeldItem(EnumHand.MAIN_HAND, stack);
+            ItemStack morph1 = new ItemStack(Item.getByNameOrId(this.element), stack.getCount(), stack.getMetadata());
+            //noinspection ConstantConditions
+            if (stack.hasTagCompound()) {
+                morph1.setTagCompound(stack.getTagCompound());
+            }
+            if (playerIn.getHeldItemMainhand() == stack) {
+                playerIn.inventory.setInventorySlotContents(playerIn.inventory.currentItem, morph1);}
         }
         return false;
     }
@@ -733,9 +764,9 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                 flag2 = false;
             }
 
-            if(weapontype == SANREI && entityplayer.getCapability(AuraProvider.AURA_CAP, null).getAmount() < 10){flag2 = false;}
+            if((weapontype & SANREI) !=0 && entityplayer.getCapability(AuraProvider.AURA_CAP, null).getAmount() < 10){flag2 = false;}
 
-            if(weapontype == LETZT && entityplayer.getCapability(AuraProvider.AURA_CAP, null).getAmount() < 20){flag2 = false;}
+            if((weapontype & LETZT) !=0 && entityplayer.getCapability(AuraProvider.AURA_CAP, null).getAmount() < 20){flag2 = false;}
 
             if(ohblade && entityLiving instanceof EntityPlayer && entityLiving.getHeldItemOffhand() == stack) {
                 Entity entity = this.findEntityOnPath(worldIn, entityLiving, entityLiving.getEntityAttribute(EntityPlayer.REACH_DISTANCE).getAttributeValue());
@@ -750,7 +781,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                 }
             }
 
-            if(weapontype == WHIP && entityLiving instanceof EntityPlayer && entityLiving.getHeldItemMainhand() == stack) {
+            if((weapontype & WHIP) !=0 && entityLiving instanceof EntityPlayer && entityLiving.getHeldItemMainhand() == stack) {
                 Entity entity = this.findEntityOnPath(worldIn, entityLiving, entityLiving.getEntityAttribute(EntityPlayer.REACH_DISTANCE).getAttributeValue()+4);
                 if (entity instanceof EntityLivingBase) {
                     EntityLivingBase entitylivingbase = (EntityLivingBase) entity;
@@ -795,7 +826,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             i = net.minecraftforge.event.ForgeEventFactory.onArrowLoose(stack, worldIn, (EntityPlayer) entityLiving, i, itemstack != null);
             if (i < 0) return;
 
-            if(entityplayer.getItemInUseCount() < 60 && weapontype == LION_HEART){
+            if(entityplayer.getItemInUseCount() < 60 && (weapontype & LION_HEART) !=0){
                 flag2 = false;
             }
 
@@ -803,7 +834,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
 
                 float f = getArrowVelocity(72);
-            if(weapontype == (SANREI | LETZT)){
+            if((weapontype & (SANREI | LETZT)) !=0){
                 f = getArrowVelocity(i);
             }
                 if ((double) f >= 0.1D) {
@@ -818,19 +849,19 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                             worldIn.spawnEntity(entityarrow);
                             //if (f >= 1.0F) entityarrow.setIsCritical(true);
                         }
-                        if(weapontype == SANREI){
+                        if((weapontype & SANREI) !=0){
                             if (entityplayer.hasCapability(AuraProvider.AURA_CAP, null)) {
                                 entityplayer.getCapability(AuraProvider.AURA_CAP, null).useAura(entityplayer, 10F, false);
                                 entityplayer.getCapability(AuraProvider.AURA_CAP, null).delayRecharge(60);
                             }
-                        }else if(weapontype == LETZT){
+                        }else if((weapontype & LETZT) !=0){
                             if (entityplayer.hasCapability(AuraProvider.AURA_CAP, null)) {
                                 entityplayer.getCapability(AuraProvider.AURA_CAP, null).useAura(entityplayer, 20F, false);
                                 entityplayer.getCapability(AuraProvider.AURA_CAP, null).delayRecharge(60);
                             }
                         }
-                        else if (weapontype == JUNIOR) {stack.damageItem(30,entityplayer);}
-                        else if (weapontype == INT_MAG) {stack.damageItem(4, entityplayer);}
+                        else if ((weapontype & JUNIOR) !=0) {stack.damageItem(30,entityplayer);}
+                        else if ((weapontype & INT_MAG) !=0) {stack.damageItem(4, entityplayer);}
                         else stack.damageItem(2, entityplayer);
                     }
 
@@ -921,7 +952,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                         entityplayer.lastTickPosX = -look.z;
                     }
                     if (!flag){
-                        if (weapontype == BOW && !flagger) {
+                        if ((weapontype & BOW) !=0 && !flagger) {
                             itemstack.shrink(1);
                         }
                     }
@@ -981,7 +1012,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
     @Override
     public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker)
-    {  if(weapontype == (RAPIER | WINTER)){
+    {  if((weapontype & (RAPIER | WINTER)) !=0){
         //Rapier
         boolean unarm = false;
         if(target.getTotalArmorValue() == 0){
@@ -991,7 +1022,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             target.attackEntityFrom(DamageSource.GENERIC, 35);
         }}
 
-        if(weapontype == DAGGER || gwen){
+        if((weapontype & (DAGGER)) !=0||gwen){
         if (target.getHealth() >= 100.0F && (new Random()).nextInt(100) <= 30) {
             if (attacker instanceof EntityPlayer) {
                 target.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer)attacker), 100.0F);
@@ -1017,7 +1048,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
         }
 
-        if(weapontype == SCYTHE){
+        if((weapontype & SCYTHE) !=0){
             //Scythe
             for (EntityLivingBase entitylivingbase : attacker.world.getEntitiesWithinAABB(EntityLivingBase.class, target.getEntityBoundingBox().grow(3.0D, 0.25D, 3.0D))) {
                 if (entitylivingbase != attacker && entitylivingbase != target && !attacker.isOnSameTeam(entitylivingbase) && attacker.getDistanceSq(entitylivingbase) < 9.0D) {
@@ -1035,7 +1066,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             attacker.world.playSound((EntityPlayer) null, attacker.posX, attacker.posY, attacker.posZ, SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, attacker.getSoundCategory(), 1.0F, 1.0F);
         }
 
-        if(weapontype == SWORD){
+        if((weapontype & SWORD) !=0){
             //Sword
             for (EntityLivingBase entitylivingbase : attacker.world.getEntitiesWithinAABB(EntityLivingBase.class, target.getEntityBoundingBox().grow(3.0D, 0.25D, 3.0D))) {
                 if (entitylivingbase != attacker && entitylivingbase != target && !attacker.isOnSameTeam(entitylivingbase) && attacker.getDistanceSq(entitylivingbase) < 9.0D) {
@@ -1083,6 +1114,9 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         if (p_getItemAttributeModifiers_1_ == EntityEquipmentSlot.MAINHAND) {
             multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", (double)this.weapondamage-1, 0));
             multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", this.weaponspeed, 0));
+
+            if(elementmelee == "wind"){
+            multimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(MOVEMENT_SPEED, "Speed modifier", 0.2, 0));}
         }
 
         return multimap;
