@@ -599,7 +599,7 @@ public class RWBYItems {
             "winterswd",
             2500,
             14,
-            7,
+            RWBYGun.WINTER,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:14,Operation:0,UUIDMost:99791,UUIDLeast:128916}]}",
             null,
             "rwbym:nuller,rwbym:nullest",
@@ -834,79 +834,128 @@ public class RWBYItems {
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
 
-    public static final Item ozmacane = new RWBYStaff(
+    public static final Item ozmacane = new RWBYGun(
             "ozmacane",
             2500,
             12,
-            0,
+            RWBYGun.STAFF,
             null,
             null,
+            "rwbym:nuller,rwbym:nullest",
+            false,
+            1,
             false,
             true,
+            0,
+            1,
+            0,
+            0,
             RWBYCreativeTabs.tab_rwbyweapons
     );
-    public static final Item ozmacanefire = new RWBYStaff(
+    public static final Item ozmacanefire = new RWBYGun(
             "ozmacanefire",
             2500,
             12,
-            0,
+            RWBYGun.STAFF,
             null,
             null,
+            "rwbym:nuller,rwbym:nullest",
+            false,
+            1,
             false,
             true,
+            0,
+            1,
+            0,
+            0,
             null
-    );
-    public static final Item ozmacanegravity = new RWBYStaff(
+    ).setElementMelee("fire");
+    public static final Item ozmacanegravity = new RWBYGun(
             "ozmacanegravity",
             2500,
             12,
-            0,
+            RWBYGun.STAFF,
             null,
             null,
+            "rwbym:nuller,rwbym:nullest",
+            false,
+            1,
             false,
             true,
+            0,
+            1,
+            0,
+            0,
             null
-    );    public static final Item ozmacaneice = new RWBYStaff(
+    ).setElementMelee("grav");    public static final Item ozmacaneice = new RWBYGun(
             "ozmacaneice",
             2500,
             12,
-            0,
+            RWBYGun.STAFF,
             null,
             null,
+            "rwbym:nuller,rwbym:nullest",
+            false,
+            1,
             false,
             true,
+            0,
+            1,
+            0,
+            0,
             null
-    );    public static final Item ozmacanelightning = new RWBYStaff(
+    ).setElementMelee("ice");    public static final Item ozmacanelightning = new RWBYGun(
             "ozmacanelightning",
             2500,
             12,
-            0,
+            RWBYGun.STAFF,
             null,
             null,
+            "rwbym:nuller,rwbym:nullest",
+            false,
+            1,
             false,
             true,
+            0,
+            1,
+            0,
+            0,
             null
-    );    public static final Item ozmacanewater = new RWBYStaff(
+    ).setElementMelee("light");    public static final Item ozmacanewater = new RWBYGun(
             "ozmacanewater",
             2500,
             12,
-            0,
+            RWBYGun.STAFF,
             null,
             null,
+            "rwbym:nuller,rwbym:nullest",
+            false,
+            1,
             false,
             true,
+            0,
+            1,
+            0,
+            0,
             null
-    );    public static final Item ozmacanewind = new RWBYStaff(
+    ).setElementMelee("water");    public static final Item ozmacanewind = new RWBYGun(
             "ozmacanewind",
             2500,
             12,
-            0,
+            RWBYGun.STAFF,
             null,
             null,
+            "rwbym:nuller,rwbym:nullest",
+            false,
+            1,
             false,
             true,
+            0,
+            1,
+            0,
+            0,
             null
-    );
+    ).setElementMelee("wind");
     public static final Item mariacane = new RWBYGun(
             "mariacane",
             2500,
@@ -1679,7 +1728,7 @@ public class RWBYItems {
             false,
             false,
             0,
-            1,
+            4,
             0,
             10,
             null).setRecoil(20);
@@ -1692,7 +1741,7 @@ public class RWBYItems {
             "rwbym:cinder",
             "minecraft:arrow,minecraft:tipped_arrow",
             false,
-            1,
+            2,
             false,
             false,
             0,
@@ -2095,7 +2144,7 @@ public class RWBYItems {
             "gravitydustcrystalcut",
             0,
             0,
-            "{AttributeModifiers:[{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:-0.7,Operation:2,UUIDMost:25912,UUIDLeast:178428}],display:{Lore:[\"Slow Falling and Negate Fall Damage While in offhand and Float Upwards while sneaking in mid-air.\"}]}",
+            "{display:{Lore:[\"Slow Falling and Negate Fall Damage While in offhand and Float Upwards while sneaking in mid-air.\"]},AttributeModifiers:[{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:-0.7,Operation:2,UUIDMost:43978,UUIDLeast:138392}]}",
             "rwbym:gravitydustcut",
             true,
             0.3F,
@@ -2104,7 +2153,7 @@ public class RWBYItems {
             "winddustcrystalcut",
             0,
             0,
-            "{AttributeModifiers:[{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:-0.7,Operation:2,UUIDMost:29285,UUIDLeast:106582},{AttributeName:\"generic.movementSpeed\",Name:\"generic.movementSpeed\",Slot:\"offhand\",Amount:2,Operation:2.5,UUIDMost:0089,UUIDLeast:146615}]}",
+            "AttributeModifiers:[{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:-0.7,Operation:2,UUIDMost:43978,UUIDLeast:138392},{AttributeName:\"generic.movementSpeed\",Name:\"generic.movementSpeed\",Slot:\"offhand\",Amount:2,Operation:2,UUIDMost:13841,UUIDLeast:185644}]}",
             "rwbym:winddustcut",
             true,
             0.3F,
@@ -2113,7 +2162,7 @@ public class RWBYItems {
             "waterdustcrystalcut",
             0,
             0,
-            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"offhand\",Amount:-0.45,Operation:2,UUIDMost:81281,UUIDLeast:160467}],display:{Lore:[\"Provides Faster Health Regeneration while in Offhand and Water Breathing While Underwater.\"}]}",
+            "{display:{Lore:[\"Provides Faster Health Regeneration while in Offhand and Water Breathing While Underwater.\"]},AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"offhand\",Amount:-0.45,Operation:2,UUIDMost:60517,UUIDLeast:119327}]}",
             "rwbym:waterdustcut",
             true,
             0.3F,
@@ -2122,7 +2171,7 @@ public class RWBYItems {
             "firedustcrystalcut",
             0,
             0,
-            "{AttributeModifiers:[{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:-0.7,Operation:2,UUIDMost:25912,UUIDLeast:178428},{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"offhand\",Amount:3.5,Operation:2,UUIDMost:8032,UUIDLeast:139412}]}",
+            "{AttributeModifiers:[{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:-0.7,Operation:2,UUIDMost:54914,UUIDLeast:152089},{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"offhand\",Amount:3.5,Operation:2,UUIDMost:87807,UUIDLeast:100803}]}",
             "rwbym:firedustcut",
             true,
             0.3F,
@@ -2140,7 +2189,7 @@ public class RWBYItems {
             "lightdustcrystalcut",
             0,
             0,
-            "{AttributeModifiers:[{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:-0.70,Operation:2,UUIDMost:17934,UUIDLeast:125321},{AttributeName:\"generic.movementSpeed\",Name:\"generic.movementSpeed\",Slot:\"offhand\",Amount:1.5,Operation:2,UUIDMost:13043,UUIDLeast:147969},{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"offhand\",Amount:3,Operation:2,UUIDMost:14080,UUIDLeast:16307}]}",
+            "{AttributeModifiers:[{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:-0.7,Operation:2,UUIDMost:54914,UUIDLeast:152089},{AttributeName:\"generic.movementSpeed\",Name:\"generic.movementSpeed\",Slot:\"offhand\",Amount:1.5,Operation:2,UUIDMost:11982,UUIDLeast:148113},{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"offhand\",Amount:3,Operation:2,UUIDMost:55696,UUIDLeast:115041}]}",
             "rwbym:lightdustcut",
             true,
             0.3F,
@@ -2149,7 +2198,7 @@ public class RWBYItems {
             "icedustcrystalcut",
             0,
             0,
-            "{AttributeModifiers:[{AttributeName:\"generic.movementSpeed\",Name:\"generic.movementSpeed\",Slot:\"offhand\",Amount:-0.5,Operation:2,UUIDMost:7930,UUIDLeast:112384},{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:1.5,Operation:2,UUIDMost:25912,UUIDLeast:178428}]}",
+            "{AttributeModifiers:[{AttributeName:\"generic.movementSpeed\",Name:\"generic.movementSpeed\",Slot:\"offhand\",Amount:-0.5,Operation:2,UUIDMost:55696,UUIDLeast:115041},{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:1.5,Operation:2,UUIDMost:70649,UUIDLeast:178613}]}",
             "rwbym:icedustcut",
             true,
             0.3F,
@@ -2209,7 +2258,7 @@ public class RWBYItems {
             "dove",
             2500,
             15,
-            0,
+            RWBYGun.SWORD,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:15,Operation:0,UUIDMost:99791,UUIDLeast:128916}]}",
             null,
             "rwbym:spl,rwbym:splfire,rwbym:splgrav,rwbym:splice,rwbym:spllight",
@@ -2367,7 +2416,7 @@ public class RWBYItems {
             "rwbym:cinderglass",
             "minecraft:arrow,minecraft:tipped_arrow",
             false,
-            1,
+            2,
             false,
             false,
             0,
@@ -2384,7 +2433,7 @@ public class RWBYItems {
             "rwbym:cinderbowglass",
             "rwbym:nuller,rwbym:nullest",
             false,
-            1,
+            2,
             false,
             false,
             0,
@@ -2486,7 +2535,7 @@ public class RWBYItems {
             "rwbym:aquaealatlsword",
             "minecraft:arrow,minecraft:tipped_arrow",
             false,
-            1,
+            2,
             false,
             false,
             0,
@@ -3037,10 +3086,10 @@ public class RWBYItems {
     public static final Item dustcrystal = new RWBYItem("dustcrystal", "{AttributeModifiers:[{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:-0.50,Operation:2,UUIDMost:74685,UUIDLeast:155127}]}", false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item winddustcrystal = new RWBYItem("winddustcrystal", "{AttributeModifiers:[{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:-0.50,Operation:2,UUIDMost:74685,UUIDLeast:155127},{AttributeName:\"generic.movementSpeed\",Name:\"generic.movementSpeed\",Slot:\"offhand\",Amount:1.5,Operation:2,UUIDMost:78095,UUIDLeast:122333}]}", false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item firedustcrystal = new RWBYItem("firedustcrystal", "{AttributeModifiers:[{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:-0.5,Operation:2,UUIDMost:25912,UUIDLeast:178428},{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"offhand\",Amount:2,Operation:2,UUIDMost:8032,UUIDLeast:139412}]}", false, RWBYCreativeTabs.tab_rwbyitems);
-    public static final Item gravitydustcrystal = new RWBYItem("gravitydustcrystal", "{AttributeModifiers:[{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:-0.5,Operation:2,UUIDMost:25912,UUIDLeast:178428}],display:{Lore:[\"Slow Falling and Negate Fall Damage While in offhand.\"}]}", false, RWBYCreativeTabs.tab_rwbyitems);
-    public static final Item waterdustcrystal = new RWBYItem("waterdustcrystal",  "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"offhand\",Amount:-0.25,Operation:2,UUIDMost:81281,UUIDLeast:160467}],display:{Lore:[\"Provides Slow Health Regeneration while in Offhand.\"}]}", false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item gravitydustcrystal = new RWBYItem("gravitydustcrystal", "{display:{Lore:[\"Slow Falling and Negate Fall Damage While in offhand.\"]},AttributeModifiers:[{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:-0.5,Operation:2,UUIDMost:94283,UUIDLeast:125247}]}", false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item waterdustcrystal = new RWBYItem("waterdustcrystal",  "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"offhand\",Amount:-0.25,Operation:2,UUIDMost:36500,UUIDLeast:174484}],display:{Lore:[\"Provides Slow Health Regeneration while in Offhand.\"]}}", false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item lightdustcrystal = new RWBYItem("lightdustcrystal", "{AttributeModifiers:[{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:-0.50,Operation:2,UUIDMost:17934,UUIDLeast:125321},{AttributeName:\"generic.movementSpeed\",Name:\"generic.movementSpeed\",Slot:\"offhand\",Amount:1.2,Operation:2,UUIDMost:13043,UUIDLeast:147969},{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"offhand\",Amount:2,Operation:2,UUIDMost:14080,UUIDLeast:16307}]}", false, RWBYCreativeTabs.tab_rwbyitems);
-    public static final Item icedustcrystal = new RWBYItem("icedustcrystal", " {AttributeModifiers:[{AttributeName:\"generic.movementSpeed\",Name:\"generic.movementSpeed\",Slot:\"offhand\",Amount:-0.3,Operation:2,UUIDMost:7930,UUIDLeast:112384},{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:0.5,Operation:2,UUIDMost:25912,UUIDLeast:178428}]}", false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item icedustcrystal = new RWBYItem("icedustcrystal", "{AttributeModifiers:[{AttributeName:\"generic.movementSpeed\",Name:\"generic.movementSpeed\",Slot:\"offhand\",Amount:-0.3,Operation:2,UUIDMost:7930,UUIDLeast:112384},{AttributeName:\"generic.maxHealth\",Name:\"generic.maxHealth\",Slot:\"offhand\",Amount:0.5,Operation:2,UUIDMost:25912,UUIDLeast:178428}]}", false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item dustrock = new RWBYItem("dustrock", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item dustrockhardlight = new RWBYItem("dustrockhardlight", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item dustcrystalhardlight = new RWBYItem("dustcrystalhardlight",  " {AttributeModifiers:[{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"offhand\",Amount:0.20,Operation:2,UUIDMost:55673,UUIDLeast:113518},{AttributeName:\"generic.knockbackResistance\",Name:\"generic.knockbackResistance\",Slot:\"offhand\",Amount:1,Operation:2,UUIDMost:43088,UUIDLeast:115545},{AttributeName:\"generic.movementSpeed\",Name:\"generic.movementSpeed\",Slot:\"offhand\",Amount:0.20,Operation:2,UUIDMost:52996,UUIDLeast:169334}]}", false, RWBYCreativeTabs.tab_rwbyitems);
@@ -3111,6 +3160,7 @@ public class RWBYItems {
     public static final Item chisel = new RWBYItem("chisel", null, false, RWBYCreativeTabs.tab_rwbyitems).setHasContainerItem(true).setContainerItemLambda(stack -> (stack.attemptDamageItem(1, new Random(), null) ? ItemStack.EMPTY : stack)).setMaxDamage(255).setMaxStackSize(1);
     public static final Item crush = new RWBYItem("crush", null, false, RWBYCreativeTabs.tab_rwbyitems).setHasContainerItem(true).setContainerItemLambda(stack -> (stack.attemptDamageItem(1, new Random(), null) ? ItemStack.EMPTY : stack)).setMaxDamage(255).setMaxStackSize(1);
     public static final Item rvnmask = new RWBYHood("rvnmask", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true, null, RWBYCreativeTabs.tab_rwbyarmour);
+    public static final Item mariaeyes = new RWBYHood("mariaeyes", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true, null, RWBYCreativeTabs.tab_rwbyarmour);
     public static final Item whtefng =  new RWBYHood("whtefng", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true, null, RWBYCreativeTabs.tab_rwbyarmour);
     public static final Item rubyhood = new RWBYHood("rubyhood", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true,"rwbym:ruby2_head", RWBYCreativeTabs.tab_rwbyarmour);
     public static final Item summerhood = new RWBYHood("summerhood", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:10,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true, "rwbym:summer2_head",RWBYCreativeTabs.tab_rwbyarmour);
@@ -3254,7 +3304,7 @@ public class RWBYItems {
             null,
             null,
             32,
-            8,
+            14,
             null,
             null);
     public static final Item noctufire = new RWBYAmmoItem(
@@ -3269,7 +3319,7 @@ public class RWBYItems {
             "",
             null,
             32,
-            8,
+            14,
             null,
             new FireAmmoHit(10));
     public static final Item noctuice = new RWBYAmmoItem(
@@ -3284,7 +3334,7 @@ public class RWBYItems {
             null,
             ImmutableList.of(new PotionEffect(Potion.getPotionFromResourceLocation("minecraft:slowness"), 100, 5)),
             32,
-            8,
+            14,
             null,
             null);
     public static final Item noctugrav = new RWBYAmmoItem(
@@ -3299,7 +3349,7 @@ public class RWBYItems {
             null,
             ImmutableList.of(new PotionEffect(Potion.getPotionFromResourceLocation("minecraft:levitation"), 100, 2)),
             32,
-            8,
+            14,
             null,
             null);
     public static final Item noctulight = new RWBYAmmoItem(
@@ -3314,7 +3364,7 @@ public class RWBYItems {
             "",
             null,
             32,
-            8,
+            14,
             null,
             new ExplosionAmmoHit(0));
     public static final Item spl = new RWBYAmmoItem(
@@ -3691,7 +3741,7 @@ public class RWBYItems {
             6,
             10,
             null,
-            new ExplosionAmmoHit(3));
+            new ExplosionAmmoHit(1));
     public static final Item ammov = new RWBYAmmoItem(
             "ammov",
             RWBYItems.entitybulletv,

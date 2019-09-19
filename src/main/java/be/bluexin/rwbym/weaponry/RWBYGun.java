@@ -144,24 +144,26 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
     
     //now you can also combine properties together like "BOW | INT_MAG"
-	public static final int RAPIER =       0x00001;
-	public static final int SCYTHE =       0x00002;
-	public static final int OFFHAND =      0x00004;
-	public static final int SCARLET =      0x00008;
-	public static final int JUNIOR =       0x00010;
-	public static final int EMBER_CELICA = 0x00020;
-	public static final int WINTER =       0x00040;
-	public static final int BOW =          0x00080;
-	public static final int INT_MAG =      0x00100;
-	public static final int WHIP =         0x00200;
-	public static final int LION_HEART =   0x00400;
-	public static final int DAGGER =       0x00800;
-	public static final int SWORD =        0x01000;
+	public static final int RAPIER =       0x0001;
+	public static final int SCYTHE =       0x0002;
+	public static final int OFFHAND =      0x0004;
+	public static final int SCARLET =      0x0008;
+	public static final int JUNIOR =       0x0010;
+	public static final int EMBER_CELICA = 0x0020;
+	public static final int WINTER =       0x0040;
+	public static final int BOW =          0x0080;
+	public static final int INT_MAG =      0x0100;
+	public static final int WHIP =         0x0200;
+	public static final int LION_HEART =   0x0400;
+	public static final int DAGGER =       0x0800;
+	public static final int SWORD =        0x1000;
 	
-	public static final int SANREI =       0x02000;
-	public static final int LETZT =        0x04000;
-    public static final int AURAWEAP =     0x08000;
+	public static final int SANREI =       0x2000;
+	public static final int LETZT =        0x4000;
+    public static final int AURAWEAP =     0x8000;
     public static final int TOOL =         0x10000;
+    public static final int STAFF =        0x20000;
+    public static final int ROCKET =       0x40000;
 	
 	public static final int RCL_BACK =      1;
 	public static final int RCL_BACK_WEAK = 2;
@@ -174,7 +176,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         this.setRegistryName(new ResourceLocation(RWBYModels.MODID, name));
         this.setUnlocalizedName(this.getRegistryName().toString());
         this.setCreativeTab(creativetab);
-        if((weapontype & BOW) !=0){this.drawSpeed = 72;}else {this.drawSpeed = 72000;}
+        if((weapontype & (BOW|ROCKET)) !=0){this.drawSpeed = 72;}else {this.drawSpeed = 72000;}
         if(weapondamage == 0){this.weapondamage = 1;}else {this.weapondamage = weapondamage;}
         this.morph = morph;
         this.ammo = ammo;
@@ -198,6 +200,8 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         else if((weapontype & WHIP) !=0){this.weaponspeed = -1D;}
         else if((weapontype & SCYTHE) !=0){this.weaponspeed = -3D;}
         else if((weapontype & DAGGER) !=0){this.weaponspeed = 1D;}
+        else if((weapontype & STAFF) !=0){this.weaponspeed = -3D;}
+        else if((weapontype & ROCKET) !=0){this.weaponspeed = -3D;}
         else {this.weaponspeed = -3;}
 
 
@@ -208,7 +212,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         if(name.contains("neoumb_closed")) neo = true; if(name.contains("neoumb_closed_blade")) neo = true; if(name.contains("neoumb_handle_blade")) neo = true;
         if(name.contains("gambol")|| name.contains("rvn")) { ohblade = true; this.damages = 14; }
         if(name.contains("weiss")||name.contains("oobleck")||name.contains("goodwitch")){mytre = true;}
-        if(name.contains("stormflower")||name.contains("ember")||name.contains("tyrian")||name.contains("fox")||name.contains("emerald")||name.contains("maria")||name.contains("sunnunchuck")||name.contains("reese")){dualwield = true;}
+        if(name.contains("stormflower")||name.contains("ember")||name.contains("tyrian")||name.contains("fox")||name.contains("emerald")||name.contains("mariascythe")||name.contains("sunnunchuck")||name.contains("reese")){dualwield = true;}
         if(enchantmentglow == 1){glow = true;}
         if(name.contains("grimm")){
             grimm = true;
@@ -423,11 +427,11 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 	        for (int i = 0; i < itemIds.length; i++) {
 	            Item item = Item.getByNameOrId(itemIds[i]);
 	            if (item != null) {
-	            	tooltip.add(com.mojang.realmsclient.gui.ChatFormatting.BLUE +"-" + I18n.format(item.getUnlocalizedName() + ".name"));
+	            	tooltip.add(ChatFormatting.BLUE +"-" + I18n.format(item.getUnlocalizedName() + ".name"));
 	            }
 	        }
         }
-        if(weapontype > 0){tooltip.add("Weapon Type:");}
+        if(weapontype > 0||dualwield|| recoil == 4){tooltip.add("Weapon Type:");}
         if((weapontype & OFFHAND) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Offhand Capable Blade");}
          if((weapontype & SWORD) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Sword");}
          if((weapontype & LION_HEART) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Lion Heart Shield");}
@@ -442,7 +446,9 @@ public class RWBYGun extends ItemBow implements ICustomItem{
          if(dualwield){tooltip.add(ChatFormatting.BLUE + "-" + "Dual-wieldable Gun");}
          if((weapontype & TOOL) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Tool");}
         if((weapontype & BOW) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Bow");}
+        if((weapontype & STAFF) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "STAFF");}
          if((weapontype & (AURAWEAP|LETZT|SANREI)) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Aura Weapon");}
+         if(recoil == 4){tooltip.add(ChatFormatting.BLUE + "-"+ "Wall Climbing Capable");}
         if(shotrecoil > 0){
             String shotrecoils = Integer.toString(shotrecoil);
             tooltip.add("Shot Recoil Amount:");
@@ -611,6 +617,34 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     }
 
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
+        if((weapontype & STAFF) !=0){PotionEffect potioneffect1 = new PotionEffect(MobEffects.STRENGTH, 100, 5, false, false);
+        PotionEffect potioneffect2 = new PotionEffect(MobEffects.LEVITATION, 100, 5, false, false);
+        PotionEffect potionEffect3 = new PotionEffect(MobEffects.FIRE_RESISTANCE, 100, 5, false, false);
+        PotionEffect potioneffect4 = new PotionEffect(MobEffects.REGENERATION, 100, 3, false, false);
+        PotionEffect potioneffect5 = new PotionEffect(MobEffects.HASTE, 100, 5, false, false);
+        PotionEffect potionEffect6 = new PotionEffect(MobEffects.SPEED, 100, 5, false, false);
+        PotionEffect potionEffect7 = new PotionEffect(MobEffects.SPEED, 200, 7, false, false);
+        if(handIn == EnumHand.MAIN_HAND && playerIn.isSneaking()){
+            if(elementmelee == "grav")
+            {
+                playerIn.addPotionEffect(potioneffect2);
+            }
+            if(elementmelee == "fire")
+            {
+                playerIn.addPotionEffect(potioneffect1);
+                playerIn.addPotionEffect(potionEffect3);
+            }
+            if(elementmelee == "water"){
+                playerIn.addPotionEffect(potioneffect4);
+            }
+            if(elementmelee == "light"){
+                playerIn.addPotionEffect(potioneffect5);
+                playerIn.addPotionEffect(potionEffect6);
+            }
+            if(elementmelee == "wind"){
+                playerIn.addPotionEffect(potionEffect7);
+            }}}
+
         ItemStack is = playerIn.getHeldItem(handIn);
         boolean flag = !this.findAmmo(playerIn, false).isEmpty();
         if (!worldIn.isRemote && playerIn.isSneaking() && this.morph != null) {
@@ -740,8 +774,11 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     }
 
 
+
+
     @Override
     public void onPlayerStoppedUsing(ItemStack stack, World worldIn, EntityLivingBase entityLiving, int timeLeft) { // Mostly copied from ItemBow, with slight edits
+
         if (entityLiving instanceof EntityPlayer) {
             EntityPlayer entityplayer = (EntityPlayer) entityLiving;
             boolean flagger = entityplayer.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantments.INFINITY, stack) > 0;
@@ -758,6 +795,13 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             {
                 flag2 = false;
             }
+
+            if(entityplayer.getItemInUseCount() > stack.getMaxItemUseDuration() * 0.75F && (weapontype & (ROCKET|BOW)) !=0){
+                flag2 = false;
+
+            }
+
+            if(flag2 && charges){entityplayer.getCooldownTracker().setCooldown(this, 5);}
 
 
             if(ohblade && entityplayer.getActiveHand() == EnumHand.OFF_HAND){
