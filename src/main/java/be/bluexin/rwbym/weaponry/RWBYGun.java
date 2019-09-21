@@ -2,11 +2,15 @@ package be.bluexin.rwbym.weaponry;
 
 import be.bluexin.rwbym.Init.RWBYCreativeTabs;
 import be.bluexin.rwbym.Init.RWBYItems;
+import be.bluexin.rwbym.PlayerRenderHandler;
 import be.bluexin.rwbym.RWBYModels;
 import be.bluexin.rwbym.RWBYSoundHandler;
 import be.bluexin.rwbym.capabilities.Aura.AuraProvider;
 import be.bluexin.rwbym.entity.EntityLargeFireball;
 import be.bluexin.rwbym.entity.EntityNeverMore;
+import be.bluexin.rwbym.utility.ExtraInfo;
+import be.bluexin.rwbym.utility.network.MessagePlayerMotionUpdate;
+import be.bluexin.rwbym.utility.network.RWBYNetworkHandler;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 import com.mojang.realmsclient.gui.ChatFormatting;
@@ -14,6 +18,7 @@ import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
@@ -164,6 +169,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     public static final int TOOL =         0x10000;
     public static final int STAFF =        0x20000;
     public static final int ROCKET =       0x40000;
+    public static final int UMBRELLA =       0x80000;
 	
 	public static final int RCL_BACK =      1;
 	public static final int RCL_BACK_WEAK = 2;
@@ -209,7 +215,6 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         if(name.contains("kkfire")) kkfire = true; if(name.contains("kkice")) kkice = true; if(name.contains("kkwind")) kkwind = true; if(name.contains("gwenknife")){gwen = true;}
         if((weapontype & (OFFHAND | WINTER)) !=0) { ohblade = true; this.damages = 14; }
         if((weapontype & WHIP) !=0) {this.damages = 14;}
-        if(name.contains("neoumb_closed")) neo = true; if(name.contains("neoumb_closed_blade")) neo = true; if(name.contains("neoumb_handle_blade")) neo = true;
         if(name.contains("gambol")|| name.contains("rvn")) { ohblade = true; this.damages = 14; }
         if(name.contains("weiss")||name.contains("oobleck")||name.contains("goodwitch")){mytre = true;}
         if(name.contains("stormflower")||name.contains("ember")||name.contains("tyrian")||name.contains("fox")||name.contains("emerald")||name.contains("mariascythe")||name.contains("sunnunchuck")||name.contains("reese")){dualwield = true;}
@@ -220,7 +225,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         }
 
         
-        if (this.neo) this.addPropertyOverride(new ResourceLocation("blocking"), new IItemPropertyGetter() {
+        if ((weapontype & UMBRELLA) !=0) this.addPropertyOverride(new ResourceLocation("blocking"), new IItemPropertyGetter() {
             @SideOnly(Side.CLIENT)
             public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn)
             {
@@ -443,10 +448,12 @@ public class RWBYGun extends ItemBow implements ICustomItem{
          if((weapontype & DAGGER) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Dagger");}
          if((weapontype & INT_MAG) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Internal Magazine");}
          if((weapontype & JUNIOR) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Internal Magazine");}
+        if((weapontype & (ROCKET|JUNIOR)) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Rocket Launcher");}
          if(dualwield){tooltip.add(ChatFormatting.BLUE + "-" + "Dual-wieldable Gun");}
          if((weapontype & TOOL) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Tool");}
         if((weapontype & BOW) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Bow");}
         if((weapontype & STAFF) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "STAFF");}
+        if((weapontype & UMBRELLA) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Umbrella");}
          if((weapontype & (AURAWEAP|LETZT|SANREI)) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Aura Weapon");}
          if(recoil == 4){tooltip.add(ChatFormatting.BLUE + "-"+ "Wall Climbing Capable");}
         if(shotrecoil > 0){
@@ -525,11 +532,28 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         }
 
 
-        if(entity instanceof EntityPlayer && neo){
+
+        if (!world.isRemote && this.data != null) {
+            NBTTagCompound atag = is.getTagCompound();
+            if (atag == null) atag = new NBTTagCompound();
+            if (!atag.hasKey(KEY)) {
+                atag.setBoolean(KEY, true);
+                is.setTagCompound(atag);
+
+                try {
+                    is.setTagCompound(JsonToNBT.getTagFromJson(this.data));
+                    is.getTagCompound().setBoolean(KEY, true);
+                } catch (NBTException nbtexception) {
+                    LogManager.getLogger(RWBYModels.MODID).error("Couldn't load data tag for " + this.getRegistryName());
+                }
+            }
+        }
+
+        if(entity instanceof EntityPlayer && (weapontype & UMBRELLA) !=0){
             final EntityPlayer player = (EntityPlayer)entity;
             if (!player.onGround && player.getItemInUseCount() > 1)
             {
-                player.motionY += 0.05;
+                player.motionY = -0.1;
                 player.fallDistance = 0;
                 player.velocityChanged = true;
             }
@@ -644,6 +668,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             if(elementmelee == "wind"){
                 playerIn.addPotionEffect(potionEffect7);
             }}}
+
 
         ItemStack is = playerIn.getHeldItem(handIn);
         boolean flag = !this.findAmmo(playerIn, false).isEmpty();
@@ -770,6 +795,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             if (playerIn.getHeldItemMainhand() == stack) {
                 playerIn.inventory.setInventorySlotContents(playerIn.inventory.currentItem, morph1);}
         }
+
         return false;
     }
 
@@ -1000,9 +1026,12 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                             itemstack.shrink(1);
                         }
                     }
+
+
+
                     if (!flag){
-                        if (mytre) {
-                            itemstack.damageItem(2, entityplayer);
+                        if (mytre || (weapontype & ROCKET) !=0) {
+                            itemstack.shrink(1);
                         }
                         else {
                             itemstack.damageItem(1, entityplayer);

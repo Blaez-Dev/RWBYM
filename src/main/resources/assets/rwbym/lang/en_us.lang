@@ -540,6 +540,12 @@ item.rwbym:neonwind.name=Neon's Nunchucks
 item.rwbym:dustcrystalhardlight.name=Hard Light Crystal
 item.rwbym:dustrockhardlight.name=Unrefined Hardlight Dust
 item.rwbym:tocksword.name=Tock's Cutlass
+item.rwbym:extasis.name=§6Extasis
+item.rwbym:extasislance.name=§6Extasis
+item.rwbym:extasisammo.name=Extasis Rockets
+item.rwbym:lichtroze_closedfire.name=§6Lichtroze
+item.rwbym:lichtroze_closedwind.name=§6Lichtroze
+item.rwbym:lichtroze_closedice.name=§6Lichtroze
 
 
 effect.aura_regen=Aura Regen

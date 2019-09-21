@@ -55,6 +55,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.entityweisswater);
         registerItems(event, RWBYItems.entityweisswind);
         registerItems(event, RWBYItems.entityrocket);
+        registerItems(event, RWBYItems.entityextasisammo);
         //dust blocks
         registerBlocks(event, RWBYItems.rwbyblock1);
         registerBlocks(event, RWBYItems.rwbyblock2);
@@ -441,6 +442,13 @@ public class RegUtil {
         registerItems(event, RWBYItems.noctugrav);
         registerItems(event, RWBYItems.noctuice);
         registerItems(event, RWBYItems.noctulight);
+        registerItems(event, RWBYItems.extasis);
+        registerItems(event, RWBYItems.extasislance);
+        registerItems(event, RWBYItems.extasisammo);
+        registerItems(event, RWBYItems.lichtroze_closedfire);
+        registerItems(event, RWBYItems.lichtroze_closedice);
+        registerItems(event, RWBYItems.lichtroze_closedwind);
+
         //mob drops
         registerItems(event, RWBYItems.remnants);
         registerBlocks(event, RWBYItems.bait);
@@ -858,6 +866,11 @@ public class RegUtil {
         registerRecipes(RWBYItems.rageshield);
         registerRecipes(RWBYItems.heroshield);
         registerRecipes(RWBYItems.mariaeyes);
+        registerRecipes(RWBYItems.extasis);
+        registerRecipes(RWBYItems.extasislance);
+        registerRecipes(RWBYItems.lichtroze_closedfire);
+        registerRecipes(RWBYItems.lichtroze_closedwind);
+        registerRecipes(RWBYItems.lichtroze_closedice);
     }
 
     private static void registerBlocks(FMLPreInitializationEvent event, Block...blocks) {
@@ -929,6 +942,8 @@ public class RegUtil {
                     ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.gwen.getRegistryName(), "inventory"));
                 }else if(item == RWBYItems.noctulight){
                     ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.gwen.getRegistryName(), "inventory"));
+                }else if(item == RWBYItems.entityextasisammo){
+                    ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.extasisammo.getRegistryName(), "inventory"));
                 }
             	else {
             		ModelLoader.setCustomModelResourceLocation(item,0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
