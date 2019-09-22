@@ -3146,8 +3146,74 @@ public class RWBYItems {
             0,
             0,
             null).setElementMelee("wind");
-
-
+    public static final Item kyoshifire = new RWBYGun(
+            "kyoshifire",
+            2500,
+            14,
+            RWBYGun.SWORD,
+            null,
+            "rwbym:kyoshigrav",
+            "rwbym:firedust",
+            false,
+            2,
+            true,
+            false,
+            0,
+            1,
+            0,
+            17,
+            RWBYCreativeTabs.tab_rwbyweapons).setRecoil(3).setElementMelee("fire");
+    public static final Item kyoshigrav = new RWBYGun(
+            "kyoshigrav",
+            2500,
+            14,
+            RWBYGun.SWORD,
+            null,
+            "rwbym:kyoshiice",
+            "rwbym:gravitydust",
+            false,
+            2,
+            true,
+            false,
+            0,
+            1,
+            0,
+            17,
+            null).setRecoil(3).setElementMelee("grav");
+    public static final Item kyoshiice = new RWBYGun(
+            "kyoshiice",
+            2500,
+            14,
+            RWBYGun.SWORD,
+            null,
+            "rwbym:kyoshiwind",
+            "rwbym:icedust",
+            false,
+            2,
+            true,
+            false,
+            0,
+            1,
+            0,
+            17,
+            null).setRecoil(3).setElementMelee("ice");
+    public static final Item kyoshiwind = new RWBYGun(
+            "kyoshiwind",
+            2500,
+            14,
+            RWBYGun.SWORD,
+            null,
+            "rwbym:kyoshifire",
+            "rwbym:winddust",
+            false,
+            2,
+            true,
+            false,
+            0,
+            1,
+            0,
+            17,
+            null).setRecoil(3).setElementMelee("wind");
 
 
     //------------------------------------------------//

@@ -3,6 +3,7 @@ package be.bluexin.rwbym.utility;
 import be.bluexin.rwbym.Init.RWBYItems;
 import be.bluexin.rwbym.RWBYModels;
 import be.bluexin.rwbym.potion.PotionAuraRegen;
+import be.bluexin.rwbym.weaponry.RWBYItem;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
@@ -235,6 +236,10 @@ public class RegUtil {
         registerItems(event, RWBYItems.noctustraumicescy);
         registerItems(event, RWBYItems.noctustraumlightscy);
         registerItems(event, RWBYItems.noctustraumnormalscy);
+        registerItems(event, RWBYItems.kyoshiwind);
+        registerItems(event, RWBYItems.kyoshiice);
+        registerItems(event, RWBYItems.kyoshigrav);
+        registerItems(event, RWBYItems.kyoshifire);
         registerItems(event, RWBYItems.neonfire);
         registerItems(event, RWBYItems.neonice);
         registerItems(event, RWBYItems.neonwind);
@@ -861,6 +866,10 @@ public class RegUtil {
         registerRecipes(RWBYItems.lichtroze_closedfire);
         registerRecipes(RWBYItems.lichtroze_closedwind);
         registerRecipes(RWBYItems.lichtroze_closedice);
+        registerRecipes(RWBYItems.kyoshifire);
+        registerRecipes(RWBYItems.kyoshigrav);
+        registerRecipes(RWBYItems.kyoshiice);
+        registerRecipes(RWBYItems.kyoshiwind);
     }
 
     private static void registerBlocks(FMLPreInitializationEvent event, Block...blocks) {
