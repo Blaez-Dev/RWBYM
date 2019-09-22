@@ -143,7 +143,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     public static final int TOOL =         0x10000;
     public static final int STAFF =        0x20000;
     public static final int ROCKET =       0x40000;
-    public static final int UMBRELLA =       0x80000;
+    public static final int UMBRELLA =     0x80000;
 	
 	public static final int RCL_BACK =      1;
 	public static final int RCL_BACK_WEAK = 2;
@@ -523,15 +523,8 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             }
         }
 
-        if(entity instanceof EntityPlayer && (weapontype & UMBRELLA) !=0){
-            final EntityPlayer player = (EntityPlayer)entity;
-            if (!player.onGround && player.getItemInUseCount() > 1)
-            {
-                player.motionY = -0.1;
-                player.fallDistance = 0;
-                player.velocityChanged = true;
-            }
-        }
+
+
 
         if((weapontype & (SANREI|LETZT|AURAWEAP)) !=0){
             EntityPlayer player = (EntityPlayer) entity;
@@ -614,6 +607,30 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         return true;
     }
 
+    @Override
+    public void onUsingTick(ItemStack stack, EntityLivingBase player, int count) {
+        super.onUsingTick(stack, player, count);
+        EntityPlayer playerIn = (EntityPlayer) player;
+        boolean flag = !this.findAmmo(playerIn, false).isEmpty();
+        if (!playerIn.onGround && playerIn.getItemInUseCount() > 1 && (weapontype & (UMBRELLA)) !=0)
+        {
+            player.motionY = -0.1;
+            player.fallDistance = 0;
+            player.velocityChanged = true;
+        }
+        if (!flag) {if (recoil == 4)  { if (playerIn.collidedHorizontally){
+            Vec3d look = playerIn.getLookVec();
+            playerIn.motionX = look.x/2;
+            playerIn.motionZ = look.z/2;
+            playerIn.motionY = look.y/2;
+            playerIn.lastTickPosZ = -look.x;
+            playerIn.lastTickPosX = -look.z;
+            compensate = true;
+            playerIn.fallDistance = 0;
+        }}}
+    }
+
+
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         if((weapontype & STAFF) !=0){PotionEffect potioneffect1 = new PotionEffect(MobEffects.STRENGTH, 100, 5, false, false);
         PotionEffect potioneffect2 = new PotionEffect(MobEffects.LEVITATION, 100, 5, false, false);
@@ -670,19 +687,6 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                 playerIn.lastTickPosZ = -look.x;
                 playerIn.lastTickPosX = -look.z;
             }}
-        if (!flag) {if (recoil == 4)  { if (playerIn.collidedHorizontally){
-            //PotionEffect potioneffect = new PotionEffect(MobEffects.JUMP_BOOST, 60, 5, false, false);
-            Vec3d look = playerIn.getLookVec();
-            playerIn.motionX = look.x/2;
-            playerIn.motionZ = look.z/2;
-            playerIn.motionY = look.y/2;
-            playerIn.lastTickPosZ = -look.x;
-            playerIn.lastTickPosX = -look.z;
-            compensate = true;
-            //playerIn.addPotionEffect(potioneffect);
-            playerIn.fallDistance = 0;
-        }}}
-
 
 
 

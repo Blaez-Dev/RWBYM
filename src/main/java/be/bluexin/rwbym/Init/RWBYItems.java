@@ -3145,7 +3145,7 @@ public class RWBYItems {
             1,
             0,
             0,
-            RWBYCreativeTabs.tab_rwbyweapons).setElementMelee("wind");
+            null).setElementMelee("wind");
 
 
 

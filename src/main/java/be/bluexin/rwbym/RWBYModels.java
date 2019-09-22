@@ -64,9 +64,9 @@ import java.util.List;
 public class RWBYModels {
     public static final String MODID = "rwbym";
     public static final String MODNAME = "RWBY-M";
-    public static final String VERSION = "3.9.5";
+    public static final String VERSION = "4.0.0";
     public static final String RANGE = "[1.12.2]";
-    public static final String DEPENDENCIES = "required-after:forge@[14.23.5.2779,)";
+    public static final String DEPENDENCIES = "required-after:forge@[14.23.5.2812)";
     public static List<ICustomItem> items;
 
     public static final Logger LOGGER = LogManager.getLogger(MODID);
