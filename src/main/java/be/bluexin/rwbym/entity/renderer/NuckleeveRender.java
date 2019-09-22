@@ -1,7 +1,8 @@
 package be.bluexin.rwbym.entity.renderer;
 
 import be.bluexin.rwbym.RWBYModels;
-import be.bluexin.rwbym.entity.*;
+import be.bluexin.rwbym.entity.EntityNuckleeve;
+import be.bluexin.rwbym.entity.ModelNuckleeve;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.Render;

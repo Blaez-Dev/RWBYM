@@ -8,8 +8,6 @@ import be.bluexin.rwbym.capabilities.Ruby.RubyProvider;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.nbt.NBTBase;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.fml.common.network.ByteBufUtils;
 
 public class MessageGetPlayerData extends MessageBase<MessageGetPlayerData> {

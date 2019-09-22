@@ -1,10 +1,11 @@
 package be.bluexin.rwbym.capabilities.Weiss;
 
-import be.bluexin.rwbym.RWBYModels;
 import be.bluexin.rwbym.capabilities.Aura.AuraProvider;
 import be.bluexin.rwbym.capabilities.Aura.IAura;
-import be.bluexin.rwbym.entity.*;
-import be.bluexin.rwbym.utility.RWBYConfig;
+import be.bluexin.rwbym.entity.EntityWinterArmorgeist;
+import be.bluexin.rwbym.entity.EntityWinterBeowolf;
+import be.bluexin.rwbym.entity.EntityWinterBoarbatusk;
+import be.bluexin.rwbym.entity.EntityWinterUrsa;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.BlockPos;

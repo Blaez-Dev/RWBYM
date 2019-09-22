@@ -1,9 +1,5 @@
 package be.bluexin.rwbym.capabilities.Jaune;
 
-import java.util.List;
-import java.util.UUID;
-
-import be.bluexin.rwbym.RWBYModels;
 import be.bluexin.rwbym.capabilities.Aura.AuraProvider;
 import be.bluexin.rwbym.capabilities.Aura.IAura;
 import net.minecraft.entity.Entity;
@@ -11,6 +7,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraftforge.common.capabilities.Capability;
+
+import java.util.List;
+import java.util.UUID;
 
 public class Jaune implements IJaune {
 	

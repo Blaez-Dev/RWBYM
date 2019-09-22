@@ -1,13 +1,9 @@
 package be.bluexin.rwbym.entity.renderer;
 
 import be.bluexin.rwbym.RWBYModels;
-import be.bluexin.rwbym.entity.EntityLancer;
 import be.bluexin.rwbym.entity.EntityRagora;
-import be.bluexin.rwbym.entity.ModelGeist;
-import be.bluexin.rwbym.entity.ModelLancer;
 import be.bluexin.rwbym.entity.ModelRagora;
 import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;

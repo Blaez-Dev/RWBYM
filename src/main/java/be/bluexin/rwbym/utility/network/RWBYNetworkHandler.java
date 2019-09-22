@@ -3,7 +3,6 @@ package be.bluexin.rwbym.utility.network;
 import be.bluexin.rwbym.utility.network.messages.MessageOpenWindow;
 import be.bluexin.rwbym.utility.network.messages.MessageTradingData;
 import be.bluexin.rwbym.utility.network.messages.MessageTradingList;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;

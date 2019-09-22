@@ -2,8 +2,6 @@ package be.bluexin.rwbym.client.particle;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.Particle;
-import net.minecraft.client.particle.ParticleCrit;
-import net.minecraft.client.particle.ParticleExplosionLarge;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.entity.Entity;

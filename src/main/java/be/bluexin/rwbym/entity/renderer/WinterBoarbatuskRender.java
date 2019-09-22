@@ -1,7 +1,6 @@
 package be.bluexin.rwbym.entity.renderer;
 
 import be.bluexin.rwbym.RWBYModels;
-import be.bluexin.rwbym.entity.EntityBoarbatusk;
 import be.bluexin.rwbym.entity.EntityWinterBoarbatusk;
 import be.bluexin.rwbym.entity.ModelBoarbatusk;
 import net.minecraft.client.model.ModelBase;

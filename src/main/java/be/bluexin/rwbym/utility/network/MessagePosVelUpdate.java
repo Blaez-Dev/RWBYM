@@ -1,6 +1,5 @@
 package be.bluexin.rwbym.utility.network;
 
-import be.bluexin.rwbym.RWBYModels;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;

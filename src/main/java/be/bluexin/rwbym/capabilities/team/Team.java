@@ -1,27 +1,15 @@
 package be.bluexin.rwbym.capabilities.team;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
-
-import com.mojang.authlib.GameProfile;
-
 import be.bluexin.rwbym.RWBYModels;
-import be.bluexin.rwbym.utility.network.MessageConfirmRequest;
-import be.bluexin.rwbym.utility.network.MessageDenyRequest;
-import be.bluexin.rwbym.utility.network.MessageLeaveTeam;
-import be.bluexin.rwbym.utility.network.MessageSendRequest;
-import be.bluexin.rwbym.utility.network.RWBYNetworkHandler;
-import net.minecraft.client.Minecraft;
+import be.bluexin.rwbym.utility.network.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.management.PlayerInteractionManager;
-import net.minecraft.tileentity.TileEntitySkull;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldServer;
-import net.minecraftforge.fml.common.FMLCommonHandler;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 public class Team implements ITeam {
 	

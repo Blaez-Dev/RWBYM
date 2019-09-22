@@ -2,8 +2,6 @@ package be.bluexin.rwbym.entity.renderer;
 
 import be.bluexin.rwbym.RWBYModels;
 import be.bluexin.rwbym.entity.EntityMutantDeathStalker;
-import be.bluexin.rwbym.entity.EntityMutantDeathStalker;
-import be.bluexin.rwbym.entity.ModelDeathStalker;
 import be.bluexin.rwbym.entity.ModelMutantDeathStalker;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;

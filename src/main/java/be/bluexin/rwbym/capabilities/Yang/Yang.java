@@ -1,12 +1,7 @@
 package be.bluexin.rwbym.capabilities.Yang;
 
-import be.bluexin.rwbym.capabilities.Aura.IAura;
-import be.bluexin.rwbym.utility.RWBYConfig;
-import net.minecraft.util.EnumParticleTypes;
-import org.apache.logging.log4j.Level;
-
-import be.bluexin.rwbym.RWBYModels;
 import be.bluexin.rwbym.capabilities.Aura.AuraProvider;
+import be.bluexin.rwbym.capabilities.Aura.IAura;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.nbt.NBTTagCompound;

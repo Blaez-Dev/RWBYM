@@ -1,7 +1,6 @@
 package be.bluexin.rwbym.capabilities.Ruby;
 
 import be.bluexin.rwbym.capabilities.ISemblance;
-import net.minecraft.entity.player.EntityPlayer;
 
 public interface IRuby extends ISemblance{
 			

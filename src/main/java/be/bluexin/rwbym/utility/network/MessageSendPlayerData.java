@@ -1,17 +1,13 @@
 package be.bluexin.rwbym.utility.network;
 
 import be.bluexin.rwbym.RWBYModels;
-import be.bluexin.rwbym.capabilities.CapabilityHandler;
-import be.bluexin.rwbym.capabilities.ISemblance;
 import be.bluexin.rwbym.capabilities.Aura.AuraProvider;
 import be.bluexin.rwbym.capabilities.Aura.IAura;
-import be.bluexin.rwbym.capabilities.Ruby.IRuby;
-import be.bluexin.rwbym.capabilities.Ruby.RubyProvider;
+import be.bluexin.rwbym.capabilities.CapabilityHandler;
+import be.bluexin.rwbym.capabilities.ISemblance;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.fml.common.network.ByteBufUtils;
 
 public class MessageSendPlayerData extends MessageBase<MessageSendPlayerData> {

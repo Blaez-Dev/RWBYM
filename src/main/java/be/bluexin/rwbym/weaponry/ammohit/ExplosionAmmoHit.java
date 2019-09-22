@@ -7,9 +7,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.Explosion;
-import net.minecraft.world.World;
-import net.minecraft.world.WorldServer;
 
 public class ExplosionAmmoHit implements IAmmoHit {
 	
