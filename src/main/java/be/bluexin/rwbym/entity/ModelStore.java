@@ -1,9 +1,6 @@
 package be.bluexin.rwbym.entity;
 
 import net.minecraft.client.model.ModelBiped;
-import net.minecraft.util.EnumHandSide;
-import org.lwjgl.opengl.GL11;
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;

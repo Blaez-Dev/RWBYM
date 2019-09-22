@@ -1,15 +1,8 @@
 package be.bluexin.rwbym.utility.network;
 
-import be.bluexin.rwbym.Semblances;
-import be.bluexin.rwbym.capabilities.Aura.Aura;
-import be.bluexin.rwbym.capabilities.Aura.AuraProvider;
 import be.bluexin.rwbym.capabilities.CapabilityHandler;
-import be.bluexin.rwbym.capabilities.Ruby.RubyProvider;
-import be.bluexin.rwbym.utility.RWBYConfig;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.math.Vec3d;
 
 public class MessageActivateSemblance extends MessageBase<MessageActivateSemblance>{
 

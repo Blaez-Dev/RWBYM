@@ -1,10 +1,9 @@
 package be.bluexin.rwbym.inventory;
 
-import java.util.List;
-
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.items.ItemStackHandler;
+
+import java.util.List;
 
 public class RWBYItemStackHandler extends ItemStackHandler {
 	

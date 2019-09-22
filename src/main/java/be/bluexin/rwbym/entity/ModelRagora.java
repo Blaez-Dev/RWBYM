@@ -1,9 +1,6 @@
 package be.bluexin.rwbym.entity;
 
 
-import org.lwjgl.opengl.GL11;
-
-import be.bluexin.rwbym.RWBYModels;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;

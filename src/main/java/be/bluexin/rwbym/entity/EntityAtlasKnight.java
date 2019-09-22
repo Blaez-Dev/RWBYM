@@ -1,11 +1,14 @@
 package be.bluexin.rwbym.entity;
 
 import be.bluexin.rwbym.utility.RWBYConfig;
-import com.google.common.base.Predicate;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EnumCreatureAttribute;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
-import net.minecraft.entity.monster.*;
-import net.minecraft.entity.passive.EntityVillager;
+import net.minecraft.entity.monster.EntityGolem;
+import net.minecraft.entity.monster.EntityVindicator;
+import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.util.DamageSource;

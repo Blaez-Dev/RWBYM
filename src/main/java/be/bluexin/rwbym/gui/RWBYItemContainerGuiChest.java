@@ -2,11 +2,9 @@ package be.bluexin.rwbym.gui;
 
 import be.bluexin.rwbym.inventory.RWBYItemContainerChest;
 import be.bluexin.rwbym.weaponry.RWBYContainerItem;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.ContainerChest;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;

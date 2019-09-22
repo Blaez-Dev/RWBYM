@@ -1,19 +1,13 @@
 package be.bluexin.rwbym.capabilities.Ren;
 
+import be.bluexin.rwbym.capabilities.Aura.AuraProvider;
 import be.bluexin.rwbym.capabilities.Aura.IAura;
 import be.bluexin.rwbym.entity.EntityRen;
-import be.bluexin.rwbym.entity.EntityWinterBoarbatusk;
-import be.bluexin.rwbym.utility.RWBYConfig;
-import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.math.BlockPos;
-import org.apache.logging.log4j.Level;
-
-import be.bluexin.rwbym.RWBYModels;
-import be.bluexin.rwbym.capabilities.Aura.AuraProvider;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.common.capabilities.Capability;
 
 public class Ren implements IRen {

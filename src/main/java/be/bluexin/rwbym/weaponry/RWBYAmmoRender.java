@@ -1,18 +1,14 @@
 package be.bluexin.rwbym.weaponry;
 
+import be.bluexin.rwbym.entity.EntityBullet;
 import mcp.MethodsReturnNonnullByDefault;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.entity.RenderArrow;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 
 import javax.annotation.ParametersAreNonnullByDefault;
-
-import be.bluexin.rwbym.RWBYModels;
-import be.bluexin.rwbym.entity.EntityBullet;
 
 /**
  * Part of rwbym by Bluexin.

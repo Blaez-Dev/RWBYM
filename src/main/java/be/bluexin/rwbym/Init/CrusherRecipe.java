@@ -1,14 +1,13 @@
 package be.bluexin.rwbym.Init;
-import java.util.Map;
-import java.util.Map.Entry;
 
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Table;
-
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+
+import java.util.Map;
+import java.util.Map.Entry;
 
 public class CrusherRecipe
 {

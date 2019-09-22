@@ -1,7 +1,6 @@
 package be.bluexin.rwbym;
 
 import com.google.common.eventbus.Subscribe;
-
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerRespawnEvent;

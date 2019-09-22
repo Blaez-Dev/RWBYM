@@ -1,6 +1,5 @@
 package be.bluexin.rwbym.capabilities;
 
-import be.bluexin.rwbym.capabilities.Weiss.IWeiss;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;

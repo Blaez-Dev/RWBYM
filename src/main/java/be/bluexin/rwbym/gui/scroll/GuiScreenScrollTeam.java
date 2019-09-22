@@ -2,37 +2,24 @@
 
 package be.bluexin.rwbym.gui.scroll;
 
-import java.io.IOException;
-
-import javax.annotation.Nullable;
-
-import org.lwjgl.input.Keyboard;
-
 import be.bluexin.rwbym.RWBYModels;
-import be.bluexin.rwbym.capabilities.CapabilityHandler;
-import be.bluexin.rwbym.capabilities.ISemblance;
 import be.bluexin.rwbym.capabilities.Aura.AuraProvider;
 import be.bluexin.rwbym.capabilities.Aura.IAura;
+import be.bluexin.rwbym.capabilities.CapabilityHandler;
+import be.bluexin.rwbym.capabilities.ISemblance;
 import be.bluexin.rwbym.capabilities.team.ITeam;
 import be.bluexin.rwbym.capabilities.team.TeamProvider;
 import be.bluexin.rwbym.gui.GuiButtonScroll;
-import be.bluexin.rwbym.utility.network.MessageSendPlayerDataToServer;
-import be.bluexin.rwbym.utility.network.MessagePlayerEXP;
-import be.bluexin.rwbym.utility.network.RWBYNetworkHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
-import net.minecraft.client.gui.GuiButtonImage;
 import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.client.gui.GuiScreenBook;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.block.model.IBakedModel;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
-import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.texture.TextureMap;
-import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -40,6 +27,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
+
+import javax.annotation.Nullable;
+import java.io.IOException;
 
 public class GuiScreenScrollTeam extends GuiScreen {
 

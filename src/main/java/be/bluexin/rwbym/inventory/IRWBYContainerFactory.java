@@ -1,14 +1,12 @@
 package be.bluexin.rwbym.inventory;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-
-import org.apache.logging.log4j.Level;
-
 import be.bluexin.rwbym.RWBYModels;
-import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
+import org.apache.logging.log4j.Level;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 
 public interface IRWBYContainerFactory {
 	

@@ -1,52 +1,23 @@
 package be.bluexin.rwbym.weaponry;
 
 import be.bluexin.rwbym.Init.RWBYCreativeTabs;
-import be.bluexin.rwbym.Init.RWBYItems;
-import be.bluexin.rwbym.Init.RWBYPotions;
 import be.bluexin.rwbym.RWBYModels;
-import be.bluexin.rwbym.capabilities.Blake.Blake;
-import be.bluexin.rwbym.capabilities.Blake.BlakeProvider;
-import be.bluexin.rwbym.capabilities.CapabilityHandler;
-import be.bluexin.rwbym.capabilities.ISemblance;
-import be.bluexin.rwbym.capabilities.Weiss.WeissProvider;
-import be.bluexin.rwbym.capabilities.Yang.YangProvider;
-import be.bluexin.rwbym.capabilities.Ruby.RubyProvider;
-import be.bluexin.rwbym.entity.EntityArmorgeist;
-import be.bluexin.rwbym.entity.EntityAtlasKnight;
-import be.bluexin.rwbym.entity.EntityBeowolf;
-import be.bluexin.rwbym.utility.RegUtil;
-import net.minecraft.advancements.CriteriaTriggers;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.init.Items;
-import net.minecraft.init.MobEffects;
-import net.minecraft.init.SoundEvents;
-import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.*;
-import net.minecraft.nbt.JsonToNBT;
-import net.minecraft.nbt.NBTException;
+import net.minecraft.item.EnumAction;
+import net.minecraft.item.IItemPropertyGetter;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.potion.PotionEffect;
-import net.minecraft.stats.StatList;
-import net.minecraft.util.*;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
-import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import org.apache.logging.log4j.LogManager;
 
 import javax.annotation.Nullable;
-
-import static be.bluexin.rwbym.capabilities.CapabilityHandler.getCapabilityByName;
 
 /**
  * Part of rwbym by Bluexin.

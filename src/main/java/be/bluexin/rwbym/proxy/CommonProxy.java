@@ -1,28 +1,19 @@
 package be.bluexin.rwbym.proxy;
 
 import be.bluexin.rwbym.Init.Oregen;
-import be.bluexin.rwbym.entity.EntityRagora;
 import be.bluexin.rwbym.RWBYModels;
-import net.minecraft.entity.Entity;
+import be.bluexin.rwbym.entity.EntityRagora;
+import com.mojang.authlib.GameProfile;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.management.PlayerInteractionManager;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
-import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.FMLCommonHandler;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.network.NetworkRegistry;
-import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.fml.relauncher.Side;
 
-import java.io.File;
 import java.util.UUID;
-
-import com.mojang.authlib.GameProfile;
 
 /**
  * Part of rwbym

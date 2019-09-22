@@ -3,28 +3,21 @@ package be.bluexin.rwbym;
 import be.bluexin.rwbym.Init.RWBYBiomes;
 import be.bluexin.rwbym.entity.*;
 import be.bluexin.rwbym.utility.RWBYConfig;
-import be.bluexin.rwbym.weaponry.RWBYAmmoEntity;
-
-import be.bluexin.rwbym.world.biome.BiomeDarkGrimm;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntityStray;
-import net.minecraft.init.Biomes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
-import net.minecraftforge.common.BiomeDictionary;
-import net.minecraftforge.common.DungeonHooks;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
-
-import static be.bluexin.rwbym.RWBYModels.MODID;
 
 @SuppressWarnings("unchecked")
 public class RWBYEntities {

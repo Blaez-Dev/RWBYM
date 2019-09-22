@@ -1,10 +1,10 @@
 package be.bluexin.rwbym.client.particle;
 
 import be.bluexin.rwbym.RWBYModels;
-import be.bluexin.rwbym.capabilities.CapabilityHandler;
-import be.bluexin.rwbym.capabilities.ISemblance;
 import be.bluexin.rwbym.capabilities.Aura.AuraProvider;
 import be.bluexin.rwbym.capabilities.Aura.IAura;
+import be.bluexin.rwbym.capabilities.CapabilityHandler;
+import be.bluexin.rwbym.capabilities.ISemblance;
 import be.bluexin.rwbym.utility.RWBYConfig;
 import be.bluexin.rwbym.utility.RegUtil;
 import be.bluexin.rwbym.weaponry.ArmourBase;
@@ -16,7 +16,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
-import net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class RenderEvents {

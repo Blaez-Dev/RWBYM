@@ -1,24 +1,16 @@
 package be.bluexin.rwbym.gui.scroll;
 
-import java.io.IOException;
-
-import javax.annotation.Nullable;
-
-import org.lwjgl.input.Keyboard;
-
 import be.bluexin.rwbym.RWBYModels;
-import be.bluexin.rwbym.capabilities.CapabilityHandler;
-import be.bluexin.rwbym.capabilities.ISemblance;
 import be.bluexin.rwbym.capabilities.Aura.AuraProvider;
 import be.bluexin.rwbym.capabilities.Aura.IAura;
+import be.bluexin.rwbym.capabilities.CapabilityHandler;
+import be.bluexin.rwbym.capabilities.ISemblance;
 import be.bluexin.rwbym.capabilities.team.ITeam;
-import be.bluexin.rwbym.capabilities.team.Team;
 import be.bluexin.rwbym.capabilities.team.TeamProvider;
 import be.bluexin.rwbym.gui.GuiButtonScroll;
 import be.bluexin.rwbym.gui.GuiButtonScrollSmall;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
-import net.minecraft.client.gui.GuiLabel;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.client.renderer.GlStateManager;
@@ -33,6 +25,10 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
+import org.lwjgl.input.Keyboard;
+
+import javax.annotation.Nullable;
+import java.io.IOException;
 
 public class GuiScreenScrollRequests extends GuiScreen {
 

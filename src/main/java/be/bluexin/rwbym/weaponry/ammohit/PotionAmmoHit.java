@@ -1,18 +1,13 @@
 package be.bluexin.rwbym.weaponry.ammohit;
 
-import java.util.List;
-
 import net.minecraft.entity.EntityAreaEffectCloud;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.projectile.EntityPotion;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.potion.PotionUtils;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+
+import java.util.List;
 
 public class PotionAmmoHit implements IAmmoHit {
 	

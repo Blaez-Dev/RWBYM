@@ -1,14 +1,10 @@
 package be.bluexin.rwbym.gui.scroll;
 
-import java.io.IOException;
-
-import javax.annotation.Nullable;
-
 import be.bluexin.rwbym.RWBYModels;
-import be.bluexin.rwbym.capabilities.CapabilityHandler;
-import be.bluexin.rwbym.capabilities.ISemblance;
 import be.bluexin.rwbym.capabilities.Aura.AuraProvider;
 import be.bluexin.rwbym.capabilities.Aura.IAura;
+import be.bluexin.rwbym.capabilities.CapabilityHandler;
+import be.bluexin.rwbym.capabilities.ISemblance;
 import be.bluexin.rwbym.gui.GuiButtonScroll;
 import be.bluexin.rwbym.utility.network.MessagePlayerEXP;
 import be.bluexin.rwbym.utility.network.MessageSendPlayerDataToServer;
@@ -27,6 +23,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
+
+import java.io.IOException;
 
 public class GuiScreenScrollLevel extends GuiScreen {
 

@@ -1,42 +1,22 @@
 package be.bluexin.rwbym.blocks.tileentities;
 
+import be.bluexin.rwbym.Init.RWBYItems;
+import be.bluexin.rwbym.entity.*;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ITickable;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
-import be.bluexin.rwbym.Init.RWBYItems;
-import be.bluexin.rwbym.RWBYModels;
-import be.bluexin.rwbym.entity.EntityApathy;
-import be.bluexin.rwbym.entity.EntityBeowolf;
-import be.bluexin.rwbym.entity.EntityBoarbatusk;
-import be.bluexin.rwbym.entity.EntityCreep;
-import be.bluexin.rwbym.entity.EntityDeathStalker;
-import be.bluexin.rwbym.entity.EntityGeist;
-import be.bluexin.rwbym.entity.EntityGiantNeverMore;
-import be.bluexin.rwbym.entity.EntityGoliath;
-import be.bluexin.rwbym.entity.EntityJuvenileDeathstalker;
-import be.bluexin.rwbym.entity.EntityLancer;
-import be.bluexin.rwbym.entity.EntityMutantDeathStalker;
-import be.bluexin.rwbym.entity.EntityNeverMore;
-import be.bluexin.rwbym.entity.EntityNuckleeve;
-import be.bluexin.rwbym.entity.EntityQueenLancer;
-import be.bluexin.rwbym.entity.EntityUrsa;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.item.EntityItem;
-import net.minecraft.entity.item.EntityXPOrb;
-import net.minecraft.entity.passive.EntityMule;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.network.play.server.SPacketUpdateTileEntity;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.ITickable;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
-import net.minecraftforge.fml.common.FMLCommonHandler;
 
 public class TileEntityRWBYGrimmBait extends TileEntity implements ITickable {
 

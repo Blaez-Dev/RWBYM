@@ -1,30 +1,20 @@
 package be.bluexin.rwbym.capabilities.Ruby;
 
 import be.bluexin.rwbym.Init.RWBYItems;
+import be.bluexin.rwbym.RWBYModels;
 import be.bluexin.rwbym.capabilities.Aura.AuraProvider;
 import be.bluexin.rwbym.capabilities.Aura.IAura;
-import be.bluexin.rwbym.RWBYModels;
-import be.bluexin.rwbym.client.particle.RosePetal;
-import be.bluexin.rwbym.entity.EntityBeowolf;
-import be.bluexin.rwbym.entity.EntityMutantDeathStalker;
-import be.bluexin.rwbym.utility.RWBYConfig;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntityDamageSource;
 import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.common.capabilities.Capability;
 
-import java.util.Iterator;
 import java.util.List;
 
 public class Ruby implements IRuby {

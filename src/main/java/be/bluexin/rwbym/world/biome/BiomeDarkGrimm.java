@@ -1,10 +1,7 @@
 package be.bluexin.rwbym.world.biome;
 
 import be.bluexin.rwbym.entity.*;
-import be.bluexin.rwbym.utility.RWBYConfig;
-import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.world.biome.Biome;
-import net.minecraftforge.fml.common.registry.EntityRegistry;
 
 public class BiomeDarkGrimm extends Biome {
 

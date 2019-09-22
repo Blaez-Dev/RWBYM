@@ -1,26 +1,19 @@
 package be.bluexin.rwbym.capabilities.Ragora;
 
-import java.util.Random;
-import java.util.UUID;
-
-import be.bluexin.rwbym.RWBYModels;
 import be.bluexin.rwbym.capabilities.Aura.AuraProvider;
 import be.bluexin.rwbym.capabilities.Aura.IAura;
 import be.bluexin.rwbym.entity.EntityRagora;
-import be.bluexin.rwbym.entity.EntityWinterBoarbatusk;
 import be.bluexin.rwbym.utility.RWBYConfig;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.particle.Particle;
-import net.minecraft.client.particle.ParticleDragonBreath;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundCategory;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.fml.common.FMLCommonHandler;
+
+import java.util.Random;
+import java.util.UUID;
 
 public class Ragora implements IRagora {
 	

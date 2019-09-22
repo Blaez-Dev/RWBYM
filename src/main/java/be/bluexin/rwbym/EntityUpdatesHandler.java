@@ -1,45 +1,29 @@
 package be.bluexin.rwbym;
 
-import java.util.List;
-
-import be.bluexin.rwbym.utility.RWBYConfig;
-import be.bluexin.rwbym.world.biome.BiomeDarkGrimm;
-import net.minecraft.client.Minecraft;
-import net.minecraft.init.MobEffects;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.potion.PotionEffect;
-import net.minecraftforge.fml.common.gameevent.TickEvent;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
-import org.apache.logging.log4j.Level;
-
 import be.bluexin.rwbym.Init.RWBYBiomes;
-import be.bluexin.rwbym.capabilities.CapabilityHandler;
-import be.bluexin.rwbym.capabilities.ISemblance;
 import be.bluexin.rwbym.capabilities.Aura.AuraProvider;
 import be.bluexin.rwbym.capabilities.Aura.IAura;
-import be.bluexin.rwbym.capabilities.Ruby.IRuby;
-import be.bluexin.rwbym.capabilities.Ruby.RubyProvider;
-import be.bluexin.rwbym.capabilities.Weiss.WeissProvider;
-import be.bluexin.rwbym.capabilities.Yang.YangProvider;
+import be.bluexin.rwbym.capabilities.CapabilityHandler;
+import be.bluexin.rwbym.capabilities.ISemblance;
+import be.bluexin.rwbym.utility.RWBYConfig;
 import be.bluexin.rwbym.utility.network.MessageSendPlayerData;
 import be.bluexin.rwbym.utility.network.RWBYNetworkHandler;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.MobEffects;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.world.World;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.feature.WorldGenHellLava;
-import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
-import net.minecraftforge.event.entity.living.LivingFallEvent;
+import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent.Clone;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerRespawnEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.common.network.FMLNetworkEvent.ClientConnectedToServerEvent;
+
+import java.util.List;
 
 public class EntityUpdatesHandler {
 

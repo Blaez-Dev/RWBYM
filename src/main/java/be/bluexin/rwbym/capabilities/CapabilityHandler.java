@@ -1,20 +1,5 @@
 package be.bluexin.rwbym.capabilities;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.concurrent.Callable;
-
-import be.bluexin.rwbym.capabilities.Nora.INora;
-import be.bluexin.rwbym.capabilities.Nora.Nora;
-import be.bluexin.rwbym.capabilities.Nora.NoraProvider;
-import be.bluexin.rwbym.capabilities.Nora.NoraStorage;
-import be.bluexin.rwbym.capabilities.Ren.IRen;
-import be.bluexin.rwbym.capabilities.Ren.Ren;
-import be.bluexin.rwbym.capabilities.Ren.RenProvider;
-import be.bluexin.rwbym.capabilities.Ren.RenStorage;
-import org.apache.logging.log4j.Level;
-
 import be.bluexin.rwbym.RWBYModels;
 import be.bluexin.rwbym.capabilities.Aura.Aura;
 import be.bluexin.rwbym.capabilities.Aura.AuraProvider;
@@ -28,10 +13,22 @@ import be.bluexin.rwbym.capabilities.Jaune.IJaune;
 import be.bluexin.rwbym.capabilities.Jaune.Jaune;
 import be.bluexin.rwbym.capabilities.Jaune.JauneProvider;
 import be.bluexin.rwbym.capabilities.Jaune.JauneStorage;
+import be.bluexin.rwbym.capabilities.Nora.INora;
+import be.bluexin.rwbym.capabilities.Nora.Nora;
+import be.bluexin.rwbym.capabilities.Nora.NoraProvider;
+import be.bluexin.rwbym.capabilities.Nora.NoraStorage;
 import be.bluexin.rwbym.capabilities.Ragora.IRagora;
 import be.bluexin.rwbym.capabilities.Ragora.Ragora;
 import be.bluexin.rwbym.capabilities.Ragora.RagoraProvider;
 import be.bluexin.rwbym.capabilities.Ragora.RagoraStorage;
+import be.bluexin.rwbym.capabilities.Ren.IRen;
+import be.bluexin.rwbym.capabilities.Ren.Ren;
+import be.bluexin.rwbym.capabilities.Ren.RenProvider;
+import be.bluexin.rwbym.capabilities.Ren.RenStorage;
+import be.bluexin.rwbym.capabilities.Ruby.IRuby;
+import be.bluexin.rwbym.capabilities.Ruby.Ruby;
+import be.bluexin.rwbym.capabilities.Ruby.RubyProvider;
+import be.bluexin.rwbym.capabilities.Ruby.RubyStorage;
 import be.bluexin.rwbym.capabilities.Weiss.IWeiss;
 import be.bluexin.rwbym.capabilities.Weiss.Weiss;
 import be.bluexin.rwbym.capabilities.Weiss.WeissProvider;
@@ -44,10 +41,6 @@ import be.bluexin.rwbym.capabilities.team.ITeam;
 import be.bluexin.rwbym.capabilities.team.Team;
 import be.bluexin.rwbym.capabilities.team.TeamProvider;
 import be.bluexin.rwbym.capabilities.team.TeamStorage;
-import be.bluexin.rwbym.capabilities.Ruby.IRuby;
-import be.bluexin.rwbym.capabilities.Ruby.Ruby;
-import be.bluexin.rwbym.capabilities.Ruby.RubyProvider;
-import be.bluexin.rwbym.capabilities.Ruby.RubyStorage;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
@@ -55,6 +48,11 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.concurrent.Callable;
 
 public class CapabilityHandler {
 	

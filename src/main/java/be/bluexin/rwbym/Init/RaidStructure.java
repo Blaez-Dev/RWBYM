@@ -3,7 +3,6 @@ package be.bluexin.rwbym.Init;
 import be.bluexin.rwbym.RWBYModels;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Biomes;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.ResourceLocation;

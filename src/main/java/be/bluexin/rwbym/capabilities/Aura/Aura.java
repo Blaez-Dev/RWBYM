@@ -4,13 +4,12 @@ import be.bluexin.rwbym.RWBYModels;
 import be.bluexin.rwbym.capabilities.CapabilityHandler;
 import be.bluexin.rwbym.capabilities.ISemblance;
 import be.bluexin.rwbym.capabilities.Jaune.IJaune;
-import be.bluexin.rwbym.utility.RWBYConfig;
 import be.bluexin.rwbym.utility.network.MessageSendPlayerData;
 import be.bluexin.rwbym.utility.network.RWBYNetworkHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
-import scala.tools.nsc.interactive.Main;
+
 
 public class Aura implements IAura {
 	
