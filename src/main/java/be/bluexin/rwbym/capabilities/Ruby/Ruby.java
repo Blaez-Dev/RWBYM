@@ -159,17 +159,19 @@ public class Ruby implements IRuby {
 					ItemStack is3 = player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
 					ItemStack is4 = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
 					ItemStack is5 = player.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
+					boolean flag1 = false;
 					if(is.getItem() == RWBYItems.crescentfrost){
-						RWBYModels.proxy.generateSummerpetals(player);
+						flag1 = true;
 					}else if(is.getItem() == RWBYItems.crescentgunfrost){
-						RWBYModels.proxy.generateSummerpetals(player);
+						flag1 = true;
 					}else if(is4.getItem() == RWBYItems.summer1Chest && is5.getItem() == RWBYItems.summer1Legs ||  is4.getItem() == RWBYItems.summer2Chest && is5.getItem() == RWBYItems.summer2Legs && is3.getItem() == RWBYItems.summer2Head || is4.getItem() == RWBYItems.summer1Chest && is5.getItem() == RWBYItems.summer1Legs ||  is4.getItem() == RWBYItems.summer2Chest && is5.getItem() == RWBYItems.summer2Legs && is3.getItem() == RWBYItems.summerhood){
-						RWBYModels.proxy.generateSummerpetals(player);
+						flag1 = true;
 					}else if(is2.getItem() == RWBYItems.crescentfrost){
-						RWBYModels.proxy.generateSummerpetals(player);
+						flag1 = true;
 					}else if(is2.getItem() == RWBYItems.crescentgunfrost){
-						RWBYModels.proxy.generateSummerpetals(player);
-					}else RWBYModels.proxy.generateRosepetals(player);
+						flag1 = true;
+					}
+					RWBYModels.proxy.generateRosepetals(player, flag1);
 				}
 			}
 		}

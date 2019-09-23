@@ -11,13 +11,13 @@ import net.minecraft.world.World;
 
 public class RosePetal extends Particle
 {
-    private final ResourceLocation rosepetalrl = new ResourceLocation("rwbym:entity/rosepetal");
+    private final ResourceLocation rosepetalrl = new ResourceLocation("rwbym:entity/summerpetal");
 
     /**
      * Construct a new RosePetal at the given [x,y,z] position with the given initial velocity.
      */
     public RosePetal(World world, double x, double y, double z,
-                         double velocityX, double velocityY, double velocityZ)
+                         double velocityX, double velocityY, double velocityZ, boolean summer)
     {
         super(world, x, y, z, velocityX, velocityY, velocityZ);
 
@@ -38,6 +38,9 @@ public class RosePetal extends Particle
         //   (see TextureStitcherBreathFX)
         TextureAtlasSprite sprite = Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite(rosepetalrl.toString());
         setParticleTexture(sprite);  // initialise the icon to our custom texture
+        if (!summer) {
+        	this.setRBGColorF(1, 0, 0);
+        }
     }
 
     /**

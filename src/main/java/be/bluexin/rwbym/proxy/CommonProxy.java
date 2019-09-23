@@ -32,9 +32,7 @@ public abstract class CommonProxy {
         GameRegistry.registerWorldGenerator(new Oregen(), 0 );
     }
 
-    public void generateRosepetals(EntityPlayer playerIn) {}
-
-    public void generateSummerpetals(EntityPlayer playerIn) {}
+    public void generateRosepetals(EntityPlayer playerIn, boolean summer) {}
 
 	public EntityPlayer getPlayer() {
 		return null;
