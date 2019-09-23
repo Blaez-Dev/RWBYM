@@ -75,6 +75,7 @@ public class TileEntityRWBYGrimmBait extends TileEntity implements ITickable {
 		drops2.add(new ItemStack(RWBYItems.he6, 1));
 		drops2.add(new ItemStack(RWBYItems.extasis, 1));
 		drops2.add(new ItemStack(RWBYItems.lichtroze_closedfire, 1));
+		drops2.add(new ItemStack(RWBYItems.kyoshifire, 1));
 
 		EntityItem item2 = new EntityItem(this.world, this.getPos().getX(), this.getPos().getY(), this.getPos().getZ(), drops2.get(rand.nextInt(drops2.size())));
 		this.world.spawnEntity(item2);

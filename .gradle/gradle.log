@@ -1,338 +1,50 @@
 This mapping 'snapshot_20171003' was designed for MC 1.12! Use at your own peril.This mapping 'snapshot_20171003' was designed for MC 1.12! Use at your own peril.
 
+#################################################
+         ForgeGradle 2.3-SNAPSHOT-6084129e        
+  https://github.com/MinecraftForge/ForgeGradle  
+#################################################
+                 Powered by MCP                  
+             http://modcoderpack.com             
+     by: Searge, ProfMobius, R4wk, ZeuX          
+     Fesh0r, IngisKahn, bspkrs, LexManos         
+#################################################
 :deobfCompileDummyTask
 :deobfProvidedDummyTask
 :sourceApiJava UP-TO-DATE
 :compileApiJava UP-TO-DATE
 :processApiResources UP-TO-DATE
 :apiClasses UP-TO-DATE
-:sourceMainJava UP-TO-DATE
+:sourceMainJava
 :compileJavaNote: Some input files use or override a deprecated API.
 Note: Recompile with -Xlint:deprecation for details.
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
 
-:processResources UP-TO-DATE
+:processResources
 :classes
 :jar
+:sourceTestJava UP-TO-DATE
+:compileTestJava UP-TO-DATE
+:processTestResources UP-TO-DATE
+:testClasses UP-TO-DATE
+:test UP-TO-DATE
+:extractMcpData SKIPPED
+:extractMcpMappings SKIPPED
 :getVersionJson
-:extractNatives SKIPPED
 :extractUserdev UP-TO-DATE
-:getAssetIndex UP-TO-DATE
-:getAssets
-:makeStart
-:runClient
-[00:06:27] [main/INFO] [GradleStart]: Extra: []
-[00:06:27] [main/INFO] [GradleStart]: Running with arguments: [--userProperties, {}, --assetsDir, C:/Users/Izumi/.gradle/caches/minecraft/assets, --assetIndex, 1.12, --accessToken{REDACTED}, --version, 1.12.2, --tweakClass, net.minecraftforge.fml.common.launcher.FMLTweaker, --tweakClass, net.minecraftforge.gradle.tweakers.CoremodTweaker]
-[00:06:27] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLTweaker
-[00:06:27] [main/INFO] [LaunchWrapper]: Using primary tweak class name net.minecraftforge.fml.common.launcher.FMLTweaker
-[00:06:27] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.gradle.tweakers.CoremodTweaker
-[00:06:27] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLTweaker
-[00:06:27] [main/INFO] [FML]: Forge Mod Loader version 14.23.5.2812 for Minecraft 1.12.2 loading
-[00:06:27] [main/INFO] [FML]: Java is Java HotSpot(TM) 64-Bit Server VM, version 1.8.0_211, running on Windows 10:amd64:10.0, installed at C:\Program Files\Java\jdk1.8.0_211\jre
-[00:06:27] [main/ERROR] [FML]: Apache Maven library folder was not in the format expected. Using default libraries directory.
-[00:06:27] [main/ERROR] [FML]: Full: C:\Users\Izumi\.gradle\caches\modules-2\files-2.1\org.apache.maven\maven-artifact\3.5.3\7dc72b6d6d8a6dced3d294ed54c2cc3515ade9f4\maven-artifact-3.5.3.jar
-[00:06:27] [main/ERROR] [FML]: Trimmed: c:/users/izumi/.gradle/caches/modules-2/files-2.1/org.apache.maven/maven-artifact/3.5.3/
-[00:06:27] [main/INFO] [FML]: Managed to load a deobfuscated Minecraft name- we are in a deobfuscated environment. Skipping runtime deobfuscation
-[00:06:27] [main/INFO] [FML]: Detected deobfuscated environment, loading log configs for colored console logs.
-2019-09-22 00:06:28,197 main WARN Disabling terminal, you're running in an unsupported environment.
-[00:06:28] [main/INFO] [FML]: Ignoring missing certificate for coremod FMLCorePlugin (net.minecraftforge.fml.relauncher.FMLCorePlugin), we are in deobf and it's a forge core plugin
-[00:06:28] [main/INFO] [FML]: Ignoring missing certificate for coremod FMLForgePlugin (net.minecraftforge.classloading.FMLForgePlugin), we are in deobf and it's a forge core plugin
-[00:06:28] [main/INFO] [FML]: Searching C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\run\.\mods for mods
-[00:06:28] [main/WARN] [FML]: Found FMLCorePluginContainsFMLMod marker in Charm-1.12.2-1.3.6.jar. This is not recommended, @Mods should be in a separate jar from the coremod.
-[00:06:28] [main/WARN] [FML]: The coremod svenhjol.charm.base.CharmLoadingPlugin does not have a MCVersion annotation, it may cause issues with this version of Minecraft
-[00:06:28] [main/WARN] [FML]: The coremod CharmLoadingPlugin (svenhjol.charm.base.CharmLoadingPlugin) is not signed!
-[00:06:28] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.gradle.tweakers.CoremodTweaker
-[00:06:28] [main/INFO] [GradleStart]: Injecting location in coremod net.minecraftforge.fml.relauncher.FMLCorePlugin
-[00:06:28] [main/INFO] [GradleStart]: Injecting location in coremod net.minecraftforge.classloading.FMLForgePlugin
-[00:06:28] [main/INFO] [GradleStart]: Injecting location in coremod svenhjol.charm.base.CharmLoadingPlugin
-[00:06:28] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
-[00:06:28] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLDeobfTweaker
-[00:06:28] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
-[00:06:28] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
-[00:06:28] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
-[00:06:28] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
-[00:06:28] [main/ERROR] [FML]: FML appears to be missing any signature data. This is not a good thing
-[00:06:28] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
-[00:06:28] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
-[00:06:28] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLDeobfTweaker
-[00:06:28] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
-[00:06:28] [main/INFO] [GradleStart]: Remapping AccessTransformer rules...
-[00:06:28] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.TerminalTweaker
-[00:06:28] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.TerminalTweaker
-[00:06:29] [main/INFO] [LaunchWrapper]: Launching wrapped minecraft {net.minecraft.client.main.Main}
-[00:06:29] [main/INFO] [Meson ASM]: Transforming EntityPlayer
-[00:06:29] [main/INFO] [Meson ASM]: Applying Transformation to method (Names [getArmorVisibility, func_82243_bO, cW] Descriptor ()F / ()F)
-[00:06:29] [main/INFO] [Meson ASM]: Located method, patching...
-[00:06:29] [main/INFO] [Meson ASM]: Located target IINC 1 1
-[00:06:29] [main/INFO] [Meson ASM]: Patch result: true
-[00:06:29] [Client thread/INFO] [minecraft/Minecraft]: Setting user: Player938
-[00:06:29] [Client thread/INFO] [Meson ASM]: Transforming TileEntityFurnace
-[00:06:29] [Client thread/INFO] [Meson ASM]: Applying Transformation to method (Names [smeltItem, func_145949_j, o] Descriptor ()V / ()V)
-[00:06:29] [Client thread/INFO] [Meson ASM]: Located method, patching...
-[00:06:29] [Client thread/INFO] [Meson ASM]: Located target ASTORE 2
-[00:06:29] [Client thread/INFO] [Meson ASM]: Patch result: true
-[00:06:29] [Client thread/INFO] [Meson ASM]: Applying Transformation to method (Names [isItemValidForSlot, func_94041_b, b] Descriptor (ILnet/minecraft/item/ItemStack;)Z / (ILaip;)Z)
-[00:06:29] [Client thread/INFO] [Meson ASM]: Located method, patching...
-[00:06:29] [Client thread/INFO] [Meson ASM]: Located target ILOAD 1
-[00:06:29] [Client thread/INFO] [Meson ASM]: Patch result: true
-[00:06:30] [Client thread/INFO] [Meson ASM]: Transforming TileEntityBeacon
-[00:06:30] [Client thread/INFO] [Meson ASM]: Applying Transformation to method (Names [addEffectsToPlayers, func_146000_x, E] Descriptor ()V / ()V)
-[00:06:30] [Client thread/INFO] [Meson ASM]: Located method, patching...
-[00:06:30] [Client thread/INFO] [Meson ASM]: Located target ALOAD 9
-[00:06:30] [Client thread/INFO] [Meson ASM]: Patch result: true
-[00:06:30] [Client thread/INFO] [Meson ASM]: Transforming EntityWither
-[00:06:30] [Client thread/INFO] [Meson ASM]: Applying Transformation to method (Names [canDestroyBlock, func_181033_a, a] Descriptor (Lnet/minecraft/block/Block;)Z / (Lnet/minecraft/block/Block;)Z)
-[00:06:30] [Client thread/INFO] [Meson ASM]: Located method, patching...
-[00:06:30] [Client thread/INFO] [Meson ASM]: Located target ALOAD 0
-[00:06:30] [Client thread/INFO] [Meson ASM]: Patch result: true
-[00:06:30] [Client thread/INFO] [Meson ASM]: Transforming TileEntityShulkerBox
-[00:06:30] [Client thread/INFO] [Meson ASM]: Applying Transformation to method (Names [canInsertItem, func_180462_a, a] Descriptor (ILnet/minecraft/item/ItemStack;Lnet/minecraft/util/EnumFacing;)Z / (ILaip;Lnet/minecraft/util/EnumFacing;)Z)
-[00:06:30] [Client thread/INFO] [Meson ASM]: Located method, patching...
-[00:06:30] [Client thread/INFO] [Meson ASM]: Located target ALOAD 2
-[00:06:30] [Client thread/INFO] [Meson ASM]: Patch result: true
-[00:06:30] [Client thread/INFO] [Meson ASM]: Transforming ItemToolMaterial
-[00:06:30] [Client thread/INFO] [Meson ASM]: Applying Transformation to method (Names [getMaxUses, func_77997_a, a] Descriptor ()I / ()I)
-[00:06:30] [Client thread/INFO] [Meson ASM]: Located method, patching...
-[00:06:30] [Client thread/INFO] [Meson ASM]: Located target GETFIELD net/minecraft/item/Item$ToolMaterial.maxUses : I
-[00:06:30] [Client thread/INFO] [Meson ASM]: Patch result: true
-[00:06:30] [Client thread/INFO] [Meson ASM]: Applying Transformation to method (Names [getEfficiency, func_77998_b, b] Descriptor ()F / ()F)
-[00:06:30] [Client thread/INFO] [Meson ASM]: Located method, patching...
-[00:06:30] [Client thread/INFO] [Meson ASM]: Located target GETFIELD net/minecraft/item/Item$ToolMaterial.efficiency : F
-[00:06:30] [Client thread/INFO] [Meson ASM]: Patch result: true
-[00:06:30] [Client thread/INFO] [Meson ASM]: Applying Transformation to method (Names [getAttackDamage, func_78000_c, c] Descriptor ()F / ()F)
-[00:06:30] [Client thread/INFO] [Meson ASM]: Located method, patching...
-[00:06:30] [Client thread/INFO] [Meson ASM]: Located target GETFIELD net/minecraft/item/Item$ToolMaterial.attackDamage : F
-[00:06:30] [Client thread/INFO] [Meson ASM]: Patch result: true
-[00:06:30] [Client thread/INFO] [Meson ASM]: Applying Transformation to method (Names [getHarvestLevel, func_77996_d, d] Descriptor ()I / ()I)
-[00:06:30] [Client thread/INFO] [Meson ASM]: Located method, patching...
-[00:06:30] [Client thread/INFO] [Meson ASM]: Located target GETFIELD net/minecraft/item/Item$ToolMaterial.harvestLevel : I
-[00:06:30] [Client thread/INFO] [Meson ASM]: Patch result: true
-[00:06:30] [Client thread/INFO] [Meson ASM]: Applying Transformation to method (Names [getEnchantability, func_77995_e, e] Descriptor ()I / ()I)
-[00:06:30] [Client thread/INFO] [Meson ASM]: Located method, patching...
-[00:06:30] [Client thread/INFO] [Meson ASM]: Located target GETFIELD net/minecraft/item/Item$ToolMaterial.enchantability : I
-[00:06:30] [Client thread/INFO] [Meson ASM]: Patch result: true
-[00:06:30] [Client thread/INFO] [Meson ASM]: Transforming ItemChorusFruit
-[00:06:30] [Client thread/INFO] [Meson ASM]: Applying Transformation to method (Names [onItemUseFinish, func_77654_b, a] Descriptor (Lnet/minecraft/item/ItemStack;Lnet/minecraft/world/World;Lnet/minecraft/entity/EntityLivingBase;)Lnet/minecraft/item/ItemStack; / (Laip;Lamu;Lvp;)Laip;)
-[00:06:30] [Client thread/INFO] [Meson ASM]: Located method, patching...
-[00:06:30] [Client thread/INFO] [Meson ASM]: Located target IFNE L0
-[00:06:30] [Client thread/INFO] [Meson ASM]: Patch result: true
-[00:06:30] [Client thread/INFO] [Meson ASM]: Transforming ContainerFurnace
-[00:06:30] [Client thread/INFO] [Meson ASM]: Applying Transformation to method (Names [<init>, <init>, ] Descriptor (Lnet/minecraft/entity/player/InventoryPlayer;Lnet/minecraft/inventory/IInventory;)V / (Laec;Ltv;)V)
-[00:06:30] [Client thread/INFO] [Meson ASM]: Located method, patching...
-[00:06:30] [Client thread/INFO] [Meson ASM]: Located target NEW net/minecraft/inventory/Slot
-[00:06:30] [Client thread/INFO] [Meson ASM]: Patch result: true
-[00:06:30] [Client thread/INFO] [Meson ASM]: Applying Transformation to method (Names [<init>, <init>, ] Descriptor (Lnet/minecraft/entity/player/InventoryPlayer;Lnet/minecraft/inventory/IInventory;)V / (Laec;Ltv;)V)
-[00:06:30] [Client thread/INFO] [Meson ASM]: Located method, patching...
-[00:06:30] [Client thread/INFO] [Meson ASM]: Located target INVOKESPECIAL net/minecraft/inventory/Slot.<init> (Lnet/minecraft/inventory/IInventory;III)V
-[00:06:30] [Client thread/INFO] [Meson ASM]: Patch result: true
-[00:06:31] [Client thread/WARN] [minecraft/GameSettings]: Skipping bad option: lastServer:
-[00:06:31] [Client thread/INFO] [minecraft/Minecraft]: LWJGL Version: 2.9.4
-[00:06:31] [Client thread/INFO] [FML]: -- System Details --
-Details:
-	Minecraft Version: 1.12.2
-	Operating System: Windows 10 (amd64) version 10.0
-	Java Version: 1.8.0_211, Oracle Corporation
-	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
-	Memory: 634807344 bytes (605 MB) / 753926144 bytes (719 MB) up to 3793747968 bytes (3618 MB)
-	JVM Flags: 0 total; 
-	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
-	FML: 
-	Loaded coremods (and transformers): 
-CharmLoadingPlugin (Charm-1.12.2-1.3.6.jar)
-  svenhjol.charm.base.CharmClassTransformer
-	GL info: ' Vendor: 'ATI Technologies Inc.' Version: '4.6.13571 Compatibility Profile Context 17.12 26.20.13001.40003' Renderer: 'Radeon (TM) RX 480 Graphics'
-[00:06:31] [Client thread/INFO] [FML]: MinecraftForge v14.23.5.2812 Initialized
-[00:06:31] [Client thread/INFO] [FML]: Starts to replace vanilla recipe ingredients with ore ingredients.
-[00:06:32] [Client thread/INFO] [FML]: Replaced 1036 ore ingredients
-[00:06:32] [Client thread/INFO] [FML]: Searching C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\run\.\mods for mods
-[00:06:32] [Client thread/WARN] [FML]: Zip file rwbym-3.9.5.jar failed to read properly, it will be ignored
-net.minecraftforge.fml.common.versioning.DependencyParser$DependencyParserException: Unable to parse dependency for mod 'rwbym' with dependency string 'required-after:forge@[14.23.5.2812)'. Could not parse version string.
+:genSrgs SKIPPED
+:reobfJar
+:extractAnnotationsJar
+:extractRangemapReplacedMain
+C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java
+:retromapReplacedMain
+remapping source...
+:sourceJar
+:assemble
+:check UP-TO-DATE
+:build
 
-	at net.minecraftforge.fml.common.versioning.DependencyParser.parseDependency(DependencyParser.java:152) ~[DependencyParser.class:?]
-	at net.minecraftforge.fml.common.versioning.DependencyParser.parseDependencies(DependencyParser.java:76) ~[DependencyParser.class:?]
-	at net.minecraftforge.fml.common.FMLModContainer.bindMetadata(FMLModContainer.java:211) ~[FMLModContainer.class:?]
-	at net.minecraftforge.fml.common.discovery.JarDiscoverer.findClassesASM(JarDiscoverer.java:119) ~[JarDiscoverer.class:?]
-	at net.minecraftforge.fml.common.discovery.JarDiscoverer.discover(JarDiscoverer.java:77) [JarDiscoverer.class:?]
-	at net.minecraftforge.fml.common.discovery.ContainerType.findMods(ContainerType.java:47) [ContainerType.class:?]
-	at net.minecraftforge.fml.common.discovery.ModCandidate.explore(ModCandidate.java:74) [ModCandidate.class:?]
-	at net.minecraftforge.fml.common.discovery.ModDiscoverer.identifyMods(ModDiscoverer.java:93) [ModDiscoverer.class:?]
-	at net.minecraftforge.fml.common.Loader.identifyMods(Loader.java:425) [Loader.class:?]
-	at net.minecraftforge.fml.common.Loader.loadMods(Loader.java:566) [Loader.class:?]
-	at net.minecraftforge.fml.client.FMLClientHandler.beginMinecraftLoading(FMLClientHandler.java:232) [FMLClientHandler.class:?]
-	at net.minecraft.client.Minecraft.init(Minecraft.java:514) [Minecraft.class:?]
-	at net.minecraft.client.Minecraft.run(Minecraft.java:422) [Minecraft.class:?]
-	at net.minecraft.client.main.Main.main(Main.java:118) [Main.class:?]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_211]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_211]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_211]
-	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_211]
-	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135) [launchwrapper-1.12.jar:?]
-	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.12.jar:?]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_211]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_211]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_211]
-	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_211]
-	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97) [start/:?]
-	at GradleStart.main(GradleStart.java:25) [start/:?]
-Caused by: net.minecraftforge.fml.common.LoaderException: Unable to parse a version range specification successfully [14.23.5.2812)
+BUILD SUCCESSFUL
 
-	at net.minecraftforge.fml.common.versioning.VersionParser.parseRange(VersionParser.java:76) ~[VersionParser.class:?]
-	at net.minecraftforge.fml.common.versioning.VersionParser.parseVersionReference(VersionParser.java:60) ~[VersionParser.class:?]
-	at net.minecraftforge.fml.common.versioning.DependencyParser.parseDependency(DependencyParser.java:148) ~[DependencyParser.class:?]
-	... 25 more
-Caused by: net.minecraftforge.fml.common.versioning.InvalidVersionSpecificationException: Single version must be surrounded by []: [14.23.5.2812)
-	at net.minecraftforge.fml.common.versioning.VersionRange.parseRestriction(VersionRange.java:198) ~[VersionRange.class:?]
-	at net.minecraftforge.fml.common.versioning.VersionRange.createFromVersionSpec(VersionRange.java:142) ~[VersionRange.class:?]
-	at net.minecraftforge.fml.common.versioning.VersionParser.parseRange(VersionParser.java:72) ~[VersionParser.class:?]
-	at net.minecraftforge.fml.common.versioning.VersionParser.parseVersionReference(VersionParser.java:60) ~[VersionParser.class:?]
-	at net.minecraftforge.fml.common.versioning.DependencyParser.parseDependency(DependencyParser.java:148) ~[DependencyParser.class:?]
-	... 25 more
-[00:06:33] [Client thread/WARN] [FML]: Mod waystones is missing the required element 'version' and a version.properties file could not be found. Falling back to metadata version 4.0.72
-[00:06:33] [Client thread/INFO] [FML]: Forge Mod Loader has identified 22 mods to load
-[00:06:33] [Client thread/INFO] [minecraft/SimpleReloadableResourceManager]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:RWBYM, FMLFileResourcePack:1.13 Water Mechanics Backport, FMLFileResourcePack:Biomes O' Plenty, FMLFileResourcePack:Bookshelf, FMLFileResourcePack:Charm, FMLFileResourcePack:1.12 Conduit Mod, FMLFileResourcePack:Coralreef, FMLFileResourcePack:Enchanting Plus, FMLFileResourcePack:Five Feet Small, FMLFileResourcePack:Future MC, FMLFileResourcePack:Grit, FMLFileResourcePack:Ido - 1.12 movement enhancement, FMLFileResourcePack:Just a Few Fish, FMLFileResourcePack:Nature's Compass, FMLFileResourcePack:ToroHealth Damage Indicators, FMLFileResourcePack:Village Names, FMLFileResourcePack:Village and Pillage, FMLFileResourcePack:Waystones, GGO
-[00:06:33] [Client thread/WARN] [minecraft/AbstractResourcePack]: ResourcePack: ignored non-lowercase namespace: MagmaBubbleColumn in .\mods\1.13WaterMechanicsBackport-1.0.2-1.12.2.jar
-[00:06:33] [Client thread/WARN] [minecraft/AbstractResourcePack]: ResourcePack: ignored non-lowercase namespace: MagmaBubbleColumn in .\mods\1.13WaterMechanicsBackport-1.0.2-1.12.2.jar
-[00:06:33] [Client thread/INFO] [STDOUT]: [net.minecraft.init.Bootstrap:printToSYSOUT:629]: ---- Minecraft Crash Report ----
-
-WARNING: coremods are present:
-  CharmLoadingPlugin (Charm-1.12.2-1.3.6.jar)
-Contact their authors BEFORE contacting forge
-
-// Don't be sad, have a hug! <3
-
-Time: 9/22/19 12:06 AM
-Description: Initializing game
-
-java.lang.NullPointerException: Initializing game
-	at net.minecraftforge.fml.common.versioning.ComparableVersion.parseVersion(ComparableVersion.java:371)
-	at net.minecraftforge.fml.common.versioning.ComparableVersion.<init>(ComparableVersion.java:362)
-	at net.minecraftforge.fml.common.versioning.DefaultArtifactVersion.<init>(DefaultArtifactVersion.java:31)
-	at net.minecraftforge.fml.common.versioning.DefaultArtifactVersion.<init>(DefaultArtifactVersion.java:42)
-	at net.minecraftforge.fml.common.FMLModContainer.getProcessedVersion(FMLModContainer.java:640)
-	at net.minecraftforge.fml.common.Loader.sortModList(Loader.java:241)
-	at net.minecraftforge.fml.common.Loader.loadMods(Loader.java:570)
-	at net.minecraftforge.fml.client.FMLClientHandler.beginMinecraftLoading(FMLClientHandler.java:232)
-	at net.minecraft.client.Minecraft.init(Minecraft.java:514)
-	at net.minecraft.client.Minecraft.run(Minecraft.java:422)
-	at net.minecraft.client.main.Main.main(Main.java:118)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
-	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97)
-	at GradleStart.main(GradleStart.java:25)
-
-
-A detailed walkthrough of the error, its code path and all known details is as follows:
----------------------------------------------------------------------------------------
-
--- Head --
-Thread: Client thread
-Stacktrace:
-	at net.minecraftforge.fml.common.versioning.ComparableVersion.parseVersion(ComparableVersion.java:371)
-	at net.minecraftforge.fml.common.versioning.ComparableVersion.<init>(ComparableVersion.java:362)
-	at net.minecraftforge.fml.common.versioning.DefaultArtifactVersion.<init>(DefaultArtifactVersion.java:31)
-	at net.minecraftforge.fml.common.versioning.DefaultArtifactVersion.<init>(DefaultArtifactVersion.java:42)
-	at net.minecraftforge.fml.common.FMLModContainer.getProcessedVersion(FMLModContainer.java:640)
-	at net.minecraftforge.fml.common.Loader.sortModList(Loader.java:241)
-	at net.minecraftforge.fml.common.Loader.loadMods(Loader.java:570)
-	at net.minecraftforge.fml.client.FMLClientHandler.beginMinecraftLoading(FMLClientHandler.java:232)
-	at net.minecraft.client.Minecraft.init(Minecraft.java:514)
-
--- Initialization --
-Details:
-Stacktrace:
-	at net.minecraft.client.Minecraft.run(Minecraft.java:422)
-	at net.minecraft.client.main.Main.main(Main.java:118)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
-	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97)
-	at GradleStart.main(GradleStart.java:25)
-
--- System Details --
-Details:
-	Minecraft Version: 1.12.2
-	Operating System: Windows 10 (amd64) version 10.0
-	Java Version: 1.8.0_211, Oracle Corporation
-	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
-	Memory: 316173600 bytes (301 MB) / 753926144 bytes (719 MB) up to 3793747968 bytes (3618 MB)
-	JVM Flags: 0 total; 
-	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
-	FML: MCP 9.42 Powered by Forge 14.23.5.2812 22 mods loaded, 22 mods active
-	States: 'U' = Unloaded 'L' = Loaded 'C' = Constructed 'H' = Pre-initialized 'I' = Initialized 'J' = Post-initialized 'A' = Available 'D' = Disabled 'E' = Errored
-
-	| State | ID                  | Version      | Source                                        | Signature |
-	|:----- |:------------------- |:------------ |:--------------------------------------------- |:--------- |
-	| L     | minecraft           | 1.12.2       | minecraft.jar                                 | None      |
-	| L     | mcp                 | 9.42         | minecraft.jar                                 | None      |
-	| L     | FML                 | 8.0.99.99    | forgeSrc-1.12.2-14.23.5.2812.jar              | None      |
-	| L     | forge               | 14.23.5.2812 | forgeSrc-1.12.2-14.23.5.2812.jar              | None      |
-	| L     | rwbym               | null         | rwbym-3.9.5.jar                               | None      |
-	| L     | 113_water_mechanics | 1.0.2        | 1.13WaterMechanicsBackport-1.0.2-1.12.2.jar   | None      |
-	| L     | biomesoplenty       | 7.0.1.2441   | BiomesOPlenty-1.12.2-7.0.1.2441-universal.jar | None      |
-	| L     | bookshelf           | 2.3.588      | Bookshelf-1.12.2-2.3.588.jar                  | None      |
-	| L     | charm               | 1.12.2-1.3.6 | Charm-1.12.2-1.3.6.jar                        | None      |
-	| L     | conduit             | 1.0.2        | conduit-1.0.2.jar                             | None      |
-	| L     | coralreef           | 2.0          | CoralReef-2.5-1.12.2.jar                      | None      |
-	| L     | eplus               | 5.0.179      | EnchantingPlus-1.12.2-5.0.179.jar             | None      |
-	| L     | fivefeetsmall       | 1.0.1        | FiveFeetSmall-v1.0.1-1.12.2.jar               | None      |
-	| L     | minecraftfuture     | 0.1.9        | future-mc-0.1.10.jar                          | None      |
-	| L     | grit                | Beta 1.1     | Grit-Beta1.1-MC1.12.2.jar                     | None      |
-	| L     | ido                 | 1.0.4        | ido-1.12.2-1.0.4.jar                          | None      |
-	| L     | jaff                | 1.7_for_1.12 | JustAFewFish-1.7_for_1.12.jar                 | None      |
-	| L     | naturescompass      | 1.5.1        | NaturesCompass-1.12.2-1.5.1.jar               | None      |
-	| L     | torohealthmod       | 1.12.2-11    | torohealth-1.12.2-11.jar                      | None      |
-	| L     | villagenames        | 3.2.1        | VillageNames-1.12.2-3.2.1.jar                 | None      |
-	| L     | idk                 | 1.0.0        | VPPVu3.jar                                    | None      |
-	| L     | waystones           | 4.0.72       | Waystones_1.12.2-4.0.72.jar                   | None      |
-
-	Loaded coremods (and transformers): 
-CharmLoadingPlugin (Charm-1.12.2-1.3.6.jar)
-  svenhjol.charm.base.CharmClassTransformer
-	GL info: ' Vendor: 'ATI Technologies Inc.' Version: '4.6.13571 Compatibility Profile Context 17.12 26.20.13001.40003' Renderer: 'Radeon (TM) RX 480 Graphics'
-	Launched Version: 1.12.2
-	LWJGL: 2.9.4
-	OpenGL: Radeon (TM) RX 480 Graphics GL version 4.6.13571 Compatibility Profile Context 17.12 26.20.13001.40003, ATI Technologies Inc.
-	GL Caps: Using GL 1.3 multitexturing.
-Using GL 1.3 texture combiners.
-Using framebuffer objects because OpenGL 3.0 is supported and separate blending is supported.
-Shaders are available because OpenGL 2.1 is supported.
-VBOs are available because OpenGL 1.5 is supported.
-
-	Using VBOs: No
-	Is Modded: Definitely; Client brand changed to 'fml,forge'
-	Type: Client (map_client.txt)
-	Resource Packs: GGO
-	Current Language: English (US)
-	Profiler Position: N/A (disabled)
-	CPU: 16x AMD Ryzen 7 2700X Eight-Core Processor 
-[00:06:33] [Client thread/INFO] [STDOUT]: [net.minecraft.init.Bootstrap:printToSYSOUT:629]: #@!@# Game crashed! Crash report saved to: #@!@# C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\run\.\crash-reports\crash-2019-09-22_00.06.33-client.txt
-:runClient FAILED
-
-FAILURE: Build failed with an exception.
-
-* What went wrong:
-Execution failed for task ':runClient'.
-> Process 'command 'C:\Program Files\Java\jdk1.8.0_211\bin\java.exe'' finished with non-zero exit value -1
-
-* Try:
-Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output.
-
-BUILD FAILED
-
-Total time: 15.183 secs
+Total time: 29.878 secs

@@ -546,7 +546,12 @@ item.rwbym:extasisammo.name=Extasis Rockets
 item.rwbym:lichtroze_closedfire.name=§6Lichtroze
 item.rwbym:lichtroze_closedwind.name=§6Lichtroze
 item.rwbym:lichtroze_closedice.name=§6Lichtroze
-
+item.rwbym:kyoshifire.name=§6Kyo-Shi
+item.rwbym:kyoshiice.name=§6Kyo-Shi
+item.rwbym:kyoshiwind.name=§6Kyo-Shi
+item.rwbym:kyoshigrav.name=§6Kyo-Shi
+item.rwbym:whitefangsword.name=White Fang Sword
+item.rwbym:whitefangrifle.name=White Fang Rifle
 
 effect.aura_regen=Aura Regen
 potion.effect.aura_regen=Potion of Aura Regen

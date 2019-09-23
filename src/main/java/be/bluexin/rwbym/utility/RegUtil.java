@@ -124,7 +124,9 @@ public class RegUtil {
         registerItems(event, RWBYItems.neoumb_handle_blade);
         registerItems(event, RWBYItems.lieutenant);
         registerItems(event, RWBYItems.whitefangspear);
+        registerItems(event, RWBYItems.whitefangsword);
         registerItems(event, RWBYItems.wfp);
+        registerItems(event, RWBYItems.whitefangrifle);
         registerItems(event, RWBYItems.cinder);
         registerItems(event, RWBYItems.cinderbow);
         registerItems(event, RWBYItems.cinderglass);
@@ -834,6 +836,9 @@ public class RegUtil {
         registerRecipes(RWBYItems.nolan);
         registerRecipes(RWBYItems.royg);
         registerRecipes(RWBYItems.wfp);
+        registerRecipes(RWBYItems.whitefangspear);
+        registerRecipes(RWBYItems.whitefangsword);
+        registerRecipes(RWBYItems.whitefangrifle);
         registerRecipes(RWBYItems.gwen);
         registerRecipes(RWBYItems.noctustraumnormal);
         registerRecipes(RWBYItems.noctustraumlight);

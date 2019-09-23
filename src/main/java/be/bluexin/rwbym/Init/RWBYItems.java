@@ -2803,7 +2803,7 @@ public class RWBYItems {
             1,
             0,
             3,
-            RWBYCreativeTabs.tab_rwbyweapons).setRecoil(5);
+            RWBYCreativeTabs.tab_rwbyweapons).setRecoil(6);
     public static final Item gwenknife = new RWBYGun(
             "gwenknife",
             2500,
@@ -3214,7 +3214,40 @@ public class RWBYItems {
             0,
             17,
             null).setRecoil(3).setElementMelee("wind");
-
+    public static final Item whitefangsword = new RWBYGun(
+            "whitefangsword",
+            2500,
+            14,
+            RWBYGun.SWORD,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:16,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}]}",
+            null,
+            "rwbym:nuller,rwbym:nullest",
+            false,
+            1,
+            false,
+            true,
+            0,
+            1,
+            0,
+            0,
+            RWBYCreativeTabs.tab_rwbyweapons);
+    public static final Item whitefangrifle = new RWBYGun(
+            "whitefangrifle",
+            2500,
+            0,
+            0,
+            null,
+            null,
+            "rwbym:crmag,rwbym:crfiremag,rwbym:crgravmag,rwbym:crelectricmag",
+            false,
+            1,
+            false,
+            false,
+            0,
+            1,
+            0,
+            8,
+            RWBYCreativeTabs.tab_rwbyweapons).setRecoil(6);
 
     //------------------------------------------------//
     public static final Item ammo = new RWBYItem("ammo", null, false, RWBYCreativeTabs.tab_rwbyitems);
