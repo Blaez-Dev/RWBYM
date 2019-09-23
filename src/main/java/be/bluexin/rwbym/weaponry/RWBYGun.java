@@ -422,7 +422,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
          if((weapontype & DAGGER) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Dagger");}
          if((weapontype & INT_MAG) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Internal Magazine");}
          if((weapontype & JUNIOR) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Internal Magazine");}
-        if((weapontype & (ROCKET|JUNIOR)) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Rocket Launcher");}
+        if((weapontype & ROCKET) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Rocket Launcher");}
          if(dualwield){tooltip.add(ChatFormatting.BLUE + "-" + "Dual-wieldable Gun");}
          if((weapontype & TOOL) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Tool");}
         if((weapontype & BOW) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Bow");}

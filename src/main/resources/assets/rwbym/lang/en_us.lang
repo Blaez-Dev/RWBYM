@@ -552,6 +552,7 @@ item.rwbym:kyoshiwind.name=§6Kyo-Shi
 item.rwbym:kyoshigrav.name=§6Kyo-Shi
 item.rwbym:whitefangsword.name=White Fang Sword
 item.rwbym:whitefangrifle.name=White Fang Rifle
+item.rwbym:mariaeyes.name=Maria's Eyes
 
 effect.aura_regen=Aura Regen
 potion.effect.aura_regen=Potion of Aura Regen

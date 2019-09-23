@@ -38,8 +38,8 @@ public class ModEventHandler implements IPrivateAccessor {
 
             boolean flag = itemstack.getItem() == Items.NAME_TAG;
 
-            if (!flag) {
-                if (!this.holdingSpawnEggOfClass(itemstack, entityVillager.getClass()) && entityVillager.isEntityAlive()
+
+                if (entityVillager.isEntityAlive()
                         && !entityVillager.isTrading() && !entityVillager.isChild()) {
                     if (this.displayVillagerTradeGui(player, entityVillager))
                     {
@@ -52,7 +52,7 @@ public class ModEventHandler implements IPrivateAccessor {
                     }
                 }
 
-            }
+
         }
     }
 
