@@ -4,7 +4,6 @@ import be.bluexin.rwbym.PlayerRenderHandler;
 import be.bluexin.rwbym.RWBYModels;
 import be.bluexin.rwbym.client.particle.RenderEvents;
 import be.bluexin.rwbym.client.particle.RosePetal;
-import be.bluexin.rwbym.client.particle.SummerPetal;
 import be.bluexin.rwbym.client.particle.TextureStitcher;
 import be.bluexin.rwbym.entity.*;
 import be.bluexin.rwbym.entity.renderer.*;
