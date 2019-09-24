@@ -418,7 +418,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
          if((weapontype & SCARLET) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Offhand Gun Only");}
          if((weapontype & WINTER) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Rapier / Offhand Capable");}
          if((weapontype & WHIP) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Whip");}
-         if((weapontype & SCYTHE) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Scythe");}
+         if((weapontype & SCYTHE) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Polearm");}
          if((weapontype & DAGGER) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Dagger");}
          if((weapontype & INT_MAG) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Internal Magazine");}
          if((weapontype & JUNIOR) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Internal Magazine");}
@@ -426,9 +426,10 @@ public class RWBYGun extends ItemBow implements ICustomItem{
          if(dualwield){tooltip.add(ChatFormatting.BLUE + "-" + "Dual-wieldable Gun");}
          if((weapontype & TOOL) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Tool");}
         if((weapontype & BOW) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Bow");}
-        if((weapontype & STAFF) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "STAFF");}
+        if((weapontype & STAFF) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Staff");}
         if((weapontype & UMBRELLA) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Umbrella");}
-         if((weapontype & (AURAWEAP|LETZT|SANREI)) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Aura Weapon");}
+        if(grimm){tooltip.add(ChatFormatting.BLUE + "-"+ "Grimm Weapon");}
+         if((weapontype & (AURAWEAP|LETZT|SANREI)) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Aura Based Weapon");}
          if(recoil == 4){tooltip.add(ChatFormatting.BLUE + "-"+ "Wall Climbing Capable");}
         if(shotrecoil > 0){
             String shotrecoils = Integer.toString(shotrecoil);
@@ -671,7 +672,9 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             }
             if (handIn == EnumHand.MAIN_HAND) {
                 playerIn.inventory.setInventorySlotContents(playerIn.inventory.currentItem, morph1);
-            }} else if (this.isShield && handIn == EnumHand.OFF_HAND) {
+            }
+        return new ActionResult<>(EnumActionResult.FAIL, is);
+        } else if (this.isShield && handIn == EnumHand.OFF_HAND) {
             playerIn.setActiveHand(EnumHand.OFF_HAND);
             return new ActionResult<>(EnumActionResult.SUCCESS, is);}else if (canBlock && handIn == EnumHand.MAIN_HAND) {
             playerIn.setActiveHand(EnumHand.MAIN_HAND);
@@ -763,7 +766,8 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
     @Override
     public boolean onEntitySwing(EntityLivingBase entityLiving, ItemStack stack){
-        EntityPlayer playerIn = (EntityPlayer)entityLiving;
+        if(entityLiving instanceof EntityPlayer){
+            EntityPlayer playerIn = (EntityPlayer)entityLiving;
         if (!playerIn.world.isRemote && playerIn.isSneaking()&& this.element != null&& playerIn.getHeldItemMainhand() == stack) {
             ItemStack morph1 = new ItemStack(Item.getByNameOrId(this.element), stack.getCount(), stack.getMetadata());
             //noinspection ConstantConditions
@@ -772,7 +776,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             }
             if (playerIn.getHeldItemMainhand() == stack) {
                 playerIn.inventory.setInventorySlotContents(playerIn.inventory.currentItem, morph1);}
-        }
+        }}
 
         return false;
     }
@@ -888,10 +892,14 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                 if ((double) f >= 0.1D) {
 
                     if (!worldIn.isRemote) {
+
+                        int inaccuracy;
+                   if(shotcount > 2){inaccuracy = 0;}else {inaccuracy = this.bulletCount/2;}
                         for (int i2 = 0; i2 < finishshot; i2++) {
                             EntityArrow entityarrow = (itemstack.getItem() instanceof RWBYAmmoItem ? ((RWBYAmmoItem) itemstack.getItem()).createArrow(worldIn, itemstack, entityplayer) : ((ItemArrow) Items.ARROW).createArrow(worldIn, itemstack, entityplayer));
-                            entityarrow.shoot(entityplayer, entityplayer.rotationPitch, entityplayer.rotationYaw, 0.0F, f * 3.0F * (this.projectileSpeed == 0.0F ? 1.0F : this.projectileSpeed), shotcount*3);
+                            entityarrow.shoot(entityplayer, entityplayer.rotationPitch, entityplayer.rotationYaw, 0.0F, f * 3.0F * (this.projectileSpeed == 0.0F ? 1.0F : this.projectileSpeed), inaccuracy*3);
 
+                            //System.out.println(inaccuracy);
                             entityarrow.setIsCritical(true);
 
                             worldIn.spawnEntity(entityarrow);
@@ -910,6 +918,22 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                         }
                         else if ((weapontype & JUNIOR) !=0) {stack.damageItem(30,entityplayer);}
                         else if ((weapontype & INT_MAG) !=0) {stack.damageItem(4, entityplayer);}
+                        if (!flag){
+                            if ((weapontype & BOW) !=0 && !flagger) {
+                                itemstack.shrink(1);
+                            }
+                        }
+
+
+
+                        if (!flag){
+                            if (mytre || (weapontype & ROCKET) !=0) {
+                                itemstack.shrink(1);
+                            }
+                            else {
+                                itemstack.damageItem(1, entityplayer);
+                            }
+                        }
                         else stack.damageItem(2, entityplayer);
                     }
 
@@ -998,22 +1022,6 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                         entityplayer.motionY = -look.y/4 ;
                         entityplayer.lastTickPosZ = -look.x;
                         entityplayer.lastTickPosX = -look.z;
-                    }
-                    if (!flag){
-                        if ((weapontype & BOW) !=0 && !flagger) {
-                            itemstack.shrink(1);
-                        }
-                    }
-
-
-
-                    if (!flag){
-                        if (mytre || (weapontype & ROCKET) !=0) {
-                            itemstack.shrink(1);
-                        }
-                        else {
-                            itemstack.damageItem(1, entityplayer);
-                        }
                     }
                 }
             }

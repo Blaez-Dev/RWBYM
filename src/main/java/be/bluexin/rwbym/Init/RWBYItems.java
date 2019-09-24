@@ -2653,7 +2653,7 @@ public class RWBYItems {
 
     public static final Item scarletstormgun = new RWBYGun(
             "scarletstormgun",
-            1250,
+            2500,
             0,
             RWBYGun.INT_MAG,
             null,
