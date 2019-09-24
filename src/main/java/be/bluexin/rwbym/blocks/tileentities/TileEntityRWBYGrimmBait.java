@@ -29,6 +29,7 @@ public class TileEntityRWBYGrimmBait extends TileEntity implements ITickable {
     private EntityPlayer player;
     private boolean stopping = false;
     private List<EntityItem> drops = new ArrayList<>();
+    private List<EntityLiving> alive = new ArrayList<>();
     
     public TileEntityRWBYGrimmBait() {
 		// TODO Auto-generated constructor stub
@@ -101,13 +102,13 @@ public class TileEntityRWBYGrimmBait extends TileEntity implements ITickable {
 					return;
 				}
 				
-				if (!player.isEntityAlive() || wavecount > 17) {
+				if (!player.isEntityAlive() || isCleared()) {
 					this.stop();
 					return;
 				}
 	
 				
-				if (wavelist.isEmpty() || this.getAlivePercent() < 0.4) {
+				if (wavecount < 18 && (wavelist.isEmpty() || this.getAlivePercent() < 0.4)) {
 					wavecount++;
 					wavelist.clear();
 					wavelist = this.getEntityList();
@@ -146,6 +147,7 @@ public class TileEntityRWBYGrimmBait extends TileEntity implements ITickable {
 			this.world.spawnEntity(entity);
 			entities.add(entity);
 		}
+		alive.addAll(entities);
 		return entities;
 	}
 	
@@ -196,6 +198,11 @@ public class TileEntityRWBYGrimmBait extends TileEntity implements ITickable {
 			total++;
 		}
 		return alive / total;
+	}
+	
+	private boolean isCleared() {
+		alive.removeIf(entity -> entity.isDead);
+		return wavecount > 17 && alive.isEmpty();
 	}
 	
 	@Override
