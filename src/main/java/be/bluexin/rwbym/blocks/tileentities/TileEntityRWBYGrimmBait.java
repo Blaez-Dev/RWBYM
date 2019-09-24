@@ -27,6 +27,8 @@ public class TileEntityRWBYGrimmBait extends TileEntity implements ITickable {
     private int wavecount;
     private List<EntityLiving> wavelist = new ArrayList<EntityLiving>();
     private EntityPlayer player;
+    private boolean stopping = false;
+    private List<EntityItem> drops = new ArrayList<>();
     
     public TileEntityRWBYGrimmBait() {
 		// TODO Auto-generated constructor stub
@@ -39,8 +41,8 @@ public class TileEntityRWBYGrimmBait extends TileEntity implements ITickable {
     }
     
     public void stop() {
-    	this.world.setBlockToAir(this.getPos());
-
+    	this.stopping = true;
+    	
 		int i1 = rand.nextInt(100)+5;
 		while (i1 > 0)
 		{
@@ -59,8 +61,8 @@ public class TileEntityRWBYGrimmBait extends TileEntity implements ITickable {
 			drops.add(new ItemStack(RWBYItems.impureblock, 1));
 			drops.add(new ItemStack(RWBYItems.gravityblock, 1));
 
-			EntityItem item = new EntityItem(this.world, this.getPos().getX(), this.getPos().getY(), this.getPos().getZ(), drops.get(rand.nextInt(drops.size())));
-			this.world.spawnEntity(item);
+			EntityItem item = new EntityItem(this.world, this.getPos().getX(), this.getPos().getY() + 1, this.getPos().getZ(), drops.get(rand.nextInt(drops.size())));
+			this.drops.add(item);
 		}
 		ArrayList<ItemStack> drops2 = new ArrayList<>();
 		drops2.add(new ItemStack(RWBYItems.grimmrapier, 1));
@@ -77,8 +79,8 @@ public class TileEntityRWBYGrimmBait extends TileEntity implements ITickable {
 		drops2.add(new ItemStack(RWBYItems.lichtroze_closedfire, 1));
 		drops2.add(new ItemStack(RWBYItems.kyoshifire, 1));
 
-		EntityItem item2 = new EntityItem(this.world, this.getPos().getX(), this.getPos().getY(), this.getPos().getZ(), drops2.get(rand.nextInt(drops2.size())));
-		this.world.spawnEntity(item2);
+		EntityItem item2 = new EntityItem(this.world, this.getPos().getX(), this.getPos().getY() + 1, this.getPos().getZ(), drops2.get(rand.nextInt(drops2.size())));
+		this.drops.add(item2);
 
     	this.wavecount = 0;
     	this.wavelist.clear();
@@ -92,22 +94,34 @@ public class TileEntityRWBYGrimmBait extends TileEntity implements ITickable {
 	@Override
 	public void update() {
 		if (!this.world.isRemote) {
-			if (player == null) {
-				this.wavecount = 0;
-				this.wavelist.clear();
-				return;
+			if (!stopping) {
+				if (player == null) {
+					this.wavecount = 0;
+					this.wavelist.clear();
+					return;
+				}
+				
+				if (!player.isEntityAlive() || wavecount > 17) {
+					this.stop();
+					return;
+				}
+	
+				
+				if (wavelist.isEmpty() || this.getAlivePercent() < 0.4) {
+					wavecount++;
+					wavelist.clear();
+					wavelist = this.getEntityList();
+				}
 			}
-			
-			if (!player.isEntityAlive() || wavecount > 17) {
-				this.stop();
-				return;
-			}
-
-			
-			if (wavelist.isEmpty() || this.getAlivePercent() < 0.4) {
-				wavecount++;
-				wavelist.clear();
-				wavelist = this.getEntityList();
+			else {
+				EntityItem item = drops.remove(0);
+				item.motionX = this.rand.nextGaussian() * 0.1;
+				item.motionZ = this.rand.nextGaussian() * 0.1;
+				item.motionY = 0.5;
+				this.world.spawnEntity(item);
+				if (drops.isEmpty()) {
+					this.world.setBlockToAir(pos);
+				}
 			}
 		}
 	}
