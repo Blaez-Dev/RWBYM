@@ -411,19 +411,19 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 	        }
         }
         if(weapontype > 0||dualwield|| recoil == 4){tooltip.add("Weapon Type:");}
-        if((weapontype & OFFHAND) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Offhand Capable Blade");}
+        if((weapontype & OFFHAND) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Offhand Blade");}
          if((weapontype & SWORD) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Sword");}
          if((weapontype & LION_HEART) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Lion Heart Shield");}
          if((weapontype & RAPIER) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Rapier");}
          if((weapontype & SCARLET) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Offhand Gun Only");}
-         if((weapontype & WINTER) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Rapier / Offhand Capable");}
+         if((weapontype & WINTER) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Rapier / Offhand Blade");}
          if((weapontype & WHIP) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Whip");}
          if((weapontype & SCYTHE) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Polearm");}
          if((weapontype & DAGGER) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Dagger");}
          if((weapontype & INT_MAG) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Internal Magazine");}
          if((weapontype & JUNIOR) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Internal Magazine");}
         if((weapontype & ROCKET) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Rocket Launcher");}
-         if(dualwield){tooltip.add(ChatFormatting.BLUE + "-" + "Dual-wieldable Gun");}
+         if(dualwield){tooltip.add(ChatFormatting.BLUE + "-" + "Paired Guns");}
          if((weapontype & TOOL) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Tool");}
         if((weapontype & BOW) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Bow");}
         if((weapontype & STAFF) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Staff");}
@@ -431,7 +431,12 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         if(grimm){tooltip.add(ChatFormatting.BLUE + "-"+ "Grimm Weapon");}
          if((weapontype & (AURAWEAP|LETZT|SANREI)) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Aura Based Weapon");}
          if(recoil == 4){tooltip.add(ChatFormatting.BLUE + "-"+ "Wall Climbing Capable");}
-        if(shotrecoil > 0){
+         if(isShield||canBlock){
+             if(isShield&&!canBlock){tooltip.add(ChatFormatting.BLUE + "-"+ "Blocks in Both Mainhand & Offhand");}
+             if(!isShield&&canBlock){tooltip.add(ChatFormatting.BLUE + "-"+ "Blocks in Mainhand Only");}
+             if(isShield&&canBlock){tooltip.add(ChatFormatting.BLUE + "-"+ "Blocks in Both Mainhand & Offhand");}
+         }
+         if(shotrecoil > 0){
             String shotrecoils = Integer.toString(shotrecoil);
             tooltip.add("Shot Recoil Amount:");
             tooltip.add(ChatFormatting.BLUE +"-" +  shotrecoils);
