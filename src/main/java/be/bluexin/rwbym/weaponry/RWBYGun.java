@@ -7,6 +7,7 @@ import be.bluexin.rwbym.capabilities.Aura.AuraProvider;
 import com.google.common.collect.Multimap;
 import com.mojang.realmsclient.gui.ChatFormatting;
 import mcp.MethodsReturnNonnullByDefault;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
@@ -144,6 +145,8 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     public static final int STAFF =        0x20000;
     public static final int ROCKET =       0x40000;
     public static final int UMBRELLA =     0x80000;
+    public static final int AXE =          0x100000;
+    public static final int PICKAXE =          0x200000;
 	
 	public static final int RCL_BACK =      1;
 	public static final int RCL_BACK_WEAK = 2;
@@ -182,6 +185,8 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         else if((weapontype & DAGGER) !=0){this.weaponspeed = 1D;}
         else if((weapontype & STAFF) !=0){this.weaponspeed = -3D;}
         else if((weapontype & ROCKET) !=0){this.weaponspeed = -3D;}
+        else if((weapontype & AXE) !=0){this.weaponspeed = -3D;}
+        else if((weapontype & PICKAXE) !=0){this.weaponspeed = -3D;}
         else {this.weaponspeed = -3;}
 
 
@@ -410,13 +415,13 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 	            }
 	        }
         }
-        if(weapontype > 0||dualwield|| recoil == 4){tooltip.add("Weapon Type:");}
-        if((weapontype & OFFHAND) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Offhand Blade");}
+        if(weapontype > 0||dualwield|| recoil == 4){tooltip.add("Weapon Info:");}
+        if((weapontype & OFFHAND) !=0|| ohblade){tooltip.add(ChatFormatting.BLUE +"-" +  "Offhand Blade");}
          if((weapontype & SWORD) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Sword");}
          if((weapontype & LION_HEART) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Lion Heart Shield");}
          if((weapontype & RAPIER) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Rapier");}
          if((weapontype & SCARLET) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Offhand Gun Only");}
-         if((weapontype & WINTER) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Rapier / Offhand Blade");}
+         if((weapontype & WINTER) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Rapier");}
          if((weapontype & WHIP) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Whip");}
          if((weapontype & SCYTHE) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Polearm");}
          if((weapontype & DAGGER) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Dagger");}
@@ -424,10 +429,12 @@ public class RWBYGun extends ItemBow implements ICustomItem{
          if((weapontype & JUNIOR) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Internal Magazine");}
         if((weapontype & ROCKET) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Rocket Launcher");}
          if(dualwield){tooltip.add(ChatFormatting.BLUE + "-" + "Paired Guns");}
-         if((weapontype & TOOL) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Tool");}
+         if((weapontype & TOOL) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Multi-Tool");}
         if((weapontype & BOW) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Bow");}
         if((weapontype & STAFF) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Staff");}
         if((weapontype & UMBRELLA) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Umbrella");}
+        if((weapontype & AXE) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Axe");}
+        if((weapontype & PICKAXE) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Pickaxe");}
         if(grimm){tooltip.add(ChatFormatting.BLUE + "-"+ "Grimm Weapon");}
          if((weapontype & (AURAWEAP|LETZT|SANREI)) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Aura Based Weapon");}
          if(recoil == 4){tooltip.add(ChatFormatting.BLUE + "-"+ "Wall Climbing Capable");}
@@ -452,7 +459,13 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         super.addInformation(stack, worldIn, tooltip, flagIn);
     }
 
-/*
+    @Override
+    public boolean canHarvestBlock(IBlockState state, ItemStack stack) {
+        if((weapontype % (AXE|PICKAXE|TOOL)) !=0){return true;}else return false;
+    }
+
+
+    /*
     public String getItemStackDisplayName(ItemStack stack) {
         return ChatFormatting.GOLD + super.getItemStackDisplayName(stack);
     }*/
@@ -590,14 +603,18 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
     @Override
     public float getDestroySpeed(ItemStack stack, IBlockState state) {
-        if((weapontype & TOOL) !=0) {return 5F;}else return 0;
+
+            if((weapontype & AXE) !=0){
+            Material material = state.getMaterial();
+            return material != Material.WOOD && material != Material.PLANTS && material != Material.VINE ? super.getDestroySpeed(stack, state) : 5F;}
+            else if((weapontype & TOOL) !=0) {return 5F;}
+            else if((weapontype & PICKAXE) !=0){
+                Material material = state.getMaterial();
+                return material != Material.IRON && material != Material.ANVIL && material != Material.ROCK ? super.getDestroySpeed(stack, state) : 5F;}
+            else return 0;
     }
 
-    @Override
-    public boolean canHarvestBlock(IBlockState blockIn)
-    {
-        if((weapontype & TOOL) !=0)return true; else return false;
-    }
+
 
     public boolean onBlockDestroyed(ItemStack stack, World worldIn, IBlockState state, BlockPos pos, EntityLivingBase entityLiving)
     {
@@ -645,7 +662,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         PotionEffect potioneffect5 = new PotionEffect(MobEffects.HASTE, 100, 5, false, false);
         PotionEffect potionEffect6 = new PotionEffect(MobEffects.SPEED, 100, 5, false, false);
         PotionEffect potionEffect7 = new PotionEffect(MobEffects.SPEED, 200, 7, false, false);
-        if(handIn == EnumHand.MAIN_HAND && playerIn.isSneaking()){
+        if(handIn == EnumHand.MAIN_HAND){
             if(elementmelee == "grav")
             {
                 playerIn.addPotionEffect(potioneffect2);

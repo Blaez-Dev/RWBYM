@@ -553,6 +553,11 @@ item.rwbym:kyoshigrav.name=§6Kyo-Shi
 item.rwbym:whitefangsword.name=White Fang Sword
 item.rwbym:whitefangrifle.name=White Fang Rifle
 item.rwbym:mariaeyes.name=Maria's Eyes
+item.rwbym:henchmenaxe.name=Henchmen Axe
+item.rwbym:mariamask.name=Grimm Reaper Mask
+item.rwbym:ozpinglasses.name=Ozpin's Glasses
+item.rwbym:amberstafffire.name=Amber's Staff
+item.rwbym:amberstaffwind.name=Amber's Staff
 
 effect.aura_regen=Aura Regen
 potion.effect.aura_regen=Potion of Aura Regen

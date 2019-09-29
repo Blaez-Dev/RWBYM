@@ -65,8 +65,6 @@ public class RWBYModels {
     public static final String MODID = "rwbym";
     public static final String MODNAME = "RWBY-M";
     public static final String VERSION = "4.0.0";
-    public static final String RANGE = "[1.12.2]";
-    public static final String DEPENDENCIES = "required-after:forge@[14.23.5.2812)";
     public static List<ICustomItem> items;
 
     public static final Logger LOGGER = LogManager.getLogger(MODID);
@@ -406,28 +404,4 @@ public class RWBYModels {
     }
 }
 
-// is this list being updated?
 
-/*
-De note of stooff
-O -Read From Json-
-O -Specify Model/Texture of Item
-O -Specify Weapon Type Bow|Sword|Ammo and Required Ammo?
-O -Custom Crafting
-O -Support for Attribute Data? *things like max health/movement speed.
-
-     Maybe??
-O -add tag to convert to a shield while in off-hand slot and convert back to weapon while in mainhand maybe?
-O -add tag to enable shift right click to swap a weapon to a bow/model change and back maybe?
-0 add support for custom ammo
-0 add support for generic items
-- gun recoil setting + no "charging" (maybe CD)
-
-///give @p potion 1 16398 {CustomPotionEffects: [{Id: 25,Amplifier: 20,Duration: 10}],display: {Name:"Potion of Levitation"}}
-
-
-{AttributeModifiers:[
-{AttributeName:"generic.maxHealth",Name:"generic.maxHealth",Amount:200,Operation:0,UUIDMost:11369,UUIDLeast:108625},
-{AttributeName:"generic.movementSpeed",Name:"generic.movementSpeed",Amount:200,Operation:0,UUIDMost:37055,UUIDLeast:183337},
-{AttributeName:"generic.attackDamage",Name:"generic.attackDamage",Amount:200,Operation:0,UUIDMost:29896,UUIDLeast:154919}]}
- */

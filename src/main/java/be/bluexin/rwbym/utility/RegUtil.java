@@ -101,6 +101,8 @@ public class RegUtil {
         registerItems(event, RWBYItems.cocogun);
         registerItems(event, RWBYItems.cocogunv);
         registerItems(event, RWBYItems.ozpincane);
+        registerItems(event, RWBYItems.amberstafffire);
+        registerItems(event, RWBYItems.amberstaffwind);
         registerItems(event, RWBYItems.port);
         registerItems(event, RWBYItems.portgun);
         registerItems(event, RWBYItems.goodwitch);
@@ -110,6 +112,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.jnrbat);
         registerItems(event, RWBYItems.jnrrocket);
         registerItems(event, RWBYItems.henchmen);
+        registerItems(event, RWBYItems.henchmenaxe);
         registerItems(event, RWBYItems.adamgun);
         registerItems(event, RWBYItems.adamswd);
         registerItems(event, RWBYItems.corsac);
@@ -590,6 +593,8 @@ public class RegUtil {
         registerItems(event, RWBYItems.sunChest);
         registerItems(event, RWBYItems.sunLegs);
         registerItems(event, RWBYItems.mariaeyes);
+        registerItems(event, RWBYItems.mariamask);
+        registerItems(event, RWBYItems.ozpinglasses);
 
     }
 
@@ -875,6 +880,9 @@ public class RegUtil {
         registerRecipes(RWBYItems.kyoshigrav);
         registerRecipes(RWBYItems.kyoshiice);
         registerRecipes(RWBYItems.kyoshiwind);
+        registerRecipes(RWBYItems.henchmenaxe);
+        registerRecipes(RWBYItems.amberstafffire);
+        registerRecipes(RWBYItems.amberstaffwind);
     }
 
     private static void registerBlocks(FMLPreInitializationEvent event, Block...blocks) {

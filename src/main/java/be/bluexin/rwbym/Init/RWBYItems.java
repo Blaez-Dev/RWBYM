@@ -2149,7 +2149,7 @@ public class RWBYItems {
             "lieutenant",
             2500,
             10,
-            RWBYGun.TOOL|RWBYGun.SWORD,
+            RWBYGun.AXE,
             null,
             null,
             "rwbym:nuller,rwbym:nullest",
@@ -2157,6 +2157,23 @@ public class RWBYItems {
             0,
             false,
             true,
+            0,
+            1,
+            0,
+            0,
+            RWBYCreativeTabs.tab_rwbyweapons);
+    public static final Item henchmenaxe = new RWBYGun(
+            "henchmenaxe",
+            2500,
+            13,
+            RWBYGun.AXE,
+            null,
+            null,
+            "rwbym:nuller,rwbym:nullest",
+            false,
+            0,
+            false,
+            false,
             0,
             1,
             0,
@@ -3248,6 +3265,42 @@ public class RWBYItems {
             0,
             8,
             RWBYCreativeTabs.tab_rwbyweapons).setRecoil(6);
+    public static final Item amberstafffire = new RWBYGun(
+            "amberstafffire",
+            2500,
+            12,
+            RWBYGun.STAFF,
+            null,
+            "rwbym:amberstaffwind",
+            "rwbym:nuller,rwbym:nullest",
+            false,
+            1,
+            false,
+            true,
+            0,
+            1,
+            0,
+            0,
+            RWBYCreativeTabs.tab_rwbyweapons
+    ).setElementMelee("fire");
+    public static final Item amberstaffwind = new RWBYGun(
+            "amberstaffwind",
+            2500,
+            12,
+            RWBYGun.STAFF,
+            null,
+            "rwbym:amberstafffire",
+            "rwbym:nuller,rwbym:nullest",
+            false,
+            1,
+            false,
+            true,
+            0,
+            1,
+            0,
+            0,
+            null
+    ).setElementMelee("wind");
 
     //------------------------------------------------//
     public static final Item ammo = new RWBYItem("ammo", null, false, RWBYCreativeTabs.tab_rwbyitems);
@@ -3334,6 +3387,8 @@ public class RWBYItems {
     public static final Item crush = new RWBYItem("crush", null, false, RWBYCreativeTabs.tab_rwbyitems).setHasContainerItem(true).setContainerItemLambda(stack -> (stack.attemptDamageItem(1, new Random(), null) ? ItemStack.EMPTY : stack)).setMaxDamage(255).setMaxStackSize(1);
     public static final Item rvnmask = new RWBYHood("rvnmask", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true, null, RWBYCreativeTabs.tab_rwbyarmour);
     public static final Item mariaeyes = new RWBYHood("mariaeyes", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true, null, RWBYCreativeTabs.tab_rwbyarmour);
+    public static final Item mariamask = new RWBYHood("mariamask", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true, null, RWBYCreativeTabs.tab_rwbyarmour);
+    public static final Item ozpinglasses = new RWBYHood("ozpinglasses", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true, null, RWBYCreativeTabs.tab_rwbyarmour);
     public static final Item whtefng =  new RWBYHood("whtefng", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true, null, RWBYCreativeTabs.tab_rwbyarmour);
     public static final Item rubyhood = new RWBYHood("rubyhood", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true,"rwbym:ruby2_head", RWBYCreativeTabs.tab_rwbyarmour);
     public static final Item summerhood = new RWBYHood("summerhood", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:10,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true, "rwbym:summer2_head",RWBYCreativeTabs.tab_rwbyarmour);

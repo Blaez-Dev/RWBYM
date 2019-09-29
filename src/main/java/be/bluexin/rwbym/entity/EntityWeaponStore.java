@@ -36,6 +36,7 @@ public class EntityWeaponStore extends EntityRWBYMMerchant implements INpc, IMer
     private static MerchantRecipe[] weapons = new MerchantRecipe[]{
             new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.pennyswd,1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.henchmen,1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.henchmenaxe,1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.fennec,1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.corsac,1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.neoumb_closed,1)),
@@ -105,6 +106,7 @@ public class EntityWeaponStore extends EntityRWBYMMerchant implements INpc, IMer
             new MerchantRecipe(new ItemStack(RWBYItems.lien500,12),new ItemStack(RWBYItems.mariacane, 1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien500,12),new ItemStack(RWBYItems.tocksword, 1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien500,12),new ItemStack(RWBYItems.ozmacane, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,12),new ItemStack(RWBYItems.amberstafffire, 1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien500,12),new ItemStack(RWBYItems.cocobag, 1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien500,12),new ItemStack(RWBYItems.velvet, 1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien500,12),new ItemStack(RWBYItems.yatsuhashi, 1)),
