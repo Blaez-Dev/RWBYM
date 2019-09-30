@@ -2,6 +2,7 @@ package be.bluexin.rwbym;
 
 import be.bluexin.rwbym.Init.RWBYBiomes;
 import be.bluexin.rwbym.Init.RWBYCreativeTabs;
+import be.bluexin.rwbym.Init.RegUtil;
 import be.bluexin.rwbym.blocks.containers.CrusherContainer;
 import be.bluexin.rwbym.blocks.tileentities.TileEntityRWBYCrusher;
 import be.bluexin.rwbym.blocks.tileentities.TileEntityRWBYGrimmBait;
@@ -14,7 +15,6 @@ import be.bluexin.rwbym.gui.scroll.GuiScreenScrollTeam;
 import be.bluexin.rwbym.handler.ModEventHandler;
 import be.bluexin.rwbym.inventory.IRWBYContainerFactory;
 import be.bluexin.rwbym.proxy.CommonProxy;
-import be.bluexin.rwbym.utility.RegUtil;
 import be.bluexin.rwbym.utility.network.RWBYNetworkHandler;
 import be.bluexin.rwbym.weaponry.ICustomItem;
 import be.bluexin.rwbym.weaponry.RWBYContainerItem;

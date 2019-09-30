@@ -558,6 +558,8 @@ item.rwbym:mariamask.name=Grimm Reaper Mask
 item.rwbym:ozpinglasses.name=Ozpin's Glasses
 item.rwbym:amberstafffire.name=Amber's Staff
 item.rwbym:amberstaffwind.name=Amber's Staff
+item.rwbym:amesardent.name=§6Âmes Ardente
+item.rwbym:amesardentgun.name=§6Âmes Ardente
 
 effect.aura_regen=Aura Regen
 potion.effect.aura_regen=Potion of Aura Regen

@@ -1,8 +1,8 @@
 package be.bluexin.rwbym.weaponry;
 
 import be.bluexin.rwbym.Init.RWBYCreativeTabs;
+import be.bluexin.rwbym.Init.RegUtil;
 import be.bluexin.rwbym.RWBYModels;
-import be.bluexin.rwbym.utility.RegUtil;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;

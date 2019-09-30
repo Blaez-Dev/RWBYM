@@ -1,12 +1,12 @@
 package be.bluexin.rwbym.client.particle;
 
+import be.bluexin.rwbym.Init.RegUtil;
 import be.bluexin.rwbym.RWBYModels;
 import be.bluexin.rwbym.capabilities.Aura.AuraProvider;
 import be.bluexin.rwbym.capabilities.Aura.IAura;
 import be.bluexin.rwbym.capabilities.CapabilityHandler;
 import be.bluexin.rwbym.capabilities.ISemblance;
 import be.bluexin.rwbym.utility.RWBYConfig;
-import be.bluexin.rwbym.utility.RegUtil;
 import be.bluexin.rwbym.weaponry.ArmourBase;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelPlayer;

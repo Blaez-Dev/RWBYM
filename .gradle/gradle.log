@@ -1,309 +1,40 @@
 This mapping 'snapshot_20171003' was designed for MC 1.12! Use at your own peril.This mapping 'snapshot_20171003' was designed for MC 1.12! Use at your own peril.
 
 :deobfCompileDummyTask
+:deobfProvidedDummyTask
+:sourceApiJava UP-TO-DATE
+:compileApiJava UP-TO-DATE
+:processApiResources UP-TO-DATE
+:apiClasses UP-TO-DATE
+:sourceMainJava UP-TO-DATE
+:compileJavaNote: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+:processResources UP-TO-DATE
+:classes
+:jar
+:sourceTestJava UP-TO-DATE
+:compileTestJava UP-TO-DATE
+:processTestResources UP-TO-DATE
+:testClasses UP-TO-DATE
+:test UP-TO-DATE
+:extractMcpData SKIPPED
+:extractMcpMappings
 :getVersionJson
 :extractUserdev UP-TO-DATE
-:downloadClient SKIPPED
-:downloadServer SKIPPED
-:splitServerJar SKIPPED
-:mergeJars SKIPPED
-:applyBinaryPatches
-:deobfProvidedDummyTask
-:extractDependencyATs SKIPPED
-:extractMcpData SKIPPED
-:extractMcpMappings SKIPPED
 :genSrgs SKIPPED
-:deobfMcMCP
-Applying SpecialSource...
-Applying Exceptor...
-:sourceApiJava UP-TO-DATE
-:compileApiJava
-:processApiResources UP-TO-DATE
-:apiClasses
-:sourceMainJava UP-TO-DATE
-:compileJavaC:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\tile\TileBeeHive.java:24: warning: Reflection is internal proprietary API and may be removed in a future release
-import sun.reflect.Reflection;
-                  ^
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\tile\TileBeeHive.java:24: warning: Reflection is internal proprietary API and may be removed in a future release
-import sun.reflect.Reflection;
-                  ^
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\tile\TileBeeHive.java:24: warning: Reflection is internal proprietary API and may be removed in a future release
-import sun.reflect.Reflection;
-                  ^
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\core\block\BlockBase.java:21: error: cannot find symbol
-        setTranslationKey(FutureMC.ID + "." + regName);
-        ^
-  symbol:   method setTranslationKey(String)
-  location: class BlockBase
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\core\block\IProjectileDispenserBehaviour.java:31: error: cannot find symbol
-        return facingIn.getXOffset() + 1 + (facingIn.getZOffset() + 1) * 3;
-                       ^
-  symbol:   method getXOffset()
-  location: variable facingIn of type EnumFacing
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\core\block\IProjectileDispenserBehaviour.java:31: error: cannot find symbol
-        return facingIn.getXOffset() + 1 + (facingIn.getZOffset() + 1) * 3;
-                                                    ^
-  symbol:   method getZOffset()
-  location: variable facingIn of type EnumFacing
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\core\block\IProjectileDispenserBehaviour.java:39: error: cannot find symbol
-        iprojectile.shoot(enumfacing.getXOffset(), (float)enumfacing.getYOffset() + 0.1F, enumfacing.getZOffset(), this.getProjectileVelocity(), this.getProjectileInaccuracy());
-                                    ^
-  symbol:   method getXOffset()
-  location: variable enumfacing of type EnumFacing
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\core\block\IProjectileDispenserBehaviour.java:39: error: cannot find symbol
-        iprojectile.shoot(enumfacing.getXOffset(), (float)enumfacing.getYOffset() + 0.1F, enumfacing.getZOffset(), this.getProjectileVelocity(), this.getProjectileInaccuracy());
-                                                                    ^
-  symbol:   method getYOffset()
-  location: variable enumfacing of type EnumFacing
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\core\block\IProjectileDispenserBehaviour.java:39: error: cannot find symbol
-        iprojectile.shoot(enumfacing.getXOffset(), (float)enumfacing.getYOffset() + 0.1F, enumfacing.getZOffset(), this.getProjectileVelocity(), this.getProjectileInaccuracy());
-                                                                                                    ^
-  symbol:   method getZOffset()
-  location: variable enumfacing of type EnumFacing
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\core\item\ItemModeled.java:9: error: cannot find symbol
-        setTranslationKey(FutureMC.ID + "." + regName);
-        ^
-  symbol:   method setTranslationKey(String)
-  location: class ItemModeled
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\core\item\ItemDebugger.java:80: error: cannot find symbol
-            worldIn.setBlockState(pos, worldIn.getBlockState(pos).withProperty(BlockHorizontal.FACING, EnumFacing.byHorizontalIndex(i)));
-                                                                                                                 ^
-  symbol:   method byHorizontalIndex(int)
-  location: class EnumFacing
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\block\BlockBamboo.java:137: error: method does not override or implement a method from a supertype
-    @Override
-    ^
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\block\BlockBarrel.java:86: error: cannot find symbol
-        return getDefaultState().withProperty(FACING, EnumFacing.byIndex(meta & 7));
-                                                                ^
-  symbol:   method byIndex(int)
-  location: class EnumFacing
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\block\BlockBeeHive.java:88: error: cannot find symbol
-        return getDefaultState().withProperty(IS_FULL, (meta & 4) != 0).withProperty(FACING, EnumFacing.byHorizontalIndex(meta & -5));
-                                                                                                       ^
-  symbol:   method byHorizontalIndex(int)
-  location: class EnumFacing
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\block\BlockRotatable.java:40: error: cannot find symbol
-        EnumFacing enumfacing = EnumFacing.byIndex(meta);
-                                          ^
-  symbol:   method byIndex(int)
-  location: class EnumFacing
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\block\BlockBell.java:149: error: cannot find symbol
-        return getDefaultState().withProperty(ATTACHMENT, BellAttachment.values()[meta / 4]).withProperty(FACING, EnumFacing.byHorizontalIndex(meta % 4));
-                                                                                                                            ^
-  symbol:   method byHorizontalIndex(int)
-  location: class EnumFacing
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\block\BlockFlower.java:19: error: cannot find symbol
-        setTranslationKey(FutureMC.ID + "." + regName);
-        ^
-  symbol:   method setTranslationKey(String)
-  location: class BlockFlower
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\block\BlockBerryBush.java:90: error: method does not override or implement a method from a supertype
-    @Override
-    ^
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\block\BlockBlueIce.java:16: error: cannot find symbol
-        setTranslationKey(FutureMC.ID + ".BlueIce");
-        ^
-  symbol:   method setTranslationKey(String)
-  location: class BlockBlueIce
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\block\BlockCampfire.java:191: error: method does not override or implement a method from a supertype
-    @Override
-    ^
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\block\BlockLantern.java:125: error: method does not override or implement a method from a supertype
-    @Override
-    ^
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\block\BlockNewSlab.java:31: error: method does not override or implement a method from a supertype
-    @Override
-    ^
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\block\BlockNewSlab.java:33: error: cannot find symbol
-        return super.getTranslationKey();
-                    ^
-  symbol: method getTranslationKey()
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\block\BlockNewSlab.java:66: error: Half is not abstract and does not override abstract method getUnlocalizedName(int) in BlockSlab
-    public static class Half extends BlockNewSlab {
-                  ^
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\block\BlockNewSlab.java:68: error: cannot find symbol
-            setTranslationKey(FutureMC.ID + "." + variant + "_slab");
-            ^
-  symbol:   method setTranslationKey(String)
-  location: class Half
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\block\BlockNewSlab.java:89: error: Double is not abstract and does not override abstract method getUnlocalizedName(int) in BlockSlab
-    public static class Double extends BlockNewSlab {
-                  ^
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\block\BlockNewSlab.java:91: error: cannot find symbol
-            setTranslationKey(FutureMC.ID + "." + variant + "_double_slab");
-            ^
-  symbol:   method setTranslationKey(String)
-  location: class Double
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\block\BlockScaffold.java:37: error: method does not override or implement a method from a supertype
-    @Override
-    ^
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\block\BlockStonecutter.java:42: error: cannot find symbol
-        return getDefaultState().withProperty(FACING, EnumFacing.byHorizontalIndex(meta));
-                                                                ^
-  symbol:   method byHorizontalIndex(int)
-  location: class EnumFacing
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\block\BlockStonecutter.java:75: error: method does not override or implement a method from a supertype
-    @Override
-    ^
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\block\BlockStrippedLog.java:25: error: cannot find symbol
-        setTranslationKey(FutureMC.ID + ".stripped_" + variant + "_log");
-        ^
-  symbol:   method setTranslationKey(String)
-  location: class BlockStrippedLog
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\block\BlockWitherRose.java:34: error: method does not override or implement a method from a supertype
-    @Override
-    ^
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\tile\TileBell.java:21: error: cannot find symbol
-            this.facing = EnumFacing.byIndex(type);
-                                    ^
-  symbol:   method byIndex(int)
-  location: class EnumFacing
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\entity\bee\EntityBee.java:338: error: method add in class Vec3d cannot be applied to given types;
-                    vec3d = getPositionVector().add(0.0D, f, 0.0D);
-                                               ^
-  required: Vec3d
-  found: double,float,double
-  reason: actual and formal argument lists differ in length
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\entity\drowned\EntityDrowned.java:94: error: cannot find symbol
-        entitytrident.shoot(d0, d1 + d3 * (double)0.2F, d2, 1.6F, (float)(14 - this.world.getDifficulty().getId() * 4));
-                                                                                                         ^
-  symbol:   method getId()
-  location: class EnumDifficulty
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\entity\panda\EntityPanda.java:404: error: method add in class Vec3d cannot be applied to given types;
-                vec3d1 = vec3d1.add(posX, posY + (double)getEyeHeight() + 1.0D, posZ);
-                               ^
-  required: Vec3d
-  found: double,double,double
-  reason: actual and formal argument lists differ in length
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\entity\panda\EntityPanda.java:467: error: method add in class Vec3d cannot be applied to given types;
-                    Vec3d vec = this.field_213600_bJ.add(0.0D, 0.27D, 0.0D);
-                                                    ^
-  required: Vec3d
-  found: double,double,double
-  reason: actual and formal argument lists differ in length
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\entity\trident\EntityModArrow.java:397: error: cannot find symbol
-                this.inTile.onEntityCollision(this.world, blockpos, iblockstate, this);
-                           ^
-  symbol:   method onEntityCollision(World,BlockPos,IBlockState,EntityModArrow)
-  location: variable inTile of type Block
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\entity\trident\EntityModArrow.java:549: error: cannot find symbol
-        this.setDamage((double)(p_190547_2_ * 2.0F) + this.rand.nextGaussian() * 0.25D + (double)((float)this.world.getDifficulty().getId() * 0.11F));
-                                                                                                                                   ^
-  symbol:   method getId()
-  location: class EnumDifficulty
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\item\ItemGroup.java:10: error: ItemGroup is not abstract and does not override abstract method getTabIconItem() in CreativeTabs
-public class ItemGroup extends CreativeTabs {
-       ^
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\item\ItemGroup.java:15: error: method does not override or implement a method from a supertype
-    @Override
-    ^
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\item\ItemDye.java:24: error: cannot find symbol
-        setTranslationKey(FutureMC.ID + "." + "dye");
-        ^
-  symbol:   method setTranslationKey(String)
-  location: class ItemDye
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\item\ItemDye.java:38: error: method does not override or implement a method from a supertype
-    @Override
-    ^
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\item\ItemDye.java:40: error: method getTranslationKey in class ItemDye cannot be applied to given types;
-        return getTranslationKey() + "." + stack.getMetadata();
-               ^
-  required: ItemStack
-  found: no arguments
-  reason: actual and formal argument lists differ in length
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\item\ItemBannerPattern.java:24: error: cannot find symbol
-        setTranslationKey(FutureMC.ID + "." + "banner_pattern");
-        ^
-  symbol:   method setTranslationKey(String)
-  location: class ItemBannerPattern
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\item\ItemSuspiciousStew.java:23: error: cannot find symbol
-        setTranslationKey(FutureMC.ID + ".SuspiciousStew");
-        ^
-  symbol:   method setTranslationKey(String)
-  location: class ItemSuspiciousStew
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\item\ItemBerry.java:25: error: cannot find symbol
-        setTranslationKey(FutureMC.ID + ".SweetBerry");
-        ^
-  symbol:   method setTranslationKey(String)
-  location: class ItemBerry
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\item\ItemBamboo.java:12: error: cannot find symbol
-        setTranslationKey(FutureMC.ID + ".Bamboo");
-        ^
-  symbol:   method setTranslationKey(String)
-  location: class ItemBamboo
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\item\ItemNewSlab.java:19: error: method getTranslationKey in class BlockNewSlab cannot be applied to given types;
-        setTranslationKey(singleSlab.getTranslationKey());
-                                    ^
-  required: int
-  found: no arguments
-  reason: actual and formal argument lists differ in length
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\item\ItemNewSlab.java:26: error: method does not override or implement a method from a supertype
-    @Override
-    ^
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\item\ItemNewSlab.java:28: error: cannot find symbol
-        return singleSlab.getTranslationKey();
-                         ^
-  symbol:   method getTranslationKey()
-  location: variable singleSlab of type BlockSlab
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\tile\TileBeeHive.java:125: error: cannot find symbol
-                    blockPos = pos.add(f.getXOffset() << 1, f.getYOffset(), f.getZOffset() << 1);
-                                        ^
-  symbol:   method getXOffset()
-  location: variable f of type EnumFacing
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\tile\TileBeeHive.java:125: error: cannot find symbol
-                    blockPos = pos.add(f.getXOffset() << 1, f.getYOffset(), f.getZOffset() << 1);
-                                                             ^
-  symbol:   method getYOffset()
-  location: variable f of type EnumFacing
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\tile\TileBeeHive.java:125: error: cannot find symbol
-                    blockPos = pos.add(f.getXOffset() << 1, f.getYOffset(), f.getZOffset() << 1);
-                                                                             ^
-  symbol:   method getZOffset()
-  location: variable f of type EnumFacing
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\tile\TileBeeHive.java:135: error: cannot find symbol
-                    blockPos = pos.add(f.getXOffset() << 1, f.getYOffset(), f.getZOffset() << 1);
-                                        ^
-  symbol:   method getXOffset()
-  location: variable f of type EnumFacing
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\tile\TileBeeHive.java:135: error: cannot find symbol
-                    blockPos = pos.add(f.getXOffset() << 1, f.getYOffset(), f.getZOffset() << 1);
-                                                             ^
-  symbol:   method getYOffset()
-  location: variable f of type EnumFacing
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\tile\TileBeeHive.java:135: error: cannot find symbol
-                    blockPos = pos.add(f.getXOffset() << 1, f.getYOffset(), f.getZOffset() << 1);
-                                                                             ^
-  symbol:   method getZOffset()
-  location: variable f of type EnumFacing
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\tile\TileBeeHive.java:290: warning: Reflection is internal proprietary API and may be removed in a future release
-        setHoneyLevel(compound.getInteger("HoneyLevel"), Reflection.getCallerClass(2) != TileEntity.class);
-                                                         ^
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\world\gen\feature\WorldGenBamboo.java:36: error: cannot find symbol
-        ChunkPos chunkPos = worldIn.getChunk(chunkX, chunkZ).getPos();
-                                   ^
-  symbol:   method getChunk(int,int)
-  location: variable worldIn of type World
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java\thedarkcolour\futuremc\world\gen\feature\WorldGenFlower.java:41: error: cannot find symbol
-        ChunkPos chunkPos = world.getChunk(chunkX, chunkZ).getPos();
-                                 ^
-  symbol:   method getChunk(int,int)
-  location: variable world of type World
-Note: Some input files use or override a deprecated API.
-Note: Recompile with -Xlint:deprecation for details.
-56 errors
-4 warnings
- FAILED
+:reobfJar
+:extractAnnotationsJar
+:extractRangemapReplacedMain
+C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java
+:retromapReplacedMain UP-TO-DATE
+:sourceJar UP-TO-DATE
+:assemble
+:check UP-TO-DATE
+:build
 
-FAILURE: Build failed with an exception.
+BUILD SUCCESSFUL
 
-* What went wrong:
-Execution failed for task ':compileJava'.
-> Compilation failed; see the compiler error output for details.
-
-* Try:
-Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output.
-
-BUILD FAILED
-
-Total time: 20.532 secs
+Total time: 10.512 secs

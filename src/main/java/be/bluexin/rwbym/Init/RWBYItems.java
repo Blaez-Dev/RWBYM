@@ -3302,6 +3302,41 @@ public class RWBYItems {
             null
     ).setElementMelee("wind");
 
+    public static final Item amesardentgun = new RWBYGun(
+            "amesardentgun",
+            2500,
+            0,
+            0,
+            null,
+            "rwbym:amesardent",
+            "rwbym:emammo,rwbym:emfireammo,rwbym:emflareammo",
+            false,
+            0.8F,
+            false,
+            false,
+            0,
+            4,
+            0,
+            2,
+            null).setRecoil(7);
+    public static final Item amesardent = new RWBYGun(
+            "amesardent",
+            2500,
+            16,
+            RWBYGun.SWORD,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}]}",
+            "rwbym:amesardentgun",
+            "rwbym:nuller,rwbym:nullest",
+            false,
+            1,
+            false,
+            true,
+            0,
+            1,
+            0,
+            0,
+            RWBYCreativeTabs.tab_rwbyweapons);
+
     //------------------------------------------------//
     public static final Item ammo = new RWBYItem("ammo", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item gamammo = new RWBYItem("gamammo", null, false, RWBYCreativeTabs.tab_rwbyitems);

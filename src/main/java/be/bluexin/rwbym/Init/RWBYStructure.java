@@ -11,6 +11,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
+import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraft.world.gen.structure.template.PlacementSettings;
@@ -28,6 +29,7 @@ public class RWBYStructure extends WorldGenerator {
 
 	private String structure;
 	private int offsety;
+	private boolean spawnnearvillage;
 
     public RWBYStructure setStructure(String structure) {
         this.structure = structure;
@@ -35,6 +37,10 @@ public class RWBYStructure extends WorldGenerator {
     }
     public RWBYStructure setYoffset(int offsety) {
         this.offsety = offsety;
+        return this;
+    }
+    public RWBYStructure spawnNearVillage(boolean spawnnearvillage) {
+        this.spawnnearvillage = spawnnearvillage;
         return this;
     }
     @Override
@@ -54,7 +60,9 @@ public class RWBYStructure extends WorldGenerator {
         Class<? extends Biome> biome = world.getBiome(position).getClass();
 
 
-        if(Oregen.canSpawnHere(template, worldserver, position) && !BIOMES.contains(biome)&& world.findNearestStructure("Village", position, true).getDistance(position.getX(), position.getY(), position.getZ()) < 150 && world.findNearestStructure("Village", position, true).getDistance(position.getX(), position.getY(), position.getZ()) > 80){
+        if(Oregen.canSpawnHere(template, worldserver, position) && !BIOMES.contains(biome)){
+            if(world.getWorldType() != WorldType.FLAT){
+            if(spawnnearvillage && world.findNearestStructure("Village", position, true).getDistance(position.getX(), position.getY(), position.getZ()) < 150 && world.findNearestStructure("Village", position, true).getDistance(position.getX(), position.getY(), position.getZ()) > 80){
             IBlockState iblockstate = world.getBlockState(position);
             world.notifyBlockUpdate(position, iblockstate, iblockstate, 3);
 
@@ -68,7 +76,7 @@ public class RWBYStructure extends WorldGenerator {
 
             Map<BlockPos, String> map = template.getDataBlocks(position, placementsettings);
 
-            return true;
+            return true;}}
         }
 
         return false;

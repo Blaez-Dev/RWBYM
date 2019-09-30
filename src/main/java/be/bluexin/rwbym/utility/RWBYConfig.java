@@ -50,7 +50,7 @@ public class RWBYConfig
     @Config.Comment("Spawn Chance Crow Bar")
     public static int bar = 60;
     @Config.Comment("Spawn Chance Well")
-    public static int well = 350;
+    public static int well = 10;
     @Config.Comment("Spawn Chance Gravity DusT")
     public static int gravityore = 1;
     @Config.Comment("Spawn Chance Fire Dust")

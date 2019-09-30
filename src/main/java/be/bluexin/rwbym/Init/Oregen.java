@@ -81,7 +81,7 @@ public class Oregen implements IWorldGenerator{
         if (rand.nextInt(RWBYConfig.dustshop) == 0) {
 	        int y = getGroundFromAbove(world, blockX, blockZ);
 	        BlockPos pos = new BlockPos(blockX, y, blockZ);
-	        WorldGenerator structure = new RWBYStructure().setStructure(":rwbym1").setYoffset(-2);
+	        WorldGenerator structure = new RWBYStructure().setStructure(":rwbym1").setYoffset(-2).spawnNearVillage(true);
 	        structure.generate(world, rand, pos);
         }
     }
@@ -91,7 +91,7 @@ public class Oregen implements IWorldGenerator{
         if (rand.nextInt(RWBYConfig.bar) == 0) {
             int y = getGroundFromAbove(world, blockX, blockZ);
             BlockPos pos = new BlockPos(blockX, y, blockZ);
-            WorldGenerator structure2 = new RWBYStructure().setStructure(":rwbym2").setYoffset(-2);
+            WorldGenerator structure2 = new RWBYStructure().setStructure(":rwbym2").setYoffset(-2).spawnNearVillage(true);
             structure2.generate(world, rand, pos);
         }
     }
@@ -102,7 +102,7 @@ public class Oregen implements IWorldGenerator{
         {
             int y = getGroundFromAbove(world, blockX, blockZ);
             BlockPos pos = new BlockPos(blockX, y, blockZ);
-            WorldGenerator structure4 = new RWBYStructure().setStructure(":rwbym4").setYoffset(-2);
+            WorldGenerator structure4 = new RWBYStructure().setStructure(":rwbym4").setYoffset(-2).spawnNearVillage(true);
             structure4.generate(world, rand, pos);
         }
     }
