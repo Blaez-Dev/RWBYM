@@ -831,7 +831,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
             }
 
-            if(flag2 && charges){entityplayer.getCooldownTracker().setCooldown(this, 5);}
+            if(flag2 && charges && !dualwield){entityplayer.getCooldownTracker().setCooldown(this, 5);}
 
 
             if(ohblade && entityplayer.getActiveHand() == EnumHand.OFF_HAND){
@@ -916,10 +916,10 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                     if (!worldIn.isRemote) {
 
                         int inaccuracy;
-                   if(shotcount > 2){inaccuracy = 0;}else {inaccuracy = this.bulletCount/2;}
+                   if(shotcount > 2){inaccuracy = 0;}else {inaccuracy = shotcount;}
                         for (int i2 = 0; i2 < finishshot; i2++) {
                             EntityArrow entityarrow = (itemstack.getItem() instanceof RWBYAmmoItem ? ((RWBYAmmoItem) itemstack.getItem()).createArrow(worldIn, itemstack, entityplayer) : ((ItemArrow) Items.ARROW).createArrow(worldIn, itemstack, entityplayer));
-                            entityarrow.shoot(entityplayer, entityplayer.rotationPitch, entityplayer.rotationYaw, 0.0F, f * 3.0F * (this.projectileSpeed == 0.0F ? 1.0F : this.projectileSpeed), inaccuracy*3);
+                            entityarrow.shoot(entityplayer, entityplayer.rotationPitch, entityplayer.rotationYaw, 0.0F, f * 3.0F * (this.projectileSpeed == 0.0F ? 1.0F : this.projectileSpeed), inaccuracy*itemRand.nextInt(5));
 
                             //System.out.println(inaccuracy);
                             entityarrow.setIsCritical(true);
