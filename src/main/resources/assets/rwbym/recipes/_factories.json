@@ -1,5 +1,5 @@
 {
   "recipes": {
-    "smelting": "be.bluexin.rwbym.Init.SmeltingRecipe$SmeltingFactory"
+    "smelting": "io.github.blaezdev.rwbym.Init.SmeltingRecipe$SmeltingFactory"
   }
 }
