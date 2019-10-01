@@ -22,11 +22,24 @@ Applying Exceptor...
 :recompileMc
 :extractNatives
 :getAssetIndex
-:getAssets
-Current status: 1303/1305   99%
+:getAssetsjava.io.FileNotFoundException: C:\Users\Izumi\.gradle\caches\minecraft\assets\objects\95\954f82c6da9670f1383b4d0002061ebc1536c35a (The process cannot access the file because it is being used by another process)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at net.minecraftforge.gradle.common.Constants.hash(Constants.java:381)
+	at net.minecraftforge.gradle.tasks.DownloadAssetsTask.checkFileCorrupt(DownloadAssetsTask.java:144)
+	at net.minecraftforge.gradle.tasks.DownloadAssetsTask.access$100(DownloadAssetsTask.java:50)
+	at net.minecraftforge.gradle.tasks.DownloadAssetsTask$GetAssetTask.call(DownloadAssetsTask.java:175)
+	at net.minecraftforge.gradle.tasks.DownloadAssetsTask$GetAssetTask.call(DownloadAssetsTask.java:150)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+Current status: 1304/1305   99%
 :makeStart
 :setupDecompWorkspace
 
 BUILD SUCCESSFUL
 
-Total time: 3 mins 3.451 secs
+Total time: 2 mins 43.514 secs
