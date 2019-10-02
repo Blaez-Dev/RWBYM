@@ -50,7 +50,7 @@ import java.util.UUID;
 /**
  * Part of rwbym
  *
- * @author Bluexin
+ * @author Blaez
  */
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -637,6 +637,11 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         boolean flag = !this.findAmmo(playerIn, false).isEmpty();
         if (!playerIn.onGround && playerIn.getItemInUseCount() > 1 && (weapontype & (UMBRELLA)) !=0)
         {
+            Vec3d look = playerIn.getLookVec();
+            playerIn.motionX = look.x/2;
+            playerIn.motionZ = look.z/2;
+            //playerIn.lastTickPosZ = -look.x;
+            //playerIn.lastTickPosX = -look.z;
             player.motionY = -0.1;
             player.fallDistance = 0;
             player.velocityChanged = true;
