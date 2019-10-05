@@ -101,7 +101,7 @@ public class RWBYEntities {
         EntityRegistry.addSpawn(EntityGoliath.class, RWBYConfig.spawnrategoliath, 0, 1, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);
         EntityRegistry.addSpawn(EntityDeathStalker.class, RWBYConfig.spawnratedeathstalker, 0, 1, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);
         EntityRegistry.addSpawn(EntityMutantDeathStalker.class, RWBYConfig.spawnratemutantdeathstalker, 0, 1, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);
-        EntityRegistry.addSpawn(EntityNeverMore.class, 10, 2, 3, EnumCreatureType.CREATURE, biomes);
+        EntityRegistry.addSpawn(EntityNeverMore.class, 10, 2, 3, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);
         EntityRegistry.addSpawn(EntityGiantNeverMore.class, RWBYConfig.spawnrategiantnevermore, 0, 1, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);
         EntityRegistry.addSpawn(EntityCreep.class, 10, 2, 3, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);
         EntityRegistry.addSpawn(EntityGeist.class, RWBYConfig.spawnrategeist, 2, 3, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);
