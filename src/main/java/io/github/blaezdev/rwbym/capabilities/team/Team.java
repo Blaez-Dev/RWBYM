@@ -258,6 +258,9 @@ public class Team implements ITeam {
 				if (member == null) {
 					member = RWBYModels.proxy.loadPlayer(teamnbt, i.toString(), world);
 				}
+				if (member == null) {
+					RWBYModels.LOGGER.error("unable to find member: {}", member);
+				}
 				team.add(member);
 			}
 			
@@ -270,7 +273,19 @@ public class Team implements ITeam {
 		for (Integer i = 0; i < i1; i++) {
 			
 			EntityPlayer sender = world.getPlayerEntityByUUID(UUID.fromString(requestsnbt.getString(i.toString() + "sender")));
+			if (sender == null) {
+				sender = RWBYModels.proxy.loadPlayer(requestsnbt, i.toString() + "sender", world);
+			}
+			if (sender == null) {
+				RWBYModels.LOGGER.error("unable to find sender: {}", sender);
+			}
 			EntityPlayer receiver = world.getPlayerEntityByUUID(UUID.fromString(requestsnbt.getString(i.toString() + "receiver")));
+			if (receiver == null) {
+				receiver = RWBYModels.proxy.loadPlayer(requestsnbt, i.toString() + "receiver", world);
+			}
+			if (receiver == null) {
+				RWBYModels.LOGGER.error("unable to find receiver: {}", receiver);
+			}
 			
 			requests.add(new Request(sender, receiver));
 			
