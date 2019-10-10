@@ -1,6 +1,7 @@
 package io.github.blaezdev.rwbym;
 
 import io.github.blaezdev.rwbym.Init.RWBYBiomes;
+import io.github.blaezdev.rwbym.Init.RWBYItems;
 import io.github.blaezdev.rwbym.capabilities.Aura.AuraProvider;
 import io.github.blaezdev.rwbym.capabilities.Aura.IAura;
 import io.github.blaezdev.rwbym.capabilities.CapabilityHandler;
@@ -8,12 +9,18 @@ import io.github.blaezdev.rwbym.capabilities.ISemblance;
 import io.github.blaezdev.rwbym.utility.RWBYConfig;
 import io.github.blaezdev.rwbym.utility.network.MessageSendPlayerData;
 import io.github.blaezdev.rwbym.utility.network.RWBYNetworkHandler;
+import io.github.blaezdev.rwbym.weaponry.RWBYItem;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.world.WorldServer;
+import net.minecraft.world.WorldSettings;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.gen.feature.WorldGeneratorBonusChest;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent.Clone;
@@ -50,7 +57,31 @@ public class EntityUpdatesHandler {
 			}
 		}
 	}
-	
+
+
+	@SubscribeEvent
+	public void playerRespawn(PlayerRespawnEvent e)
+	{ EntityPlayer player = e.player;
+	IAura otheraura = player.getCapability(AuraProvider.AURA_CAP, null);
+	otheraura.setAmount(0);
+	otheraura.addAmount(otheraura.getMaxAura());
+		//System.out.println("Respawn");
+	}
+
+	@SubscribeEvent
+	public void firstJoin(PlayerLoggedInEvent event) {
+		EntityPlayer player = event.player;
+		IAura otheraura = player.getCapability(AuraProvider.AURA_CAP, null);
+		NBTTagCompound entityData = player.getEntityData();
+		if(!entityData.getBoolean(RWBYModels.MODID + "joinedBefore")) {
+			entityData.setBoolean(RWBYModels.MODID + "joinedBefore", true);
+			if(RWBYConfig.enablefirstspawnscroll){
+			player.inventory.addItemStackToInventory(new ItemStack(RWBYItems.scroll));}
+			otheraura.setAmount(otheraura.getMaxAura());
+		}
+	}
+
+
 	@SubscribeEvent
 	public void onEntityDamage(LivingDamageEvent event) {
 		if(RWBYConfig.aurablockdamage){

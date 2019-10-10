@@ -95,6 +95,8 @@ public class RWBYConfig
     public static float grimmhealthmult = 1.0F;
     @Config.Comment("Grimm Attack Damage Multiplier")
     public static float grimmattackmult = 1.0F;
+    @Config.Comment("Enable Spawning with 1 Scroll on First Spawn of Player")
+    public static boolean enablefirstspawnscroll = false;
 
 
 

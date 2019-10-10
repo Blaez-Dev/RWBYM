@@ -45,7 +45,6 @@ public class Ruby implements IRuby {
 		switch(this.selectedLevel) {
 		case 1:
 			if (player.onGround){
-				this.setInvisisbility(level1Time);
 				this.active = true;
 				return true;
 			}
@@ -63,7 +62,6 @@ public class Ruby implements IRuby {
 		
 		switch(selectedLevel) {
 		case 1:
-			return false;
 		case 2:
 		case 3:
 			this.active = false;
@@ -178,13 +176,6 @@ public class Ruby implements IRuby {
 
 		switch(this.selectedLevel) {
 		case 1:
-			if (this.invisiblityTimer > 0) {
-				this.invisiblityTimer--;
-			}
-			else {
-				this.active = false;
-			}
-			break;
 		case 2:
 		case 3:
 			break;
@@ -204,8 +195,7 @@ public class Ruby implements IRuby {
 	@Override
 	public boolean getInvisibility() {
 		switch(this.selectedLevel) {
-		case 1: 
-			return false;
+		case 1:
 		case 2:
 		case 3:
 			return this.active;
