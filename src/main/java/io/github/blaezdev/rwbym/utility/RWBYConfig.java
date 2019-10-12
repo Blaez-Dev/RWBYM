@@ -97,6 +97,8 @@ public class RWBYConfig
     public static float grimmattackmult = 1.0F;
     @Config.Comment("Enable Spawning with 1 Scroll on First Spawn of Player")
     public static boolean enablefirstspawnscroll = false;
+    @Config.Comment("Enable Lancer Queens to Spawn anywhere dark")
+    public static boolean lancernests = false;
 
 
 

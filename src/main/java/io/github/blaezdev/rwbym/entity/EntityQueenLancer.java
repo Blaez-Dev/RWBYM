@@ -68,6 +68,14 @@ public class EntityQueenLancer extends EntityMob
         }
     }
 
+
+
+        @Override
+        public boolean getCanSpawnHere()
+        {
+            return this.world.canSeeSky(new BlockPos(this.posX, this.posY + (double)this.getEyeHeight(), this.posZ))||RWBYConfig.lancernests;
+        }
+
     /**
      * Tries to move the entity towards the specified location.
      */
