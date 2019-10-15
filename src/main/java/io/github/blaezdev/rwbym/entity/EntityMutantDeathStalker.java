@@ -30,7 +30,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
 
-public class EntityMutantDeathStalker extends EntityMob
+public class EntityMutantDeathStalker extends EntityGrimm
 {
     protected static final DataParameter<Byte> DATA_SPELL_CASTING_ID = EntityDataManager.<Byte>createKey(EntityMutantDeathStalker.class, DataSerializers.BYTE);
     private static final DataParameter<Boolean> ATTACKING = EntityDataManager.<Boolean>createKey(EntityMutantDeathStalker.class, DataSerializers.BOOLEAN);

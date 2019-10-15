@@ -28,7 +28,7 @@ import javax.annotation.Nullable;
 import java.util.Iterator;
 import java.util.List;
 
-public class EntityLancer extends EntityMob
+public class EntityLancer extends EntityGrimm
 {
     protected static final DataParameter<Byte> VEX_FLAGS = EntityDataManager.<Byte>createKey(EntityLancer.class, DataSerializers.BYTE);
     private EntityLiving owner;

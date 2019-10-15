@@ -19,7 +19,7 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
-public class EntityBeowolf extends EntityMob {
+public class EntityBeowolf extends EntityGrimm {
     World world = null;
     private EntityLiving owner;
     @Nullable

@@ -47,7 +47,7 @@ public abstract class CommonProxy {
 	public EntityPlayer loadPlayer(NBTTagCompound teamnbt, String key, World world) {
 		
 		GameProfile profile = FMLCommonHandler.instance().getMinecraftServerInstance().getPlayerProfileCache().getProfileByUUID(UUID.fromString(teamnbt.getString(key)));
-		EntityPlayerMP member = new EntityPlayerMP(FMLCommonHandler.instance().getMinecraftServerInstance(), (WorldServer) world, profile , new PlayerInteractionManager(world));
+		EntityPlayerMP member = new EntityPlayerMP(FMLCommonHandler.instance().getMinecraftServerInstance(), (WorldServer) world, profile, new PlayerInteractionManager(world));
 		FMLCommonHandler.instance().getMinecraftServerInstance().getPlayerList().setPlayerManager(new WorldServer[] {(WorldServer) world});
 		member.deserializeNBT(FMLCommonHandler.instance().getMinecraftServerInstance().getPlayerList().getPlayerNBT(member));
 		member.mountEntityAndWakeUp();

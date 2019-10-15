@@ -3,6 +3,7 @@ package io.github.blaezdev.rwbym.Init;
 import io.github.blaezdev.rwbym.RWBYModels;
 import io.github.blaezdev.rwbym.blocks.*;
 import io.github.blaezdev.rwbym.blocks.fence.RWBYBlockFence;
+import io.github.blaezdev.rwbym.blocks.fluids.BlockFluidGrimm;
 import io.github.blaezdev.rwbym.gui.RWBYItemContainerGui;
 import io.github.blaezdev.rwbym.gui.RWBYItemContainerGuiChest;
 import io.github.blaezdev.rwbym.inventory.RWBYItemContainer;
@@ -29,9 +30,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.common.util.EnumHelper;
+import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.relauncher.Side;
 
@@ -4554,6 +4557,8 @@ public class RWBYItems {
     		.setRegistryName(RWBYModels.MODID, "hrdltfence")
     		.setUnlocalizedName("hrdltfence")
     		.setCreativeTab(RWBYCreativeTabs.tab_rwbyitems);
+    public static final Block fluidGrimm = new BlockFluidGrimm(RWBYFluids.GRIMM, Material.WATER).setRegistryName(new ResourceLocation(RWBYModels.MODID, "fluidgrimm")).setUnlocalizedName("fluidgrimm");
+    
     //Armour
 
     public static List<Item> ITEMS = new ArrayList();

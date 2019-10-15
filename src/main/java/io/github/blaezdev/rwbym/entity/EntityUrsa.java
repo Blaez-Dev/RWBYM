@@ -16,7 +16,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class EntityUrsa extends EntityMob {
+public class EntityUrsa extends EntityGrimm {
     World world = null;
 
     public EntityUrsa(World var2) {

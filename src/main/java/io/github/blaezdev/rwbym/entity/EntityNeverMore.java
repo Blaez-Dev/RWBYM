@@ -28,7 +28,7 @@ import javax.annotation.Nullable;
 import java.util.Iterator;
 import java.util.List;
 
-public class EntityNeverMore extends EntityMob
+public class EntityNeverMore extends EntityGrimm
 {
     protected static final DataParameter<Byte> VEX_FLAGS = EntityDataManager.<Byte>createKey(io.github.blaezdev.rwbym.entity.EntityNeverMore.class, DataSerializers.BYTE);
     private EntityLiving owner;

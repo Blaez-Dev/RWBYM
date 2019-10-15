@@ -599,6 +599,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.mariaeyes);
         registerItems(event, RWBYItems.mariamask);
         registerItems(event, RWBYItems.ozpinglasses);
+        registerBlocks(event, RWBYItems.fluidGrimm);
 
     }
 

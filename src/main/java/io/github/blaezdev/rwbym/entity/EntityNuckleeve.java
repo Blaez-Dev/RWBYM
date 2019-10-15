@@ -17,7 +17,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class EntityNuckleeve extends EntityMob
+public class EntityNuckleeve extends EntityGrimm
 {
 
     World world = null;
