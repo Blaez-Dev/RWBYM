@@ -64,7 +64,7 @@ import java.util.List;
 public class RWBYModels {
     public static final String MODID = "rwbym";
     public static final String MODNAME = "RWBY-M";
-    public static final String VERSION = "4.0.3";
+    public static final String VERSION = "4.0.4";
     public static List<ICustomItem> items;
 
     public static final Logger LOGGER = LogManager.getLogger(MODID);
