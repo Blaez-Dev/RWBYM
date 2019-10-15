@@ -18,7 +18,7 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
-public class EntityCreep extends EntityCreeper {
+public class EntityCreep extends EntityGrimm {
     World world = null;
     private EntityLiving owner;
     @Nullable

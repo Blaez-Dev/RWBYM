@@ -2,6 +2,7 @@ package io.github.blaezdev.rwbym;
 
 import io.github.blaezdev.rwbym.Init.RWBYBiomes;
 import io.github.blaezdev.rwbym.Init.RWBYCreativeTabs;
+import io.github.blaezdev.rwbym.Init.RWBYFluids;
 import io.github.blaezdev.rwbym.Init.RegUtil;
 import io.github.blaezdev.rwbym.blocks.containers.CrusherContainer;
 import io.github.blaezdev.rwbym.blocks.tileentities.TileEntityRWBYCrusher;
@@ -138,6 +139,7 @@ public class RWBYModels {
         GameRegistry.registerTileEntity(TileEntityRWBYCrusher.class, new ResourceLocation(this.MODID, "furnace"));
         GameRegistry.registerTileEntity(TileEntityRWBYGrimmBait.class, new ResourceLocation(this.MODID, "bait"));
         rwbym_1.preInit(event);
+        RWBYFluids.register();
         RegUtil.registerAll(event);
         RegUtil.registerGamePotions();
         MinecraftForge.EVENT_BUS.register(this);

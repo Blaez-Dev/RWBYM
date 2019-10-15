@@ -30,7 +30,7 @@ import javax.annotation.Nullable;
 import java.util.Iterator;
 import java.util.List;
 
-public class EntityQueenLancer extends EntityMob
+public class EntityQueenLancer extends EntityGrimm
 {
     protected static final DataParameter<Byte> DATA_SPELL_CASTING_ID = EntityDataManager.<Byte>createKey(EntityQueenLancer.class, DataSerializers.BYTE);
     private static final DataParameter<Boolean> ATTACKING = EntityDataManager.<Boolean>createKey(EntityQueenLancer.class, DataSerializers.BOOLEAN);

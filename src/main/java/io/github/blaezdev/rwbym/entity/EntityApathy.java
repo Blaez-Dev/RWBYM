@@ -22,7 +22,7 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class EntityApathy extends EntityMob {
+public class EntityApathy extends EntityGrimm {
     World world = null;
     private int cooldown = 0;
 

@@ -16,7 +16,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class EntityBoarbatusk extends EntityMob {
+public class EntityBoarbatusk extends EntityGrimm {
     World world = null;
 
     public EntityBoarbatusk(World var3) {

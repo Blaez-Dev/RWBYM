@@ -27,7 +27,7 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
-public class EntityGeist extends EntityMob
+public class EntityGeist extends EntityGrimm
 {
     protected static final DataParameter<Byte> VEX_FLAGS = EntityDataManager.<Byte>createKey(EntityGeist.class, DataSerializers.BYTE);
     private EntityLiving owner;

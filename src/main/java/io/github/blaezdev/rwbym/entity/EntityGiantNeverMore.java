@@ -29,7 +29,7 @@ import javax.annotation.Nullable;
 import java.util.Iterator;
 import java.util.List;
 
-public class EntityGiantNeverMore extends EntityMob
+public class EntityGiantNeverMore extends EntityGrimm
 {
     protected static final DataParameter<Byte> VEX_FLAGS = EntityDataManager.<Byte>createKey(io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.class, DataSerializers.BYTE);
     private EntityLiving owner;
