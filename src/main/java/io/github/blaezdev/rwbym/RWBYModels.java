@@ -16,7 +16,6 @@ import io.github.blaezdev.rwbym.gui.scroll.GuiScreenScrollTeam;
 import io.github.blaezdev.rwbym.handler.ModEventHandler;
 import io.github.blaezdev.rwbym.inventory.IRWBYContainerFactory;
 import io.github.blaezdev.rwbym.proxy.CommonProxy;
-import io.github.blaezdev.rwbym.utility.FluidRenderHandler;
 import io.github.blaezdev.rwbym.utility.network.RWBYNetworkHandler;
 import io.github.blaezdev.rwbym.weaponry.ICustomItem;
 import io.github.blaezdev.rwbym.weaponry.RWBYContainerItem;
@@ -132,7 +131,6 @@ public class RWBYModels {
         MinecraftForge.EVENT_BUS.register(new EntityUpdatesHandler());
 		MinecraftForge.EVENT_BUS.register(new CapabilityHandler());
 
-
 		CapabilityHandler.registerAll();
         RWBYNetworkHandler.init();
         RWBYCreativeTabs.init();
@@ -146,7 +144,6 @@ public class RWBYModels {
         RegUtil.registerGamePotions();
         MinecraftForge.EVENT_BUS.register(this);
         if (items != null) items.forEach(ICustomItem::register);
-        FluidRenderHandler.registerCustomMeshesAndStates();
         proxy.preInit();
     }
 
