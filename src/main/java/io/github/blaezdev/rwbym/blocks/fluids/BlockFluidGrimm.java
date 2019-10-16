@@ -53,7 +53,7 @@ public class BlockFluidGrimm extends BlockFluidClassic {
 	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
 		super.updateTick(world, pos, state, rand);
 		if (!world.isRemote && rand.nextInt(10000) == 0) {
-			EntityMob grimm = getGrimm(rand.nextInt(16), world);
+			EntityMob grimm = getGrimm(rand.nextInt(15) + 1, world);
 			grimm.setPositionAndRotation(pos.getX(), pos.getY(), pos.getZ(), 0, 0);
 			world.spawnEntity(grimm);
 		}
