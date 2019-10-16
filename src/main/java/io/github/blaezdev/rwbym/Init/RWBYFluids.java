@@ -7,7 +7,7 @@ import net.minecraftforge.fluids.FluidRegistry;
 
 public class RWBYFluids {
 	
-	public static final Fluid GRIMM = new Fluid("grimm", new ResourceLocation(RWBYModels.MODID, "grimm/still"), new ResourceLocation(RWBYModels.MODID, "grimm/flowing"));
+	public static final Fluid GRIMM = new Fluid("grimm", new ResourceLocation(RWBYModels.MODID, "fluid/grimm/fluidgrimm_still"), new ResourceLocation(RWBYModels.MODID, "fluid/grimm/fluidgrimm_flow"));
 	
 	public static void register() {
 		FluidRegistry.registerFluid(GRIMM);

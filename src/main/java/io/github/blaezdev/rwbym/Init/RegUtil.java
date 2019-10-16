@@ -1,12 +1,18 @@
 package io.github.blaezdev.rwbym.Init;
 
 import io.github.blaezdev.rwbym.Init.RWBYItems;
+
+import java.util.Map;
+
 import io.github.blaezdev.rwbym.RWBYModels;
 import io.github.blaezdev.rwbym.potion.PotionAuraRegen;
 import io.github.blaezdev.rwbym.utility.craftingutil;
 import io.github.blaezdev.rwbym.weaponry.RWBYItem;
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.renderer.block.statemap.IStateMapper;
+import net.minecraft.client.renderer.block.statemap.StateMapperBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.init.PotionTypes;
@@ -19,6 +25,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.potion.PotionHelper;
 import net.minecraft.potion.PotionType;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fluids.BlockFluidBase;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
@@ -902,8 +909,17 @@ public class RegUtil {
             ForgeRegistries.BLOCKS.register(block);
             ForgeRegistries.ITEMS.register(itemblock);
             if (event.getSide() == Side.CLIENT) {
-                ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block),0, new ModelResourceLocation(block.getRegistryName(),"inventory"));
-                //System.out.println("Model Registered");
+            	if (block instanceof BlockFluidBase) {
+            		ModelLoader.setCustomStateMapper(block, new StateMapperBase() {
+            			@Override
+            			protected ModelResourceLocation getModelResourceLocation(IBlockState state) {
+            				return new ModelResourceLocation(state.getBlock().getRegistryName(), "fluid");
+            			}
+					});
+            	}
+            	else {
+            		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block),0, new ModelResourceLocation(block.getRegistryName(),"inventory"));
+            	}//System.out.println("Model Registered");
             }
             //System.out.println("Block Registered");
         }

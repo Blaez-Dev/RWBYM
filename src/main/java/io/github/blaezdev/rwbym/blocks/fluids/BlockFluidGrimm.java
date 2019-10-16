@@ -20,6 +20,7 @@ import io.github.blaezdev.rwbym.entity.EntityNeverMore;
 import io.github.blaezdev.rwbym.entity.EntityNuckleeve;
 import io.github.blaezdev.rwbym.entity.EntityQueenLancer;
 import io.github.blaezdev.rwbym.entity.EntityUrsa;
+import io.github.blaezdev.rwbym.utility.RWBYConfig;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -52,12 +53,12 @@ public class BlockFluidGrimm extends BlockFluidClassic {
 	@Override
 	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
 		super.updateTick(world, pos, state, rand);
-		if (!world.isRemote && rand.nextInt(10000) == 0) {
-			EntityMob grimm = getGrimm(rand.nextInt(15) + 1, world);
+		if (!world.isRemote && rand.nextInt(RWBYConfig.grimmFluidSpawnRate) == 0) {
+			EntityMob grimm = getGrimm(rand.nextInt(9) + 1, world);
 			grimm.setPositionAndRotation(pos.getX(), pos.getY(), pos.getZ(), 0, 0);
 			world.spawnEntity(grimm);
 		}
-		world.scheduleUpdate(pos, this, 1);
+		world.scheduleUpdate(pos, this, this.tickRate);
 	}
 
 	private EntityMob getGrimm(int i, World world) {
