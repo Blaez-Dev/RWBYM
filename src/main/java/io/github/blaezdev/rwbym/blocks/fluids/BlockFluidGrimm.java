@@ -53,7 +53,7 @@ public class BlockFluidGrimm extends BlockFluidClassic {
 	@Override
 	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
 		super.updateTick(world, pos, state, rand);
-		if (!world.isRemote && rand.nextInt(RWBYConfig.grimmFluidSpawnRate) == 0) {
+		if (!world.isRemote && rand.nextInt(RWBYConfig.grimmFluidSpawnRate/tickRate) == 0) {
 			EntityMob grimm = getGrimm(rand.nextInt(9) + 1, world);
 			grimm.setPositionAndRotation(pos.getX(), pos.getY(), pos.getZ(), 0, 0);
 			world.spawnEntity(grimm);

@@ -916,6 +916,7 @@ public class RegUtil {
             				return new ModelResourceLocation(state.getBlock().getRegistryName(), "fluid");
             			}
 					});
+            		ModelLoader.setCustomModelResourceLocation(itemblock, 0, new ModelResourceLocation(block.getRegistryName(), "inventory"));
             	}
             	else {
             		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block),0, new ModelResourceLocation(block.getRegistryName(),"inventory"));

@@ -1,6 +1,7 @@
 package io.github.blaezdev.rwbym.utility;
 
 import io.github.blaezdev.rwbym.RWBYModels;
+import io.github.blaezdev.rwbym.Init.RWBYFluids;
 import io.github.blaezdev.rwbym.Init.RWBYItems;
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.ConfigManager;
@@ -102,9 +103,9 @@ public class RWBYConfig
     @Config.Comment("Enable Lancer Queens to Spawn anywhere dark")
     public static boolean lancernests = false;
     @Config.Name("Grimm Fluid Spawn Rate")
-    @Config.Comment("one in x chance to spawn a grimm every 5 ticks for each block")
+    @Config.Comment("One in x chance to spawn a grimm every tick for each block.")
     @Config.RangeInt(min = 0)
-    public static int grimmFluidSpawnRate = 10000;
+    public static int grimmFluidSpawnRate = 50000;
 
 
 

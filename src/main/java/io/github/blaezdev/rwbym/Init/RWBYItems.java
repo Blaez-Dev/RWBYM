@@ -4557,7 +4557,9 @@ public class RWBYItems {
     		.setRegistryName(RWBYModels.MODID, "hrdltfence")
     		.setUnlocalizedName("hrdltfence")
     		.setCreativeTab(RWBYCreativeTabs.tab_rwbyitems);
-    public static final Block fluidGrimm = new BlockFluidGrimm(RWBYFluids.GRIMM, Material.WATER).setRegistryName(new ResourceLocation(RWBYModels.MODID, "fluidgrimm")).setUnlocalizedName("fluidgrimm");
+    public static final Block fluidGrimm = new BlockFluidGrimm(RWBYFluids.GRIMM, Material.WATER)
+    		.setQuantaPerBlock(5)
+    		.setRegistryName(new ResourceLocation(RWBYModels.MODID, "fluidgrimm")).setUnlocalizedName("fluidgrimm");
     
     //Armour
 
