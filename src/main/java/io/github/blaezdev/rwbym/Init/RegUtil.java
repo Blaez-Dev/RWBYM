@@ -259,6 +259,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.heroshield);
         registerItems(event, RWBYItems.rageshield);
         registerItems(event, RWBYItems.grimmbody);
+        registerItems(event, RWBYItems.grimmhead);
         registerItems(event, RWBYItems.kyoshiwind);
         registerItems(event, RWBYItems.kyoshiice);
         registerItems(event, RWBYItems.kyoshigrav);

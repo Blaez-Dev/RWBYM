@@ -1121,14 +1121,14 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             EntityEvokerFangs entity = new EntityEvokerFangs(target.world);
             entity.setPosition(target.posX, target.posY, target.posZ);
             target.world.spawnEntity(entity);
-            target.attackEntityFrom(DamageSource.DRAGON_BREATH, 14);
+            target.attackEntityFrom(DamageSource.DRAGON_BREATH, 50);
             PotionEffect potioneffect1 = new PotionEffect(MobEffects.WITHER, 200, 10, true, true);
             target.addPotionEffect(potioneffect1);
 
             if (attacker instanceof EntityPlayer) {
                 EntityPlayer entityplayer = (EntityPlayer) attacker;
             if (entityplayer.hasCapability(AuraProvider.AURA_CAP, null)) {
-                entityplayer.getCapability(AuraProvider.AURA_CAP, null).useAura(entityplayer, 10F, false);
+                entityplayer.getCapability(AuraProvider.AURA_CAP, null).useAura(entityplayer, 100F, false);
                 entityplayer.getCapability(AuraProvider.AURA_CAP, null).delayRecharge(60);
             }}
 

@@ -3487,6 +3487,7 @@ public class RWBYItems {
     public static final Item kag = new RWBYLimbItem("kag", "Tail");
     public static final Item kag2 = new RWBYLimbItem("kag2", "Tail");
     public static final Item grimmbody = new RWBYLimbItem("grimmbody", "Body");
+    public static final Item grimmhead = new RWBYLimbItem("grimmhead", "Head");
 
     //------------------------------------------------//
     public static final Item wallet = new RWBYContainerItem(
