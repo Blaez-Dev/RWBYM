@@ -455,13 +455,25 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         }
         if(stack.getItem() == RWBYItems.bangle){tooltip.add(" "); tooltip.add(ChatFormatting.BLUE+"-" +  "Hums with a Faint Energy");}
         if(stack.getItem() == RWBYItems.hbangle){tooltip.add(" "); tooltip.add(ChatFormatting.BLUE +"-" +  "Hums with a Faint Dark Energy");}
-
+        if(stack.getItem() == RWBYItems.leafshield){tooltip.add(" "); tooltip.add(ChatFormatting.BLUE +  "Collection Skill + 1");}
+        if(stack.getItem() == RWBYItems.leafshield){tooltip.add(" "); tooltip.add(ChatFormatting.WHITE +  "Vegetation Yields Double the Yield");}
+        if(stack.getItem() == RWBYItems.pickaxeshield){tooltip.add(" "); tooltip.add(ChatFormatting.BLUE +  "Mining Skill + 1");}
+        if(stack.getItem() == RWBYItems.pickaxeshield){tooltip.add(" "); tooltip.add(ChatFormatting.WHITE +  "Your Reflexes and Eyesight adjust to make mining easier.");}
         super.addInformation(stack, worldIn, tooltip, flagIn);
     }
 
     @Override
     public boolean canHarvestBlock(IBlockState state, ItemStack stack) {
-        if((weapontype % (AXE|PICKAXE|TOOL)) !=0){return true;}else return false;
+        if((weapontype & AXE) !=0){
+            Material material = state.getMaterial();
+            return state.getMaterial() == Material.WOOD && material != Material.PLANTS && material != Material.VINE;}
+        else if((weapontype & PICKAXE) !=0){
+            Material material = state.getMaterial();
+            return state.getMaterial() == Material.IRON && material != Material.ANVIL && material != Material.ROCK;}
+        else if(stack.getItem() == RWBYItems.leafshield){Material material = state.getMaterial();
+            return state.getMaterial() == Material.PLANTS && material != Material.VINE;
+        }
+        else return false;
     }
 
 
@@ -525,7 +537,6 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         }
 
 
-
         if (!world.isRemote && this.data != null) {
             NBTTagCompound atag = is.getTagCompound();
             if (atag == null) atag = new NBTTagCompound();
@@ -548,9 +559,23 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         if((weapontype & (SANREI|LETZT|AURAWEAP)) !=0){
             EntityPlayer player = (EntityPlayer) entity;
             if((weapontype & (SANREI|AURAWEAP)) !=0){
-            player.getCapability(AuraProvider.AURA_CAP, null).useAura(player, 0.1F, false);}
+            player.getCapability(AuraProvider.AURA_CAP, null).useAura(player, 0.15F, false);}
+            if(is.getItem() == RWBYItems.leafshield){
+                player.getCapability(AuraProvider.AURA_CAP, null).useAura(player, 0.05F,false);
+            }
+            if(is.getItem() == RWBYItems.pickaxeshield){
+                PotionEffect potioneffect1 = new PotionEffect(MobEffects.NIGHT_VISION, 20, 1, false, false);
+                PotionEffect potioneffect2 = new PotionEffect(MobEffects.HASTE, 20, 1, false, false);
+                player.addPotionEffect(potioneffect1);
+                player.addPotionEffect(potioneffect2);
+            }
+            if(is.getItem() == RWBYItems.rageshield){
+                PotionEffect potioneffect = new PotionEffect(MobEffects.FIRE_RESISTANCE, 20, 1, false, false);
+                player.getCapability(AuraProvider.AURA_CAP, null).useAura(player, 0.1F,false);
+                player.addPotionEffect(potioneffect);
+            }
             if((weapontype & LETZT) !=0){
-                player.getCapability(AuraProvider.AURA_CAP, null).useAura(player, 0.2F, false);
+                player.getCapability(AuraProvider.AURA_CAP, null).useAura(player, 0.3F, false);
             }
             if(player.getCapability(AuraProvider.AURA_CAP, null).getAmount() < 1F && player.getHeldItem(EnumHand.MAIN_HAND) == is ){
                 is = new ItemStack(Item.getByNameOrId(this.morph), is.getCount(), is.getMetadata());
@@ -607,10 +632,13 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             if((weapontype & AXE) !=0){
             Material material = state.getMaterial();
             return material != Material.WOOD && material != Material.PLANTS && material != Material.VINE ? super.getDestroySpeed(stack, state) : 5F;}
-            else if((weapontype & TOOL) !=0) {return 5F;}
+            //else if((weapontype & TOOL) !=0) {return 5F;}
             else if((weapontype & PICKAXE) !=0){
                 Material material = state.getMaterial();
                 return material != Material.IRON && material != Material.ANVIL && material != Material.ROCK ? super.getDestroySpeed(stack, state) : 5F;}
+            else if(stack.getItem() == RWBYItems.leafshield){Material material = state.getMaterial();
+                return material != Material.PLANTS && material != Material.VINE ? super.getDestroySpeed(stack, state) : 5F;
+            }
             else return 0;
     }
 

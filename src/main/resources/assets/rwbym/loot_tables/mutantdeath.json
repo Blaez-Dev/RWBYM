@@ -33,6 +33,11 @@
           "name": "rwbym:rgrimmarm",
           "weight":20,
           "count": 1
+        },	{
+          "type": "item",
+          "name": "rwbym:grimmhead",
+          "weight":20,
+          "count": 1
         },		{
           "type": "item",
           "name": "rwbym:lgrimmarm",

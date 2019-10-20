@@ -560,6 +560,10 @@ item.rwbym:amberstafffire.name=Amber's Staff
 item.rwbym:amberstaffwind.name=Amber's Staff
 item.rwbym:amesardent.name=§6Âmes Ardente
 item.rwbym:amesardentgun.name=§6Âmes Ardente
+item.rwbym:grimmhead.name=Grimm Head
+item.rwbym:leafshield.name=§6Leaf Shield
+item.rwbym:pickaxeshield.name=§6Pick-Axe Shield
+fluid.grimm=Grimm
 
 effect.aura_regen=Aura Regen
 potion.effect.aura_regen=Potion of Aura Regen

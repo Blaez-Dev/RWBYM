@@ -55,18 +55,7 @@ public class EntityApathy extends EntityGrimm {
     @Override
     public void onLivingUpdate() {
         super.onLivingUpdate();
-        this.cooldown --;
-        if(cooldown <0){
-            AxisAlignedBB axisalignedbb = this.getEntityBoundingBox().grow(3,3,3);
-            this.cooldown = 120;
-            List<EntityPlayer> list = this.world.<EntityPlayer>getEntitiesWithinAABB(EntityPlayer.class, axisalignedbb);
-
-            for (EntityPlayer entityplayer : list)
-            {
-                entityplayer.addPotionEffect(new PotionEffect(MobEffects.BLINDNESS, 120, 1, true, true));
-            }
         AxisAlignedBB axisalignedbb2 = this.getEntityBoundingBox().grow(10,10,10);
-            this.cooldown = 120;
         List<EntityPlayer> list2 = this.world.<EntityPlayer>getEntitiesWithinAABB(EntityPlayer.class, axisalignedbb2);
 
         for (EntityPlayer entityplayer : list2)
@@ -76,8 +65,6 @@ public class EntityApathy extends EntityGrimm {
         }}
 
 
-
-    }
 
     protected ResourceLocation getLootTable() {
         return ModLootTables.Boarbatusk;

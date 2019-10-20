@@ -10,10 +10,14 @@ import io.github.blaezdev.rwbym.utility.RWBYConfig;
 import io.github.blaezdev.rwbym.utility.network.MessageSendPlayerData;
 import io.github.blaezdev.rwbym.utility.network.RWBYNetworkHandler;
 import io.github.blaezdev.rwbym.weaponry.RWBYItem;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionEffect;
@@ -24,12 +28,14 @@ import net.minecraft.world.gen.feature.WorldGeneratorBonusChest;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent.Clone;
+import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerRespawnEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.common.network.FMLNetworkEvent.ClientConnectedToServerEvent;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class EntityUpdatesHandler {
@@ -80,6 +86,22 @@ public class EntityUpdatesHandler {
 			otheraura.setAmount(otheraura.getMaxAura());
 		}
 	}
+
+	@SubscribeEvent
+	public void onBlockDropItems(BlockEvent.HarvestDropsEvent event) {
+		if(event.getHarvester() instanceof EntityPlayer){
+			EntityPlayer player = (EntityPlayer) event.getHarvester();
+		if(event.getState().getBlock().getMaterial(null) == Material.PLANTS && player.getHeldItemMainhand().getItem() == RWBYItems.leafshield|| event.getState().getBlock().getMaterial(null) == Material.PLANTS && player.getHeldItemOffhand().getItem() == RWBYItems.leafshield){
+			List<ItemStack> drops = new ArrayList<ItemStack>();
+			drops.addAll(event.getDrops());
+			for (int i = 0; i < 1; ++i) {
+				event.setDropChance(1.0F);
+				event.getDrops().addAll(drops);
+			}
+		}}
+
+	}
+
 
 
 	@SubscribeEvent
