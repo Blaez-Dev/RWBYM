@@ -7,6 +7,7 @@ import io.github.blaezdev.rwbym.capabilities.Aura.AuraProvider;
 import com.google.common.collect.Multimap;
 import com.mojang.realmsclient.gui.ChatFormatting;
 import mcp.MethodsReturnNonnullByDefault;
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.resources.I18n;
@@ -438,7 +439,10 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         if(grimm){tooltip.add(ChatFormatting.BLUE + "-"+ "Grimm Weapon");}
          if((weapontype & (AURAWEAP|LETZT|SANREI)) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Aura Based Weapon");}
          if(recoil == 4){tooltip.add(ChatFormatting.BLUE + "-"+ "Wall Climbing Capable");}
-         if(isShield||canBlock){
+        if(recoil == 3){tooltip.add(ChatFormatting.BLUE + "-"+ "Dashes Forward When no ammo is present.");}
+        if(recoil == 2){tooltip.add(ChatFormatting.BLUE + "-"+ "Weak Shot Recoil - Propelling Player Backwards");}
+        if(recoil == 1){tooltip.add(ChatFormatting.BLUE + "-"+ "Large Shot Recoil - Propelling Player Backwards");}
+        if(isShield||canBlock){
              if(isShield&&!canBlock){tooltip.add(ChatFormatting.BLUE + "-"+ "Blocks in Both Mainhand & Offhand");}
              if(!isShield&&canBlock){tooltip.add(ChatFormatting.BLUE + "-"+ "Blocks in Mainhand Only");}
              if(isShield&&canBlock){tooltip.add(ChatFormatting.BLUE + "-"+ "Blocks in Both Mainhand & Offhand");}
@@ -464,13 +468,13 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
     @Override
     public boolean canHarvestBlock(IBlockState state, ItemStack stack) {
+        Block block = state.getBlock();
+        Material material = block.getMaterial(state);
         if((weapontype & AXE) !=0){
-            Material material = state.getMaterial();
             return state.getMaterial() == Material.WOOD && material != Material.PLANTS && material != Material.VINE;}
         else if((weapontype & PICKAXE) !=0){
-            Material material = state.getMaterial();
             return state.getMaterial() == Material.IRON && material != Material.ANVIL && material != Material.ROCK;}
-        else if(stack.getItem() == RWBYItems.leafshield){Material material = state.getMaterial();
+        else if(stack.getItem() == RWBYItems.leafshield){
             return state.getMaterial() == Material.PLANTS && material != Material.VINE;
         }
         else return false;
@@ -628,15 +632,14 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
     @Override
     public float getDestroySpeed(ItemStack stack, IBlockState state) {
-
+        Block block = state.getBlock();
+        Material material = block.getMaterial(state);
             if((weapontype & AXE) !=0){
-            Material material = state.getMaterial();
             return material != Material.WOOD && material != Material.PLANTS && material != Material.VINE ? super.getDestroySpeed(stack, state) : 5F;}
             //else if((weapontype & TOOL) !=0) {return 5F;}
             else if((weapontype & PICKAXE) !=0){
-                Material material = state.getMaterial();
                 return material != Material.IRON && material != Material.ANVIL && material != Material.ROCK ? super.getDestroySpeed(stack, state) : 5F;}
-            else if(stack.getItem() == RWBYItems.leafshield){Material material = state.getMaterial();
+            else if(stack.getItem() == RWBYItems.leafshield){
                 return material != Material.PLANTS && material != Material.VINE ? super.getDestroySpeed(stack, state) : 5F;
             }
             else return 0;
