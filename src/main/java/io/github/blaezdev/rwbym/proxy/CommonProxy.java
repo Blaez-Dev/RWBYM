@@ -4,6 +4,7 @@ import io.github.blaezdev.rwbym.Init.Oregen;
 import io.github.blaezdev.rwbym.RWBYModels;
 import io.github.blaezdev.rwbym.entity.EntityRagora;
 import com.mojang.authlib.GameProfile;
+import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
@@ -11,6 +12,7 @@ import net.minecraft.server.management.PlayerInteractionManager;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import java.util.UUID;
@@ -22,7 +24,7 @@ import java.util.UUID;
  */
 public abstract class CommonProxy {
 
-    public void preInit() {
+    public void preInit(FMLPreInitializationEvent event) {
     }
 
     public void registerRenderers(RWBYModels ins) {
@@ -59,6 +61,12 @@ public abstract class CommonProxy {
 	public abstract EntityPlayer getClientPlayer();
 
 	public abstract void showGuiScreen(Object clientGuiElement);
+
+	private static void registerBlocksmodel(FMLPreInitializationEvent event, Block...blocks){}
+
+	public static void registerall(FMLPreInitializationEvent event){
+
+	}
 
 
 }

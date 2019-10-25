@@ -150,7 +150,7 @@ public class RWBYModels {
         RegUtil.registerGamePotions();
         MinecraftForge.EVENT_BUS.register(this);
         if (items != null) items.forEach(ICustomItem::register);
-        proxy.preInit();
+        proxy.preInit(event);
     }
 
 

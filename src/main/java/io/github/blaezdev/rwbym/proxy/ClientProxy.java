@@ -1,5 +1,6 @@
 package io.github.blaezdev.rwbym.proxy;
 
+import io.github.blaezdev.rwbym.Init.RWBYItems;
 import io.github.blaezdev.rwbym.PlayerRenderHandler;
 import io.github.blaezdev.rwbym.RWBYModels;
 import io.github.blaezdev.rwbym.client.particle.RenderEvents;
@@ -12,18 +13,27 @@ import io.github.blaezdev.rwbym.utility.RWBYMath;
 import io.github.blaezdev.rwbym.weaponry.ICustomItem;
 import io.github.blaezdev.rwbym.weaponry.RWBYAmmoRender;
 import com.mojang.authlib.GameProfile;
+import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityOtherPlayerMP;
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.renderer.block.statemap.StateMapperBase;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntitySkull;
 import net.minecraft.world.World;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fluids.BlockFluidBase;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
+import net.minecraftforge.fml.relauncher.Side;
 
 import java.lang.reflect.Field;
 import java.util.Map;
@@ -41,7 +51,7 @@ public class ClientProxy extends CommonProxy {
 
 
     @Override
-    public void preInit() {
+    public void preInit(FMLPreInitializationEvent event) {
         RenderingRegistry.registerEntityRenderingHandler(EntityBullet.class, RWBYAmmoRender::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityBeowolf.class, BeowolfRender.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(EntityAtlasKnight.class, AtlasKnightRender.FACTORY);
@@ -76,8 +86,29 @@ public class ClientProxy extends CommonProxy {
         RenderingRegistry.registerEntityRenderingHandler(EntityRen.class, RenRender.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(EntityRagora.class, RagoraRender.FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(EntityArmourStore.class, ArmourStoreRender.FACTORY);
+		registerBlockmodel(event, RWBYItems.fluidGrimm);
         MinecraftForge.EVENT_BUS.register(new TextureStitcher());
     }
+
+    public static void registerall(FMLPreInitializationEvent event){
+
+	}
+
+    private static void registerBlockmodel(FMLPreInitializationEvent event, Block...blocks){
+		for (Block block : blocks) {
+			final ItemBlock itemblock = new ItemBlock(block);
+
+               if (event.getSide() == Side.CLIENT) {
+            	if (block instanceof BlockFluidBase) {
+            		ModelLoader.setCustomStateMapper(block, new StateMapperBase() {
+            			@Override
+            			protected ModelResourceLocation getModelResourceLocation(IBlockState state) {
+            				return new ModelResourceLocation(state.getBlock().getRegistryName(), "fluid");
+            			}
+					});
+            		ModelLoader.setCustomModelResourceLocation(itemblock, 0, new ModelResourceLocation(block.getRegistryName(), "inventory"));
+            	}
+            	}}}
 
     @Override
     public void init() {

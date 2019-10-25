@@ -912,16 +912,8 @@ public class RegUtil {
             ForgeRegistries.BLOCKS.register(block);
             ForgeRegistries.ITEMS.register(itemblock);
             if (event.getSide() == Side.CLIENT) {
-            	if (block instanceof BlockFluidBase) {
-            		ModelLoader.setCustomStateMapper(block, new StateMapperBase() {
-            			@Override
-            			protected ModelResourceLocation getModelResourceLocation(IBlockState state) {
-            				return new ModelResourceLocation(state.getBlock().getRegistryName(), "fluid");
-            			}
-					});
-            		ModelLoader.setCustomModelResourceLocation(itemblock, 0, new ModelResourceLocation(block.getRegistryName(), "inventory"));
-            	}
-            	else {
+
+            	{
             		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block),0, new ModelResourceLocation(block.getRegistryName(),"inventory"));
             	}//System.out.println("Model Registered");
             }
