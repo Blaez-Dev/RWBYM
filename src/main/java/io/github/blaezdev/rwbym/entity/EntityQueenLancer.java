@@ -73,7 +73,7 @@ public class EntityQueenLancer extends EntityGrimm
         @Override
         public boolean getCanSpawnHere()
         {
-            return this.world.canSeeSky(new BlockPos(this.posX, this.posY + (double)this.getEyeHeight(), this.posZ))||RWBYConfig.lancernests;
+            return this.world.canSeeSky(new BlockPos(this.posX, this.posY + (double)this.getEyeHeight(), this.posZ))&& this.world.isDaytime() == false||RWBYConfig.lancernests;
         }
 
     /**
@@ -98,7 +98,7 @@ public class EntityQueenLancer extends EntityGrimm
     }
 
     protected boolean canDespawn() {
-        return false;
+        return true;
     }
 
     protected void initEntityAI()

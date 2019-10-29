@@ -468,16 +468,17 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
     @Override
     public boolean canHarvestBlock(IBlockState state, ItemStack stack) {
-        Block block = state.getBlock();
+        /*Block block = state.getBlock();
         Material material = block.getMaterial(state);
+        System.out.println(weapontype + material.toString());
         if((weapontype & AXE) !=0){
             return state.getMaterial() == Material.WOOD && material != Material.PLANTS && material != Material.VINE;}
-        else if((weapontype & PICKAXE) !=0){
+        if((weapontype & PICKAXE) !=0){
             return state.getMaterial() == Material.IRON && material != Material.ANVIL && material != Material.ROCK;}
-        else if(stack.getItem() == RWBYItems.leafshield){
+        if(stack.getItem() == RWBYItems.leafshield){
             return state.getMaterial() == Material.PLANTS && material != Material.VINE;
         }
-        else return false;
+        else*/ return true;
     }
 
 
@@ -634,15 +635,17 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     public float getDestroySpeed(ItemStack stack, IBlockState state) {
         Block block = state.getBlock();
         Material material = block.getMaterial(state);
+        //System.out.println(weapontype + material.toString());
             if((weapontype & AXE) !=0){
-            return material != Material.WOOD && material != Material.PLANTS && material != Material.VINE ? super.getDestroySpeed(stack, state) : 5F;}
+            return material != Material.WOOD && material != Material.PLANTS && material != Material.VINE ? -9999F : 5F;}
             //else if((weapontype & TOOL) !=0) {return 5F;}
             else if((weapontype & PICKAXE) !=0){
-                return material != Material.IRON && material != Material.ANVIL && material != Material.ROCK ? super.getDestroySpeed(stack, state) : 5F;}
+                return material != Material.IRON && material != Material.ANVIL && material != Material.ROCK ? -9999F : 5F;}
             else if(stack.getItem() == RWBYItems.leafshield){
-                return material != Material.PLANTS && material != Material.VINE ? super.getDestroySpeed(stack, state) : 5F;
-            }
-            else return 0;
+                return material != Material.PLANTS && material != Material.VINE ? -9999F : 5F;
+            }else return 0F;
+
+
     }
 
 

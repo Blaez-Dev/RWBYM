@@ -97,6 +97,7 @@ public class EntityUpdatesHandler {
 			for (int i = 0; i < 1; ++i) {
 				event.setDropChance(1.0F);
 				event.getDrops().addAll(drops);
+				System.out.println(event.getDrops().toString());
 			}
 		}}
 

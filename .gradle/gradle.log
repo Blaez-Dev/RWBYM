@@ -12,7 +12,7 @@ Note: Recompile with -Xlint:deprecation for details.
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
 
-:processResources
+:processResources UP-TO-DATE
 :classes
 :jar
 :sourceTestJava UP-TO-DATE
@@ -38,4 +38,4 @@ remapping source...
 
 BUILD SUCCESSFUL
 
-Total time: 21.169 secs
+Total time: 15.079 secs
