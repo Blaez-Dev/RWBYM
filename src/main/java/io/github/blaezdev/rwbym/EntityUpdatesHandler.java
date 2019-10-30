@@ -6,6 +6,7 @@ import io.github.blaezdev.rwbym.capabilities.Aura.AuraProvider;
 import io.github.blaezdev.rwbym.capabilities.Aura.IAura;
 import io.github.blaezdev.rwbym.capabilities.CapabilityHandler;
 import io.github.blaezdev.rwbym.capabilities.ISemblance;
+import io.github.blaezdev.rwbym.entity.EntityBullet;
 import io.github.blaezdev.rwbym.entity.EntityGrimm;
 import io.github.blaezdev.rwbym.utility.RWBYConfig;
 import io.github.blaezdev.rwbym.utility.network.MessageSendPlayerData;
@@ -17,6 +18,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.Item;
@@ -43,6 +45,7 @@ import net.minecraftforge.fml.common.network.FMLNetworkEvent.ClientConnectedToSe
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class EntityUpdatesHandler {
 
@@ -115,25 +118,39 @@ public class EntityUpdatesHandler {
 		Entity entity = event.getEntity();
 		World world = event.getEntity().getEntityWorld();
 		BlockPos pos = event.getEntity().getPosition();
-		ItemStack stack = new ItemStack(RWBYItems.peach);
-		ItemStack x = new ItemStack(RWBYItems.lichtroze_closedfire);
-		ItemStack y = new ItemStack(RWBYItems.lichtroze_closedice);
-		ItemStack z = new ItemStack(RWBYItems.lichtroze_closedwind);
-
+		ArrayList<Item> itemset1 = new ArrayList<>();
+		itemset1.add(RWBYItems.lichtroze_closedfire);
+		itemset1.add(RWBYItems.lichtroze_closedice);
+		itemset1.add(RWBYItems.lichtroze_closedwind);
+		ArrayList<Item> itemset2 = new ArrayList<>();
+		itemset2.add(RWBYItems.heroshield);
+		itemset2.add(RWBYItems.leafshield);
+		itemset2.add(RWBYItems.pickaxeshield);
+		itemset2.add(RWBYItems.rageshield);
 		Entity killer = event.getSource().getTrueSource();
 		if (event.getSource().getDamageType().equals("player"))
 		{
 		if(entity instanceof EntityGrimm && killer instanceof EntityPlayer){
 			EntityPlayer player = (EntityPlayer) event.getSource().getTrueSource();
-			if(player.getHeldItem(EnumHand.MAIN_HAND).getItem() == x.getItem() || player.getHeldItem(EnumHand.MAIN_HAND).getItem() ==  y.getItem() || player.getHeldItem(EnumHand.MAIN_HAND).getItem() ==  z.getItem()){
-			EntityItem itemDropX = new EntityItem(world, pos.getX()+.5, pos.getY()+.5, pos.getZ()+.5, stack);
-
-//			world.spawnEntityInWorld(itemDropX);
-
-			event.getDrops().add(itemDropX);
-
-		}}}
+			//mh equals the item held by the Player
+			Item mh = player.getHeldItem(EnumHand.MAIN_HAND).getItem();
+			if(itemset1.contains(mh)){
+				ItemStack stack = new ItemStack(RWBYItems.peach);
+				EntityItem itemDropX = new EntityItem(world, pos.getX()+.5, pos.getY()+.5, pos.getZ()+.5, stack);
+				event.getDrops().add(itemDropX);
+			}
+			if(itemset2.contains(mh)){
+				ItemStack stack = new ItemStack(RWBYItems.remnants);
+				EntityItem itemDrop1 = new EntityItem(world, pos.getX()+.5, pos.getY()+.5, pos.getZ()+.5, stack);
+				EntityItem itemDrop2 = new EntityItem(world, pos.getX()+.5, pos.getY()+.5, pos.getZ()+.5, stack);
+				event.getDrops().add(itemDrop1);
+				event.getDrops().add(itemDrop2);
+			}
+		}
+		}
 	}
+
+
 
 
 
