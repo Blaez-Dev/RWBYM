@@ -52,7 +52,7 @@ public class RWBYFood extends Item implements ICustomItem {
         if(food6){
             maxStackSize = 1;
         }
-        if(food == 14 || food == 15){
+        if(food == 14 || food == 15|| food == 16){
             maxStackSize = 64;
         }
     }
@@ -214,6 +214,10 @@ public class RWBYFood extends Item implements ICustomItem {
                 entityplayer.addPotionEffect(potioneffect2);
                 PotionEffect potionEffect3 = new PotionEffect(RegUtil.AURA_REGEN, 2400, 0);
                 entityLiving.addPotionEffect(potionEffect3);
+            }
+            if (food == 16) {
+                //Peach
+                entityplayer.heal(2.5F);
             }
         }
         if(food6){

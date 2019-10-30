@@ -414,6 +414,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.wine);
         registerItems(event, RWBYItems.fishramen);
         registerItems(event, RWBYItems.ramen);
+        registerItems(event, RWBYItems.peach);
         //repair items
         registerBlocks(event, RWBYItems.rwbyblock8);
         registerItems(event, RWBYItems.scrap);

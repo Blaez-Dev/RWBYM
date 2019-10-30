@@ -3574,6 +3574,7 @@ public class RWBYItems {
     public static final Item wine = new RWBYFood("wine",null, 13, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item fishramen = new RWBYFood("fishramen",null, 14, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item ramen = new RWBYFood("ramen",null, 15, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item peach = new RWBYFood("peach",null, 16, RWBYCreativeTabs.tab_rwbyitems);
 
     //-----------------------------------------------//
     public static final Item entitybullet = new RWBYItem("entitybullet", null, false, null);

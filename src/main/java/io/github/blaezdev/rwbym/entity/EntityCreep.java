@@ -2,15 +2,13 @@ package io.github.blaezdev.rwbym.entity;
 
 import io.github.blaezdev.rwbym.ModLootTables;
 import io.github.blaezdev.rwbym.utility.RWBYConfig;
-import net.minecraft.entity.EntityCreature;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EnumCreatureAttribute;
-import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntityVindicator;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
@@ -84,6 +82,23 @@ public class EntityCreep extends EntityGrimm {
         }
     }
 
+    public boolean attackEntityAsMob(Entity entityIn)
+    {
+        this.world.setEntityState(this, (byte)4);
+        boolean flag = entityIn.attackEntityFrom(DamageSource.causeMobDamage(this), 0);
+
+        if (flag)
+        {
+            if (!this.world.isRemote)
+            {
+                this.dead = true;
+                this.world.createExplosion(this, this.posX, this.posY, this.posZ, 2F, flag);
+                this.setDead();
+            }
+        }
+
+        return flag;
+    }
 
 
 
@@ -112,5 +127,7 @@ public class EntityCreep extends EntityGrimm {
     protected float getSoundVolume() {
         return 1.0F;
     }
+
+
 
 }

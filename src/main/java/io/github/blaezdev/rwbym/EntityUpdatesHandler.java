@@ -6,12 +6,14 @@ import io.github.blaezdev.rwbym.capabilities.Aura.AuraProvider;
 import io.github.blaezdev.rwbym.capabilities.Aura.IAura;
 import io.github.blaezdev.rwbym.capabilities.CapabilityHandler;
 import io.github.blaezdev.rwbym.capabilities.ISemblance;
+import io.github.blaezdev.rwbym.entity.EntityGrimm;
 import io.github.blaezdev.rwbym.utility.RWBYConfig;
 import io.github.blaezdev.rwbym.utility.network.MessageSendPlayerData;
 import io.github.blaezdev.rwbym.utility.network.RWBYNetworkHandler;
 import io.github.blaezdev.rwbym.weaponry.RWBYItem;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -21,11 +23,15 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.WorldSettings;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.WorldGeneratorBonusChest;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
+import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent.Clone;
 import net.minecraftforge.event.world.BlockEvent;
@@ -101,6 +107,32 @@ public class EntityUpdatesHandler {
 			}
 		}}
 
+	}
+
+	@SubscribeEvent
+	public void onLivingDropsEvent(LivingDropsEvent event) {
+
+		Entity entity = event.getEntity();
+		World world = event.getEntity().getEntityWorld();
+		BlockPos pos = event.getEntity().getPosition();
+		ItemStack stack = new ItemStack(RWBYItems.peach);
+		ItemStack x = new ItemStack(RWBYItems.lichtroze_closedfire);
+		ItemStack y = new ItemStack(RWBYItems.lichtroze_closedice);
+		ItemStack z = new ItemStack(RWBYItems.lichtroze_closedwind);
+
+		Entity killer = event.getSource().getTrueSource();
+		if (event.getSource().getDamageType().equals("player"))
+		{
+		if(entity instanceof EntityGrimm && killer instanceof EntityPlayer){
+			EntityPlayer player = (EntityPlayer) event.getSource().getTrueSource();
+			if(player.getHeldItem(EnumHand.MAIN_HAND).getItem() == x.getItem() || player.getHeldItem(EnumHand.MAIN_HAND).getItem() ==  y.getItem() || player.getHeldItem(EnumHand.MAIN_HAND).getItem() ==  z.getItem()){
+			EntityItem itemDropX = new EntityItem(world, pos.getX()+.5, pos.getY()+.5, pos.getZ()+.5, stack);
+
+//			world.spawnEntityInWorld(itemDropX);
+
+			event.getDrops().add(itemDropX);
+
+		}}}
 	}
 
 
