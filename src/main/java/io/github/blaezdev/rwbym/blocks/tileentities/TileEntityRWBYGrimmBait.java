@@ -45,6 +45,7 @@ public class TileEntityRWBYGrimmBait extends TileEntity implements ITickable {
     	this.stopping = true;
     	
 		int i1 = rand.nextInt(100)+5;
+		if(wavecount > 17){
 		while (i1 > 0)
 		{
 			i1 --;
@@ -64,26 +65,45 @@ public class TileEntityRWBYGrimmBait extends TileEntity implements ITickable {
 
 			EntityItem item = new EntityItem(this.world, this.getPos().getX(), this.getPos().getY() + 1, this.getPos().getZ(), drops.get(rand.nextInt(drops.size())));
 			this.drops.add(item);
-		}
-		ArrayList<ItemStack> drops2 = new ArrayList<>();
-		drops2.add(new ItemStack(RWBYItems.grimmrapier, 1));
-		drops2.add(new ItemStack(RWBYItems.grimmscy, 1));
-		drops2.add(new ItemStack(RWBYItems.grimmwhip, 1));
-		drops2.add(new ItemStack(RWBYItems.noctustraumnormal, 1));
-		drops2.add(new ItemStack(RWBYItems.he1, 1));
-		drops2.add(new ItemStack(RWBYItems.he2, 1));
-		drops2.add(new ItemStack(RWBYItems.he3, 1));
-		drops2.add(new ItemStack(RWBYItems.he4, 1));
-		drops2.add(new ItemStack(RWBYItems.he5, 1));
-		drops2.add(new ItemStack(RWBYItems.he6, 1));
-		drops2.add(new ItemStack(RWBYItems.extasis, 1));
-		drops2.add(new ItemStack(RWBYItems.amesardent, 1));
-		drops2.add(new ItemStack(RWBYItems.lichtroze_closedfire, 1));
-		drops2.add(new ItemStack(RWBYItems.kyoshifire, 1));
+			ArrayList<ItemStack> drops2 = new ArrayList<>();
+			drops2.add(new ItemStack(RWBYItems.grimmrapier, 1));
+			drops2.add(new ItemStack(RWBYItems.grimmscy, 1));
+			drops2.add(new ItemStack(RWBYItems.grimmwhip, 1));
+			drops2.add(new ItemStack(RWBYItems.noctustraumnormal, 1));
+			drops2.add(new ItemStack(RWBYItems.he1, 1));
+			drops2.add(new ItemStack(RWBYItems.he2, 1));
+			drops2.add(new ItemStack(RWBYItems.he3, 1));
+			drops2.add(new ItemStack(RWBYItems.he4, 1));
+			drops2.add(new ItemStack(RWBYItems.he5, 1));
+			drops2.add(new ItemStack(RWBYItems.he6, 1));
+			drops2.add(new ItemStack(RWBYItems.extasis, 1));
+			drops2.add(new ItemStack(RWBYItems.amesardent, 1));
+			drops2.add(new ItemStack(RWBYItems.lichtroze_closedfire, 1));
+			drops2.add(new ItemStack(RWBYItems.kyoshifire, 1));
 
-		EntityItem item2 = new EntityItem(this.world, this.getPos().getX(), this.getPos().getY() + 1, this.getPos().getZ(), drops2.get(rand.nextInt(drops2.size())));
-		this.drops.add(item2);
+			EntityItem item2 = new EntityItem(this.world, this.getPos().getX(), this.getPos().getY() + 1, this.getPos().getZ(), drops2.get(rand.nextInt(drops2.size())));
+			this.drops.add(item2);
+		}}
+		if(wavecount < 17){
+		int i11 = rand.nextInt(20)+5;
+		while (i11 > 0)
+		{
+			i11 --;
+			ArrayList<ItemStack> drops3 = new ArrayList<>();
+			drops3.add(new ItemStack(RWBYItems.lien50, world.rand.nextInt(3) + 1));
+			drops3.add(new ItemStack(RWBYItems.lien100, world.rand.nextInt(3)+1));
+			drops3.add(new ItemStack(RWBYItems.remnants, rand.nextInt(3)+1));
+			drops3.add(new ItemStack(RWBYItems.waterblock, 1));
+			drops3.add(new ItemStack(RWBYItems.windblock, 1));
+			drops3.add(new ItemStack(RWBYItems.lightblock, 1));
+			drops3.add(new ItemStack(RWBYItems.fireblock, 1));
+			drops3.add(new ItemStack(RWBYItems.iceblock, 1));
+			drops3.add(new ItemStack(RWBYItems.impureblock, 1));
+			drops3.add(new ItemStack(RWBYItems.gravityblock, 1));
 
+			EntityItem item = new EntityItem(this.world, this.getPos().getX(), this.getPos().getY() + 1, this.getPos().getZ(), drops3.get(rand.nextInt(drops3.size())));
+			this.drops.add(item);
+		}}
     	this.wavecount = 0;
     	this.wavelist.clear();
     	this.player = null;
@@ -115,16 +135,24 @@ public class TileEntityRWBYGrimmBait extends TileEntity implements ITickable {
 					wavelist = this.getEntityList();
 				}
 			}
-			else {
+			else if(wavecount>17){
 				EntityItem item = drops.remove(0);
 				item.motionX = this.rand.nextGaussian() * 0.1;
 				item.motionZ = this.rand.nextGaussian() * 0.1;
 				item.motionY = 0.5;
-				this.world.spawnEntity(item);
+				this.world.spawnEntity(item);}
+				if (drops.isEmpty()) {
+					this.world.setBlockToAir(pos);
+				}else if(wavecount < 17){
+					EntityItem item = drops.remove(0);
+					item.motionX = this.rand.nextGaussian() * 0.1;
+					item.motionZ = this.rand.nextGaussian() * 0.1;
+					item.motionY = 0.5;
+					this.world.spawnEntity(item);}
 				if (drops.isEmpty()) {
 					this.world.setBlockToAir(pos);
 				}
-			}
+
 		}
 	}
 	

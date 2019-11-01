@@ -5,19 +5,25 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
+import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraft.world.gen.structure.template.Template;
+import net.minecraftforge.event.terraingen.PopulateChunkEvent;
+import net.minecraftforge.event.terraingen.TerrainGen;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 public class Oregen implements IWorldGenerator{
-
+    private Random rand = new Random();
+    private static final List<Class<? extends Biome>> BIOMES = Arrays.asList(RWBYBiomes.GrimmWastes.getClass());
     //World Generators
     private WorldGenerator gravity_overworld;
     private WorldGenerator fire_overworld;
@@ -26,6 +32,7 @@ public class Oregen implements IWorldGenerator{
     private WorldGenerator water_overworld;
     private WorldGenerator light_overworld;
     private WorldGenerator ice_overworld;
+    private WorldGenLakes grimmfluid;
 
     public Oregen() {
         gravity_overworld = new WorldGenMinable(RWBYItems.rwbyblock1.getDefaultState(), 16);
@@ -35,6 +42,7 @@ public class Oregen implements IWorldGenerator{
         water_overworld = new WorldGenMinable(RWBYItems.rwbyblock5.getDefaultState(), 16);
         light_overworld = new WorldGenMinable(RWBYItems.rwbyblock6.getDefaultState(), 16);
         ice_overworld = new WorldGenMinable(RWBYItems.rwbyblock9.getDefaultState(), 16);
+        grimmfluid = new WorldGenLakes(RWBYItems.fluidGrimm);
     }
 
 
@@ -54,6 +62,27 @@ public class Oregen implements IWorldGenerator{
         }
     }
 
+
+    protected void fluidGenerator(IChunkGenerator generator, World world, int chunkX, int chunkZ, Biome biome) {
+
+        int globalX = chunkX << 4;
+        int globalZ = chunkZ << 4;
+
+        BlockPos pos = new BlockPos(globalX, 0, globalZ);
+        Class<? extends Biome> biomes = world.getBiome(pos).getClass();
+
+        if (BIOMES.contains(biomes) && this.rand.nextInt(6) == 0) {
+            if (TerrainGen.populate(generator, world, rand, globalX, globalZ, false, PopulateChunkEvent.Populate.EventType.LAKE)) {
+                int offsetX = rand.nextInt(16) + 8;
+                int offsetY = rand.nextInt(256);
+                int offsetZ = rand.nextInt(16) + 8;
+                (new WorldGenLakes(RWBYItems.fluidGrimm)).generate(world, rand, pos.add(offsetX, offsetY, offsetZ));
+            }
+        }
+    }
+
+
+
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator,
                          IChunkProvider ChunkProvider) {
@@ -68,6 +97,7 @@ public class Oregen implements IWorldGenerator{
                 this.runGenerator(water_overworld, world, random, chunkX, chunkZ, RWBYConfig.waterore, 0, 256); //BiomeOcean.class,BiomeBeach.class, BiomeMushroomIsland.class,BiomeSwamp.class
                 this.runGenerator(light_overworld, world, random, chunkX, chunkZ, RWBYConfig.lightore, 0, 256);//BiomeHills.class,BiomeMesa.class
                 this.runGenerator(ice_overworld, world, random, chunkX, chunkZ, RWBYConfig.iceore, 0, 256);
+                this.fluidGenerator(chunkGenerator,world, chunkX, chunkZ, RWBYBiomes.GrimmWastes);
                 generatestructure1(world, random, blockX + 8, blockZ + 8);
                 generatestructure2(world, random, blockX + 8, blockZ + 8);
                 generatestructure3(world, random, blockX + 8, blockZ + 8);
