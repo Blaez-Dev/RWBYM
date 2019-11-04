@@ -85,19 +85,16 @@ public class EntityCreep extends EntityGrimm {
     public boolean attackEntityAsMob(Entity entityIn)
     {
         this.world.setEntityState(this, (byte)4);
-        boolean flag = entityIn.attackEntityFrom(DamageSource.causeMobDamage(this), 0);
 
-        if (flag)
-        {
             if (!this.world.isRemote)
             {
+                boolean flag = net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.world, this);
                 this.dead = true;
                 this.world.createExplosion(this, this.posX, this.posY, this.posZ, 2F, flag);
                 this.setDead();
             }
-        }
 
-        return flag;
+        return true;
     }
 
 
