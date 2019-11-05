@@ -1,8 +1,10 @@
 package io.github.blaezdev.rwbym.weaponry;
 
+import com.mojang.realmsclient.gui.ChatFormatting;
 import io.github.blaezdev.rwbym.Init.RWBYCreativeTabs;
 import io.github.blaezdev.rwbym.Init.RegUtil;
 import io.github.blaezdev.rwbym.RWBYModels;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -22,6 +24,9 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.logging.log4j.LogManager;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 /**
  * Part of rwbym by Bluexin.
@@ -82,6 +87,68 @@ public class RWBYFood extends Item implements ICustomItem {
         return enchantment.type.canEnchantItem(Items.CAKE);
     }
 
+    @Override
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+        if (food == 1) {//Hot Chocolate
+            tooltip.add(ChatFormatting.BLUE +"-" +  "Regeneration and Health Boost for 1 minute.");
+        }
+        if (food == 2) {//Coffee
+            tooltip.add(ChatFormatting.BLUE +"-" +  "Speed and Haste for 1 minute.");
+        }
+        if (food == 3) {//Strawberry Sunrise
+            tooltip.add(ChatFormatting.BLUE +"-" +  "Speed, Resistance, and Strength for 1 minute");
+        }
+        if (food == 4) {//Grape Soda
+            tooltip.add(ChatFormatting.BLUE +"-" +  "Haste for 1 minute and Health Restore.");
+        }
+        if (food == 5) {//TorchQuick
+            tooltip.add(ChatFormatting.BLUE +"-" +  "a Tasty Energy Drink with none of the Horrible Side Effects!");
+
+        }
+        if (food == 6) {//Qrow's Flask
+            tooltip.add(ChatFormatting.BLUE +"-" +  "Smells Strong. Restores Saturation and Health");
+        }
+        if (food == 7) {//Sake
+            tooltip.add(ChatFormatting.BLUE +"-" +  "Invisibility for 1 minute.");
+
+        }
+        if (food == 8) {
+            //Coconut Milk
+            tooltip.add(ChatFormatting.BLUE +"-" +  "Jump Boost,Speed,Water Breathing and Night Vision for 1 minute.");
+        }
+
+        if (food == 9) {//Pancakes
+            tooltip.add(ChatFormatting.BLUE +"-" +  "Good Luck for 2 minutes, Aura Regen for 1 Minute and Restores Saturation");
+        }
+
+        if (food == 10) {
+            //Boubon
+            tooltip.add(ChatFormatting.BLUE +"-" +  "Absorption for 2 minutes.");
+        }
+
+        if (food == 11) {//Brandy
+            tooltip.add(ChatFormatting.BLUE +"-" +  "Strength and Aura Regen for 2 minutes.");
+        }
+
+        if (food == 12) {//Vodka
+            tooltip.add(ChatFormatting.BLUE +"-" +  "Strength for 2 minutes.");
+        }
+
+        if (food == 13) {//Wine
+            tooltip.add(ChatFormatting.BLUE +"-" +  "Strength and Speed for 2 minutes.");
+        }
+
+        if (food == 14) {//Fish Ramen
+            tooltip.add(ChatFormatting.BLUE +"-" +  "Aura Regen and Night Vision for 2 minutes and Restores Saturation.");
+        }
+
+        if (food == 15) {//Ramen
+            tooltip.add(ChatFormatting.BLUE +"-" +  "Aura Regen for 2 minutes and Restores Saturation.");
+        }
+        if (food == 16) {//Peach
+            tooltip.add(ChatFormatting.BLUE +"-" +  "Heals for 2.5 Hearts");
+        }
+    }
 
     public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entityLiving) {
         if (entityLiving instanceof EntityPlayer) {
@@ -228,12 +295,6 @@ public class RWBYFood extends Item implements ICustomItem {
         return stack;
     }
 
-    protected void onFoodEaten(ItemStack stack, World worldIn, EntityPlayer player) {
-        if(!worldIn.isRemote){
-            
-        }
-
-    }
 
     public int getMaxItemUseDuration(ItemStack stack) {
         return 32;

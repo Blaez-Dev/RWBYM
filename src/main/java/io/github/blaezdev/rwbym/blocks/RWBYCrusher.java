@@ -1,5 +1,6 @@
 package io.github.blaezdev.rwbym.blocks;
 
+import com.mojang.realmsclient.gui.ChatFormatting;
 import io.github.blaezdev.rwbym.Init.RWBYCreativeTabs;
 import io.github.blaezdev.rwbym.Init.RWBYItems;
 import io.github.blaezdev.rwbym.RWBYModels;
@@ -12,6 +13,7 @@ import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.InventoryHelper;
@@ -25,6 +27,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 
+import javax.annotation.Nullable;
+import java.util.List;
 import java.util.Random;
 
 import static io.github.blaezdev.rwbym.RWBYModels.GuiHandler.GUI.GUI_Crusher;
@@ -73,6 +77,12 @@ public class RWBYCrusher extends BlockBase
     public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state)
     {
         return new ItemStack(RWBYItems.crusher);
+    }
+
+    @Override
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+        tooltip.add(ChatFormatting.BLUE +"-" +  "Chisel Head is used for making cut dust crystals & volatile dust crystals which are stronger.");
+        tooltip.add(ChatFormatting.BLUE +"-" +  "Crusher Head is used for making dust powder double efficency of the furnace.");
     }
 
     @Override

@@ -55,6 +55,9 @@ public class Yang implements IYang {
 			
 			if (player.hasCapability(AuraProvider.AURA_CAP, null)) {
 				percentage = player.getCapability(AuraProvider.AURA_CAP, null).getPercentage();
+				if(percentage <0.01){
+					this.active = false;
+				}
 			}
 			else {
 				percentage = Math.min(player.getHealth()/player.getMaxHealth(), 1f);
@@ -68,7 +71,6 @@ public class Yang implements IYang {
 				player.addPotionEffect(potioneffect);
 				
 			}
-
 
 		}else 	
 			

@@ -499,6 +499,10 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         return ((weapontype & (SANREI | LETZT)) !=0) ? 72000 : this.drawSpeed;
     }
 
+    @Override
+    public boolean canDestroyBlockInCreative(World world, BlockPos pos, ItemStack stack, EntityPlayer player) {
+        return false;
+    }
 
     @Override
     public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {

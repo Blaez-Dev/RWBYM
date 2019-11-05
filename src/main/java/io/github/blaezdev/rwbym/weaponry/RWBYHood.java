@@ -6,6 +6,7 @@ import io.github.blaezdev.rwbym.RWBYModels;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -52,6 +53,11 @@ public class RWBYHood extends Item implements ICustomItem {
 
     }
 
+    @Override
+    public boolean canApplyAtEnchantingTable(ItemStack stack, net.minecraft.enchantment.Enchantment enchantment)
+    {
+        return enchantment.type.canEnchantItem(Items.DIAMOND_HELMET);
+    }
 
     @Override
     public boolean isValidArmor(ItemStack stack, EntityEquipmentSlot armorType, Entity entity) {

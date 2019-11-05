@@ -9,6 +9,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
@@ -155,6 +156,12 @@ public class ArmourBase extends ItemArmor {
                 playerIn.inventory.setInventorySlotContents(playerIn.inventory.currentItem, morph1);
             }}
         return super.onItemRightClick(worldIn, playerIn, hand);
+    }
+
+    @Override
+    public boolean canApplyAtEnchantingTable(ItemStack stack, net.minecraft.enchantment.Enchantment enchantment)
+    {
+        return enchantment.type.canEnchantItem(Items.DIAMOND_CHESTPLATE);
     }
 
     @Override
