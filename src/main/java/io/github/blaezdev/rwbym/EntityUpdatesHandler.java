@@ -163,9 +163,11 @@ public class EntityUpdatesHandler {
 			if (player.hasCapability(AuraProvider.AURA_CAP, null)) {
 				IAura aura = player.getCapability(AuraProvider.AURA_CAP, null);
 				float playerdamagereduction = aura.getMaxAura() / RWBYConfig.playerdamagetoaurareduction;
+				float eventamount = event.getAmount()*5;
+				if(playerdamagereduction > 0.5F){playerdamagereduction = 0.5F;}
 				if(RWBYConfig.aurareduction){
 				if(event.getSource().getTrueSource() instanceof EntityPlayer || event.getSource().getTrueSource() instanceof EntityBullet || event.getSource().getTrueSource() instanceof EntityArrow){
-					float overflow = aura.useAura(player, event.getAmount() * 5/playerdamagereduction, true);
+					float overflow = aura.useAura(player, eventamount*playerdamagereduction , true);
 					aura.delayRecharge(600);
 					event.setAmount(overflow / 5);}
 				else {
