@@ -112,7 +112,7 @@ public class TileEntityRWBYGrimmBait extends TileEntity implements ITickable {
     public boolean isActive() {
     	return wavecount > 0;
     }
-    
+
 	@Override
 	public void update() {
 		if (!this.world.isRemote) {
@@ -122,37 +122,29 @@ public class TileEntityRWBYGrimmBait extends TileEntity implements ITickable {
 					this.wavelist.clear();
 					return;
 				}
-				
+
 				if (!player.isEntityAlive() || isCleared()) {
 					this.stop();
 					return;
 				}
-	
-				
+
+
 				if (wavecount < 18 && (wavelist.isEmpty() || this.getAlivePercent() < 0.4)) {
 					wavecount++;
 					wavelist.clear();
 					wavelist = this.getEntityList();
 				}
 			}
-			else if(wavecount>17){
+			else {
 				EntityItem item = drops.remove(0);
 				item.motionX = this.rand.nextGaussian() * 0.1;
 				item.motionZ = this.rand.nextGaussian() * 0.1;
 				item.motionY = 0.5;
-				this.world.spawnEntity(item);}
-				if (drops.isEmpty()) {
-					this.world.setBlockToAir(pos);
-				}else if(wavecount < 17){
-					EntityItem item = drops.remove(0);
-					item.motionX = this.rand.nextGaussian() * 0.1;
-					item.motionZ = this.rand.nextGaussian() * 0.1;
-					item.motionY = 0.5;
-					this.world.spawnEntity(item);}
+				this.world.spawnEntity(item);
 				if (drops.isEmpty()) {
 					this.world.setBlockToAir(pos);
 				}
-
+			}
 		}
 	}
 	

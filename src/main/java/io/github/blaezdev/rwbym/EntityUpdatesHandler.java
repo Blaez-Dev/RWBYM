@@ -162,11 +162,23 @@ public class EntityUpdatesHandler {
 			EntityPlayer player = (EntityPlayer) entityliving;
 			if (player.hasCapability(AuraProvider.AURA_CAP, null)) {
 				IAura aura = player.getCapability(AuraProvider.AURA_CAP, null);
-				float overflow = aura.useAura(player, event.getAmount() * 5, true);
-				aura.delayRecharge(600);
-				event.setAmount(overflow / 5);
-			}
-		}}
+				float playerdamagereduction = aura.getMaxAura() / RWBYConfig.playerdamagetoaurareduction;
+				if(RWBYConfig.aurareduction){
+				if(event.getSource().getTrueSource() instanceof EntityPlayer || event.getSource().getTrueSource() instanceof EntityBullet || event.getSource().getTrueSource() instanceof EntityArrow){
+					float overflow = aura.useAura(player, event.getAmount() * 5/playerdamagereduction, true);
+					aura.delayRecharge(600);
+					event.setAmount(overflow / 5);}
+				else {
+					float overflow = aura.useAura(player, event.getAmount() * 5, true);
+					aura.delayRecharge(600);
+					event.setAmount(overflow / 5);}
+				}
+				else {
+					float overflow = aura.useAura(player, event.getAmount() * 5, true);
+					aura.delayRecharge(600);
+					event.setAmount(overflow / 5);}
+			}}
+		}
 	}
 	
 	@SubscribeEvent

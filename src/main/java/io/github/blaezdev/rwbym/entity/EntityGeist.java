@@ -40,7 +40,7 @@ public class EntityGeist extends EntityGrimm
         super(worldIn);
         this.isImmuneToFire = true;
         this.moveHelper = new EntityGeist.AIMoveControl(this);
-        this.setSize(1F, 1.5F);
+        this.setSize(1F, 3F);
         this.experienceValue = 3;
     }
 

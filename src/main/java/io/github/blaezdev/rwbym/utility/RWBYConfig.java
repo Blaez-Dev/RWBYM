@@ -106,7 +106,10 @@ public class RWBYConfig
     @Config.Comment("One in x chance to spawn a grimm every tick for each block.")
     @Config.RangeInt(min = 0)
     public static int grimmFluidSpawnRate = 50000;
-
+    @Config.Comment("Current Max Aura/player damage to aura reduction = player damage reduction reconmendation to keep at default")
+    public static float playerdamagetoaurareduction = 10;
+    @Config.Comment("enable or disable player damage to aura reduction")
+    public static boolean aurareduction = true;
 
 
    // @Config.Comment("Aura per Level")
