@@ -49,7 +49,7 @@ public class RenderEvents {
     @SubscribeEvent
     public void RenderGameOverlay(RenderGameOverlayEvent.Pre event) {
     	
-    	if (event.getType() == ElementType.ALL & RWBYConfig.RenderAurabar) {
+    	if (event.getType() == ElementType.ALL & RWBYConfig.aura.RenderAurabar) {
     		Minecraft mc = Minecraft.getMinecraft();
     		
     		EntityPlayer player = mc.player;
@@ -62,8 +62,8 @@ public class RenderEvents {
 	    		GlStateManager.enableAlpha();
 	    		GlStateManager.enableBlend();
 		    	
-		    	int posx = event.getResolution().getScaledWidth() / 2 - RWBYConfig.aurapositionx;
-		    	int posy = event.getResolution().getScaledHeight() - RWBYConfig.aurapositiony;
+		    	int posx = event.getResolution().getScaledWidth() / 2 - RWBYConfig.aura.aurapositionx;
+		    	int posy = event.getResolution().getScaledHeight() - RWBYConfig.aura.aurapositiony;
 		    	
 		    	mc.renderEngine.bindTexture(new ResourceLocation(RWBYModels.MODID, "textures/overlay/aura.png"));
 		    	

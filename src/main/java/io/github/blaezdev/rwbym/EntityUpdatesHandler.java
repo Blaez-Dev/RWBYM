@@ -90,7 +90,7 @@ public class EntityUpdatesHandler {
 		NBTTagCompound entityData = player.getEntityData();
 		if(!entityData.getBoolean(RWBYModels.MODID + "joinedBefore")) {
 			entityData.setBoolean(RWBYModels.MODID + "joinedBefore", true);
-			if(RWBYConfig.enablefirstspawnscroll){
+			if(RWBYConfig.general.enablefirstspawnscroll){
 			player.inventory.addItemStackToInventory(new ItemStack(RWBYItems.scroll));}
 			otheraura.setAmount(otheraura.getMaxAura());
 		}
@@ -156,16 +156,16 @@ public class EntityUpdatesHandler {
 
 	@SubscribeEvent
 	public void onEntityDamage(LivingDamageEvent event) {
-		if(RWBYConfig.aurablockdamage){
+		if(RWBYConfig.aura.aurablockdamage){
 		EntityLivingBase entityliving = event.getEntityLiving();
 		if (entityliving instanceof EntityPlayer && !entityliving.world.isRemote) {
 			EntityPlayer player = (EntityPlayer) entityliving;
 			if (player.hasCapability(AuraProvider.AURA_CAP, null)) {
 				IAura aura = player.getCapability(AuraProvider.AURA_CAP, null);
-				float playerdamagereduction = aura.getMaxAura() / RWBYConfig.playerdamagetoaurareduction;
+				float playerdamagereduction = aura.getMaxAura() / RWBYConfig.aura.playerdamagetoaurareduction;
 				float eventamount = event.getAmount()*5;
 				if(playerdamagereduction > 0.5F){playerdamagereduction = 0.5F;}
-				if(RWBYConfig.aurareduction){
+				if(RWBYConfig.aura.aurareduction){
 				if(event.getSource().getTrueSource() instanceof EntityPlayer || event.getSource().getTrueSource() instanceof EntityBullet || event.getSource().getTrueSource() instanceof EntityArrow){
 					float overflow = aura.useAura(player, eventamount*playerdamagereduction , true);
 					aura.delayRecharge(600);

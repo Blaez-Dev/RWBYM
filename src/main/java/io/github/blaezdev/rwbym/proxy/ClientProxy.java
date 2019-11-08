@@ -165,7 +165,7 @@ public class ClientProxy extends CommonProxy {
 		
 		World world = ragora.world;
 		
-		if (world.isRemote && RWBYConfig.ragoraparticles) {
+		if (world.isRemote && RWBYConfig.aura.ragoraparticles) {
 
 			Random rand = ragora.getRNG();
 

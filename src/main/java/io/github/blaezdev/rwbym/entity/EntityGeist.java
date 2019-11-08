@@ -84,8 +84,8 @@ public class EntityGeist extends EntityGrimm
     protected void applyEntityAttributes()
     {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(14.0D*RWBYConfig.grimmhealthmult);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(4.0D*RWBYConfig.grimmattackmult);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(14.0D*RWBYConfig.attributes.grimmhealthmult);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(4.0D*RWBYConfig.attributes.grimmattackmult);
     }
 
     protected void entityInit()

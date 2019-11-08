@@ -14,102 +14,140 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 @Config.LangKey(RWBYModels.MODID + ".config.title")
 public class RWBYConfig
 {
-    @Config.Comment("Spawn Rate Beowolf")
-    public static int spawnratebeowolf= 50;
-    @Config.Comment("Spawn Rate Ursa")
-    public static int spawnrateursa= 50;
-    @Config.Comment("Spawn Rate Boarbatusk")
-    public static int spawnrateboar= 50;
-    @Config.Comment("Spawn Rate Goliath")
-    public static int spawnrategoliath= 1;
-    @Config.Comment("Spawn Rate Deathstalker")
-    public static int spawnratedeathstalker= 1;
-    @Config.Comment("Spawn Rate Mutant Deathstalker")
-    public static int spawnratemutantdeathstalker= 1;
-    @Config.Comment("Spawn Rate Nevermore")
-    public static int spawnratenevermore= 50;
-    @Config.Comment("Spawn Rate Giant Nevermore")
-    public static int spawnrategiantnevermore= 1;
-    @Config.Comment("Spawn Rate Creep")
-    public static int spawnratecreep= 50;
-    @Config.Comment("Spawn Rate Geist")
-    public static int spawnrategeist= 30;
-    @Config.Comment("Spawn Rate Lancer")
-    public static int spawnratelancer= 50;
-    @Config.Comment("Spawn Rate Nuckleeve")
-    public static int spawnratenuckleeve= 1;
-    @Config.Comment("Spawn Rate Apathy")
-    public static int spawnrateapathy= 50;
-    @Config.Comment("Spawn Rate Tiny DeathStalker")
-    public static int spawnratetinydeathstalker= 50;
-    @Config.Comment("Spawn Rate Queen Lancer")
-    public static int spawnratequeenlancer= 1;
-    @Config.Comment("Global Aggro Range in Blocks")
-    public static float aggrorange = 60;
-    @Config.Comment("Spawn Chance Dust Shop")
-    public static int dustshop = 60;
-    @Config.Comment("Spawn Chance of Remote Dust shop")
-    public static int dustshop2 = 60;
-    @Config.Comment("Spawn Chance Crow Bar")
-    public static int bar = 60;
-    @Config.Comment("Spawn Chance Well")
-    public static int well = 10;
-    @Config.Comment("Spawn Chance Gravity DusT")
-    public static int gravityore = 1;
-    @Config.Comment("Spawn Chance Fire Dust")
-    public static int fireore = 1;
-    @Config.Comment("Spawn Chance Wind Dust")
-    public static int windore = 1;
-    @Config.Comment("Spawn Chance Impure Dust")
-    public static int impureore = 2;
-    @Config.Comment("Spawn Chance Water Dust")
-    public static int waterore = 1;
-    @Config.Comment("Spawn Chance Lightning Dust")
-    public static int lightore = 1;
-    @Config.Comment("Spawn Chance Ice Dust")
-    public static int iceore = 1;
-    @Config.Comment("Semblance Recharge Delay in Ticks")
-    public static int delayticks = 250;
-    @Config.Comment("Can Aura Block Damage?")
-    public static boolean aurablockdamage = true;
-    @Config.Comment("Ragora Familiar Particles")
-    public static boolean ragoraparticles = true;
-    @Config.Comment("Ragora ShadowBall Resolution")
-    public static float shadowballresolution = 1F;
-    @Config.Comment("Ragora ShadowBall Size")
-    public static float shadowballsize = 4.5F;
-    @Config.Comment("Ragora Summon Particle Count")
-    public static int ragorasummonparticles = 100;
-    @Config.Comment("Dust Ore Random Effect Chance")
-    public static int dustoreeffect = 20;
-    @Config.Comment("Unsafe Dust Mining")
-    public static boolean unsafemining = true;
-    @Config.Comment("Dark Crystal Spawnrate")
-    public static int darkcrystalrate = 20;
-    @Config.Comment("Rarity of RWBYM Biomes")
-    public static int biomerarity = 20;
-    @Config.Comment("Render Aura Bar?")
-    public static boolean RenderAurabar = true;
-    @Config.Comment("Position X")
-    public static int aurapositionx = 175;
-    @Config.Comment("Position Y")
-    public static int aurapositiony = 39;
-    @Config.Comment("Grimm Health Multiplier")
-    public static float grimmhealthmult = 1.0F;
-    @Config.Comment("Grimm Attack Damage Multiplier")
-    public static float grimmattackmult = 1.0F;
-    @Config.Comment("Enable Spawning with 1 Scroll on First Spawn of Player")
-    public static boolean enablefirstspawnscroll = false;
+    @Config.Name("General")
+    @Config.Comment("General Config Options")
+    public static General general = new General();
+
+    @Config.Name("Mobs - Spawnrate")
+    @Config.Comment("Spawnrates for Mobs.")
+    public static Configmobspawnrates configmobspawnrates = new Configmobspawnrates();
+
+    @Config.Name("Mobs - Attributes")
+    @Config.Comment("Set Mon Attribute Multipliers.")
+    public static MobAttributes attributes = new MobAttributes();
+
+    @Config.Name("Player - Aura/Semblance Settings")
+    @Config.Comment("Tweak Aura or Semblance Settings")
+    public static Aura aura = new Aura();
+
+    @Config.Name("WorldGen/Mining Settings")
+    @Config.Comment("Tweak Structure and Ore Spawnchances")
+    public static Mining worldgen = new Mining();
+
+    public static class Configmobspawnrates { 
+        @Config.Name("Spawn Rate Beowolf")
+    public  int spawnratebeowolf= 50;
+    @Config.Name("Spawn Rate Ursa")
+    public  int spawnrateursa= 50;
+    @Config.Name("Spawn Rate Boarbatusk")
+    public  int spawnrateboar= 50;
+    @Config.Name("Spawn Rate Goliath")
+    public  int spawnrategoliath= 1;
+    @Config.Name("Spawn Rate Deathstalker")
+    public  int spawnratedeathstalker= 1;
+    @Config.Name("Spawn Rate Mutant Deathstalker")
+    public  int spawnratemutantdeathstalker= 1;
+    @Config.Name("Spawn Rate Nevermore")
+    public  int spawnratenevermore= 50;
+    @Config.Name("Spawn Rate Giant Nevermore")
+    public  int spawnrategiantnevermore= 1;
+    @Config.Name("Spawn Rate Creep")
+    public  int spawnratecreep= 50;
+    @Config.Name("Spawn Rate Geist")
+    public  int spawnrategeist= 30;
+    @Config.Name("Spawn Rate Lancer")
+    public  int spawnratelancer= 50;
+    @Config.Name("Spawn Rate Nuckleeve")
+    public  int spawnratenuckleeve= 1;
+    @Config.Name("Spawn Rate Apathy")
+    public  int spawnrateapathy= 50;
+    @Config.Name("Spawn Rate Tiny DeathStalker")
+    public  int spawnratetinydeathstalker= 50;
+    @Config.Name("Spawn Rate Queen Lancer")
+    public  int spawnratequeenlancer= 1;
+    @Config.Name("Lancer Queen Nests")
     @Config.Comment("Enable Lancer Queens to Spawn anywhere dark")
-    public static boolean lancernests = false;
+    public  boolean lancernests = false;
+    }
+
+    public static class MobAttributes{
+    @Config.Name("Global Aggro Range in Blocks")
+    public  float aggrorange = 60;
+    @Config.Name("Grimm Health Multiplier")
+    public  float grimmhealthmult = 1.0F;
+    @Config.Name("Grimm Attack Damage Multiplier")
+    public  float grimmattackmult = 1.0F;
     @Config.Name("Grimm Fluid Spawn Rate")
     @Config.Comment("One in x chance to spawn a grimm every tick for each block.")
     @Config.RangeInt(min = 0)
-    public static int grimmFluidSpawnRate = 50000;
+    public  int grimmFluidSpawnRate = 50000;
+    }
+
+
+    public static class Aura{
+    @Config.Name("Render Aura Bar?")
+    public  boolean RenderAurabar = true;
+    @Config.Name("Position X")
+    public  int aurapositionx = 175;
+    @Config.Name("Position Y")
+    public  int aurapositiony = 39;
+    @Config.Name("Semblance Recharge Delay in Ticks")
+    public  int delayticks = 250;
+    @Config.Name("Can Aura Block Damage?")
+    public  boolean aurablockdamage = true;
+    @Config.Name("Player Aura Damage Reduction Amount")
     @Config.Comment("Current Max Aura/player damage to aura reduction = player damage reduction reconmendation to keep at default")
-    public static int playerdamagetoaurareduction = 1000;
+    public  int playerdamagetoaurareduction = 1000;
+    @Config.Name("Enable Player Aura Damage Reduction")
     @Config.Comment("enable or disable player damage to aura reduction")
-    public static boolean aurareduction = true;
+    public  boolean aurareduction = true;
+    @Config.Name("Ragora Familiar Particles")
+    public  boolean ragoraparticles = true;
+    @Config.Name("Ragora ShadowBall Resolution")
+    public  float shadowballresolution = 1F;
+    @Config.Name("Ragora ShadowBall Size")
+    public  float shadowballsize = 4.5F;
+    @Config.Name("Ragora Summon Particle Count")
+    public  int ragorasummonparticles = 100;
+    }
+
+    public static class Mining{
+    @Config.Name("Spawn Chance Dust Shop")
+    public  int dustshop = 60;
+    @Config.Name("Spawn Chance of Remote Dust shop")
+    public  int dustshop2 = 60;
+    @Config.Name("Spawn Chance Crow Bar")
+    public  int bar = 60;
+    @Config.Name("Spawn Chance Well")
+    public  int well = 10;
+    @Config.Name("Rarity of RWBYM Biomes")
+    public  int biomerarity = 20;
+    @Config.Name("Spawn Chance Dark Crystal")
+    public  int darkcrystalrate = 20;
+    @Config.Name("Spawn Chance Gravity DusT")
+    public  int gravityore = 1;
+    @Config.Name("Spawn Chance Fire Dust")
+    public  int fireore = 1;
+    @Config.Name("Spawn Chance Wind Dust")
+    public  int windore = 1;
+    @Config.Name("Spawn Chance Impure Dust")
+    public  int impureore = 2;
+    @Config.Name("Spawn Chance Water Dust")
+    public  int waterore = 1;
+    @Config.Name("Spawn Chance Lightning Dust")
+    public  int lightore = 1;
+    @Config.Name("Spawn Chance Ice Dust")
+    public  int iceore = 1;
+    @Config.Name("Dust Ore Random Effect Chance")
+    public  int dustoreeffect = 20;
+    @Config.Name("Unsafe Dust Mining")
+    public  boolean unsafemining = true;}
+
+
+    public static class General {
+    @Config.Name("Give Player Scroll on First Spawn?")
+    public  boolean enablefirstspawnscroll = false;
+}
 
 
    // @Config.Comment("Aura per Level")

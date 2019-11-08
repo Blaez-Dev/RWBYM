@@ -45,7 +45,7 @@ public interface ISemblance {
 			IAura aura = player.getCapability(AuraProvider.AURA_CAP, null);
 			boolean flag = aura.useAura(player, usage, false) == 0;
 			if (flag) {
-				aura.delayRecharge(RWBYConfig.delayticks);
+				aura.delayRecharge(RWBYConfig.aura.delayticks);
 			}
 			return flag;
 		}

@@ -15,10 +15,10 @@ public class BiomeCliffsideForest extends Biome{
             this.spawnableMonsterList.clear();
             this.spawnableWaterCreatureList.clear();
             this.decorator.treesPerChunk = 7;
-            this.spawnableCreatureList.add(new SpawnListEntry(EntityBeowolf.class, RWBYConfig.spawnratebeowolf*8, 1, 16));
-            this.spawnableCreatureList.add(new SpawnListEntry(EntityBoarbatusk.class, RWBYConfig.spawnrateboar, 0, 3));
-            this.spawnableCreatureList.add(new SpawnListEntry(EntityUrsa.class, RWBYConfig.spawnrateursa, 0, 3));
-            this.spawnableCreatureList.add(new SpawnListEntry(EntityApathy.class, RWBYConfig.spawnrateapathy, 2, 16));
+            this.spawnableCreatureList.add(new SpawnListEntry(EntityBeowolf.class, RWBYConfig.configmobspawnrates.spawnratebeowolf*8, 1, 16));
+            this.spawnableCreatureList.add(new SpawnListEntry(EntityBoarbatusk.class, RWBYConfig.configmobspawnrates.spawnrateboar, 0, 3));
+            this.spawnableCreatureList.add(new SpawnListEntry(EntityUrsa.class, RWBYConfig.configmobspawnrates.spawnrateursa, 0, 3));
+            this.spawnableCreatureList.add(new SpawnListEntry(EntityApathy.class, RWBYConfig.configmobspawnrates.spawnrateapathy, 2, 16));
 
         }
 

@@ -4364,8 +4364,8 @@ public class RWBYItems {
 				@Override
 				public void applyEntity(EntityLivingBase living, EntityLivingBase shooter) {
 					if (!living.world.isRemote) {
-						float r = RWBYConfig.shadowballsize;
-						float f = RWBYConfig.shadowballresolution;
+						float r = RWBYConfig.aura.shadowballsize;
+						float f = RWBYConfig.aura.shadowballresolution;
 						living.world.playSound(null, living.getPosition(), SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.BLOCKS, 3, 1);
 						for (float i = Math.round(-r / f) * f; i <= Math.round(r / f) * f; i += f) {
 							float radius = (float) Math.sqrt(r*r - i*i);
@@ -4377,8 +4377,8 @@ public class RWBYItems {
 				@Override
 				public void applyBlock(EntityLivingBase shooter, BlockPos pos) {
 					if (!shooter.world.isRemote) {
-						float r = RWBYConfig.shadowballsize;
-						float f = RWBYConfig.shadowballresolution;
+						float r = RWBYConfig.aura.shadowballsize;
+						float f = RWBYConfig.aura.shadowballresolution;
 						shooter.world.playSound(null, pos, SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.BLOCKS, 3, 1);
 						for (float i = Math.round(-r / f) * f; i <= Math.round(r / f) * f; i += f) {
 							float radius = (float) Math.sqrt(r*r - i*i);

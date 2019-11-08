@@ -73,7 +73,7 @@ public class EntityQueenLancer extends EntityGrimm
         @Override
         public boolean getCanSpawnHere()
         {
-            return this.world.canSeeSky(new BlockPos(this.posX, this.posY + (double)this.getEyeHeight(), this.posZ))&& this.world.isDaytime() == false||RWBYConfig.lancernests;
+            return this.world.canSeeSky(new BlockPos(this.posX, this.posY + (double)this.getEyeHeight(), this.posZ))&& this.world.isDaytime() == false||RWBYConfig.configmobspawnrates.lancernests;
         }
 
     /**
@@ -117,8 +117,8 @@ public class EntityQueenLancer extends EntityGrimm
     protected void applyEntityAttributes()
     {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(400.0D* RWBYConfig.grimmhealthmult);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(4.0D*RWBYConfig.grimmattackmult);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(400.0D* RWBYConfig.attributes.grimmhealthmult);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(4.0D*RWBYConfig.attributes.grimmattackmult);
         this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(5D);
     }
 

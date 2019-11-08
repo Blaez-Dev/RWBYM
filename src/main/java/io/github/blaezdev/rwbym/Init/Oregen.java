@@ -90,13 +90,13 @@ public class Oregen implements IWorldGenerator{
         int blockZ = chunkZ * 16;
         switch(world.provider.getDimension()){
             case 0: //Overworld
-                this.runGenerator(gravity_overworld, world, random, chunkX, chunkZ, RWBYConfig.gravityore, 0, 256); //BiomeHills.class, BiomeMesa.class, BiomeJungle.class
-                this.runGenerator(fire_overworld, world, random, chunkX, chunkZ, RWBYConfig.fireore, 0, 256); //BiomeDesert.class, BiomeSavanna.class, BiomeMesa.class, BiomeSavannaMutated.class
-                this.runGenerator(wind_overworld, world, random, chunkX, chunkZ, RWBYConfig.windore, 0, 256); //BiomeHills.class, BiomeMesa.class, BiomeJungle.class, BiomePlains.class
-                this.runGenerator(impure_overworld, world, random, chunkX, chunkZ, RWBYConfig.impureore, 0, 256);
-                this.runGenerator(water_overworld, world, random, chunkX, chunkZ, RWBYConfig.waterore, 0, 256); //BiomeOcean.class,BiomeBeach.class, BiomeMushroomIsland.class,BiomeSwamp.class
-                this.runGenerator(light_overworld, world, random, chunkX, chunkZ, RWBYConfig.lightore, 0, 256);//BiomeHills.class,BiomeMesa.class
-                this.runGenerator(ice_overworld, world, random, chunkX, chunkZ, RWBYConfig.iceore, 0, 256);
+                this.runGenerator(gravity_overworld, world, random, chunkX, chunkZ, RWBYConfig.worldgen.gravityore, 0, 256); //BiomeHills.class, BiomeMesa.class, BiomeJungle.class
+                this.runGenerator(fire_overworld, world, random, chunkX, chunkZ, RWBYConfig.worldgen.fireore, 0, 256); //BiomeDesert.class, BiomeSavanna.class, BiomeMesa.class, BiomeSavannaMutated.class
+                this.runGenerator(wind_overworld, world, random, chunkX, chunkZ, RWBYConfig.worldgen.windore, 0, 256); //BiomeHills.class, BiomeMesa.class, BiomeJungle.class, BiomePlains.class
+                this.runGenerator(impure_overworld, world, random, chunkX, chunkZ, RWBYConfig.worldgen.impureore, 0, 256);
+                this.runGenerator(water_overworld, world, random, chunkX, chunkZ, RWBYConfig.worldgen.waterore, 0, 256); //BiomeOcean.class,BiomeBeach.class, BiomeMushroomIsland.class,BiomeSwamp.class
+                this.runGenerator(light_overworld, world, random, chunkX, chunkZ, RWBYConfig.worldgen.lightore, 0, 256);//BiomeHills.class,BiomeMesa.class
+                this.runGenerator(ice_overworld, world, random, chunkX, chunkZ, RWBYConfig.worldgen.iceore, 0, 256);
                 this.fluidGenerator(chunkGenerator,world, chunkX, chunkZ, RWBYBiomes.GrimmWastes);
                 generatestructure1(world, random, blockX + 8, blockZ + 8);
                 generatestructure2(world, random, blockX + 8, blockZ + 8);
@@ -108,7 +108,7 @@ public class Oregen implements IWorldGenerator{
 
     private void generatestructure1(World world, Random rand, int blockX, int blockZ)
     {
-        if (rand.nextInt(RWBYConfig.dustshop) == 0) {
+        if (rand.nextInt(RWBYConfig.worldgen.dustshop) == 0) {
 	        int y = getGroundFromAbove(world, blockX, blockZ);
 	        BlockPos pos = new BlockPos(blockX, y, blockZ);
 	        WorldGenerator structure = new RWBYStructure().setStructure(":rwbym1").setYoffset(-2).spawnNearVillage(true);
@@ -118,7 +118,7 @@ public class Oregen implements IWorldGenerator{
 
     private void generatestructure2(World world, Random rand, int blockX, int blockZ)
     {
-        if (rand.nextInt(RWBYConfig.bar) == 0) {
+        if (rand.nextInt(RWBYConfig.worldgen.bar) == 0) {
             int y = getGroundFromAbove(world, blockX, blockZ);
             BlockPos pos = new BlockPos(blockX, y, blockZ);
             WorldGenerator structure2 = new RWBYStructure().setStructure(":rwbym2").setYoffset(-2).spawnNearVillage(true);
@@ -128,7 +128,7 @@ public class Oregen implements IWorldGenerator{
 
     private void generatestructure4(World world, Random rand, int blockX, int blockZ)
     {
-        if (rand.nextInt(RWBYConfig.dustshop2) == 0)
+        if (rand.nextInt(RWBYConfig.worldgen.dustshop2) == 0)
         {
             int y = getGroundFromAbove(world, blockX, blockZ);
             BlockPos pos = new BlockPos(blockX, y, blockZ);
@@ -140,7 +140,7 @@ public class Oregen implements IWorldGenerator{
 
     private void generateraid(World world, Random rand, int blockX, int blockZ)
     {
-        if (rand.nextInt(RWBYConfig.darkcrystalrate) == 0)
+        if (rand.nextInt(RWBYConfig.worldgen.darkcrystalrate) == 0)
         {
             int y = getGroundFromAbove(world, blockX, blockZ);
             BlockPos pos = new BlockPos(blockX, y, blockZ);
@@ -151,7 +151,7 @@ public class Oregen implements IWorldGenerator{
 
     private void generatestructure3(World world, Random rand, int blockX, int blockZ)
     {
-        if (rand.nextInt(RWBYConfig.well) == 0)
+        if (rand.nextInt(RWBYConfig.worldgen.well) == 0)
         {
             int y = getGroundFromAbove(world, blockX, blockZ);
             BlockPos pos = new BlockPos(blockX, y, blockZ);
