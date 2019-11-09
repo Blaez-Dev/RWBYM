@@ -2,6 +2,7 @@ package io.github.blaezdev.rwbym.capabilities.Yang;
 
 import io.github.blaezdev.rwbym.capabilities.Aura.AuraProvider;
 import io.github.blaezdev.rwbym.capabilities.Aura.IAura;
+import io.github.blaezdev.rwbym.utility.RWBYConfig;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.nbt.NBTTagCompound;
@@ -18,7 +19,7 @@ public class Yang implements IYang {
 	
 	private int level = 0;
 
-	private float auraUse = 0.3F;
+	private float auraUse = RWBYConfig.aura.yangdrainrate;
 	
 	private int strengthMultiplyer = 6;
 

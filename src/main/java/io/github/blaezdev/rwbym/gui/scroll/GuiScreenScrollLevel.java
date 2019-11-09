@@ -118,11 +118,15 @@ public class GuiScreenScrollLevel extends GuiScreen {
 	@Override
 	protected void actionPerformed(GuiButton button) throws IOException {
 		IAura aura = this.player.getCapability(AuraProvider.AURA_CAP, null);
+		ISemblance semblance = CapabilityHandler.getCurrentSemblance(player);
 		if (button.id < 2) {
 			while(aura != null && !(RWBYModels.getXpTotal(player) < aura.getEXPToLevel())) {
 				RWBYModels.addXp(-aura.getEXPToLevel(), player);
 				RWBYNetworkHandler.sendToServer(new MessagePlayerEXP(-aura.getEXPToLevel()));
-				aura.addToMax(1);
+				if(semblance.toString() == "Jaune"){
+					aura.addToMax(2);
+				}else {
+				aura.addToMax(1);}
 				RWBYNetworkHandler.sendToServer(new MessageSendPlayerDataToServer(this.player));
 				if (button.id == 0) break;
 			}

@@ -6,6 +6,7 @@ import io.github.blaezdev.rwbym.entity.EntityWinterArmorgeist;
 import io.github.blaezdev.rwbym.entity.EntityWinterBeowolf;
 import io.github.blaezdev.rwbym.entity.EntityWinterBoarbatusk;
 import io.github.blaezdev.rwbym.entity.EntityWinterUrsa;
+import io.github.blaezdev.rwbym.utility.RWBYConfig;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.BlockPos;
@@ -23,7 +24,7 @@ public class Weiss implements IWeiss {
 	private int cooldown = 0;
 	
 	private int[] cooldowns = {100, 300, 500, 1200};
-	private int[] auraUses = {5, 15, 25, 60};
+	private int[] auraUses = {RWBYConfig.aura.weissboarbatusk, RWBYConfig.aura.weissbeowolf, RWBYConfig.aura.weissursa, RWBYConfig.aura.weissarmagigas};
 
 	private int selectedLevel = 0;
 

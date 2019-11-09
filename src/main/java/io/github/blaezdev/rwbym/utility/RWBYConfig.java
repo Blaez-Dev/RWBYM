@@ -101,6 +101,30 @@ public class RWBYConfig
     @Config.Name("Enable Player Aura Damage Reduction")
     @Config.Comment("enable or disable player damage to aura reduction")
     public  boolean aurareduction = true;
+    @Config.Name("Blake Drain Rate")
+    public float blakedrainrate = 5.0F;
+    @Config.Name("Nora Drain Rate")
+    public float noradrainrate = 0.5F;
+    @Config.Name("Ren Drain Rate")
+    public float rendrainrate = 0.3F;
+    @Config.Name("Ruby Drain Rate")
+    public float rubydrainrate = 0.1F;
+    @Config.Name("Weiss Boarbatusk Cost")
+    public int weissboarbatusk = 5;
+    @Config.Name("Weiss Beowolf Cost")
+    public int weissbeowolf = 15;
+    @Config.Name("Weiss Ursa Cost")
+    public int weissursa = 25;
+    @Config.Name("Weiss Armagigas Cost")
+    public int weissarmagigas = 60;
+    @Config.Name("Yang Drain Rate")
+    public float yangdrainrate = 0.3F;
+    @Config.Name("Jaune Aura Transfer Rate")
+    public float jaunedrainrate = 0.15F;
+    @Config.Name("Ragora Initial Summon Cost")
+    public int ragorainitialsummon = 10;
+    @Config.Name("Ragora Initial Summon Cost")
+    public float ragoraupkeep = 0.1F;
     @Config.Name("Ragora Familiar Particles")
     public  boolean ragoraparticles = true;
     @Config.Name("Ragora ShadowBall Resolution")

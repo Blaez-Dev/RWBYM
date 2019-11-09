@@ -2,6 +2,7 @@ package io.github.blaezdev.rwbym.capabilities.Jaune;
 
 import io.github.blaezdev.rwbym.capabilities.Aura.AuraProvider;
 import io.github.blaezdev.rwbym.capabilities.Aura.IAura;
+import io.github.blaezdev.rwbym.utility.RWBYConfig;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
@@ -26,7 +27,7 @@ public class Jaune implements IJaune {
 		}
 	}
 	
-	private float transferRate = 0.15F;
+	private float transferRate = RWBYConfig.aura.jaunedrainrate;
 
 	@Override
 	public boolean onActivate(EntityPlayer player) {

@@ -3,6 +3,7 @@ package io.github.blaezdev.rwbym.capabilities.Nora;
 import io.github.blaezdev.rwbym.Init.RWBYItems;
 import io.github.blaezdev.rwbym.capabilities.Aura.AuraProvider;
 import io.github.blaezdev.rwbym.capabilities.Aura.IAura;
+import io.github.blaezdev.rwbym.utility.RWBYConfig;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
@@ -20,7 +21,7 @@ public class Nora implements INora {
 	
 	private int level = 0;
 
-	private float auraUse = 0.5F;
+	private float auraUse = RWBYConfig.aura.noradrainrate;
 
 
 	private int selectedLevel = -1;

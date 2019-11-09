@@ -4,6 +4,7 @@ import io.github.blaezdev.rwbym.Init.RWBYItems;
 import io.github.blaezdev.rwbym.RWBYModels;
 import io.github.blaezdev.rwbym.capabilities.Aura.AuraProvider;
 import io.github.blaezdev.rwbym.capabilities.Aura.IAura;
+import io.github.blaezdev.rwbym.utility.RWBYConfig;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -29,7 +30,7 @@ public class Ruby implements IRuby {
 	
 	private int maxUseTime = 360;
 	
-	private float auraUse = 0.1F;
+	private float auraUse = RWBYConfig.aura.rubydrainrate;
 	
 	// a level greater than 0 will signal that this is the active semblance
 	private int level = 0;

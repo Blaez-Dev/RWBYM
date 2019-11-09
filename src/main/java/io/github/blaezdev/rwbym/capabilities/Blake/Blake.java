@@ -6,6 +6,7 @@ import io.github.blaezdev.rwbym.capabilities.Aura.IAura;
 import io.github.blaezdev.rwbym.entity.EntityBlake;
 import io.github.blaezdev.rwbym.entity.EntityBlakeFire;
 import io.github.blaezdev.rwbym.entity.EntityBlakeIce;
+import io.github.blaezdev.rwbym.utility.RWBYConfig;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -27,7 +28,7 @@ public class Blake implements IBlake {
 	
 	private int cooldowntime = 200;
 	
-	private float auraUse = 5F;
+	private float auraUse = RWBYConfig.aura.blakedrainrate;
 	
 	private int active = 0;
 	
