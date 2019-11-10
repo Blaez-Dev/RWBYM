@@ -29,8 +29,8 @@ public class Ragora implements IRagora {
 	private int summonMaxTime = 100;
 	
 	private int maxCooldown = 100;
-	private int auraUseInitial = RWBYConfig.aura.ragorainitialsummon;
-	private float auraUseUpkeep = RWBYConfig.aura.ragoraupkeep;
+	private int auraUseInitial =  1; //RWBYConfig.aura.ragorainitialsummon;
+	private float auraUseUpkeep = 0.1F; //RWBYConfig.aura.ragoraupkeep;
 	
 	private EntityRagora entityragora = null;
 

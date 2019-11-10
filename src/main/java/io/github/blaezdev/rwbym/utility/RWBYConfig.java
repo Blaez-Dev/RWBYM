@@ -121,10 +121,10 @@ public class RWBYConfig
     public float yangdrainrate = 0.3F;
     @Config.Name("Jaune Aura Transfer Rate")
     public float jaunedrainrate = 0.15F;
-    @Config.Name("Ragora Initial Summon Cost")
-    public int ragorainitialsummon = 10;
-    @Config.Name("Ragora Initial Summon Cost")
-    public float ragoraupkeep = 0.1F;
+    //@Config.Name("Ragora Initial Summon Cost")
+   // public int ragorainitialsummon = 10;
+    //@Config.Name("Ragora Initial Summon Cost")
+    //public float ragoraupkeep = 0.1F;
     @Config.Name("Ragora Familiar Particles")
     public  boolean ragoraparticles = true;
     @Config.Name("Ragora ShadowBall Resolution")
