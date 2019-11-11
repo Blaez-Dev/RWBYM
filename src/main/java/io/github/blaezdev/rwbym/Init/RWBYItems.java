@@ -3373,6 +3373,23 @@ public class RWBYItems {
             0,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
+    public static final Item onoyari = new RWBYGun(
+            "onoyari",
+            2500,
+            17,
+            RWBYGun.SCYTHE,
+            null,
+            null,
+            "rwbym:neptammo,rwbym:magnaampammo",
+            false,
+            2,
+            false,
+            false,
+            0,
+            1,
+            0,
+            13,
+            RWBYCreativeTabs.tab_rwbyweapons).setRecoil(8);
 
     //------------------------------------------------//
     public static final Item ammo = new RWBYItem("ammo", null, false, RWBYCreativeTabs.tab_rwbyitems);
