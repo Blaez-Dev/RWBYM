@@ -181,6 +181,8 @@ public class RegUtil {
         registerItems(event, RWBYItems.aquaealatlbow);
         registerItems(event, RWBYItems.scarletstormaxe);
         registerItems(event, RWBYItems.scarletstormgun);
+        registerItems(event, RWBYItems.pugzsword);
+        registerItems(event, RWBYItems.pugzbow);
         registerItems(event, RWBYItems.onoyari);
         registerItems(event, RWBYItems.ozmacane);
         registerItems(event, RWBYItems.ozmacanefire);
@@ -618,6 +620,8 @@ public class RegUtil {
     public static void registerAllRecipes(FMLInitializationEvent event){
         //Recipes
         registerRecipes(RWBYItems.onoyari);
+        registerRecipes(RWBYItems.pugzbow);
+        registerRecipes(RWBYItems.pugzsword);
         registerRecipes( RWBYItems.whtefng);
         registerRecipes( RWBYItems.RagoraHead);
         registerRecipes( RWBYItems.RagoraChest);

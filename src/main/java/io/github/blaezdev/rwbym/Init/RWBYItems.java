@@ -3390,6 +3390,39 @@ public class RWBYItems {
             0,
             13,
             RWBYCreativeTabs.tab_rwbyweapons).setRecoil(8);
+    public static final Item pugzbow = new RWBYGun(
+            "pugzbow",
+            2500,
+            0,
+            RWBYGun.BOW,
+            null,
+            "rwbym:pugzsword",
+            "minecraft:arrow,minecraft:tipped_arrow",
+            false,
+            2,
+            false,
+            false,
+            0,
+            1,
+            0,
+            16,
+            null);
+    public static final Item pugzsword = new RWBYGun("pugzsword",
+            2500,
+            14,
+            RWBYGun.SWORD,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}]}",
+            "rwbym:pugzbow",
+            "rwbym:nuller,rwbym:nullest",
+            false,
+            1,
+            true,
+            false,
+            0,
+            1,
+            0,
+            0,
+            RWBYCreativeTabs.tab_rwbyweapons);
 
     //------------------------------------------------//
     public static final Item ammo = new RWBYItem("ammo", null, false, RWBYCreativeTabs.tab_rwbyitems);
