@@ -3423,6 +3423,56 @@ public class RWBYItems {
             0,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
+    public static final Item whisperingblossom = new RWBYGun(
+            "whisperingblossom",
+            2500,
+            17,
+            RWBYGun.SCYTHE|RWBYGun.INT_MAG|RWBYGun.UMBRELLA,
+            null,
+            null,
+            "rwbym:whisperammo",
+            false,
+            1,
+            false,
+            false,
+            0,
+            1,
+            0,
+            17,
+            RWBYCreativeTabs.tab_rwbyweapons).setElementMelee("grav");
+    public static final Item cassandra = new RWBYGun("cassandra",
+            2500,
+            16,
+            RWBYGun.SWORD,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:16,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}]}",
+            "rwbym:cassandragun",
+            "rwbym:nuller,rwbym:nullest",
+            false,
+            1,
+            false,
+            true,
+            0,
+            1,
+            0,
+            0,
+            RWBYCreativeTabs.tab_rwbyweapons);
+    public static final Item cassandragun = new RWBYGun(
+            "cassandragun",
+            2500,
+            0,
+            0,
+            null,
+            "rwbym:cassandra",
+            "rwbym:gammag,rwbym:gamgravmag,rwbym:gamicemag,rwbym:gamfiremag",
+            false,
+            1,
+            true,
+            false,
+            0,
+            1,
+            0,
+            3,
+            null).setRecoil(5);
 
     //------------------------------------------------//
     public static final Item ammo = new RWBYItem("ammo", null, false, RWBYCreativeTabs.tab_rwbyitems);
@@ -3642,9 +3692,25 @@ public class RWBYItems {
     public static final Item entityweisswind = new RWBYItem("entityweisswind", null, false, null);
     public static final Item entityrocket = new RWBYItem("entityrocket", null, false, null);
     public static final Item entityextasisammo = new RWBYItem("entityextasisammo", null, false, null);
+    public static final Item whisperingblossomammo = new RWBYItem("whisperingblossomammo", null, false, null);
     public static final Item saw = new RWBYItem("saw", null, false, null);
 
     //------------------------------------------------//
+    public static final Item whisperammo = new RWBYAmmoItem(
+            "whisperammo",
+            RWBYItems.whisperingblossomammo,
+            1,
+            false,
+            RWBYAmmoItem.SurviveOnHit.NONE,
+            "textures/entity/projectiles/tipped_arrow.png",
+            true,
+            true,
+            null,
+            ImmutableList.of(new PotionEffect(Potion.getPotionFromResourceLocation("minecraft:levitation"), 100, 2)),
+            32,
+            14,
+            null,
+            null);
     public static final Item noctu = new RWBYAmmoItem(
             "noctu",
             RWBYItems.entitysmallbullet,

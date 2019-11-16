@@ -7,6 +7,7 @@ import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityGolem;
+import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntityVindicator;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
@@ -16,8 +17,9 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
+import java.util.List;
 
- public class EntityAtlasKnight extends EntityGolem {
+public class EntityAtlasKnight extends EntityGolem {
         World world = null;
         @Nullable
         public EntityAtlasKnight(World var1) {
@@ -45,6 +47,14 @@ import javax.annotation.Nullable;
 
         @Override
         public void onLivingUpdate() {
+            List<Entity> entitylist = world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().grow(10D));
+            for (Entity entity : entitylist) {
+                if (entity instanceof EntityMob) {
+                    EntityMob mob = (EntityMob) entity;
+                    mob.setAttackTarget(this);
+                }
+            }
+            this.heal(0.01F);
             super.onLivingUpdate();
         }
 

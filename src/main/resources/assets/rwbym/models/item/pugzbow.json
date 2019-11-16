@@ -5460,28 +5460,28 @@
 	"overrides": [
 	{
 		"predicate": {
-			"pulling4": 1
+			"pulling5": 1
 		},
 		"model": "rwbym:item/pugzbow1"
 	},
 	{
 		"predicate": {
-			"pulling4": 1,
-			"pull4": 0.25
+			"pulling5": 1,
+			"pull5": 0.25
 		},
 		"model": "rwbym:item/pugzbow125"
 	},
 	{
 		"predicate": {
-			"pulling4": 1,
-			"pull4": 0.50
+			"pulling5": 1,
+			"pull5": 0.50
 		},
 		"model": "rwbym:item/pugzbow150"
 	},
 	{
 		"predicate": {
-			"pulling4": 1,
-			"pull4": 0.75
+			"pulling5": 1,
+			"pull5": 0.75
 		},
 		"model": "rwbym:item/pugzbow175"
 	}],

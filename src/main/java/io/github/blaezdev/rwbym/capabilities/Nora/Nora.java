@@ -51,7 +51,13 @@ public class Nora implements INora {
 		IAura aura = player.getCapability(AuraProvider.AURA_CAP, null);
 		ItemStack is = player.getHeldItemOffhand();
 		if(this.active & is.getItem() == RWBYItems.lightdustcrystal){
-
+			float percentage;
+			if (player.hasCapability(AuraProvider.AURA_CAP, null)) {
+				percentage = player.getCapability(AuraProvider.AURA_CAP, null).getPercentage();
+				if(percentage <0.01){
+					this.active = false;
+				}
+			}
 
 			if (!this.useAura(player, auraUse)) return;
 				PotionEffect potioneffect = new PotionEffect(MobEffects.STRENGTH, 60*level, 8*level, false, false);

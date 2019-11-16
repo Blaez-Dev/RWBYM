@@ -459,7 +459,13 @@ item.rwbym:noctufire.name=None
 item.rwbym:noctuice.name=None
 item.rwbym:noctulight.name=None
 item.rwbym:noctugrav.name=None
-item.rwbym:onoyari.name=Onoyari
+item.rwbym:whisperammo.name=None
+item.rwbym:pugzsword.name=Terra Arcum
+item.rwbym:pugzbow.name=Terra Arcum
+item.rwbym:cassandra.name=Cassandra
+item.rwbym:cassandragun.name=Cassandra
+item.rwbym:whisperingblossom.name=Whispering Blossom
+item.rwbym:onoyari.name=Ono Yari
 item.rwbym:heroshield.name=§6Legendary Shield
 item.rwbym:rageshield.name=§6Shield of Wrath
 
