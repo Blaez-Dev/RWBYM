@@ -7,6 +7,7 @@ import io.github.blaezdev.rwbym.capabilities.CapabilityHandler;
 import io.github.blaezdev.rwbym.capabilities.ISemblance;
 import io.github.blaezdev.rwbym.capabilities.Jaune.JauneProvider;
 import io.github.blaezdev.rwbym.capabilities.Nora.NoraProvider;
+import io.github.blaezdev.rwbym.capabilities.Qrow.QrowProvider;
 import io.github.blaezdev.rwbym.capabilities.Ragora.RagoraProvider;
 import io.github.blaezdev.rwbym.capabilities.Ren.RenProvider;
 import io.github.blaezdev.rwbym.capabilities.Ruby.RubyProvider;
@@ -57,6 +58,7 @@ public class RWBYItem extends Item implements ICustomItem {
     private boolean coinnora;
     private boolean coinren;
     private boolean coinragor;
+    private boolean coinqrow;
     private boolean ageist;
     private boolean burn;
     private boolean scroll;
@@ -85,6 +87,7 @@ public class RWBYItem extends Item implements ICustomItem {
         if(name.contains("coinnora")) coinnora = true;
         if(name.contains("coin_ren")) coinren = true;
         if(name.contains("coin_ragora")) coinragor = true;
+        if(name.contains("coinqrow")) coinqrow = true;
         if(name.contains("armagigas")) ageist = true;
         scroll = name.contains("scroll");
     }
@@ -267,6 +270,17 @@ public class RWBYItem extends Item implements ICustomItem {
                 if (semblance.toString().equals("Nora")) {
                     semblance.setLevel(semblance.getLevel() + 1);
                 } else {CapabilityHandler.setSemblance(playerIn, NoraProvider.Nora_CAP, 1);}
+                itemstack.shrink(1);
+            }
+        }
+
+        if(coinqrow)
+        {
+            if(!worldIn.isRemote){
+                ISemblance semblance = CapabilityHandler.getCurrentSemblance(playerIn);
+                if (semblance.toString().equals("Qrow")) {
+                    semblance.setLevel(semblance.getLevel() + 1);
+                } else {CapabilityHandler.setSemblance(playerIn, QrowProvider.Qrow_CAP, 1);}
                 itemstack.shrink(1);
             }
         }

@@ -17,6 +17,10 @@ import io.github.blaezdev.rwbym.capabilities.Nora.INora;
 import io.github.blaezdev.rwbym.capabilities.Nora.Nora;
 import io.github.blaezdev.rwbym.capabilities.Nora.NoraProvider;
 import io.github.blaezdev.rwbym.capabilities.Nora.NoraStorage;
+import io.github.blaezdev.rwbym.capabilities.Qrow.IQrow;
+import io.github.blaezdev.rwbym.capabilities.Qrow.Qrow;
+import io.github.blaezdev.rwbym.capabilities.Qrow.QrowProvider;
+import io.github.blaezdev.rwbym.capabilities.Qrow.QrowStorage;
 import io.github.blaezdev.rwbym.capabilities.Ragora.IRagora;
 import io.github.blaezdev.rwbym.capabilities.Ragora.Ragora;
 import io.github.blaezdev.rwbym.capabilities.Ragora.RagoraProvider;
@@ -66,6 +70,7 @@ public class CapabilityHandler {
 	public static final ResourceLocation RAGORA_KEY = new ResourceLocation(RWBYModels.MODID, "ragora");
 	public static final ResourceLocation JAUNE_KEY = new ResourceLocation(RWBYModels.MODID, "jaune");
 	public static final ResourceLocation Nora_KEY = new ResourceLocation(RWBYModels.MODID, "nora");
+	public static final ResourceLocation Qrow_KEY = new ResourceLocation(RWBYModels.MODID, "qrow");
 	
 	public static final ResourceLocation AURA_KEY = new ResourceLocation(RWBYModels.MODID, "aura");
 	public static final ResourceLocation TEAM_KEY = new ResourceLocation(RWBYModels.MODID, "team");
@@ -85,6 +90,7 @@ public class CapabilityHandler {
 			event.addCapability(AURA_KEY, new AuraProvider());
 			event.addCapability(JAUNE_KEY, new JauneProvider());
 			event.addCapability(Nora_KEY, new NoraProvider());
+			event.addCapability(Qrow_KEY, new QrowProvider());
 		}
 		
 		if (event.getObject() instanceof World) {
@@ -103,6 +109,7 @@ public class CapabilityHandler {
         register(IRagora.class, new RagoraStorage(), Ragora::new);
         register(IJaune.class, new JauneStorage(), Jaune::new);
 		register(INora.class, new NoraStorage(), Nora::new);
+		register(IQrow.class, new QrowStorage(), Qrow::new);
 
 
 		CapabilityManager.INSTANCE.register(IAura.class, new AuraStorage(), Aura::new);

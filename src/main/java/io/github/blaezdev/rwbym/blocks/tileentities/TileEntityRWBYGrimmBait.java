@@ -65,6 +65,7 @@ public class TileEntityRWBYGrimmBait extends TileEntity implements ITickable {
 
 			EntityItem item = new EntityItem(this.world, this.getPos().getX(), this.getPos().getY() + 1, this.getPos().getZ(), drops.get(rand.nextInt(drops.size())));
 			this.drops.add(item);
+		}
 			ArrayList<ItemStack> drops2 = new ArrayList<>();
 			drops2.add(new ItemStack(RWBYItems.grimmrapier, 1));
 			drops2.add(new ItemStack(RWBYItems.grimmscy, 1));
@@ -83,7 +84,7 @@ public class TileEntityRWBYGrimmBait extends TileEntity implements ITickable {
 
 			EntityItem item2 = new EntityItem(this.world, this.getPos().getX(), this.getPos().getY() + 1, this.getPos().getZ(), drops2.get(rand.nextInt(drops2.size())));
 			this.drops.add(item2);
-		}}
+		}
 		if(wavecount < 17){
 		int i11 = rand.nextInt(20)+5;
 		while (i11 > 0)

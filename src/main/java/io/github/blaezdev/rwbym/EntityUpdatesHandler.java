@@ -6,6 +6,8 @@ import io.github.blaezdev.rwbym.capabilities.Aura.AuraProvider;
 import io.github.blaezdev.rwbym.capabilities.Aura.IAura;
 import io.github.blaezdev.rwbym.capabilities.CapabilityHandler;
 import io.github.blaezdev.rwbym.capabilities.ISemblance;
+import io.github.blaezdev.rwbym.capabilities.Jaune.IJaune;
+import io.github.blaezdev.rwbym.capabilities.Qrow.IQrow;
 import io.github.blaezdev.rwbym.entity.EntityBullet;
 import io.github.blaezdev.rwbym.entity.EntityGrimm;
 import io.github.blaezdev.rwbym.utility.RWBYConfig;
@@ -16,15 +18,22 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeMap;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
+import net.minecraft.init.SoundEvents;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -35,6 +44,7 @@ import net.minecraft.world.gen.feature.WorldGeneratorBonusChest;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
+import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent.Clone;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -156,8 +166,8 @@ public class EntityUpdatesHandler {
 
 	@SubscribeEvent
 	public void onEntityDamage(LivingDamageEvent event) {
-		if(RWBYConfig.aura.aurablockdamage){
 		EntityLivingBase entityliving = event.getEntityLiving();
+		if(RWBYConfig.aura.aurablockdamage){
 		if (entityliving instanceof EntityPlayer && !entityliving.world.isRemote) {
 			EntityPlayer player = (EntityPlayer) entityliving;
 			if (player.hasCapability(AuraProvider.AURA_CAP, null)) {
@@ -181,7 +191,30 @@ public class EntityUpdatesHandler {
 					event.setAmount(overflow / 5);}
 			}}
 		}
-	}
+
+		if(event.getSource().getTrueSource() instanceof EntityPlayer){
+			EntityPlayer player = (EntityPlayer) event.getSource().getTrueSource();
+			ISemblance semblance = CapabilityHandler.getCurrentSemblance(player);
+			float attackdamage = event.getAmount();
+			if(semblance instanceof IQrow){
+				int level = semblance.getLevel();
+				if(level == 1){
+					float eventdamage = attackdamage * (player.getEntityWorld().rand.nextFloat() + 0.5F);
+					entityliving.attackEntityFrom(DamageSource.causePlayerDamage(player), eventdamage);
+				}
+				if(level == 2){
+					float eventdamage = attackdamage * (player.getEntityWorld().rand.nextFloat() + 0.6F);
+					entityliving.attackEntityFrom(DamageSource.causePlayerDamage(player), eventdamage);
+				}
+				if(level == 3){
+					float eventdamage = attackdamage * (player.getEntityWorld().rand.nextFloat() + 0.7F);
+					entityliving.attackEntityFrom(DamageSource.causePlayerDamage(player), eventdamage);
+				}
+
+		}
+	}}
+
+
 	
 	@SubscribeEvent
 	public void onPlayerRespawn(PlayerRespawnEvent event) {
