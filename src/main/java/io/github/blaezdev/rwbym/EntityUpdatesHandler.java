@@ -200,15 +200,15 @@ public class EntityUpdatesHandler {
 				int level = semblance.getLevel();
 				if(level == 1){
 					float eventdamage = attackdamage * (player.getEntityWorld().rand.nextFloat() + 0.5F);
-					entityliving.attackEntityFrom(DamageSource.causePlayerDamage(player), eventdamage);
+					event.setAmount(eventdamage);
 				}
 				if(level == 2){
 					float eventdamage = attackdamage * (player.getEntityWorld().rand.nextFloat() + 0.6F);
-					entityliving.attackEntityFrom(DamageSource.causePlayerDamage(player), eventdamage);
+					event.setAmount(eventdamage);
 				}
 				if(level == 3){
 					float eventdamage = attackdamage * (player.getEntityWorld().rand.nextFloat() + 0.7F);
-					entityliving.attackEntityFrom(DamageSource.causePlayerDamage(player), eventdamage);
+					event.setAmount(eventdamage);
 				}
 
 		}
