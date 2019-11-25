@@ -3552,6 +3552,7 @@ public class RWBYItems {
     public static final Item coinjaune = new RWBYItem("coinjaune", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item coinnora = new RWBYItem("coinnora", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item coin_ren = new RWBYItem("coin_ren", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item coin_lysette = new RWBYItem("coin_lysette", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item coinqrow = new RWBYItem("coinqrow", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item coin_raven = new RWBYItem("coin_raven", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item coin_ragora = new RWBYItem("coin_ragora", null, false, RWBYCreativeTabs.tab_rwbyitems);

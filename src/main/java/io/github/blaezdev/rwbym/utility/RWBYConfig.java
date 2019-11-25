@@ -107,6 +107,8 @@ public class RWBYConfig
     public float noradrainrate = 0.5F;
     @Config.Name("Ren Drain Rate")
     public float rendrainrate = 0.3F;
+    @Config.Name("Lysette Drain Rate")
+    public float lysettedrainrate = 0.05F;
     @Config.Name("Ruby Drain Rate")
     public float rubydrainrate = 0.1F;
     @Config.Name("Weiss Boarbatusk Cost")

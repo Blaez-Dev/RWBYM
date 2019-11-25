@@ -13,6 +13,10 @@ import io.github.blaezdev.rwbym.capabilities.Jaune.IJaune;
 import io.github.blaezdev.rwbym.capabilities.Jaune.Jaune;
 import io.github.blaezdev.rwbym.capabilities.Jaune.JauneProvider;
 import io.github.blaezdev.rwbym.capabilities.Jaune.JauneStorage;
+import io.github.blaezdev.rwbym.capabilities.Lysette.ILysette;
+import io.github.blaezdev.rwbym.capabilities.Lysette.Lysette;
+import io.github.blaezdev.rwbym.capabilities.Lysette.LysetteProvider;
+import io.github.blaezdev.rwbym.capabilities.Lysette.LysetteStorage;
 import io.github.blaezdev.rwbym.capabilities.Nora.INora;
 import io.github.blaezdev.rwbym.capabilities.Nora.Nora;
 import io.github.blaezdev.rwbym.capabilities.Nora.NoraProvider;
@@ -71,6 +75,7 @@ public class CapabilityHandler {
 	public static final ResourceLocation JAUNE_KEY = new ResourceLocation(RWBYModels.MODID, "jaune");
 	public static final ResourceLocation Nora_KEY = new ResourceLocation(RWBYModels.MODID, "nora");
 	public static final ResourceLocation Qrow_KEY = new ResourceLocation(RWBYModels.MODID, "qrow");
+	public static final ResourceLocation Lysette_KEY = new ResourceLocation(RWBYModels.MODID, "lysette");
 	
 	public static final ResourceLocation AURA_KEY = new ResourceLocation(RWBYModels.MODID, "aura");
 	public static final ResourceLocation TEAM_KEY = new ResourceLocation(RWBYModels.MODID, "team");
@@ -91,6 +96,7 @@ public class CapabilityHandler {
 			event.addCapability(JAUNE_KEY, new JauneProvider());
 			event.addCapability(Nora_KEY, new NoraProvider());
 			event.addCapability(Qrow_KEY, new QrowProvider());
+			event.addCapability(Lysette_KEY, new LysetteProvider());
 		}
 		
 		if (event.getObject() instanceof World) {
@@ -110,6 +116,7 @@ public class CapabilityHandler {
         register(IJaune.class, new JauneStorage(), Jaune::new);
 		register(INora.class, new NoraStorage(), Nora::new);
 		register(IQrow.class, new QrowStorage(), Qrow::new);
+		register(ILysette.class, new LysetteStorage(), Lysette::new);
 
 
 		CapabilityManager.INSTANCE.register(IAura.class, new AuraStorage(), Aura::new);

@@ -389,6 +389,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.coinjaune);
         registerItems(event, RWBYItems.coinnora);
         registerItems(event, RWBYItems.coin_ren);
+        registerItems(event, RWBYItems.coin_lysette);
         registerItems(event, RWBYItems.coin_ragora);
         registerItems(event, RWBYItems.coinqrow);
         //registerItems(event, RWBYItems.coin_raven);

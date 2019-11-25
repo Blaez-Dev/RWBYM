@@ -19,6 +19,8 @@ import java.util.Set;
 
 public class Qrow implements IQrow {
 
+	interface ListFactory<T> { List<T> createList(); }
+
 	private boolean active = false;
 
 	private int Timer = 0;
@@ -57,16 +59,18 @@ public class Qrow implements IQrow {
 		PotionEffect potioneffect = new PotionEffect(MobEffects.UNLUCK, 2147000000, 8*level, false, false);
 		player.addPotionEffect(potioneffect);
 		--cooldown;
+		if(!player.world.isRemote){
+		Random rand = player.getRNG();
 		if (cooldown <= 0) {
 			AxisAlignedBB axisalignedbb2 = player.getEntityBoundingBox().grow(20,20,20);
 			List<EntityPlayer> list2 = player.world.<EntityPlayer>getEntitiesWithinAABB(EntityPlayer.class, axisalignedbb2);
+			if(list2.contains(player)){list2.remove(player);}
 			if (!list2.isEmpty()) {
 				EntityPlayer victim = list2.get(player.world.rand.nextInt(list2.size()));
-				Random rand = player.getRNG();
 				int nextRandom = rand.nextInt(this.potioneffectlist.length);
 				Set<Integer> validate = new HashSet<>();
 				validate.add(nextRandom);
-				for (int i = 0; i < level; i++) {
+				for (int i = 0; i < 1; i++) {
 					while(validate.contains(nextRandom)) {
 						nextRandom = rand.nextInt(this.potioneffectlist.length);
 					}
@@ -78,7 +82,7 @@ public class Qrow implements IQrow {
 				cooldown = player.world.rand.nextInt(2400) + 1200;
 			}
 		}
-	}
+	}}
 
 	private static PotionEffect[] potioneffectlist = new PotionEffect[]{
 			new PotionEffect(MobEffects.BLINDNESS, 120, 1, true, false),
@@ -89,6 +93,7 @@ public class Qrow implements IQrow {
 			new PotionEffect(MobEffects.HUNGER, 120, 1, true, false),
 			new PotionEffect(MobEffects.GLOWING, 120, 1, true, false)
 	};
+
 
 	@Override
 	public void writeToNBT(NBTTagCompound nbt) {

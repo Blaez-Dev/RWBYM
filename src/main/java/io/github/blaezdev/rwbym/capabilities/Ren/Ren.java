@@ -8,8 +8,11 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.common.capabilities.Capability;
+
+import java.util.List;
 
 public class Ren implements IRen {
 
@@ -58,17 +61,28 @@ public class Ren implements IRen {
 
 	@Override
 	public void onUpdate(EntityPlayer player) {
+		int strength = Math.round(this.level * 90);
 		IAura aura = player.getCapability(AuraProvider.AURA_CAP, null);
 		if(this.active  && aura.getPercentage() > 0.01){
 
 		if (!this.useAura(player, auraUse)) return;
-		
-		int strength = Math.round(this.level * 90);
+
 		
 		if (strength > 0) {
-			PotionEffect potioneffect = new PotionEffect(MobEffects.INVISIBILITY, strength, 1, true, true);
+			PotionEffect potioneffect = new PotionEffect(MobEffects.INVISIBILITY, strength, 1, true, false);
 			player.addPotionEffect(potioneffect);
-		}}
+			if(this.level > 1){
+				AxisAlignedBB axisalignedbb2 = player.getEntityBoundingBox().grow(4,4,4);
+				List<EntityPlayer> list2 = player.world.<EntityPlayer>getEntitiesWithinAABB(EntityPlayer.class, axisalignedbb2);
+				if(list2.contains(player)){list2.remove(player);}
+				if (!list2.isEmpty()) {
+					EntityPlayer victim = list2.get(player.world.rand.nextInt(list2.size()));
+					PotionEffect potioneffect1 = new PotionEffect(MobEffects.INVISIBILITY, strength, 1, true, false);
+					victim.addPotionEffect(potioneffect1);
+				}
+			}
+		}
+		}
 
 		switch(this.level) {
 			case 1:
