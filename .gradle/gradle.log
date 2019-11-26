@@ -12,7 +12,7 @@ Note: Recompile with -Xlint:deprecation for details.
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
 
-:processResources UP-TO-DATE
+:processResources
 :classes
 :jar
 :sourceTestJava UP-TO-DATE
@@ -30,11 +30,11 @@ Note: Recompile with -Xlint:unchecked for details.
 :extractRangemapReplacedMain
 C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java
 :retromapReplacedMain UP-TO-DATE
-:sourceJar UP-TO-DATE
+:sourceJar
 :assemble
 :check UP-TO-DATE
 :build
 
 BUILD SUCCESSFUL
 
-Total time: 12.987 secs
+Total time: 20.02 secs
