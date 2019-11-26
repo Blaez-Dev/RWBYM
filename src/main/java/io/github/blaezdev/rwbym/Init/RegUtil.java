@@ -268,8 +268,6 @@ public class RegUtil {
         registerItems(event, RWBYItems.rageshield);
         registerItems(event, RWBYItems.leafshield);
         registerItems(event, RWBYItems.pickaxeshield);
-        registerItems(event, RWBYItems.grimmbody);
-        registerItems(event, RWBYItems.grimmhead);
         registerItems(event, RWBYItems.kyoshiwind);
         registerItems(event, RWBYItems.kyoshiice);
         registerItems(event, RWBYItems.kyoshigrav);
@@ -322,6 +320,9 @@ public class RegUtil {
         registerBlocks(event, RWBYItems.lightblock);
         registerBlocks(event, RWBYItems.gravityblock);
         registerBlocks(event, RWBYItems.impureblock);
+        registerItems(event, RWBYItems.grimmbody);
+        registerItems(event, RWBYItems.grimmhead);
+        registerItems(event, RWBYItems.grimmhorn);
         registerItems(event, RWBYItems.rgrimmarm);
         registerItems(event, RWBYItems.lgrimmarm);
         registerItems(event, RWBYItems.rgrimmleg);
@@ -392,6 +393,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.coin_lysette);
         registerItems(event, RWBYItems.coin_ragora);
         registerItems(event, RWBYItems.coinqrow);
+        registerItems(event, RWBYItems.coin_clover);
         //registerItems(event, RWBYItems.coin_raven);
         registerItems(event, RWBYItems.scroll);
         registerItems(event, RWBYItems.scroll2);

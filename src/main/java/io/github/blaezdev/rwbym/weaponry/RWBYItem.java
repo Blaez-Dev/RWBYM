@@ -4,6 +4,7 @@ import io.github.blaezdev.rwbym.Init.RWBYCreativeTabs;
 import io.github.blaezdev.rwbym.RWBYModels;
 import io.github.blaezdev.rwbym.capabilities.Blake.BlakeProvider;
 import io.github.blaezdev.rwbym.capabilities.CapabilityHandler;
+import io.github.blaezdev.rwbym.capabilities.Clover.CloverProvider;
 import io.github.blaezdev.rwbym.capabilities.ISemblance;
 import io.github.blaezdev.rwbym.capabilities.Jaune.JauneProvider;
 import io.github.blaezdev.rwbym.capabilities.Lysette.LysetteProvider;
@@ -48,24 +49,20 @@ public class RWBYItem extends Item implements ICustomItem {
 
     private boolean ismask;
     private final String data;
+    private String coin;
     private boolean gravity;
     private boolean water;
     private boolean atlasknight;
-    private boolean coinr;
-    private boolean coinw;
-    private boolean coinb;
-    private boolean coiny;
-    private boolean coinjaune;
-    private boolean coinnora;
-    private boolean coinren;
-    private boolean coinragor;
-    private boolean coinqrow;
-    private boolean coinlysette;
     private boolean ageist;
     private boolean burn;
     private boolean scroll;
     private boolean hasContainerItem;
     private ContainerItemLambda containeritemlambda;
+
+    public RWBYItem setCoin(String coin) {
+        this.coin = coin;
+        return this;
+    }
 
     public RWBYItem(String name,String data, boolean isMask,  CreativeTabs creativetab) {
         this.setRegistryName(new ResourceLocation(RWBYModels.MODID, name));
@@ -81,16 +78,6 @@ public class RWBYItem extends Item implements ICustomItem {
         if(name.contains("gravitydustcrystal")) gravity = true;
         if(name.contains("waterdustcrystal")) water = true;
         if(name.contains("atlasknight")) atlasknight = true;
-        if(name.contains("coinr")) coinr = true;
-        if(name.contains("coinw")) coinw = true;
-        if(name.contains("coinb")) coinb = true;
-        if(name.contains("coiny")) coiny = true;
-        if(name.contains("coinjaune")) coinjaune = true;
-        if(name.contains("coinnora")) coinnora = true;
-        if(name.contains("coin_ren")) coinren = true;
-        if(name.contains("coin_ragora")) coinragor = true;
-        if(name.contains("coinqrow")) coinqrow = true;
-        if(name.contains("coin_lysette")) coinlysette = true;
         if(name.contains("armagigas")) ageist = true;
         scroll = name.contains("scroll");
     }
@@ -190,7 +177,7 @@ public class RWBYItem extends Item implements ICustomItem {
             itemstack.shrink(1);
         }
 
-        if(coinr)
+        if(coin.contains("ruby"))
         {
             if(!worldIn.isRemote){
                 ISemblance semblance = CapabilityHandler.getCurrentSemblance(playerIn);
@@ -200,7 +187,7 @@ public class RWBYItem extends Item implements ICustomItem {
                 itemstack.shrink(1);
             }
         }
-        if(coinw)
+        if(coin.contains("weiss"))
         {
             if(!worldIn.isRemote){
                 ISemblance semblance = CapabilityHandler.getCurrentSemblance(playerIn);
@@ -211,7 +198,7 @@ public class RWBYItem extends Item implements ICustomItem {
             }
         }
 
-        if(coinb)
+        if(coin.contains("blake"))
         {
             if(!worldIn.isRemote){
                 ISemblance semblance = CapabilityHandler.getCurrentSemblance(playerIn);
@@ -222,7 +209,7 @@ public class RWBYItem extends Item implements ICustomItem {
             }
         }
 
-        if(coiny)
+        if(coin.contains("yang"))
         {
             if(!worldIn.isRemote){
                 ISemblance semblance = CapabilityHandler.getCurrentSemblance(playerIn);
@@ -233,7 +220,7 @@ public class RWBYItem extends Item implements ICustomItem {
             }
         }
 
-        if(coinren)
+        if(coin.contains("ren"))
         {
             if(!worldIn.isRemote){
                 ISemblance semblance = CapabilityHandler.getCurrentSemblance(playerIn);
@@ -244,7 +231,7 @@ public class RWBYItem extends Item implements ICustomItem {
             }
         }
 
-        if(coinragor)
+        if(coin.contains("ragora"))
         {
             if(!worldIn.isRemote){
                 ISemblance semblance = CapabilityHandler.getCurrentSemblance(playerIn);
@@ -255,7 +242,7 @@ public class RWBYItem extends Item implements ICustomItem {
             }
         }
 
-        if(coinjaune)
+        if(coin.contains("jaune"))
         {
             if(!worldIn.isRemote){
                 ISemblance semblance = CapabilityHandler.getCurrentSemblance(playerIn);
@@ -266,7 +253,7 @@ public class RWBYItem extends Item implements ICustomItem {
             }
         }
 
-        if(coinnora)
+        if(coin.contains("nora"))
         {
             if(!worldIn.isRemote){
                 ISemblance semblance = CapabilityHandler.getCurrentSemblance(playerIn);
@@ -277,7 +264,7 @@ public class RWBYItem extends Item implements ICustomItem {
             }
         }
 
-        if(coinqrow)
+        if(coin.contains("qrow"))
         {
             if(!worldIn.isRemote){
                 ISemblance semblance = CapabilityHandler.getCurrentSemblance(playerIn);
@@ -288,13 +275,24 @@ public class RWBYItem extends Item implements ICustomItem {
             }
         }
 
-        if(coinlysette)
+        if(coin.contains("lysette"))
         {
             if(!worldIn.isRemote){
                 ISemblance semblance = CapabilityHandler.getCurrentSemblance(playerIn);
                 if (semblance.toString().equals("Lysette")) {
                     semblance.setLevel(semblance.getLevel() + 1);
                 } else {CapabilityHandler.setSemblance(playerIn, LysetteProvider.Lysette_CAP, 1);}
+                itemstack.shrink(1);
+            }
+        }
+
+        if(coin.contains("clover"))
+        {
+            if(!worldIn.isRemote){
+                ISemblance semblance = CapabilityHandler.getCurrentSemblance(playerIn);
+                if (semblance.toString().equals("Clover")) {
+                    semblance.setLevel(semblance.getLevel() + 1);
+                } else {CapabilityHandler.setSemblance(playerIn, CloverProvider.Clover_CAP, 1);}
                 itemstack.shrink(1);
             }
         }

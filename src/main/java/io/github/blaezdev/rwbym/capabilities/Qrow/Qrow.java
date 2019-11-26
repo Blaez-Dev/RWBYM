@@ -85,13 +85,14 @@ public class Qrow implements IQrow {
 	}}
 
 	private static PotionEffect[] potioneffectlist = new PotionEffect[]{
-			new PotionEffect(MobEffects.BLINDNESS, 120, 1, true, false),
-			new PotionEffect(MobEffects.NAUSEA, 120, 1, true, false),
-			new PotionEffect(MobEffects.WEAKNESS, 120, 1, true, false),
-			new PotionEffect(MobEffects.MINING_FATIGUE, 120, 1, true, false ),
-			new PotionEffect(MobEffects.SLOWNESS, 120, 1, true, false),
-			new PotionEffect(MobEffects.HUNGER, 120, 1, true, false),
-			new PotionEffect(MobEffects.GLOWING, 120, 1, true, false)
+			new PotionEffect(MobEffects.BLINDNESS, 600, 1, true, false),
+			new PotionEffect(MobEffects.NAUSEA, 600, 1, true, false),
+			new PotionEffect(MobEffects.WEAKNESS, 600, 1, true, false),
+			new PotionEffect(MobEffects.MINING_FATIGUE, 600, 1, true, false ),
+			new PotionEffect(MobEffects.SLOWNESS, 600, 1, true, false),
+			new PotionEffect(MobEffects.HUNGER, 600, 1, true, false),
+			new PotionEffect(MobEffects.GLOWING, 600, 1, true, false),
+			new PotionEffect(MobEffects.POISON, 600, 1, true, false)
 	};
 
 

@@ -45,6 +45,11 @@
           "count": 1
         },		{
           "type": "item",
+          "name": "rwbym:grimmhorn",
+          "weight":20,
+          "count": 1
+        },		{
+          "type": "item",
           "name": "rwbym:rgrimmleg",
           "weight":20,
           "count": 1

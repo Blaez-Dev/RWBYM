@@ -5,8 +5,10 @@ import io.github.blaezdev.rwbym.Init.RWBYItems;
 import io.github.blaezdev.rwbym.capabilities.Aura.AuraProvider;
 import io.github.blaezdev.rwbym.capabilities.Aura.IAura;
 import io.github.blaezdev.rwbym.capabilities.CapabilityHandler;
+import io.github.blaezdev.rwbym.capabilities.Clover.IClover;
 import io.github.blaezdev.rwbym.capabilities.ISemblance;
 import io.github.blaezdev.rwbym.capabilities.Jaune.IJaune;
+import io.github.blaezdev.rwbym.capabilities.Lysette.ILysette;
 import io.github.blaezdev.rwbym.capabilities.Qrow.IQrow;
 import io.github.blaezdev.rwbym.entity.EntityBullet;
 import io.github.blaezdev.rwbym.entity.EntityGrimm;
@@ -191,6 +193,39 @@ public class EntityUpdatesHandler {
 					event.setAmount(overflow / 5);}
 			}}
 		}
+
+		if(event.getSource().getTrueSource() instanceof EntityPlayer){
+			EntityPlayer player = (EntityPlayer) event.getSource().getTrueSource();
+			ISemblance semblance = CapabilityHandler.getCurrentSemblance(player);
+			float attackdamage = event.getAmount();
+			if(semblance instanceof IClover){
+				int level = semblance.getLevel();
+				if(level == 1){
+					float eventdamage = attackdamage * 1.2F;
+					event.setAmount(eventdamage);
+				}
+				if(level == 2){
+					float eventdamage = attackdamage * 1.3F;
+					event.setAmount(eventdamage);
+				}
+				if(level == 3){
+					float eventdamage = attackdamage * 1.4F;
+					event.setAmount(eventdamage);
+				}
+
+			}}
+
+		if(event.getSource().getTrueSource() instanceof EntityPlayer){
+			EntityPlayer player = (EntityPlayer) event.getSource().getTrueSource();
+			ISemblance semblance = CapabilityHandler.getCurrentSemblance(player);
+			if(semblance instanceof ILysette) {
+				int level = semblance.getLevel();
+				PotionEffect potion = new PotionEffect(MobEffects.SLOWNESS, level*150, 128, true, false);
+				if(semblance.isActive()){
+					entityliving.addPotionEffect(potion);
+					player.getCapability(AuraProvider.AURA_CAP, null).useAura(player, 15F,false);
+				}
+			}}
 
 		if(event.getSource().getTrueSource() instanceof EntityPlayer){
 			EntityPlayer player = (EntityPlayer) event.getSource().getTrueSource();

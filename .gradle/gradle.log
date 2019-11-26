@@ -6,13 +6,13 @@ This mapping 'snapshot_20171003' was designed for MC 1.12! Use at your own peril
 :compileApiJava UP-TO-DATE
 :processApiResources UP-TO-DATE
 :apiClasses UP-TO-DATE
-:sourceMainJava
+:sourceMainJava UP-TO-DATE
 :compileJavaNote: Some input files use or override a deprecated API.
 Note: Recompile with -Xlint:deprecation for details.
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
 
-:processResources
+:processResources UP-TO-DATE
 :classes
 :jar
 :sourceTestJava UP-TO-DATE
@@ -29,13 +29,12 @@ Note: Recompile with -Xlint:unchecked for details.
 :extractAnnotationsJar
 :extractRangemapReplacedMain
 C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java
-:retromapReplacedMain
-remapping source...
-:sourceJar
+:retromapReplacedMain UP-TO-DATE
+:sourceJar UP-TO-DATE
 :assemble
 :check UP-TO-DATE
 :build
 
 BUILD SUCCESSFUL
 
-Total time: 27.632 secs
+Total time: 12.987 secs

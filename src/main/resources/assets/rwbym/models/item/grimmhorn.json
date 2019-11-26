@@ -134,7 +134,14 @@
 				"down": {"uv": [11.625, 13.5, 11.375, 13.25], "rotation": 270, "texture": "#0"}
 			}
 		}
-	],
+	],	"overrides": [
+	{
+		"predicate": {
+			"inv": 1
+		},
+		"model": "rwbym:item/injectg"
+	}
+],
 	"display": {
 		"thirdperson_righthand": {
 			"rotation": [0, -90, 0],
