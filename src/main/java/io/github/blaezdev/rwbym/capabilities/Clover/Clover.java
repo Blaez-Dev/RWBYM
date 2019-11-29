@@ -169,8 +169,8 @@ public class Clover implements IClover {
 	public float[] getColor() {
 		float color[] = new float[3];
 		color[0] = 0.33F;
-		color[1] = 0.33F;
-		color[2] = 0.33F;
+		color[1] = 1F;
+		color[2] = 0.0F;
 		return color;
 	}
 

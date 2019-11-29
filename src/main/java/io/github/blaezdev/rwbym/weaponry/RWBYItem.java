@@ -177,6 +177,11 @@ public class RWBYItem extends Item implements ICustomItem {
             itemstack.shrink(1);
         }
 
+        if (scroll) {
+            playerIn.openGui(RWBYModels.instance, RWBYModels.GuiHandler.GUI.SCROLL.ordinal(), worldIn, 0, 0, 0);
+        }
+
+        if(!scroll){
         if(coin.contains("ruby"))
         {
             if(!worldIn.isRemote){
@@ -295,11 +300,7 @@ public class RWBYItem extends Item implements ICustomItem {
                 } else {CapabilityHandler.setSemblance(playerIn, CloverProvider.Clover_CAP, 1);}
                 itemstack.shrink(1);
             }
-        }
-
-        if (scroll) {
-            playerIn.openGui(RWBYModels.instance, RWBYModels.GuiHandler.GUI.SCROLL.ordinal(), worldIn, 0, 0, 0);
-        }
+        }}
 
         if (itemstack1.isEmpty() && ismask)
         {
