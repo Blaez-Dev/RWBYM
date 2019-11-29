@@ -302,6 +302,7 @@ public class ModelNuckleeve extends ModelBase {
 		this.Leg4A.rotateAngleX = f14;
 		this.Leg4B.rotateAngleX = (this.Leg4A.rotateAngleX + (float)Math.PI * Math.max(0.0F, 0.2F + f13 * 0.2F)) * f6 + (f11 + Math.max(0.0F, f10 * 0.5F * limbSwingAmount)) * f7;
 		this.Leg4C.rotateAngleX = this.Leg4B.rotateAngleX;
+		this.Leg3C.rotateAngleX = this.Leg3B.rotateAngleX;
 		this.Leg3A.rotateAngleX = f15;
 		this.Leg3B.rotateAngleX = (this.Leg3A.rotateAngleX + (float)Math.PI * Math.max(0.0F, 0.2F - f13 * 0.2F)) * f6 + (-f11 + Math.max(0.0F, -f10 * 0.5F * limbSwingAmount)) * f7;
 		this.Leg3A.rotateAngleX = this.Leg3B.rotateAngleX;

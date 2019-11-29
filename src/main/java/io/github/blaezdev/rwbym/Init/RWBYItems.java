@@ -2061,6 +2061,23 @@ public class RWBYItems {
             0,
             3,
             RWBYCreativeTabs.tab_rwbyweapons).setRecoil(4);
+    public static final Item ironwood2 = new RWBYGun(
+            "ironwood2",
+            2500,
+            0,
+            0,
+            null,
+            null,
+            "rwbym:spl,rwbym:splfire,rwbym:splgrav,rwbym:splice,rwbym:spllight",
+            false,
+            2,
+            false,
+            false,
+            0,
+            1,
+            0,
+            3,
+            RWBYCreativeTabs.tab_rwbyweapons).setRecoil(4);
     public static final Item goodwitch = new RWBYGun(
             "goodwitch",
             2500,
@@ -4919,6 +4936,33 @@ public class RWBYItems {
     public static final ItemArmor.ArmorMaterial sageMat = EnumHelper.addArmorMaterial("sage", "rwbym:sage", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
     public static final ItemArmor sageChest = new ArmourBase(sageMat, 0, EntityEquipmentSlot.CHEST, "sage_chest", null, "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"chest\",Amount:10,Operation:0,UUIDMost:58554,UUIDLeast:153538},{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"chest\",Amount:5,Operation:0,UUIDMost:67929,UUIDLeast:123513}]}", true, RWBYCreativeTabs.tab_rwbyarmour);
     public static final ItemArmor sageLegs = new ArmourBase(sageMat, 0, EntityEquipmentSlot.LEGS, "sage_legs", null,     "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"legs\",Amount:10,Operation:0,UUIDMost:42121,UUIDLeast:129939},{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"legs\",Amount:5,Operation:0,UUIDMost:89883,UUIDLeast:143748}]}", true, RWBYCreativeTabs.tab_rwbyarmour);
+
+
+    public static final ItemArmor.ArmorMaterial taylorMat = EnumHelper.addArmorMaterial("taylor", "rwbym:taylor", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
+    public static final ItemArmor taylorChest = new ArmourBase(taylorMat, 0, EntityEquipmentSlot.CHEST, "taylor_chest", null, "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"chest\",Amount:10,Operation:0,UUIDMost:58554,UUIDLeast:153538},{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"chest\",Amount:5,Operation:0,UUIDMost:67929,UUIDLeast:123513}]}", true, RWBYCreativeTabs.tab_rwbyarmour);
+    public static final ItemArmor taylorLegs = new ArmourBase(taylorMat, 0, EntityEquipmentSlot.LEGS, "taylor_legs", null,     "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"legs\",Amount:10,Operation:0,UUIDMost:42121,UUIDLeast:129939},{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"legs\",Amount:5,Operation:0,UUIDMost:89883,UUIDLeast:143748}]}", true, RWBYCreativeTabs.tab_rwbyarmour);
+    public static final ItemArmor taylorHead = new ArmourBase(taylorMat, 0, EntityEquipmentSlot.HEAD, "taylor_head", "rwbym:taylor_head", " {AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"head\",Amount:6,Operation:0,UUIDMost:52996,UUIDLeast:116348}]}", true, null);
+    public static final Item taylorhood = new RWBYHood("taylorhood", "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:6,Operation:0,UUIDLeast:822742,UUIDMost:753903,Slot:\"head\"}]}", true,"rwbym:taylor_head", RWBYCreativeTabs.tab_rwbyarmour);
+
+    public static final ItemArmor.ArmorMaterial baileyMat = EnumHelper.addArmorMaterial("bailey", "rwbym:bailey", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
+    public static final ItemArmor baileyChest = new ArmourBase(baileyMat, 0, EntityEquipmentSlot.CHEST, "bailey_chest", null, "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"chest\",Amount:10,Operation:0,UUIDMost:58554,UUIDLeast:153538},{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"chest\",Amount:5,Operation:0,UUIDMost:67929,UUIDLeast:123513}]}", true, RWBYCreativeTabs.tab_rwbyarmour);
+    public static final ItemArmor baileyLegs = new ArmourBase(baileyMat, 0, EntityEquipmentSlot.LEGS, "bailey_legs", null,     "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"legs\",Amount:10,Operation:0,UUIDMost:42121,UUIDLeast:129939},{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"legs\",Amount:5,Operation:0,UUIDMost:89883,UUIDLeast:143748}]}", true, RWBYCreativeTabs.tab_rwbyarmour);
+
+    public static final ItemArmor.ArmorMaterial sashaMat = EnumHelper.addArmorMaterial("sasha", "rwbym:sasha", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
+    public static final ItemArmor sashaChest = new ArmourBase(sashaMat, 0, EntityEquipmentSlot.CHEST, "sasha_chest", null, "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"chest\",Amount:10,Operation:0,UUIDMost:58554,UUIDLeast:153538},{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"chest\",Amount:5,Operation:0,UUIDMost:67929,UUIDLeast:123513}]}", true, RWBYCreativeTabs.tab_rwbyarmour);
+    public static final ItemArmor sashaLegs = new ArmourBase(sashaMat, 0, EntityEquipmentSlot.LEGS, "sasha_legs", null,     "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"legs\",Amount:10,Operation:0,UUIDMost:42121,UUIDLeast:129939},{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"legs\",Amount:5,Operation:0,UUIDMost:89883,UUIDLeast:143748}]}", true, RWBYCreativeTabs.tab_rwbyarmour);
+
+    public static final ItemArmor.ArmorMaterial diannaMat = EnumHelper.addArmorMaterial("dianna", "rwbym:dianna", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
+    public static final ItemArmor diannaChest = new ArmourBase(diannaMat, 0, EntityEquipmentSlot.CHEST, "dianna_chest", null, "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"chest\",Amount:10,Operation:0,UUIDMost:58554,UUIDLeast:153538},{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"chest\",Amount:5,Operation:0,UUIDMost:67929,UUIDLeast:123513}]}", true, RWBYCreativeTabs.tab_rwbyarmour);
+    public static final ItemArmor diannaLegs = new ArmourBase(diannaMat, 0, EntityEquipmentSlot.LEGS, "dianna_legs", null,     "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"legs\",Amount:10,Operation:0,UUIDMost:42121,UUIDLeast:129939},{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"legs\",Amount:5,Operation:0,UUIDMost:89883,UUIDLeast:143748}]}", true, RWBYCreativeTabs.tab_rwbyarmour);
+
+    public static final ItemArmor.ArmorMaterial mariaMat = EnumHelper.addArmorMaterial("maria", "rwbym:maria", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
+    public static final ItemArmor mariaChest = new ArmourBase(mariaMat, 0, EntityEquipmentSlot.CHEST, "maria_chest", null, "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"chest\",Amount:10,Operation:0,UUIDMost:58554,UUIDLeast:153538},{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"chest\",Amount:5,Operation:0,UUIDMost:67929,UUIDLeast:123513}]}", true, RWBYCreativeTabs.tab_rwbyarmour);
+    public static final ItemArmor mariaLegs = new ArmourBase(mariaMat, 0, EntityEquipmentSlot.LEGS, "maria_legs", null,     "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"legs\",Amount:10,Operation:0,UUIDMost:42121,UUIDLeast:129939},{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"legs\",Amount:5,Operation:0,UUIDMost:89883,UUIDLeast:143748}]}", true, RWBYCreativeTabs.tab_rwbyarmour);
+
+    public static final ItemArmor.ArmorMaterial henchmanMat = EnumHelper.addArmorMaterial("henchman", "rwbym:henchman", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
+    public static final ItemArmor henchmanChest = new ArmourBase(henchmanMat, 0, EntityEquipmentSlot.CHEST, "henchman_chest", null, "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"chest\",Amount:10,Operation:0,UUIDMost:58554,UUIDLeast:153538},{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"chest\",Amount:5,Operation:0,UUIDMost:67929,UUIDLeast:123513}]}", true, RWBYCreativeTabs.tab_rwbyarmour);
+    public static final ItemArmor henchmanLegs = new ArmourBase(henchmanMat, 0, EntityEquipmentSlot.LEGS, "henchman_legs", null,     "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"legs\",Amount:10,Operation:0,UUIDMost:42121,UUIDLeast:129939},{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"legs\",Amount:5,Operation:0,UUIDMost:89883,UUIDLeast:143748}]}", true, RWBYCreativeTabs.tab_rwbyarmour);
 
 
     public static final ItemArmor korekosmouoff;

@@ -146,6 +146,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.emeraldgun);
         registerItems(event, RWBYItems.tyrian);
         registerItems(event, RWBYItems.ironwood);
+        registerItems(event, RWBYItems.ironwood2);
         registerItems(event, RWBYItems.winterswd);
         registerItems(event, RWBYItems.pennyswd);
         registerItems(event, RWBYItems.atlaspistol);
@@ -620,6 +621,20 @@ public class RegUtil {
         registerItems(event, RWBYItems.sunLegs);
         registerItems(event, RWBYItems.mariaeyes);
         registerItems(event, RWBYItems.mariamask);
+        registerItems(event, RWBYItems.mariaChest);
+        registerItems(event, RWBYItems.mariaLegs);
+        registerItems(event, RWBYItems.henchmanChest);
+        registerItems(event, RWBYItems.henchmanLegs);
+        registerItems(event, RWBYItems.taylorHead);
+        registerItems(event, RWBYItems.taylorhood);
+        registerItems(event, RWBYItems.taylorChest);
+        registerItems(event, RWBYItems.taylorLegs);
+        registerItems(event, RWBYItems.sashaChest);
+        registerItems(event, RWBYItems.sashaLegs);
+        registerItems(event, RWBYItems.diannaChest);
+        registerItems(event, RWBYItems.diannaLegs);
+        registerItems(event, RWBYItems.baileyChest);
+        registerItems(event, RWBYItems.baileyLegs);
         registerItems(event, RWBYItems.ozpinglasses);
         registerBlocks(event, RWBYItems.fluidGrimm);
 
@@ -918,6 +933,20 @@ public class RegUtil {
         registerRecipes(RWBYItems.amberstaffwind);
         registerRecipes(RWBYItems.amesardent);
         registerRecipes(RWBYItems.amesardentgun);
+        registerRecipes(RWBYItems.mariaChest);
+        registerRecipes(RWBYItems.mariaLegs);
+        registerRecipes(RWBYItems.henchmanChest);
+        registerRecipes(RWBYItems.henchmanLegs);
+        registerRecipes(RWBYItems.taylorHead);
+        registerRecipes(RWBYItems.taylorhood);
+        registerRecipes(RWBYItems.taylorChest);
+        registerRecipes(RWBYItems.taylorLegs);
+        registerRecipes(RWBYItems.sashaChest);
+        registerRecipes(RWBYItems.sashaLegs);
+        registerRecipes(RWBYItems.diannaChest);
+        registerRecipes(RWBYItems.diannaLegs);
+        registerRecipes(RWBYItems.baileyChest);
+        registerRecipes(RWBYItems.baileyLegs);
     }
 
     private static void registerBlocks(FMLPreInitializationEvent event, Block...blocks) {
