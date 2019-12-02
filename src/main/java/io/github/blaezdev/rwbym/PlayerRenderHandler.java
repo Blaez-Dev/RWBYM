@@ -1,11 +1,11 @@
 package io.github.blaezdev.rwbym;
 
-import com.mojang.authlib.GameProfile;
 import io.github.blaezdev.rwbym.Init.RWBYItems;
 import io.github.blaezdev.rwbym.capabilities.CapabilityHandler;
 import io.github.blaezdev.rwbym.capabilities.ISemblance;
 import io.github.blaezdev.rwbym.utility.ExtraInfo;
 import io.github.blaezdev.rwbym.weaponry.ArmourBase;
+import com.mojang.authlib.GameProfile;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.model.ModelBiped;

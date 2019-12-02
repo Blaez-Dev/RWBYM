@@ -1,9 +1,9 @@
 package io.github.blaezdev.rwbym.commands;
 
-import com.google.common.collect.Lists;
 import io.github.blaezdev.rwbym.RWBYModels;
 import io.github.blaezdev.rwbym.capabilities.CapabilityHandler;
 import io.github.blaezdev.rwbym.capabilities.ISemblance;
+import com.google.common.collect.Lists;
 import net.minecraft.command.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.server.MinecraftServer;

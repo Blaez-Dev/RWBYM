@@ -1,7 +1,12 @@
 package io.github.blaezdev.rwbym.capabilities.Qrow;
 
+import io.github.blaezdev.rwbym.Init.RWBYItems;
+import io.github.blaezdev.rwbym.capabilities.Aura.AuraProvider;
+import io.github.blaezdev.rwbym.capabilities.Aura.IAura;
+import io.github.blaezdev.rwbym.utility.RWBYConfig;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.math.AxisAlignedBB;
