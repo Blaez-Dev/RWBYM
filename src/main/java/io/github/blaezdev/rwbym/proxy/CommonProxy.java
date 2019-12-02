@@ -1,9 +1,9 @@
 package io.github.blaezdev.rwbym.proxy;
 
+import com.mojang.authlib.GameProfile;
 import io.github.blaezdev.rwbym.Init.Oregen;
 import io.github.blaezdev.rwbym.RWBYModels;
 import io.github.blaezdev.rwbym.entity.EntityRagora;
-import com.mojang.authlib.GameProfile;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;

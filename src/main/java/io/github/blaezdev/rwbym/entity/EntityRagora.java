@@ -1,5 +1,6 @@
 package io.github.blaezdev.rwbym.entity;
 
+import com.google.common.base.Predicate;
 import io.github.blaezdev.rwbym.Init.RWBYItems;
 import io.github.blaezdev.rwbym.RWBYModels;
 import io.github.blaezdev.rwbym.capabilities.CapabilityHandler;
@@ -7,7 +8,6 @@ import io.github.blaezdev.rwbym.capabilities.Ragora.IRagora;
 import io.github.blaezdev.rwbym.utility.RWBYConfig;
 import io.github.blaezdev.rwbym.utility.RWBYMath;
 import io.github.blaezdev.rwbym.weaponry.RWBYAmmoItem;
-import com.google.common.base.Predicate;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;

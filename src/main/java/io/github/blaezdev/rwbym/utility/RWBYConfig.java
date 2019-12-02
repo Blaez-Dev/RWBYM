@@ -1,11 +1,8 @@
 package io.github.blaezdev.rwbym.utility;
 
 import io.github.blaezdev.rwbym.RWBYModels;
-import io.github.blaezdev.rwbym.Init.RWBYFluids;
-import io.github.blaezdev.rwbym.Init.RWBYItems;
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.ConfigManager;
-import net.minecraftforge.fluids.BlockFluidBase;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
