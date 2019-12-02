@@ -1,8 +1,8 @@
 package io.github.blaezdev.rwbym.weaponry;
 
-import com.google.common.collect.ImmutableList;
 import io.github.blaezdev.rwbym.RWBYModels;
 import io.github.blaezdev.rwbym.inventory.RWBYItemInventory;
+import com.google.common.collect.ImmutableList;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;

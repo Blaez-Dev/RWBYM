@@ -1,6 +1,5 @@
 package io.github.blaezdev.rwbym.proxy;
 
-import com.mojang.authlib.GameProfile;
 import io.github.blaezdev.rwbym.Init.RWBYItems;
 import io.github.blaezdev.rwbym.PlayerRenderHandler;
 import io.github.blaezdev.rwbym.RWBYModels;
@@ -13,6 +12,7 @@ import io.github.blaezdev.rwbym.utility.RWBYConfig;
 import io.github.blaezdev.rwbym.utility.RWBYMath;
 import io.github.blaezdev.rwbym.weaponry.ICustomItem;
 import io.github.blaezdev.rwbym.weaponry.RWBYAmmoRender;
+import com.mojang.authlib.GameProfile;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;

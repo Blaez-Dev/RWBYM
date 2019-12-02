@@ -1,11 +1,11 @@
 package io.github.blaezdev.rwbym.weaponry;
 
-import com.google.common.collect.Multimap;
-import com.mojang.realmsclient.gui.ChatFormatting;
 import io.github.blaezdev.rwbym.Init.RWBYItems;
 import io.github.blaezdev.rwbym.RWBYModels;
 import io.github.blaezdev.rwbym.RWBYSoundHandler;
 import io.github.blaezdev.rwbym.capabilities.Aura.AuraProvider;
+import com.google.common.collect.Multimap;
+import com.mojang.realmsclient.gui.ChatFormatting;
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

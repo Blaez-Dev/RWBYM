@@ -593,8 +593,6 @@ item.dianna_chest.name=Dianna's Top
 item.dianna_legs.name=Dianna's Legs
 item.bailey_chest.name=Bailey's Top
 item.bailey_legs.name=Bailey's Legs
-item.rwbym:henchmenhat.name=Henchman Hat
-item.rwbym:henchmenhatglasses.name=Henchman Hat and Glasses
 
 effect.aura_regen=Aura Regen
 potion.effect.aura_regen=Potion of Aura Regen

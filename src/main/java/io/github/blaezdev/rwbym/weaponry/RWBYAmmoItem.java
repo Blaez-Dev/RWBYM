@@ -1,10 +1,10 @@
 package io.github.blaezdev.rwbym.weaponry;
 
-import com.mojang.realmsclient.gui.ChatFormatting;
 import io.github.blaezdev.rwbym.RWBYModels;
 import io.github.blaezdev.rwbym.entity.EntityBullet;
 import io.github.blaezdev.rwbym.weaponry.ammohit.IAmmoHit;
 import io.github.blaezdev.rwbym.weaponry.ammohit.NullAmmoHit;
+import com.mojang.realmsclient.gui.ChatFormatting;
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;

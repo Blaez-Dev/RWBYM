@@ -1,8 +1,8 @@
 package io.github.blaezdev.rwbym.gui;
 
-import com.google.common.collect.Lists;
 import io.github.blaezdev.rwbym.RWBYModels;
 import io.github.blaezdev.rwbym.gui.helper.TradingRecipe;
+import com.google.common.collect.Lists;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
