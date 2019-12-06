@@ -49,7 +49,7 @@ public class RWBYItem extends Item implements ICustomItem {
 
     private boolean ismask;
     private final String data;
-    private String coin;
+    public String coin;
     private boolean gravity;
     private boolean water;
     private boolean atlasknight;
@@ -60,7 +60,7 @@ public class RWBYItem extends Item implements ICustomItem {
     private ContainerItemLambda containeritemlambda;
 
     public RWBYItem setCoin(String coin) {
-        this.coin = coin;
+       this.coin = coin;
         return this;
     }
 
