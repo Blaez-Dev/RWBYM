@@ -3596,6 +3596,7 @@ public class RWBYItems {
     public static final Item signdust = new RWBYItem("signdust", null, false, null);
     public static final Item scroll = new RWBYItem("scroll", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item scroll2 = new RWBYItem("scroll2", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item scrollwhite7 = new RWBYItem("7scroll_white", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item rgrimmarm = new RWBYLimbItem("rgrimmarm", "RightArm");
     public static final Item lgrimmarm = new RWBYLimbItem("lgrimmarm", "LeftArm");
     public static final Item rgrimmleg = new RWBYLimbItem("rgrimmleg", "RightLeg");

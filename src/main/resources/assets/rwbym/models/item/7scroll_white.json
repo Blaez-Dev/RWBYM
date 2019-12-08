@@ -250,13 +250,13 @@
 			"scale": [0.6, 0.6, 0.6]
 		},
 		"firstperson_righthand": {
-			"rotation": [50, 0, 180],
-			"translation": [0.25, 1.5, -3],
+			"rotation": [50, 180, 180],
+			"translation": [0.75, -0.25, -0.5],
 			"scale": [0.6, 0.6, 0.6]
 		},
 		"firstperson_lefthand": {
-			"rotation": [50, 0, 180],
-			"translation": [0.25, 1.5, -3],
+			"rotation": [50, 180, 180],
+			"translation": [0.75, -0.25, -0.5],
 			"scale": [0.6, 0.6, 0.6]
 		},
 		"ground": {
