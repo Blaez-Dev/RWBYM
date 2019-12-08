@@ -389,7 +389,13 @@ public class RegUtil {
         //registerItems(event, RWBYItems.coin_raven);
         registerItems(event, RWBYItems.scroll);
         registerItems(event, RWBYItems.scroll2);
+        registerItems(event, RWBYItems.scrollred7);
         registerItems(event, RWBYItems.scrollwhite7);
+        registerItems(event, RWBYItems.scrollblack7);
+        registerItems(event, RWBYItems.scrollyellow7);
+        registerItems(event, RWBYItems.scrollblue7);
+        registerItems(event, RWBYItems.scrollgreen7);
+        registerItems(event, RWBYItems.scrollpink7);
         //lien items
         registerItems(event, RWBYItems.lien1);
         registerItems(event, RWBYItems.lien5);

@@ -2,7 +2,7 @@
 	"credit": "Made with Blockbench",
 	"textures": {
 		"0": "rwbym:gui/scroll",
-		"1": "rwbym:blocks/awool_colored_ozpincane",
+		"1": "rwbym:blocks/awool_colored_black",
 		"3": "rwbym:blocks/awool_colored_gold",
 		"4": "rwbym:blocks/awool_colored_darkblack"
 	},

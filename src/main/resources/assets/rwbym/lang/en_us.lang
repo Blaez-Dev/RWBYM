@@ -595,6 +595,13 @@ item.bailey_chest.name=Bailey's Top
 item.bailey_legs.name=Bailey's Legs
 item.rwbym:henchmenhat.name=Henchman Hat
 item.rwbym:henchmenhatglasses.name=Henchman Hat and Glasses
+item.rwbym:7scroll_white.name=Scroll
+item.rwbym:7scroll_black.name=Scroll
+item.rwbym:7scroll_blue.name=Scroll
+item.rwbym:7scroll_green.name=Scroll
+item.rwbym:7scroll_pink.name=Scroll
+item.rwbym:7scroll_red.name=Scroll
+item.rwbym:7scroll_yellow.name=Scroll
 
 effect.aura_regen=Aura Regen
 potion.effect.aura_regen=Potion of Aura Regen

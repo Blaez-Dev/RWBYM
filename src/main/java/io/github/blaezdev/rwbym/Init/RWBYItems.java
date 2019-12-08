@@ -3597,6 +3597,12 @@ public class RWBYItems {
     public static final Item scroll = new RWBYItem("scroll", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item scroll2 = new RWBYItem("scroll2", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item scrollwhite7 = new RWBYItem("7scroll_white", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item scrollblack7 = new RWBYItem("7scroll_black", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item scrollblue7 = new RWBYItem("7scroll_blue", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item scrollgreen7 = new RWBYItem("7scroll_green", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item scrollpink7 = new RWBYItem("7scroll_pink", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item scrollred7 = new RWBYItem("7scroll_red", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item scrollyellow7 = new RWBYItem("7scroll_yellow", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item rgrimmarm = new RWBYLimbItem("rgrimmarm", "RightArm");
     public static final Item lgrimmarm = new RWBYLimbItem("lgrimmarm", "LeftArm");
     public static final Item rgrimmleg = new RWBYLimbItem("rgrimmleg", "RightLeg");
