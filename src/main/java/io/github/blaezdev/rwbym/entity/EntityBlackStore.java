@@ -163,6 +163,7 @@ public class EntityBlackStore extends EntityRWBYMMerchant implements INpc, IMerc
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.wfp,1)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.henchmen,1)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.henchmenaxe,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.remnants, 1), new ItemStack(RWBYItems.lien20, 2)));
         //sell//
 
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.bait,1), new ItemStack(RWBYItems.lien500, 1)));
