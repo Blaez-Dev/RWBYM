@@ -77,6 +77,7 @@ public class RWBYItem extends Item implements ICustomItem {
             maxStackSize = 1;
         }
         if(name.contains("crystal")) burn = true;
+        if(name.contains("rock")){coin = "notcoin";}
         this.setCreativeTab(creativetab);
         if(name.contains("gravitydustcrystal")) gravity = true;
         if(name.contains("waterdustcrystal")) water = true;
