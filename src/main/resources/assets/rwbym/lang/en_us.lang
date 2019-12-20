@@ -602,6 +602,13 @@ item.rwbym:7scroll_green.name=Scroll
 item.rwbym:7scroll_pink.name=Scroll
 item.rwbym:7scroll_red.name=Scroll
 item.rwbym:7scroll_yellow.name=Scroll
+item.rwbym:hollowtome.name=§6Hollow Tome
+item.rwbym:hollowtomefire.name=§6Hollow Tome [Fire]
+item.rwbym:hollowtomegravity.name=§6Hollow Tome [Gravity]
+item.rwbym:hollowtomeice.name=§6Hollow Tome [Ice]
+item.rwbym:hollowtomelightning.name=§6Hollow Tome [Lightning]
+item.rwbym:hollowtomewater.name=§6Hollow Tome [Water]
+item.rwbym:hollowtomewind.name=§6Hollow Tome [Wind]
 
 effect.aura_regen=Aura Regen
 potion.effect.aura_regen=Potion of Aura Regen

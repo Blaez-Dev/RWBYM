@@ -3503,7 +3503,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            0,
+            4,
             RWBYCreativeTabs.tab_rwbyweapons);
     public static final Item hollowtomefire = new RWBYGun("hollowtomefire",
             2500,
@@ -3519,7 +3519,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            0,
+            4,
             null).setElementMelee("fire");
     public static final Item hollowtomegravity = new RWBYGun("hollowtomegravity",
             2500,
@@ -3535,7 +3535,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            0,
+            4,
             null).setElementMelee("grav");
     public static final Item hollowtomewind = new RWBYGun("hollowtomewind",
             2500,
@@ -3551,7 +3551,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            0,
+            4,
             null).setElementMelee("wind");
     public static final Item hollowtomelightning = new RWBYGun("hollowtomelightning",
             2500,
@@ -3567,7 +3567,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            0,
+            4,
             null).setElementMelee("light");
     public static final Item hollowtomewater = new RWBYGun("hollowtomewater",
             2500,
@@ -3583,7 +3583,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            0,
+            4,
             null).setElementMelee("water");
     public static final Item hollowtomeice = new RWBYGun("hollowtomeice",
             2500,
@@ -3599,7 +3599,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            0,
+            4,
             null).setElementMelee("ice");
 
     //------------------------------------------------//

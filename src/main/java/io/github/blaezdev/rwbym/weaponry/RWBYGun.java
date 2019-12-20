@@ -569,7 +569,6 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             if (entity instanceof EntityPlayer) {
                 EntityPlayer player = (EntityPlayer) entity;
         if((weapontype & TOME) !=0){PotionEffect potioneffect1 = new PotionEffect(MobEffects.STRENGTH, 100, 5, false, false);
-            PotionEffect potioneffect2 = new PotionEffect(MobEffects.LEVITATION, 40, 5, false, false);
             PotionEffect potionEffect3 = new PotionEffect(MobEffects.FIRE_RESISTANCE, 100, 5, false, false);
             PotionEffect potioneffect4 = new PotionEffect(MobEffects.REGENERATION, 100, 3, false, false);
             PotionEffect potioneffect5 = new PotionEffect(MobEffects.HASTE, 100, 5, false, false);
@@ -580,16 +579,20 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                 {
                     player.addPotionEffect(potioneffect1);
                     player.addPotionEffect(potionEffect3);
+                    player.getCapability(AuraProvider.AURA_CAP, null).useAura(player, 0.15F, false);
                 }
                 if(elementmelee == "water"){
                     player.addPotionEffect(potioneffect4);
+                    player.getCapability(AuraProvider.AURA_CAP, null).useAura(player, 0.15F, false);
                 }
                 if(elementmelee == "light"){
                     player.addPotionEffect(potioneffect5);
                     player.addPotionEffect(potionEffect6);
+                    player.getCapability(AuraProvider.AURA_CAP, null).useAura(player, 0.15F, false);
                 }
                 if(elementmelee == "wind"){
                     player.addPotionEffect(potionEffect7);
+                    player.getCapability(AuraProvider.AURA_CAP, null).useAura(player, 0.15F, false);
                 }}
         }}}
 
