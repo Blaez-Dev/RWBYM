@@ -23,6 +23,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.nbt.JsonToNBT;
 import net.minecraft.nbt.NBTException;
 import net.minecraft.nbt.NBTTagCompound;
@@ -35,6 +36,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.logging.log4j.LogManager;
+
+import java.util.ArrayList;
 
 /**
  * Part of rwbym by Bluexin.
@@ -49,7 +52,7 @@ public class RWBYItem extends Item implements ICustomItem {
 
     private boolean ismask;
     private final String data;
-    private String coin;
+    public String coin;
     private boolean gravity;
     private boolean water;
     private boolean atlasknight;
@@ -60,7 +63,7 @@ public class RWBYItem extends Item implements ICustomItem {
     private ContainerItemLambda containeritemlambda;
 
     public RWBYItem setCoin(String coin) {
-        this.coin = coin;
+       this.coin = coin;
         return this;
     }
 
@@ -80,6 +83,7 @@ public class RWBYItem extends Item implements ICustomItem {
         if(name.contains("atlasknight")) atlasknight = true;
         if(name.contains("armagigas")) ageist = true;
         scroll = name.contains("scroll");
+        coin = "notcoin";
     }
 
 
@@ -181,8 +185,8 @@ public class RWBYItem extends Item implements ICustomItem {
             playerIn.openGui(RWBYModels.instance, RWBYModels.GuiHandler.GUI.SCROLL.ordinal(), worldIn, 0, 0, 0);
         }
 
-        if(!scroll){
-        if(coin.contains("ruby"))
+
+        if(coin.matches("ruby"))
         {
             if(!worldIn.isRemote){
                 ISemblance semblance = CapabilityHandler.getCurrentSemblance(playerIn);
@@ -192,7 +196,7 @@ public class RWBYItem extends Item implements ICustomItem {
                 itemstack.shrink(1);
             }
         }
-        if(coin.contains("weiss"))
+        if(coin.matches("weiss"))
         {
             if(!worldIn.isRemote){
                 ISemblance semblance = CapabilityHandler.getCurrentSemblance(playerIn);
@@ -203,7 +207,7 @@ public class RWBYItem extends Item implements ICustomItem {
             }
         }
 
-        if(coin.contains("blake"))
+        if(coin.matches("blake"))
         {
             if(!worldIn.isRemote){
                 ISemblance semblance = CapabilityHandler.getCurrentSemblance(playerIn);
@@ -214,7 +218,7 @@ public class RWBYItem extends Item implements ICustomItem {
             }
         }
 
-        if(coin.contains("yang"))
+        if(coin.matches("yang"))
         {
             if(!worldIn.isRemote){
                 ISemblance semblance = CapabilityHandler.getCurrentSemblance(playerIn);
@@ -225,7 +229,7 @@ public class RWBYItem extends Item implements ICustomItem {
             }
         }
 
-        if(coin.contains("ren"))
+        if(coin.matches("ren"))
         {
             if(!worldIn.isRemote){
                 ISemblance semblance = CapabilityHandler.getCurrentSemblance(playerIn);
@@ -236,7 +240,7 @@ public class RWBYItem extends Item implements ICustomItem {
             }
         }
 
-        if(coin.contains("ragora"))
+        if(coin.matches("ragora"))
         {
             if(!worldIn.isRemote){
                 ISemblance semblance = CapabilityHandler.getCurrentSemblance(playerIn);
@@ -247,7 +251,7 @@ public class RWBYItem extends Item implements ICustomItem {
             }
         }
 
-        if(coin.contains("jaune"))
+        if(coin.matches("jaune"))
         {
             if(!worldIn.isRemote){
                 ISemblance semblance = CapabilityHandler.getCurrentSemblance(playerIn);
@@ -258,7 +262,7 @@ public class RWBYItem extends Item implements ICustomItem {
             }
         }
 
-        if(coin.contains("nora"))
+        if(coin.matches("nora"))
         {
             if(!worldIn.isRemote){
                 ISemblance semblance = CapabilityHandler.getCurrentSemblance(playerIn);
@@ -269,7 +273,7 @@ public class RWBYItem extends Item implements ICustomItem {
             }
         }
 
-        if(coin.contains("qrow"))
+        if(coin.matches("qrow"))
         {
             if(!worldIn.isRemote){
                 ISemblance semblance = CapabilityHandler.getCurrentSemblance(playerIn);
@@ -280,7 +284,7 @@ public class RWBYItem extends Item implements ICustomItem {
             }
         }
 
-        if(coin.contains("lysette"))
+        if(coin.matches("lysette"))
         {
             if(!worldIn.isRemote){
                 ISemblance semblance = CapabilityHandler.getCurrentSemblance(playerIn);
@@ -291,7 +295,7 @@ public class RWBYItem extends Item implements ICustomItem {
             }
         }
 
-        if(coin.contains("clover"))
+        if(coin.matches("clover"))
         {
             if(!worldIn.isRemote){
                 ISemblance semblance = CapabilityHandler.getCurrentSemblance(playerIn);
@@ -300,7 +304,7 @@ public class RWBYItem extends Item implements ICustomItem {
                 } else {CapabilityHandler.setSemblance(playerIn, CloverProvider.Clover_CAP, 1);}
                 itemstack.shrink(1);
             }
-        }}
+        }
 
         if (itemstack1.isEmpty() && ismask)
         {
@@ -343,3 +347,8 @@ public class RWBYItem extends Item implements ICustomItem {
     }
 }
 
+/*            ArrayList<IRecipe> recipes = new ArrayList();
+            for (IRecipe irecipe : net.minecraftforge.registries.GameData.getWrapper(IRecipe.class)) {
+                recipes.add(irecipe);
+            }
+            player.unlockRecipes(recipes);*/

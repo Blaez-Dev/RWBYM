@@ -112,6 +112,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
 
 
+
     /*
     *
     * recoiltype
@@ -147,7 +148,8 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     public static final int ROCKET =       0x40000;
     public static final int UMBRELLA =     0x80000;
     public static final int AXE =          0x100000;
-    public static final int PICKAXE =          0x200000;
+    public static final int PICKAXE =      0x200000;
+    public static final int TOME =         0x400000;
 	
 	public static final int RCL_BACK =      1;
 	public static final int RCL_BACK_WEAK = 2;
@@ -436,6 +438,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         if((weapontype & UMBRELLA) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Glide Capable");}
         if((weapontype & AXE) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Axe");}
         if((weapontype & PICKAXE) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Pickaxe");}
+        if((weapontype & TOME) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Tome");}
         if(grimm){tooltip.add(ChatFormatting.BLUE + "-"+ "Grimm Weapon");}
          if((weapontype & (AURAWEAP|LETZT|SANREI)) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Aura Based Weapon");}
          if(recoil == 4){tooltip.add(ChatFormatting.BLUE + "-"+ "Wall Climbing Capable");}
@@ -562,6 +565,36 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             }
         }
 
+        if(!world.isRemote) {
+            if (entity instanceof EntityPlayer) {
+                EntityPlayer player = (EntityPlayer) entity;
+        if((weapontype & TOME) !=0){PotionEffect potioneffect1 = new PotionEffect(MobEffects.STRENGTH, 100, 5, false, false);
+            PotionEffect potionEffect3 = new PotionEffect(MobEffects.FIRE_RESISTANCE, 100, 5, false, false);
+            PotionEffect potioneffect4 = new PotionEffect(MobEffects.REGENERATION, 100, 3, false, false);
+            PotionEffect potioneffect5 = new PotionEffect(MobEffects.HASTE, 100, 5, false, false);
+            PotionEffect potionEffect6 = new PotionEffect(MobEffects.SPEED, 100, 5, false, false);
+            PotionEffect potionEffect7 = new PotionEffect(MobEffects.SPEED, 200, 7, false, false);
+            if(player.isSneaking() && player.getHeldItem(EnumHand.MAIN_HAND) == is){
+                if(elementmelee == "fire")
+                {
+                    player.addPotionEffect(potioneffect1);
+                    player.addPotionEffect(potionEffect3);
+                    player.getCapability(AuraProvider.AURA_CAP, null).useAura(player, 0.15F, false);
+                }
+                if(elementmelee == "water"){
+                    player.addPotionEffect(potioneffect4);
+                    player.getCapability(AuraProvider.AURA_CAP, null).useAura(player, 0.15F, false);
+                }
+                if(elementmelee == "light"){
+                    player.addPotionEffect(potioneffect5);
+                    player.addPotionEffect(potionEffect6);
+                    player.getCapability(AuraProvider.AURA_CAP, null).useAura(player, 0.15F, false);
+                }
+                if(elementmelee == "wind"){
+                    player.addPotionEffect(potionEffect7);
+                    player.getCapability(AuraProvider.AURA_CAP, null).useAura(player, 0.15F, false);
+                }}
+        }}}
 
 
 

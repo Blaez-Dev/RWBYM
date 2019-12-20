@@ -3,6 +3,7 @@ package io.github.blaezdev.rwbym.Init;
 import io.github.blaezdev.rwbym.RWBYModels;
 import io.github.blaezdev.rwbym.potion.PotionAuraRegen;
 import io.github.blaezdev.rwbym.utility.craftingutil;
+import io.github.blaezdev.rwbym.weaponry.RWBYItem;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
@@ -260,6 +261,13 @@ public class RegUtil {
         registerItems(event, RWBYItems.rageshield);
         registerItems(event, RWBYItems.leafshield);
         registerItems(event, RWBYItems.pickaxeshield);
+        registerItems(event, RWBYItems.hollowtome);
+        registerItems(event, RWBYItems.hollowtomefire);
+        registerItems(event, RWBYItems.hollowtomegravity);
+        registerItems(event, RWBYItems.hollowtomeice);
+        registerItems(event, RWBYItems.hollowtomelightning);
+        registerItems(event, RWBYItems.hollowtomewater);
+        registerItems(event, RWBYItems.hollowtomewind);
         registerItems(event, RWBYItems.kyoshiwind);
         registerItems(event, RWBYItems.kyoshiice);
         registerItems(event, RWBYItems.kyoshigrav);
@@ -389,6 +397,13 @@ public class RegUtil {
         //registerItems(event, RWBYItems.coin_raven);
         registerItems(event, RWBYItems.scroll);
         registerItems(event, RWBYItems.scroll2);
+        registerItems(event, RWBYItems.scrollred7);
+        registerItems(event, RWBYItems.scrollwhite7);
+        registerItems(event, RWBYItems.scrollblack7);
+        registerItems(event, RWBYItems.scrollyellow7);
+        registerItems(event, RWBYItems.scrollblue7);
+        registerItems(event, RWBYItems.scrollgreen7);
+        registerItems(event, RWBYItems.scrollpink7);
         //lien items
         registerItems(event, RWBYItems.lien1);
         registerItems(event, RWBYItems.lien5);

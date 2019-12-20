@@ -3489,6 +3489,118 @@ public class RWBYItems {
             0,
             3,
             null).setRecoil(5);
+    public static final Item hollowtome = new RWBYGun("hollowtome",
+            2500,
+            10,
+            RWBYGun.TOME,
+            null,
+            "rwbym:hollowtomefire",
+            "rwbym:nuller,rwbym:nullest",
+            false,
+            1,
+            true,
+            false,
+            0,
+            1,
+            0,
+            4,
+            RWBYCreativeTabs.tab_rwbyweapons);
+    public static final Item hollowtomefire = new RWBYGun("hollowtomefire",
+            2500,
+            10,
+            RWBYGun.TOME,
+            null,
+            "rwbym:hollowtomegravity",
+            "rwbym:firedust,rwbym:nullest",
+            false,
+            1,
+            true,
+            false,
+            0,
+            1,
+            0,
+            4,
+            null).setElementMelee("fire");
+    public static final Item hollowtomegravity = new RWBYGun("hollowtomegravity",
+            2500,
+            10,
+            RWBYGun.TOME,
+            null,
+            "rwbym:hollowtomewind",
+            "rwbym:gravitydust,rwbym:nullest",
+            false,
+            1,
+            true,
+            false,
+            0,
+            1,
+            0,
+            4,
+            null).setElementMelee("grav");
+    public static final Item hollowtomewind = new RWBYGun("hollowtomewind",
+            2500,
+            10,
+            RWBYGun.TOME,
+            null,
+            "rwbym:hollowtomelightning",
+            "rwbym:winddust,rwbym:nullest",
+            false,
+            1,
+            true,
+            false,
+            0,
+            1,
+            0,
+            4,
+            null).setElementMelee("wind");
+    public static final Item hollowtomelightning = new RWBYGun("hollowtomelightning",
+            2500,
+            10,
+            RWBYGun.TOME,
+            null,
+            "rwbym:hollowtomewater",
+            "rwbym:lightdust,rwbym:nullest",
+            false,
+            1,
+            true,
+            false,
+            0,
+            1,
+            0,
+            4,
+            null).setElementMelee("light");
+    public static final Item hollowtomewater = new RWBYGun("hollowtomewater",
+            2500,
+            10,
+            RWBYGun.TOME,
+            null,
+            "rwbym:hollowtomeice",
+            "rwbym:waterdust,rwbym:nullest",
+            false,
+            1,
+            true,
+            false,
+            0,
+            1,
+            0,
+            4,
+            null).setElementMelee("water");
+    public static final Item hollowtomeice = new RWBYGun("hollowtomeice",
+            2500,
+            10,
+            RWBYGun.TOME,
+            null,
+            "rwbym:hollowtome",
+            "rwbym:icedust,rwbym:nullest",
+            false,
+            1,
+            true,
+            false,
+            0,
+            1,
+            0,
+            4,
+            null).setElementMelee("ice");
 
     //------------------------------------------------//
     public static final Item ammo = new RWBYItem("ammo", null, false, RWBYCreativeTabs.tab_rwbyitems);
@@ -3596,6 +3708,13 @@ public class RWBYItems {
     public static final Item signdust = new RWBYItem("signdust", null, false, null);
     public static final Item scroll = new RWBYItem("scroll", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item scroll2 = new RWBYItem("scroll2", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item scrollwhite7 = new RWBYItem("7scroll_white", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item scrollblack7 = new RWBYItem("7scroll_black", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item scrollblue7 = new RWBYItem("7scroll_blue", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item scrollgreen7 = new RWBYItem("7scroll_green", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item scrollpink7 = new RWBYItem("7scroll_pink", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item scrollred7 = new RWBYItem("7scroll_red", null, false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item scrollyellow7 = new RWBYItem("7scroll_yellow", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item rgrimmarm = new RWBYLimbItem("rgrimmarm", "RightArm");
     public static final Item lgrimmarm = new RWBYLimbItem("lgrimmarm", "LeftArm");
     public static final Item rgrimmleg = new RWBYLimbItem("rgrimmleg", "RightLeg");
