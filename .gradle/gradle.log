@@ -15,36 +15,233 @@ This mapping 'snapshot_20171003' was designed for MC 1.12! Use at your own peril
 :compileApiJava UP-TO-DATE
 :processApiResources UP-TO-DATE
 :apiClasses UP-TO-DATE
-:sourceMainJava
+:sourceMainJava UP-TO-DATE
 :compileJavaNote: Some input files use or override a deprecated API.
 Note: Recompile with -Xlint:deprecation for details.
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
 
-:processResources
+:processResources UP-TO-DATE
 :classes
 :jar
-:sourceTestJava UP-TO-DATE
-:compileTestJava UP-TO-DATE
-:processTestResources UP-TO-DATE
-:testClasses UP-TO-DATE
-:test UP-TO-DATE
-:extractMcpData SKIPPED
-:extractMcpMappings SKIPPED
 :getVersionJson
+:extractNatives SKIPPED
 :extractUserdev UP-TO-DATE
-:genSrgs SKIPPED
-:reobfJar
-:extractAnnotationsJar
-:extractRangemapReplacedMain
-C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java
-:retromapReplacedMain
-remapping source...
-:sourceJar
-:assemble
-:check UP-TO-DATE
-:build
+:getAssetIndex UP-TO-DATE
+:getAssets
+Current status: 1060/1305   81%
+:makeStart SKIPPED
+:runClient
+[21:02:45] [main/INFO] [GradleStart]: Extra: []
+[21:02:45] [main/INFO] [GradleStart]: Running with arguments: [--userProperties, {}, --assetsDir, /Users/wuguoxian/.gradle/caches/minecraft/assets, --assetIndex, 1.12, --accessToken{REDACTED}, --version, 1.12.2, --tweakClass, net.minecraftforge.fml.common.launcher.FMLTweaker, --tweakClass, net.minecraftforge.gradle.tweakers.CoremodTweaker]
+[21:02:45] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLTweaker
+[21:02:45] [main/INFO] [LaunchWrapper]: Using primary tweak class name net.minecraftforge.fml.common.launcher.FMLTweaker
+[21:02:45] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.gradle.tweakers.CoremodTweaker
+[21:02:45] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLTweaker
+[21:02:45] [main/INFO] [FML]: Forge Mod Loader version 14.23.5.2812 for Minecraft 1.12.2 loading
+[21:02:45] [main/INFO] [FML]: Java is OpenJDK 64-Bit Server VM, version 1.8.0_222, running on Mac OS X:x86_64:10.12.6, installed at /Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/jre
+[21:02:46] [main/ERROR] [FML]: Apache Maven library folder was not in the format expected. Using default libraries directory.
+[21:02:46] [main/ERROR] [FML]: Full: /Users/wuguoxian/.gradle/caches/modules-2/files-2.1/org.apache.maven/maven-artifact/3.5.3/7dc72b6d6d8a6dced3d294ed54c2cc3515ade9f4/maven-artifact-3.5.3.jar
+[21:02:46] [main/ERROR] [FML]: Trimmed: /users/wuguoxian/.gradle/caches/modules-2/files-2.1/org.apache.maven/maven-artifact/3.5.3/
+[21:02:46] [main/INFO] [FML]: Managed to load a deobfuscated Minecraft name- we are in a deobfuscated environment. Skipping runtime deobfuscation
+[21:02:46] [main/INFO] [FML]: Detected deobfuscated environment, loading log configs for colored console logs.
+2019-12-20 21:02:46,644 main WARN Disabling terminal, you're running in an unsupported environment.
+[21:02:46] [main/INFO] [FML]: Ignoring missing certificate for coremod FMLCorePlugin (net.minecraftforge.fml.relauncher.FMLCorePlugin), we are in deobf and it's a forge core plugin
+[21:02:46] [main/INFO] [FML]: Ignoring missing certificate for coremod FMLForgePlugin (net.minecraftforge.classloading.FMLForgePlugin), we are in deobf and it's a forge core plugin
+[21:02:46] [main/INFO] [FML]: Searching /Users/wuguoxian/Desktop/Kashuu/Coding/1710/RWBYM/run/./mods for mods
+[21:02:46] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.gradle.tweakers.CoremodTweaker
+[21:02:46] [main/INFO] [GradleStart]: Injecting location in coremod net.minecraftforge.fml.relauncher.FMLCorePlugin
+[21:02:46] [main/INFO] [GradleStart]: Injecting location in coremod net.minecraftforge.classloading.FMLForgePlugin
+[21:02:46] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
+[21:02:46] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLDeobfTweaker
+[21:02:46] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
+[21:02:46] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
+[21:02:46] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
+[21:02:46] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
+[21:02:47] [main/ERROR] [FML]: FML appears to be missing any signature data. This is not a good thing
+[21:02:47] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
+[21:02:47] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLDeobfTweaker
+[21:02:47] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
+[21:02:47] [main/INFO] [GradleStart]: Remapping AccessTransformer rules...
+[21:02:47] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.TerminalTweaker
+[21:02:47] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.TerminalTweaker
+[21:02:47] [main/INFO] [LaunchWrapper]: Launching wrapped minecraft {net.minecraft.client.main.Main}
+[21:02:48] [Client thread/INFO] [minecraft/Minecraft]: Setting user: Player159
+[21:02:50] [Client thread/WARN] [minecraft/GameSettings]: Skipping bad option: lastServer:
+[21:02:51] [Client thread/INFO] [minecraft/Minecraft]: LWJGL Version: 2.9.2
+[21:02:51] [Client thread/INFO] [FML]: -- System Details --
+Details:
+	Minecraft Version: 1.12.2
+	Operating System: Mac OS X (x86_64) version 10.12.6
+	Java Version: 1.8.0_222, AdoptOpenJDK
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode), AdoptOpenJDK
+	Memory: 412264992 bytes (393 MB) / 535822336 bytes (511 MB) up to 3817865216 bytes (3641 MB)
+	JVM Flags: 0 total; 
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
+	FML: 
+	Loaded coremods (and transformers): 
+	GL info: ' Vendor: 'Intel Inc.' Version: '2.1 INTEL-10.25.24' Renderer: 'Intel Iris Pro OpenGL Engine'
+[21:02:51] [Client thread/INFO] [FML]: MinecraftForge v14.23.5.2812 Initialized
+[21:02:51] [Client thread/INFO] [FML]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[21:02:51] [Client thread/INFO] [FML]: Replaced 1036 ore ingredients
+[21:02:52] [Client thread/INFO] [FML]: Searching /Users/wuguoxian/Desktop/Kashuu/Coding/1710/RWBYM/run/./mods for mods
+[21:02:53] [Client thread/INFO] [FML]: Forge Mod Loader has identified 7 mods to load
+[21:02:53] [Client thread/INFO] [FML]: Attempting connection with missing mods [minecraft, mcp, FML, forge, rwbym, testdummy, neat] at CLIENT
+[21:02:53] [Client thread/INFO] [FML]: Attempting connection with missing mods [minecraft, mcp, FML, forge, rwbym, testdummy, neat] at SERVER
+[21:02:53] [Thread-3/INFO] [FML]: Using sync timing. 200 frames of Display.update took 124489493 nanos
+[21:02:54] [Client thread/INFO] [testdummy]: Please don't hurt me. :S
+[21:02:54] [Client thread/INFO] [minecraft/SimpleReloadableResourceManager]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:RWBYM, FMLFileResourcePack:MmmMmmMmmMmm, FMLFileResourcePack:Neat
+[21:02:54] [Client thread/INFO] [FML]: Processing ObjectHolder annotations
+[21:02:54] [Client thread/INFO] [FML]: Found 1168 ObjectHolder annotations
+[21:02:54] [Client thread/INFO] [FML]: Identifying ItemStackHolder annotations
+[21:02:54] [Client thread/INFO] [FML]: Found 0 ItemStackHolder annotations
+[21:02:54] [Client thread/INFO] [FML]: Configured a dormant chunk cache size of 0
+[21:02:54] [Forge Version Check/INFO] [forge.VersionCheck]: [forge] Starting version check at http://files.minecraftforge.net/maven/net/minecraftforge/forge/promotions_slim.json
+[21:02:55] [Forge Version Check/INFO] [forge.VersionCheck]: [forge] Found status: OUTDATED Target: 14.23.5.2847
+[21:02:55] [Client thread/INFO] [FML]: Applying holder lookups
+[21:02:55] [Client thread/INFO] [FML]: Holder lookups applied
+[21:02:55] [Client thread/INFO] [FML]: Applying holder lookups
+[21:02:55] [Client thread/INFO] [FML]: Holder lookups applied
+[21:02:55] [Client thread/INFO] [FML]: Applying holder lookups
+[21:02:55] [Client thread/INFO] [FML]: Holder lookups applied
+[21:02:55] [Client thread/INFO] [FML]: Applying holder lookups
+[21:02:55] [Client thread/INFO] [FML]: Holder lookups applied
+[21:02:55] [Client thread/INFO] [FML]: Injecting itemstacks
+[21:02:55] [Client thread/INFO] [FML]: Itemstack injection complete
+[21:02:56] [Sound Library Loader/INFO] [minecraft/SoundManager]: Starting up SoundSystem...
+[21:02:56] [Thread-4/INFO] [minecraft/SoundManager]: Initializing LWJGL OpenAL
+[21:02:56] [Thread-4/INFO] [minecraft/SoundManager]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[21:02:56] [Thread-4/INFO] [minecraft/SoundManager]: OpenAL initialized.
+[21:02:57] [Sound Library Loader/INFO] [minecraft/SoundManager]: Sound engine started
+[21:03:03] [Client thread/INFO] [FML]: Max texture size: 16384
+[21:03:03] [Client thread/WARN] [minecraft/TextureMap]: Texture rwbym:textures/blocks/awool_colored_lightgreen.png with size 8x8 will have visual artifacts at mip level 4, it can only support level 3. Please report to the mod author that the texture should be some multiple of 16x16.
+[21:03:03] [Client thread/WARN] [minecraft/TextureMap]: Texture rwbym:textures/blocks/awool_colored_ozpincane.png with size 8x8 will have visual artifacts at mip level 4, it can only support level 3. Please report to the mod author that the texture should be some multiple of 16x16.
+[21:03:03] [Client thread/WARN] [minecraft/TextureMap]: Texture rwbym:textures/blocks/awool_colored_slategrey.png with size 8x8 will have visual artifacts at mip level 4, it can only support level 3. Please report to the mod author that the texture should be some multiple of 16x16.
+[21:03:03] [Client thread/WARN] [minecraft/TextureMap]: Texture rwbym:textures/blocks/awool_colored_darkred.png with size 8x8 will have visual artifacts at mip level 4, it can only support level 3. Please report to the mod author that the texture should be some multiple of 16x16.
+[21:03:03] [Client thread/WARN] [minecraft/TextureMap]: Texture rwbym:textures/blocks/awool_colored_purple.png with size 8x8 will have visual artifacts at mip level 4, it can only support level 3. Please report to the mod author that the texture should be some multiple of 16x16.
+[21:03:03] [Client thread/WARN] [minecraft/TextureMap]: Texture rwbym:textures/blocks/awool_colored_green.png with size 8x8 will have visual artifacts at mip level 4, it can only support level 3. Please report to the mod author that the texture should be some multiple of 16x16.
+[21:03:03] [Client thread/WARN] [minecraft/TextureMap]: Texture rwbym:textures/blocks/awool_colored_pinksap.png with size 8x8 will have visual artifacts at mip level 4, it can only support level 3. Please report to the mod author that the texture should be some multiple of 16x16.
+[21:03:03] [Client thread/WARN] [minecraft/TextureMap]: Texture rwbym:textures/blocks/awool_colored_yellow.png with size 8x8 will have visual artifacts at mip level 4, it can only support level 3. Please report to the mod author that the texture should be some multiple of 16x16.
+[21:03:03] [Client thread/WARN] [minecraft/TextureMap]: Texture rwbym:textures/blocks/awool_colored_black.png with size 8x8 will have visual artifacts at mip level 4, it can only support level 3. Please report to the mod author that the texture should be some multiple of 16x16.
+[21:03:03] [Client thread/WARN] [minecraft/TextureMap]: Texture rwbym:textures/blocks/awool_colored_silver.png with size 8x8 will have visual artifacts at mip level 4, it can only support level 3. Please report to the mod author that the texture should be some multiple of 16x16.
+[21:03:03] [Client thread/WARN] [minecraft/TextureMap]: Texture rwbym:textures/blocks/awool_colored_lightblack.png with size 8x8 will have visual artifacts at mip level 4, it can only support level 3. Please report to the mod author that the texture should be some multiple of 16x16.
+[21:03:03] [Client thread/WARN] [minecraft/TextureMap]: Texture rwbym:textures/blocks/awool_colored_darkbrown.png with size 8x8 will have visual artifacts at mip level 4, it can only support level 3. Please report to the mod author that the texture should be some multiple of 16x16.
+[21:03:03] [Client thread/WARN] [minecraft/TextureMap]: Texture rwbym:textures/blocks/awool_colored_darkblue.png with size 8x8 will have visual artifacts at mip level 4, it can only support level 3. Please report to the mod author that the texture should be some multiple of 16x16.
+[21:03:03] [Client thread/WARN] [minecraft/TextureMap]: Texture rwbym:textures/blocks/awool_colored_orange.png with size 8x8 will have visual artifacts at mip level 4, it can only support level 3. Please report to the mod author that the texture should be some multiple of 16x16.
+[21:03:03] [Client thread/WARN] [minecraft/TextureMap]: Texture rwbym:textures/blocks/awool_colored_light_blue.png with size 8x8 will have visual artifacts at mip level 4, it can only support level 3. Please report to the mod author that the texture should be some multiple of 16x16.
+[21:03:03] [Client thread/WARN] [minecraft/TextureMap]: Texture rwbym:textures/blocks/aglass.png with size 8x8 will have visual artifacts at mip level 4, it can only support level 3. Please report to the mod author that the texture should be some multiple of 16x16.
+[21:03:03] [Client thread/WARN] [minecraft/TextureMap]: Texture rwbym:textures/blocks/awool_colored_cyan.png with size 8x8 will have visual artifacts at mip level 4, it can only support level 3. Please report to the mod author that the texture should be some multiple of 16x16.
+[21:03:03] [Client thread/WARN] [minecraft/TextureMap]: Texture rwbym:textures/blocks/awool_colored_darkblack.png with size 8x8 will have visual artifacts at mip level 4, it can only support level 3. Please report to the mod author that the texture should be some multiple of 16x16.
+[21:03:03] [Client thread/WARN] [minecraft/TextureMap]: Texture rwbym:textures/blocks/awool_colored_darkgreen.png with size 8x8 will have visual artifacts at mip level 4, it can only support level 3. Please report to the mod author that the texture should be some multiple of 16x16.
+[21:03:03] [Client thread/WARN] [minecraft/TextureMap]: Texture rwbym:textures/blocks/awool_colored_grey.png with size 8x8 will have visual artifacts at mip level 4, it can only support level 3. Please report to the mod author that the texture should be some multiple of 16x16.
+[21:03:03] [Client thread/WARN] [minecraft/TextureMap]: Texture rwbym:textures/blocks/awool_colored_bone.png with size 8x8 will have visual artifacts at mip level 4, it can only support level 3. Please report to the mod author that the texture should be some multiple of 16x16.
+[21:03:03] [Client thread/WARN] [minecraft/TextureMap]: Texture rwbym:textures/blocks/awool_colored_gray.png with size 8x8 will have visual artifacts at mip level 4, it can only support level 3. Please report to the mod author that the texture should be some multiple of 16x16.
+[21:03:03] [Client thread/WARN] [minecraft/TextureMap]: Texture rwbym:textures/blocks/awool_colored_or.png with size 8x8 will have visual artifacts at mip level 4, it can only support level 3. Please report to the mod author that the texture should be some multiple of 16x16.
+[21:03:03] [Client thread/WARN] [minecraft/TextureMap]: Texture rwbym:textures/blocks/awool_colored_white.png with size 8x8 will have visual artifacts at mip level 4, it can only support level 3. Please report to the mod author that the texture should be some multiple of 16x16.
+[21:03:03] [Client thread/WARN] [minecraft/TextureMap]: Texture rwbym:textures/items/ammov.png with size 8x8 will have visual artifacts at mip level 4, it can only support level 3. Please report to the mod author that the texture should be some multiple of 16x16.
+[21:03:03] [Client thread/WARN] [minecraft/TextureMap]: Texture rwbym:textures/blocks/acork.png with size 8x8 will have visual artifacts at mip level 4, it can only support level 3. Please report to the mod author that the texture should be some multiple of 16x16.
+[21:03:03] [Client thread/WARN] [minecraft/TextureMap]: Texture rwbym:textures/blocks/magnhild_prop_9.png with size 126x126 will have visual artifacts at mip level 4, it can only support level 1. Please report to the mod author that the texture should be some multiple of 16x16.
+[21:03:03] [Client thread/WARN] [minecraft/TextureMap]: Texture rwbym:textures/items/ammmo.png with size 8x8 will have visual artifacts at mip level 4, it can only support level 3. Please report to the mod author that the texture should be some multiple of 16x16.
+[21:03:03] [Client thread/WARN] [minecraft/TextureMap]: Texture rwbym:textures/blocks/awool_colored_purewhite.png with size 8x8 will have visual artifacts at mip level 4, it can only support level 3. Please report to the mod author that the texture should be some multiple of 16x16.
+[21:03:03] [Client thread/WARN] [minecraft/TextureMap]: Texture rwbym:textures/blocks/awool_colored_pink.png with size 8x8 will have visual artifacts at mip level 4, it can only support level 3. Please report to the mod author that the texture should be some multiple of 16x16.
+[21:03:03] [Client thread/WARN] [minecraft/TextureMap]: Texture rwbym:textures/blocks/awool_colored_red.png with size 8x8 will have visual artifacts at mip level 4, it can only support level 3. Please report to the mod author that the texture should be some multiple of 16x16.
+[21:03:03] [Client thread/WARN] [minecraft/TextureMap]: Texture rwbym:textures/blocks/awool_colored_ozpincanegem.png with size 8x8 will have visual artifacts at mip level 4, it can only support level 3. Please report to the mod author that the texture should be some multiple of 16x16.
+[21:03:03] [Client thread/WARN] [minecraft/TextureMap]: Texture rwbym:textures/blocks/awool_colored_lightyellow.png with size 8x8 will have visual artifacts at mip level 4, it can only support level 3. Please report to the mod author that the texture should be some multiple of 16x16.
+[21:03:03] [Client thread/WARN] [minecraft/TextureMap]: Texture rwbym:textures/blocks/kyoshi.png with size 385x385 will have visual artifacts at mip level 4, it can only support level 0. Please report to the mod author that the texture should be some multiple of 16x16.
+[21:03:04] [Client thread/WARN] [minecraft/TextureMap]: Texture rwbym:textures/blocks/awool_colored_gold.png with size 8x8 will have visual artifacts at mip level 4, it can only support level 3. Please report to the mod author that the texture should be some multiple of 16x16.
+[21:03:04] [Client thread/WARN] [minecraft/TextureMap]: Texture rwbym:textures/blocks/awool_colored_cyan1.png with size 8x8 will have visual artifacts at mip level 4, it can only support level 3. Please report to the mod author that the texture should be some multiple of 16x16.
+[21:03:04] [Client thread/WARN] [minecraft/TextureMap]: Texture rwbym:textures/blocks/awool_colored_blue.png with size 8x8 will have visual artifacts at mip level 4, it can only support level 3. Please report to the mod author that the texture should be some multiple of 16x16.
+[21:03:04] [Client thread/WARN] [minecraft/TextureMap]: Texture rwbym:textures/blocks/awool_colored_brown.png with size 8x8 will have visual artifacts at mip level 4, it can only support level 3. Please report to the mod author that the texture should be some multiple of 16x16.
+[21:03:04] [Client thread/WARN] [minecraft/TextureMap]: Texture rwbym:textures/blocks/awool_colored_darkpurewhite.png with size 8x8 will have visual artifacts at mip level 4, it can only support level 3. Please report to the mod author that the texture should be some multiple of 16x16.
+[21:03:04] [Client thread/WARN] [minecraft/TextureMap]: Texture rwbym:textures/blocks/awool_colored_lime.png with size 8x8 will have visual artifacts at mip level 4, it can only support level 3. Please report to the mod author that the texture should be some multiple of 16x16.
+[21:03:04] [Client thread/WARN] [minecraft/TextureMap]: Texture rwbym:textures/blocks/awool_colored_crred.png with size 8x8 will have visual artifacts at mip level 4, it can only support level 3. Please report to the mod author that the texture should be some multiple of 16x16.
+[21:03:04] [Client thread/WARN] [minecraft/TextureMap]: Texture rwbym:textures/blocks/awool_colored_cyanv.png with size 8x8 will have visual artifacts at mip level 4, it can only support level 3. Please report to the mod author that the texture should be some multiple of 16x16.
+[21:03:04] [Client thread/INFO] [minecraft/TextureMap]: Created: 2048x2048 textures-atlas
+[21:03:07] [Client thread/INFO] [FML]: Applying holder lookups
+[21:03:07] [Client thread/INFO] [FML]: Holder lookups applied
+[21:03:07] [Client thread/INFO] [STDOUT]: [io.github.blaezdev.rwbym.RWBYModels:init:160]: Blaez:RWBYM Relz 4.3.4
+[21:03:07] [Client thread/INFO] [FML]: OBJLoader: Domain rwbym has been added.
+[21:03:07] [Client thread/INFO] [FML]: Injecting itemstacks
+[21:03:07] [Client thread/INFO] [FML]: Itemstack injection complete
+[21:03:07] [Client thread/INFO] [FML]: Forge Mod Loader has successfully loaded 7 mods
+[21:03:07] [Client thread/WARN] [minecraft/GameSettings]: Skipping bad option: lastServer:
+[21:03:09] [Realms Notification Availability checker #1/INFO] [mojang/RealmsClient]: Could not authorize you against Realms server: Invalid session id
+[21:03:19] [Server thread/INFO] [minecraft/IntegratedServer]: Starting integrated minecraft server version 1.12.2
+[21:03:19] [Server thread/INFO] [minecraft/IntegratedServer]: Generating keypair
+[21:03:19] [Server thread/INFO] [FML]: Injecting existing registry data into this server instance
+[21:03:19] [Server thread/INFO] [FML]: Applying holder lookups
+[21:03:19] [Server thread/INFO] [FML]: Holder lookups applied
+[21:03:19] [Server thread/INFO] [FML]: Loading dimension 0 (New World) (net.minecraft.server.integrated.IntegratedServer@51c6ad30)
+[21:03:20] [Server thread/INFO] [minecraft/AdvancementList]: Loaded 488 advancements
+[21:03:20] [Server thread/INFO] [FML]: Loading dimension -1 (New World) (net.minecraft.server.integrated.IntegratedServer@51c6ad30)
+[21:03:20] [Server thread/INFO] [FML]: Loading dimension 1 (New World) (net.minecraft.server.integrated.IntegratedServer@51c6ad30)
+[21:03:20] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for level 0
+[21:03:20] [Server thread/WARN] [minecraft/EntityDataManager]: defineId called for: class net.minecraft.entity.boss.EntityWither from class io.github.blaezdev.rwbym.entity.EntityArmorgeist
+[21:03:21] [Server thread/INFO] [FML]: Unloading dimension -1
+[21:03:21] [Server thread/INFO] [FML]: Unloading dimension 1
+[21:03:21] [Server thread/INFO] [minecraft/IntegratedServer]: Changing view distance to 2, from 10
+[21:03:34] [Netty Local Client IO #0/INFO] [FML]: Server protocol version 2
+[21:03:34] [Netty Server IO #1/INFO] [FML]: Client protocol version 2
+[21:03:34] [Netty Server IO #1/INFO] [FML]: Client attempting to join with 7 mods : minecraft@1.12.2,FML@8.0.99.99,forge@14.23.5.2812,testdummy@1.12,neat@1.4-17,mcp@9.42,rwbym@4.3.4
+[21:03:34] [Netty Local Client IO #0/INFO] [FML]: [Netty Local Client IO #0] Client side modded connection established
+[21:03:34] [Server thread/INFO] [FML]: [Server thread] Server side modded connection established
+[21:03:34] [Server thread/INFO] [minecraft/PlayerList]: Player159[local:E:ad6e6e51] logged in with entity id 148 at (-308.31997514142637, 4.0, 53.869222358653786)
+[21:03:34] [Server thread/INFO] [minecraft/MinecraftServer]: Player159 joined the game
+[21:03:34] [Server thread/INFO] [minecraft/MinecraftServer]: Player159 has made the advancement [Suit Up]
+[21:03:35] [Server thread/INFO] [minecraft/IntegratedServer]: Saving and pausing game...
+[21:03:35] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'New World'/overworld
+[21:03:36] [Client thread/INFO] [minecraft/GuiNewChat]: [CHAT] Player159 has made the advancement [Suit Up]
+[21:03:36] [Client thread/INFO] [minecraft/AdvancementList]: Loaded 10 advancements
+[21:03:36] [Client thread/WARN] [minecraft/SoundManager]: Unable to play empty soundEvent: minecraft:entity.small_slime.jump
+[21:03:36] [Client thread/WARN] [minecraft/SoundManager]: Unable to play empty soundEvent: minecraft:entity.small_slime.squish
+[21:03:36] [pool-2-thread-1/WARN] [mojang/YggdrasilMinecraftSessionService]: Couldn't look up profile properties for com.mojang.authlib.GameProfile@e2ca9ce[id=6f3f457a-8ce3-3a45-8767-61c2dfd0e70f,name=Player159,properties={},legacy=false]
+com.mojang.authlib.exceptions.AuthenticationException: The client has sent too many requests within a certain amount of time
+	at com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService.makeRequest(YggdrasilAuthenticationService.java:79) ~[YggdrasilAuthenticationService.class:?]
+	at com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService.fillGameProfile(YggdrasilMinecraftSessionService.java:180) [YggdrasilMinecraftSessionService.class:?]
+	at com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService$1.load(YggdrasilMinecraftSessionService.java:60) [YggdrasilMinecraftSessionService$1.class:?]
+	at com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService$1.load(YggdrasilMinecraftSessionService.java:57) [YggdrasilMinecraftSessionService$1.class:?]
+	at com.google.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3716) [guava-21.0.jar:?]
+	at com.google.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2424) [guava-21.0.jar:?]
+	at com.google.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2298) [guava-21.0.jar:?]
+	at com.google.common.cache.LocalCache$Segment.get(LocalCache.java:2211) [guava-21.0.jar:?]
+	at com.google.common.cache.LocalCache.get(LocalCache.java:4154) [guava-21.0.jar:?]
+	at com.google.common.cache.LocalCache.getOrLoad(LocalCache.java:4158) [guava-21.0.jar:?]
+	at com.google.common.cache.LocalCache$LocalLoadingCache.get(LocalCache.java:5147) [guava-21.0.jar:?]
+	at com.google.common.cache.LocalCache$LocalLoadingCache.getUnchecked(LocalCache.java:5153) [guava-21.0.jar:?]
+	at com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService.fillProfileProperties(YggdrasilMinecraftSessionService.java:170) [YggdrasilMinecraftSessionService.class:?]
+	at net.minecraft.client.Minecraft.getProfileProperties(Minecraft.java:3182) [Minecraft.class:?]
+	at net.minecraft.client.resources.SkinManager$3.run(SkinManager.java:138) [SkinManager$3.class:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [?:1.8.0_222]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [?:1.8.0_222]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_222]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_222]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_222]
+[21:03:44] [Server thread/INFO] [minecraft/MinecraftServer]: Player159 has made the advancement [Monster Hunter]
+[21:03:44] [Client thread/INFO] [minecraft/GuiNewChat]: [CHAT] Player159 has made the advancement [Monster Hunter]
+[21:03:44] [Client thread/INFO] [minecraft/AdvancementList]: Loaded 20 advancements
+[21:04:07] [Client thread/INFO] [minecraft/GuiNewChat]: [CHAT] Saved screenshot as 2019-12-20_21.04.06.png
+[21:04:10] [Server thread/INFO] [minecraft/IntegratedServer]: Saving and pausing game...
+[21:04:10] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'New World'/overworld
+[21:04:12] [Server thread/INFO] [minecraft/IntegratedServer]: Changing difficulty to PEACEFUL, from EASY
+[21:04:23] [Client thread/INFO] [minecraft/GuiNewChat]: [CHAT] Saved screenshot as 2019-12-20_21.04.23.png
+[21:04:26] [Client thread/INFO] [minecraft/GuiNewChat]: [CHAT] Saved screenshot as 2019-12-20_21.04.26.png
+[21:04:27] [Server thread/INFO] [minecraft/IntegratedServer]: Saving and pausing game...
+[21:04:27] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'New World'/overworld
+[21:04:29] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[21:04:29] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[21:04:29] [Server thread/INFO] [minecraft/NetHandlerPlayServer]: Player159 lost connection: Disconnected
+[21:04:29] [Server thread/INFO] [minecraft/MinecraftServer]: Player159 left the game
+[21:04:29] [Server thread/INFO] [minecraft/NetHandlerPlayServer]: Stopping singleplayer server as player logged out
+[21:04:29] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[21:04:29] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'New World'/overworld
+[21:04:29] [Server thread/INFO] [FML]: Unloading dimension 0
+[21:04:29] [Server thread/INFO] [FML]: Applying holder lookups
+[21:04:29] [Server thread/INFO] [FML]: Holder lookups applied
+[21:04:30] [Client thread/INFO] [minecraft/Minecraft]: Stopping!
+[21:04:30] [Client thread/INFO] [minecraft/SoundManager]: SoundSystem shutting down...
+AL lib: (WW) FreeDevice: (0x7fd73667b200) Deleting 9 Buffer(s)
+[21:04:31] [Client thread/WARN] [minecraft/SoundManager]: Author: Paul Lamb, www.paulscode.com
 
 BUILD SUCCESSFUL
 
-Total time: 33.504 secs
+Total time: 2 mins 8.995 secs

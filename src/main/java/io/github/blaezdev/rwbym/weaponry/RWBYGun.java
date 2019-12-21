@@ -924,7 +924,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                     EntityLivingBase entitylivingbase = (EntityLivingBase) entity;
                     if (entitylivingbase != entityLiving && !entityLiving.isOnSameTeam(entitylivingbase)) {
                         entitylivingbase.knockBack(entityLiving, 0.4F, (double) MathHelper.sin(entityLiving.rotationYaw * 0.017453292F), (double) (-MathHelper.cos(entityLiving.rotationYaw * 0.017453292F)));
-                        entitylivingbase.attackEntityFrom(DamageSource.GENERIC, damages + 4);
+                        entitylivingbase.attackEntityFrom(DamageSource.causePlayerDamage(entityplayer), damages + 4);
                         stack.damageItem(1, entityLiving);
                         entityLiving.world.playSound((EntityPlayer) null, entityLiving.posX, entityLiving.posY, entityLiving.posZ, SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, entityLiving.getSoundCategory(), 1.0F, 1.0F);
                     }
@@ -937,7 +937,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                     EntityLivingBase entitylivingbase = (EntityLivingBase) entity;
                     if (entitylivingbase != entityLiving && !entityLiving.isOnSameTeam(entitylivingbase)) {
                         entitylivingbase.knockBack(entityLiving, 0.4F, (double) MathHelper.sin(entityLiving.rotationYaw * 0.017453292F), (double) (-MathHelper.cos(entityLiving.rotationYaw * 0.017453292F)));
-                        entitylivingbase.attackEntityFrom(DamageSource.GENERIC, damages);
+                        entitylivingbase.attackEntityFrom(DamageSource.causePlayerDamage(entityplayer), damages);
                         PotionEffect potioneffect = new PotionEffect(MobEffects.SLOWNESS, 100, 5, false, false);
                         entitylivingbase.addPotionEffect(potioneffect);
                         stack.damageItem(5, entityLiving);
@@ -952,7 +952,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                     EntityLivingBase entitylivingbase = (EntityLivingBase) entity;
                     if (entitylivingbase != entityLiving && !entityLiving.isOnSameTeam(entitylivingbase)) {
                         entitylivingbase.knockBack(entityLiving, 0.4F, (double) MathHelper.sin(entityLiving.rotationYaw * 0.017453292F), (double) (-MathHelper.cos(entityLiving.rotationYaw * 0.017453292F)));
-                        entitylivingbase.attackEntityFrom(DamageSource.GENERIC, damages);
+                        entitylivingbase.attackEntityFrom(DamageSource.causePlayerDamage(entityplayer), damages);
                         stack.damageItem(5, entityLiving);
                         entityLiving.world.playSound((EntityPlayer) null, entityLiving.posX, entityLiving.posY, entityLiving.posZ, SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, entityLiving.getSoundCategory(), 1.0F, 1.0F);
                     }
@@ -1169,20 +1169,25 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
     @Override
     public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker)
-    {  if((weapontype & (RAPIER | WINTER)) !=0){
+    {
+        EntityPlayer p=null;
+        if(attacker instanceof EntityPlayer) p=(EntityPlayer)attacker;
+        if((weapontype & (RAPIER | WINTER)) !=0){
         //Rapier
         boolean unarm = false;
         if(target.getTotalArmorValue() == 0){
             unarm = true; }
 
         if(!unarm && !ohblade){
-            target.attackEntityFrom(DamageSource.GENERIC, 35);
+            if(p!=null)
+            target.attackEntityFrom(DamageSource.causePlayerDamage(p), 35);
+            else target.attackEntityFrom(DamageSource.causeMobDamage(attacker), 35);
         }}
 
         if((weapontype & (DAGGER)) !=0||gwen){
         if (target.getHealth() >= 100.0F && (new Random()).nextInt(100) <= 30) {
             if (attacker instanceof EntityPlayer) {
-                target.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer)attacker), 100.0F);
+                target.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer)attacker).setDamageBypassesArmor(), 100.0F);
             } else {
                 target.attackEntityFrom(DamageSource.WITHER, 100.0F);
             }
@@ -1216,7 +1221,9 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
                     double dm = attackerdamages.getAttributeValue();
                     int attackerdamage = (int)dm;
-                    entitylivingbase.attackEntityFrom(DamageSource.GENERIC, attackerdamage);
+                    if(p!=null)
+                    entitylivingbase.attackEntityFrom(DamageSource.causePlayerDamage(p), attackerdamage);
+                    else entitylivingbase.attackEntityFrom(DamageSource.causeMobDamage(attacker), attackerdamage);
                 }
             }
 
@@ -1234,7 +1241,9 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
                     double dm = attackerdamages.getAttributeValue();
                     int attackerdamage = (int)dm;
-                    entitylivingbase.attackEntityFrom(DamageSource.GENERIC, attackerdamage);
+                    if(p!=null)
+                    entitylivingbase.attackEntityFrom(DamageSource.causePlayerDamage(p), attackerdamage);
+                    else entitylivingbase.attackEntityFrom(DamageSource.causeMobDamage(attacker), attackerdamage);
                 }
             }
 
