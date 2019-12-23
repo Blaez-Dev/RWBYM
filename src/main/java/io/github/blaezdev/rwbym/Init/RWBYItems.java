@@ -22,6 +22,7 @@ import net.minecraft.entity.EntityAreaEffectCloud;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityDragonFireball;
 import net.minecraft.init.Items;
+import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
@@ -4222,7 +4223,7 @@ public class RWBYItems {
             true,
             false,
             "",
-            ImmutableList.of(new PotionEffect(Potion.getPotionFromResourceLocation("minecraft:speed"), 400, 2)),
+            ImmutableList.of(new PotionEffect(MobEffects.SPEED, 400, 2)),
             1,
             0,
             RWBYCreativeTabs.tab_rwbyitems,
@@ -4252,7 +4253,7 @@ public class RWBYItems {
             true,
             false,
             null,
-            ImmutableList.of(new PotionEffect(Potion.getPotionFromResourceLocation("minecraft:slowness"), 500, 20)),
+            ImmutableList.of(new PotionEffect(MobEffects.SLOWNESS, 500, 20)),
             1,
             10,
             RWBYCreativeTabs.tab_rwbyitems,
