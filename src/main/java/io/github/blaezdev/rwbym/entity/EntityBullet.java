@@ -392,6 +392,8 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
 
         item.onEntityHit(living, (EntityLivingBase) this.shootingEntity);
 
+        float damage = (float)item.getBaseDamage();
+
         living.hurtResistantTime = 0;
 
         if(!item.pierce){

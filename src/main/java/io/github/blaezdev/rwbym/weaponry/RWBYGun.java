@@ -139,7 +139,6 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 	public static final int LION_HEART =   0x0400;
 	public static final int DAGGER =       0x0800;
 	public static final int SWORD =        0x1000;
-	
 	public static final int SANREI =       0x2000;
 	public static final int LETZT =        0x4000;
     public static final int AURAWEAP =     0x8000;
@@ -150,6 +149,8 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     public static final int AXE =          0x100000;
     public static final int PICKAXE =      0x200000;
     public static final int TOME =         0x400000;
+    public static final int FIST =         0x800000;
+    public static final int HAMMER =      0x1000000;
 	
 	public static final int RCL_BACK =      1;
 	public static final int RCL_BACK_WEAK = 2;
@@ -439,6 +440,8 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         if((weapontype & AXE) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Axe");}
         if((weapontype & PICKAXE) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Pickaxe");}
         if((weapontype & TOME) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Tome");}
+        if((weapontype & FIST) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Gaunlet");}
+        if((weapontype & HAMMER) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Blunt Weapon");}
         if(grimm){tooltip.add(ChatFormatting.BLUE + "-"+ "Grimm Weapon");}
          if((weapontype & (AURAWEAP|LETZT|SANREI)) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Aura Based Weapon");}
          if(recoil == 4){tooltip.add(ChatFormatting.BLUE + "-"+ "Wall Climbing Capable");}
@@ -1183,6 +1186,22 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             target.attackEntityFrom(DamageSource.causePlayerDamage(p), 35);
             else target.attackEntityFrom(DamageSource.causeMobDamage(attacker), 35);
         }}
+
+        if((weapontype & (FIST|HAMMER)) !=0){
+            int rand = new Random().nextInt(100);
+            if ((weapontype & FIST) !=0){
+                if(rand <= 15){
+                    PotionEffect effect = new PotionEffect(MobEffects.NAUSEA, 60, 1);
+                    target.addPotionEffect(effect);
+                }
+            }
+            if ((weapontype & HAMMER) !=0){
+                if(rand <= 25){
+                    PotionEffect effect = new PotionEffect(MobEffects.NAUSEA, 120, 1);
+                    target.addPotionEffect(effect);
+                }
+            }
+        }
 
         if((weapontype & (DAGGER)) !=0||gwen){
         if (target.getHealth() >= 100.0F && (new Random()).nextInt(100) <= 30) {

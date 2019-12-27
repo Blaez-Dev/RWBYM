@@ -61,7 +61,7 @@ public class RWBYStructure extends WorldGenerator {
 
 
         if(Oregen.canSpawnHere(template, worldserver, position) && !BIOMES.contains(biome)){
-            if(world.getWorldType() != WorldType.FLAT){
+            if(world.findNearestStructure("Village", position, true)!=null){
             if(spawnnearvillage && world.findNearestStructure("Village", position, true).getDistance(position.getX(), position.getY(), position.getZ()) < 150 && world.findNearestStructure("Village", position, true).getDistance(position.getX(), position.getY(), position.getZ()) > 80){
             IBlockState iblockstate = world.getBlockState(position);
             world.notifyBlockUpdate(position, iblockstate, iblockstate, 3);
