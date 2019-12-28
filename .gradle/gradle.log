@@ -21,7 +21,7 @@ Note: Recompile with -Xlint:deprecation for details.
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
 
-:processResources UP-TO-DATE
+:processResources
 :classes
 :jar
 :sourceTestJava UP-TO-DATE
@@ -38,15 +38,13 @@ Note: Recompile with -Xlint:unchecked for details.
 :extractAnnotationsJar
 :extractRangemapReplacedMain
 C:\Users\Izumi\Documents\GitHub\RWBYM-2.0\build\sources\main\java
+:retromapReplacedMain
+remapping source...
+:sourceJar
+:assemble
+:check UP-TO-DATE
+:build
 
-FAILURE: Build failed with an exception.
+BUILD SUCCESSFUL
 
-* What went wrong:
-Build cancelled.
-
-* Try:
-Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output.
-
-BUILD FAILED
-
-Total time: 24.026 secs
+Total time: 34.333 secs

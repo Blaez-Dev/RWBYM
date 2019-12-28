@@ -279,6 +279,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.neonice);
         registerItems(event, RWBYItems.neonwind);
         registerItems(event, RWBYItems.neonnormal);
+        registerItems(event, RWBYItems.hardlightmagazines);
         //dust items
         registerBlocks(event, RWBYItems.crusher);
         registerItems(event, RWBYItems.chisel);

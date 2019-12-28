@@ -4183,6 +4183,21 @@ public class RWBYItems {
             20,
             RWBYCreativeTabs.tab_rwbyitems,
             new ExplosionAmmoHit(0)).setPierce(true);
+    public static final Item hardlightmagazines = new RWBYAmmoItem(
+            "hardlightmagazines",
+            RWBYItems.entitybullet,
+            1,
+            false,
+            RWBYAmmoItem.SurviveOnHit.NONE,
+            "textures/entity/projectiles/tipped_arrow.png",
+            true,
+            false,
+            null,
+            null,
+            25,
+            10,
+            null,
+            new ExplosionAmmoHit(0)).setPierce(true);
     public static final Item magnammo = new RWBYAmmoItem(
             "magnammo",
             RWBYItems.entitygrenade,
