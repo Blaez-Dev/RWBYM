@@ -3603,6 +3603,8 @@ public class RWBYItems {
             4,
             null).setElementMelee("ice");
 
+    public static final Item kingfisher = new RWBYFishing("kingfisher");
+
     //------------------------------------------------//
     public static final Item ammo = new RWBYItem("ammo", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item gamammo = new RWBYItem("gamammo", null, false, RWBYCreativeTabs.tab_rwbyitems);
