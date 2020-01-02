@@ -1085,41 +1085,25 @@ public class RWBYItems {
             12,
             RWBYCreativeTabs.tab_rwbyweapons).setRecoil(10);
 
-    public static final Item armasword = new RWBYGun(
+    public static final Item armasword = new NPCRWBYSword(
             "armasword",
             2500,
             19,
-            RWBYGun.SWORD,
-            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:19,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}]}",
-            null,
-            "rwbym:nuller,rwbym:nullest",
-            false,
-            1,
+            0,
             false,
             true,
-            0,
-            1,
-            0,
             0,
             null);
 
-    public static final Item armaswordsummon = new RWBYGun(
+    public static final Item armaswordsummon = new NPCRWBYSword(
             "armaswordsummon",
             2500,
             19,
-            RWBYGun.SWORD,
-            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:19,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}]}",
-            null,
-            "rwbym:nuller,rwbym:nullest",
-            false,
-            1,
+            0,
             false,
             true,
             0,
-            1,
-            0,
-            0,
-            null);
+            null );
     public static final Item razorbolt = new RWBYGun(
             "razorbolt",
             2500,
