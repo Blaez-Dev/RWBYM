@@ -1,33 +1,22 @@
-/bin/
-/.classpath
-/.git
-/.gradle
-/.settings/
-/build/
-/eclipse/
-/gradle/
-/run/
-/out/
-/.project
-/CREDITS.txt
-/RWBYM-2.0_Client.launch
-/RWBYM-2.0_Server.launch
-/Git/
+# eclipse
+bin
+*.launch
+.settings
+.metadata
+.classpath
+.project
+
+# idea
+out
+*.ipr
+*.iws
 *.iml
 .idea
-/.gradle/
-classes/
-forge-1.12.2-14.23.5.2772-changelog.txt
-.gradle/2.14/taskArtifacts/cache.properties.lock
-.gradle/2.14/taskArtifacts/fileHashes.bin
-.gradle/2.14/taskArtifacts/fileSnapshots.bin
-.gradle/2.14/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin
-.gradle/2.14/taskArtifacts/taskArtifacts.bin
-.gradle/2.14/taskArtifacts/treeSnapshots.bin
-.gradle/2.14/taskArtifacts/treeSnapshotUsage.bin
-.gradle/gradle.log
-build.gradle
-build.gradle
-*.gradle
-*.info
 
+# gradle
+build
+.gradle
+
+# other
+eclipse
+run
