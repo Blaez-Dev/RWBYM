@@ -3784,6 +3784,42 @@ public class RWBYItems {
     		FMLCommonHandler.instance().getSide() == Side.CLIENT ? RWBYItemContainerGuiChest.class : null,
     		RWBYItemContainerChest.class)
     		.setCreativeTab(RWBYCreativeTabs.tab_rwbyitems);
+
+    public static final Item darkrepulser = new RWBYGun("darkrepulser",
+            2500,
+            14,
+            RWBYGun.SWORD,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}]}",
+            null,
+            "rwbym:nuller,rwbym:nullest",
+            false,
+            1,
+            false,
+            true,
+            0,
+            1,
+            0,
+            0,
+           null);
+
+    public static final Item elucidator = new RWBYGun("elucidator",
+            2500,
+            14,
+            RWBYGun.SWORD,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:14,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}]}",
+            null,
+            "rwbym:nuller,rwbym:nullest",
+            false,
+            1,
+            false,
+            true,
+            0,
+            1,
+            0,
+            0,
+            null);
+
+
     //------------------------------------------------//
 
 
