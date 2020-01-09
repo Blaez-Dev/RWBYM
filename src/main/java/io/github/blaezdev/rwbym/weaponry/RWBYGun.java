@@ -69,6 +69,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     private int recoil;
     private boolean mytre = false;
     private boolean glow = false;
+    private boolean weaponuseglow = false;
     private int soundeffect;
     private int bulletCount;
     private int weapontype;
@@ -522,7 +523,8 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     @SideOnly(Side.CLIENT)
     public boolean hasEffect(ItemStack stack)
     {
-        if(glow){return true;}
+        if(glow){return true;}else
+            if(weaponuseglow){return true;}
         else
             return false;
     }
@@ -709,6 +711,9 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         super.onUsingTick(stack, player, count);
         EntityPlayer playerIn = (EntityPlayer) player;
         boolean flag = !this.findAmmo(playerIn, false).isEmpty();
+        if(stack.getItem() == RWBYItems.elucidator || stack.getItem() == RWBYItems.darkrepulser){
+            playerIn.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, 60, 2));
+        if(!weaponuseglow){weaponuseglow = true; }}
         if (!playerIn.onGround && playerIn.getItemInUseCount() > 1 && (weapontype & (UMBRELLA)) !=0)
         {
             Vec3d look = playerIn.getLookVec();
@@ -897,6 +902,11 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
             if(!itemstack.isEmpty()){
                 flag2 = true;
+            }
+
+            if(weaponuseglow){
+                stack.damageItem(20, entityplayer);
+                weaponuseglow = false;
             }
 
             ItemStack is = entityplayer.getActiveItemStack();

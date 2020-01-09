@@ -27,6 +27,36 @@ entity.tinydeathstalker.name=Tiny Deathstalker
 entity.ren.name=Lure
 entity.ragora.name=Ragora Familiar
 
+entity.beowolf.name=Beowolf
+entity.boarbatusk.name=Boarbatusk
+entity.ursa.name=Ursa
+entity.deathstalker.name=DeathStalker
+entity.goliath.name=Goliath
+entity.creep.name=Creep
+entity.mutantdeathstalker.name=Mutant DeathStalker
+entity.nevermore.name=Juvenile Nevermore
+entity.giantnevermore.name=Adult Nevermore
+entity.winter_beowolf.name=Summoned Beowolf
+entity.winter_ursa.name=Summoned Ursa
+entity.winter_boarbatusk.name=Summoned Boarbatusk
+entity.atlasknight.name=Atlas Knight
+entity.armorgeist.name=Arma Gigas
+entity.winterarmorgeist.name=Summoned Arma Gigas
+entity.geist.name=Geist
+entity.nuckleeve.name=Nuckelavee
+entity.apathy.name=Apathy
+entity.store.name=From Dust Till Dawn
+entity.weaponstore.name=Cutting Edge
+entity.blackstore.name=Black Market
+entity.crowbar.name=Crow Bar
+entity.aegis.name=Byzz's Busy Armoury
+entity.lancer.name=Lancer
+entity.queenlancer.name=Queen Lancer
+entity.tinydeathstalker.name=Tiny Deathstalker
+entity.ren.name=Lure
+entity.ragora.name=Ragora Familiar
+
+
 
 item.rwbym:crescent.name=Crescent Rose
 item.rwbym:crescentgun.name=Crescent Rose
@@ -609,6 +639,9 @@ item.rwbym:hollowtomeice.name=§6Hollow Tome [Ice]
 item.rwbym:hollowtomelightning.name=§6Hollow Tome [Lightning]
 item.rwbym:hollowtomewater.name=§6Hollow Tome [Water]
 item.rwbym:hollowtomewind.name=§6Hollow Tome [Wind]
+item.rwbym:darkrepulser.name=§6Dark Repulser
+item.rwbym:elucidator.name=§6Elucidator
+item.rwbym:kingfisher.name=Kingfisher
 
 effect.aura_regen=Aura Regen
 potion.effect.aura_regen=Potion of Aura Regen

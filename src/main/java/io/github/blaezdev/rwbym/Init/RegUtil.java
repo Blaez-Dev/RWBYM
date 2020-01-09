@@ -282,7 +282,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.hardlightmagazines);
         registerItems(event, RWBYItems.elucidator);
         registerItems(event, RWBYItems.darkrepulser);
-        //registerItems(event, RWBYItems.kingfisher);
+        registerItems(event, RWBYItems.kingfisher);
         //dust items
         registerBlocks(event, RWBYItems.crusher);
         registerItems(event, RWBYItems.chisel);
