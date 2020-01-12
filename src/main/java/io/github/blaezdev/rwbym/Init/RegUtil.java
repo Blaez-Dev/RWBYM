@@ -3,7 +3,6 @@ package io.github.blaezdev.rwbym.Init;
 import io.github.blaezdev.rwbym.RWBYModels;
 import io.github.blaezdev.rwbym.potion.PotionAuraRegen;
 import io.github.blaezdev.rwbym.utility.craftingutil;
-import io.github.blaezdev.rwbym.weaponry.RWBYItem;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
@@ -398,6 +397,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.coin_ragora);
         registerItems(event, RWBYItems.coinqrow);
         registerItems(event, RWBYItems.coin_clover);
+        registerItems(event, RWBYItems.coin_harriet);
         //registerItems(event, RWBYItems.coin_raven);
         registerItems(event, RWBYItems.scroll);
         registerItems(event, RWBYItems.scroll2);

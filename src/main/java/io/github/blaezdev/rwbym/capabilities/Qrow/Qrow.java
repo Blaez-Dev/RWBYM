@@ -86,8 +86,7 @@ public class Qrow implements IQrow {
 			new PotionEffect(MobEffects.MINING_FATIGUE, 600, 1, true, false ),
 			new PotionEffect(MobEffects.SLOWNESS, 600, 1, true, false),
 			new PotionEffect(MobEffects.HUNGER, 600, 1, true, false),
-			new PotionEffect(MobEffects.GLOWING, 600, 1, true, false),
-			new PotionEffect(MobEffects.POISON, 600, 1, true, false)
+			new PotionEffect(MobEffects.GLOWING, 600, 1, true, false)
 	};
 
 

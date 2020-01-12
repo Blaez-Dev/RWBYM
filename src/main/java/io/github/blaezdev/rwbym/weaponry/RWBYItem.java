@@ -5,6 +5,8 @@ import io.github.blaezdev.rwbym.RWBYModels;
 import io.github.blaezdev.rwbym.capabilities.Blake.BlakeProvider;
 import io.github.blaezdev.rwbym.capabilities.CapabilityHandler;
 import io.github.blaezdev.rwbym.capabilities.Clover.CloverProvider;
+import io.github.blaezdev.rwbym.capabilities.Harriet.Harriet;
+import io.github.blaezdev.rwbym.capabilities.Harriet.HarrietProvider;
 import io.github.blaezdev.rwbym.capabilities.ISemblance;
 import io.github.blaezdev.rwbym.capabilities.Jaune.JauneProvider;
 import io.github.blaezdev.rwbym.capabilities.Lysette.LysetteProvider;
@@ -23,7 +25,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.nbt.JsonToNBT;
 import net.minecraft.nbt.NBTException;
 import net.minecraft.nbt.NBTTagCompound;
@@ -36,8 +37,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.logging.log4j.LogManager;
-
-import java.util.ArrayList;
 
 /**
  * Part of rwbym by Bluexin.
@@ -302,6 +301,17 @@ public class RWBYItem extends Item implements ICustomItem {
                 if (semblance.toString().equals("Clover")) {
                     semblance.setLevel(semblance.getLevel() + 1);
                 } else {CapabilityHandler.setSemblance(playerIn, CloverProvider.Clover_CAP, 1);}
+                itemstack.shrink(1);
+            }
+        }
+
+        if(coin.matches("harriet"))
+        {
+            if(!worldIn.isRemote){
+                ISemblance semblance = CapabilityHandler.getCurrentSemblance(playerIn);
+                if (semblance.toString().equals("harriet")) {
+                    semblance.setLevel(semblance.getLevel() + 1);
+                } else {CapabilityHandler.setSemblance(playerIn, HarrietProvider.Harriet_CAP, 1);}
                 itemstack.shrink(1);
             }
         }

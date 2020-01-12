@@ -120,6 +120,10 @@ public class RWBYConfig
     public float yangdrainrate = 0.3F;
     @Config.Name("Jaune Aura Transfer Rate")
     public float jaunedrainrate = 0.15F;
+    @Config.Name("Harriet Drain Rate")
+    public float harrietdrainrate = 0.05F;
+    @Config.Name("Harriet Speed Multiplier")
+    public int harrietspeedmult = 5;
     //@Config.Name("Ragora Initial Summon Cost")
    // public int ragorainitialsummon = 10;
     //@Config.Name("Ragora Initial Summon Cost")

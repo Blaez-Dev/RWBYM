@@ -3672,6 +3672,7 @@ public class RWBYItems {
     public static final Item coin_raven = new RWBYItem("coin_raven", null, false, RWBYCreativeTabs.tab_rwbyitems).setCoin("raven");
     public static final Item coin_ragora = new RWBYItem("coin_ragora", null, false, RWBYCreativeTabs.tab_rwbyitems).setCoin("ragora");
     public static final Item coin_clover = new RWBYItem("coin_clover", null, false, RWBYCreativeTabs.tab_rwbyitems).setCoin("clover");
+    public static final Item coin_harriet = new RWBYItem("coin_harriet", null, false, RWBYCreativeTabs.tab_rwbyitems).setCoin("harriet");
     public static final Item coin_penny = new RWBYItem("coin_penny", null, false, RWBYCreativeTabs.tab_rwbyitems).setCoin("penny");
     public static final Item chisel = new RWBYItem("chisel", null, false, RWBYCreativeTabs.tab_rwbyitems).setHasContainerItem(true).setContainerItemLambda(stack -> (stack.attemptDamageItem(1, new Random(), null) ? ItemStack.EMPTY : stack)).setMaxDamage(255).setMaxStackSize(1);
     public static final Item crush = new RWBYItem("crush", null, false, RWBYCreativeTabs.tab_rwbyitems).setHasContainerItem(true).setContainerItemLambda(stack -> (stack.attemptDamageItem(1, new Random(), null) ? ItemStack.EMPTY : stack)).setMaxDamage(255).setMaxStackSize(1);

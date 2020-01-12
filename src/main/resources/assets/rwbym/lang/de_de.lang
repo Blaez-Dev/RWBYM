@@ -623,5 +623,21 @@ command.aura.max.set=Set Max Aura of %s to %d
 command.aura.max.add=Added %d Max Aura to %s For a Total of %d Max Aura
 command.aura.max.remove=Removed %d Max Aura From %s For a Total of %d Max Aura
 
-
+item.rwbym:7scroll_white.name=Scroll 2.0
+item.rwbym:7scroll_black.name=Scroll 2.0
+item.rwbym:7scroll_blue.name=Scroll 2.0
+item.rwbym:7scroll_green.name=Scroll 2.0
+item.rwbym:7scroll_pink.name=Scroll 2.0
+item.rwbym:7scroll_red.name=Scroll 2.0
+item.rwbym:7scroll_yellow.name=Scroll
+item.rwbym:hollowtome.name=§6Hohler Wälzer
+item.rwbym:hollowtomefire.name=§6Hohler Wälzer [Feuer]
+item.rwbym:hollowtomegravity.name=§6Hohler Wälzer [Schwere]
+item.rwbym:hollowtomeice.name=§6Hohler Wälzer [Eis]
+item.rwbym:hollowtomelightning.name=§6Hohler Wälzer [Blitz]
+item.rwbym:hollowtomewater.name=§6Hohler Wälzer [Wasser]
+item.rwbym:hollowtomewind.name=§6Hohler Wälzer [Luft]
+item.rwbym:darkrepulser.name=§6Finstere Abwehr
+item.rwbym:elucidator.name=§6Erkenntniss
+item.rwbym:kingfisher.name=Eisvögel
 

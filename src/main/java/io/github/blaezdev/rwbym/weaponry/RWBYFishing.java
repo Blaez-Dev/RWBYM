@@ -2,7 +2,6 @@ package io.github.blaezdev.rwbym.weaponry;
 
 import io.github.blaezdev.rwbym.Init.RWBYCreativeTabs;
 import io.github.blaezdev.rwbym.RWBYModels;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemFishingRod;
 import net.minecraft.util.ResourceLocation;
 
