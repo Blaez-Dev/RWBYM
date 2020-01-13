@@ -7,6 +7,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraftforge.common.capabilities.Capability;
 
 public class Harriet implements IHarriet {
@@ -72,6 +73,7 @@ public class Harriet implements IHarriet {
 			case 3:
 				if (this.Timer > 0) {
 					this.Timer--;
+					player.world.spawnParticle(EnumParticleTypes.CRIT, player.posX + 1-player.getRNG().nextInt(2), player.posY + 1.0D, player.posZ + 1-player.getRNG().nextInt(2), 3-player.getRNG().nextInt(6), 3-player.getRNG().nextInt(6), 3-player.getRNG().nextInt(6));
 				}
 				else {
 					this.active = false;
