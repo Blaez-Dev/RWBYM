@@ -182,9 +182,9 @@ public class Team implements ITeam {
 		else {
 			this.markDirty();
 		}
-		this.getTeamList(player).remove(player);
-		if (this.isSolo(player)) {
-			List<EntityPlayer> team = this.getTeamList(player);
+		List<EntityPlayer> team = this.getTeamList(player);
+		team.remove(player);
+		if (team.size() < 2) {
 			this.teams.remove(team);
 		}
 	}
@@ -222,6 +222,21 @@ public class Team implements ITeam {
 			teamnbt.setInteger("size", j);
 			teamsnbt.setTag(i.toString(), teamnbt);
 			i++;
+			team.replaceAll(player -> {
+				if (player instanceof EntityPlayerMP && ((EntityPlayerMP)player).hasDisconnected()) {
+					EntityPlayer otherPlayer = this.world.getPlayerEntityByUUID(player.getUniqueID());
+					if (otherPlayer == null) {
+						System.out.println("Resetting Player is Null");
+						System.out.println(player);
+					}
+					else {
+						System.out.println("Successfully Reset Player");
+						System.out.println(otherPlayer);
+						return otherPlayer;
+					}
+				}
+				return player;
+			});
 		}
 		
 		i = 0;

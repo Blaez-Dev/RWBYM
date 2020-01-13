@@ -42,11 +42,8 @@ public class MessageSendTeams extends MessageBase<MessageSendTeams> {
 			world.getCapability(TeamProvider.TEAM_CAP, null).deserialize(message.teams);
 		}
 		GuiScreen gui = Minecraft.getMinecraft().currentScreen;
-		if (gui instanceof GuiScreenScrollTeam) {
-			Minecraft.getMinecraft().displayGuiScreen(new GuiScreenScrollTeam(player));
-		}
-		else if (gui instanceof GuiScreenScrollRequests) {
-			Minecraft.getMinecraft().displayGuiScreen(new GuiScreenScrollRequests(player));
+		if (gui != null) {
+			gui.initGui();
 		}
 	}
 

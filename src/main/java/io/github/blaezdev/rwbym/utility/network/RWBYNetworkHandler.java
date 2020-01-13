@@ -19,8 +19,6 @@ public class RWBYNetworkHandler {
     public static void init() {
     	
 	    INSTANCE = NetworkRegistry.INSTANCE.newSimpleChannel("rwbym");
-	
-	    int i = 0;
 	    
 	    registerMessage(MessageActivateSemblance.class, Side.SERVER);
 	    registerMessage(MessageSendPlayerDataToServer.class, Side.SERVER);
@@ -37,6 +35,7 @@ public class RWBYNetworkHandler {
 	    registerMessage(MessageOpenWindow.class, Side.CLIENT);
 	    registerMessage(MessageTradingList.class, Side.CLIENT);
 	    registerMessage(MessageTradingData.class, Side.SERVER);
+	    registerMessage(MessageGetTeamData.class, Side.SERVER);
     }
     
     public static void sendToServer(IMessage message){

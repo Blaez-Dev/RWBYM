@@ -10,6 +10,8 @@ import io.github.blaezdev.rwbym.capabilities.ISemblance;
 import io.github.blaezdev.rwbym.capabilities.team.ITeam;
 import io.github.blaezdev.rwbym.capabilities.team.TeamProvider;
 import io.github.blaezdev.rwbym.gui.GuiButtonScroll;
+import io.github.blaezdev.rwbym.utility.network.MessageGetTeamData;
+import io.github.blaezdev.rwbym.utility.network.RWBYNetworkHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
@@ -56,6 +58,24 @@ public class GuiScreenScrollTeam extends GuiScreen {
 		
 		this.addPlayer(player, 0);
 		
+		RWBYNetworkHandler.sendToServer(new MessageGetTeamData());
+		
+	}
+
+	@Override
+	public void initGui() {
+		super.initGui();
+		
+		this.mc = Minecraft.getMinecraft();
+		
+		this.buttonList.clear();
+		
+		EntityPlayer player = this.players[0];
+		
+		for (int i = 1; i < 4; i++) {
+			this.addPlayer(null, i);
+		}
+		
 		if (Minecraft.getMinecraft().world.hasCapability(TeamProvider.TEAM_CAP, null)) {
 			
 			ITeam team = Minecraft.getMinecraft().world.getCapability(TeamProvider.TEAM_CAP, null);
@@ -65,19 +85,12 @@ public class GuiScreenScrollTeam extends GuiScreen {
 				i++;
 			}
 			
+			
 		}
-		
-	}
-
-	@Override
-	public void initGui() {
-		super.initGui();
 		
 		x = (this.width - texturex) / 2;
 		y = (this.height - 21 - texturey) / 2;
 		
-		this.mc = Minecraft.getMinecraft();
-
 		this.allowUserInput = true;
 
 		this.buttonList.clear();

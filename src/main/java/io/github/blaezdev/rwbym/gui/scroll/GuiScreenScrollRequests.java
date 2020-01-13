@@ -9,6 +9,8 @@ import io.github.blaezdev.rwbym.capabilities.team.ITeam;
 import io.github.blaezdev.rwbym.capabilities.team.TeamProvider;
 import io.github.blaezdev.rwbym.gui.GuiButtonScroll;
 import io.github.blaezdev.rwbym.gui.GuiButtonScrollSmall;
+import io.github.blaezdev.rwbym.utility.network.MessageGetTeamData;
+import io.github.blaezdev.rwbym.utility.network.RWBYNetworkHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
@@ -62,7 +64,16 @@ public class GuiScreenScrollRequests extends GuiScreen {
 	private GuiTextField textbox;
 	
 	public GuiScreenScrollRequests(EntityPlayer playerIn) {
+		
 		this.player = playerIn;
+				
+	}
+	
+	@Override
+	public void initGui() {
+		super.initGui();
+		
+		this.buttonList.clear();
 
 		head = new ItemStack(Items.SKULL, 1, 3);
 
@@ -73,10 +84,15 @@ public class GuiScreenScrollRequests extends GuiScreen {
 			head.setTagCompound(nbt);
 		}
 
-		nbt.setString("SkullOwner", playerIn.getName());
+		nbt.setString("SkullOwner", player.getName());
 		
-		if (playerIn.world.hasCapability(TeamProvider.TEAM_CAP, null)) {
-			ITeam teams = playerIn.world.getCapability(TeamProvider.TEAM_CAP, null);
+		for (int i = 0; i < 4; i++) {
+			this.addPlayer(null, in, inHeads, i);
+			this.addPlayer(null, out, outHeads, i);
+		}
+		
+		if (player.world.hasCapability(TeamProvider.TEAM_CAP, null)) {
+			ITeam teams = player.world.getCapability(TeamProvider.TEAM_CAP, null);
 			
 			for (int i = 0; i < teams.getReceivedRequests(player).size(); i++) {
 				this.addPlayer(teams.getReceivedRequests(player).get(i).getSender(), in, inHeads, i);
@@ -87,12 +103,6 @@ public class GuiScreenScrollRequests extends GuiScreen {
 			}
 			
 		}
-		
-	}
-	
-	@Override
-	public void initGui() {
-		super.initGui();
 		
 		x = (this.width - texturex) / 2;
 		y = (this.height - 21 - texturey) / 2;
