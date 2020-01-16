@@ -17,6 +17,7 @@ import net.minecraft.entity.passive.EntityTameable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.item.ItemStack;
 import net.minecraft.network.play.server.SPacketEntity;
 import net.minecraft.pathfinding.PathNavigateFlying;
 import net.minecraft.util.DamageSource;
@@ -491,7 +492,7 @@ public class EntityRagora extends EntityTameable {
 			time++;
 
 			if (time > 100) {
-				EntityBullet fireball = new EntityBullet(world, EntityRagora.this, (RWBYAmmoItem) RWBYItems.ragorafireball);
+				EntityBullet fireball = new EntityBullet(world, EntityRagora.this, new ItemStack(RWBYItems.ragorafireball), new ItemStack(RWBYItems.ragorafireball));
 				Vec3d motion = EntityRagora.this.getLookVec().scale(2);
 				fireball.motionX = look.x;
 				fireball.motionY = look.y;

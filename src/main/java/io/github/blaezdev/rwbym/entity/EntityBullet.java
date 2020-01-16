@@ -29,6 +29,7 @@ import net.minecraftforge.fml.common.registry.IThrowableEntity;
 public class EntityBullet extends EntityArrow implements IThrowableEntity{
 
     private static final DataParameter<ItemStack> ITEM = EntityDataManager.createKey(EntityBullet.class, DataSerializers.ITEM_STACK);
+    private static final DataParameter<ItemStack> SHOOTING_STACK = EntityDataManager.createKey(EntityBullet.class, DataSerializers.ITEM_STACK);
     private static final DataParameter<Integer> PARTICLE = EntityDataManager.createKey(EntityBullet.class, DataSerializers.VARINT);
     
     private int knockbackStrength;
@@ -63,9 +64,11 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
         }
     }
 
-    public EntityBullet(World worldIn, EntityLivingBase shooter, RWBYAmmoItem from) {
+    public EntityBullet(World worldIn, EntityLivingBase shooter, ItemStack stack, ItemStack shootingStack) {
         this(worldIn, shooter);
-        this.setItem(from);
+        this.setItem(stack);
+        this.setShootingItemStack(shootingStack);
+        RWBYAmmoItem from = this.getItem();
         if (shooter instanceof EntityPlayer && from.canPickup()) {
             this.pickupStatus = PickupStatus.ALLOWED;
         }
@@ -75,6 +78,7 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
     protected void entityInit() {
         super.entityInit();
         dataManager.register(ITEM, ItemStack.EMPTY);
+        dataManager.register(SHOOTING_STACK, ItemStack.EMPTY);
         dataManager.register(PARTICLE, EnumParticleTypes.CRIT.ordinal());
     }
 
@@ -484,15 +488,27 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
             return (RWBYAmmoItem) RWBYItems.ammmo;
         }
     }
-
+    
+    public void setItem(ItemStack stack) {
+    	dataManager.set(ITEM, stack);
+    }
+    
     public void setItem(RWBYAmmoItem item) {
-        dataManager.set(ITEM, new ItemStack(item));
+    	dataManager.set(ITEM, new ItemStack(item));
+    }
+    
+    public ItemStack getShootingItemStack() {
+    	return dataManager.get(SHOOTING_STACK);
+    }
+
+    public void setShootingItemStack(ItemStack stack) {
+        dataManager.set(SHOOTING_STACK, stack);
     }
 
     @Override
     protected ItemStack getArrowStack() {
-        RWBYAmmoItem item = this.getItem();
-        return item.getRenderStack().copy();
+        ItemStack item = this.getShootingItemStack();
+        return item.copy();
     }
 
     @Override

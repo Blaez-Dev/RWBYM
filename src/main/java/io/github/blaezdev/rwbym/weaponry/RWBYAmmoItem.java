@@ -196,8 +196,8 @@ public class RWBYAmmoItem extends Item implements ICustomItem {
         return false;
     }
     
-    public EntityBullet createArrow(World worldIn, ItemStack stack, EntityLivingBase shooter) {
-        return new EntityBullet(worldIn, shooter, this);
+    public EntityBullet createArrow(World worldIn, ItemStack stack, ItemStack shootingStack, EntityLivingBase shooter) {
+        return new EntityBullet(worldIn, shooter, stack, shootingStack);
     }
 
     @Override

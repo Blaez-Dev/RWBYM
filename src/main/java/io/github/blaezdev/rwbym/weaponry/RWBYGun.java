@@ -1007,7 +1007,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                         int inaccuracy;
                    if(shotcount > 2){inaccuracy = 0;}else {inaccuracy = shotcount;}
                         for (int i2 = 0; i2 < finishshot; i2++) {
-                            EntityArrow entityarrow = (itemstack.getItem() instanceof RWBYAmmoItem ? ((RWBYAmmoItem) itemstack.getItem()).createArrow(worldIn, itemstack, entityplayer) : ((ItemArrow) Items.ARROW).createArrow(worldIn, itemstack, entityplayer));
+                            EntityArrow entityarrow = (itemstack.getItem() instanceof RWBYAmmoItem ? ((RWBYAmmoItem) itemstack.getItem()).createArrow(worldIn, itemstack, stack, entityplayer) : ((ItemArrow) Items.ARROW).createArrow(worldIn, itemstack, entityplayer));
                             entityarrow.shoot(entityplayer, entityplayer.rotationPitch, entityplayer.rotationYaw, 0.0F, f * 3.0F * (this.projectileSpeed == 0.0F ? 1.0F : this.projectileSpeed), inaccuracy*itemRand.nextInt(5));
 
                             //System.out.println(inaccuracy);
