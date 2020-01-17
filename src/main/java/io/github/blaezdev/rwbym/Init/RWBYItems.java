@@ -2183,6 +2183,23 @@ public class RWBYItems {
             0,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
+    public static final Item fetchboomerang = new RWBYGun(
+            "fetchboomerang",
+            2500,
+            13,
+            RWBYGun.THROWN,
+            null,
+            "rwbym:fetch",
+            "rwbym:nuller,rwbym:fetchammo",
+            false,
+            0,
+            false,
+            false,
+            0,
+            1,
+            0,
+            17,
+            RWBYCreativeTabs.tab_rwbyweapons);
     public static final  Item gravitydustcrystalcut = new RWBYCutGem(
             "gravitydustcrystalcut",
             0,
@@ -4135,8 +4152,8 @@ public class RWBYItems {
             "crmag",
             RWBYItems.entitybullet,
             1,
-            true,
-            RWBYAmmoItem.SurviveOnHit.BLOCK,
+            false,
+            RWBYAmmoItem.SurviveOnHit.NONE,
             "textures/entity/projectiles/tipped_arrow.png",
             true,
             false,
@@ -4206,6 +4223,21 @@ public class RWBYItems {
             20,
             RWBYCreativeTabs.tab_rwbyitems,
             new ExplosionAmmoHit(0)).setPierce(true);
+    public static final Item fetchammo = new RWBYAmmoItem(
+            "fetchammo",
+            RWBYItems.fetchboomerang,
+            1,
+            true,
+            RWBYAmmoItem.SurviveOnHit.ENTITY,
+            "textures/entity/projectiles/tipped_arrow.png",
+            true,
+            true,
+            null,
+            null,
+            1,
+            20,
+            RWBYCreativeTabs.tab_rwbyitems,
+            null);
     public static final Item hardlightmagazines = new RWBYAmmoItem(
             "hardlightmagazines",
             RWBYItems.entitybullet,

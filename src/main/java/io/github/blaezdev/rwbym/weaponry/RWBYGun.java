@@ -152,6 +152,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     public static final int TOME =         0x400000;
     public static final int FIST =         0x800000;
     public static final int HAMMER =      0x1000000;
+    public static final int THROWN =      0x2000000;
 	
 	public static final int RCL_BACK =      1;
 	public static final int RCL_BACK_WEAK = 2;
@@ -1029,6 +1030,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                         }
                         else if ((weapontype & JUNIOR) !=0) {stack.damageItem(30,entityplayer);}
                         else if ((weapontype & INT_MAG) !=0) {stack.damageItem(4, entityplayer);}
+                        else if ((weapontype & THROWN) !=0) {/*stack.shrink(1);*/}
                         if (!flag){
                             if ((weapontype & BOW) !=0 && !flagger) {
                                 itemstack.shrink(1);

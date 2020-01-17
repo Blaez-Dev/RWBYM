@@ -484,6 +484,8 @@ public class RegUtil {
         registerItems(event, RWBYItems.lightdustcut);
         registerItems(event, RWBYItems.icedustcut);
         registerItems(event, RWBYItems.ragorafireball);
+        registerItems(event, RWBYItems.fetchboomerang);
+        registerItems(event, RWBYItems.fetchammo);
 
 
         //mob drops
