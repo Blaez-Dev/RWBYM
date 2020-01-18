@@ -642,6 +642,8 @@ item.rwbym:hollowtomewind.name=§6Hollow Tome [Wind]
 item.rwbym:darkrepulser.name=§6Dark Repulser
 item.rwbym:elucidator.name=§6Elucidator
 item.rwbym:kingfisher.name=Kingfisher
+item.rwbym:fetch.name=Fetch
+item.rwbym:fetchboomerang.name=Fetch
 
 effect.aura_regen=Aura Regen
 potion.effect.aura_regen=Potion of Aura Regen
