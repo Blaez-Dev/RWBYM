@@ -407,6 +407,8 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         String recall = Integer.toString(weapontype);
+        boolean thrown = ((weapontype & THROWN) != 0);
+        if(!thrown){
         String ammmo = ammo;
         ammmo = ammmo.replace("rwbym:nuller", "");
         ammmo = ammmo.replace("rwbym:nullest", "");
@@ -420,7 +422,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 	            	tooltip.add(ChatFormatting.BLUE +"-" + I18n.format(item.getUnlocalizedName() + ".name"));
 	            }
 	        }
-        }
+        }}
         if(weapontype > 0||dualwield|| recoil == 4){tooltip.add("Weapon Info:");}
         if((weapontype & OFFHAND) !=0|| ohblade){tooltip.add(ChatFormatting.BLUE +"-" +  "Offhand Blade");}
          if((weapontype & SWORD) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Sword");}
@@ -444,6 +446,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         if((weapontype & TOME) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Tome");}
         if((weapontype & FIST) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Gaunlet");}
         if((weapontype & HAMMER) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Blunt Weapon");}
+        if((weapontype & THROWN) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Throwable Weapon");}
         if(grimm){tooltip.add(ChatFormatting.BLUE + "-"+ "Grimm Weapon");}
          if((weapontype & (AURAWEAP|LETZT|SANREI)) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Aura Based Weapon");}
          if(recoil == 4){tooltip.add(ChatFormatting.BLUE + "-"+ "Wall Climbing Capable");}
@@ -1030,7 +1033,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                         }
                         else if ((weapontype & JUNIOR) !=0) {stack.damageItem(30,entityplayer);}
                         else if ((weapontype & INT_MAG) !=0) {stack.damageItem(4, entityplayer);}
-                        else if ((weapontype & THROWN) !=0) {/*stack.shrink(1);*/}
+                        else if ((weapontype & THROWN) !=0) {stack.shrink(1);}
                         if (!flag){
                             if ((weapontype & BOW) !=0 && !flagger) {
                                 itemstack.shrink(1);

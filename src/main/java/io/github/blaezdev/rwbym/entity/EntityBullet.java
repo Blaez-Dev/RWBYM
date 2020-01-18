@@ -67,7 +67,7 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
     public EntityBullet(World worldIn, EntityLivingBase shooter, ItemStack stack, ItemStack shootingStack) {
         this(worldIn, shooter);
         this.setItem(stack);
-        this.setShootingItemStack(shootingStack);
+        this.setShootingItemStack(shootingStack.copy());
         RWBYAmmoItem from = this.getItem();
         if (shooter instanceof EntityPlayer && from.canPickup()) {
             this.pickupStatus = PickupStatus.ALLOWED;
