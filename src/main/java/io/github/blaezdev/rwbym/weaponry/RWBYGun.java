@@ -72,7 +72,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     private boolean weaponuseglow = false;
     private int soundeffect;
     private int bulletCount;
-    private int weapontype;
+    public int weapontype;
     public final boolean isShield;
     public final boolean  canBlock;
     boolean compensate;
@@ -91,6 +91,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     private boolean kkice = false;
     private boolean kkwind = false;
     public boolean neo = false;
+    public boolean thrown = false;
 
     private boolean gwen;
 
@@ -110,6 +111,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         this.shotrecoil = shotrecoil;
         return this;
     }
+
 
 
 
@@ -153,6 +155,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     public static final int FIST =         0x800000;
     public static final int HAMMER =      0x1000000;
     public static final int THROWN =      0x2000000;
+    public static final int WALLCLIMB =   0x4000000;
 	
 	public static final int RCL_BACK =      1;
 	public static final int RCL_BACK_WEAK = 2;
@@ -195,6 +198,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         else if((weapontype & PICKAXE) !=0){this.weaponspeed = -3D;}
         else {this.weaponspeed = -3;}
 
+        if((weapontype & THROWN) !=0){this.thrown = true;}else this.thrown = false;
 
         this.soundeffect = soundeffect;
         if(name.contains("kkfire")) kkfire = true; if(name.contains("kkice")) kkice = true; if(name.contains("kkwind")) kkwind = true; if(name.contains("gwenknife")){gwen = true;}
@@ -449,7 +453,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         if((weapontype & THROWN) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Throwable Weapon");}
         if(grimm){tooltip.add(ChatFormatting.BLUE + "-"+ "Grimm Weapon");}
          if((weapontype & (AURAWEAP|LETZT|SANREI)) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Aura Based Weapon");}
-         if(recoil == 4){tooltip.add(ChatFormatting.BLUE + "-"+ "Wall Climbing Capable");}
+         if((weapontype & WALLCLIMB) !=0){tooltip.add(ChatFormatting.BLUE + "-"+ "Wall Climbing Capable");}
         if(recoil == 3){tooltip.add(ChatFormatting.BLUE + "-"+ "Dashes Forward When no ammo is present.");}
         if(recoil == 2){tooltip.add(ChatFormatting.BLUE + "-"+ "Weak Shot Recoil - Propelling Player Backwards");}
         if(recoil == 1){tooltip.add(ChatFormatting.BLUE + "-"+ "Large Shot Recoil - Propelling Player Backwards");}
@@ -714,7 +718,6 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     public void onUsingTick(ItemStack stack, EntityLivingBase player, int count) {
         super.onUsingTick(stack, player, count);
         EntityPlayer playerIn = (EntityPlayer) player;
-        boolean flag = !this.findAmmo(playerIn, false).isEmpty();
         if(stack.getItem() == RWBYItems.elucidator || stack.getItem() == RWBYItems.darkrepulser){
             playerIn.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, 60, 2));
         if(!weaponuseglow){weaponuseglow = true; }}
@@ -728,18 +731,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             player.motionY = -0.1;
             player.fallDistance = 0;
             player.velocityChanged = true;
-        }
-        if (!flag) {if (recoil == 4)  { if (playerIn.collidedHorizontally){
-            Vec3d look = playerIn.getLookVec();
-            playerIn.motionX = look.x/2;
-            playerIn.motionZ = look.z/2;
-            playerIn.motionY = look.y/2;
-            playerIn.lastTickPosZ = -look.x;
-            playerIn.lastTickPosX = -look.z;
-            compensate = true;
-            playerIn.fallDistance = 0;
-        }}}
-    }
+        }}
 
 
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
@@ -774,6 +766,16 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
         ItemStack is = playerIn.getHeldItem(handIn);
         boolean flag = !this.findAmmo(playerIn, false).isEmpty();
+        if (!flag) {if ((weapontype & WALLCLIMB) !=0)  { if (playerIn.collidedHorizontally){
+            Vec3d look = playerIn.getLookVec();
+            playerIn.motionX = look.x/2;
+            playerIn.motionZ = look.z/2;
+            playerIn.motionY = look.y/2;
+            playerIn.lastTickPosZ = -look.x;
+            playerIn.lastTickPosX = -look.z;
+            compensate = true;
+            playerIn.fallDistance = 0;
+        }}}
         if (!worldIn.isRemote && playerIn.isSneaking() && this.morph != null) {
             ItemStack morph1 = new ItemStack(Item.getByNameOrId(this.morph), is.getCount(), is.getMetadata());
             //noinspection ConstantConditions

@@ -5,6 +5,7 @@ import io.github.blaezdev.rwbym.RWBYModels;
 import io.github.blaezdev.rwbym.utility.network.MessagePosVelUpdate;
 import io.github.blaezdev.rwbym.utility.network.RWBYNetworkHandler;
 import io.github.blaezdev.rwbym.weaponry.RWBYAmmoItem;
+import io.github.blaezdev.rwbym.weaponry.RWBYGun;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -66,8 +67,8 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
 
     public EntityBullet(World worldIn, EntityLivingBase shooter, ItemStack stack, ItemStack shootingStack) {
         this(worldIn, shooter);
+       if((((RWBYGun) shootingStack.getItem()).weapontype & RWBYGun.THROWN) !=0){this.setShootingItemStack(shootingStack.copy());}else this.setShootingItemStack(stack);
         this.setItem(stack);
-        this.setShootingItemStack(shootingStack.copy());
         RWBYAmmoItem from = this.getItem();
         if (shooter instanceof EntityPlayer && from.canPickup()) {
             this.pickupStatus = PickupStatus.ALLOWED;

@@ -968,7 +968,7 @@ public class RWBYItems {
             "mariascythe",
             2500,
             16,
-            RWBYGun.SCYTHE,
+            RWBYGun.SCYTHE|RWBYGun.WALLCLIMB,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:16,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}]}",
             "rwbym:mariascythedouble",
             "rwbym:gammag,rwbym:gamgravmag,rwbym:gamicemag,rwbym:gamfiremag",
@@ -976,7 +976,7 @@ public class RWBYItems {
             1,
             false,
             false,
-            4,
+            0,
             1,
             0,
             3,
@@ -1398,7 +1398,7 @@ public class RWBYItems {
             "stormflower",
             2500,
             14,
-            0,
+            RWBYGun.WALLCLIMB,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:14,Operation:0,UUIDMost:99791,UUIDLeast:128916}]}",
             null,
             "rwbym:gammag,rwbym:gamgravmag,rwbym:gamicemag,rwbym:gamfiremag",
@@ -1406,7 +1406,7 @@ public class RWBYItems {
             1,
             false,
             false,
-            4,
+            0,
             1,
             0,
             5,
@@ -1440,7 +1440,7 @@ public class RWBYItems {
             1,
             false,
             false,
-            4,
+            0,
             1,
             1,
             5,
@@ -1668,7 +1668,7 @@ public class RWBYItems {
             1,
             false,
             false,
-            4,
+            0,
             1,
             0,
             5,
@@ -1677,7 +1677,7 @@ public class RWBYItems {
             "emeraldblade",
             2500,
             14,
-            0,
+            RWBYGun.WALLCLIMB,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:14,Operation:0,UUIDMost:99791,UUIDLeast:128916}]}",
             "rwbym:emeraldgun",
             "rwbym:spl,rwbym:splfire,rwbym:splgrav,rwbym:splice,rwbym:spllight",
@@ -5011,6 +5011,10 @@ public class RWBYItems {
     public static final ItemArmor Beacon1Chest = new ArmourBase(Beacon1Mat, 0, EntityEquipmentSlot.CHEST, "beacon1_chest", null, "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"chest\",Amount:10,Operation:0,UUIDMost:58554,UUIDLeast:153538},{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"chest\",Amount:5,Operation:0,UUIDMost:67929,UUIDLeast:123513}]}", true, RWBYCreativeTabs.tab_rwbyarmour);
     public static final ItemArmor Beacon1Legs = new ArmourBase(Beacon1Mat, 0, EntityEquipmentSlot.LEGS, "beacon1_legs", null,     "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"legs\",Amount:10,Operation:0,UUIDMost:42121,UUIDLeast:129939},{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"legs\",Amount:5,Operation:0,UUIDMost:89883,UUIDLeast:143748}]}", true, RWBYCreativeTabs.tab_rwbyarmour);
 
+    public static final ItemArmor.ArmorMaterial CarmineMat = EnumHelper.addArmorMaterial("Carmine", "rwbym:carmine", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
+    public static final ItemArmor CarmineChest = new ArmourBase(CarmineMat, 0, EntityEquipmentSlot.CHEST, "carmine_chest", null, "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"chest\",Amount:10,Operation:0,UUIDMost:58554,UUIDLeast:153538},{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"chest\",Amount:5,Operation:0,UUIDMost:67929,UUIDLeast:123513}]}", true, RWBYCreativeTabs.tab_rwbyarmour);
+    public static final ItemArmor CarmineLegs = new ArmourBase(CarmineMat, 0, EntityEquipmentSlot.LEGS, "carmine_legs", null,     "{AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"legs\",Amount:10,Operation:0,UUIDMost:42121,UUIDLeast:129939},{AttributeName:\"generic.armorToughness\",Name:\"generic.armorToughness\",Slot:\"legs\",Amount:5,Operation:0,UUIDMost:89883,UUIDLeast:143748}]}", true, RWBYCreativeTabs.tab_rwbyarmour);
+    public static final ItemArmor CarmineHead = new ArmourBase(CarmineMat, 0, EntityEquipmentSlot.HEAD, "carmine_head", null, " {AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Slot:\"head\",Amount:6,Operation:0,UUIDMost:52996,UUIDLeast:116348}]}", true, RWBYCreativeTabs.tab_rwbyarmour);
 
 
     public static final ItemArmor.ArmorMaterial Blake1Mat = EnumHelper.addArmorMaterial("Blake1", "rwbym:blake1", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);

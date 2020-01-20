@@ -644,6 +644,10 @@ item.rwbym:elucidator.name=§6Elucidator
 item.rwbym:kingfisher.name=Kingfisher
 item.rwbym:fetch.name=Fetch
 item.rwbym:fetchboomerang.name=Fetch
+item.rwbym:coin_harriet.name=Semblance Coin Harriet
+item.carmine_head.name=Carmine's Scarf
+item.carmine_chest=Carmine's Top
+item.carmine_legs=Carmine's Shorts
 
 effect.aura_regen=Aura Regen
 potion.effect.aura_regen=Potion of Aura Regen
