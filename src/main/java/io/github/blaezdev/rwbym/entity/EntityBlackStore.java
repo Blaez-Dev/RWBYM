@@ -1,5 +1,6 @@
 package io.github.blaezdev.rwbym.entity;
 
+import io.github.blaezdev.rwbym.Init.RWBYFluids;
 import io.github.blaezdev.rwbym.Init.RWBYItems;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
@@ -17,6 +18,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
+import net.minecraftforge.fluids.UniversalBucket;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -165,6 +167,7 @@ public class EntityBlackStore extends EntityRWBYMMerchant implements INpc, IMerc
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.henchmen,1)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.henchmenaxe,1)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.remnants, 1), new ItemStack(RWBYItems.lien20, 2)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500, 6), UniversalBucket.getFilledBucket(null, RWBYFluids.GRIMM)));
         //sell//
 
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.bait,1), new ItemStack(RWBYItems.lien500, 1)));

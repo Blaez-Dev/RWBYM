@@ -97,66 +97,71 @@ public class Oregen implements IWorldGenerator{
                 this.runGenerator(water_overworld, world, random, chunkX, chunkZ, RWBYConfig.worldgen.waterore, 0, 256); //BiomeOcean.class,BiomeBeach.class, BiomeMushroomIsland.class,BiomeSwamp.class
                 this.runGenerator(light_overworld, world, random, chunkX, chunkZ, RWBYConfig.worldgen.lightore, 0, 256);//BiomeHills.class,BiomeMesa.class
                 this.runGenerator(ice_overworld, world, random, chunkX, chunkZ, RWBYConfig.worldgen.iceore, 0, 256);
-                this.fluidGenerator(chunkGenerator,world, chunkX, chunkZ, RWBYBiomes.GrimmWastes);
                 generatestructure1(world, random, blockX + 8, blockZ + 8);
                 generatestructure2(world, random, blockX + 8, blockZ + 8);
                 generatestructure3(world, random, blockX + 8, blockZ + 8);
                 generatestructure4(world, random, blockX + 8, blockZ + 8);
                 generateraid(world, random, blockX + 8, blockZ + 8);
+                //this.fluidGenerator(chunkGenerator,world, chunkX, chunkZ, RWBYBiomes.GrimmWastes);
         }
     }
 
     private void generatestructure1(World world, Random rand, int blockX, int blockZ)
     {
-        if (rand.nextInt(RWBYConfig.worldgen.dustshop) > 1) {
+        if (world.rand.nextInt(RWBYConfig.worldgen.dustshop) < 1) {
 	        int y = getGroundFromAbove(world, blockX, blockZ);
 	        BlockPos pos = new BlockPos(blockX, y, blockZ);
 	        WorldGenerator structure = new RWBYStructure().setStructure(":rwbym1").setYoffset(-2).spawnNearVillage(true);
 	        structure.generate(world, rand, pos);
+            //System.out.println("Structure Generated");
         }
     }
 
     private void generatestructure2(World world, Random rand, int blockX, int blockZ)
     {
-        if (rand.nextInt(RWBYConfig.worldgen.bar) > 1) {
+        if (world.rand.nextInt(RWBYConfig.worldgen.bar) < 1) {
             int y = getGroundFromAbove(world, blockX, blockZ);
             BlockPos pos = new BlockPos(blockX, y, blockZ);
             WorldGenerator structure2 = new RWBYStructure().setStructure(":rwbym2").setYoffset(-2).spawnNearVillage(true);
             structure2.generate(world, rand, pos);
+            //System.out.println("Structure Generated");
         }
     }
 
     private void generatestructure4(World world, Random rand, int blockX, int blockZ)
     {
-        if (rand.nextInt(RWBYConfig.worldgen.dustshop2) > 1)
+        if (world.rand.nextInt(RWBYConfig.worldgen.dustshop2) < 1)
         {
             int y = getGroundFromAbove(world, blockX, blockZ);
             BlockPos pos = new BlockPos(blockX, y, blockZ);
             WorldGenerator structure4 = new RWBYStructure().setStructure(":rwbym4").setYoffset(-2).spawnNearVillage(true);
             structure4.generate(world, rand, pos);
+            //System.out.println("Structure Generated");
         }
     }
 
 
     private void generateraid(World world, Random rand, int blockX, int blockZ)
     {
-        if (rand.nextInt(RWBYConfig.worldgen.darkcrystalrate) == 0)
+        if (world.rand.nextInt(RWBYConfig.worldgen.darkcrystalrate) < 1)
         {
             int y = getGroundFromAbove(world, blockX, blockZ);
             BlockPos pos = new BlockPos(blockX, y, blockZ);
             WorldGenerator raid = new RaidStructure();
             raid.generate(world, rand, pos);
+            //System.out.println("Structure Generated");
         }
     }
 
     private void generatestructure3(World world, Random rand, int blockX, int blockZ)
     {
-        if (rand.nextInt(RWBYConfig.worldgen.well) > 1)
+        if (world.rand.nextInt(RWBYConfig.worldgen.well) < 1)
         {
             int y = getGroundFromAbove(world, blockX, blockZ);
             BlockPos pos = new BlockPos(blockX, y, blockZ);
             WorldGenerator structure3 = new RWBYStructure().setStructure(":rwbym3").setYoffset(-9);
             structure3.generate(world, rand, pos);
+
         }
     }
 
