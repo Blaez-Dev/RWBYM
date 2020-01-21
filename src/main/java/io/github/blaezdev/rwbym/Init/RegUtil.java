@@ -282,6 +282,10 @@ public class RegUtil {
         registerItems(event, RWBYItems.elucidator);
         registerItems(event, RWBYItems.darkrepulser);
         registerItems(event, RWBYItems.kingfisher);
+        registerItems(event, RWBYItems.carminesai);
+        registerItems(event, RWBYItems.carminestaff);
+        registerItems(event, RWBYItems.carminesaiammo);
+        registerItems(event, RWBYItems.carminestaffammo);
         //dust items
         registerBlocks(event, RWBYItems.crusher);
         registerItems(event, RWBYItems.chisel);
@@ -656,6 +660,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.CarmineHead);
         registerItems(event, RWBYItems.CarmineLegs);
         registerItems(event, RWBYItems.ozpinglasses);
+        registerItems(event, RWBYItems.moonskimmer);
         registerBlocks(event, RWBYItems.fluidGrimm);
 
     }
@@ -976,6 +981,9 @@ public class RegUtil {
         registerRecipes(RWBYItems.CarmineHead);
         registerRecipes(RWBYItems.CarmineChest);
         registerRecipes(RWBYItems.CarmineLegs);
+        registerRecipes(RWBYItems.carminesai);
+        registerRecipes(RWBYItems.carminestaff);
+        registerRecipes(RWBYItems.moonskimmer);
     }
 
     private static void registerBlocks(FMLPreInitializationEvent event, Block...blocks) {
@@ -1058,6 +1066,10 @@ public class RegUtil {
                 }else if(item == RWBYItems.pyrrhaspearammo){
                     ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.whisperingblossomammo.getRegistryName(), "inventory"));
                 }else if(item == RWBYItems.pyrrhaspearvammo){
+                    ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.whisperingblossomammo.getRegistryName(), "inventory"));
+                }else if(item == RWBYItems.carminesaiammo){
+                    ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.whisperingblossomammo.getRegistryName(), "inventory"));
+                }else if(item == RWBYItems.carminestaffammo){
                     ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.whisperingblossomammo.getRegistryName(), "inventory"));
                 }
             	else {

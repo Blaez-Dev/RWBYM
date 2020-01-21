@@ -648,6 +648,9 @@ item.rwbym:coin_harriet.name=Semblance Coin Harriet
 item.carmine_head.name=Carmine's Scarf
 item.carmine_chest=Carmine's Top
 item.carmine_legs=Carmine's Shorts
+item.rwbym:carminesai.name=Carmine's Sai
+item.rwbym:carminestaff.name=Carmine's Staff
+item.rwbym:moonskimmer.name=Moon Skimmer
 
 effect.aura_regen=Aura Regen
 potion.effect.aura_regen=Potion of Aura Regen

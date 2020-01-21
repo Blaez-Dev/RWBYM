@@ -119,7 +119,8 @@ public class EntityWeaponStore extends EntityRWBYMMerchant implements INpc, IMer
             new MerchantRecipe(new ItemStack(RWBYItems.lien500,12),new ItemStack(RWBYItems.onoyari, 1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien500,12),new ItemStack(RWBYItems.whisperingblossom, 1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien500,12),new ItemStack(RWBYItems.cassandra, 1)),
-            new MerchantRecipe(new ItemStack(RWBYItems.lien500,14),new ItemStack(RWBYItems.noctustraumnormal, 1))
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,14),new ItemStack(RWBYItems.noctustraumnormal, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,14),new ItemStack(RWBYItems.carminesai, 1))
 
     };
     private int randomTickDivider;

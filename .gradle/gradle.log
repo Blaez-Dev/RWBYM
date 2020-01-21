@@ -1,14 +1,5 @@
 This mapping 'snapshot_20171003' was designed for MC 1.12! Use at your own peril.This mapping 'snapshot_20171003' was designed for MC 1.12! Use at your own peril.
 
-#################################################
-         ForgeGradle 2.3-SNAPSHOT-6084129e        
-  https://github.com/MinecraftForge/ForgeGradle  
-#################################################
-                 Powered by MCP                  
-             http://modcoderpack.com             
-     by: Searge, ProfMobius, R4wk, ZeuX          
-     Fesh0r, IngisKahn, bspkrs, LexManos         
-#################################################
 :deobfCompileDummyTask
 :deobfProvidedDummyTask
 :sourceApiJava UP-TO-DATE
@@ -24,27 +15,134 @@ Note: Recompile with -Xlint:unchecked for details.
 :processResources
 :classes
 :jar
-:sourceTestJava UP-TO-DATE
-:compileTestJava UP-TO-DATE
-:processTestResources UP-TO-DATE
-:testClasses UP-TO-DATE
-:test UP-TO-DATE
-:extractMcpData SKIPPED
-:extractMcpMappings SKIPPED
 :getVersionJson
+:extractNatives SKIPPED
 :extractUserdev UP-TO-DATE
-:genSrgs SKIPPED
-:reobfJar
-:extractAnnotationsJar
-:extractRangemapReplacedMain
-C:\Users\Izumi\Documents\GitHub\RWBYM\build\sources\main\java
-:retromapReplacedMain
-remapping source...
-:sourceJar
-:assemble
-:check UP-TO-DATE
-:build
+:getAssetIndex UP-TO-DATE
+:getAssets
+:makeStart
+:runServer
+2020-01-20 22:26:43,993 main ERROR Unable to move file C:\Users\Izumi\Documents\GitHub\RWBYM\run\logs\latest.log to C:\Users\Izumi\Documents\GitHub\RWBYM\run\logs\2020-01-20-7.log: java.nio.file.FileSystemException C:\Users\Izumi\Documents\GitHub\RWBYM\run\logs\latest.log -> C:\Users\Izumi\Documents\GitHub\RWBYM\run\logs\2020-01-20-7.log: The process cannot access the file because it is being used by another process.
 
+2020-01-20 22:26:43,997 main ERROR Unable to delete file C:\Users\Izumi\Documents\GitHub\RWBYM\run\logs\latest.log: java.nio.file.FileSystemException C:\Users\Izumi\Documents\GitHub\RWBYM\run\logs\latest.log: The process cannot access the file because it is being used by another process.
+
+[22:26:44] [main/INFO] [GradleStart]: Extra: []
+[22:26:44] [main/INFO] [GradleStart]: Running with arguments: [--tweakClass, net.minecraftforge.fml.common.launcher.FMLServerTweaker, --tweakClass, net.minecraftforge.gradle.tweakers.CoremodTweaker]
+[22:26:44] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLServerTweaker
+[22:26:44] [main/INFO] [LaunchWrapper]: Using primary tweak class name net.minecraftforge.fml.common.launcher.FMLServerTweaker
+[22:26:44] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.gradle.tweakers.CoremodTweaker
+[22:26:44] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLServerTweaker
+2020-01-20 22:26:44,921 main WARN Disabling terminal, you're running in an unsupported environment.
+[22:26:44] [main/INFO] [FML]: Forge Mod Loader version 14.23.5.2847 for Minecraft 1.12.2 loading
+[22:26:44] [main/INFO] [FML]: Java is Java HotSpot(TM) 64-Bit Server VM, version 1.8.0_211, running on Windows 10:amd64:10.0, installed at C:\Program Files\Java\jdk1.8.0_211\jre
+[22:26:44] [main/ERROR] [FML]: Apache Maven library folder was not in the format expected. Using default libraries directory.
+[22:26:44] [main/ERROR] [FML]: Full: C:\Users\Izumi\.gradle\caches\modules-2\files-2.1\org.apache.maven\maven-artifact\3.5.3\7dc72b6d6d8a6dced3d294ed54c2cc3515ade9f4\maven-artifact-3.5.3.jar
+[22:26:44] [main/ERROR] [FML]: Trimmed: c:/users/izumi/.gradle/caches/modules-2/files-2.1/org.apache.maven/maven-artifact/3.5.3/
+[22:26:44] [main/INFO] [FML]: Managed to load a deobfuscated Minecraft name- we are in a deobfuscated environment. Skipping runtime deobfuscation
+[22:26:44] [main/INFO] [FML]: Ignoring missing certificate for coremod FMLCorePlugin (net.minecraftforge.fml.relauncher.FMLCorePlugin), we are in deobf and it's a forge core plugin
+[22:26:44] [main/INFO] [FML]: Ignoring missing certificate for coremod FMLForgePlugin (net.minecraftforge.classloading.FMLForgePlugin), we are in deobf and it's a forge core plugin
+[22:26:44] [main/INFO] [FML]: Searching C:\Users\Izumi\Documents\GitHub\RWBYM\run\.\mods for mods
+[22:26:44] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.gradle.tweakers.CoremodTweaker
+[22:26:44] [main/INFO] [GradleStart]: Injecting location in coremod net.minecraftforge.fml.relauncher.FMLCorePlugin
+[22:26:44] [main/INFO] [GradleStart]: Injecting location in coremod net.minecraftforge.classloading.FMLForgePlugin
+[22:26:44] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
+[22:26:44] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLDeobfTweaker
+[22:26:44] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
+[22:26:44] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
+[22:26:45] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
+[22:26:45] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
+[22:26:45] [main/ERROR] [FML]: FML appears to be missing any signature data. This is not a good thing
+[22:26:45] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
+[22:26:45] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLDeobfTweaker
+[22:26:45] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
+[22:26:45] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.TerminalTweaker
+[22:26:45] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.TerminalTweaker
+[22:26:45] [main/INFO] [LaunchWrapper]: Launching wrapped minecraft {net.minecraft.server.MinecraftServer}
+[22:26:48] [Server thread/INFO] [minecraft/DedicatedServer]: Starting minecraft server version 1.12.2
+[22:26:48] [Server thread/INFO] [FML]: MinecraftForge v14.23.5.2847 Initialized
+[22:26:48] [Server thread/INFO] [FML]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[22:26:48] [Server thread/INFO] [FML]: Invalid recipe found with multiple oredict ingredients in the same ingredient...
+[22:26:48] [Server thread/INFO] [FML]: Replaced 1227 ore ingredients
+[22:26:49] [Server thread/INFO] [FML]: Searching C:\Users\Izumi\Documents\GitHub\RWBYM\run\.\mods for mods
+[22:26:50] [Server thread/INFO] [FML]: Forge Mod Loader has identified 5 mods to load
+[22:26:50] [Server thread/WARN] [FML]: Missing English translation for FML: assets/fml/lang/en_us.lang
+[22:26:50] [Server thread/INFO] [FML]: Attempting connection with missing mods [minecraft, mcp, FML, forge, rwbym] at CLIENT
+[22:26:50] [Server thread/INFO] [FML]: Attempting connection with missing mods [minecraft, mcp, FML, forge, rwbym] at SERVER
+[22:26:51] [Server thread/INFO] [FML]: Processing ObjectHolder annotations
+[22:26:51] [Server thread/INFO] [FML]: Found 1168 ObjectHolder annotations
+[22:26:51] [Server thread/INFO] [FML]: Identifying ItemStackHolder annotations
+[22:26:51] [Server thread/INFO] [FML]: Found 0 ItemStackHolder annotations
+[22:26:51] [Server thread/INFO] [FML]: Configured a dormant chunk cache size of 0
+[22:26:51] [Forge Version Check/INFO] [forge.VersionCheck]: [forge] Starting version check at http://files.minecraftforge.net/maven/net/minecraftforge/forge/promotions_slim.json
+[22:26:51] [Forge Version Check/INFO] [forge.VersionCheck]: [forge] Found status: AHEAD Target: null
+[22:26:52] [Server thread/INFO] [FML]: Applying holder lookups
+[22:26:52] [Server thread/INFO] [FML]: Holder lookups applied
+[22:26:52] [Server thread/INFO] [FML]: Applying holder lookups
+[22:26:52] [Server thread/INFO] [FML]: Holder lookups applied
+[22:26:52] [Server thread/INFO] [FML]: Applying holder lookups
+[22:26:52] [Server thread/INFO] [FML]: Holder lookups applied
+[22:26:52] [Server thread/INFO] [FML]: Applying holder lookups
+[22:26:52] [Server thread/INFO] [FML]: Holder lookups applied
+[22:26:52] [Server thread/INFO] [FML]: Injecting itemstacks
+[22:26:52] [Server thread/INFO] [FML]: Itemstack injection complete
+[22:26:52] [Server thread/INFO] [minecraft/DedicatedServer]: Loading properties
+[22:26:52] [Server thread/INFO] [minecraft/DedicatedServer]: Default game type: SURVIVAL
+[22:26:52] [Server thread/INFO] [minecraft/DedicatedServer]: Generating keypair
+[22:26:52] [Server thread/INFO] [minecraft/DedicatedServer]: Starting Minecraft server on *:25565
+[22:26:52] [Server thread/INFO] [minecraft/NetworkSystem]: Using default channel type
+[22:26:53] [Server thread/WARN] [minecraft/DedicatedServer]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[22:26:53] [Server thread/WARN] [minecraft/DedicatedServer]: The server will make no attempt to authenticate usernames. Beware.
+[22:26:53] [Server thread/WARN] [minecraft/DedicatedServer]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[22:26:53] [Server thread/WARN] [minecraft/DedicatedServer]: To change this, set "online-mode" to "true" in the server.properties file.
+[22:26:53] [Server thread/INFO] [FML]: Applying holder lookups
+[22:26:53] [Server thread/INFO] [FML]: Holder lookups applied
+[22:26:53] [Server thread/INFO] [STDOUT]: [io.github.blaezdev.rwbym.RWBYModels:init:160]: Blaez:RWBYM Relz 4.4.2
+[22:26:53] [Server thread/INFO] [FML]: Injecting itemstacks
+[22:26:53] [Server thread/INFO] [FML]: Itemstack injection complete
+[22:26:53] [Server thread/INFO] [FML]: Forge Mod Loader has successfully loaded 5 mods
+[22:26:53] [Server thread/INFO] [minecraft/DedicatedServer]: Preparing level "world"
+[22:26:53] [Server thread/INFO] [FML]: Injecting existing registry data into this server instance
+[22:26:54] [Server thread/INFO] [FML]: Applying holder lookups
+[22:26:54] [Server thread/INFO] [FML]: Holder lookups applied
+[22:26:54] [Server thread/INFO] [FML]: Loading dimension 0 (world) (net.minecraft.server.dedicated.DedicatedServer@5dfe2731)
+[22:26:54] [Server thread/INFO] [minecraft/AdvancementList]: Loaded 488 advancements
+[22:26:54] [Server thread/INFO] [FML]: Loading dimension -1 (world) (net.minecraft.server.dedicated.DedicatedServer@5dfe2731)
+[22:26:55] [Server thread/INFO] [FML]: Loading dimension 1 (world) (net.minecraft.server.dedicated.DedicatedServer@5dfe2731)
+[22:26:55] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for level 0
+[22:26:56] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing spawn area: 14%
+[22:26:56] [Server thread/INFO] [minecraft/DedicatedServer]: Done (2.861s)! For help, type "help" or "?"
+[22:26:56] [Server thread/INFO] [FML]: Unloading dimension -1
+[22:26:56] [Server thread/INFO] [FML]: Unloading dimension 1
+[22:27:30] [Netty Server IO #1/INFO] [FML]: Client protocol version 2
+[22:27:30] [Netty Server IO #1/INFO] [FML]: Client attempting to join with 5 mods : minecraft@1.12.2,FML@8.0.99.99,forge@14.23.5.2847,mcp@9.42,rwbym@4.4.2
+[22:27:30] [Server thread/INFO] [FML]: [Server thread] Server side modded connection established
+[22:27:30] [Server thread/INFO] [minecraft/PlayerList]: Player581[/127.0.0.1:53352] logged in with entity id 256 at (203.5, 67.0, 260.5)
+[22:27:30] [Server thread/INFO] [minecraft/DedicatedServer]: Player581 joined the game
+[22:27:30] [Server thread/INFO] [rwbym]: No Current Semblance
+[22:27:34] [Server thread/INFO] [minecraft/DedicatedServer]: Opped player581
+[22:27:41] [Server thread/INFO] [minecraft/DedicatedServer]: [Player581: Set own game mode to Creative Mode]
+[22:27:59] [Server thread/INFO] [minecraft/DedicatedServer]: [Player581: Teleported Player581 to -4999.5, 80.0, -4999.5]
+[22:28:04] [Server thread/WARN] [minecraft/MinecraftServer]: Can't keep up! Did the system time change, or is the server overloaded? Running 2073ms behind, skipping 41 tick(s)
+[22:28:30] [Server thread/INFO] [minecraft/DedicatedServer]: [Player581: Teleported Player581 to -7999.5, 80.0, -7999.5]
+[22:28:36] [Server thread/WARN] [minecraft/MinecraftServer]: Can't keep up! Did the system time change, or is the server overloaded? Running 3212ms behind, skipping 64 tick(s)
+[22:28:43] [Server thread/INFO] [minecraft/DedicatedServer]: [Player581: Teleported Player581 to 8000.5, 80.0, 8000.5]
+[22:28:53] [Server thread/INFO] [minecraft/DedicatedServer]: [Player581: Teleported Player581 to 80000.5, 80.0, 80000.5]
+[22:29:01] [Server thread/WARN] [minecraft/MinecraftServer]: Can't keep up! Did the system time change, or is the server overloaded? Running 3292ms behind, skipping 65 tick(s)
+[22:29:15] [Server thread/INFO] [minecraft/DedicatedServer]: [Player581: Teleported Player581 to 1358.5, 80.0, 9845.5]
+[22:29:25] [Server thread/INFO] [minecraft/DedicatedServer]: [Player581: Teleported Player581 to 1358.5, 80.0, -9835.5]
+[22:30:08] [Server thread/INFO] [minecraft/DedicatedServer]: Player581 fell out of the world
+[22:30:08] [Server thread/INFO] [minecraft/DedicatedServer]: [Player581: Killed Player581]
+[22:30:29] [Server thread/INFO] [minecraft/DedicatedServer]: [Player581: Teleported Player581 to 1358.5, 80.0, -9835.5]
+[22:30:46] [Server thread/INFO] [minecraft/DedicatedServer]: [Player581: Teleported Player581 to 1304.5, 80.0, -9383.5]
+[22:31:02] [Server thread/INFO] [minecraft/NetHandlerPlayServer]: Player581 lost connection: Disconnected
+[22:31:02] [Server thread/INFO] [minecraft/DedicatedServer]: Player581 left the game
+[22:31:07] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[22:31:07] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[22:31:07] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[22:31:07] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'world'/overworld
+[22:31:07] [Server thread/INFO] [FML]: Unloading dimension 0
+[22:31:07] [Server Shutdown Thread/INFO] [minecraft/MinecraftServer]: Stopping server
+Exception in thread "AWT-EventQueue-0" 
 BUILD SUCCESSFUL
 
-Total time: 33.671 secs
+Total time: 4 mins 41.736 secs

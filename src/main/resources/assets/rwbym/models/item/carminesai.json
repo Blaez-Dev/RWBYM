@@ -1,5 +1,5 @@
 {
-	"credit": "by LauraDarkez",
+	"credit": "Made with Blockbench",
 	"textures": {
 		"0": "rwbym:blocks/awool_colored_silver",
 		"2": "rwbym:blocks/awool_colored_black",
@@ -3823,6 +3823,9 @@
 			"rotation": [90, -45, 90],
 			"translation": [4.25, -4.75, -1],
 			"scale": [1.63, 1.63, 1.63]
+		},
+		"head": {
+			"rotation": [90, 0, -90]
 		},
 		"fixed": {
 			"rotation": [90, -45, 90],

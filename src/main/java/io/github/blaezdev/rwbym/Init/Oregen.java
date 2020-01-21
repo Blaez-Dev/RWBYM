@@ -105,16 +105,10 @@ public class Oregen implements IWorldGenerator{
                 generateraid(world, random, blockX + 8, blockZ + 8);
         }
     }
-    int dustshop = rand.nextInt(RWBYConfig.worldgen.dustshop);
-    int bar = rand.nextInt(RWBYConfig.worldgen.bar);
-    int dustshop2 = rand.nextInt(RWBYConfig.worldgen.dustshop2);
-    int darkcrystal = rand.nextInt(RWBYConfig.worldgen.darkcrystalrate);
-    int well = rand.nextInt(RWBYConfig.worldgen.well);
 
     private void generatestructure1(World world, Random rand, int blockX, int blockZ)
     {
-        if(0>dustshop){dustshop = 0;}
-        if (dustshop == 0) {
+        if (rand.nextInt(RWBYConfig.worldgen.dustshop) > 1) {
 	        int y = getGroundFromAbove(world, blockX, blockZ);
 	        BlockPos pos = new BlockPos(blockX, y, blockZ);
 	        WorldGenerator structure = new RWBYStructure().setStructure(":rwbym1").setYoffset(-2).spawnNearVillage(true);
@@ -124,8 +118,7 @@ public class Oregen implements IWorldGenerator{
 
     private void generatestructure2(World world, Random rand, int blockX, int blockZ)
     {
-        if(0>bar){bar = 0;}
-        if (bar == 0) {
+        if (rand.nextInt(RWBYConfig.worldgen.bar) > 1) {
             int y = getGroundFromAbove(world, blockX, blockZ);
             BlockPos pos = new BlockPos(blockX, y, blockZ);
             WorldGenerator structure2 = new RWBYStructure().setStructure(":rwbym2").setYoffset(-2).spawnNearVillage(true);
@@ -135,8 +128,7 @@ public class Oregen implements IWorldGenerator{
 
     private void generatestructure4(World world, Random rand, int blockX, int blockZ)
     {
-        if(0>dustshop2){dustshop2 = 0;}
-        if (dustshop2 == 0)
+        if (rand.nextInt(RWBYConfig.worldgen.dustshop2) > 1)
         {
             int y = getGroundFromAbove(world, blockX, blockZ);
             BlockPos pos = new BlockPos(blockX, y, blockZ);
@@ -148,8 +140,7 @@ public class Oregen implements IWorldGenerator{
 
     private void generateraid(World world, Random rand, int blockX, int blockZ)
     {
-        if(0>darkcrystal){darkcrystal = 0;}
-        if (darkcrystal == 0)
+        if (rand.nextInt(RWBYConfig.worldgen.darkcrystalrate) == 0)
         {
             int y = getGroundFromAbove(world, blockX, blockZ);
             BlockPos pos = new BlockPos(blockX, y, blockZ);
@@ -160,8 +151,7 @@ public class Oregen implements IWorldGenerator{
 
     private void generatestructure3(World world, Random rand, int blockX, int blockZ)
     {
-        if(0>well){well = 0;}
-        if (well == 0)
+        if (rand.nextInt(RWBYConfig.worldgen.well) > 1)
         {
             int y = getGroundFromAbove(world, blockX, blockZ);
             BlockPos pos = new BlockPos(blockX, y, blockZ);

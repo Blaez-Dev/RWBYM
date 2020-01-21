@@ -156,11 +156,11 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     public static final int HAMMER =      0x1000000;
     public static final int THROWN =      0x2000000;
     public static final int WALLCLIMB =   0x4000000;
+    public static final int FLIGHT =      0x8000000;
 	
 	public static final int RCL_BACK =      1;
 	public static final int RCL_BACK_WEAK = 2;
 	public static final int RCL_FORWARD =   3;
-	public static final int RCL_CLIMB =     4;
 	
 
 
@@ -721,6 +721,17 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         if(stack.getItem() == RWBYItems.elucidator || stack.getItem() == RWBYItems.darkrepulser){
             playerIn.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, 60, 2));
         if(!weaponuseglow){weaponuseglow = true; }}
+        if (!playerIn.onGround && playerIn.getItemInUseCount() > 1 && (weapontype & (FLIGHT)) !=0 && player.getCapability(AuraProvider.AURA_CAP, null).getPercentage() > 0.05)
+        {
+            Vec3d look = playerIn.getLookVec();
+            playerIn.motionX = look.x/4;
+            playerIn.motionZ = look.z/4;
+            player.motionY = look.y/2;
+            player.fallDistance = 0;
+            player.velocityChanged = true;
+            player.getCapability(AuraProvider.AURA_CAP, null).useAura(playerIn, 0.15F, false);
+            player.getCapability(AuraProvider.AURA_CAP, null).delayRecharge(30);
+        }
         if (!playerIn.onGround && playerIn.getItemInUseCount() > 1 && (weapontype & (UMBRELLA)) !=0)
         {
             Vec3d look = playerIn.getLookVec();
@@ -731,7 +742,8 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             player.motionY = -0.1;
             player.fallDistance = 0;
             player.velocityChanged = true;
-        }}
+        }
+        }
 
 
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
@@ -1141,6 +1153,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                         entityplayer.lastTickPosZ = -look.x;
                         entityplayer.lastTickPosX = -look.z;
                     }
+                    if((weapontype & FLIGHT) !=0){stack.damageItem(20, entityplayer);}
                 }
             }
         }

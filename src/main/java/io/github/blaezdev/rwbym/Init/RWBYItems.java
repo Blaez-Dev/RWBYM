@@ -3623,6 +3623,60 @@ public class RWBYItems {
 
     public static final Item kingfisher = new RWBYFishing("kingfisher");
 
+    public static final Item carminesai = new RWBYGun(
+            "carminesai",
+            2500,
+            8,
+            RWBYGun.DAGGER|RWBYGun.THROWN,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:2,Operation:2,UUIDMost:32938,UUIDLeast:158913},{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:8,Operation:0,UUIDMost:89852,UUIDLeast:169112}]}",
+            "rwbym:carminestaff",
+            "rwbym:carminesaiammo",
+            true,
+            1,
+            false,
+            false,
+            0,
+            1,
+            0,
+            17,
+            RWBYCreativeTabs.tab_rwbyweapons);
+
+    public static final Item carminestaff = new RWBYGun(
+            "carminestaff",
+            2500,
+            15,
+            RWBYGun.SCYTHE|RWBYGun.THROWN,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:2,Operation:2,UUIDMost:32938,UUIDLeast:158913},{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:8,Operation:0,UUIDMost:89852,UUIDLeast:169112}]}",
+            "rwbym:carminesai",
+            "rwbym:carminestaffammo",
+            true,
+            1,
+            false,
+            false,
+            0,
+            1,
+            0,
+            17,
+            null);
+
+    public static final Item moonskimmer = new RWBYGun(
+            "moonskimmer",
+            2500,
+            1,
+            RWBYGun.FLIGHT,
+            "{AttributeModifiers:[{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:2,Operation:2,UUIDMost:32938,UUIDLeast:158913},{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:8,Operation:0,UUIDMost:89852,UUIDLeast:169112}]}",
+            null,
+            "rwbym:nuller",
+            true,
+            1,
+            false,
+            true,
+            0,
+            1,
+            0,
+            17,
+            RWBYCreativeTabs.tab_rwbyweapons);
+
     //------------------------------------------------//
     public static final Item ammo = new RWBYItem("ammo", null, false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item gamammo = new RWBYItem("gamammo", null, false, RWBYCreativeTabs.tab_rwbyitems);
@@ -4255,6 +4309,36 @@ public class RWBYItems {
             30,
             null,
             null);
+    public static final Item carminesaiammo = new RWBYAmmoItem(
+            "carminesaiammo",
+            RWBYItems.carminesai,
+            1,
+            true,
+            RWBYAmmoItem.SurviveOnHit.ENTITY,
+            "textures/entity/projectiles/tipped_arrow.png",
+            true,
+            true,
+            null,
+            null,
+            1,
+            15,
+            null,
+            null);
+    public static final Item carminestaffammo = new RWBYAmmoItem(
+            "carminestaffammo",
+            RWBYItems.carminestaff,
+            1,
+            true,
+            RWBYAmmoItem.SurviveOnHit.ENTITY,
+            "textures/entity/projectiles/tipped_arrow.png",
+            true,
+            true,
+            null,
+            null,
+            1,
+            20,
+            null,
+            null).setPierce(true);
     public static final Item pyrrhaspearvammo = new RWBYAmmoItem(
             "pyrrhaspearvammo",
             RWBYItems.pyrrhaspearv,
