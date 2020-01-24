@@ -531,8 +531,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     @SideOnly(Side.CLIENT)
     public boolean hasEffect(ItemStack stack)
     {
-        if(glow){return true;}else
-            if(weaponuseglow){return true;}
+        if(glow){return true;}
         else
             return false;
     }

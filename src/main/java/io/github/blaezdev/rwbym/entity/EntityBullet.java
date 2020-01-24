@@ -2,6 +2,10 @@ package io.github.blaezdev.rwbym.entity;
 
 import io.github.blaezdev.rwbym.Init.RWBYItems;
 import io.github.blaezdev.rwbym.RWBYModels;
+import io.github.blaezdev.rwbym.capabilities.Aura.AuraProvider;
+import io.github.blaezdev.rwbym.capabilities.CapabilityHandler;
+import io.github.blaezdev.rwbym.capabilities.ISemblance;
+import io.github.blaezdev.rwbym.capabilities.Pyrrha.IPyrrha;
 import io.github.blaezdev.rwbym.utility.network.MessagePosVelUpdate;
 import io.github.blaezdev.rwbym.utility.network.RWBYNetworkHandler;
 import io.github.blaezdev.rwbym.weaponry.RWBYAmmoItem;
@@ -11,6 +15,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.MoverType;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -270,11 +275,35 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
             {
                 ++this.ticksInGround;
 
+
                 if (this.ticksInGround >= 1200)
                 {
                     this.setDead();
                 }
             }
+
+
+            if(shootingEntity != null){
+            EntityPlayer player = (EntityPlayer) shootingEntity;
+            ISemblance semblance = CapabilityHandler.getCurrentSemblance(player);
+
+            if (semblance instanceof IPyrrha) {
+            if(shootingEntity !=null &&!player.isSpectator() && !player.isDead && ticksInGround > 100 - (semblance.getLevel() * 20)) {
+                this.noClip = true;
+                if(this.ticksInGround >= (100 - (1 * 20))){
+                    double d0 = 0.1f; /*1D * (double) 1;*/
+                    if(semblance.getLevel() == 1){d0 = 0.25F;}
+                    if(semblance.getLevel() == 2){d0 = 0.5F;}
+                    if(semblance.getLevel() == 3){d0 = 1F;}
+                    Vec3d vec3d = new Vec3d(shootingEntity.posX - this.posX, shootingEntity.posY
+                            + (double) shootingEntity.getEyeHeight() - this.posY, shootingEntity.posZ - this.posZ);
+                    this.motionX += vec3d.x * d0 - this.motionX * 0.05D;
+                    this.motionY += vec3d.y * d0 - this.motionY * 0.05D;
+                    this.motionZ += vec3d.z * d0 - this.motionZ * 0.05D;
+                    player.getCapability(AuraProvider.AURA_CAP, null).useAura(player, 1F, false);
+                    this.move(MoverType.SELF, this.motionX * 0.05D, this.motionY * 0.05D, this.motionZ * 0.05D);
+                }
+            }}}
 
             ++this.timeInGround;
         }

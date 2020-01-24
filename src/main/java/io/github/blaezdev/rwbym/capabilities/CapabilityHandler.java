@@ -29,6 +29,10 @@ import io.github.blaezdev.rwbym.capabilities.Nora.INora;
 import io.github.blaezdev.rwbym.capabilities.Nora.Nora;
 import io.github.blaezdev.rwbym.capabilities.Nora.NoraProvider;
 import io.github.blaezdev.rwbym.capabilities.Nora.NoraStorage;
+import io.github.blaezdev.rwbym.capabilities.Pyrrha.IPyrrha;
+import io.github.blaezdev.rwbym.capabilities.Pyrrha.Pyrrha;
+import io.github.blaezdev.rwbym.capabilities.Pyrrha.PyrrhaProvider;
+import io.github.blaezdev.rwbym.capabilities.Pyrrha.PyrrhaStorage;
 import io.github.blaezdev.rwbym.capabilities.Qrow.IQrow;
 import io.github.blaezdev.rwbym.capabilities.Qrow.Qrow;
 import io.github.blaezdev.rwbym.capabilities.Qrow.QrowProvider;
@@ -86,6 +90,7 @@ public class CapabilityHandler {
 	public static final ResourceLocation Lysette_KEY = new ResourceLocation(RWBYModels.MODID, "lysette");
 	public static final ResourceLocation Clover_KEY = new ResourceLocation(RWBYModels.MODID, "clover");
 	public static final ResourceLocation Harriet_Key = new ResourceLocation(RWBYModels.MODID, "harriet");
+	public static final ResourceLocation Pyrrha_Key = new ResourceLocation(RWBYModels.MODID, "pyrrha");
 	
 	public static final ResourceLocation AURA_KEY = new ResourceLocation(RWBYModels.MODID, "aura");
 	public static final ResourceLocation TEAM_KEY = new ResourceLocation(RWBYModels.MODID, "team");
@@ -109,6 +114,7 @@ public class CapabilityHandler {
 			event.addCapability(Lysette_KEY, new LysetteProvider());
 			event.addCapability(Clover_KEY, new CloverProvider());
 			event.addCapability(Harriet_Key, new HarrietProvider());
+			event.addCapability(Pyrrha_Key, new PyrrhaProvider());
 		}
 		
 		if (event.getObject() instanceof World) {
@@ -131,6 +137,7 @@ public class CapabilityHandler {
 		register(ILysette.class, new LysetteStorage(), Lysette::new);
 		register(IClover.class, new CloverStorage(), Clover::new);
 		register(IHarriet.class, new HarrietStorage(), Harriet::new);
+		register(IPyrrha.class, new PyrrhaStorage(), Pyrrha::new);
 
 
 		CapabilityManager.INSTANCE.register(IAura.class, new AuraStorage(), Aura::new);
