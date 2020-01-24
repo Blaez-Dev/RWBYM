@@ -287,6 +287,20 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
             EntityPlayer player = (EntityPlayer) shootingEntity;
             ISemblance semblance = CapabilityHandler.getCurrentSemblance(player);
 
+                if((((RWBYGun) getShootingItemStack().getItem()).weapontype & RWBYGun.BOOMERANG) !=0){
+                    if(shootingEntity !=null &&!player.isSpectator() && !player.isDead && ticksInGround > 100 - 20) {
+                        this.noClip = true;
+                        if(this.ticksInGround >= (100 - (1 * 20))){
+                            double d0 = 1f;
+                            Vec3d vec3d = new Vec3d(shootingEntity.posX - this.posX, shootingEntity.posY
+                                    + (double) shootingEntity.getEyeHeight() - this.posY, shootingEntity.posZ - this.posZ);
+                            this.motionX += vec3d.x * d0 - this.motionX * 0.05D;
+                            this.motionY += vec3d.y * d0 - this.motionY * 0.05D;
+                            this.motionZ += vec3d.z * d0 - this.motionZ * 0.05D;
+                            this.move(MoverType.SELF, this.motionX * 0.05D, this.motionY * 0.05D, this.motionZ * 0.05D);
+                        }
+                    }}
+
             if (semblance instanceof IPyrrha) {
             if(shootingEntity !=null &&!player.isSpectator() && !player.isDead && ticksInGround > 100 - (semblance.getLevel() * 20)) {
                 this.noClip = true;

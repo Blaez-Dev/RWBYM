@@ -402,6 +402,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.coinqrow);
         registerItems(event, RWBYItems.coin_clover);
         registerItems(event, RWBYItems.coin_harriet);
+        registerItems(event, RWBYItems.coin_pyrrha);
         //registerItems(event, RWBYItems.coin_raven);
         registerItems(event, RWBYItems.scroll);
         registerItems(event, RWBYItems.scroll2);
@@ -661,6 +662,8 @@ public class RegUtil {
         registerItems(event, RWBYItems.CarmineLegs);
         registerItems(event, RWBYItems.ozpinglasses);
         registerItems(event, RWBYItems.moonskimmer);
+        registerItems(event, RWBYItems.pennyswdammo);
+        registerItems(event, RWBYItems.arslanammo);
         registerBlocks(event, RWBYItems.fluidGrimm);
 
     }
@@ -1070,6 +1073,10 @@ public class RegUtil {
                 }else if(item == RWBYItems.carminesaiammo){
                     ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.whisperingblossomammo.getRegistryName(), "inventory"));
                 }else if(item == RWBYItems.carminestaffammo){
+                    ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.whisperingblossomammo.getRegistryName(), "inventory"));
+                }else if(item == RWBYItems.arslanammo){
+                    ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.whisperingblossomammo.getRegistryName(), "inventory"));
+                }else if(item == RWBYItems.pennyswdammo){
                     ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.whisperingblossomammo.getRegistryName(), "inventory"));
                 }
             	else {

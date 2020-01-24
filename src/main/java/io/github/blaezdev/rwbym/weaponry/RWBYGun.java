@@ -157,6 +157,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     public static final int THROWN =      0x2000000;
     public static final int WALLCLIMB =   0x4000000;
     public static final int FLIGHT =      0x8000000;
+    public static final int BOOMERANG =  0x10000000;
 	
 	public static final int RCL_BACK =      1;
 	public static final int RCL_BACK_WEAK = 2;

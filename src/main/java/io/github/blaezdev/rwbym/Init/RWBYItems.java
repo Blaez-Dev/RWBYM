@@ -607,18 +607,18 @@ public class RWBYItems {
             "pennyswd",
             2500,
             13,
-            RWBYGun.SWORD,
+            RWBYGun.SWORD|RWBYGun.THROWN|RWBYGun.BOOMERANG,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:13,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}]}",
             null,
-            "rwbym:nuller,rwbym:nullest",
+            "rwbym:pennyswdammo",
             false,
             1,
             false,
-            true,
+            false,
             0,
             1,
             0,
-            0,
+            17,
             RWBYCreativeTabs.tab_rwbyweapons);
     public static final Item ozpincane = new RWBYGun(
             "ozpincane",
@@ -1125,7 +1125,7 @@ public class RWBYItems {
             "razorboltknife",
             2500,
             8,
-            RWBYGun.DAGGER,
+            RWBYGun.DAGGER|RWBYGun.INT_MAG,
             "{AttributeModifiers:[{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Amount:8,Operation:0,UUIDLeast:571090,UUIDMost:892303,Slot:\"mainhand\"}]}",
             "rwbym:razorbolt",
             "rwbym:rzrbolt",
@@ -1879,10 +1879,10 @@ public class RWBYItems {
             "arslan",
             2500,
             8,
-            RWBYGun.DAGGER,
+            RWBYGun.DAGGER|RWBYGun.THROWN|RWBYGun.BOOMERANG,
             "{AttributeModifiers:[{AttributeName:\"generic.attackSpeed\",Name:\"generic.attackSpeed\",Slot:\"mainhand\",Amount:2,Operation:2,UUIDMost:32938,UUIDLeast:158913},{AttributeName:\"generic.attackDamage\",Name:\"generic.attackDamage\",Slot:\"mainhand\",Amount:8,Operation:0,UUIDMost:89852,UUIDLeast:169112}]}",
             null,
-            "rwbym:nullest",
+            "rwbym:arslanammo",
             true,
             1,
             false,
@@ -1890,7 +1890,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            1,
+            17,
             RWBYCreativeTabs.tab_rwbyweapons);
     public static final Item scarletsword = new RWBYGun(
             "scarletsword",
@@ -2204,7 +2204,7 @@ public class RWBYItems {
             "fetchboomerang",
             2500,
             13,
-            RWBYGun.THROWN,
+            RWBYGun.THROWN|RWBYGun.BOOMERANG,
             null,
             "rwbym:fetch",
             "rwbym:fetchammo",
@@ -3761,6 +3761,7 @@ public class RWBYItems {
     public static final Item coin_ragora = new RWBYItem("coin_ragora", null, false, RWBYCreativeTabs.tab_rwbyitems).setCoin("ragora");
     public static final Item coin_clover = new RWBYItem("coin_clover", null, false, RWBYCreativeTabs.tab_rwbyitems).setCoin("clover");
     public static final Item coin_harriet = new RWBYItem("coin_harriet", null, false, RWBYCreativeTabs.tab_rwbyitems).setCoin("harriet");
+    public static final Item coin_pyrrha = new RWBYItem("coin_pyrrha", null, false, RWBYCreativeTabs.tab_rwbyitems).setCoin("pyrrha");
     public static final Item coin_penny = new RWBYItem("coin_penny", null, false, RWBYCreativeTabs.tab_rwbyitems).setCoin("penny");
     public static final Item chisel = new RWBYItem("chisel", null, false, RWBYCreativeTabs.tab_rwbyitems).setHasContainerItem(true).setContainerItemLambda(stack -> (stack.attemptDamageItem(1, new Random(), null) ? ItemStack.EMPTY : stack)).setMaxDamage(255).setMaxStackSize(1);
     public static final Item crush = new RWBYItem("crush", null, false, RWBYCreativeTabs.tab_rwbyitems).setHasContainerItem(true).setContainerItemLambda(stack -> (stack.attemptDamageItem(1, new Random(), null) ? ItemStack.EMPTY : stack)).setMaxDamage(255).setMaxStackSize(1);
@@ -4307,6 +4308,36 @@ public class RWBYItems {
             null,
             1,
             30,
+            null,
+            null);
+    public static final Item arslanammo = new RWBYAmmoItem(
+            "arslanammo",
+            RWBYItems.arslan,
+            1,
+            true,
+            RWBYAmmoItem.SurviveOnHit.ENTITY,
+            "textures/entity/projectiles/tipped_arrow.png",
+            true,
+            true,
+            null,
+            null,
+            1,
+            18,
+            null,
+            null);
+    public static final Item pennyswdammo = new RWBYAmmoItem(
+            "pennyswdammo",
+            RWBYItems.pennyswd,
+            1,
+            true,
+            RWBYAmmoItem.SurviveOnHit.ENTITY,
+            "textures/entity/projectiles/tipped_arrow.png",
+            true,
+            true,
+            null,
+            null,
+            1,
+            18,
             null,
             null);
     public static final Item carminesaiammo = new RWBYAmmoItem(
