@@ -1,5 +1,6 @@
 package io.github.blaezdev.rwbym.weaponry;
 
+import com.google.common.collect.Multimap;
 import io.github.blaezdev.rwbym.Init.RWBYItems;
 import io.github.blaezdev.rwbym.RWBYModels;
 import io.github.blaezdev.rwbym.entity.ModelArmor;
@@ -8,6 +9,8 @@ import net.minecraft.client.model.ModelBiped;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -26,21 +29,37 @@ import org.apache.logging.log4j.LogManager;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import java.util.UUID;
+
 import static io.github.blaezdev.rwbym.weaponry.ICustomItem.KEY;
 
 public class ArmourBase extends ItemArmor {
+    private static final UUID ARMOR_MODIFIERS = UUID.fromString("f69106a2-41b5-11ea-b77f-2e728ce88125");
     private boolean fire = false;
     private boolean ice = false;
     private boolean wind = false;
     private boolean isPlayerModel;
     private final String morph;
-    private final String data;
+    final int damageReduce;
+    final float tough;
+    //private final String data;
 
     public ArmourBase(ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn, String name, String morph,String data, boolean playerModel, CreativeTabs creativetab) {
         super(materialIn, renderIndexIn, equipmentSlotIn);
         this.setMaxDamage(2500);
         this.morph = morph;
-        this.data = data;
+        if(this.getEquipmentSlot() == EntityEquipmentSlot.HEAD){
+            if(name.contains("summer")){this.damageReduce = 10;
+                this.tough = 0;}else {
+                this.damageReduce = 6;
+                this.tough = 0;}
+        }else if(this.getEquipmentSlot() == EntityEquipmentSlot.CHEST||this.getEquipmentSlot() == EntityEquipmentSlot.LEGS){
+            if(name.contains("summer")){this.damageReduce = 14;
+                this.tough = 5;}else {
+                this.damageReduce = 10;
+                this.tough = 5;}
+        } else { this.damageReduce = 0; this.tough = 0;}
+
         if (name.contains("korekosmoufire")) fire = true;
         if (name.contains("korekosmouice")) ice = true;
         if (name.contains("korekosmouwind")) wind = true;
@@ -93,6 +112,7 @@ public class ArmourBase extends ItemArmor {
 
     @Override
     public void onUpdate(ItemStack is, World world, Entity entity, int slotIn, boolean inHand) {
+        /*
         if (!world.isRemote && this.data != null) {
             NBTTagCompound atag = is.getTagCompound();
             if (atag == null) atag = new NBTTagCompound();
@@ -106,7 +126,7 @@ public class ArmourBase extends ItemArmor {
                 }
             }
 
-        }
+        }*/
     }
 
     @Override
@@ -134,6 +154,19 @@ public class ArmourBase extends ItemArmor {
             }
         }
         super.onArmorTick(world, player, itemStack);
+    }
+@Override
+    public Multimap<String, AttributeModifier> getItemAttributeModifiers(EntityEquipmentSlot equipmentSlot)
+    {
+        Multimap<String, AttributeModifier> multimap = super.getItemAttributeModifiers(equipmentSlot);
+
+        if (equipmentSlot == this.armorType)
+        {
+            multimap.put(SharedMonsterAttributes.ARMOR.getName(), new AttributeModifier(ARMOR_MODIFIERS, "Armor modifier", (double)this.damageReduce, 0));
+            multimap.put(SharedMonsterAttributes.ARMOR_TOUGHNESS.getName(), new AttributeModifier(ARMOR_MODIFIERS, "Armor toughness", (double)this.tough, 0));
+        }
+
+        return multimap;
     }
 
     @SideOnly(Side.CLIENT)

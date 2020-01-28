@@ -928,7 +928,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             }
 
             ItemStack is = entityplayer.getActiveItemStack();
-            if (is.getItem() == RWBYItems.pyrrharifle && entityplayer.getActiveHand() == EnumHand.OFF_HAND)
+            if (is.getItem() == RWBYItems.pyrrharifle && entityplayer.getActiveHand() == EnumHand.OFF_HAND||is.getItem() == RWBYItems.pyrrhaspear && entityplayer.getActiveHand() == EnumHand.OFF_HAND)
             {
                 flag2 = false;
             }

@@ -1422,6 +1422,14 @@
 			"scale": [0.7, 0.68, 0.7]
 		}
 	},
+	"overrides": [
+		{
+			"predicate": {
+				"offhand": 1
+			},
+			"model": "rwbym:item/pyrrhashield"
+		}
+	],
 	"groups": [
 		{
 			"name": "group",
