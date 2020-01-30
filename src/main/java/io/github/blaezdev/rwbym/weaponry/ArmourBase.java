@@ -50,10 +50,13 @@ public class ArmourBase extends ItemArmor {
     final float tough;
     public int armourperks;
 
-    public ArmourBase setArmourperks(int armourperks) {
-        this.armourperks = armourperks;
-        return this;
-    }
+    private float movementspeedmult;
+    private float armourbuff;
+    private float healthbuff;
+    private float attackboost;
+    private float knockbackresist;
+    private float attackspeed;
+
 
     public static final int MOVEMENTSPEED1 =        0x0001; //( 2tiers)  5%,10%  of increased movement speed
     public static final int MOVEMENTSPEED2 =        0x0002;
@@ -86,10 +89,11 @@ public class ArmourBase extends ItemArmor {
 
 
 
-    public ArmourBase(ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn, String name, String morph,String data, boolean playerModel, CreativeTabs creativetab) {
+    public ArmourBase(ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn, String name, String morph, boolean playerModel, CreativeTabs creativetab,int armourperks) {
         super(materialIn, renderIndexIn, equipmentSlotIn);
         this.setMaxDamage(2500);
         this.morph = morph;
+        this.armourperks = armourperks;
         if(this.getEquipmentSlot() == EntityEquipmentSlot.HEAD){
             if(name.contains("summer")){
                 this.damageReduce = 10;
@@ -102,6 +106,33 @@ public class ArmourBase extends ItemArmor {
                 this.damageReduce = 10;
                 this.tough = 5;}
         } else { this.damageReduce = 0; this.tough = 0;}
+
+        if((armourperks & MOVEMENTSPEED1) != 0){movementspeedmult =0.05F;}
+        else if((armourperks & MOVEMENTSPEED2) != 0){movementspeedmult =0.1F;}
+        else{movementspeedmult = 0;}
+
+        if((armourperks & DEFENSE1) != 0){armourbuff = 0.1F;}
+        else if((armourperks & DEFENSE2) != 0){armourbuff = 0.2F;}
+        else{armourbuff = 0;}
+
+        if((armourperks & VITALITY1) != 0){healthbuff = 0.1F;}
+        else if((armourperks & VITALITY2) != 0){healthbuff = 0.2F;}
+        else if((armourperks & VITALITY3) != 0){healthbuff = 0.3F;}
+        else{healthbuff = 0;}
+
+        if((armourperks & ATTACKBOOST1) != 0){attackboost = 0.025F;}
+        else if((armourperks & ATTACKBOOST2) != 0){attackboost = 0.05F;}
+        else if((armourperks & ATTACKBOOST3) != 0){attackboost = 0.075F;}
+        else if((armourperks & ATTACKBOOST4) != 0){attackboost = 0.1F;}
+        else{attackboost = 0;}
+
+        if((armourperks & RUSH1) != 0){attackspeed = 0.05F;}
+        else if((armourperks & RUSH2) != 0){attackspeed = 0.1F;}
+        else{attackspeed = 0;}
+
+        if((armourperks & FOOTING1) != 0){knockbackresist = 0.25F;}
+        else if((armourperks & FOOTING2) != 0){knockbackresist = 0.50F;}
+        else{knockbackresist = 0;}
 
         if (name.contains("korekosmoufire")) fire = true;
         if (name.contains("korekosmouice")) ice = true;
@@ -207,6 +238,12 @@ public class ArmourBase extends ItemArmor {
         {
             multimap.put(SharedMonsterAttributes.ARMOR.getName(), new AttributeModifier(ARMOR_MODIFIERS, "Armor modifier", (double)this.damageReduce, 0));
             multimap.put(SharedMonsterAttributes.ARMOR_TOUGHNESS.getName(), new AttributeModifier(ARMOR_MODIFIERS, "Armor toughness", (double)this.tough, 0));
+            multimap.put(SharedMonsterAttributes.ARMOR.getName(), new AttributeModifier(Defence, "Armor modifier", (double)this.armourbuff, 2));
+            multimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(MovementSpeed, "Movement Speed", (double)movementspeedmult, 2));
+            multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(Attackspeed, "Attack Speed", (double)attackspeed, 2));
+            multimap.put(SharedMonsterAttributes.KNOCKBACK_RESISTANCE.getName(), new AttributeModifier(Knockback, "Knockback", (double)knockbackresist, 2));
+            multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(Attackboost, "Attack Boost", (double)attackboost, 2));
+            multimap.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(Vitality, "Health", (double)healthbuff, 2));
         }
 
         return multimap;
