@@ -46,11 +46,23 @@ public class RWBYAmmoItem extends Item implements ICustomItem {
     private transient NBTTagCompound nbtTag;
     private IAmmoHit hitfun;
     private SurviveOnHit survives;
+    public boolean dustcrystal = false;
+    public String element = "null";
 
     public boolean pierce;
 
     private List<PotionEffect> potions;
 
+
+    public RWBYAmmoItem setDustCrystal(Boolean crystal){
+        this.dustcrystal = crystal;
+        return this;
+    }
+
+    public RWBYAmmoItem setDCElement(String element){
+        this.element = element;
+        return this;
+    }
 
     public RWBYAmmoItem setPierce(Boolean pierce) {
         this.pierce = pierce;

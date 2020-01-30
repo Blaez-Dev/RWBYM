@@ -41,7 +41,6 @@ public class KineticWeapons extends ItemSword implements ICustomItem {
     public final boolean isShield;
     public boolean neo = false;
     public final boolean canBlock;
-    private final String data;
     //private final RecipeDTO[] recipes;
     private final String morph;
     private boolean velvet = false;
@@ -54,12 +53,11 @@ public class KineticWeapons extends ItemSword implements ICustomItem {
     private int timer;
     private boolean magna = false;
 
-    public KineticWeapons(String name, int durability, float damage, int enchantability, String data, String morph, boolean shield, boolean canBlock, CreativeTabs creativetab) {
+    public KineticWeapons(String name, int durability, float damage, int enchantability, String morph, boolean shield, boolean canBlock, CreativeTabs creativetab) {
         super(EnumHelper.addToolMaterial(RWBYModels.MODID + ":" + name, 0, durability, 1.0F, damage, enchantability));
         this.setRegistryName(new ResourceLocation(RWBYModels.MODID, name));
         this.setUnlocalizedName(this.getRegistryName().toString());
         this.setCreativeTab(creativetab);
-        this.data = data;
         if(name.contains("nora")) magna = true;
         if(name.contains("kkfire")) kkfire = true;
         if(name.contains("kkice")) kkice = true;
@@ -306,22 +304,6 @@ public class KineticWeapons extends ItemSword implements ICustomItem {
                 nbt.setInteger("inactive", nbt.getInteger("inactive") + 1);
                 if (nbt.getInteger("inactive") < 2 && player.getHeldItemMainhand().getItem() == RWBYItems.reese) {
                     player.setActiveHand(EnumHand.MAIN_HAND);
-                }
-            }
-        }
-
-        if (!world.isRemote && this.data != null) {
-            NBTTagCompound atag = is.getTagCompound();
-            if (atag == null) atag = new NBTTagCompound();
-            if (!atag.hasKey(KEY)) {
-                atag.setBoolean(KEY, true);
-                is.setTagCompound(atag);
-
-                try {
-                    is.setTagCompound(JsonToNBT.getTagFromJson(this.data));
-                    is.getTagCompound().setBoolean(KEY, true);
-                } catch (NBTException nbtexception) {
-                    LogManager.getLogger(RWBYModels.MODID).error("Couldn't load data tag for " + this.getRegistryName());
                 }
             }
         }

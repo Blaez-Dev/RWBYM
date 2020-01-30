@@ -62,25 +62,6 @@ public class RWBYFood extends Item implements ICustomItem {
         }
     }
 
-    @SuppressWarnings("Duplicates")
-    @Override
-    public void onUpdate(ItemStack is, World world, Entity entity, int slotIn, boolean inHand) {
-        if (!world.isRemote && this.data != null) {
-            NBTTagCompound atag = is.getTagCompound();
-            if (atag == null) atag = new NBTTagCompound();
-            if (!atag.hasKey(KEY)) {
-                atag.setBoolean(KEY, true);
-                try {
-                    is.setTagCompound(JsonToNBT.getTagFromJson(this.data));
-                    //is.getTagCompound().merge(atag);
-                } catch (NBTException nbtexception) {
-                    LogManager.getLogger(RWBYModels.MODID).error("Couldn't load data tag for " + this.getRegistryName());
-                }
-            }
-
-        }
-    }
-
     @Override
     public boolean canApplyAtEnchantingTable(ItemStack stack, net.minecraft.enchantment.Enchantment enchantment)
     {

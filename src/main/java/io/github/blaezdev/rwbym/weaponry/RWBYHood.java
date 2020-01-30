@@ -1,10 +1,13 @@
 package io.github.blaezdev.rwbym.weaponry;
 
+import com.google.common.collect.Multimap;
 import io.github.blaezdev.rwbym.Init.RWBYCreativeTabs;
 import io.github.blaezdev.rwbym.Init.RWBYItems;
 import io.github.blaezdev.rwbym.RWBYModels;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -22,26 +25,46 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.logging.log4j.LogManager;
 
+import java.util.UUID;
+
 /**
  * Part of rwbym by Bluexin.
  *
  * @author Bluexin
  */
 public class RWBYHood extends Item implements ICustomItem {
-
+    private static final UUID ARMOR_MODIFIERS = UUID.fromString("f69106a2-41b5-11ea-b77f-2e728ce88125");
+    private static final UUID MovementSpeed = UUID.fromString("9bf90946-4323-11ea-b77f-2e728ce88125");
+    private static  final UUID Vitality = UUID.fromString("0ad15896-4324-11ea-b77f-2e728ce88125");
+    private static final  UUID Attackboost = UUID.fromString("308559ac-4324-11ea-b77f-2e728ce88125");
+    private static final UUID Knockback = UUID.fromString("501ed202-4324-11ea-b77f-2e728ce88125");
+    private static final UUID Attackspeed = UUID.fromString("60115e46-4324-11ea-b77f-2e728ce88125");
     private boolean ismask;
-    private final String data;
+    //private final String data;
     private final String morph;
-    private boolean ageist;
-    private boolean burn;
+    final int damageReduce;
+    final float tough;
 
-    public RWBYHood(String name,String data, boolean isMask,String morph,  CreativeTabs creativetab) {
+    public int armourperks;
+
+    public RWBYHood setArmourperks(int armourperks) {
+        this.armourperks = armourperks;
+        return this;
+    }
+
+
+    public RWBYHood(String name, boolean isMask,String morph,  CreativeTabs creativetab) {
         this.setRegistryName(new ResourceLocation(RWBYModels.MODID, name));
         this.setUnlocalizedName(this.getRegistryName().toString());
         this.setCreativeTab(RWBYCreativeTabs.tab_rwbyitems);
         this.ismask = isMask;
         this.morph = morph;
-        this.data = data;
+        if(isMask){
+            if(name.contains("summer")){this.damageReduce = 10;
+                this.tough = 0;}else {
+                this.damageReduce = 6;
+                this.tough = 0;}
+        }else {this.tough = 0; this.damageReduce = 0;}
         this.setMaxDamage(2500);
         if(name.contains("summer")){
 
@@ -51,6 +74,20 @@ public class RWBYHood extends Item implements ICustomItem {
         }
         this.setCreativeTab(creativetab);
 
+    }
+
+    @Override
+    public Multimap<String, AttributeModifier> getItemAttributeModifiers(EntityEquipmentSlot equipmentSlot)
+    {
+        Multimap<String, AttributeModifier> multimap = super.getItemAttributeModifiers(equipmentSlot);
+
+        if (equipmentSlot == EntityEquipmentSlot.HEAD)
+        {
+            multimap.put(SharedMonsterAttributes.ARMOR.getName(), new AttributeModifier(ARMOR_MODIFIERS, "Armor modifier", (double)this.damageReduce, 0));
+            multimap.put(SharedMonsterAttributes.ARMOR_TOUGHNESS.getName(), new AttributeModifier(ARMOR_MODIFIERS, "Armor toughness", (double)this.tough, 0));
+        }
+
+        return multimap;
     }
 
     @Override
@@ -69,28 +106,6 @@ public class RWBYHood extends Item implements ICustomItem {
             return false;}
     }
 
-
-    //@SuppressWarnings("Duplicates")
-    @Override
-    public void onUpdate(ItemStack is, World world, Entity entity, int slotIn, boolean inHand) {
-        if(entity instanceof EntityPlayer){
-            final EntityPlayer player = (EntityPlayer)entity;
-        }
-        if (!world.isRemote && this.data != null) {
-            NBTTagCompound atag = is.getTagCompound();
-            if (atag == null) atag = new NBTTagCompound();
-            if (!atag.hasKey(KEY)) {
-                atag.setBoolean(KEY, true);
-                try {
-                    is.setTagCompound(JsonToNBT.getTagFromJson(this.data));
-                    is.getTagCompound().merge(atag);
-                } catch (NBTException nbtexception) {
-                    LogManager.getLogger(RWBYModels.MODID).error("Couldn't load data tag for " + this.getRegistryName());
-                }
-            }
-
-        }
-    }
 
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn)
     {
@@ -126,11 +141,6 @@ public class RWBYHood extends Item implements ICustomItem {
         return 0;
     }
 
-    @Override
-    public int getItemBurnTime(ItemStack itemStack) {
-        if(burn){
-            return 2400;}else return 0;
-    }
 
     @SideOnly(Side.CLIENT)
     public boolean hasEffect(ItemStack stack)

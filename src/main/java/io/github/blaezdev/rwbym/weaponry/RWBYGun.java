@@ -165,7 +165,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 	
 
 
-    public RWBYGun(String name, int durability, int weapondamage, int weapontype, String data, String morph, String ammo, boolean noCharge, float projectileSpeed, boolean shield,boolean canBlock, int recoilType, int bulletCount, int enchantmentglow,int soundeffect, CreativeTabs creativetab) {
+    public RWBYGun(String name, int durability, int weapondamage, int weapontype, String morph, String ammo, boolean noCharge, float projectileSpeed, boolean shield,boolean canBlock, int recoilType, int bulletCount, int enchantmentglow,int soundeffect, CreativeTabs creativetab) {
         this.setRegistryName(new ResourceLocation(RWBYModels.MODID, name));
         this.setUnlocalizedName(this.getRegistryName().toString());
         this.setCreativeTab(creativetab);

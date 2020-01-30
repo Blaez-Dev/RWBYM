@@ -35,6 +35,12 @@ import static io.github.blaezdev.rwbym.weaponry.ICustomItem.KEY;
 
 public class ArmourBase extends ItemArmor {
     private static final UUID ARMOR_MODIFIERS = UUID.fromString("f69106a2-41b5-11ea-b77f-2e728ce88125");
+    private static final UUID MovementSpeed = UUID.fromString("9bf90946-4323-11ea-b77f-2e728ce88125");
+    private static final UUID Defence = UUID.fromString("e98e5e52-4325-11ea-b77f-2e728ce88125");
+    private static  final UUID Vitality = UUID.fromString("0ad15896-4324-11ea-b77f-2e728ce88125");
+    private static final  UUID Attackboost = UUID.fromString("308559ac-4324-11ea-b77f-2e728ce88125");
+    private static final UUID Knockback = UUID.fromString("501ed202-4324-11ea-b77f-2e728ce88125");
+    private static final UUID Attackspeed = UUID.fromString("60115e46-4324-11ea-b77f-2e728ce881");
     private boolean fire = false;
     private boolean ice = false;
     private boolean wind = false;
@@ -42,14 +48,51 @@ public class ArmourBase extends ItemArmor {
     private final String morph;
     final int damageReduce;
     final float tough;
-    //private final String data;
+    public int armourperks;
+
+    public ArmourBase setArmourperks(int armourperks) {
+        this.armourperks = armourperks;
+        return this;
+    }
+
+    public static final int MOVEMENTSPEED1 =        0x0001; //( 2tiers)  5%,10%  of increased movement speed
+    public static final int MOVEMENTSPEED2 =        0x0002;
+    public static final int DEFENSE1 =              0x0004; //(4 Tiers)  4%,6%, 8%,10% of reduced damage
+    public static final int DEFENSE2 =              0x0010;
+    public static final int VITALITY1 =             0x0020; //(3 Tiers)  10%,20%,30%  of increased health
+    public static final int VITALITY2 =             0x0040;
+    public static final int VITALITY3 =             0x0080;
+    public static final int ATTACKBOOST1 =          0x0100; //(4 Tiers)   2.5%,5%, 7.5%,10% increased damage
+    public static final int ATTACKBOOST2 =          0x0200;
+    public static final int ATTACKBOOST3 =          0x0400;
+    public static final int ATTACKBOOST4 =          0x0800;
+    public static final int NIGHTVISION =           0x1000; // Night Vision
+    public static final int JUMPBOOST1 =            0x2000; //(3 Tiers)   1/2 a block, full block, 1 1/2 blocks of increase jump height
+    public static final int JUMPBOOST2 =            0x4000;
+    public static final int JUMPBOOST3 =            0x8000;
+    public static final int EXT_MAG1 =             0x10000; //(2 tiers) 10%,20% Chance not to consume durablity
+    public static final int EXT_MAG2 =             0x20000;
+    public static final int REACH1 =               0x40000; //(2 Tiers) 1 block,2blocks poler arm/scythes increased reach
+    public static final int REACH2 =               0x80000;
+    public static final int PUNCTURE1 =           0x100000; //(2 Tiers) 2.5%,5% increased damage with rapiers (only)
+    public static final int PUNCTURE2 =           0x200000;
+    public static final int K01 =                 0x400000; //(3 Tier) 5%,10%,15% increase Daze
+    public static final int K02 =                 0x800000;
+    public static final int FOOTING1 =           0x1000000; //(2 tiers) 25%,50% reduced knock back
+    public static final int FOOTING2 =           0x2000000;
+    public static final int RUSH1 =              0x4000000;
+    public static final int RUSH2 =              0x8000000; //(2 Tiers) 5%, 10% attack speed
+
+
+
 
     public ArmourBase(ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn, String name, String morph,String data, boolean playerModel, CreativeTabs creativetab) {
         super(materialIn, renderIndexIn, equipmentSlotIn);
         this.setMaxDamage(2500);
         this.morph = morph;
         if(this.getEquipmentSlot() == EntityEquipmentSlot.HEAD){
-            if(name.contains("summer")){this.damageReduce = 10;
+            if(name.contains("summer")){
+                this.damageReduce = 10;
                 this.tough = 0;}else {
                 this.damageReduce = 6;
                 this.tough = 0;}

@@ -51,7 +51,6 @@ public class RWBYItem extends Item implements ICustomItem {
     }
 
     private boolean ismask;
-    private final String data;
     public String coin;
     private boolean gravity;
     private boolean water;
@@ -67,12 +66,11 @@ public class RWBYItem extends Item implements ICustomItem {
         return this;
     }
 
-    public RWBYItem(String name,String data, boolean isMask,  CreativeTabs creativetab) {
+    public RWBYItem(String name, boolean isMask,  CreativeTabs creativetab) {
         this.setRegistryName(new ResourceLocation(RWBYModels.MODID, name));
         this.setUnlocalizedName(this.getRegistryName().toString());
         this.setCreativeTab(RWBYCreativeTabs.tab_rwbyitems);
         this.ismask = isMask;
-        this.data = data;
         if(this.ismask){
             maxStackSize = 1;
         }
@@ -139,20 +137,6 @@ public class RWBYItem extends Item implements ICustomItem {
                 //player.addPotionEffect(potioneffect);
                 player.heal(0.05F);
             }
-        }
-        if (!world.isRemote && this.data != null) {
-            NBTTagCompound atag = is.getTagCompound();
-            if (atag == null) atag = new NBTTagCompound();
-            if (!atag.hasKey(KEY)) {
-                atag.setBoolean(KEY, true);
-                try {
-                    is.setTagCompound(JsonToNBT.getTagFromJson(this.data));
-                    //is.getTagCompound().merge(atag);
-                } catch (NBTException nbtexception) {
-                    LogManager.getLogger(RWBYModels.MODID).error("Couldn't load data tag for " + this.getRegistryName());
-                }
-            }
-
         }
     }
 

@@ -38,7 +38,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 public class RWBYCutGem extends ItemBow implements ICustomItem {
 
-    private final String data;
     private final int drawSpeed;
     private final String ammo;
     private final float projectileSpeed;
@@ -50,12 +49,11 @@ public class RWBYCutGem extends ItemBow implements ICustomItem {
     private boolean water;
 
 
-    public RWBYCutGem(String name, int drawSpeed, int enchantability, String data, String ammo, boolean noCharge, float projectileSpeed, CreativeTabs creativetab) {
+    public RWBYCutGem(String name, int drawSpeed, int enchantability, String ammo, boolean noCharge, float projectileSpeed, CreativeTabs creativetab) {
         this.setRegistryName(new ResourceLocation(RWBYModels.MODID, name));
         this.setUnlocalizedName(this.getRegistryName().toString());
         this.setCreativeTab(creativetab);
         this.drawSpeed = drawSpeed;
-        this.data = data;
         this.ammo = ammo;
         this.projectileSpeed = projectileSpeed;
         this.charges = !noCharge;
@@ -111,20 +109,6 @@ public class RWBYCutGem extends ItemBow implements ICustomItem {
                 PotionEffect potioneffect = new PotionEffect(MobEffects.WATER_BREATHING, 60, 1, false, false);
                 player.addPotionEffect(potioneffect);}
                 player.heal(0.1F);
-            }
-        }
-
-        if (!world.isRemote && this.data != null) {
-            NBTTagCompound atag = is.getTagCompound();
-            if (atag == null) atag = new NBTTagCompound();
-            if (!atag.hasKey(KEY)) {
-                atag.setBoolean(KEY, true);
-                try {
-                    is.setTagCompound(JsonToNBT.getTagFromJson(this.data));
-                    //is.getTagCompound().merge(atag);
-                } catch (NBTException nbtexception) {
-                    LogManager.getLogger(RWBYModels.MODID).error("Couldn't load data tag for " + this.getRegistryName());
-                }
             }
         }
     }
