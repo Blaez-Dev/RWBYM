@@ -50,12 +50,14 @@ public class ArmourBase extends ItemArmor {
     final float tough;
     public int armourperks;
 
-    private float movementspeedmult;
-    private float armourbuff;
-    private float healthbuff;
-    private float attackboost;
-    private float knockbackresist;
-    private float attackspeed;
+
+
+    private final float movementspeedmult;
+    private final float armourbuff;
+    private final float healthbuff;
+    private final float attackboost;
+    private final float knockbackresist;
+    private final float attackspeed;
 
 
     public static final int MOVEMENTSPEED1 =        0x0001; //( 2tiers)  5%,10%  of increased movement speed

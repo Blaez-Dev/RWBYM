@@ -114,8 +114,6 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
 
 
-
-
     /*
     *
     * recoiltype
@@ -162,6 +160,22 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 	public static final int RCL_BACK =      1;
 	public static final int RCL_BACK_WEAK = 2;
 	public static final int RCL_FORWARD =   3;
+
+    public boolean validperk(EntityLivingBase playerIn,int armorperk){
+        for (ItemStack stack:playerIn.getArmorInventoryList()){
+            if(stack.getItem() instanceof ArmourBase){
+            if((((ArmourBase) stack.getItem()).armourperks & armorperk) !=0){
+                System.out.println("armor works");
+                return true;
+            }}
+            if(stack.getItem() instanceof RWBYHood){
+            if((((RWBYHood) stack.getItem()).armourperks & armorperk) !=0) {
+                System.out.println("hood works");
+                return true;
+            }}
+        }
+        return false;
+    }
 	
 
 
@@ -1058,7 +1072,11 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
                         if (!flag){
                             if (mytre || (weapontype & ROCKET) !=0) {
-                                itemstack.shrink(1);
+                                if(itemstack.getUnlocalizedName().contains("dustcrystal")){itemstack.damageItem(1, entityplayer);
+                                stack.damageItem(1,entityplayer);
+                                }else {
+                                itemstack.shrink(1);stack.damageItem(1,entityplayer);}
+
                             }
                             else {
                                 itemstack.damageItem(1, entityplayer);
@@ -1212,8 +1230,14 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             unarm = true; }
 
         if(!unarm && !ohblade){
-            if(p!=null)
-            target.attackEntityFrom(DamageSource.causePlayerDamage(p), 35);
+            if(this.validperk(attacker,ArmourBase.PUNCTURE1)){if(p!=null){
+                target.attackEntityFrom(DamageSource.causePlayerDamage(p), 38);}
+            else target.attackEntityFrom(DamageSource.causeMobDamage(attacker), 38);}
+            else if(this.validperk(attacker,ArmourBase.PUNCTURE2)){if(p!=null){
+                target.attackEntityFrom(DamageSource.causePlayerDamage(p), 45);}
+            else target.attackEntityFrom(DamageSource.causeMobDamage(attacker), 45);}
+            else if(p!=null){
+            target.attackEntityFrom(DamageSource.causePlayerDamage(p), 35);}
             else target.attackEntityFrom(DamageSource.causeMobDamage(attacker), 35);
         }}
 

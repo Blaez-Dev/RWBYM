@@ -1,5 +1,6 @@
 package io.github.blaezdev.rwbym.weaponry;
 
+import com.google.common.collect.Multimap;
 import io.github.blaezdev.rwbym.Init.RWBYItems;
 import io.github.blaezdev.rwbym.RWBYModels;
 import mcp.MethodsReturnNonnullByDefault;
@@ -7,11 +8,14 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.Enchantments;
 import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.*;
 import net.minecraft.nbt.JsonToNBT;
 import net.minecraft.nbt.NBTException;
@@ -28,6 +32,7 @@ import org.apache.logging.log4j.LogManager;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.UUID;
 
 /**
  * Part of rwbym
@@ -37,17 +42,24 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 public class RWBYCutGem extends ItemBow implements ICustomItem {
-
+    private static final UUID MovementSpeed = UUID.fromString("9bf90946-4323-11ea-b77f-2e728ce88125");
+    private static final UUID Defence = UUID.fromString("e98e5e52-4325-11ea-b77f-2e728ce88125");
+    private static  final UUID Vitality = UUID.fromString("0ad15896-4324-11ea-b77f-2e728ce88125");
+    private static final  UUID Attackboost = UUID.fromString("308559ac-4324-11ea-b77f-2e728ce88125");
+    private static final UUID Knockback = UUID.fromString("501ed202-4324-11ea-b77f-2e728ce88125");
+    private static final UUID Attackspeed = UUID.fromString("60115e46-4324-11ea-b77f-2e728ce881");
     private final int drawSpeed;
     private final String ammo;
     private final float projectileSpeed;
-    private final boolean charges; // TODO: use this
-    boolean compensate;
-    float lastDamage;
-    private boolean emerald2 = false;
-    private boolean gravity;
-    private boolean water;
+    private final boolean charges;
 
+
+    private float movementspeedmult;
+    private float armourbuff;
+    private float healthbuff;
+    private float attackboost;
+    private float knockbackresist;
+    private float attackspeed;
 
     public RWBYCutGem(String name, int drawSpeed, int enchantability, String ammo, boolean noCharge, float projectileSpeed, CreativeTabs creativetab) {
         this.setRegistryName(new ResourceLocation(RWBYModels.MODID, name));
@@ -59,10 +71,6 @@ public class RWBYCutGem extends ItemBow implements ICustomItem {
         this.charges = !noCharge;
         this.maxStackSize = 64;
         this.setMaxDamage(0);
-
-
-        if(name.contains("gravitydustcrystal")) gravity = true;
-        if(name.contains("waterdustcrystal")) water = true;
     }
 
     @Override
@@ -90,7 +98,7 @@ public class RWBYCutGem extends ItemBow implements ICustomItem {
             final EntityPlayer player = (EntityPlayer)entity;
             player.setHealth(player.getHealth());
             int timer = 0;
-            if(player.getHeldItem(EnumHand.OFF_HAND) == is && gravity){
+            if(player.getHeldItem(EnumHand.OFF_HAND) == is /*&& this.element.contains("gravity")*/){
                 if (!player.onGround)
                 {
                     player.motionY += 0.05;
@@ -104,7 +112,7 @@ public class RWBYCutGem extends ItemBow implements ICustomItem {
                 }
                 timer ++;
             }
-            if(player.getHeldItem(EnumHand.OFF_HAND) == is && water){
+            if(player.getHeldItem(EnumHand.OFF_HAND) == is /*&& this.element.contains("water")*/){
                 if(player.isInWater()){
                 PotionEffect potioneffect = new PotionEffect(MobEffects.WATER_BREATHING, 60, 1, false, false);
                 player.addPotionEffect(potioneffect);}
@@ -221,6 +229,26 @@ public class RWBYCutGem extends ItemBow implements ICustomItem {
         }
     }
 
+
+    @Override
+    public Multimap<String, AttributeModifier> getItemAttributeModifiers(EntityEquipmentSlot equipmentSlot)
+    {
+        Multimap<String, AttributeModifier> multimap = super.getItemAttributeModifiers(equipmentSlot);
+
+        if (equipmentSlot == EntityEquipmentSlot.OFFHAND)
+        {
+            multimap.put(SharedMonsterAttributes.ARMOR.getName(), new AttributeModifier(Defence, "Armor modifier", (double)this.armourbuff, 2));
+            multimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(MovementSpeed, "Movement Speed", (double)movementspeedmult, 2));
+            multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(Attackspeed, "Attack Speed", (double)attackspeed, 2));
+            multimap.put(SharedMonsterAttributes.KNOCKBACK_RESISTANCE.getName(), new AttributeModifier(Knockback, "Knockback", (double)knockbackresist, 2));
+            multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(Attackboost, "Attack Boost", (double)attackboost, 2));
+            multimap.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(Vitality, "Health", (double)healthbuff, 2));
+        }
+
+        return multimap;
+    }
+
+
     @Override
     public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker)
     {
@@ -244,11 +272,6 @@ public class RWBYCutGem extends ItemBow implements ICustomItem {
 
             return 1200;
     }
-
-
-    /*public EnumActionResult onItemUse(ItemStack stack, EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
-        worldIn.getBlockStateAt(pos).getBlock()
-    }*/
 
     @Override
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair) {
