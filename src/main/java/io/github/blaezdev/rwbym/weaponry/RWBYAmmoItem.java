@@ -189,11 +189,11 @@ public class RWBYAmmoItem extends Item implements ICustomItem {
             knockbackresist = 0;
             attackspeed = 0;
         }else if((element & HARDLIGHT) != 0){
-            movementspeedmult = 0;
-            armourbuff = 0;
+            movementspeedmult = 0.2F;
+            armourbuff = 0.2F;
             healthbuff = 0;
-            attackboost = 0;
-            knockbackresist = 0;
+            attackboost = -0.2F;
+            knockbackresist = 1F;
             attackspeed = 0;
         }else{
             movementspeedmult = 0;

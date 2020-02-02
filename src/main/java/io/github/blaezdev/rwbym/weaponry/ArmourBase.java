@@ -75,8 +75,8 @@ public class ArmourBase extends ItemArmor {
     public static final int JUMPBOOST1 =            0x2000; //(3 Tiers)   1/2 a block, full block, 1 1/2 blocks of increase jump height
     public static final int JUMPBOOST2 =            0x4000;
     public static final int JUMPBOOST3 =            0x8000;
-    public static final int EXT_MAG1 =             0x10000; //(2 tiers) 10%,20% Chance not to consume durablity
-    public static final int EXT_MAG2 =             0x20000;
+    //public static final int EXT_MAG1 =             0x10000; //(2 tiers) 10%,20% Chance not to consume durablity
+    //public static final int EXT_MAG2 =             0x20000;
     public static final int REACH1 =               0x40000; //(2 Tiers) 1 block,2blocks poler arm/scythes increased reach
     public static final int REACH2 =               0x80000;
     public static final int PUNCTURE1 =           0x100000; //(2 Tiers) 2.5%,5% increased damage with rapiers (only)
@@ -87,6 +87,7 @@ public class ArmourBase extends ItemArmor {
     public static final int FOOTING2 =           0x2000000;
     public static final int RUSH1 =              0x4000000;
     public static final int RUSH2 =              0x8000000; //(2 Tiers) 5%, 10% attack speed
+    public static final int AURAREGEN =         0X10000000;
 
 
 

@@ -52,6 +52,7 @@ public class RWBYCutGem extends ItemBow implements ICustomItem {
     private final String ammo;
     private final float projectileSpeed;
     private final boolean charges;
+    public int element;
 
 
     private float movementspeedmult;
@@ -61,7 +62,17 @@ public class RWBYCutGem extends ItemBow implements ICustomItem {
     private float knockbackresist;
     private float attackspeed;
 
-    public RWBYCutGem(String name, int drawSpeed, int enchantability, String ammo, boolean noCharge, float projectileSpeed, CreativeTabs creativetab) {
+    public static final int HARDLIGHT =       0x0001;
+    public static final int WATER =           0x0002;
+    public static final int IMPURE =          0x0004;
+    public static final int WIND =            0x0008;
+    public static final int FIRE =            0x0010;
+    public static final int GRAVITY =         0x0020;
+    public static final int LIGHTNING =       0x0040;
+    public static final int ICE =             0x0080;
+    public static final int NONE =            0x0100;
+
+    public RWBYCutGem(String name, int drawSpeed, int element, String ammo, boolean noCharge, float projectileSpeed, CreativeTabs creativetab) {
         this.setRegistryName(new ResourceLocation(RWBYModels.MODID, name));
         this.setUnlocalizedName(this.getRegistryName().toString());
         this.setCreativeTab(creativetab);
@@ -71,6 +82,76 @@ public class RWBYCutGem extends ItemBow implements ICustomItem {
         this.charges = !noCharge;
         this.maxStackSize = 64;
         this.setMaxDamage(0);
+        this.element = element;
+        if((element & WATER) != 0) {
+            movementspeedmult = 0;
+            armourbuff = 0;
+            healthbuff = 0;
+            attackboost = -0.45F;
+            knockbackresist = 0;
+            attackspeed = 0;
+        }
+        else if((element & IMPURE) != 0){
+            movementspeedmult = 0;
+            armourbuff = 0;
+            healthbuff = -0.7F;
+            attackboost = 0;
+            knockbackresist = 0;
+            attackspeed = 0;
+        }
+        else if ((element & WIND) != 0){
+            movementspeedmult = 2.0F;
+            armourbuff = 0;
+            healthbuff = -0.7F;
+            attackboost = 0;
+            knockbackresist = 0;
+            attackspeed = 0;
+        }
+        else if((element & FIRE) != 0){
+            movementspeedmult = 0;
+            armourbuff = 0;
+            healthbuff = -0.7F;
+            attackboost = 3.5F;
+            knockbackresist = 0;
+            attackspeed = 0;
+        }
+        else if((element & GRAVITY) != 0){
+            movementspeedmult = 0;
+            armourbuff = 0;
+            healthbuff = -0.7F;
+            attackboost = 0;
+            knockbackresist = 0;
+            attackspeed = 0;
+        }
+        else if((element & LIGHTNING) != 0){
+            movementspeedmult = 1.50F;
+            armourbuff = 0;
+            healthbuff = -0.7F;
+            attackboost = 0;
+            knockbackresist = 0;
+            attackspeed = 3.0F;
+        }else if((element & ICE) != 0){
+            movementspeedmult = -0.5F;
+            armourbuff = 0;
+            healthbuff = 1.5F;
+            attackboost = 0;
+            knockbackresist = 0;
+            attackspeed = 0;
+        }else if((element & HARDLIGHT) != 0){
+            movementspeedmult = 0.2F;
+            armourbuff = 0.2F;
+            healthbuff = 0;
+            attackboost = -0.2F;
+            knockbackresist = 1F;
+            attackspeed = 0;
+        }else{
+            movementspeedmult = 0;
+            armourbuff = 0;
+            healthbuff = 0;
+            attackboost = 0F;
+            knockbackresist = 0;
+            attackspeed = 0;
+        }
     }
 
     @Override
@@ -98,7 +179,7 @@ public class RWBYCutGem extends ItemBow implements ICustomItem {
             final EntityPlayer player = (EntityPlayer)entity;
             player.setHealth(player.getHealth());
             int timer = 0;
-            if(player.getHeldItem(EnumHand.OFF_HAND) == is /*&& this.element.contains("gravity")*/){
+            if(player.getHeldItem(EnumHand.OFF_HAND) == is && (element & GRAVITY) != 0){
                 if (!player.onGround)
                 {
                     player.motionY += 0.05;
@@ -112,7 +193,7 @@ public class RWBYCutGem extends ItemBow implements ICustomItem {
                 }
                 timer ++;
             }
-            if(player.getHeldItem(EnumHand.OFF_HAND) == is /*&& this.element.contains("water")*/){
+            if(player.getHeldItem(EnumHand.OFF_HAND) == is && (element & WATER) != 0){
                 if(player.isInWater()){
                 PotionEffect potioneffect = new PotionEffect(MobEffects.WATER_BREATHING, 60, 1, false, false);
                 player.addPotionEffect(potioneffect);}

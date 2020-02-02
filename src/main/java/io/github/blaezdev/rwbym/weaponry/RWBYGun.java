@@ -1244,16 +1244,37 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         if((weapontype & (FIST|HAMMER)) !=0){
             int rand = new Random().nextInt(100);
             if ((weapontype & FIST) !=0){
-                if(rand <= 15){
+                if(this.validperk(attacker,ArmourBase.K01)){
+                if(rand <= 20){
                     PotionEffect effect = new PotionEffect(MobEffects.NAUSEA, 60, 1);
                     target.addPotionEffect(effect);
+                }}else if ((weapontype & FIST) !=0) {
+                    if (this.validperk(attacker, ArmourBase.K02)) {
+                        if (rand <= 25) {
+                            PotionEffect effect = new PotionEffect(MobEffects.NAUSEA, 60, 1);
+                            target.addPotionEffect(effect);
+                        }
+                    } else {
+                        if (rand <= 15) {
+                            PotionEffect effect = new PotionEffect(MobEffects.NAUSEA, 60, 1);
+                            target.addPotionEffect(effect);
+                        }
+                    }
                 }
             }
             if ((weapontype & HAMMER) !=0){
-                if(rand <= 25){
+                if(this.validperk(attacker,ArmourBase.K01)){
+                if(rand <= 30){
                     PotionEffect effect = new PotionEffect(MobEffects.NAUSEA, 120, 1);
                     target.addPotionEffect(effect);
-                }
+                }}else if(this.validperk(attacker,ArmourBase.K02)){
+                    if(rand <= 35){
+                        PotionEffect effect = new PotionEffect(MobEffects.NAUSEA, 120, 1);
+                        target.addPotionEffect(effect);
+                    }}else {  if(rand <= 25){
+                    PotionEffect effect = new PotionEffect(MobEffects.NAUSEA, 120, 1);
+                    target.addPotionEffect(effect);
+                }}
             }
         }
 
@@ -1285,7 +1306,8 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
         if((weapontype & SCYTHE) !=0){
             //Scythe
-            for (EntityLivingBase entitylivingbase : attacker.world.getEntitiesWithinAABB(EntityLivingBase.class, target.getEntityBoundingBox().grow(3.0D, 0.25D, 3.0D))) {
+            if(this.validperk(attacker,ArmourBase.REACH1)){
+            for (EntityLivingBase entitylivingbase : attacker.world.getEntitiesWithinAABB(EntityLivingBase.class, target.getEntityBoundingBox().grow(4.0D, 0.25D, 4.0D))) {
                 if (entitylivingbase != attacker && entitylivingbase != target && !attacker.isOnSameTeam(entitylivingbase) && attacker.getDistanceSq(entitylivingbase) < 9.0D) {
                     entitylivingbase.knockBack(attacker, 0.4F, (double) MathHelper.sin(attacker.rotationYaw * 0.017453292F), (double) (-MathHelper.cos(attacker.rotationYaw * 0.017453292F)));
                     IAttributeInstance attackerdamages = new AttributeMap().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE);
@@ -1298,7 +1320,35 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                     entitylivingbase.attackEntityFrom(DamageSource.causePlayerDamage(p), attackerdamage);
                     else entitylivingbase.attackEntityFrom(DamageSource.causeMobDamage(attacker), attackerdamage);
                 }
-            }
+            }}else if(this.validperk(attacker,ArmourBase.REACH2)){
+                for (EntityLivingBase entitylivingbase : attacker.world.getEntitiesWithinAABB(EntityLivingBase.class, target.getEntityBoundingBox().grow(5.0D, 0.25D, 5.0D))) {
+                    if (entitylivingbase != attacker && entitylivingbase != target && !attacker.isOnSameTeam(entitylivingbase) && attacker.getDistanceSq(entitylivingbase) < 9.0D) {
+                        entitylivingbase.knockBack(attacker, 0.4F, (double) MathHelper.sin(attacker.rotationYaw * 0.017453292F), (double) (-MathHelper.cos(attacker.rotationYaw * 0.017453292F)));
+                        IAttributeInstance attackerdamages = new AttributeMap().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE);
+                        for (AttributeModifier modifier : attacker.getHeldItemMainhand().getAttributeModifiers(EntityEquipmentSlot.MAINHAND).get(SharedMonsterAttributes.ATTACK_DAMAGE.getName()))
+                            attackerdamages.applyModifier(modifier);
+
+                        double dm = attackerdamages.getAttributeValue();
+                        int attackerdamage = (int)dm;
+                        if(p!=null)
+                            entitylivingbase.attackEntityFrom(DamageSource.causePlayerDamage(p), attackerdamage);
+                        else entitylivingbase.attackEntityFrom(DamageSource.causeMobDamage(attacker), attackerdamage);
+                    }
+                }}else {
+                for (EntityLivingBase entitylivingbase : attacker.world.getEntitiesWithinAABB(EntityLivingBase.class, target.getEntityBoundingBox().grow(3.0D, 0.25D, 3.0D))) {
+                    if (entitylivingbase != attacker && entitylivingbase != target && !attacker.isOnSameTeam(entitylivingbase) && attacker.getDistanceSq(entitylivingbase) < 9.0D) {
+                        entitylivingbase.knockBack(attacker, 0.4F, (double) MathHelper.sin(attacker.rotationYaw * 0.017453292F), (double) (-MathHelper.cos(attacker.rotationYaw * 0.017453292F)));
+                        IAttributeInstance attackerdamages = new AttributeMap().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE);
+                        for (AttributeModifier modifier : attacker.getHeldItemMainhand().getAttributeModifiers(EntityEquipmentSlot.MAINHAND).get(SharedMonsterAttributes.ATTACK_DAMAGE.getName()))
+                            attackerdamages.applyModifier(modifier);
+
+                        double dm = attackerdamages.getAttributeValue();
+                        int attackerdamage = (int)dm;
+                        if(p!=null)
+                            entitylivingbase.attackEntityFrom(DamageSource.causePlayerDamage(p), attackerdamage);
+                        else entitylivingbase.attackEntityFrom(DamageSource.causeMobDamage(attacker), attackerdamage);
+                    }
+                }}
 
             attacker.world.playSound((EntityPlayer) null, attacker.posX, attacker.posY, attacker.posZ, SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, attacker.getSoundCategory(), 1.0F, 1.0F);
         }

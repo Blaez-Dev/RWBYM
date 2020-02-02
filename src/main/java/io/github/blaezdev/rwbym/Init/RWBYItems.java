@@ -2094,7 +2094,7 @@ public class RWBYItems {
     public static final  Item gravitydustcrystalcut = new RWBYCutGem(
             "gravitydustcrystalcut",
             0,
-            0,
+            RWBYCutGem.GRAVITY,
             "rwbym:gravitydustcut",
             true,
             0.3F,
@@ -2102,7 +2102,7 @@ public class RWBYItems {
     public static final  Item winddustcrystalcut = new RWBYCutGem(
             "winddustcrystalcut",
             0,
-            0,
+            RWBYCutGem.WIND,
             "rwbym:winddustcut",
             true,
             0.3F,
@@ -2110,7 +2110,7 @@ public class RWBYItems {
     public static final  Item waterdustcrystalcut = new RWBYCutGem(
             "waterdustcrystalcut",
             0,
-            0, 
+            RWBYCutGem.WATER,
             "rwbym:waterdustcut",
             true,
             0.3F,
@@ -2118,7 +2118,7 @@ public class RWBYItems {
     public static final  Item firedustcrystalcut = new RWBYCutGem(
             "firedustcrystalcut",
             0,
-            0,
+            RWBYCutGem.FIRE,
             "rwbym:firedustcut",
             true,
             0.3F,
@@ -2126,7 +2126,7 @@ public class RWBYItems {
     public static final  Item dustcrystalcut = new RWBYCutGem(
             "dustcrystalcut",
             0,
-            0, 
+            RWBYCutGem.IMPURE,
             "rwbym:dustcut",
             true,
             0.3F,
@@ -2134,7 +2134,7 @@ public class RWBYItems {
     public static final  Item lightdustcrystalcut = new RWBYCutGem(
             "lightdustcrystalcut",
             0,
-            0,
+            RWBYCutGem.LIGHTNING,
             "rwbym:lightdustcut",
             true,
             0.3F,
@@ -2142,7 +2142,7 @@ public class RWBYItems {
     public static final  Item icedustcrystalcut = new RWBYCutGem(
             "icedustcrystalcut",
             0,
-            0,
+            RWBYCutGem.ICE,
             "rwbym:icedustcut",
             true,
             0.3F,
