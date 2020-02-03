@@ -281,6 +281,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.hardlightmagazines);
         registerItems(event, RWBYItems.elucidator);
         registerItems(event, RWBYItems.darkrepulser);
+        registerItems(event, RWBYItems.mondragon);
         registerItems(event, RWBYItems.kingfisher);
         registerItems(event, RWBYItems.carminesai);
         registerItems(event, RWBYItems.carminestaff);

@@ -65,15 +65,12 @@ public class RWBYHood extends Item implements ICustomItem {
         this.morph = morph;
         this.armourperks = armourperks;
         if(isMask){
-            if(name.contains("summer")){this.damageReduce = 10;
+            if(name.contains("summer")){this.damageReduce = 7;
                 this.tough = 0;}else {
                 this.damageReduce = 6;
                 this.tough = 0;}
         }else {this.tough = 0; this.damageReduce = 0;}
         this.setMaxDamage(2500);
-        if(name.contains("summer")){
-
-        }
         if(this.ismask){
             maxStackSize = 1;
         }
@@ -196,6 +193,7 @@ public class RWBYHood extends Item implements ICustomItem {
     public boolean isRepairable() {
         return true;
     }
+
 
     @Override
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair) {

@@ -99,15 +99,17 @@ public class ArmourBase extends ItemArmor {
         this.armourperks = armourperks;
         if(this.getEquipmentSlot() == EntityEquipmentSlot.HEAD){
             if(name.contains("summer")){
-                this.damageReduce = 10;
+                this.damageReduce = 7;
                 this.tough = 0;}else {
                 this.damageReduce = 6;
                 this.tough = 0;}
         }else if(this.getEquipmentSlot() == EntityEquipmentSlot.CHEST||this.getEquipmentSlot() == EntityEquipmentSlot.LEGS){
-            if(name.contains("summer")){this.damageReduce = 14;
-                this.tough = 5;}else {
-                this.damageReduce = 10;
-                this.tough = 5;}
+            if(name.contains("summer")){this.damageReduce = 12;
+                this.tough = 5;}else if(name.contains("beacon")) {
+                this.damageReduce = 7;
+                this.tough = 2;}else{
+            this.damageReduce = 10;
+            this.tough = 5;}
         } else { this.damageReduce = 0; this.tough = 0;}
 
         if((armourperks & MOVEMENTSPEED1) != 0){movementspeedmult =0.05F;}
@@ -189,21 +191,26 @@ public class ArmourBase extends ItemArmor {
 
     @Override
     public void onUpdate(ItemStack is, World world, Entity entity, int slotIn, boolean inHand) {
-        /*
-        if (!world.isRemote && this.data != null) {
-            NBTTagCompound atag = is.getTagCompound();
-            if (atag == null) atag = new NBTTagCompound();
-            if (!atag.hasKey(KEY)) {
-                atag.setBoolean(KEY, true);
-                try {
-                    is.setTagCompound(JsonToNBT.getTagFromJson(this.data));
-                    is.getTagCompound().merge(atag);
-                } catch (NBTException nbtexception) {
-                    LogManager.getLogger(RWBYModels.MODID).error("Couldn't load data tag for " + this.getRegistryName());
-                }
-            }
 
-        }*/
+        if (!world.isRemote && entity instanceof EntityPlayer) {
+            int timer = 0;
+            if((armourperks & AURAREGEN) !=0){
+
+            }
+            if((armourperks & NIGHTVISION) !=0){
+
+            }
+            if((armourperks & JUMPBOOST1) !=0){
+
+            }
+            if((armourperks & JUMPBOOST1) !=0){
+
+            }
+            if((armourperks & JUMPBOOST1) !=0){
+
+            }
+            timer ++;
+            }
     }
 
     @Override

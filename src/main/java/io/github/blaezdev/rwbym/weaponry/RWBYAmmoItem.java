@@ -28,6 +28,8 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -346,6 +348,12 @@ public class RWBYAmmoItem extends Item implements ICustomItem {
     
     public EntityBullet createArrow(World worldIn, ItemStack stack, ItemStack shootingStack, EntityLivingBase shooter) {
         return new EntityBullet(worldIn, shooter, stack, shootingStack);
+    }
+
+    @SideOnly(Side.CLIENT)
+    public boolean hasEffect(ItemStack stack)
+    {
+        return false;
     }
 
     @Override

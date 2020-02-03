@@ -1320,7 +1320,7 @@ public class RWBYItems {
             "stormflower",
             2500,
             14,
-            RWBYGun.WALLCLIMB,
+            RWBYGun.WALLCLIMB|RWBYGun.DAGGER,
             null,
             "rwbym:gammag,rwbym:gamgravmag,rwbym:gamicemag,rwbym:gamfiremag",
             true,
@@ -1352,7 +1352,7 @@ public class RWBYItems {
             "stormflowerv",
             1250,
             14,
-            RWBYGun.INT_MAG,
+            RWBYGun.INT_MAG|RWBYGun.DAGGER,
             "rwbym:cocobagv",
             "rwbym:ammov",
             true,
@@ -1583,7 +1583,7 @@ public class RWBYItems {
             "emeraldblade",
             2500,
             14,
-            RWBYGun.WALLCLIMB,
+            RWBYGun.WALLCLIMB|RWBYGun.DAGGER,
             "rwbym:emeraldgun",
             "rwbym:spl,rwbym:splfire,rwbym:splgrav,rwbym:splice,rwbym:spllight",
             false,
@@ -3461,6 +3461,23 @@ public class RWBYItems {
             0,
             17,
             RWBYCreativeTabs.tab_rwbyweapons);
+
+    public static final Item mondragon = new RWBYGun(
+            "mondragon",
+            2500,
+            14,
+            RWBYGun.FLIGHT|RWBYGun.SCYTHE,
+            null,
+            "rwbym:gravitydustcrystal,rwbym:icedustcrystal,rwbym:firedustcrystal,rwbym:lightdustcrystal",
+            false,
+            2,
+            false,
+            true,
+            0,
+            1,
+            0,
+            7,
+            null).setRecoil(5);
 
     //------------------------------------------------//
     public static final Item ammo = new RWBYItem("ammo",  false, RWBYCreativeTabs.tab_rwbyitems);

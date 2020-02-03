@@ -21,6 +21,7 @@ import net.minecraft.entity.ai.attributes.AttributeMap;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.PlayerCapabilities;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.entity.projectile.EntityEvokerFangs;
 import net.minecraft.init.Enchantments;
@@ -936,6 +937,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                 flag2 = true;
             }
 
+
             if(weaponuseglow){
                 stack.damageItem(20, entityplayer);
                 weaponuseglow = false;
@@ -1025,6 +1027,10 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                 flag2 = false;
             }
 
+            if(entityplayer.getItemInUseCount() < 60 && (weapontype & FLIGHT) !=0){
+                flag2 = false;
+            }
+
             if (flag2 || flag) {
 
 
@@ -1071,7 +1077,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
 
                         if (!flag){
-                            if (mytre || (weapontype & ROCKET) !=0) {
+                            if (mytre || (weapontype &(ROCKET|FLIGHT)) !=0) {
                                 if(itemstack.getUnlocalizedName().contains("dustcrystal")){itemstack.damageItem(1, entityplayer);
                                 stack.damageItem(1,entityplayer);
                                 }else {
@@ -1171,7 +1177,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                         entityplayer.lastTickPosZ = -look.x;
                         entityplayer.lastTickPosX = -look.z;
                     }
-                    if((weapontype & FLIGHT) !=0){stack.damageItem(20, entityplayer);}
+                    //if((weapontype & FLIGHT) !=0){stack.damageItem(5, entityplayer);}
                 }
             }
         }
