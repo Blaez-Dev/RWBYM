@@ -7,6 +7,7 @@ import io.github.blaezdev.rwbym.Init.RegUtil;
 import io.github.blaezdev.rwbym.RWBYModels;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
@@ -59,6 +60,22 @@ public class RWBYHood extends Item implements ICustomItem {
     private final float attackboost;
     private final float knockbackresist;
     private final float attackspeed;
+
+    public boolean validperk(EntityLivingBase playerIn, int armorperk){
+        for (ItemStack stack:playerIn.getArmorInventoryList()){
+            if(stack.getItem() instanceof ArmourBase){
+                if((((ArmourBase) stack.getItem()).armourperks & armorperk) !=0){
+                    //System.out.println("armor works");
+                    return true;
+                }}
+            if(stack.getItem() instanceof RWBYHood){
+                if((((RWBYHood) stack.getItem()).armourperks & armorperk) !=0) {
+                    //System.out.println("hood works");
+                    return true;
+                }}
+        }
+        return false;
+    }
 
     public RWBYHood(String name, boolean isMask,String morph,CreativeTabs creativetab, int armourperks) {
         this.setRegistryName(new ResourceLocation(RWBYModels.MODID, name));
@@ -113,38 +130,32 @@ public class RWBYHood extends Item implements ICustomItem {
 
         if (!world.isRemote && entity instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) entity;
-            int timer = 0;
-            if((armourperks & AURAREGEN) !=0 && timer > 0){
+            if(this.validperk(player, AURAREGEN)){
                 PotionEffect potioneffect = new PotionEffect(RegUtil.AURA_REGEN, 60, 1, false, false);
                 player.addPotionEffect(potioneffect);
-                timer = 20;
+
             }
-            if((armourperks & NIGHTVISION) !=0 && timer > 0){
+            if(this.validperk(player, NIGHTVISION)){
                 PotionEffect potioneffect = new PotionEffect(MobEffects.NIGHT_VISION, 60, 0, false, false);
                 player.addPotionEffect(potioneffect);
-                timer = 20;
             }
-            if((armourperks & JUMPBOOST1) !=0 && timer > 0){
+            if(this.validperk(player, JUMPBOOST1)){
                 PotionEffect potioneffect = new PotionEffect(MobEffects.JUMP_BOOST, 60, 0, false, false);
                 player.addPotionEffect(potioneffect);
-                timer = 20;
             }
-            if((armourperks & JUMPBOOST2) !=0 && timer > 0){
+            if(this.validperk(player, JUMPBOOST2)){
                 PotionEffect potioneffect = new PotionEffect(MobEffects.JUMP_BOOST, 60, 1, false, false);
                 player.addPotionEffect(potioneffect);
-                timer = 20;
+
             }
-            if((armourperks & JUMPBOOST3) !=0 && timer > 0){
+            if(this.validperk(player, JUMPBOOST3)){
                 PotionEffect potioneffect = new PotionEffect(MobEffects.JUMP_BOOST, 60, 2, false, false);
                 player.addPotionEffect(potioneffect);
-                timer = 20;
             }
-            if((armourperks & FIRESTARTER) !=0 && timer > 0){
+            if(this.validperk(player, FIRESTARTER)){
                 PotionEffect potioneffect = new PotionEffect(MobEffects.FIRE_RESISTANCE, 60, 1, false, false);
                 player.addPotionEffect(potioneffect);
-                timer = 20;
             }
-            timer ++;
         }
     }
 

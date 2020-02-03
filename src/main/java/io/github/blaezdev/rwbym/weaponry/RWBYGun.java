@@ -166,12 +166,12 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         for (ItemStack stack:playerIn.getArmorInventoryList()){
             if(stack.getItem() instanceof ArmourBase){
             if((((ArmourBase) stack.getItem()).armourperks & armorperk) !=0){
-                System.out.println("armor works");
+                //System.out.println("armor works");
                 return true;
             }}
             if(stack.getItem() instanceof RWBYHood){
             if((((RWBYHood) stack.getItem()).armourperks & armorperk) !=0) {
-                System.out.println("hood works");
+                //System.out.println("hood works");
                 return true;
             }}
         }
