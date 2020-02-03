@@ -2,6 +2,8 @@ package io.github.blaezdev.rwbym.weaponry;
 
 import com.google.common.collect.Multimap;
 import io.github.blaezdev.rwbym.Init.RWBYItems;
+import io.github.blaezdev.rwbym.Init.RWBYPotions;
+import io.github.blaezdev.rwbym.Init.RegUtil;
 import io.github.blaezdev.rwbym.RWBYModels;
 import io.github.blaezdev.rwbym.entity.ModelArmor;
 import net.minecraft.client.entity.AbstractClientPlayer;
@@ -13,6 +15,7 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
+import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
@@ -20,12 +23,14 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.JsonToNBT;
 import net.minecraft.nbt.NBTException;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.logging.log4j.LogManager;
+import org.omg.CORBA.PUBLIC_MEMBER;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -75,8 +80,8 @@ public class ArmourBase extends ItemArmor {
     public static final int JUMPBOOST1 =            0x2000; //(3 Tiers)   1/2 a block, full block, 1 1/2 blocks of increase jump height
     public static final int JUMPBOOST2 =            0x4000;
     public static final int JUMPBOOST3 =            0x8000;
-    //public static final int EXT_MAG1 =             0x10000; //(2 tiers) 10%,20% Chance not to consume durablity
-    //public static final int EXT_MAG2 =             0x20000;
+    public static final int CRITICALSTRIKE1 =      0x10000;
+    public static final int CRITICALSTRIKE2 =      0x20000;
     public static final int REACH1 =               0x40000; //(2 Tiers) 1 block,2blocks poler arm/scythes increased reach
     public static final int REACH2 =               0x80000;
     public static final int PUNCTURE1 =           0x100000; //(2 Tiers) 2.5%,5% increased damage with rapiers (only)
@@ -87,7 +92,11 @@ public class ArmourBase extends ItemArmor {
     public static final int FOOTING2 =           0x2000000;
     public static final int RUSH1 =              0x4000000;
     public static final int RUSH2 =              0x8000000; //(2 Tiers) 5%, 10% attack speed
-    public static final int AURAREGEN =         0X10000000;
+    public static final int AURAREGEN =         0x10000000;
+    public static final int GLADIATOR1 =        0x20000000;
+    public static final int GLADIATOR2 =        0x40000000;
+    public static final int FIRESTARTER =       0x80000000;
+
 
 
 
@@ -193,21 +202,37 @@ public class ArmourBase extends ItemArmor {
     public void onUpdate(ItemStack is, World world, Entity entity, int slotIn, boolean inHand) {
 
         if (!world.isRemote && entity instanceof EntityPlayer) {
+            EntityPlayer player = (EntityPlayer) entity;
             int timer = 0;
-            if((armourperks & AURAREGEN) !=0){
-
+            if((armourperks & AURAREGEN) !=0 && timer > 0){
+                PotionEffect potioneffect = new PotionEffect(RegUtil.AURA_REGEN, 60, 1, false, false);
+                player.addPotionEffect(potioneffect);
+                timer = 20;
             }
-            if((armourperks & NIGHTVISION) !=0){
-
+            if((armourperks & NIGHTVISION) !=0 && timer > 0){
+                PotionEffect potioneffect = new PotionEffect(MobEffects.NIGHT_VISION, 60, 0, false, false);
+                player.addPotionEffect(potioneffect);
+                timer = 20;
             }
-            if((armourperks & JUMPBOOST1) !=0){
-
+            if((armourperks & JUMPBOOST1) !=0 && timer > 0){
+                PotionEffect potioneffect = new PotionEffect(MobEffects.JUMP_BOOST, 60, 0, false, false);
+                player.addPotionEffect(potioneffect);
+                timer = 20;
             }
-            if((armourperks & JUMPBOOST1) !=0){
-
+            if((armourperks & JUMPBOOST2) !=0 && timer > 0){
+                PotionEffect potioneffect = new PotionEffect(MobEffects.JUMP_BOOST, 60, 1, false, false);
+                player.addPotionEffect(potioneffect);
+                timer = 20;
             }
-            if((armourperks & JUMPBOOST1) !=0){
-
+            if((armourperks & JUMPBOOST3) !=0 && timer > 0){
+                PotionEffect potioneffect = new PotionEffect(MobEffects.JUMP_BOOST, 60, 2, false, false);
+                player.addPotionEffect(potioneffect);
+                timer = 20;
+            }
+            if((armourperks & FIRESTARTER) !=0 && timer > 0){
+                PotionEffect potioneffect = new PotionEffect(MobEffects.FIRE_RESISTANCE, 60, 1, false, false);
+                player.addPotionEffect(potioneffect);
+                timer = 20;
             }
             timer ++;
             }

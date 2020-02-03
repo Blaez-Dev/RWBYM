@@ -1285,13 +1285,28 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         }
 
         if((weapontype & (DAGGER)) !=0||gwen){
+            if(this.validperk(attacker, ArmourBase.CRITICALSTRIKE1)){
+            if (target.getHealth() >= 75.0F && (new Random()).nextInt(100) <= 30) {
+            if (attacker instanceof EntityPlayer) {
+                target.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer)attacker).setDamageBypassesArmor(), 100.0F);
+            } else {
+                target.attackEntityFrom(DamageSource.WITHER, 100.0F);
+            }
+        }}else if(this.validperk(attacker, ArmourBase.CRITICALSTRIKE2)){
+                if (target.getHealth() >= 50.0F && (new Random()).nextInt(100) <= 30) {
+                    if (attacker instanceof EntityPlayer) {
+                        target.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer)attacker).setDamageBypassesArmor(), 100.0F);
+                    } else {
+                        target.attackEntityFrom(DamageSource.WITHER, 100.0F);
+                    }
+                }} else {
         if (target.getHealth() >= 100.0F && (new Random()).nextInt(100) <= 30) {
             if (attacker instanceof EntityPlayer) {
                 target.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer)attacker).setDamageBypassesArmor(), 100.0F);
             } else {
                 target.attackEntityFrom(DamageSource.WITHER, 100.0F);
             }
-        }}
+        }}}
 
         if(stack.getItem() == RWBYItems.rageshield && attacker.isSneaking()){
             EntityEvokerFangs entity = new EntityEvokerFangs(target.world);
@@ -1363,7 +1378,11 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             //Sword
             for (EntityLivingBase entitylivingbase : attacker.world.getEntitiesWithinAABB(EntityLivingBase.class, target.getEntityBoundingBox().grow(3.0D, 0.25D, 3.0D))) {
                 if (entitylivingbase != attacker && entitylivingbase != target && !attacker.isOnSameTeam(entitylivingbase) && attacker.getDistanceSq(entitylivingbase) < 9.0D) {
-                    entitylivingbase.knockBack(attacker, 0.4F, (double) MathHelper.sin(attacker.rotationYaw * 0.017453292F), (double) (-MathHelper.cos(attacker.rotationYaw * 0.017453292F)));
+                    if(this.validperk(attacker,ArmourBase.GLADIATOR1)){
+                    entitylivingbase.knockBack(attacker, 0.6F, (double) MathHelper.sin(attacker.rotationYaw * 0.017453292F), (double) (-MathHelper.cos(attacker.rotationYaw * 0.017453292F)));}
+                    if(this.validperk(attacker,ArmourBase.GLADIATOR2)){
+                        entitylivingbase.knockBack(attacker, 1.2F, (double) MathHelper.sin(attacker.rotationYaw * 0.017453292F), (double) (-MathHelper.cos(attacker.rotationYaw * 0.017453292F)));}else
+                    { entitylivingbase.knockBack(attacker, 0.4F, (double) MathHelper.sin(attacker.rotationYaw * 0.017453292F), (double) (-MathHelper.cos(attacker.rotationYaw * 0.017453292F)));}
                     IAttributeInstance attackerdamages = new AttributeMap().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE);
                     for (AttributeModifier modifier : attacker.getHeldItemMainhand().getAttributeModifiers(EntityEquipmentSlot.MAINHAND).get(SharedMonsterAttributes.ATTACK_DAMAGE.getName()))
                             attackerdamages.applyModifier(modifier);

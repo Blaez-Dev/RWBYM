@@ -3,6 +3,7 @@ package io.github.blaezdev.rwbym.weaponry;
 import com.google.common.collect.Multimap;
 import io.github.blaezdev.rwbym.Init.RWBYCreativeTabs;
 import io.github.blaezdev.rwbym.Init.RWBYItems;
+import io.github.blaezdev.rwbym.Init.RegUtil;
 import io.github.blaezdev.rwbym.RWBYModels;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -10,12 +11,14 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
+import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.JsonToNBT;
 import net.minecraft.nbt.NBTException;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
@@ -102,6 +105,47 @@ public class RWBYHood extends Item implements ICustomItem {
         if((armourperks & FOOTING1) != 0){knockbackresist = 0.25F;}
         else if((armourperks & FOOTING2) != 0){knockbackresist = 0.50F;}
         else{knockbackresist = 0;}
+    }
+
+
+    @Override
+    public void onUpdate(ItemStack is, World world, Entity entity, int slotIn, boolean inHand) {
+
+        if (!world.isRemote && entity instanceof EntityPlayer) {
+            EntityPlayer player = (EntityPlayer) entity;
+            int timer = 0;
+            if((armourperks & AURAREGEN) !=0 && timer > 0){
+                PotionEffect potioneffect = new PotionEffect(RegUtil.AURA_REGEN, 60, 1, false, false);
+                player.addPotionEffect(potioneffect);
+                timer = 20;
+            }
+            if((armourperks & NIGHTVISION) !=0 && timer > 0){
+                PotionEffect potioneffect = new PotionEffect(MobEffects.NIGHT_VISION, 60, 0, false, false);
+                player.addPotionEffect(potioneffect);
+                timer = 20;
+            }
+            if((armourperks & JUMPBOOST1) !=0 && timer > 0){
+                PotionEffect potioneffect = new PotionEffect(MobEffects.JUMP_BOOST, 60, 0, false, false);
+                player.addPotionEffect(potioneffect);
+                timer = 20;
+            }
+            if((armourperks & JUMPBOOST2) !=0 && timer > 0){
+                PotionEffect potioneffect = new PotionEffect(MobEffects.JUMP_BOOST, 60, 1, false, false);
+                player.addPotionEffect(potioneffect);
+                timer = 20;
+            }
+            if((armourperks & JUMPBOOST3) !=0 && timer > 0){
+                PotionEffect potioneffect = new PotionEffect(MobEffects.JUMP_BOOST, 60, 2, false, false);
+                player.addPotionEffect(potioneffect);
+                timer = 20;
+            }
+            if((armourperks & FIRESTARTER) !=0 && timer > 0){
+                PotionEffect potioneffect = new PotionEffect(MobEffects.FIRE_RESISTANCE, 60, 1, false, false);
+                player.addPotionEffect(potioneffect);
+                timer = 20;
+            }
+            timer ++;
+        }
     }
 
     @Override
