@@ -42,12 +42,12 @@ import java.util.UUID;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 public class RWBYCutGem extends ItemBow implements ICustomItem {
-    private static final UUID MovementSpeed = UUID.fromString("9bf90946-4323-11ea-b77f-2e728ce88125");
-    private static final UUID Defence = UUID.fromString("e98e5e52-4325-11ea-b77f-2e728ce88125");
-    private static  final UUID Vitality = UUID.fromString("0ad15896-4324-11ea-b77f-2e728ce88125");
-    private static final  UUID Attackboost = UUID.fromString("308559ac-4324-11ea-b77f-2e728ce88125");
-    private static final UUID Knockback = UUID.fromString("501ed202-4324-11ea-b77f-2e728ce88125");
-    private static final UUID Attackspeed = UUID.fromString("60115e46-4324-11ea-b77f-2e728ce881");
+    private static final UUID MovementSpeed = UUID.fromString("cc4c54bc-46d5-11ea-b77f-2e728ce88125");
+    private static final UUID Defence = UUID.fromString("cc4c5714-46d5-11ea-b77f-2e728ce88125");
+    private static  final UUID Vitality = UUID.fromString("cc4c591c-46d5-11ea-b77f-2e728ce88125");
+    private static final  UUID Attackboost = UUID.fromString("cc4c5b24-46d5-11ea-b77f-2e728ce88125");
+    private static final UUID Knockback = UUID.fromString("cc4c5d90-46d5-11ea-b77f-2e728ce88125");
+    private static final UUID Attackspeed = UUID.fromString("cc4c5ee4-46d5-11ea-b77f-2e728ce88125");
     private final int drawSpeed;
     private final String ammo;
     private final float projectileSpeed;

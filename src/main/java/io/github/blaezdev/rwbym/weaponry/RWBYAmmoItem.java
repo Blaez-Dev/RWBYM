@@ -44,12 +44,12 @@ import java.util.UUID;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 public class RWBYAmmoItem extends Item implements ICustomItem {
-    private static final UUID MovementSpeed = UUID.fromString("c2dee5bc-441d-11ea-b77f-2e728ce88125");
-    private static final UUID Defence = UUID.fromString("c2dee864-441d-11ea-b77f-2e728ce88125");
-    private static  final UUID Vitality = UUID.fromString("c2dee9b8-441d-11ea-b77f-2e728ce88125");
-    private static final  UUID Attackboost = UUID.fromString("c2deeaf8-441d-11ea-b77f-2e728ce88125");
-    private static final UUID Knockback = UUID.fromString("c2deee9a-441d-11ea-b77f-2e728ce88125");
-    private static final UUID Attackspeed = UUID.fromString("c2deefee-441d-11ea-b77f-2e728ce88125");
+    private static final UUID MovementSpeed = UUID.fromString("24806a06-46d6-11ea-b77f-2e728ce88125");
+    private static final UUID Defence = UUID.fromString("24806d26-46d6-11ea-b77f-2e728ce88125");
+    private static  final UUID Vitality = UUID.fromString("24806eb6-46d6-11ea-b77f-2e728ce88125");
+    private static final  UUID Attackboost = UUID.fromString("24807078-46d6-11ea-b77f-2e728ce88125");
+    private static final UUID Knockback = UUID.fromString("248071c2-46d6-11ea-b77f-2e728ce88125");
+    private static final UUID Attackspeed = UUID.fromString("248072ee-46d6-11ea-b77f-2e728ce88125");
 	private Object render;
     private boolean canPickup;
     private double baseDamage;

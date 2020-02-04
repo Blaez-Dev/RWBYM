@@ -73,7 +73,8 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
     public EntityBullet(World worldIn, EntityLivingBase shooter, ItemStack stack, ItemStack shootingStack) {
         this(worldIn, shooter);
         if(shooter instanceof EntityPlayer){
-       if((((RWBYGun) shootingStack.getItem()).weapontype & RWBYGun.THROWN) !=0){this.setShootingItemStack(shootingStack.copy());}}else this.setShootingItemStack(stack);
+            if(shootingStack.getItem() instanceof RWBYGun){
+       if((((RWBYGun) shootingStack.getItem()).weapontype & RWBYGun.THROWN) !=0){this.setShootingItemStack(shootingStack.copy());}}}else this.setShootingItemStack(stack);
         this.setItem(stack);
         RWBYAmmoItem from = this.getItem();
         if (shooter instanceof EntityPlayer && from.canPickup()) {

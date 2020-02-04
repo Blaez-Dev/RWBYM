@@ -39,13 +39,13 @@ import java.util.UUID;
 import static io.github.blaezdev.rwbym.weaponry.ICustomItem.KEY;
 
 public class ArmourBase extends ItemArmor {
-    private static final UUID ARMOR_MODIFIERS = UUID.fromString("f69106a2-41b5-11ea-b77f-2e728ce88125");
-    private static final UUID MovementSpeed = UUID.fromString("9bf90946-4323-11ea-b77f-2e728ce88125");
-    private static final UUID Defence = UUID.fromString("e98e5e52-4325-11ea-b77f-2e728ce88125");
-    private static  final UUID Vitality = UUID.fromString("0ad15896-4324-11ea-b77f-2e728ce88125");
-    private static final  UUID Attackboost = UUID.fromString("308559ac-4324-11ea-b77f-2e728ce88125");
-    private static final UUID Knockback = UUID.fromString("501ed202-4324-11ea-b77f-2e728ce88125");
-    private static final UUID Attackspeed = UUID.fromString("60115e46-4324-11ea-b77f-2e728ce881");
+    private static final UUID[] ARMOR_MODIFIERS = new UUID[]{UUID.fromString("5126b112-6d41-4d7b-ad51-c05dd896fd6f"), UUID.fromString("bbef3b34-c734-467e-9c58-c06bb3b4d368"), UUID.fromString("6120e91c-73bd-4f1f-bbae-942c1f6f8a1c"), UUID.fromString("a837ba0a-4ade-4a59-859c-46af08af0f87"),UUID.fromString("6cd3a363-55b2-4e9f-880d-3d8464b5c86a")};
+    private static final UUID[] MovementSpeed = new UUID[]{UUID.fromString("eb75c2c3-fb31-486e-8e2f-b2a8a5f7b5d7"), UUID.fromString("b97e2987-d88c-4979-8459-c27226e51793"), UUID.fromString("2c78c491-1d9f-44a5-ba84-6985a068cb68"), UUID.fromString("d28d60ac-4648-4f97-b9ef-4d82b353cad8"),UUID.fromString("60ce8bd8-827e-4038-8586-40ac0297231c")};
+    private static final UUID[] Defence = new UUID[]{UUID.fromString("272b20ef-7a26-4349-a8a9-8968dfa5b471"),UUID.fromString("c575a9b5-6a04-4c50-9d9c-4407717bd8db"),UUID.fromString("89450e4b-da13-4e55-8859-b42fee5bb598"),UUID.fromString("fe07bfa4-2bc0-41d4-88f7-08a47faf22c4"),UUID.fromString("d04d09ab-7f33-46c5-8a45-d6274744079d")};
+    private static  final UUID[] Vitality = new UUID[]{UUID.fromString("af57ee3c-4972-4d6d-adad-14a394fd04f8"),UUID.fromString("0305bc40-d3a3-4fa1-b644-185e12e2808e"),UUID.fromString("b746a3a7-efd0-4252-9883-9f35321c197a"),UUID.fromString("b2d349e2-8195-4b44-bce1-e466eec11ade"),UUID.fromString("98f47166-f301-4c37-8621-898123a9f7f8")};
+    private static final  UUID[] Attackboost = new UUID[]{UUID.fromString("c8e42b1c-af7f-4cf6-864f-7918a9f3bd0e"),UUID.fromString("0f5b7e9c-1dc7-4723-8b89-73ecc43f3fa5"),UUID.fromString("f9dbf33e-8e1d-445b-9cd8-dec1e88fde16"),UUID.fromString("d5568696-0623-4b86-807a-a72980a6ea56"),UUID.fromString("f2ee6660-151c-492e-8537-256b2ec3fad7")};
+    private static final UUID[] Knockback = new UUID[]{UUID.fromString("bd8dd442-4e0c-4201-8a55-cf3e89a8e5d5"),UUID.fromString("38fa9005-f5a5-4e0e-b87c-f34df448f3ca"),UUID.fromString("601ec609-819d-4063-ab32-1d7b38bf696d"),UUID.fromString("e8abcc6a-eac5-49a3-b3f3-a4526bce8581"),UUID.fromString("44e33024-7121-470e-9aeb-eebc67789c9c")};
+    private static final UUID[] Attackspeed = new UUID[]{UUID.fromString("854cdff1-1c4f-4a21-aecc-2630cec7c461"),UUID.fromString("ebe83521-9738-4fb1-9a97-d31a07017ffd"),UUID.fromString("d6e87574-13f3-4c78-9a24-ff86aed0d6b3"),UUID.fromString("4858f7c8-d499-47db-b23c-83d78f0d8f42"),UUID.fromString("abe24347-9e3d-41df-a5d8-581cd16502a2")};
     private boolean fire = false;
     private boolean ice = false;
     private boolean wind = false;
@@ -279,14 +279,14 @@ public class ArmourBase extends ItemArmor {
 
         if (equipmentSlot == this.armorType)
         {
-            multimap.put(SharedMonsterAttributes.ARMOR.getName(), new AttributeModifier(ARMOR_MODIFIERS, "Armor modifier", (double)this.damageReduce, 0));
-            multimap.put(SharedMonsterAttributes.ARMOR_TOUGHNESS.getName(), new AttributeModifier(ARMOR_MODIFIERS, "Armor toughness", (double)this.tough, 0));
-            multimap.put(SharedMonsterAttributes.ARMOR.getName(), new AttributeModifier(Defence, "Armor modifier", (double)this.armourbuff, 2));
-            multimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(MovementSpeed, "Movement Speed", (double)movementspeedmult, 2));
-            multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(Attackspeed, "Attack Speed", (double)attackspeed, 2));
-            multimap.put(SharedMonsterAttributes.KNOCKBACK_RESISTANCE.getName(), new AttributeModifier(Knockback, "Knockback", (double)knockbackresist, 2));
-            multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(Attackboost, "Attack Boost", (double)attackboost, 2));
-            multimap.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(Vitality, "Health", (double)healthbuff, 2));
+            multimap.put(SharedMonsterAttributes.ARMOR.getName(), new AttributeModifier(ARMOR_MODIFIERS[equipmentSlot.getSlotIndex()], "Armor modifier", (double)this.damageReduce, 0));
+            multimap.put(SharedMonsterAttributes.ARMOR_TOUGHNESS.getName(), new AttributeModifier(ARMOR_MODIFIERS[equipmentSlot.getSlotIndex()], "Armor toughness", (double)this.tough, 0));
+            multimap.put(SharedMonsterAttributes.ARMOR.getName(), new AttributeModifier(Defence[equipmentSlot.getSlotIndex()], "Armor modifier", (double)this.armourbuff, 2));
+            multimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(MovementSpeed[equipmentSlot.getSlotIndex()], "Movement Speed", (double)movementspeedmult, 2));
+            multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(Attackspeed[equipmentSlot.getSlotIndex()], "Attack Speed", (double)attackspeed, 2));
+            multimap.put(SharedMonsterAttributes.KNOCKBACK_RESISTANCE.getName(), new AttributeModifier(Knockback[equipmentSlot.getSlotIndex()], "Knockback", (double)knockbackresist, 2));
+            multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(Attackboost[equipmentSlot.getSlotIndex()], "Attack Boost", (double)attackboost, 2));
+            multimap.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(Vitality[equipmentSlot.getSlotIndex()], "Health", (double)healthbuff, 2));
         }
 
         return multimap;

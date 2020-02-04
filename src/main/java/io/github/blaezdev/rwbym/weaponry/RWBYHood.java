@@ -39,13 +39,13 @@ import static io.github.blaezdev.rwbym.weaponry.ArmourBase.*;
  * @author Bluexin
  */
 public class RWBYHood extends Item implements ICustomItem {
-    private static final UUID ARMOR_MODIFIERS = UUID.fromString("f69106a2-41b5-11ea-b77f-2e728ce88125");
-    private static final UUID MovementSpeed = UUID.fromString("9bf90946-4323-11ea-b77f-2e728ce88125");
-    private static final UUID Defence = UUID.fromString("e98e5e52-4325-11ea-b77f-2e728ce88125");
-    private static  final UUID Vitality = UUID.fromString("0ad15896-4324-11ea-b77f-2e728ce88125");
-    private static final  UUID Attackboost = UUID.fromString("308559ac-4324-11ea-b77f-2e728ce88125");
-    private static final UUID Knockback = UUID.fromString("501ed202-4324-11ea-b77f-2e728ce88125");
-    private static final UUID Attackspeed = UUID.fromString("60115e46-4324-11ea-b77f-2e728ce881");
+    private static final UUID ARMOR_MODIFIERS = UUID.fromString("883e415e-46d5-11ea-b77f-2e728ce88125");
+    private static final UUID MovementSpeed = UUID.fromString("883e45dc-46d5-11ea-b77f-2e728ce88125");
+    private static final UUID Defence = UUID.fromString("883e474e-46d5-11ea-b77f-2e728ce88125");
+    private static  final UUID Vitality = UUID.fromString("883e4884-46d5-11ea-b77f-2e728ce88125");
+    private static final  UUID Attackboost = UUID.fromString("883e49b0-46d5-11ea-b77f-2e728ce88125");
+    private static final UUID Knockback = UUID.fromString("883e4ad2-46d5-11ea-b77f-2e728ce88125");
+    private static final UUID Attackspeed = UUID.fromString("7b9b3b14-46d5-11ea-b77f-2e728ce88125");
     private boolean ismask;
     //private final String data;
     private final String morph;
