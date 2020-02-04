@@ -1,10 +1,12 @@
 package io.github.blaezdev.rwbym.weaponry;
 
 import com.google.common.collect.Multimap;
+import com.mojang.realmsclient.gui.ChatFormatting;
 import io.github.blaezdev.rwbym.Init.RWBYCreativeTabs;
 import io.github.blaezdev.rwbym.Init.RWBYItems;
 import io.github.blaezdev.rwbym.Init.RegUtil;
 import io.github.blaezdev.rwbym.RWBYModels;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -29,6 +31,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.logging.log4j.LogManager;
 
+import javax.annotation.Nullable;
+import java.util.List;
 import java.util.UUID;
 
 import static io.github.blaezdev.rwbym.weaponry.ArmourBase.*;
@@ -124,6 +128,39 @@ public class RWBYHood extends Item implements ICustomItem {
         else{knockbackresist = 0;}
     }
 
+    @Override
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+        tooltip.add("Armour Perks:");
+        if((armourperks & MOVEMENTSPEED1) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Movement Speed Rank 1 ((Modifies Movement Speed))");}
+        if((armourperks & MOVEMENTSPEED2) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Movement Speed Rank 2 ((Modifies Movement Speed))");}
+        if((armourperks & DEFENSE1) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Defense Rank 1 ((Increases Armour Rating))");}
+        if((armourperks & DEFENSE1) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Defense Rank 2 ((Increases Armour Rating))");}
+        if((armourperks & VITALITY1) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Vitality Rank 1 ((Increases Health))");}
+        if((armourperks & VITALITY2) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Vitality Rank 2 ((Increases Health))");}
+        if((armourperks & VITALITY3) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Vitality Rank 3 ((Increases Health))");}
+        if((armourperks & ATTACKBOOST1) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Attack Boost Rank 1 ((Increases Melee Damage))");}
+        if((armourperks & ATTACKBOOST2) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Attack Boost Rank 2 ((Increases Melee Damage))");}
+        if((armourperks & ATTACKBOOST3) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Attack Boost Rank 3 ((Increases Melee Damage))");}
+        if((armourperks & ATTACKBOOST4) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Attack Boost Rank 4 ((Increases Melee Damage))");}
+        if((armourperks & NIGHTVISION) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Night Vision Rank 1 ((Applies Night Vision))");}
+        if((armourperks & JUMPBOOST1) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Jump Boost Rank 1 ((Applies Jump Boost 1))");}
+        if((armourperks & JUMPBOOST2) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Jump Boost Rank 2 ((Applies Jump Boost 2))");}
+        if((armourperks & JUMPBOOST3) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Jump Boost Rank 3 ((Applies Jump Boost 3))");}
+        if((armourperks & CRITICALSTRIKE1) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Critical Strike Rank 1 ((Dagger Criticals can Hit at 75HP instead of 100))");}
+        if((armourperks & CRITICALSTRIKE2) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Critical Strike Rank 2 ((Dagger Criticals can Hit at 50HP instead of 100))");}
+        if((armourperks & REACH1) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Reach Rank 1 ((Pole Arms Have Increased Sweep Range +1 per rank))");}
+        if((armourperks & REACH2) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Reach Rank 2 ((Pole Arms Have Increased Sweep Range +1 per rank))");}
+        if((armourperks & PUNCTURE1) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Puncture Rank 1 ((Rapiers More Damage on Armour Pierce))");}
+        if((armourperks & PUNCTURE2) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Puncture Rank 2 ((Rapiers More Damage on Armour Pierce))");}
+        if((armourperks & K01) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Knockout Rank 1 ((Fist and Blunt Weapons have increased chance to cause a dazing effect per rank.))");}
+        if((armourperks & K02) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Knockout Rank 2 ((Fist and Blunt Weapons have increased chance to cause a dazing effect per rank.))");}
+        if((armourperks & FOOTING1) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Footing Rank 1 ((Knockback Resistance))");}
+        if((armourperks & FOOTING2) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Footing Rank 1 ((Knockback Resistance))");}
+        if((armourperks & RUSH1) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Rush Rank 1 ((Attack Speed))");}
+        if((armourperks & RUSH2) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Rush Rank 2 ((Attack Speed))");}
+        if((armourperks & AURAREGEN) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Aura Regen Rank 1 ((Applies Aura Regen))");}
+        if((armourperks & FIRESTARTER) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Fire-Starter Rank 1 ((Applies Fire Resistance))");}
+    }
 
     @Override
     public void onUpdate(ItemStack is, World world, Entity entity, int slotIn, boolean inHand) {
