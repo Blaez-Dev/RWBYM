@@ -162,7 +162,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 	public static final int RCL_BACK_WEAK = 2;
 	public static final int RCL_FORWARD =   3;
 
-    public boolean validperk(EntityLivingBase playerIn,int armorperk){
+    public boolean validperk(EntityLivingBase playerIn,long armorperk){
         for (ItemStack stack:playerIn.getArmorInventoryList()){
             if(stack.getItem() instanceof ArmourBase){
             if((((ArmourBase) stack.getItem()).armourperks & armorperk) !=0){
@@ -869,6 +869,9 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         }
 
         // the rest is a copy from ItemBow#findAmmo(EntityPlayer)
+       /* if (this.isArrow(player.getItemStackFromSlot(EntityEquipmentSlot.FEET))) {
+            return player.getItemStackFromSlot(EntityEquipmentSlot.FEET);
+        }else*/
         if (this.isArrow(player.getHeldItem(EnumHand.OFF_HAND))) {
             return player.getHeldItem(EnumHand.OFF_HAND);
         } else if (this.isArrow(player.getHeldItem(EnumHand.MAIN_HAND))) {

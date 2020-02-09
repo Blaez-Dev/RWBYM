@@ -56,7 +56,7 @@ public class RWBYHood extends Item implements ICustomItem {
     final int damageReduce;
     final float tough;
 
-    public int armourperks;
+    public long armourperks;
 
     private final float movementspeedmult;
     private final float armourbuff;
@@ -65,7 +65,7 @@ public class RWBYHood extends Item implements ICustomItem {
     private final float knockbackresist;
     private final float attackspeed;
 
-    public boolean validperk(EntityLivingBase playerIn, int armorperk){
+    public boolean validperk(EntityLivingBase playerIn, long armorperk){
         for (ItemStack stack:playerIn.getArmorInventoryList()){
             if(stack.getItem() instanceof ArmourBase){
                 if((((ArmourBase) stack.getItem()).armourperks & armorperk) !=0){
@@ -81,7 +81,7 @@ public class RWBYHood extends Item implements ICustomItem {
         return false;
     }
 
-    public RWBYHood(String name, boolean isMask,String morph,CreativeTabs creativetab, int armourperks) {
+    public RWBYHood(String name, boolean isMask,String morph,CreativeTabs creativetab, long armourperks) {
         this.setRegistryName(new ResourceLocation(RWBYModels.MODID, name));
         this.setUnlocalizedName(this.getRegistryName().toString());
         this.setCreativeTab(RWBYCreativeTabs.tab_rwbyitems);

@@ -256,6 +256,14 @@ public class RWBYAmmoItem extends Item implements ICustomItem {
             }
         }
     }
+/*
+    @Override
+    public boolean isValidArmor(ItemStack stack, EntityEquipmentSlot armorType, Entity entity) {
+       if(armorType == EntityEquipmentSlot.FEET) {
+            return true;
+        }else {
+            return false;}
+    }*/
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
