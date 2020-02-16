@@ -182,8 +182,8 @@ public class GuiScreenScrollLevel extends GuiScreen {
 			//this.drawCenteredString(fontRenderer, Integer.toString(aura.getMaxAura()), posx + barx, posy - texturey * 2 / 40, 255<<16|255<<8|0);
 
 			//this.drawCenteredString(fontRenderer, Integer.toString((int) (aura.getMaxAura() * aura.getPercentage())), posx + width, posy + texturey * 2 / 40, 255<<16|(int)(255 * aura.getPercentage())<<8|0);
-			this.drawCenteredString(fontRenderer, "Semblance:"+semblance.toString()+" ", posx + barx / 2, posy + texturey * 2 / 40, 255<<16|255<<8|255);
-			this.drawCenteredString(fontRenderer, "Aura Amount:" + Integer.toString((int)(aura.getMaxAura() * aura.getPercentage())) + " / " + Integer.toString((int)aura.getMaxAura()), posx + barx / 2, posy + texturey * 2 / 22, 255<<16|255<<8|255);
+			this.drawCenteredString(fontRenderer, "Semblance:"+semblance.toString()+ " "+"Lvl:"+ Integer.toString((int)semblance.getLevel()), posx + barx / 2, posy + texturey * 2 / 10, 255<<16|255<<8|255);
+			this.drawCenteredString(fontRenderer, "Aura Amount:" + Integer.toString((int)(aura.getMaxAura() * aura.getPercentage())) + " / " + Integer.toString((int)aura.getMaxAura()), posx + barx / 2, posy + texturey * 2 / 30, 255<<16|255<<8|255);
 		}
 	}
 	

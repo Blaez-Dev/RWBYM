@@ -988,6 +988,7 @@ public class RegUtil {
         registerRecipes(RWBYItems.carminesai);
         registerRecipes(RWBYItems.carminestaff);
         registerRecipes(RWBYItems.moonskimmer);
+        registerRecipes(RWBYItems.mondragon);
     }
 
     private static void registerBlocks(FMLPreInitializationEvent event, Block...blocks) {

@@ -9,6 +9,10 @@ import io.github.blaezdev.rwbym.capabilities.Blake.Blake;
 import io.github.blaezdev.rwbym.capabilities.Blake.BlakeProvider;
 import io.github.blaezdev.rwbym.capabilities.Blake.BlakeStorage;
 import io.github.blaezdev.rwbym.capabilities.Blake.IBlake;
+import io.github.blaezdev.rwbym.capabilities.Blank.Blank;
+import io.github.blaezdev.rwbym.capabilities.Blank.BlankProvider;
+import io.github.blaezdev.rwbym.capabilities.Blank.BlankStorage;
+import io.github.blaezdev.rwbym.capabilities.Blank.IBlank;
 import io.github.blaezdev.rwbym.capabilities.Clover.Clover;
 import io.github.blaezdev.rwbym.capabilities.Clover.CloverProvider;
 import io.github.blaezdev.rwbym.capabilities.Clover.CloverStorage;
@@ -61,6 +65,7 @@ import io.github.blaezdev.rwbym.capabilities.team.ITeam;
 import io.github.blaezdev.rwbym.capabilities.team.Team;
 import io.github.blaezdev.rwbym.capabilities.team.TeamProvider;
 import io.github.blaezdev.rwbym.capabilities.team.TeamStorage;
+import io.github.blaezdev.rwbym.utility.RWBYConfig;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
@@ -91,6 +96,7 @@ public class CapabilityHandler {
 	public static final ResourceLocation Clover_KEY = new ResourceLocation(RWBYModels.MODID, "clover");
 	public static final ResourceLocation Harriet_Key = new ResourceLocation(RWBYModels.MODID, "harriet");
 	public static final ResourceLocation Pyrrha_Key = new ResourceLocation(RWBYModels.MODID, "pyrrha");
+	public static final ResourceLocation Blank_Key = new ResourceLocation(RWBYModels.MODID, "blank");
 	
 	public static final ResourceLocation AURA_KEY = new ResourceLocation(RWBYModels.MODID, "aura");
 	public static final ResourceLocation TEAM_KEY = new ResourceLocation(RWBYModels.MODID, "team");
@@ -115,6 +121,7 @@ public class CapabilityHandler {
 			event.addCapability(Clover_KEY, new CloverProvider());
 			event.addCapability(Harriet_Key, new HarrietProvider());
 			event.addCapability(Pyrrha_Key, new PyrrhaProvider());
+			event.addCapability(Blank_Key, new BlankProvider());
 		}
 		
 		if (event.getObject() instanceof World) {
@@ -138,7 +145,7 @@ public class CapabilityHandler {
 		register(IClover.class, new CloverStorage(), Clover::new);
 		register(IHarriet.class, new HarrietStorage(), Harriet::new);
 		register(IPyrrha.class, new PyrrhaStorage(), Pyrrha::new);
-
+		register(IBlank.class, new BlankStorage(), Blank::new);
 
 		CapabilityManager.INSTANCE.register(IAura.class, new AuraStorage(), Aura::new);
 		CapabilityManager.INSTANCE.register(ITeam.class, new TeamStorage(), Team::new);
@@ -158,7 +165,7 @@ public class CapabilityHandler {
 		RWBYModels.LOGGER.log(RWBYModels.updtes, "Getting Active Semblance for Player: {}", player.getDisplayNameString());
 				
 		List<ISemblance> semblances = new ArrayList<ISemblance>();
-		
+
 		for (Capability<ISemblance> capability : capabilities) {
 			if (player.hasCapability(capability, null)) {
 				ISemblance semblance = player.getCapability(capability, null);
@@ -173,12 +180,11 @@ public class CapabilityHandler {
 		if (semblances.size() > 1) {
 			//RWBYModels.LOGGER.warn("Player Has Multiple Active Semblances");
 		}
-		
+
 		if (semblances.isEmpty()) {
 			RWBYModels.LOGGER.info("No Current Semblance");
 			return null;
 		}
-		
 		return semblances.get(rand.nextInt(semblances.size()));
 	}
 	

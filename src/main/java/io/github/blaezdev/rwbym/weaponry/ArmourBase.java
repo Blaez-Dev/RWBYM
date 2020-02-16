@@ -263,7 +263,7 @@ public class ArmourBase extends ItemArmor {
 
             }
             if(this.validperk(player, NIGHTVISION)){
-                PotionEffect potioneffect = new PotionEffect(MobEffects.NIGHT_VISION, 60, 0, false, false);
+                PotionEffect potioneffect = new PotionEffect(MobEffects.NIGHT_VISION, 240, 0, false, false);
                 player.addPotionEffect(potioneffect);
             }
             if(this.validperk(player, JUMPBOOST1)){

@@ -23,6 +23,7 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
@@ -72,7 +73,7 @@ public class EntityQueenLancer extends EntityGrimm
         @Override
         public boolean getCanSpawnHere()
         {
-            return this.world.canSeeSky(new BlockPos(this.posX, this.posY + (double)this.getEyeHeight(), this.posZ))&& this.world.isDaytime() == false||RWBYConfig.configmobspawnrates.lancernests;
+            return this.world.canSeeSky(new BlockPos(this.posX, this.posY + (double)this.getEyeHeight(), this.posZ))&& this.world.isDaytime() == false&&this.world.getDifficulty() != EnumDifficulty.PEACEFUL||RWBYConfig.configmobspawnrates.lancernests;
         }
 
     /**

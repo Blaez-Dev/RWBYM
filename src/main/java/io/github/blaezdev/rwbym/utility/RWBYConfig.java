@@ -136,6 +136,8 @@ public class RWBYConfig
     public  float shadowballsize = 4.5F;
     @Config.Name("Ragora Summon Particle Count")
     public  int ragorasummonparticles = 100;
+        /*@Config.Name("Start With Semblance")
+        public  boolean startwithsemblance = false;*/
     }
 
     public static class Mining{
