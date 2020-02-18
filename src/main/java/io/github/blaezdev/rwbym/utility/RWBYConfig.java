@@ -69,11 +69,11 @@ public class RWBYConfig
 
     public static class MobAttributes{
     @Config.Name("Global Aggro Range in Blocks")
-    public  float aggrorange = 60;
+    public  float aggrorange = 50;
     @Config.Name("Grimm Health Multiplier")
-    public  float grimmhealthmult = 1.0F;
+    public  float grimmhealthmult = 1.5F;
     @Config.Name("Grimm Attack Damage Multiplier")
-    public  float grimmattackmult = 1.0F;
+    public  float grimmattackmult = 1.5F;
     @Config.Name("Grimm Fluid Spawn Rate")
     @Config.Comment("One in x chance to spawn a grimm every tick for each block.")
     @Config.RangeInt(min = 0)

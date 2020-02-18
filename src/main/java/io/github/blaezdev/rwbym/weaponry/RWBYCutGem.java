@@ -100,7 +100,7 @@ public class RWBYCutGem extends ItemBow implements ICustomItem {
             attackspeed = 0;
         }
         else if ((element & WIND) != 0){
-            movementspeedmult = 2.0F;
+            movementspeedmult = 1.7F;
             armourbuff = 0;
             healthbuff = -0.7F;
             attackboost = 0;
@@ -111,7 +111,7 @@ public class RWBYCutGem extends ItemBow implements ICustomItem {
             movementspeedmult = 0;
             armourbuff = 0;
             healthbuff = -0.7F;
-            attackboost = 3.5F;
+            attackboost = 2.3F;
             knockbackresist = 0;
             attackspeed = 0;
         }
@@ -129,7 +129,7 @@ public class RWBYCutGem extends ItemBow implements ICustomItem {
             healthbuff = -0.7F;
             attackboost = 0;
             knockbackresist = 0;
-            attackspeed = 3.0F;
+            attackspeed = 2.5F;
         }else if((element & ICE) != 0){
             movementspeedmult = -0.5F;
             armourbuff = 0;

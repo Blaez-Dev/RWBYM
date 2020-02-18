@@ -153,7 +153,7 @@ public class RWBYAmmoItem extends Item implements ICustomItem {
             attackspeed = 0;
         }
         else if ((element & WIND) != 0){
-            movementspeedmult = 1.5F;
+            movementspeedmult = 1.3F;
             armourbuff = 0;
             healthbuff = -0.5F;
             attackboost = 0;
@@ -164,7 +164,7 @@ public class RWBYAmmoItem extends Item implements ICustomItem {
             movementspeedmult = 0;
             armourbuff = 0;
             healthbuff = -0.5F;
-            attackboost = 2.0F;
+            attackboost = 1.5F;
             knockbackresist = 0;
             attackspeed = 0;
         }

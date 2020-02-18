@@ -316,5 +316,10 @@ public class EntityUpdatesHandler {
         }
 
 
+        if (biome == RWBYBiomes.DomainofLight && player.isInWater()) {
+            PotionEffect potioneffect = new PotionEffect(MobEffects.REGENERATION, 60, 3, false, false);
+            player.addPotionEffect(potioneffect);
+        }
+
     }
 }
