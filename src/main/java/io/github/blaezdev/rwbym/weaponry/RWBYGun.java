@@ -6,6 +6,7 @@ import io.github.blaezdev.rwbym.Init.RWBYItems;
 import io.github.blaezdev.rwbym.RWBYModels;
 import io.github.blaezdev.rwbym.RWBYSoundHandler;
 import io.github.blaezdev.rwbym.capabilities.Aura.AuraProvider;
+import io.github.blaezdev.rwbym.utility.RWBYConfig;
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -1095,64 +1096,64 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                     }
 
                     if (soundeffect == 1) {
-                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.Crescent_Rose_Shoot, SoundCategory.MASTER, 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.Crescent_Rose_Shoot, SoundCategory.MASTER, RWBYConfig.general.gunvolume, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
                     }
                     if (soundeffect == 2){
-                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.Ember_Celica_Shoot, SoundCategory.MASTER, 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.Ember_Celica_Shoot, SoundCategory.MASTER, RWBYConfig.general.gunvolume, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
                     }
                     if (soundeffect == 3) {
-                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.Gambol_Shroud_Shoot, SoundCategory.MASTER, 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.Gambol_Shroud_Shoot, SoundCategory.MASTER, RWBYConfig.general.gunvolume, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
                     }
                     if (soundeffect == 4) {
-                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.Mytrenaster_Shoot, SoundCategory.MASTER, 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.Mytrenaster_Shoot, SoundCategory.MASTER, RWBYConfig.general.gunvolume, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
                     }
                     if (soundeffect == 5){
-                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.StormFlower_Shoot, SoundCategory.MASTER, 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.StormFlower_Shoot, SoundCategory.MASTER, RWBYConfig.general.gunvolume, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
                     }
                     if (soundeffect == 6) {
-                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.Magnhild_Shoot, SoundCategory.MASTER, 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.Magnhild_Shoot, SoundCategory.MASTER, RWBYConfig.general.gunvolume, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
                     }
                     if (soundeffect == 7) {
-                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.Ember_Celica_Shoot, SoundCategory.MASTER, 1.0F, 0.2F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.Ember_Celica_Shoot, SoundCategory.MASTER, RWBYConfig.general.gunvolume, 0.2F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
                     }
 
                     if (soundeffect == 8) {
-                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.Port_Shoot, SoundCategory.MASTER, 1.0F, 0.8F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.Port_Shoot, SoundCategory.MASTER, RWBYConfig.general.gunvolume, 0.8F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
                     }
 
                     if (soundeffect == 9) {
-                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.Gambol_Shroud_Shoot, SoundCategory.MASTER, 1.0F, 0.7F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.Gambol_Shroud_Shoot, SoundCategory.MASTER, RWBYConfig.general.gunvolume, 0.7F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
                     }
 
                     if (soundeffect == 10) {
-                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.Junior_Shoot, SoundCategory.MASTER, 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.Junior_Shoot, SoundCategory.MASTER, RWBYConfig.general.gunvolume, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
                     }
 
                     if (soundeffect == 11) {
-                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.Torchwick_Shoot, SoundCategory.MASTER, 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.Torchwick_Shoot, SoundCategory.MASTER, RWBYConfig.general.gunvolume, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
                     }
 
                     if (soundeffect == 12) {
-                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.Crescent_Rose_Shoot, SoundCategory.MASTER, 1.0F, 2F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.Crescent_Rose_Shoot, SoundCategory.MASTER, RWBYConfig.general.gunvolume, 2F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
                     }
 
                     if (soundeffect == 13) {
-                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.Crescent_Rose_Shoot, SoundCategory.MASTER, 0.5F, 3F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.Crescent_Rose_Shoot, SoundCategory.MASTER, RWBYConfig.general.gunvolume/2, 3F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
                     }
                     if (soundeffect == 14){
-                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.StormFlower_Shoot, SoundCategory.MASTER, 1.0F, 0.5F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.StormFlower_Shoot, SoundCategory.MASTER, RWBYConfig.general.gunvolume, 0.5F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
                     }
 
                     if(soundeffect == 15){
-                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, SoundEvents.ITEM_FIRECHARGE_USE, SoundCategory.MASTER, 1.0F, 0.5F/ (itemRand.nextFloat() * 0.4F + 1.0F) + f + 0.5F);
+                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, SoundEvents.ITEM_FIRECHARGE_USE, SoundCategory.MASTER, RWBYConfig.general.gunvolume, 0.5F/ (itemRand.nextFloat() * 0.4F + 1.0F) + f + 0.5F);
                     }
 
                     if(soundeffect == 16){
-                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.MASTER, 1.0F, 0.5F/ (itemRand.nextFloat() * 0.4F + 1.0F) + f + 0.5F);
+                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.MASTER, RWBYConfig.general.gunvolume, 0.5F/ (itemRand.nextFloat() * 0.4F + 1.0F) + f + 0.5F);
                     }
 
                     if(soundeffect == 17){
-                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, SoundEvents.ENTITY_ENDERPEARL_THROW, SoundCategory.MASTER, 1.0F, 0.5F/ (itemRand.nextFloat() * 0.4F + 1.0F) + f + 0.5F);
+                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, SoundEvents.ENTITY_ENDERPEARL_THROW, SoundCategory.MASTER, RWBYConfig.general.gunvolume, 0.5F/ (itemRand.nextFloat() * 0.4F + 1.0F) + f + 0.5F);
                     }
 
                         for (int timer = shotrecoil; timer>1; timer --){

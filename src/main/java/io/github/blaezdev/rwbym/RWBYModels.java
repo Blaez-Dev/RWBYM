@@ -21,6 +21,10 @@ import io.github.blaezdev.rwbym.weaponry.ICustomItem;
 import io.github.blaezdev.rwbym.weaponry.RWBYContainerItem;
 import io.github.blaezdev.rwbym.weaponry.RWBYGun;
 import io.github.blaezdev.rwbym.weaponry.RWBYHood;
+import io.github.blaezdev.rwbym.world.village.ComponentVillageShop1;
+import io.github.blaezdev.rwbym.world.village.ComponentVillageShop2;
+import io.github.blaezdev.rwbym.world.village.VillageShop1CreationHandler;
+import io.github.blaezdev.rwbym.world.village.VillageShop2CreationHandler;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -36,6 +40,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.minecraft.world.gen.structure.MapGenStructureIO;
 import net.minecraftforge.client.model.obj.OBJLoader;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
@@ -50,6 +55,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.IGuiHandler;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.VillagerRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
@@ -66,7 +72,7 @@ import java.util.List;
 public class RWBYModels {
     public static final String MODID = "rwbym";
     public static final String MODNAME = "RWBY-M";
-    public static final String VERSION = "4.4.7";
+    public static final String VERSION = "4.4.8";
     public static List<ICustomItem> items;
 
     public static final Logger LOGGER = LogManager.getLogger(MODID);
@@ -128,6 +134,12 @@ public class RWBYModels {
     	//LOGGER.log(Level.OFF, "off"); // should only be used to set logger level, which can't be done without copying and modifying forge files
 
         MinecraftForge.EVENT_BUS.register(new ModEventHandler());
+
+        VillagerRegistry.instance().registerVillageCreationHandler(new VillageShop1CreationHandler());
+        MapGenStructureIO.registerStructureComponent(ComponentVillageShop1.class, "rwbym:village_shop");
+
+        VillagerRegistry.instance().registerVillageCreationHandler(new VillageShop2CreationHandler());
+        MapGenStructureIO.registerStructureComponent(ComponentVillageShop2.class, "rwbym:village_shop2");
 
         if (event.getSide() == Side.CLIENT){
             KeybindRegistry.register();

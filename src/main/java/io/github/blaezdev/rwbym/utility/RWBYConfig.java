@@ -176,6 +176,8 @@ public class RWBYConfig
     public static class General {
     @Config.Name("Give Player Scroll on First Spawn?")
     public  boolean enablefirstspawnscroll = false;
+    @Config.Name("Gun Volume")
+    public float gunvolume = 1F;
 }
 
 

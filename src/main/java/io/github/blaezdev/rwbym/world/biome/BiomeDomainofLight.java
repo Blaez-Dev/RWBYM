@@ -6,14 +6,16 @@ import net.minecraft.world.biome.Biome;
 public class BiomeDomainofLight extends Biome {
 
     public BiomeDomainofLight() {
-        super(new BiomeProperties("Grimm Wastes").setBaseBiome("forest").setRainfall(0.5F).setHeightVariation(0.01F));
+        super(new BiomeProperties("Domain of Light").setBaseBiome("forest").setRainfall(0.5F).setHeightVariation(0.01F));
         this.spawnableCaveCreatureList.clear();
         this.spawnableCreatureList.clear();
         this.spawnableMonsterList.clear();
         this.spawnableWaterCreatureList.clear();
         this.decorator.treesPerChunk = 0;
-        this.decorator.flowersPerChunk = 10;
+        this.decorator.grassPerChunk = 400;
+        this.decorator.flowersPerChunk = 100;
         this.decorator.sandPatchesPerChunk = 2;
+        this.decorator.gravelPatchesPerChunk = 10;
     }
 
     @Override
