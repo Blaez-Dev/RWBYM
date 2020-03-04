@@ -1,6 +1,7 @@
 package io.github.blaezdev.rwbym.entity;
 
 import io.github.blaezdev.rwbym.ModLootTables;
+import io.github.blaezdev.rwbym.RWBYEntities;
 import io.github.blaezdev.rwbym.utility.RWBYConfig;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
@@ -156,7 +157,7 @@ public class EntityMutantDeathStalker extends EntityGrimm
      */
     public EnumCreatureAttribute getCreatureAttribute()
     {
-        return EnumCreatureAttribute.ILLAGER;
+        return RWBYEntities.grimm;
     }
 
 

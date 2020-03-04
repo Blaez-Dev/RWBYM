@@ -5222,6 +5222,26 @@ public class RWBYItems {
     public static final Item rubyhood = new RWBYHood("rubyhood",  true,"rwbym:ruby2_head", RWBYCreativeTabs.tab_rwbyarmour,ArmourBase.MOVEMENTSPEED1|ArmourBase.VITALITY1);
     public static final Item summerhood = new RWBYHood("summerhood",  true, "rwbym:summer2_head",RWBYCreativeTabs.tab_rwbyarmour,ArmourBase.MOVEMENTSPEED1|ArmourBase.ATTACKBOOST1);
 
+    //Charms
+    public static final ItemArmor.ArmorMaterial charmMat = EnumHelper.addArmorMaterial("charm", "rwbym:charm", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
+    public static final ItemArmor kingsgambit = new ArmourBase(charmMat, 0, EntityEquipmentSlot.FEET, "kingsgambit", null,     true, RWBYCreativeTabs.tab_rwbycharms, ArmourBase.KINGSGAMBIT);
+    public static final ItemArmor kingsgambitpawn = new ArmourBase(charmMat, 0, EntityEquipmentSlot.FEET, "kingsgambitpawn", null,     true, RWBYCreativeTabs.tab_rwbycharms, ArmourBase.KINGSPAWN);
+    public static final ItemArmor firedancercharm = new ArmourBase(charmMat, 0, EntityEquipmentSlot.FEET, "firedancercharm", null,     true, RWBYCreativeTabs.tab_rwbycharms, ArmourBase.FIRESTARTER);
+    public static final ItemArmor criticalcharm = new ArmourBase(charmMat, 0, EntityEquipmentSlot.FEET, "criticalcharm", null,     true, RWBYCreativeTabs.tab_rwbycharms, ArmourBase.CRITICALSTRIKE1);
+    public static final ItemArmor auracharm = new ArmourBase(charmMat, 0, EntityEquipmentSlot.FEET, "auracharm", null,     true, RWBYCreativeTabs.tab_rwbycharms, ArmourBase.AURAREGEN);
+    public static final ItemArmor healthcharm = new ArmourBase(charmMat, 0, EntityEquipmentSlot.FEET, "healthcharm", null,     true, RWBYCreativeTabs.tab_rwbycharms, ArmourBase.VITALITY2);
+    public static final ItemArmor reachcharm = new ArmourBase(charmMat, 0, EntityEquipmentSlot.FEET, "reachcharm", null,     true, RWBYCreativeTabs.tab_rwbycharms, ArmourBase.REACH1);
+    public static final ItemArmor puncturecharm = new ArmourBase(charmMat, 0, EntityEquipmentSlot.FEET, "puncturecharm", null,     true, RWBYCreativeTabs.tab_rwbycharms, ArmourBase.PUNCTURE1);
+    public static final ItemArmor edgecharm = new ArmourBase(charmMat, 0, EntityEquipmentSlot.FEET, "edgecharm", null,     true, RWBYCreativeTabs.tab_rwbycharms, ArmourBase.GLADIATOR1);
+    public static final ItemArmor knockoutcharm = new ArmourBase(charmMat, 0, EntityEquipmentSlot.FEET, "knockoutcharm", null,     true, RWBYCreativeTabs.tab_rwbycharms, ArmourBase.K01);
+    public static final ItemArmor tankcharm = new ArmourBase(charmMat, 0, EntityEquipmentSlot.FEET, "tankcharm", null,     true, RWBYCreativeTabs.tab_rwbycharms, ArmourBase.DEFENSE2);
+    public static final ItemArmor attackcharm = new ArmourBase(charmMat, 0, EntityEquipmentSlot.FEET, "attackcharm", null,     true, RWBYCreativeTabs.tab_rwbycharms, ArmourBase.ATTACKBOOST2);
+    public static final ItemArmor feathercharm = new ArmourBase(charmMat, 0, EntityEquipmentSlot.FEET, "feathercharm", null,     true, RWBYCreativeTabs.tab_rwbycharms, ArmourBase.JUMPBOOST2);
+    public static final ItemArmor fleetingcharm = new ArmourBase(charmMat, 0, EntityEquipmentSlot.FEET, "fleetingcharm", null,     true, RWBYCreativeTabs.tab_rwbycharms, ArmourBase.MOVEMENTSPEED1);
+    public static final ItemArmor rushcharm = new ArmourBase(charmMat, 0, EntityEquipmentSlot.FEET, "rushcharm", null,     true, RWBYCreativeTabs.tab_rwbycharms, ArmourBase.RUSH1);
+    public static final ItemArmor silvercharm = new ArmourBase(charmMat, 0, EntityEquipmentSlot.FEET, "silvercharm", null,     true, RWBYCreativeTabs.tab_rwbycharms, ArmourBase.SILVERLIGHT);
+    public static final ItemArmor maidencharm = new ArmourBase(charmMat, 0, EntityEquipmentSlot.FEET, "maidencharm", null,     true, RWBYCreativeTabs.tab_rwbycharms, ArmourBase.MAIDEN);
+
     public static final ItemArmor korekosmouoff;
     public static final ItemArmor korekosmoufire;
     public static final ItemArmor korekosmouwater;

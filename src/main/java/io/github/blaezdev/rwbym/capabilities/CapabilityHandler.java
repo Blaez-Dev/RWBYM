@@ -176,6 +176,7 @@ public class CapabilityHandler {
 				}
 			}
 		}
+
 		
 		if (semblances.size() > 1) {
 			//RWBYModels.LOGGER.warn("Player Has Multiple Active Semblances");

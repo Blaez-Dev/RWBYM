@@ -1,5 +1,6 @@
 package io.github.blaezdev.rwbym.world.village;
 
+import io.github.blaezdev.rwbym.Init.Oregen;
 import io.github.blaezdev.rwbym.RWBYModels;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
@@ -19,7 +20,7 @@ import java.util.Map;
 import java.util.Random;
 
 public class ComponentVillageShop1 extends StructureVillagePieces.Village {
-    private static final ResourceLocation shop = new ResourceLocation("rwbym:rwbym2");
+    private static final ResourceLocation shop = new ResourceLocation("rwbym:rwbym5");
 
     public ComponentVillageShop1() {
     }
@@ -33,12 +34,12 @@ public class ComponentVillageShop1 extends StructureVillagePieces.Village {
     @Override
     public boolean addComponentParts(World world, Random random, StructureBoundingBox boundingBox) {
         if (averageGroundLvl < 0) {
-            averageGroundLvl = getAverageGroundLevel(world, boundingBox);
+            averageGroundLvl = this.getAverageGroundLevel(world, boundingBox);
             if (averageGroundLvl < 0) {
                 return true;
             }
 
-            this.boundingBox.offset(20, averageGroundLvl - this.boundingBox.minY-2, 20);
+            this.boundingBox.offset(0, averageGroundLvl - this.boundingBox.minY+3, 0);
         }
         BlockPos pos = new BlockPos(this.boundingBox.minX, this.boundingBox.minY, this.boundingBox.minZ);
         TemplateManager templateManager = world.getSaveHandler().getStructureTemplateManager();
@@ -51,7 +52,7 @@ public class ComponentVillageShop1 extends StructureVillagePieces.Village {
 
     @Nullable
     public static StructureVillagePieces.Village buildComponent(StructureVillagePieces.PieceWeight villagePiece, StructureVillagePieces.Start startPiece, List<StructureComponent> pieces, Random random, int x, int y, int z, EnumFacing facing, int type) {
-        StructureBoundingBox boundingBox = StructureBoundingBox.getComponentToAddBoundingBox(x, y, z, 0, 0, 0, 7, 6, 7, facing);
+        StructureBoundingBox boundingBox = StructureBoundingBox.getComponentToAddBoundingBox(x, y, z, 6, 6, 6, 7, 7, 7, facing);
         if (canVillageGoDeeper(boundingBox) && findIntersecting(pieces, boundingBox) == null) {
             return new ComponentVillageShop1(startPiece, type, boundingBox, facing);
         }

@@ -40,33 +40,6 @@ public class EntityBlackStore extends EntityRWBYMMerchant implements INpc, IMerc
         this.setItemStackToSlot(EntityEquipmentSlot.HEAD, is);
     }
 
-    @Override
-    protected void initEntityAI()
-    {
-        this.tasks.addTask(0, new EntityAISwimming(this));
-        this.tasks.addTask(1, new EntityAIAvoidEntity(this, EntityZombie.class, 8.0F, 0.6D, 0.6D));
-        this.tasks.addTask(1, new EntityAIAvoidEntity(this, EntityEvoker.class, 12.0F, 0.8D, 0.8D));
-        this.tasks.addTask(1, new EntityAIAvoidEntity(this, EntityVindicator.class, 8.0F, 0.8D, 0.8D));
-        this.tasks.addTask(1, new EntityAIAvoidEntity(this, EntityVex.class, 8.0F, 0.6D, 0.6D));
-        this.tasks.addTask(1, new EntityAITradePlayer(this));
-        this.tasks.addTask(1, new EntityAILookAtTradePlayer(this));
-        this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 0.6D));
-        this.tasks.addTask(6, new EntityAIVillagerMate(this));
-        this.tasks.addTask(7, new EntityAIFollowGolem(this));
-        this.tasks.addTask(9, new EntityAIWatchClosest2(this, EntityPlayer.class, 3.0F, 1.0F));
-        this.tasks.addTask(9, new EntityAIVillagerInteract(this));
-        this.tasks.addTask(9, new EntityAIWanderAvoidWater(this, 0.6D));
-        this.tasks.addTask(10, new EntityAIWatchClosest(this, EntityLiving.class, 8.0F));
-    }
-
-    protected void applyEntityAttributes() {
-        super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.23000000417232513D);
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(60.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(30.0D);
-    }
-
-
 
     public boolean processInteract(EntityPlayer player, EnumHand hand) {
         ItemStack itemstack = player.getHeldItem(hand);
@@ -129,19 +102,19 @@ public class EntityBlackStore extends EntityRWBYMMerchant implements INpc, IMerc
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien50,1),new ItemStack(RWBYItems.wallet,1)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien50,1),new ItemStack(RWBYItems.dustpouch,1)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien50,1),new ItemStack(RWBYItems.partspouch,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,10),new ItemStack(RWBYItems.coinr,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,10),new ItemStack(RWBYItems.coinw,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,10),new ItemStack(RWBYItems.coinb,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,10),new ItemStack(RWBYItems.coiny,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,10),new ItemStack(RWBYItems.coinjaune,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,10),new ItemStack(RWBYItems.coin_pyrrha,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,10),new ItemStack(RWBYItems.coinnora,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,10),new ItemStack(RWBYItems.coin_ren,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,10),new ItemStack(RWBYItems.coin_lysette,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,10),new ItemStack(RWBYItems.coin_ragora,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,10),new ItemStack(RWBYItems.coin_clover,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,10),new ItemStack(RWBYItems.coin_harriet,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,10),new ItemStack(RWBYItems.coinqrow,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,25),new ItemStack(RWBYItems.coinr,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,25),new ItemStack(RWBYItems.coinw,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,25),new ItemStack(RWBYItems.coinb,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,25),new ItemStack(RWBYItems.coiny,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,25),new ItemStack(RWBYItems.coinjaune,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,25),new ItemStack(RWBYItems.coin_pyrrha,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,25),new ItemStack(RWBYItems.coinnora,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,25),new ItemStack(RWBYItems.coin_ren,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,25),new ItemStack(RWBYItems.coin_lysette,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,25),new ItemStack(RWBYItems.coin_ragora,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,25),new ItemStack(RWBYItems.coin_clover,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,25),new ItemStack(RWBYItems.coin_harriet,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,25),new ItemStack(RWBYItems.coinqrow,1)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.rwbyblock7, 1), new ItemStack(RWBYItems.summer1Chest)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.rwbyblock7, 1), new ItemStack(RWBYItems.summer1Legs)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.rwbyblock7, 1), new ItemStack(RWBYItems.summer2Chest)));
@@ -199,7 +172,7 @@ public class EntityBlackStore extends EntityRWBYMMerchant implements INpc, IMerc
     @Override
     public void onLivingUpdate() {
         super.onLivingUpdate();
-        List<Entity> entitylist = world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().grow(20D));
+        List<Entity> entitylist = world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().grow(60D));
         for (Entity entity : entitylist) {
             if (entity instanceof EntityMob) {
                 EntityMob mob = (EntityMob) entity;
@@ -207,8 +180,6 @@ public class EntityBlackStore extends EntityRWBYMMerchant implements INpc, IMerc
                     mob.setAttackTarget(null);}
             }
         }
-
-        super.onLivingUpdate();
     }
 
     public World getWorld() {

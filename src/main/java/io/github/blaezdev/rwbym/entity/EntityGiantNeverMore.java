@@ -1,6 +1,7 @@
 package io.github.blaezdev.rwbym.entity;
 
 import io.github.blaezdev.rwbym.ModLootTables;
+import io.github.blaezdev.rwbym.RWBYEntities;
 import io.github.blaezdev.rwbym.utility.RWBYConfig;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.EntityAIBase;
@@ -210,6 +211,11 @@ public class EntityGiantNeverMore extends EntityGrimm
     public void setCharging(boolean charging)
     {
         this.setVexFlag(1, charging);
+    }
+
+    public EnumCreatureAttribute getCreatureAttribute()
+    {
+        return RWBYEntities.grimm;
     }
 
     protected ResourceLocation getLootTable() {

@@ -68,12 +68,12 @@ public class RWBYHood extends Item implements ICustomItem {
     public boolean validperk(EntityLivingBase playerIn, long armorperk){
         for (ItemStack stack:playerIn.getArmorInventoryList()){
             if(stack.getItem() instanceof ArmourBase){
-                if((((ArmourBase) stack.getItem()).armourperks & armorperk) !=0){
+                if((((ArmourBase) stack.getItem()).armourperks & armorperk) !=0L){
                     //System.out.println("armor works");
                     return true;
                 }}
             if(stack.getItem() instanceof RWBYHood){
-                if((((RWBYHood) stack.getItem()).armourperks & armorperk) !=0) {
+                if((((RWBYHood) stack.getItem()).armourperks & armorperk) !=0L) {
                     //System.out.println("hood works");
                     return true;
                 }}

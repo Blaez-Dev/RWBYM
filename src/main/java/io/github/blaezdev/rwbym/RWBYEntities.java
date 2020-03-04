@@ -3,12 +3,16 @@ package io.github.blaezdev.rwbym;
 import io.github.blaezdev.rwbym.Init.RWBYBiomes;
 import io.github.blaezdev.rwbym.entity.*;
 import io.github.blaezdev.rwbym.utility.RWBYConfig;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntityStray;
+import net.minecraft.entity.monster.IMob;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
+import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
@@ -23,6 +27,8 @@ import java.util.function.Predicate;
 public class RWBYEntities {
 
     public static Object instance;
+
+    public static final EnumCreatureAttribute grimm = EnumHelper.addCreatureAttribute("grimm");
 
     public static Biome[] clean(net.minecraft.util.registry.RegistryNamespaced<ResourceLocation, Biome> in) {
         Iterator<Biome> itr = in.iterator();

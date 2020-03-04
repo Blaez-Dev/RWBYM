@@ -9,6 +9,7 @@ public class RWBYCreativeTabs {
     public static CreativeTabs tab_rwbyweapons;
     public static CreativeTabs tab_rwbyarmour;
     public static CreativeTabs tab_rwbylimbs;
+    public static CreativeTabs tab_rwbycharms;
 
     public static void init() {
 
@@ -46,9 +47,17 @@ public class RWBYCreativeTabs {
             public ItemStack getTabIconItem() {
                 return new ItemStack(RWBYItems.blackcatear);
             }
-
         };
 
+
+        tab_rwbycharms = new CreativeTabs("rwby_charms") {
+
+            @Override
+            public ItemStack getTabIconItem() {
+                return new ItemStack(RWBYItems.kingsgambit);
+            }
+
+        };
     }
 
 

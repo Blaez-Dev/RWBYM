@@ -19,6 +19,10 @@ public class BiomeCliffsideForest extends Biome{
             this.spawnableCreatureList.add(new SpawnListEntry(EntityBoarbatusk.class, RWBYConfig.configmobspawnrates.spawnrateboar, 0, 3));
             this.spawnableCreatureList.add(new SpawnListEntry(EntityUrsa.class, RWBYConfig.configmobspawnrates.spawnrateursa, 0, 3));
             this.spawnableCreatureList.add(new SpawnListEntry(EntityApathy.class, RWBYConfig.configmobspawnrates.spawnrateapathy, 2, 16));
+            this.spawnableMonsterList.add(new SpawnListEntry(EntityBeowolf.class, RWBYConfig.configmobspawnrates.spawnratebeowolf*8, 1, 16));
+            this.spawnableMonsterList.add(new SpawnListEntry(EntityBoarbatusk.class, RWBYConfig.configmobspawnrates.spawnrateboar, 0, 3));
+            this.spawnableMonsterList.add(new SpawnListEntry(EntityUrsa.class, RWBYConfig.configmobspawnrates.spawnrateursa, 0, 3));
+            this.spawnableMonsterList.add(new SpawnListEntry(EntityApathy.class, RWBYConfig.configmobspawnrates.spawnrateapathy, 2, 16));
 
         }
 

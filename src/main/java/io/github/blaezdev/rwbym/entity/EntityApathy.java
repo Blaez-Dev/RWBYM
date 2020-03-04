@@ -1,6 +1,7 @@
 package io.github.blaezdev.rwbym.entity;
 
 import io.github.blaezdev.rwbym.ModLootTables;
+import io.github.blaezdev.rwbym.RWBYEntities;
 import io.github.blaezdev.rwbym.utility.RWBYConfig;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EnumCreatureAttribute;
@@ -64,15 +65,16 @@ public class EntityApathy extends EntityGrimm {
         }}
 
 
+    public EnumCreatureAttribute getCreatureAttribute()
+    {
+        return RWBYEntities.grimm;
+    }
 
     protected ResourceLocation getLootTable() {
         return ModLootTables.Boarbatusk;
     }
 
 
-    public EnumCreatureAttribute getCreatureAttribute() {
-        return EnumCreatureAttribute.ILLAGER;
-    }
 
     protected SoundEvent getAmbientSound() {
         return SoundEvents.ENTITY_WITHER_SKELETON_AMBIENT;

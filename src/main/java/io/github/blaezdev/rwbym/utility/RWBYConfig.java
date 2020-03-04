@@ -73,7 +73,7 @@ public class RWBYConfig
     @Config.Name("Grimm Health Multiplier")
     public  float grimmhealthmult = 1.5F;
     @Config.Name("Grimm Attack Damage Multiplier")
-    public  float grimmattackmult = 1.5F;
+    public  float grimmattackmult = 40.5F;
     @Config.Name("Grimm Fluid Spawn Rate")
     @Config.Comment("One in x chance to spawn a grimm every tick for each block.")
     @Config.RangeInt(min = 0)
@@ -178,6 +178,8 @@ public class RWBYConfig
     public  boolean enablefirstspawnscroll = false;
     @Config.Name("Gun Volume")
     public float gunvolume = 1F;
+    @Config.Name("speedlimiter -- lightningdust")
+    public boolean lightningdustlimiter = false;
 }
 
 

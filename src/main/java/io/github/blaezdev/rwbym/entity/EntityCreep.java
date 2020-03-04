@@ -1,6 +1,7 @@
 package io.github.blaezdev.rwbym.entity;
 
 import io.github.blaezdev.rwbym.ModLootTables;
+import io.github.blaezdev.rwbym.RWBYEntities;
 import io.github.blaezdev.rwbym.utility.RWBYConfig;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
@@ -96,9 +97,9 @@ public class EntityCreep extends EntityGrimm {
     }
 
 
-
-    public EnumCreatureAttribute getCreatureAttribute() {
-        return EnumCreatureAttribute.ILLAGER;
+    public EnumCreatureAttribute getCreatureAttribute()
+    {
+        return RWBYEntities.grimm;
     }
 
     protected ResourceLocation getLootTable() {

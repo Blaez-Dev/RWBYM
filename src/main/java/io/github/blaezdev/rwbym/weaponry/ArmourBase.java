@@ -69,48 +69,52 @@ public class ArmourBase extends ItemArmor {
     private final float attackspeed;
 
 
-    public static final long MOVEMENTSPEED1 =        0x0001; //( 2tiers)  5%,10%  of increased movement speed
-    public static final long MOVEMENTSPEED2 =        0x0002;
-    public static final long DEFENSE1 =              0x0004; //(4 Tiers)  4%,6%, 8%,10% of reduced damage
-    public static final long DEFENSE2 =              0x0010;
-    public static final long VITALITY1 =             0x0020; //(3 Tiers)  10%,20%,30%  of increased health
-    public static final long VITALITY2 =             0x0040;
-    public static final long VITALITY3 =             0x0080;
-    public static final long ATTACKBOOST1 =          0x0100; //(4 Tiers)   2.5%,5%, 7.5%,10% increased damage
-    public static final long ATTACKBOOST2 =          0x0200;
-    public static final long ATTACKBOOST3 =          0x0400;
-    public static final long ATTACKBOOST4 =          0x0800;
-    public static final long NIGHTVISION =           0x1000; // Night Vision
-    public static final long JUMPBOOST1 =            0x2000; //(3 Tiers)   1/2 a block, full block, 1 1/2 blocks of increase jump height
-    public static final long JUMPBOOST2 =            0x4000;
-    public static final long JUMPBOOST3 =            0x8000;
-    public static final long CRITICALSTRIKE1 =      0x10000;
-    public static final long CRITICALSTRIKE2 =      0x20000;
-    public static final long REACH1 =               0x40000; //(2 Tiers) 1 block,2blocks poler arm/scythes increased reach
-    public static final long REACH2 =               0x80000;
-    public static final long PUNCTURE1 =           0x100000; //(2 Tiers) 2.5%,5% increased damage with rapiers (only)
-    public static final long PUNCTURE2 =           0x200000;
-    public static final long K01 =                 0x400000; //(3 Tier) 5%,10%,15% increase Daze
-    public static final long K02 =                 0x800000;
-    public static final long FOOTING1 =           0x1000000; //(2 tiers) 25%,50% reduced knock back
-    public static final long FOOTING2 =           0x2000000;
-    public static final long RUSH1 =              0x4000000;
-    public static final long RUSH2 =              0x8000000; //(2 Tiers) 5%, 10% attack speed
-    public static final long AURAREGEN =         0x10000000;
-    public static final long GLADIATOR1 =        0x20000000;
-    public static final long GLADIATOR2 =        0x40000000;
-    public static final long FIRESTARTER =       0x80000000;
+    public static final long MOVEMENTSPEED1 =        0x0001L; //( 2tiers)  5%,10%  of increased movement speed
+    public static final long MOVEMENTSPEED2 =        0x0002L;
+    public static final long DEFENSE1 =              0x0004L; //(4 Tiers)  4%,6%, 8%,10% of reduced damage
+    public static final long DEFENSE2 =              0x0010L;
+    public static final long VITALITY1 =             0x0020L; //(3 Tiers)  10%,20%,30%  of increased health
+    public static final long VITALITY2 =             0x0040L;
+    public static final long VITALITY3 =             0x0080L;
+    public static final long ATTACKBOOST1 =          0x0100L; //(4 Tiers)   2.5%,5%, 7.5%,10% increased damage
+    public static final long ATTACKBOOST2 =          0x0200L;
+    public static final long ATTACKBOOST3 =          0x0400L;
+    public static final long ATTACKBOOST4 =          0x0800L;
+    public static final long NIGHTVISION =           0x1000L; // Night Vision
+    public static final long JUMPBOOST1 =            0x2000L; //(3 Tiers)   1/2 a block, full block, 1 1/2 blocks of increase jump height
+    public static final long JUMPBOOST2 =            0x4000L;
+    public static final long JUMPBOOST3 =            0x8000L;
+    public static final long CRITICALSTRIKE1 =      0x10000L;
+    public static final long CRITICALSTRIKE2 =      0x20000L;
+    public static final long REACH1 =               0x40000L; //(2 Tiers) 1 block,2blocks poler arm/scythes increased reach
+    public static final long REACH2 =               0x80000L;
+    public static final long PUNCTURE1 =           0x100000L; //(2 Tiers) 2.5%,5% increased damage with rapiers (only)
+    public static final long PUNCTURE2 =           0x200000L;
+    public static final long K01 =                 0x400000L; //(3 Tier) 5%,10%,15% increase Daze
+    public static final long K02 =                 0x800000L;
+    public static final long FOOTING1 =           0x1000000L; //(2 tiers) 25%,50% reduced knock back
+    public static final long FOOTING2 =           0x2000000L;
+    public static final long RUSH1 =              0x4000000L;
+    public static final long RUSH2 =              0x8000000L; //(2 Tiers) 5%, 10% attack speed
+    public static final long AURAREGEN =         0x10000000L;
+    public static final long GLADIATOR1 =        0x20000000L;
+    public static final long GLADIATOR2 =        0x40000000L;
+    public static final long FIRESTARTER =      0x800000000L;
+    public static final long SILVERLIGHT =      0x100000000L;
+    public static final long KINGSGAMBIT =      0x200000000L;
+    public static final long KINGSPAWN =        0x400000000L;
+    public static final long MAIDEN =           0x800000000L;
 
 
     public boolean validperk(EntityLivingBase playerIn,long armorperk){
         for (ItemStack stack:playerIn.getArmorInventoryList()){
             if(stack.getItem() instanceof ArmourBase){
-                if((((ArmourBase) stack.getItem()).armourperks & armorperk) !=0){
+                if((((ArmourBase) stack.getItem()).armourperks & armorperk) !=0L){
                     //System.out.println("armor works");
                     return true;
                 }}
             if(stack.getItem() instanceof RWBYHood){
-                if((((RWBYHood) stack.getItem()).armourperks & armorperk) !=0) {
+                if((((RWBYHood) stack.getItem()).armourperks & armorperk) !=0L) {
                     //System.out.println("hood works");
                     return true;
                 }}
@@ -121,30 +125,32 @@ public class ArmourBase extends ItemArmor {
 
     public ArmourBase(ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn, String name, String morph, boolean playerModel, CreativeTabs creativetab,long armourperks) {
         super(materialIn, renderIndexIn, equipmentSlotIn);
-        this.setMaxDamage(2500);
+        if(equipmentSlotIn == EntityEquipmentSlot.FEET){
+            this.setMaxDamage(0);
+        }else { this.setMaxDamage(2500);}
         this.morph = morph;
         this.armourperks = armourperks;
         if(equipmentSlotIn == EntityEquipmentSlot.HEAD){
             if(name.contains("summer")){
-                this.damageReduce = 7;
+                this.damageReduce = 3;
                 this.tough = 0;}else {
-                this.damageReduce = 6;
+                this.damageReduce = 2;
                 this.tough = 0;}
         }else if(equipmentSlotIn == EntityEquipmentSlot.CHEST||equipmentSlotIn == EntityEquipmentSlot.LEGS){
-            if(name.contains("summer")){this.damageReduce = 12;
-                this.tough = 5;}else if(name.contains("beacon")) {
-                this.damageReduce = 7;
-                this.tough = 2;}else{
-            this.damageReduce = 10;
-            this.tough = 5;}
+            if(name.contains("summer")){this.damageReduce = 9;
+                this.tough = 1;}else if(name.contains("beacon")) {
+                this.damageReduce = 6;
+                this.tough = 0;}else{
+            this.damageReduce = 8;
+            this.tough = 2;}
         } else { this.damageReduce = 0; this.tough = 0;}
 
         if((armourperks & MOVEMENTSPEED1) != 0){movementspeedmult =0.05F;}
         else if((armourperks & MOVEMENTSPEED2) != 0){movementspeedmult =0.1F;}
         else{movementspeedmult = 0;}
 
-        if((armourperks & DEFENSE1) != 0){armourbuff = 0.1F;}
-        else if((armourperks & DEFENSE2) != 0){armourbuff = 0.2F;}
+        if((armourperks & DEFENSE1) != 0){armourbuff = 0.05F;}
+        else if((armourperks & DEFENSE2) != 0){armourbuff = 0.1F;}
         else{armourbuff = 0;}
 
         if((armourperks & VITALITY1) != 0){healthbuff = 0.1F;}
@@ -229,6 +235,8 @@ public class ArmourBase extends ItemArmor {
         if((armourperks & RUSH2) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Rush Rank 2 ((Attack Speed))");}
         if((armourperks & AURAREGEN) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Aura Regen Rank 1 ((Applies Aura Regen))");}
         if((armourperks & FIRESTARTER) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Fire-Starter Rank 1 ((Applies Fire Resistance))");}
+        if((armourperks & KINGSGAMBIT) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "King's Gambit ((It's Good to be the King, Increases Damage of Players nearby using Pawns))");}
+        if((armourperks & KINGSPAWN) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "King's Pawn ((For King and Glory!, Increases Damage of the Equiped Player When there is a nearby player using King's Gambit))");}
     }
     
     @Override

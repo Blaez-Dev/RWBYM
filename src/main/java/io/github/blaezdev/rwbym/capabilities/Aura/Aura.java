@@ -101,7 +101,7 @@ public class Aura implements IAura {
 	@Override
 	public int getEXPToLevel() {
 		int lvl = (int) (max - 100);
-		return (int)(40 + 4 * lvl + 0.1 * lvl * lvl + Math.pow(1.07, lvl));
+		return (int)(40 + 4 * lvl + 0.1 * lvl * lvl + Math.pow(1.005, lvl));
 	}
 	
 	@Override

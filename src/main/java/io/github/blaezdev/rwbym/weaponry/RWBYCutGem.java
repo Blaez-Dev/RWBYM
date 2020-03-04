@@ -3,6 +3,7 @@ package io.github.blaezdev.rwbym.weaponry;
 import com.google.common.collect.Multimap;
 import io.github.blaezdev.rwbym.Init.RWBYItems;
 import io.github.blaezdev.rwbym.RWBYModels;
+import io.github.blaezdev.rwbym.utility.RWBYConfig;
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -124,12 +125,20 @@ public class RWBYCutGem extends ItemBow implements ICustomItem {
             attackspeed = 0;
         }
         else if((element & LIGHTNING) != 0){
-            movementspeedmult = 1.50F;
+            if(RWBYConfig.general.lightningdustlimiter){
+            movementspeedmult = 0.75F;
             armourbuff = 0;
-            healthbuff = -0.7F;
+            healthbuff = -0.4F;
             attackboost = 0;
             knockbackresist = 0;
-            attackspeed = 2.5F;
+            attackspeed = 2.5F;}else{
+                movementspeedmult = 0.75F;
+                armourbuff = 0;
+                healthbuff = -0.4F;
+                attackboost = 0;
+                knockbackresist = 0;
+                attackspeed = 2.5F;
+            }
         }else if((element & ICE) != 0){
             movementspeedmult = -0.5F;
             armourbuff = 0;
@@ -197,7 +206,7 @@ public class RWBYCutGem extends ItemBow implements ICustomItem {
                 if(player.isInWater()){
                 PotionEffect potioneffect = new PotionEffect(MobEffects.WATER_BREATHING, 60, 1, false, false);
                 player.addPotionEffect(potioneffect);}
-                player.heal(0.1F);
+                player.heal(0.02F);
             }
         }
     }

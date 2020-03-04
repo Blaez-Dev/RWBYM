@@ -30,6 +30,21 @@ public class BiomeDarkGrimm extends Biome {
         this.spawnableCreatureList.add(new SpawnListEntry(EntityLancer.class, 20, 1, 20));
         this.spawnableCreatureList.add(new SpawnListEntry(EntityJuvenileDeathstalker.class, 20, 1, 20));
         this.spawnableCreatureList.add(new SpawnListEntry(EntityQueenLancer.class, 1, 1, 20));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityBeowolf.class, 20, 1, 20));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityUrsa.class, 20, 1, 20));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityBoarbatusk.class, 20, 1, 20));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityGoliath.class, 1, 1, 20));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityDeathStalker.class, 1, 1, 20));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityMutantDeathStalker.class, 1, 1, 20));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityNeverMore.class, 20, 1, 20));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityGiantNeverMore.class, 1, 1, 20));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityCreep.class, 20, 1, 20));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityGeist.class, 20, 1, 20));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityApathy.class, 20, 1, 20));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityNuckleeve.class, 1, 1, 20));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityLancer.class, 20, 1, 20));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityJuvenileDeathstalker.class, 20, 1, 20));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityQueenLancer.class, 1, 1, 20));
 
     }
 

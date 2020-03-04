@@ -4,6 +4,7 @@ import com.google.common.collect.Multimap;
 import com.mojang.realmsclient.gui.ChatFormatting;
 import io.github.blaezdev.rwbym.RWBYModels;
 import io.github.blaezdev.rwbym.entity.EntityBullet;
+import io.github.blaezdev.rwbym.utility.RWBYConfig;
 import io.github.blaezdev.rwbym.weaponry.ammohit.IAmmoHit;
 import io.github.blaezdev.rwbym.weaponry.ammohit.NullAmmoHit;
 import mcp.MethodsReturnNonnullByDefault;
@@ -177,12 +178,20 @@ public class RWBYAmmoItem extends Item implements ICustomItem {
             attackspeed = 0;
         }
         else if((element & LIGHTNING) != 0){
-            movementspeedmult = 1.20F;
+            if(RWBYConfig.general.lightningdustlimiter){
+            movementspeedmult = 0.5F;
             armourbuff = 0;
-            healthbuff = -0.5F;
+            healthbuff = -0.3F;
             attackboost = 0;
             knockbackresist = 0;
-            attackspeed = 2.0F;
+            attackspeed = 2.0F;}else{
+                movementspeedmult = 1.20F;
+                armourbuff = 0;
+                healthbuff = -0.5F;
+                attackboost = 0;
+                knockbackresist = 0;
+                attackspeed = 2.0F;
+            }
         }else if((element & ICE) != 0){
             movementspeedmult = -0.3F;
             armourbuff = 0;
@@ -252,7 +261,7 @@ public class RWBYAmmoItem extends Item implements ICustomItem {
             if(player.getHeldItem(EnumHand.OFF_HAND) == is && (element & WATER) != 0){
                 //PotionEffect potioneffect = new PotionEffect(MobEffects.RESISTANCE, 60, 1, false, false);
                 //player.addPotionEffect(potioneffect);
-                player.heal(0.05F);
+                player.heal(0.01F);
             }
         }
     }

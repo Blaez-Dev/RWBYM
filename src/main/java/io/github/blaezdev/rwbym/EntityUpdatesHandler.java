@@ -14,6 +14,8 @@ import io.github.blaezdev.rwbym.entity.EntityGrimm;
 import io.github.blaezdev.rwbym.utility.RWBYConfig;
 import io.github.blaezdev.rwbym.utility.network.MessageSendPlayerData;
 import io.github.blaezdev.rwbym.utility.network.RWBYNetworkHandler;
+import io.github.blaezdev.rwbym.weaponry.ArmourBase;
+import io.github.blaezdev.rwbym.weaponry.RWBYHood;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -26,6 +28,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
@@ -147,6 +150,22 @@ public class EntityUpdatesHandler {
         }
     }
 
+    public boolean validperk(EntityLivingBase playerIn,long armorperk){
+        for (ItemStack stack:playerIn.getArmorInventoryList()){
+            if(stack.getItem() instanceof ArmourBase){
+                if((((ArmourBase) stack.getItem()).armourperks & armorperk) !=0L){
+                    //System.out.println("armor works");
+                    return true;
+                }}
+            if(stack.getItem() instanceof RWBYHood){
+                if((((RWBYHood) stack.getItem()).armourperks & armorperk) !=0L) {
+                    //System.out.println("hood works");
+                    return true;
+                }}
+        }
+        return false;
+    }
+
     @SubscribeEvent
     public void onEntityDamageLast(LivingHurtEvent event) {
         EntityLivingBase entityliving = event.getEntityLiving();
@@ -203,6 +222,21 @@ public class EntityUpdatesHandler {
                     event.setAmount(eventdamage);
                 }
 
+            }
+        }
+
+        if(event.getSource().getTrueSource() instanceof EntityPlayer){
+            EntityPlayer attacker = (EntityPlayer) event.getSource().getTrueSource();
+            if(this.validperk(attacker, ArmourBase.KINGSPAWN)){
+                AxisAlignedBB axisalignedbb2 = attacker.getEntityBoundingBox().grow(10,10,10);
+                //System.out.println(event.getAmount());
+                List<EntityPlayer> nearbyplayers = attacker.world.<EntityPlayer>getEntitiesWithinAABB(EntityPlayer.class, axisalignedbb2);
+                for (EntityPlayer entityplayer : nearbyplayers) if(validperk(entityplayer, ArmourBase.KINGSGAMBIT))
+                {
+                    event.setAmount(event.getAmount() * 1.5F);
+                    //System.out.println(event.getAmount());
+                    break;
+                }
             }
         }
     }

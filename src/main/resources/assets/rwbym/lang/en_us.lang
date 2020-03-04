@@ -653,6 +653,8 @@ item.rwbym:carminesai.name=Carmine's Sai
 item.rwbym:carminestaff.name=Carmine's Staff
 item.rwbym:moonskimmer.name=Moon Skimmer
 item.rwbym:mondragon.name=Mondragon M1908
+item.kingsgambit.name=King's Gambit
+item.kingsgambitpawn.name=King's Pawn
 
 effect.aura_regen=Aura Regen
 potion.effect.aura_regen=Potion of Aura Regen
@@ -664,6 +666,7 @@ itemGroup.rwby_weapons=RWBY Weapons
 itemGroup.rwby_items=RWBY Items
 itemGroup.rwby_armour=RWBY Armour
 itemGroup.rwby_limbs=RWBY Mutations
+itemGroup.rwby_charms=RWBY Charms
 
 key.categories.RWBYM=RWBYM
 

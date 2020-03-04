@@ -34,31 +34,8 @@ public class EntityStore extends EntityRWBYMMerchant implements INpc, IMerchant{
         this.setSize(1F, 1.5F);
     }
 
-    @Override
-    protected void initEntityAI()
-    {
-        this.tasks.addTask(0, new EntityAISwimming(this));
-        this.tasks.addTask(1, new EntityAIAvoidEntity(this, EntityZombie.class, 8.0F, 0.6D, 0.6D));
-        this.tasks.addTask(1, new EntityAIAvoidEntity(this, EntityEvoker.class, 12.0F, 0.8D, 0.8D));
-        this.tasks.addTask(1, new EntityAIAvoidEntity(this, EntityVindicator.class, 8.0F, 0.8D, 0.8D));
-        this.tasks.addTask(1, new EntityAIAvoidEntity(this, EntityVex.class, 8.0F, 0.6D, 0.6D));
-        this.tasks.addTask(1, new EntityAITradePlayer(this));
-        this.tasks.addTask(1, new EntityAILookAtTradePlayer(this));
-        this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 0.6D));
-        this.tasks.addTask(6, new EntityAIVillagerMate(this));
-        this.tasks.addTask(7, new EntityAIFollowGolem(this));
-        this.tasks.addTask(9, new EntityAIWatchClosest2(this, EntityPlayer.class, 3.0F, 1.0F));
-        this.tasks.addTask(9, new EntityAIVillagerInteract(this));
-        this.tasks.addTask(9, new EntityAIWanderAvoidWater(this, 0.6D));
-        this.tasks.addTask(10, new EntityAIWatchClosest(this, EntityLiving.class, 8.0F));
-    }
 
-    protected void applyEntityAttributes() {
-        super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.23000000417232513D);
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(60.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(30.0D);
-    }
+
 
 
     public boolean processInteract(EntityPlayer player, EnumHand hand) {
@@ -147,6 +124,20 @@ public class EntityStore extends EntityRWBYMMerchant implements INpc, IMerchant{
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.waterdustcrystal,1),new ItemStack(RWBYItems.lien5,1)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.winddustcrystal,1),new ItemStack(RWBYItems.lien5,1)));
 
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.bait,1),new ItemStack(RWBYItems.remnants,32),new ItemStack(RWBYItems.coinr,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.bait,1),new ItemStack(RWBYItems.remnants,32),new ItemStack(RWBYItems.coinw,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.bait,1),new ItemStack(RWBYItems.remnants,32),new ItemStack(RWBYItems.coinb,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.bait,1),new ItemStack(RWBYItems.remnants,32),new ItemStack(RWBYItems.coiny,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.bait,1),new ItemStack(RWBYItems.remnants,32),new ItemStack(RWBYItems.coinjaune,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.bait,1),new ItemStack(RWBYItems.remnants,32),new ItemStack(RWBYItems.coin_pyrrha,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.bait,1),new ItemStack(RWBYItems.remnants,32),new ItemStack(RWBYItems.coinnora,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.bait,1),new ItemStack(RWBYItems.remnants,32),new ItemStack(RWBYItems.coin_ren,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.bait,1),new ItemStack(RWBYItems.remnants,32),new ItemStack(RWBYItems.coin_lysette,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.bait,1),new ItemStack(RWBYItems.remnants,32),new ItemStack(RWBYItems.coin_ragora,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.bait,1),new ItemStack(RWBYItems.remnants,32),new ItemStack(RWBYItems.coin_clover,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.bait,1),new ItemStack(RWBYItems.remnants,32),new ItemStack(RWBYItems.coin_harriet,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.bait,1),new ItemStack(RWBYItems.remnants,32),new ItemStack(RWBYItems.coinqrow,1)));
+
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien1,5),new ItemStack(RWBYItems.lien5, 1)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien5,2),new ItemStack(RWBYItems.lien10, 1)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien10,2),new ItemStack(RWBYItems.lien20, 1)));
@@ -175,7 +166,7 @@ public class EntityStore extends EntityRWBYMMerchant implements INpc, IMerchant{
     @Override
     public void onLivingUpdate() {
         //super.onLivingUpdate();
-        List<Entity> entitylist = world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().grow(20D));
+        List<Entity> entitylist = world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().grow(60D));
         for (Entity entity : entitylist) {
             if (entity instanceof EntityMob) {
                 EntityMob mob = (EntityMob) entity;

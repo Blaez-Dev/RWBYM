@@ -500,6 +500,23 @@ public class RegUtil {
         //mob drops
         registerItems(event, RWBYItems.remnants);
         registerBlocks(event, RWBYItems.bait);
+        registerItems(event, RWBYItems.kingsgambit);
+        registerItems(event, RWBYItems.kingsgambitpawn);
+        registerItems(event, RWBYItems.firedancercharm);
+        registerItems(event, RWBYItems.criticalcharm);
+        registerItems(event, RWBYItems.auracharm);
+        registerItems(event, RWBYItems.healthcharm);
+        registerItems(event, RWBYItems.reachcharm);
+        registerItems(event, RWBYItems.puncturecharm);
+        registerItems(event, RWBYItems.edgecharm);
+        registerItems(event, RWBYItems.knockoutcharm);
+        registerItems(event, RWBYItems.tankcharm);
+        registerItems(event, RWBYItems.attackcharm);
+        registerItems(event, RWBYItems.feathercharm);
+        registerItems(event, RWBYItems.fleetingcharm);
+        registerItems(event, RWBYItems.rushcharm);
+        registerItems(event, RWBYItems.silvercharm);
+        registerItems(event, RWBYItems.maidencharm);
         registerItems(event, RWBYItems.cr1);
         registerItems(event, RWBYItems.cr2);
         registerItems(event, RWBYItems.cr3);

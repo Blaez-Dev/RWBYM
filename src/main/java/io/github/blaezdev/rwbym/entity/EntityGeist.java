@@ -1,11 +1,9 @@
 package io.github.blaezdev.rwbym.entity;
 
 import io.github.blaezdev.rwbym.ModLootTables;
+import io.github.blaezdev.rwbym.RWBYEntities;
 import io.github.blaezdev.rwbym.utility.RWBYConfig;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.MoverType;
-import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityIronGolem;
 import net.minecraft.entity.passive.EntityVillager;
@@ -173,6 +171,10 @@ public class EntityGeist extends EntityGrimm
         this.setVexFlag(1, charging);
     }
 
+    public EnumCreatureAttribute getCreatureAttribute()
+    {
+        return RWBYEntities.grimm;
+    }
 
     protected SoundEvent getAmbientSound()
     {
