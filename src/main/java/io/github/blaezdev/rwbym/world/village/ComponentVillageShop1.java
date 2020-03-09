@@ -39,7 +39,7 @@ public class ComponentVillageShop1 extends StructureVillagePieces.Village {
                 return true;
             }
 
-            this.boundingBox.offset(0, averageGroundLvl - this.boundingBox.minY+3, 0);
+            this.boundingBox.offset(0, averageGroundLvl - this.boundingBox.minY, 0);
         }
         BlockPos pos = new BlockPos(this.boundingBox.minX, this.boundingBox.minY, this.boundingBox.minZ);
         TemplateManager templateManager = world.getSaveHandler().getStructureTemplateManager();
@@ -52,7 +52,7 @@ public class ComponentVillageShop1 extends StructureVillagePieces.Village {
 
     @Nullable
     public static StructureVillagePieces.Village buildComponent(StructureVillagePieces.PieceWeight villagePiece, StructureVillagePieces.Start startPiece, List<StructureComponent> pieces, Random random, int x, int y, int z, EnumFacing facing, int type) {
-        StructureBoundingBox boundingBox = StructureBoundingBox.getComponentToAddBoundingBox(x, y, z, 6, 6, 6, 7, 7, 7, facing);
+        StructureBoundingBox boundingBox = StructureBoundingBox.getComponentToAddBoundingBox(x, y, z, 0, 0, 0, 7, 6, 7, facing);
         if (canVillageGoDeeper(boundingBox) && findIntersecting(pieces, boundingBox) == null) {
             return new ComponentVillageShop1(startPiece, type, boundingBox, facing);
         }
