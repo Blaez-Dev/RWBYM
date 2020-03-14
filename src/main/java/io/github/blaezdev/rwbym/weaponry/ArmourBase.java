@@ -367,7 +367,7 @@ public class ArmourBase extends ItemArmor {
     @Override
     public boolean canApplyAtEnchantingTable(ItemStack stack, net.minecraft.enchantment.Enchantment enchantment)
     {
-        return enchantment.type.canEnchantItem(Items.DIAMOND_CHESTPLATE);
+        return enchantment.type.canEnchantItem(Items.DIAMOND_HOE);
     }
 
     @Override

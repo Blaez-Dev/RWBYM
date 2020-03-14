@@ -72,6 +72,7 @@ public class EntityGeist extends EntityGrimm
         this.tasks.addTask(8, new EntityGeist.AIMoveRandom());
         this.tasks.addTask(9, new EntityAIWatchClosest(this, EntityPlayer.class, 3.0F, 1.0F));
         this.tasks.addTask(10, new EntityAIWatchClosest(this, EntityLiving.class, 8.0F));
+        this.tasks.addTask(3, new EntityAIAvoidEntity(this, EntityZwei.class, 6.0F, 1.0D, 1.2D));
         this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[] {EntityGeist.class}));
         this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
         this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityVillager.class, true));

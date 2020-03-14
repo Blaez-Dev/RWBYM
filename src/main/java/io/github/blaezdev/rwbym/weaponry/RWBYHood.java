@@ -221,7 +221,7 @@ public class RWBYHood extends Item implements ICustomItem {
     @Override
     public boolean canApplyAtEnchantingTable(ItemStack stack, net.minecraft.enchantment.Enchantment enchantment)
     {
-        return enchantment.type.canEnchantItem(Items.DIAMOND_HELMET);
+        return enchantment.type.canEnchantItem(Items.DIAMOND_HOE);
     }
 
     @Override
