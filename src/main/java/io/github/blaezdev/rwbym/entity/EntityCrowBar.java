@@ -126,6 +126,7 @@ public class EntityCrowBar extends EntityRWBYMMerchant implements INpc, IMerchan
 
     }
 
+    /*
     @Override
     protected void initEntityAI()
     {
@@ -144,7 +145,7 @@ public class EntityCrowBar extends EntityRWBYMMerchant implements INpc, IMerchan
         this.tasks.addTask(7, new EntityAIFollowGolem(this));
         this.tasks.addTask(9, new EntityAIVillagerInteract(this));
         this.tasks.addTask(9, new EntityAIWanderAvoidWater(this, 0.6D));
-    }
+    }*/
 
     @Override
     public void onLivingUpdate() {

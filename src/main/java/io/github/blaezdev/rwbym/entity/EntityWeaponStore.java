@@ -133,7 +133,7 @@ public class EntityWeaponStore extends EntityRWBYMMerchant implements INpc, IMer
     }
 
 
-    @Override
+   /* @Override
     protected void initEntityAI()
     {
         this.tasks.addTask(0, new EntityAISwimming(this));
@@ -151,7 +151,7 @@ public class EntityWeaponStore extends EntityRWBYMMerchant implements INpc, IMer
         this.tasks.addTask(7, new EntityAIFollowGolem(this));
         this.tasks.addTask(9, new EntityAIVillagerInteract(this));
         this.tasks.addTask(9, new EntityAIWanderAvoidWater(this, 0.6D));
-    }
+    }*/
 
 
     public boolean canBeLeashedTo(EntityPlayer player) {

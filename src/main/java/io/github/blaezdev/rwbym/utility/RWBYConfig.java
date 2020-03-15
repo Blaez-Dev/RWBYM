@@ -180,6 +180,7 @@ public class RWBYConfig
     public float gunvolume = 1F;
     @Config.Name("speedlimiter -- lightningdust")
     public boolean lightningdustlimiter = false;
+
 }
 
 

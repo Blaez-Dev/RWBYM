@@ -89,7 +89,7 @@ public class ModEventHandler implements IPrivateAccessor {
                 IInventory iinventory = ((ContainerVillager) playerMP.openContainer).getMerchantInventory();
                 ITextComponent itextcomponent = ((IMerchant) villager).getDisplayName();
 
-                int wealth = this.getWealth(villager);
+                int wealth = 1;
                 RWBYNetworkHandler.sendTo(new MessageOpenWindow(playerMP.currentWindowId, itextcomponent, iinventory.getSizeInventory(),
                         villager.getEntityId(), wealth < merchantrecipelist.size() && wealth >= 0 ? wealth : 0), playerMP);
 

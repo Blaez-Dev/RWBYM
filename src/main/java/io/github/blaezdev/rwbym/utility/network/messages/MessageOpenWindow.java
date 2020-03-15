@@ -3,6 +3,7 @@ package io.github.blaezdev.rwbym.utility.network.messages;
 
 
 import io.github.blaezdev.rwbym.RWBYModels;
+import io.github.blaezdev.rwbym.entity.EntityRWBYMMerchant;
 import io.github.blaezdev.rwbym.gui.GuiVillager;
 import io.github.blaezdev.rwbym.utility.IPrivateAccessor;
 import io.github.blaezdev.rwbym.utility.network.MessageBase;
@@ -61,9 +62,9 @@ public class MessageOpenWindow extends MessageBase<MessageOpenWindow> implements
         Minecraft gameController = Minecraft.getMinecraft();
         World worldIn = player.world;
         Entity entity = worldIn.getEntityByID(message.entityId);
-        if (entity instanceof EntityVillager) {
-            EntityVillager entityVillager = (EntityVillager) entity;
-            this.setWealth(entityVillager, message.getWealth());
+        if (entity instanceof EntityRWBYMMerchant) {
+            EntityRWBYMMerchant entityVillager = (EntityRWBYMMerchant) entity;
+            //this.setWealth(entityVillager, message.getWealth());
             gameController.addScheduledTask(() -> {
                 //crashes on server startup when calling Minecraft#displayGuiScreen directly, @SideOnly and FMLCommonHandler#showGuiScreen seem to solve this as well
                 Object guiContainer = new GuiVillager(player.inventory, new NpcMerchant(player, message.getWindowTitle()), entityVillager, worldIn);

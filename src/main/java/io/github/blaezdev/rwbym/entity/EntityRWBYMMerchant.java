@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 
-public class EntityRWBYMMerchant extends EntityVillager implements INpc, IMerchant{
+public class EntityRWBYMMerchant extends EntityCreature implements INpc, IMerchant{
     World world = null;
     private MerchantRecipeList trades;
     private EntityPlayer buyingPlayer;
@@ -42,7 +42,26 @@ public class EntityRWBYMMerchant extends EntityVillager implements INpc, IMercha
         this.setSize(1F, 1.5F);
     }
 
-
+    @Override
+    protected void initEntityAI()
+    {
+        this.tasks.addTask(0, new EntityAISwimming(this));
+        this.tasks.addTask(1, new EntityAIAvoidEntity(this, EntityZombie.class, 8.0F, 0.6D, 0.6D));
+        this.tasks.addTask(1, new EntityAIAvoidEntity(this, EntityEvoker.class, 12.0F, 0.8D, 0.8D));
+        this.tasks.addTask(1, new EntityAIAvoidEntity(this, EntityVindicator.class, 8.0F, 0.8D, 0.8D));
+        this.tasks.addTask(1, new EntityAIAvoidEntity(this, EntityVex.class, 8.0F, 0.6D, 0.6D));
+        this.tasks.addTask(1, new EntityAIAvoidEntity(this, EntityGrimm.class, 8.0F, 0.6D, 0.6D));
+        //this.tasks.addTask(1, new EntityAITradePlayer(this));
+        //this.tasks.addTask(1, new EntityAILookAtTradePlayer(this));
+        this.tasks.addTask(2, new EntityAIMoveIndoors(this));
+        this.tasks.addTask(3, new EntityAIRestrictOpenDoor(this));
+        this.tasks.addTask(4, new EntityAIOpenDoor(this, true));
+        this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 0.6D));
+        //this.tasks.addTask(6, new EntityAIVillagerMate(this));
+        //this.tasks.addTask(7, new EntityAIFollowGolem(this));
+        //this.tasks.addTask(9, new EntityAIVillagerInteract(this));
+        this.tasks.addTask(9, new EntityAIWanderAvoidWater(this, 0.6D));
+    }
 
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();

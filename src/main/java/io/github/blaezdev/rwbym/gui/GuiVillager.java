@@ -1,6 +1,7 @@
 package io.github.blaezdev.rwbym.gui;
 
 import io.github.blaezdev.rwbym.RWBYModels;
+import io.github.blaezdev.rwbym.entity.EntityRWBYMMerchant;
 import io.github.blaezdev.rwbym.gui.helper.GhostTrade;
 import io.github.blaezdev.rwbym.inventory.ContainerVillager;
 import io.github.blaezdev.rwbym.utility.IPrivateAccessor;
@@ -36,7 +37,7 @@ public class GuiVillager extends GuiContainer implements IPrivateAccessor
     private static final ResourceLocation MERCHANT_GUI_TEXTURE = new ResourceLocation(RWBYModels.MODID, "textures/gui/container/merchant.png");
     /** The current IMerchant instance in use for this specific merchant. */
     private final IMerchant merchant;
-    private final EntityVillager entityVillager;
+    private final EntityRWBYMMerchant entityVillager;
     /** The integer value corresponding to the currently selected merchant recipe. */
     private int selectedMerchantRecipe;
     /** The chat component utilized by this GuiVillager instance. */
@@ -45,13 +46,13 @@ public class GuiVillager extends GuiContainer implements IPrivateAccessor
     private final GuiTradingBook tradingBookGui = new GuiTradingBook();
     private final GhostTrade ghostTrade = new GhostTrade();
 
-    public GuiVillager(InventoryPlayer p_i45500_1_, IMerchant p_i45500_2_, EntityVillager entityVillager, World worldIn)
+    public GuiVillager(InventoryPlayer p_i45500_1_, IMerchant p_i45500_2_, EntityRWBYMMerchant entityVillager, World worldIn)
     {
         super(new ContainerVillager(p_i45500_1_, p_i45500_2_, worldIn));
         this.merchant = p_i45500_2_;
         this.entityVillager = entityVillager;
         this.chatComponent = p_i45500_2_.getDisplayName();
-        this.selectedMerchantRecipe = this.getWealth(entityVillager);
+        //this.selectedMerchantRecipe = this.getWealth(entityVillager);
         this.sendSelectedRecipe(false);
     }
 
@@ -76,7 +77,7 @@ public class GuiVillager extends GuiContainer implements IPrivateAccessor
         packetbuffer.writeByte(this.selectedMerchantRecipe);
         packetbuffer.writeInt(this.entityVillager.getEntityId());
         RWBYNetworkHandler.sendToServer(new MessageTradingData(1, packetbuffer));
-        this.setWealth(this.entityVillager, this.selectedMerchantRecipe);
+        //this.setWealth(this.entityVillager, this.selectedMerchantRecipe);
         super.onGuiClosed();
     }
 

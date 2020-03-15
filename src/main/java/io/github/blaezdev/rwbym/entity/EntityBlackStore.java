@@ -169,6 +169,7 @@ public class EntityBlackStore extends EntityRWBYMMerchant implements INpc, IMerc
 
     }
 
+    /*
     @Override
     protected void initEntityAI()
     {
@@ -187,7 +188,7 @@ public class EntityBlackStore extends EntityRWBYMMerchant implements INpc, IMerc
         this.tasks.addTask(7, new EntityAIFollowGolem(this));
         this.tasks.addTask(9, new EntityAIVillagerInteract(this));
         this.tasks.addTask(9, new EntityAIWanderAvoidWater(this, 0.6D));
-    }
+    }*/
 
     @Override
     public void onLivingUpdate() {
