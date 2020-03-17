@@ -655,6 +655,10 @@ item.rwbym:moonskimmer.name=Moon Skimmer
 item.rwbym:mondragon.name=Mondragon M1908
 item.kingsgambit.name=King's Gambit
 item.kingsgambitpawn.name=King's Pawn
+item.rwbym:robyncrossbow.name=Robyn's Crossbow
+item.rwbym:robynshield.name=Robyn's Shield
+item.rwbym:signdust.name=From Dust to Dawn
+item.rwbym:zwei.name=Zwei
 
 effect.aura_regen=Aura Regen
 potion.effect.aura_regen=Potion of Aura Regen

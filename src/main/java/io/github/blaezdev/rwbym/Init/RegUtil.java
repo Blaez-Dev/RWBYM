@@ -379,6 +379,7 @@ public class RegUtil {
         //entity spawning items
         registerItems(event, RWBYItems.atlasknight);
         registerItems(event, RWBYItems.armagigas);
+        registerItems(event, RWBYItems.zwei);
         //colored iron
         registerItems(event, RWBYItems.roseiron);
         registerItems(event, RWBYItems.frostediron);
@@ -517,8 +518,8 @@ public class RegUtil {
         registerItems(event, RWBYItems.feathercharm);
         registerItems(event, RWBYItems.fleetingcharm);
         registerItems(event, RWBYItems.rushcharm);
-        registerItems(event, RWBYItems.silvercharm);
-        registerItems(event, RWBYItems.maidencharm);
+        //registerItems(event, RWBYItems.silvercharm);
+        //registerItems(event, RWBYItems.maidencharm);
         registerItems(event, RWBYItems.cr1);
         registerItems(event, RWBYItems.cr2);
         registerItems(event, RWBYItems.cr3);

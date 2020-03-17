@@ -1674,7 +1674,7 @@ public class RWBYItems {
             1,
             0,
             16,
-            null);
+            RWBYCreativeTabs.tab_rwbyweapons);
     public static final Item robynshield = new RWBYGun(
             "robynshield",
             2500,
@@ -3574,6 +3574,7 @@ public class RWBYItems {
     public static final Item atlasknight = new RWBYItem("atlasknight",  false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item remnants = new RWBYItem("remnants",  false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item armagigas = new RWBYItem("armagigas",  false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item zwei = new RWBYItem("zwei",  false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item coinr = new RWBYItem("coinr",  false, RWBYCreativeTabs.tab_rwbyitems).setCoin("ruby");
     public static final Item coinw = new RWBYItem("coinw",  false, RWBYCreativeTabs.tab_rwbyitems).setCoin("weiss");
     public static final Item coinb = new RWBYItem("coinb",  false, RWBYCreativeTabs.tab_rwbyitems).setCoin("blake");
@@ -5271,8 +5272,8 @@ public class RWBYItems {
     public static final ItemArmor feathercharm = new ArmourBase(charmMat, 0, EntityEquipmentSlot.FEET, "feathercharm", null,     true, RWBYCreativeTabs.tab_rwbycharms, ArmourBase.JUMPBOOST2);
     public static final ItemArmor fleetingcharm = new ArmourBase(charmMat, 0, EntityEquipmentSlot.FEET, "fleetingcharm", null,     true, RWBYCreativeTabs.tab_rwbycharms, ArmourBase.MOVEMENTSPEED1);
     public static final ItemArmor rushcharm = new ArmourBase(charmMat, 0, EntityEquipmentSlot.FEET, "rushcharm", null,     true, RWBYCreativeTabs.tab_rwbycharms, ArmourBase.RUSH1);
-    public static final ItemArmor silvercharm = new ArmourBase(charmMat, 0, EntityEquipmentSlot.FEET, "silvercharm", null,     true, RWBYCreativeTabs.tab_rwbycharms, ArmourBase.SILVERLIGHT);
-    public static final ItemArmor maidencharm = new ArmourBase(charmMat, 0, EntityEquipmentSlot.FEET, "maidencharm", null,     true, RWBYCreativeTabs.tab_rwbycharms, ArmourBase.MAIDEN);
+    //public static final ItemArmor silvercharm = new ArmourBase(charmMat, 0, EntityEquipmentSlot.FEET, "silvercharm", null,     true, RWBYCreativeTabs.tab_rwbycharms, ArmourBase.SILVERLIGHT);
+    //public static final ItemArmor maidencharm = new ArmourBase(charmMat, 0, EntityEquipmentSlot.FEET, "maidencharm", null,     true, RWBYCreativeTabs.tab_rwbycharms, ArmourBase.MAIDEN);
 
     public static final ItemArmor korekosmouoff;
     public static final ItemArmor korekosmoufire;

@@ -20,6 +20,8 @@ import io.github.blaezdev.rwbym.capabilities.Weiss.WeissProvider;
 import io.github.blaezdev.rwbym.capabilities.Yang.YangProvider;
 import io.github.blaezdev.rwbym.entity.EntityArmorgeist;
 import io.github.blaezdev.rwbym.entity.EntityAtlasKnight;
+import io.github.blaezdev.rwbym.entity.EntityZwei;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -39,6 +41,9 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.logging.log4j.LogManager;
 
+import javax.annotation.Nullable;
+import java.util.List;
+
 /**
  * Part of rwbym by Bluexin.
  *
@@ -56,6 +61,7 @@ public class RWBYItem extends Item implements ICustomItem {
     private boolean water;
     private boolean atlasknight;
     private boolean ageist;
+    private boolean zwei;
     private boolean burn;
     private boolean scroll;
     private boolean hasContainerItem;
@@ -80,6 +86,7 @@ public class RWBYItem extends Item implements ICustomItem {
         if(name.contains("waterdustcrystal")) water = true;
         if(name.contains("atlasknight")) atlasknight = true;
         if(name.contains("armagigas")) ageist = true;
+        if(name.contains("zwei")) zwei = true;
         scroll = name.contains("scroll");
         coin = "notcoin";
     }
@@ -135,6 +142,15 @@ public class RWBYItem extends Item implements ICustomItem {
             itemstack.shrink(1);
         }
 
+        if(zwei){
+            if(!worldIn.isRemote){
+                BlockPos blockpos = (new BlockPos(playerIn));
+                EntityZwei entityzwei = new EntityZwei(playerIn.world);
+                entityzwei.moveToBlockPosAndAngles(blockpos, 0.0F, 0.0F);
+                playerIn.world.spawnEntity(entityzwei);}
+            itemstack.shrink(1);
+        }
+        
         if(ageist){
             if(!worldIn.isRemote){
                 BlockPos blockpos = (new BlockPos(playerIn));
@@ -304,6 +320,12 @@ public class RWBYItem extends Item implements ICustomItem {
         }
     }
 
+
+    @Override
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+        super.addInformation(stack, worldIn, tooltip, flagIn);
+        if(zwei){tooltip.add("a Wild Zwei has Appeared use bones to tame him");}
+    }
 
     @Override
     public boolean isBookEnchantable(ItemStack stack, ItemStack book) {

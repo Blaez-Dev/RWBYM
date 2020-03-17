@@ -137,6 +137,8 @@ public class EntityStore extends EntityRWBYMMerchant implements INpc, IMerchant{
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.bait,1),new ItemStack(RWBYItems.remnants,32),new ItemStack(RWBYItems.coin_clover,1)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.bait,1),new ItemStack(RWBYItems.remnants,32),new ItemStack(RWBYItems.coin_harriet,1)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.bait,1),new ItemStack(RWBYItems.remnants,32),new ItemStack(RWBYItems.coinqrow,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500, 1), new ItemStack(RWBYItems.signdust)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500, 6), new ItemStack(RWBYItems.zwei)));
 
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien1,5),new ItemStack(RWBYItems.lien5, 1)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien5,2),new ItemStack(RWBYItems.lien10, 1)));
