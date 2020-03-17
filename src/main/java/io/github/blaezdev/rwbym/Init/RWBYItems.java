@@ -1659,6 +1659,38 @@ public class RWBYItems {
             0,
             16,
             null);
+    public static final Item robyncrossbow = new RWBYGun(
+            "robyncrossbow",
+            2500,
+            0,
+            RWBYGun.BOW,
+            "rwbym:robynshield",
+            "minecraft:arrow,minecraft:tipped_arrow",
+            false,
+            2,
+            false,
+            false,
+            0,
+            1,
+            0,
+            16,
+            null);
+    public static final Item robynshield = new RWBYGun(
+            "robynshield",
+            2500,
+            14,
+            RWBYGun.FIST,
+            "rwbym:robyncrossbow",
+            "minecraft:arrows32,minecraft:nullest",
+            false,
+            2,
+            true,
+            true,
+            0,
+            1,
+            0,
+            16,
+            null);
     public static final Item adamgun = new RWBYGun(
             "adamgun",
             2500,

@@ -1,7 +1,9 @@
 package io.github.blaezdev.rwbym.world.village;
 
 import io.github.blaezdev.rwbym.Init.Oregen;
+import io.github.blaezdev.rwbym.RWBYEntities;
 import io.github.blaezdev.rwbym.RWBYModels;
+import io.github.blaezdev.rwbym.entity.EntityArmourStore;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
@@ -22,6 +24,8 @@ import java.util.Random;
 public class ComponentVillageShop1 extends StructureVillagePieces.Village {
     private static final ResourceLocation shop = new ResourceLocation("rwbym:rwbym5");
 
+    public int counter = 0;
+
     public ComponentVillageShop1() {
     }
 
@@ -39,11 +43,14 @@ public class ComponentVillageShop1 extends StructureVillagePieces.Village {
                 return true;
             }
 
-            this.boundingBox.offset(0, averageGroundLvl - this.boundingBox.minY, 0);
+            this.boundingBox.offset(0, averageGroundLvl - this.boundingBox.minY - 1, 0);
         }
         BlockPos pos = new BlockPos(this.boundingBox.minX, this.boundingBox.minY, this.boundingBox.minZ);
         TemplateManager templateManager = world.getSaveHandler().getStructureTemplateManager();
-        PlacementSettings settings = (new PlacementSettings()).setReplacedBlock(Blocks.STRUCTURE_VOID).setBoundingBox(boundingBox);
+        PlacementSettings settings = (new PlacementSettings().setReplacedBlock(Blocks.STRUCTURE_VOID).setBoundingBox(boundingBox));
+        if(counter > 0){
+        settings = settings.setIgnoreEntities(true);}
+        counter ++;
         Template template = templateManager.getTemplate(world.getMinecraftServer(), shop);
         template.addBlocksToWorldChunk(world, pos, settings);
         Map<BlockPos, String> dataBlocks = template.getDataBlocks(pos, settings);

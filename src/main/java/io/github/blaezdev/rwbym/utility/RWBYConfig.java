@@ -170,7 +170,10 @@ public class RWBYConfig
     @Config.Name("Dust Ore Random Effect Chance")
     public  int dustoreeffect = 20;
     @Config.Name("Unsafe Dust Mining")
-    public  boolean unsafemining = true;}
+    public  boolean unsafemining = true;
+    @Config.Name("Legacy WorldGen")
+    public boolean legacyworldgen = false;
+    }
 
 
     public static class General {

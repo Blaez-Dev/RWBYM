@@ -107,6 +107,8 @@ public class RegUtil {
         registerItems(event, RWBYItems.goodwitch);
         registerItems(event, RWBYItems.oobleckthermos);
         registerItems(event, RWBYItems.oobleckflamethrower);
+        registerItems(event, RWBYItems.robyncrossbow);
+        registerItems(event, RWBYItems.robynshield);
         registerItems(event, RWBYItems.lionheart);
         registerItems(event, RWBYItems.jnrbat);
         registerItems(event, RWBYItems.jnrrocket);

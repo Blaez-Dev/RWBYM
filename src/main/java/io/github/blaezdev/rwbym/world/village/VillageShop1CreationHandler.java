@@ -17,8 +17,8 @@ public class VillageShop1CreationHandler implements VillagerRegistry.IVillageCre
     @Override
     public StructureVillagePieces.PieceWeight getVillagePieceWeight(Random random, int size) {
         if (random.nextFloat() > 1F) {
-        return new StructureVillagePieces.PieceWeight(ComponentVillageShop1.class, 0, 0);}
-        return new StructureVillagePieces.PieceWeight(ComponentVillageShop1.class, 3, 1);
+        return new StructureVillagePieces.PieceWeight(ComponentVillageShop1.class, 0, 0);}else
+            return new StructureVillagePieces.PieceWeight(ComponentVillageShop1.class, 3, 1);
     }
 
     @Override

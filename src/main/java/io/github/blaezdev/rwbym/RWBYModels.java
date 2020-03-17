@@ -16,6 +16,7 @@ import io.github.blaezdev.rwbym.gui.scroll.GuiScreenScrollTeam;
 import io.github.blaezdev.rwbym.handler.ModEventHandler;
 import io.github.blaezdev.rwbym.inventory.IRWBYContainerFactory;
 import io.github.blaezdev.rwbym.proxy.CommonProxy;
+import io.github.blaezdev.rwbym.utility.RWBYConfig;
 import io.github.blaezdev.rwbym.utility.network.RWBYNetworkHandler;
 import io.github.blaezdev.rwbym.weaponry.ICustomItem;
 import io.github.blaezdev.rwbym.weaponry.RWBYContainerItem;
@@ -133,8 +134,11 @@ public class RWBYModels {
 
         MinecraftForge.EVENT_BUS.register(new ModEventHandler());
 
+        if(!RWBYConfig.worldgen.legacyworldgen){
         VillagerRegistry.instance().registerVillageCreationHandler(new VillageShop1CreationHandler());
         MapGenStructureIO.registerStructureComponent(ComponentVillageShop1.class, "rwbym:rwbym5");
+
+        }
 
 
         if (event.getSide() == Side.CLIENT){
