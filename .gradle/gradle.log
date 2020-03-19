@@ -1,41 +1,150 @@
 This mapping 'snapshot_20171003' was designed for MC 1.12! Use at your own peril.This mapping 'snapshot_20171003' was designed for MC 1.12! Use at your own peril.
 
+#################################################
+         ForgeGradle 2.3-SNAPSHOT-6084129e        
+  https://github.com/MinecraftForge/ForgeGradle  
+#################################################
+                 Powered by MCP                  
+             http://modcoderpack.com             
+     by: Searge, ProfMobius, R4wk, ZeuX          
+     Fesh0r, IngisKahn, bspkrs, LexManos         
+#################################################
 :deobfCompileDummyTask
 :deobfProvidedDummyTask
 :sourceApiJava UP-TO-DATE
 :compileApiJava UP-TO-DATE
 :processApiResources UP-TO-DATE
 :apiClasses UP-TO-DATE
-:sourceMainJava
+:sourceMainJava UP-TO-DATE
 :compileJavaNote: Some input files use or override a deprecated API.
 Note: Recompile with -Xlint:deprecation for details.
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
 
-:processResources
+:processResources UP-TO-DATE
 :classes
 :jar
-:sourceTestJava UP-TO-DATE
-:compileTestJava UP-TO-DATE
-:processTestResources UP-TO-DATE
-:testClasses UP-TO-DATE
-:test UP-TO-DATE
-:extractMcpData SKIPPED
-:extractMcpMappings SKIPPED
 :getVersionJson
+:extractNatives SKIPPED
 :extractUserdev UP-TO-DATE
-:genSrgs SKIPPED
-:reobfJar
-:extractAnnotationsJar
-:extractRangemapReplacedMain
-C:\Users\Izumi\Documents\GitHub\RWBYM\build\sources\main\java
-:retromapReplacedMain
-remapping source...
-:sourceJar
-:assemble
-:check UP-TO-DATE
-:build
-
+:getAssetIndex UP-TO-DATE
+:getAssets
+:makeStart
+:runServer
+[15:12:00] [main/INFO] [GradleStart]: Extra: []
+[15:12:00] [main/INFO] [GradleStart]: Running with arguments: [--tweakClass, net.minecraftforge.fml.common.launcher.FMLServerTweaker, --tweakClass, net.minecraftforge.gradle.tweakers.CoremodTweaker]
+[15:12:00] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLServerTweaker
+[15:12:00] [main/INFO] [LaunchWrapper]: Using primary tweak class name net.minecraftforge.fml.common.launcher.FMLServerTweaker
+[15:12:00] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.gradle.tweakers.CoremodTweaker
+[15:12:00] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLServerTweaker
+2020-03-18 15:12:01,342 main WARN Disabling terminal, you're running in an unsupported environment.
+[15:12:01] [main/INFO] [FML]: Forge Mod Loader version 14.23.5.2847 for Minecraft 1.12.2 loading
+[15:12:01] [main/INFO] [FML]: Java is Java HotSpot(TM) 64-Bit Server VM, version 1.8.0_211, running on Windows 10:amd64:10.0, installed at C:\Program Files\Java\jdk1.8.0_211\jre
+[15:12:01] [main/ERROR] [FML]: Apache Maven library folder was not in the format expected. Using default libraries directory.
+[15:12:01] [main/ERROR] [FML]: Full: C:\Users\Izumi\.gradle\caches\modules-2\files-2.1\org.apache.maven\maven-artifact\3.5.3\7dc72b6d6d8a6dced3d294ed54c2cc3515ade9f4\maven-artifact-3.5.3.jar
+[15:12:01] [main/ERROR] [FML]: Trimmed: c:/users/izumi/.gradle/caches/modules-2/files-2.1/org.apache.maven/maven-artifact/3.5.3/
+[15:12:01] [main/INFO] [FML]: Managed to load a deobfuscated Minecraft name- we are in a deobfuscated environment. Skipping runtime deobfuscation
+[15:12:01] [main/INFO] [FML]: Ignoring missing certificate for coremod FMLCorePlugin (net.minecraftforge.fml.relauncher.FMLCorePlugin), we are in deobf and it's a forge core plugin
+[15:12:01] [main/INFO] [FML]: Ignoring missing certificate for coremod FMLForgePlugin (net.minecraftforge.classloading.FMLForgePlugin), we are in deobf and it's a forge core plugin
+[15:12:01] [main/INFO] [FML]: Searching C:\Users\Izumi\Documents\GitHub\RWBYM\run\.\mods for mods
+[15:12:01] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.gradle.tweakers.CoremodTweaker
+[15:12:01] [main/INFO] [GradleStart]: Injecting location in coremod net.minecraftforge.fml.relauncher.FMLCorePlugin
+[15:12:01] [main/INFO] [GradleStart]: Injecting location in coremod net.minecraftforge.classloading.FMLForgePlugin
+[15:12:01] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
+[15:12:01] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLDeobfTweaker
+[15:12:01] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
+[15:12:01] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
+[15:12:01] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
+[15:12:01] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
+[15:12:01] [main/ERROR] [FML]: FML appears to be missing any signature data. This is not a good thing
+[15:12:01] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
+[15:12:01] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLDeobfTweaker
+[15:12:02] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
+[15:12:02] [main/INFO] [GradleStart]: Remapping AccessTransformer rules...
+[15:12:02] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.TerminalTweaker
+[15:12:02] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.TerminalTweaker
+[15:12:02] [main/INFO] [LaunchWrapper]: Launching wrapped minecraft {net.minecraft.server.MinecraftServer}
+[15:12:04] [Server thread/INFO] [minecraft/DedicatedServer]: Starting minecraft server version 1.12.2
+[15:12:04] [Server thread/INFO] [FML]: MinecraftForge v14.23.5.2847 Initialized
+[15:12:04] [Server thread/INFO] [FML]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[15:12:04] [Server thread/INFO] [FML]: Invalid recipe found with multiple oredict ingredients in the same ingredient...
+[15:12:04] [Server thread/INFO] [FML]: Replaced 1227 ore ingredients
+[15:12:05] [Server thread/INFO] [FML]: Searching C:\Users\Izumi\Documents\GitHub\RWBYM\run\.\mods for mods
+[15:12:06] [Server thread/INFO] [FML]: Forge Mod Loader has identified 7 mods to load
+[15:12:06] [Server thread/WARN] [FML]: Missing English translation for FML: assets/fml/lang/en_us.lang
+[15:12:06] [Server thread/INFO] [FML]: Attempting connection with missing mods [minecraft, mcp, FML, forge, rwbym, jei, naturescompass] at CLIENT
+[15:12:06] [Server thread/INFO] [FML]: Attempting connection with missing mods [minecraft, mcp, FML, forge, rwbym, jei, naturescompass] at SERVER
+[15:12:06] [Server thread/INFO] [FML]: Processing ObjectHolder annotations
+[15:12:06] [Server thread/INFO] [FML]: Found 1168 ObjectHolder annotations
+[15:12:06] [Server thread/INFO] [FML]: Identifying ItemStackHolder annotations
+[15:12:06] [Server thread/INFO] [FML]: Found 0 ItemStackHolder annotations
+[15:12:06] [Server thread/INFO] [FML]: Configured a dormant chunk cache size of 0
+[15:12:06] [Forge Version Check/INFO] [forge.VersionCheck]: [forge] Starting version check at http://files.minecraftforge.net/maven/net/minecraftforge/forge/promotions_slim.json
+[15:12:07] [Forge Version Check/INFO] [forge.VersionCheck]: [forge] Found status: AHEAD Target: null
+[15:12:08] [Server thread/INFO] [FML]: Applying holder lookups
+[15:12:08] [Server thread/INFO] [FML]: Holder lookups applied
+[15:12:08] [Server thread/INFO] [FML]: Applying holder lookups
+[15:12:08] [Server thread/INFO] [FML]: Holder lookups applied
+[15:12:08] [Server thread/INFO] [FML]: Applying holder lookups
+[15:12:08] [Server thread/INFO] [FML]: Holder lookups applied
+[15:12:08] [Server thread/INFO] [FML]: Applying holder lookups
+[15:12:08] [Server thread/INFO] [FML]: Holder lookups applied
+[15:12:08] [Server thread/INFO] [FML]: Injecting itemstacks
+[15:12:08] [Server thread/INFO] [FML]: Itemstack injection complete
+[15:12:08] [Server thread/INFO] [minecraft/DedicatedServer]: Loading properties
+[15:12:08] [Server thread/INFO] [minecraft/DedicatedServer]: Default game type: SURVIVAL
+[15:12:08] [Server thread/INFO] [minecraft/DedicatedServer]: Generating keypair
+[15:12:08] [Server thread/INFO] [minecraft/DedicatedServer]: Starting Minecraft server on *:25565
+[15:12:08] [Server thread/INFO] [minecraft/NetworkSystem]: Using default channel type
+[15:12:08] [Server thread/WARN] [minecraft/DedicatedServer]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[15:12:08] [Server thread/WARN] [minecraft/DedicatedServer]: The server will make no attempt to authenticate usernames. Beware.
+[15:12:08] [Server thread/WARN] [minecraft/DedicatedServer]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[15:12:08] [Server thread/WARN] [minecraft/DedicatedServer]: To change this, set "online-mode" to "true" in the server.properties file.
+[15:12:09] [Server thread/INFO] [FML]: Applying holder lookups
+[15:12:09] [Server thread/INFO] [FML]: Holder lookups applied
+[15:12:09] [Server thread/INFO] [STDOUT]: [io.github.blaezdev.rwbym.RWBYModels:init:172]: Blaez:RWBYM Relz 4.5.3
+[15:12:09] [Server thread/INFO] [FML]: Injecting itemstacks
+[15:12:09] [Server thread/INFO] [FML]: Itemstack injection complete
+[15:12:09] [Server thread/INFO] [FML]: Forge Mod Loader has successfully loaded 7 mods
+[15:12:09] [Server thread/INFO] [minecraft/DedicatedServer]: Preparing level "world"
+[15:12:09] [Server thread/INFO] [FML.ModTracker]: This world was saved with mod rwbym version 4.4.6 and it is now at version 4.5.3, things may not work well
+[15:12:09] [Server thread/INFO] [FML]: Injecting existing registry data into this server instance
+[15:12:09] [Server thread/WARN] [FML]: Registry Item: Object did not get ID it asked for. Name: rwbym:rushcharm Expected: 4571 Got: 4720
+[15:12:09] [Server thread/WARN] [FML]: Registry Item: Object did not get ID it asked for. Name: rwbym:fleetingcharm Expected: 4570 Got: 4721
+[15:12:09] [Server thread/WARN] [FML]: Registry Item: Object did not get ID it asked for. Name: rwbym:tankcharm Expected: 4567 Got: 4722
+[15:12:09] [Server thread/WARN] [FML]: Registry Item: Object did not get ID it asked for. Name: rwbym:auracharm Expected: 4561 Got: 4723
+[15:12:09] [Server thread/WARN] [FML]: Registry Item: Object did not get ID it asked for. Name: rwbym:healthcharm Expected: 4562 Got: 4724
+[15:12:09] [Server thread/WARN] [FML]: Registry Item: Object did not get ID it asked for. Name: rwbym:zwei Expected: 4443 Got: 4725
+[15:12:09] [Server thread/WARN] [FML]: Registry Item: Object did not get ID it asked for. Name: rwbym:robyncrossbow Expected: 4173 Got: 4726
+[15:12:09] [Server thread/WARN] [FML]: Registry Item: Object did not get ID it asked for. Name: rwbym:firedancercharm Expected: 4559 Got: 4727
+[15:12:09] [Server thread/WARN] [FML]: Registry Item: Object did not get ID it asked for. Name: rwbym:kingsgambit Expected: 4557 Got: 4728
+[15:12:09] [Server thread/WARN] [FML]: Registry Item: Object did not get ID it asked for. Name: rwbym:edgecharm Expected: 4565 Got: 4729
+[15:12:09] [Server thread/WARN] [FML]: Registry Item: Object did not get ID it asked for. Name: rwbym:knockoutcharm Expected: 4566 Got: 4730
+[15:12:09] [Server thread/WARN] [FML]: Registry Item: Object did not get ID it asked for. Name: rwbym:attackcharm Expected: 4568 Got: 4731
+[15:12:09] [Server thread/WARN] [FML]: Registry Item: Object did not get ID it asked for. Name: rwbym:criticalcharm Expected: 4560 Got: 4732
+[15:12:09] [Server thread/WARN] [FML]: Registry Item: Object did not get ID it asked for. Name: rwbym:kingsgambitpawn Expected: 4558 Got: 4733
+[15:12:09] [Server thread/WARN] [FML]: Registry Item: Object did not get ID it asked for. Name: rwbym:puncturecharm Expected: 4564 Got: 4734
+[15:12:09] [Server thread/WARN] [FML]: Registry Item: Object did not get ID it asked for. Name: rwbym:robynshield Expected: 4174 Got: 4735
+[15:12:09] [Server thread/WARN] [FML]: Registry Item: Object did not get ID it asked for. Name: rwbym:feathercharm Expected: 4569 Got: 4736
+[15:12:09] [Server thread/WARN] [FML]: Registry Item: Object did not get ID it asked for. Name: rwbym:reachcharm Expected: 4563 Got: 4737
+[15:12:09] [Server thread/INFO] [FML]: Applying holder lookups
+[15:12:09] [Server thread/INFO] [FML]: Holder lookups applied
+[15:12:09] [Server thread/INFO] [FML]: Loading dimension 0 (world) (net.minecraft.server.dedicated.DedicatedServer@3aafdea2)
+[15:12:10] [Server thread/INFO] [minecraft/AdvancementList]: Loaded 488 advancements
+[15:12:10] [Server thread/INFO] [FML]: Loading dimension -1 (world) (net.minecraft.server.dedicated.DedicatedServer@3aafdea2)
+[15:12:10] [Server thread/INFO] [FML]: Loading dimension 1 (world) (net.minecraft.server.dedicated.DedicatedServer@3aafdea2)
+[15:12:10] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for level 0
+[15:12:11] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing spawn area: 29%
+[15:12:11] [Server thread/INFO] [minecraft/DedicatedServer]: Done (2.620s)! For help, type "help" or "?"
+[15:12:12] [Server thread/INFO] [FML]: Unloading dimension -1
+[15:12:12] [Server thread/INFO] [FML]: Unloading dimension 1
+[15:12:48] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[15:12:48] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[15:12:48] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[15:12:48] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'world'/overworld
+[15:12:48] [Server thread/INFO] [FML]: Unloading dimension 0
+[15:12:48] [Server Shutdown Thread/INFO] [minecraft/MinecraftServer]: Stopping server
+Exception in thread "AWT-EventQueue-0" 
 BUILD SUCCESSFUL
 
-Total time: 25.307 secs
+Total time: 1 mins 8.311 secs
