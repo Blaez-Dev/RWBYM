@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+-<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" IgnorableNamespaces="uap uap3 desktop desktop6 wincap rescap" xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities" xmlns:wincap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/windowscapabilities" xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3" xmlns:desktop="http://schemas.microsoft.com/appx/manifest/desktop/windows10" xmlns:desktop6="http://schemas.microsoft.com/appx/manifest/desktop/windows10/6" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10">
+
+<Identity ProcessorArchitecture="x64" Version="1.1389.0.0" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US" Name="Microsoft.Chelan"/>
+
+
++<Properties>
+
+
+-<Dependencies>
+
+<TargetDeviceFamily Name="Windows.Desktop" MaxVersionTested="10.0.18362.0" MinVersion="10.0.18362.0"/>
+
+<PackageDependency Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US" Name="Microsoft.DirectXRuntime" MinVersion="9.29.952.0"/>
+
+<PackageDependency Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US" Name="Microsoft.VCLibs.140.00.UWPDesktop" MinVersion="14.0.24217.0"/>
+
+</Dependencies>
+
+
+-<Resources>
+
+<Resource Language="en"/>
+
+<Resource Language="fr"/>
+
+<Resource Language="de"/>
+
+<Resource Language="es"/>
+
+<Resource Language="es-ES"/>
+
+<Resource Language="pt"/>
+
+<Resource Language="it"/>
+
+<Resource Language="zh-CN"/>
+
+<Resource Language="zh-HK"/>
+
+<Resource Language="zh-SG"/>
+
+<Resource Language="zh-TW"/>
+
+<Resource Language="ja"/>
+
+<Resource Language="ko"/>
+
+<Resource Language="ru"/>
+
+<Resource Language="pl"/>
+
+</Resources>
+
+
+-<Applications>
+
+
+-<Application EntryPoint="Windows.FullTrustApplication" Executable="mcclauncher.exe" Id="HaloMCCShipping">
+
+
+-<uap:VisualElements BackgroundColor="#000040" ForegroundText="light" Description="Halo: The Master Chief Collection" Square44x44Logo="SmallLogo.png" Square150x150Logo="Logo.png" DisplayName="Halo: The Master Chief Collection">
+
+<uap:SplashScreen Image="SplashScreen.png"/>
+
+</uap:VisualElements>
+
+
+-<Extensions>
+
+
+-<uap:Extension Category="windows.protocol">
+
+<uap:Protocol Name="ms-xbl-4430a9f8"/>
+
+</uap:Extension>
+
+
+-<uap:Extension Category="windows.protocol">
+
+<uap:Protocol Name="ms-xbl-multiplayer"/>
+
+</uap:Extension>
+
+</Extensions>
+
+</Application>
+
+
+-<Application EntryPoint="Windows.FullTrustApplication" Executable="MCC\Binaries\Win64\MCC-Win64-Shipping-WinStore.exe" Id="HaloMCCShippingNoEAC">
+
+
++<uap:VisualElements BackgroundColor="#000040" ForegroundText="light" Description="Halo: The Master Chief Collection" Square44x44Logo="SmallLogo.png" Square150x150Logo="Logo.png" DisplayName="Halo: MCC Anti-Cheat Disabled (Mods and Limited Services)">
+
+</Application>
+
+</Applications>
+
+
+-<Extensions>
+
+
+-<desktop6:Extension Category="windows.customInstall">
+
+
+-<desktop6:CustomInstall Folder="Installers">
+
+
+-<desktop6:InstallActions>
+
+<desktop6:InstallAction Name="EasyAntiCheat Install Task" Arguments="install 426 -console" File="EasyAntiCheat_Setup.exe"/>
+
+</desktop6:InstallActions>
+
+</desktop6:CustomInstall>
+
+</desktop6:Extension>
+
+
+-<desktop6:Extension Category="windows.mutablePackageDirectories">
+
+
+-<desktop6:MutablePackageDirectories>
+
+<desktop6:MutablePackageDirectory Target="HaloMCC"/>
+
+</desktop6:MutablePackageDirectories>
+
+</desktop6:Extension>
+
+</Extensions>
+
+
+-<Capabilities>
+
+<Capability Name="internetClient"/>
+
+<rescap:Capability Name="runFullTrust"/>
+
+<rescap:Capability Name="unvirtualizedResources"/>
+
+<rescap:Capability Name="customInstallActions"/>
+
+<rescap:Capability Name="modifiableApp"/>
+
+</Capabilities>
+
+</Package>
