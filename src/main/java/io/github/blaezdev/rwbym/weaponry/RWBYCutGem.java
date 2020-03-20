@@ -1,10 +1,12 @@
 package io.github.blaezdev.rwbym.weaponry;
 
 import com.google.common.collect.Multimap;
+import com.mojang.realmsclient.gui.ChatFormatting;
 import io.github.blaezdev.rwbym.Init.RWBYItems;
 import io.github.blaezdev.rwbym.RWBYModels;
 import io.github.blaezdev.rwbym.utility.RWBYConfig;
 import mcp.MethodsReturnNonnullByDefault;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
@@ -32,7 +34,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.logging.log4j.LogManager;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -267,6 +271,13 @@ public class RWBYCutGem extends ItemBow implements ICustomItem {
 
             return ItemStack.EMPTY;
         }
+    }
+
+    @Override
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+        if(element == WATER){tooltip.add(ChatFormatting.BLUE + "-"+"Mild Regeneration While in the Offhand and Water Breathing");}
+        if(element == GRAVITY){tooltip.add(ChatFormatting.BLUE+"-"+"Slow Falling While in the Offhand and Levitation While Sneaking in Mid-Air");}
+        super.addInformation(stack, worldIn, tooltip, flagIn);
     }
 
     @Override

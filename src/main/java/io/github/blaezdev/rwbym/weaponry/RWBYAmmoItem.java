@@ -278,6 +278,8 @@ public class RWBYAmmoItem extends Item implements ICustomItem {
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add("Bullet Impact Damage:");
         tooltip.add(ChatFormatting.BLUE + "-"+baseDamage);
+        if(element == WATER){tooltip.add(ChatFormatting.BLUE + "-"+"Slight Regeneration While in the Offhand");}
+        if(element == GRAVITY){tooltip.add(ChatFormatting.BLUE+"-"+"Slow Falling While in the Offhand");}
         super.addInformation(stack, worldIn, tooltip, flagIn);
     }
 
