@@ -60,6 +60,8 @@ public class RWBYConfig
     public  int spawnrateapathy= 50;
     @Config.Name("Spawn Rate Tiny DeathStalker")
     public  int spawnratetinydeathstalker= 50;
+    @Config.Name("Spawn Rate Beringle")
+    public  int spawnrateberingle= 50;
     @Config.Name("Spawn Rate Queen Lancer")
     public  int spawnratequeenlancer= 1;
     @Config.Name("Lancer Queen Nests")
