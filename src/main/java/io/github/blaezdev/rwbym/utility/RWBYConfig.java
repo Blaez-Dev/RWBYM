@@ -65,6 +65,8 @@ public class RWBYConfig
     @Config.Name("Lancer Queen Nests")
     @Config.Comment("Enable Lancer Queens to Spawn anywhere dark")
     public  boolean lancernests = false;
+    @Config.Name("Disable Random Boss Spawns//Only spawn during Dark Crystal Raids")
+    public boolean randombossspawns = true;
     }
 
     public static class MobAttributes{

@@ -45,6 +45,7 @@ public class BiomeDarkGrimm extends Biome {
         this.spawnableMonsterList.add(new SpawnListEntry(EntityLancer.class, 20, 1, 20));
         this.spawnableMonsterList.add(new SpawnListEntry(EntityJuvenileDeathstalker.class, 20, 1, 20));
         this.spawnableMonsterList.add(new SpawnListEntry(EntityQueenLancer.class, 1, 1, 20));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityUrsaMajor.class, 20, 1, 20));
 
     }
 
