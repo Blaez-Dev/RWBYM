@@ -58,7 +58,7 @@ public class EntityNuckleeve extends EntityGrimm
     }
 
     protected ResourceLocation getLootTable() {
-        return ModLootTables.Boss;
+        return ModLootTables.Demiboss;
     }
 
     protected SoundEvent getAmbientSound() {

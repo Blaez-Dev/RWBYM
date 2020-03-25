@@ -56,7 +56,7 @@ public class EntityBeringle extends EntityGrimm {
     }
 
     protected ResourceLocation getLootTable() {
-        return ModLootTables.Boss;
+        return ModLootTables.Demiboss;
     }
 
     protected SoundEvent getAmbientSound() {
@@ -64,12 +64,10 @@ public class EntityBeringle extends EntityGrimm {
     }
 
     protected SoundEvent getHurtSound() {
-        return SoundEvents.ENTITY_POLAR_BEAR_HURT;
+        return SoundEvents.ENTITY_ELDER_GUARDIAN_HURT;
     }
 
-    protected SoundEvent getDeathSound() {
-        return SoundEvents.ENTITY_POLAR_BEAR_DEATH;
-    }
+    protected SoundEvent getDeathSound() { return SoundEvents.ENTITY_ELDER_GUARDIAN_DEATH; }
 
 
     @Override
