@@ -2,6 +2,7 @@ package io.github.blaezdev.rwbym.world.biome;
 
 import io.github.blaezdev.rwbym.entity.*;
 import net.minecraft.world.biome.Biome;
+import net.minecraftforge.client.event.EntityViewRenderEvent;
 
 public class BiomeDomainofLight extends Biome {
 

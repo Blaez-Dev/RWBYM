@@ -69,7 +69,7 @@ public class EntityAtlasKnight extends EntityGolem {
      public boolean attackEntityAsMob(Entity entityIn)
      {
          this.world.setEntityState(this, (byte)4);
-         boolean flag = entityIn.attackEntityFrom(DamageSource.causeMobDamage(this), (float)(7 + this.rand.nextInt(15)* RWBYConfig.attributes.grimmattackmult));
+         boolean flag = entityIn.attackEntityFrom(DamageSource.causeMobDamage(this), (float)(9 + this.rand.nextInt(15)* RWBYConfig.attributes.grimmattackmult));
 
          if (flag)
          {

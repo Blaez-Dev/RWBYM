@@ -27,6 +27,7 @@ entity.tinydeathstalker.name=Tiny Deathstalker
 entity.ren.name=Lure
 entity.ragora.name=Ragora Familiar
 entity.ursamajor.name=Ursa Major
+entity.beringle.name=Beringle
 
 entity.beowolf.name=Beowolf
 entity.boarbatusk.name=Boarbatusk
@@ -504,6 +505,7 @@ item.rwbym:qrowcoin.name=Semblance Coin Qrow
 
 
 
+
 item.rwbym:blackcatear.name=Black Cat Ears
 item.rwbym:blondecatear.name=Blonde Cat Ears
 item.rwbym:browncatear.name=Brown Cat Ears
@@ -656,6 +658,19 @@ item.rwbym:moonskimmer.name=Moon Skimmer
 item.rwbym:mondragon.name=Mondragon M1908
 item.kingsgambit.name=King's Gambit
 item.kingsgambitpawn.name=King's Pawn
+item.firedancercharm.name=FireDancer's Charm
+item.criticalcharm.name=Critical Strike Charm
+item.auracharm.name=Aura Regen Charm
+item.healthcharm.name=Vitality Charm
+item.reachcharm.name=Reach Charm
+item.puncturecharm.name=Puncture Charm
+item.edgecharm.name=Gladitor Charm
+item.knockoutcharm.name=Knock-Out Charm
+item.tankcharm.name=Defence Charm
+item.attackcharm.name=Attack Charm
+item.feathercharm.name=Feather-Light Charm
+item.fleetingcharm.name=Fleeting Charm
+item.rushcharm.name=Reckless Charm
 item.rwbym:robyncrossbow.name=Robyn's Crossbow
 item.rwbym:robynshield.name=Robyn's Shield
 item.rwbym:signdust.name=From Dust to Dawn

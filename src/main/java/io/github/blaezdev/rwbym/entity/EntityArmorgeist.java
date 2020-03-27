@@ -55,7 +55,7 @@ public class EntityArmorgeist extends EntityMob {
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.3499999940395355D);
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(RWBYConfig.attributes.aggrorange);
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(400.0D*RWBYConfig.attributes.grimmhealthmult);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D*RWBYConfig.attributes.grimmattackmult);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(10.0D*RWBYConfig.attributes.grimmattackmult);
         this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.0D);
         this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(20D);
     }

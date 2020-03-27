@@ -117,7 +117,7 @@ public class EntityQueenLancer extends EntityGrimm
     {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(400.0D* RWBYConfig.attributes.grimmhealthmult);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(4.0D*RWBYConfig.attributes.grimmattackmult);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(10.0D*RWBYConfig.attributes.grimmattackmult);
         this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(5D);
     }
 

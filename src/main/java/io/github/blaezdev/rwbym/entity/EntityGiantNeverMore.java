@@ -41,7 +41,7 @@ public class EntityGiantNeverMore extends EntityGrimm
     public EntityGiantNeverMore(World worldIn)
     {
         super(worldIn);
-        this.setSize(4F, 7F);
+        this.setSize(5F, 7F);
         this.experienceValue = 3;
         this.targetPos = Vec3d.ZERO;
         this.circleCenter = BlockPos.ORIGIN;
@@ -101,7 +101,7 @@ public class EntityGiantNeverMore extends EntityGrimm
     {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(400.0D* RWBYConfig.attributes.grimmhealthmult);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(4.0D*RWBYConfig.attributes.grimmattackmult);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(7.0D*RWBYConfig.attributes.grimmattackmult);
     }
 
     protected void entityInit()

@@ -362,7 +362,7 @@ public class EntityZwei extends EntityTameable
 
     public boolean attackEntityAsMob(Entity entityIn)
     {
-        boolean flag = entityIn.attackEntityFrom(DamageSource.causeMobDamage(this), (float)((int)this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue()));
+        boolean flag = entityIn.attackEntityFrom(DamageSource.causeMobDamage(this), (float)(4 + this.rand.nextInt(3)* RWBYConfig.attributes.grimmattackmult));
 
         if (flag)
         {

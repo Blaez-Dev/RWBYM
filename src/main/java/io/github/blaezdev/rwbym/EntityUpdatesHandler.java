@@ -17,6 +17,7 @@ import io.github.blaezdev.rwbym.utility.network.RWBYNetworkHandler;
 import io.github.blaezdev.rwbym.weaponry.ArmourBase;
 import io.github.blaezdev.rwbym.weaponry.RWBYHood;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
@@ -32,19 +33,26 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import net.minecraftforge.client.event.EntityViewRenderEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent.Clone;
 import net.minecraftforge.event.world.BlockEvent;
+import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerRespawnEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.common.network.FMLNetworkEvent.ClientConnectedToServerEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static net.minecraft.client.renderer.GlStateManager.FogMode.EXP;
+import static net.minecraft.client.renderer.GlStateManager.FogMode.LINEAR;
 
 public class EntityUpdatesHandler {
 
@@ -72,6 +80,40 @@ public class EntityUpdatesHandler {
         }
     }
 
+
+    @SideOnly(Side.CLIENT)
+    @SubscribeEvent(priority= EventPriority.NORMAL, receiveCanceled=true)
+    public void onEvent(EntityViewRenderEvent.FogDensity event)
+    {   EntityPlayer player = (EntityPlayer) event.getEntity();
+        Biome biome = player.world.getBiome(player.getPosition());
+        if (biome == RWBYBiomes.GrimmWastes)
+        {
+            GlStateManager.setFog(EXP);
+            event.setDensity(0.3F);
+            event.setCanceled(true);
+        }//else if (biome == RWBYBiomes.DomainofLight) { GlStateManager.setFog(EXP); event.setDensity(0.005F); event.setCanceled(true);}
+        else{GlStateManager.setFog(LINEAR); event.setDensity(0.0000001F);}
+         // must cancel event for event handler to take effect
+    }
+
+
+    @SideOnly(Side.CLIENT)
+    @SubscribeEvent(priority=EventPriority.NORMAL, receiveCanceled=true)
+    public void onEvent(EntityViewRenderEvent.FogColors event)
+    { EntityPlayer player = (EntityPlayer) event.getEntity();
+        Biome biome = player.world.getBiome(player.getPosition());
+        if (biome == RWBYBiomes.GrimmWastes)
+        {
+            event.setRed(0.2F);
+            event.setGreen(0.2F);
+            event.setBlue(0.2F);
+        }/*else if (biome == RWBYBiomes.DomainofLight)
+        {
+            event.setRed(1F);
+            event.setGreen(1F);
+            event.setBlue(0.65F);
+        }*/
+    }
 
     @SubscribeEvent
     public void playerRespawn(PlayerRespawnEvent e) {

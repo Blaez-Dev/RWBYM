@@ -40,7 +40,7 @@ public class EntityNeverMore extends EntityGrimm
     public EntityNeverMore(World worldIn)
     {
         super(worldIn);
-        this.setSize(0.5F, 2F);
+        this.setSize(1F, 2F);
         this.experienceValue = 3;
         this.targetPos = Vec3d.ZERO;
         this.circleCenter = BlockPos.ORIGIN;
