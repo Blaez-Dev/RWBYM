@@ -130,6 +130,23 @@ public class EntityArmourStore extends EntityRWBYMMerchant implements INpc, IMer
             new MerchantRecipe(new ItemStack(RWBYItems.lien50,3), new ItemStack(RWBYItems.sunLegs, 1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien50,3), new ItemStack(RWBYItems.scarletChest, 1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien50,3), new ItemStack(RWBYItems.scarletLegs, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien50,3), new ItemStack(RWBYItems.adamv6Chest, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien50,3), new ItemStack(RWBYItems.adamv6Legs, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien50,3), new ItemStack(RWBYItems.neoChest, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien50,3), new ItemStack(RWBYItems.neoLegs, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien50,3), new ItemStack(RWBYItems.oscarv4Chest, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien50,3), new ItemStack(RWBYItems.oscarv4Legs, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien50,3), new ItemStack(RWBYItems.oscarv6Chest, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien50,3), new ItemStack(RWBYItems.oscarv6Legs, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien50,3), new ItemStack(RWBYItems.ozma1Chest, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien50,3), new ItemStack(RWBYItems.ozma1Legs, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien50,3), new ItemStack(RWBYItems.ozma2Chest, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien50,3), new ItemStack(RWBYItems.ozma2Legs, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien50,3), new ItemStack(RWBYItems.ozma3Chest, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien50,3), new ItemStack(RWBYItems.ozma3Legs, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien50,3), new ItemStack(RWBYItems.pennyv7Chest, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien50,3), new ItemStack(RWBYItems.pennyv7Legs, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien50,3), new ItemStack(RWBYItems.pennyv7Head, 1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien50,3),new ItemStack(RWBYItems.rvnmask, 1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien50,3),new ItemStack(RWBYItems.whtefng, 1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien50,3),new ItemStack(RWBYItems.mariaeyes, 1)),
@@ -272,7 +289,7 @@ public class EntityArmourStore extends EntityRWBYMMerchant implements INpc, IMer
         int nextRandom = rand.nextInt(this.weapons.length);
         Set<Integer> validate = new HashSet<>();
         validate.add(nextRandom);
-        for (int i = 0; i < 25; i++) {
+        for (int i = 0; i < 35; i++) {
             while(validate.contains(nextRandom)) {
                 nextRandom = rand.nextInt(this.weapons.length);
             }
