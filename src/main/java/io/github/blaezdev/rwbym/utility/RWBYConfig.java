@@ -77,7 +77,7 @@ public class RWBYConfig
     @Config.Name("Grimm Health Multiplier")
     public  float grimmhealthmult = 1.5F;
     @Config.Name("Grimm Attack Damage Multiplier")
-    public  float grimmattackmult = 40.5F;
+    public  float grimmattackmult = 1F;
     @Config.Name("Grimm Fluid Spawn Rate")
     @Config.Comment("One in x chance to spawn a grimm every tick for each block.")
     @Config.RangeInt(min = 0)
@@ -156,7 +156,7 @@ public class RWBYConfig
     @Config.Name("Rarity of RWBYM Biomes")
     public  int biomerarity = 20;
     @Config.Name("Spawn Chance Dark Crystal")
-    public  int darkcrystalrate = 20;
+    public  int darkcrystalrate = 8;
     @Config.Name("Spawn Chance Gravity DusT")
     public  int gravityore = 1;
     @Config.Name("Spawn Chance Fire Dust")
