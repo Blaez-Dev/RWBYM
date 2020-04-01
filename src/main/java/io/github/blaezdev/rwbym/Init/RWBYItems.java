@@ -2110,7 +2110,7 @@ public class RWBYItems {
     public static final Item fetchboomerang = new RWBYGun(
             "fetchboomerang",
             2500,
-            13,
+            18,
             RWBYGun.THROWN|RWBYGun.BOOMERANG,
             "rwbym:fetch",
             "rwbym:fetchammo",
@@ -3443,6 +3443,23 @@ public class RWBYItems {
 
     public static final Item kingfisher = new RWBYFishing("kingfisher");
 
+    public static final Item chastifol = new RWBYGun(
+            "chastifol",
+            2500,
+            16,
+            RWBYGun.SCYTHE|RWBYGun.THROWN|RWBYGun.BOOMERANG,
+            null,
+            "rwbym:chastifolammo",
+            false,
+            1F,
+            false,
+            false,
+            0,
+            1,
+            0,
+            17,
+            null);
+
     public static final Item carminesai = new RWBYGun(
             "carminesai",
             2500,
@@ -4336,6 +4353,21 @@ public class RWBYItems {
             20,
             null,
             null).setPierce(true);
+    public static final Item chastifolammo = new RWBYAmmoItem(
+            "chastifolammo",
+            RWBYItems.chastifol,
+            1,
+            true,
+            RWBYAmmoItem.SurviveOnHit.ENTITY,
+            "textures/entity/projectiles/tipped_arrow.png",
+            true,
+            true,
+            0,
+            null,
+            1,
+            35,
+            null,
+            null);
     public static final Item hardlightmagazines = new RWBYAmmoItem(
             "hardlightmagazines",
             RWBYItems.entitybullet,
@@ -5118,7 +5150,7 @@ public class RWBYItems {
 
     public static final ItemArmor.ArmorMaterial pyrrhaMat = EnumHelper.addArmorMaterial("pyrrha", "rwbym:pyrrha", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
     public static final ItemArmor pyrrhaChest = new ArmourBase(pyrrhaMat, 0, EntityEquipmentSlot.CHEST, "pyrrha_chest", null, true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.ATTACKBOOST1|ArmourBase.DEFENSE1|ArmourBase.REACH1);
-    public static final ItemArmor pyrrhaLegs = new ArmourBase(pyrrhaMat, 0, EntityEquipmentSlot.LEGS, "pyrrha_legs", null,     true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.GLADIATOR1|ArmourBase.JUMPBOOST1);
+    public static final ItemArmor pyrrhaLegs = new ArmourBase(pyrrhaMat, 0, EntityEquipmentSlot.LEGS, "pyrrha_legs", null,     true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.GLADIATOR1|ArmourBase.JAVELIN1|ArmourBase.JUMPBOOST1);
 
     public static final ItemArmor.ArmorMaterial ravenMat = EnumHelper.addArmorMaterial("raven", "rwbym:raven", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
     public static final ItemArmor ravenChest = new ArmourBase(ravenMat, 0, EntityEquipmentSlot.CHEST, "raven_chest", null, true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.ATTACKBOOST2|ArmourBase.AURAREGEN);
@@ -5286,7 +5318,7 @@ public class RWBYItems {
     public static final ItemArmor.ArmorMaterial pennyv7Mat = EnumHelper.addArmorMaterial("pennyv7", "rwbym:pennyv7", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
     public static final ItemArmor pennyv7Chest = new ArmourBase(pennyv7Mat, 0, EntityEquipmentSlot.CHEST, "pennyv7_chest", null,  true, RWBYCreativeTabs.tab_rwbyarmour, 0);
     public static final ItemArmor pennyv7Legs = new ArmourBase(pennyv7Mat, 0, EntityEquipmentSlot.LEGS, "pennyv7_legs", null,     true, RWBYCreativeTabs.tab_rwbyarmour, 0);
-    public static final ItemArmor pennyv7Head = new ArmourBase(pennyv7Mat, 0, EntityEquipmentSlot.HEAD, "pennyv7_head", "rwbym:pennyv7hood", true, null, ArmourBase.REACH1|ArmourBase.DEFENSE1);
+    public static final ItemArmor pennyv7Head = new ArmourBase(pennyv7Mat, 0, EntityEquipmentSlot.HEAD, "pennyv7_head", "rwbym:pennyv7hood", true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.JAVELIN1);
 
     
     //Charms
@@ -5306,6 +5338,7 @@ public class RWBYItems {
     public static final ItemArmor feathercharm = new ArmourBase(charmMat, 0, EntityEquipmentSlot.FEET, "feathercharm", null,     true, RWBYCreativeTabs.tab_rwbycharms, ArmourBase.JUMPBOOST2);
     public static final ItemArmor fleetingcharm = new ArmourBase(charmMat, 0, EntityEquipmentSlot.FEET, "fleetingcharm", null,     true, RWBYCreativeTabs.tab_rwbycharms, ArmourBase.MOVEMENTSPEED1);
     public static final ItemArmor rushcharm = new ArmourBase(charmMat, 0, EntityEquipmentSlot.FEET, "rushcharm", null,     true, RWBYCreativeTabs.tab_rwbycharms, ArmourBase.RUSH1);
+    public static final ItemArmor fairykingcharm = new ArmourBase(charmMat, 0, EntityEquipmentSlot.FEET, "fairyking", null,     true, RWBYCreativeTabs.tab_rwbycharms, ArmourBase.JAVELIN2);
     //public static final ItemArmor silvercharm = new ArmourBase(charmMat, 0, EntityEquipmentSlot.FEET, "silvercharm", null,     true, RWBYCreativeTabs.tab_rwbycharms, ArmourBase.SILVERLIGHT);
     //public static final ItemArmor maidencharm = new ArmourBase(charmMat, 0, EntityEquipmentSlot.FEET, "maidencharm", null,     true, RWBYCreativeTabs.tab_rwbycharms, ArmourBase.MAIDEN);
 

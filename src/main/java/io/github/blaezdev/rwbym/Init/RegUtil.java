@@ -702,6 +702,9 @@ public class RegUtil {
         registerItems(event, RWBYItems.pennyv7Head);
         registerItems(event, RWBYItems.moonskimmer);
         registerItems(event, RWBYItems.pennyswdammo);
+        registerItems(event, RWBYItems.fairykingcharm);
+        registerItems(event, RWBYItems.chastifol);
+        registerItems(event, RWBYItems.chastifolammo);
         registerItems(event, RWBYItems.arslanammo);
         registerBlocks(event, RWBYItems.fluidGrimm);
 
