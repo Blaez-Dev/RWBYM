@@ -597,6 +597,21 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         if(!world.isRemote) {
             if (entity instanceof EntityPlayer) {
                 EntityPlayer player = (EntityPlayer) entity;
+                int timer = 0;
+                if(player.getHeldItem(EnumHand.MAIN_HAND).getItem() == RWBYItems.chastifol){
+                    if (!player.onGround)
+                    {
+                        player.motionY += 0.05;
+                        player.fallDistance = 0;
+                        //player.velocityChanged = true;
+                    }
+                    if(!player.onGround && player.isSneaking() && timer == 0){
+                        PotionEffect potioneffect = new PotionEffect(MobEffects.LEVITATION, 60, 1, false, false);
+                        player.addPotionEffect(potioneffect);
+                        timer = 20;
+                    }
+                    timer ++;
+                }
         if((weapontype & TOME) !=0){PotionEffect potioneffect1 = new PotionEffect(MobEffects.STRENGTH, 100, 5, false, false);
             PotionEffect potionEffect3 = new PotionEffect(MobEffects.FIRE_RESISTANCE, 100, 5, false, false);
             PotionEffect potioneffect4 = new PotionEffect(MobEffects.REGENERATION, 100, 3, false, false);
