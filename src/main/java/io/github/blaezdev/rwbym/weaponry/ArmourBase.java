@@ -104,8 +104,6 @@ public class ArmourBase extends ItemArmor {
     public static final long KINGSGAMBIT =      0x200000000L;
     public static final long KINGSPAWN =        0x400000000L;
     public static final long MAIDEN =           0x800000000L;
-    public static final long JAVELIN1 =       0x1000000000L;
-    public static final long JAVELIN2 =       0x2000000000L;
 
 
     public boolean validperk(EntityLivingBase playerIn,long armorperk){
@@ -239,8 +237,6 @@ public class ArmourBase extends ItemArmor {
         if((armourperks & FIRESTARTER) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Fire-Starter Rank 1 ((Applies Fire Resistance))");}
         if((armourperks & KINGSGAMBIT) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "King's Gambit ((It's Good to be the King, Increases Damage of Players nearby using Pawns))");}
         if((armourperks & KINGSPAWN) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "King's Pawn ((For King and Glory!, Increases Damage of the Equiped Player When there is a nearby player using King's Gambit))");}
-        if((armourperks & JAVELIN1) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Strong-Arm 1 ((Increased Damage Done by Thrown Weapons by 2X))");}
-        if((armourperks & JAVELIN2) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Strong-Arm 2 ((Increased Damage Done by Thrown Weapons by 3X))");}
     }
     
     @Override

@@ -8,10 +8,8 @@ import io.github.blaezdev.rwbym.capabilities.ISemblance;
 import io.github.blaezdev.rwbym.capabilities.Pyrrha.IPyrrha;
 import io.github.blaezdev.rwbym.utility.network.MessagePosVelUpdate;
 import io.github.blaezdev.rwbym.utility.network.RWBYNetworkHandler;
-import io.github.blaezdev.rwbym.weaponry.ArmourBase;
 import io.github.blaezdev.rwbym.weaponry.RWBYAmmoItem;
 import io.github.blaezdev.rwbym.weaponry.RWBYGun;
-import io.github.blaezdev.rwbym.weaponry.RWBYHood;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -35,22 +33,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.IThrowableEntity;
 
 public class EntityBullet extends EntityArrow implements IThrowableEntity{
-
-    public boolean validperk(EntityLivingBase playerIn,long armorperk){
-        for (ItemStack stack:playerIn.getArmorInventoryList()){
-            if(stack.getItem() instanceof ArmourBase){
-                if((((ArmourBase) stack.getItem()).armourperks & armorperk) !=0){
-                    //System.out.println("armor works");
-                    return true;
-                }}
-            if(stack.getItem() instanceof RWBYHood){
-                if((((RWBYHood) stack.getItem()).armourperks & armorperk) !=0) {
-                    //System.out.println("hood works");
-                    return true;
-                }}
-        }
-        return false;
-    }
 
     private static final DataParameter<ItemStack> ITEM = EntityDataManager.createKey(EntityBullet.class, DataSerializers.ITEM_STACK);
     private static final DataParameter<ItemStack> SHOOTING_STACK = EntityDataManager.createKey(EntityBullet.class, DataSerializers.ITEM_STACK);
@@ -139,17 +121,6 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
         if (entity != null)
         {
             int i = (int) item.getBaseDamage();
-
-            if(this.getShootingItemStack().getItem() instanceof RWBYGun){
-            if((((RWBYGun) this.getShootingItemStack().getItem()).weapontype & RWBYGun.THROWN) !=0){
-            if(this.shootingEntity instanceof EntityPlayer){
-                EntityPlayer player = (EntityPlayer) this.shootingEntity;
-                if(this.validperk(player, ArmourBase.JAVELIN2)){
-                    i = i*3;
-                }else if(this.validperk(player, ArmourBase.JAVELIN1)){
-                    i = i*2;
-                }
-            }}}
 
             DamageSource damagesource;
 
