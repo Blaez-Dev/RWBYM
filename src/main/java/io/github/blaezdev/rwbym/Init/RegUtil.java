@@ -705,6 +705,9 @@ public class RegUtil {
         registerItems(event, RWBYItems.fairykingcharm);
         registerItems(event, RWBYItems.chastifol);
         registerItems(event, RWBYItems.chastifolammo);
+        registerItems(event, RWBYItems.chastifolincrease);
+        registerItems(event, RWBYItems.chastifolincreaseammo);
+        registerItems(event, RWBYItems.charm);
         registerItems(event, RWBYItems.arslanammo);
         registerBlocks(event, RWBYItems.fluidGrimm);
 
@@ -1030,6 +1033,8 @@ public class RegUtil {
         registerRecipes(RWBYItems.carminestaff);
         registerRecipes(RWBYItems.moonskimmer);
         registerRecipes(RWBYItems.mondragon);
+        registerRecipes(RWBYItems.chastifolincrease);
+        registerRecipes(RWBYItems.chastifol);
     }
 
     private static void registerBlocks(FMLPreInitializationEvent event, Block...blocks) {
@@ -1121,6 +1126,36 @@ public class RegUtil {
                     ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.whisperingblossomammo.getRegistryName(), "inventory"));
                 }else if(item == RWBYItems.pennyswdammo){
                     ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.whisperingblossomammo.getRegistryName(), "inventory"));
+                }else if(item == RWBYItems.firedancercharm){
+                    ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.charm.getRegistryName(), "inventory"));
+                }else if(item == RWBYItems.criticalcharm){
+                    ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.charm.getRegistryName(), "inventory"));
+                }else if(item == RWBYItems.auracharm){
+                    ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.charm.getRegistryName(), "inventory"));
+                }else if(item == RWBYItems.healthcharm){
+                    ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.charm.getRegistryName(), "inventory"));
+                }else if(item == RWBYItems.reachcharm){
+                    ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.charm.getRegistryName(), "inventory"));
+                }else if(item == RWBYItems.puncturecharm){
+                    ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.charm.getRegistryName(), "inventory"));
+                }else if(item == RWBYItems.edgecharm){
+                    ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.charm.getRegistryName(), "inventory"));
+                }else if(item == RWBYItems.knockoutcharm){
+                    ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.charm.getRegistryName(), "inventory"));
+                }else if(item == RWBYItems.tankcharm){
+                    ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.charm.getRegistryName(), "inventory"));
+                }else if(item == RWBYItems.attackcharm){
+                    ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.charm.getRegistryName(), "inventory"));
+                }else if(item == RWBYItems.feathercharm){
+                    ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.charm.getRegistryName(), "inventory"));
+                }else if(item == RWBYItems.fleetingcharm){
+                    ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.charm.getRegistryName(), "inventory"));
+                }else if(item == RWBYItems.rushcharm){
+                    ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.charm.getRegistryName(), "inventory"));
+                }else if(item == RWBYItems.chastifolammo){
+                    ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.chastifol.getRegistryName(), "inventory"));
+                }else if(item == RWBYItems.chastifolincreaseammo){
+                    ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.chastifolincrease.getRegistryName(), "inventory"));
                 }
             	else {
             		ModelLoader.setCustomModelResourceLocation(item,0, new ModelResourceLocation(item.getRegistryName(), "inventory"));

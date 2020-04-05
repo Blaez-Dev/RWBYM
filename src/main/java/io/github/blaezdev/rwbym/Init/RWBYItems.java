@@ -3448,8 +3448,25 @@ public class RWBYItems {
             2500,
             16,
             RWBYGun.SCYTHE|RWBYGun.THROWN|RWBYGun.BOOMERANG,
-            null,
+            "rwbym:chastifolincrease",
             "rwbym:chastifolammo",
+            false,
+            1F,
+            false,
+            false,
+            0,
+            1,
+            0,
+            17,
+            null);
+
+    public static final Item chastifolincrease = new RWBYGun(
+            "chastifolincrease",
+            2500,
+            8,
+            RWBYGun.DAGGER|RWBYGun.INT_MAG,
+            "rwbym:chastifol",
+            "rwbym:chastifolincreaseammo",
             false,
             1F,
             false,
@@ -3530,6 +3547,7 @@ public class RWBYItems {
 
     //------------------------------------------------//
     public static final Item ammo = new RWBYItem("ammo",  false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item charm = new RWBYItem("charm",  false, null);
     public static final Item gamammo = new RWBYItem("gamammo",  false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item magngrenade = new RWBYItem("magngrenade",  false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item emshell = new RWBYItem("emshell",  false, RWBYCreativeTabs.tab_rwbyitems);
@@ -4366,6 +4384,21 @@ public class RWBYItems {
             null,
             1,
             35,
+            null,
+            null);
+    public static final Item chastifolincreaseammo = new RWBYAmmoItem(
+            "chastifolincreaseammo",
+            RWBYItems.chastifolincrease,
+            1,
+            false,
+            RWBYAmmoItem.SurviveOnHit.NONE,
+            "textures/entity/projectiles/tipped_arrow.png",
+            true,
+            true,
+            0,
+            null,
+            1,
+            15,
             null,
             null);
     public static final Item hardlightmagazines = new RWBYAmmoItem(
