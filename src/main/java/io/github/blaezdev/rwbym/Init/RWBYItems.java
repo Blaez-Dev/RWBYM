@@ -5160,9 +5160,9 @@ public class RWBYItems {
     public static final ItemArmor Cinder3Legs = new ArmourBase(Cinder3Mat, 0, EntityEquipmentSlot.LEGS, "cinder3_legs", null,      true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.AURAREGEN|ArmourBase.ATTACKBOOST2|ArmourBase.VITALITY1);
 
     public static final ItemArmor.ArmorMaterial CocoMat = EnumHelper.addArmorMaterial("Coco", "rwbym:coco", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
-    public static final ItemArmor CocoChest = new ArmourBase(CocoMat, 0, EntityEquipmentSlot.CHEST, "coco_chest", null,  true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.ATTACKBOOST1|ArmourBase.FOOTING1);
-    public static final ItemArmor CocoLegs = new ArmourBase(CocoMat, 0, EntityEquipmentSlot.LEGS, "coco_legs", null,      true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.ATTACKBOOST1|ArmourBase.VITALITY1);
-    public static final ItemArmor CocoHead = new ArmourBase(CocoMat, 0, EntityEquipmentSlot.HEAD, "coco_head", null,  true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.ATTACKBOOST2);
+    public static final ItemArmor CocoChest = new ArmourBase(CocoMat, 0, EntityEquipmentSlot.CHEST, "coco_chest", null,  true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.ATTACKBOOST1|ArmourBase.VITALITY1);
+    public static final ItemArmor CocoLegs = new ArmourBase(CocoMat, 0, EntityEquipmentSlot.LEGS, "coco_legs", null,      true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.ATTACKBOOST1|ArmourBase.RUSH1);
+    public static final ItemArmor CocoHead = new ArmourBase(CocoMat, 0, EntityEquipmentSlot.HEAD, "coco_head", null,  true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.FOOTING1|ArmourBase.HandofBullets);
 
     public static final ItemArmor.ArmorMaterial romanMat = EnumHelper.addArmorMaterial("roman", "rwbym:roman", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
     public static final ItemArmor romanChest = new ArmourBase(romanMat, 0, EntityEquipmentSlot.CHEST, "roman_chest", null,  true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.RUSH1);
@@ -5244,7 +5244,7 @@ public class RWBYItems {
 
     public static final ItemArmor.ArmorMaterial ironwood2Mat = EnumHelper.addArmorMaterial("ironwood2", "rwbym:ironwood2", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
     public static final ItemArmor ironwood2Chest = new ArmourBase(ironwood2Mat, 0, EntityEquipmentSlot.CHEST, "ironwood2_chest", null, true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.DEFENSE1|ArmourBase.MOVEMENTSPEED2);
-    public static final ItemArmor ironwood2Legs = new ArmourBase(ironwood2Mat, 0, EntityEquipmentSlot.LEGS, "ironwood2_legs", null,     true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.ATTACKBOOST2|ArmourBase.FOOTING1);
+    public static final ItemArmor ironwood2Legs = new ArmourBase(ironwood2Mat, 0, EntityEquipmentSlot.LEGS, "ironwood2_legs", null,     true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.HandofBullets|ArmourBase.FOOTING1);
 
     public static final ItemArmor.ArmorMaterial mercury1Mat = EnumHelper.addArmorMaterial("mercury1", "rwbym:mercury1", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
     public static final ItemArmor mercury1Chest = new ArmourBase(mercury1Mat, 0, EntityEquipmentSlot.CHEST, "mercury1_chest", null, true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.ATTACKBOOST2|ArmourBase.MOVEMENTSPEED1|ArmourBase.FOOTING1);
@@ -5321,37 +5321,37 @@ public class RWBYItems {
     public static final Item summerhood = new RWBYHood("summerhood",  true, "rwbym:summer2_head",RWBYCreativeTabs.tab_rwbyarmour,ArmourBase.MOVEMENTSPEED1|ArmourBase.ATTACKBOOST1);
 
     public static final ItemArmor.ArmorMaterial adamv6Mat = EnumHelper.addArmorMaterial("adamv6", "rwbym:adamv6", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
-    public static final ItemArmor adamv6Chest = new ArmourBase(adamv6Mat, 0, EntityEquipmentSlot.CHEST, "adamv6_chest", null,  true, RWBYCreativeTabs.tab_rwbyarmour, 0);
-    public static final ItemArmor adamv6Legs = new ArmourBase(adamv6Mat, 0, EntityEquipmentSlot.LEGS, "adamv6_legs", null,     true, RWBYCreativeTabs.tab_rwbyarmour, 0);
+    public static final ItemArmor adamv6Chest = new ArmourBase(adamv6Mat, 0, EntityEquipmentSlot.CHEST, "adamv6_chest", null,  true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.ATTACKBOOST2|ArmourBase.RUSH2|ArmourBase.GLADIATOR2);
+    public static final ItemArmor adamv6Legs = new ArmourBase(adamv6Mat, 0, EntityEquipmentSlot.LEGS, "adamv6_legs", null,     true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.FOOTING1|ArmourBase.MOVEMENTSPEED2);
 
     public static final ItemArmor.ArmorMaterial neoMat = EnumHelper.addArmorMaterial("neo", "rwbym:neo", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
-    public static final ItemArmor neoChest = new ArmourBase(neoMat, 0, EntityEquipmentSlot.CHEST, "neo_chest", null,  true, RWBYCreativeTabs.tab_rwbyarmour, 0);
-    public static final ItemArmor neoLegs = new ArmourBase(neoMat, 0, EntityEquipmentSlot.LEGS, "neo_legs", null,     true, RWBYCreativeTabs.tab_rwbyarmour, 0);
+    public static final ItemArmor neoChest = new ArmourBase(neoMat, 0, EntityEquipmentSlot.CHEST, "neo_chest", null,  true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.PUNCTURE2|ArmourBase.ATTACKBOOST1);
+    public static final ItemArmor neoLegs = new ArmourBase(neoMat, 0, EntityEquipmentSlot.LEGS, "neo_legs", null,     true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.DEFENSE1|ArmourBase.VITALITY2);
 
     public static final ItemArmor.ArmorMaterial oscarv4Mat = EnumHelper.addArmorMaterial("oscarv4", "rwbym:oscarv4", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
-    public static final ItemArmor oscarv4Chest = new ArmourBase(oscarv4Mat, 0, EntityEquipmentSlot.CHEST, "oscarv4_chest", null,  true, RWBYCreativeTabs.tab_rwbyarmour, 0);
-    public static final ItemArmor oscarv4Legs = new ArmourBase(oscarv4Mat, 0, EntityEquipmentSlot.LEGS, "oscarv4_legs", null,     true, RWBYCreativeTabs.tab_rwbyarmour, 0);
+    public static final ItemArmor oscarv4Chest = new ArmourBase(oscarv4Mat, 0, EntityEquipmentSlot.CHEST, "oscarv4_chest", null,  true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.VITALITY1|ArmourBase.PUNCTURE1);
+    public static final ItemArmor oscarv4Legs = new ArmourBase(oscarv4Mat, 0, EntityEquipmentSlot.LEGS, "oscarv4_legs", null,     true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.AURAREGEN|ArmourBase.RUSH1);
 
     public static final ItemArmor.ArmorMaterial oscarv6Mat = EnumHelper.addArmorMaterial("oscarv6", "rwbym:oscarv6", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
-    public static final ItemArmor oscarv6Chest = new ArmourBase(oscarv6Mat, 0, EntityEquipmentSlot.CHEST, "oscarv6_chest", null,  true, RWBYCreativeTabs.tab_rwbyarmour, 0);
-    public static final ItemArmor oscarv6Legs = new ArmourBase(oscarv6Mat, 0, EntityEquipmentSlot.LEGS, "oscarv6_legs", null,     true, RWBYCreativeTabs.tab_rwbyarmour, 0);
+    public static final ItemArmor oscarv6Chest = new ArmourBase(oscarv6Mat, 0, EntityEquipmentSlot.CHEST, "oscarv6_chest", null,  true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.PUNCTURE2|ArmourBase.VITALITY2|ArmourBase.MOVEMENTSPEED1);
+    public static final ItemArmor oscarv6Legs = new ArmourBase(oscarv6Mat, 0, EntityEquipmentSlot.LEGS, "oscarv6_legs", null,     true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.RUSH1|ArmourBase.ATTACKBOOST1);
 
     public static final ItemArmor.ArmorMaterial ozma1Mat = EnumHelper.addArmorMaterial("ozma1", "rwbym:ozma1", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
-    public static final ItemArmor ozma1Chest = new ArmourBase(ozma1Mat, 0, EntityEquipmentSlot.CHEST, "ozma1_chest", null,  true, RWBYCreativeTabs.tab_rwbyarmour, 0);
-    public static final ItemArmor ozma1Legs = new ArmourBase(ozma1Mat, 0, EntityEquipmentSlot.LEGS, "ozma1_legs", null,     true, RWBYCreativeTabs.tab_rwbyarmour, 0);
+    public static final ItemArmor ozma1Chest = new ArmourBase(ozma1Mat, 0, EntityEquipmentSlot.CHEST, "ozma1_chest", null,  true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.K01|ArmourBase.VITALITY1);
+    public static final ItemArmor ozma1Legs = new ArmourBase(ozma1Mat, 0, EntityEquipmentSlot.LEGS, "ozma1_legs", null,     true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.AURAREGEN);
 
     public static final ItemArmor.ArmorMaterial ozma2Mat = EnumHelper.addArmorMaterial("ozma2", "rwbym:ozma2", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
-    public static final ItemArmor ozma2Chest = new ArmourBase(ozma2Mat, 0, EntityEquipmentSlot.CHEST, "ozma2_chest", null,  true, RWBYCreativeTabs.tab_rwbyarmour, 0);
-    public static final ItemArmor ozma2Legs = new ArmourBase(ozma2Mat, 0, EntityEquipmentSlot.LEGS, "ozma2_legs", null,     true, RWBYCreativeTabs.tab_rwbyarmour, 0);
+    public static final ItemArmor ozma2Chest = new ArmourBase(ozma2Mat, 0, EntityEquipmentSlot.CHEST, "ozma2_chest", null,  true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.VITALITY1|ArmourBase.AURAREGEN);
+    public static final ItemArmor ozma2Legs = new ArmourBase(ozma2Mat, 0, EntityEquipmentSlot.LEGS, "ozma2_legs", null,     true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.K01);
 
     public static final ItemArmor.ArmorMaterial ozma3Mat = EnumHelper.addArmorMaterial("ozma3", "rwbym:ozma3", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
-    public static final ItemArmor ozma3Chest = new ArmourBase(ozma3Mat, 0, EntityEquipmentSlot.CHEST, "ozma3_chest", null,  true, RWBYCreativeTabs.tab_rwbyarmour, 0);
-    public static final ItemArmor ozma3Legs = new ArmourBase(ozma3Mat, 0, EntityEquipmentSlot.LEGS, "ozma3_legs", null,     true, RWBYCreativeTabs.tab_rwbyarmour, 0);
+    public static final ItemArmor ozma3Chest = new ArmourBase(ozma3Mat, 0, EntityEquipmentSlot.CHEST, "ozma3_chest", null,  true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.K02|ArmourBase.VITALITY2);
+    public static final ItemArmor ozma3Legs = new ArmourBase(ozma3Mat, 0, EntityEquipmentSlot.LEGS, "ozma3_legs", null,     true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.RUSH2|ArmourBase.ATTACKBOOST4);
 
     public static final ItemArmor.ArmorMaterial pennyv7Mat = EnumHelper.addArmorMaterial("pennyv7", "rwbym:pennyv7", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
-    public static final ItemArmor pennyv7Chest = new ArmourBase(pennyv7Mat, 0, EntityEquipmentSlot.CHEST, "pennyv7_chest", null,  true, RWBYCreativeTabs.tab_rwbyarmour, 0);
-    public static final ItemArmor pennyv7Legs = new ArmourBase(pennyv7Mat, 0, EntityEquipmentSlot.LEGS, "pennyv7_legs", null,     true, RWBYCreativeTabs.tab_rwbyarmour, 0);
-    public static final ItemArmor pennyv7Head = new ArmourBase(pennyv7Mat, 0, EntityEquipmentSlot.HEAD, "pennyv7_head", "rwbym:pennyv7hood", true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.JAVELIN1);
+    public static final ItemArmor pennyv7Chest = new ArmourBase(pennyv7Mat, 0, EntityEquipmentSlot.CHEST, "pennyv7_chest", null,  true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.DEFENSE2|ArmourBase.VITALITY1|ArmourBase.ATTACKBOOST1);
+    public static final ItemArmor pennyv7Legs = new ArmourBase(pennyv7Mat, 0, EntityEquipmentSlot.LEGS, "pennyv7_legs", null,     true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.DEFENSE1|ArmourBase.GLADIATOR2|ArmourBase.AURAREGEN);
+    public static final ItemArmor pennyv7Head = new ArmourBase(pennyv7Mat, 0, EntityEquipmentSlot.HEAD, "pennyv7_head", "rwbym:pennyv7hood", true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.JAVELIN1|ArmourBase.VITALITY2);
 
     
     //Charms

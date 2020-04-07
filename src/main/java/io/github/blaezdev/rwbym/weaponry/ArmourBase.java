@@ -106,6 +106,7 @@ public class ArmourBase extends ItemArmor {
     public static final long MAIDEN =           0x800000000L;
     public static final long JAVELIN1 =       0x1000000000L;
     public static final long JAVELIN2 =       0x2000000000L;
+    public static final long HandofBullets =  0x3000000000L;
 
 
     public boolean validperk(EntityLivingBase playerIn,long armorperk){
@@ -241,6 +242,7 @@ public class ArmourBase extends ItemArmor {
         if((armourperks & KINGSPAWN) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "King's Pawn ((For King and Glory!, Increases Damage of the Equiped Player When there is a nearby player using King's Gambit))");}
         if((armourperks & JAVELIN1) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Strong-Arm 1 ((Increased Damage Done by Thrown Weapons by 2X))");}
         if((armourperks & JAVELIN2) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Strong-Arm 2 ((Increased Damage Done by Thrown Weapons by 3X))");}
+        if((armourperks & HandofBullets) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Hand of Bullets  ((Increased Damage Done by (Non-Thrown) Projectile Weapons by 2X))");}
     }
     
     @Override

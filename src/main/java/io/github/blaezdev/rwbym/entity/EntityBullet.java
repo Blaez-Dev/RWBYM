@@ -151,6 +151,15 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
                 }
             }}}
 
+            if(this.getShootingItemStack().getItem() instanceof RWBYGun){
+                if((((RWBYGun) this.getShootingItemStack().getItem()).weapontype & RWBYGun.THROWN) == 0){
+                    if(this.shootingEntity instanceof EntityPlayer){
+                        EntityPlayer player = (EntityPlayer) this.shootingEntity;
+                        if(this.validperk(player, ArmourBase.HandofBullets)){
+                            i = i*2;
+                        }
+                    }}}
+
             DamageSource damagesource;
 
             if (this.shootingEntity == null)

@@ -160,6 +160,9 @@ public class RWBYHood extends Item implements ICustomItem {
         if((armourperks & RUSH2) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Rush Rank 2 ((Attack Speed))");}
         if((armourperks & AURAREGEN) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Aura Regen Rank 1 ((Applies Aura Regen))");}
         if((armourperks & FIRESTARTER) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Fire-Starter Rank 1 ((Applies Fire Resistance))");}
+        if((armourperks & JAVELIN1) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Strong-Arm 1 ((Increased Damage Done by Thrown Weapons by 2X))");}
+        if((armourperks & JAVELIN2) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Strong-Arm 2 ((Increased Damage Done by Thrown Weapons by 3X))");}
+        if((armourperks & HandofBullets) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Strong-Arm 1 ((Increased Damage Done by Projectile Weapons by 2X))");}
     }
 
     @Override

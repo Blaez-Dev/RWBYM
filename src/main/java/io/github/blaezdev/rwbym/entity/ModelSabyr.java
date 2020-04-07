@@ -45,8 +45,8 @@ public class ModelSabyr  extends ModelBase {
 
         Head = new ModelRenderer(this);
         Head.setRotationPoint(-0.6F, -5.0F, -12.0F);
-        Head.cubeList.add(new ModelBox(Head, 2, 207, -5.4F, -7.0F, 2.0F, 11, 12, 3, 0.0F, false));
-        Head.cubeList.add(new ModelBox(Head, 2, 207, -4.4F, -6.0F, -1.0F, 9, 10, 3, 0.0F, false));
+        Head.cubeList.add(new ModelBox(Head, 1, 201, -5.4F, -7.0F, 2.0F, 11, 12, 3, 0.0F, false));
+        Head.cubeList.add(new ModelBox(Head, 1, 203, -4.4F, -6.0F, -1.0F, 9, 10, 3, 0.0F, false));
         Head.cubeList.add(new ModelBox(Head, 2, 207, -4.4F, -6.0F, -3.0F, 9, 10, 2, 0.0F, false));
         Head.cubeList.add(new ModelBox(Head, 2, 207, -3.4F, -5.0F, -5.0F, 7, 9, 2, 0.0F, false));
 
@@ -96,7 +96,7 @@ public class ModelSabyr  extends ModelBase {
         bone4.cubeList.add(new ModelBox(bone4, 3, 93, -6.0F, -4.1556F, -1.5792F, 1, 1, 4, 0.0F, false));
         bone4.cubeList.add(new ModelBox(bone4, 4, 95, 4.0F, -4.1556F, -1.5792F, 1, 1, 4, 0.0F, false));
         bone4.cubeList.add(new ModelBox(bone4, 4, 93, 4.25F, -3.2462F, -1.0434F, 1, 2, 4, 0.0F, false));
-        bone4.cubeList.add(new ModelBox(bone4, 2, 207, -6.0F, -3.7671F, 1.911F, 1, 1, 3, 0.0F, false));
+        bone4.cubeList.add(new ModelBox(bone4, 2, 207, -5.7813F, -3.7671F, 1.911F, 1, 1, 3, 0.0F, false));
         bone4.cubeList.add(new ModelBox(bone4, 4, 92, -6.0F, -4.5783F, 0.7526F, 1, 1, 3, 0.0F, false));
         bone4.cubeList.add(new ModelBox(bone4, 6, 92, 4.0F, -4.5783F, 0.7526F, 1, 1, 3, 0.0F, false));
         bone4.cubeList.add(new ModelBox(bone4, 8, 97, 4.0F, -3.7671F, 1.911F, 1, 1, 3, 0.0F, false));
@@ -106,8 +106,8 @@ public class ModelSabyr  extends ModelBase {
         bone4.cubeList.add(new ModelBox(bone4, 5, 89, 3.75F, 1.0868F, -1.4924F, 1, 2, 4, 0.0F, false));
         bone4.cubeList.add(new ModelBox(bone4, 0, 88, -4.5F, 2.4484F, -4.9826F, 1, 1, 4, 0.0F, false));
         bone4.cubeList.add(new ModelBox(bone4, 6, 92, 2.25F, 2.4484F, -4.9826F, 1, 1, 4, 0.0F, false));
-        bone4.cubeList.add(new ModelBox(bone4, 2, 92, -2.75F, 2.5638F, -8.5163F, 0, 1, 4, 0.0F, false));
-        bone4.cubeList.add(new ModelBox(bone4, 7, 94, 1.0F, 2.5638F, -8.2663F, 1, 1, 3, 0.0F, false));
+        bone4.cubeList.add(new ModelBox(bone4, 2, 92, -3.75F, 2.5638F, -8.5163F, 2, 1, 4, 0.0F, false));
+        bone4.cubeList.add(new ModelBox(bone4, 7, 94, -2.0F, 2.5638F, -8.2663F, 5, 1, 3, 0.0F, false));
         bone4.cubeList.add(new ModelBox(bone4, 28, 164, -5.0F, -3.0F, -0.5F, 9, 6, 3, 0.0F, false));
 
         bone5 = new ModelRenderer(this);
@@ -117,16 +117,16 @@ public class ModelSabyr  extends ModelBase {
         bone5.cubeList.add(new ModelBox(bone5, 11, 167, -4.0F, 1.5247F, -3.8673F, 7, 1, 4, 0.0F, false));
         bone5.cubeList.add(new ModelBox(bone5, 6, 208, -3.0F, 0.8523F, -5.3161F, 5, 1, 4, 0.0F, false));
         bone5.cubeList.add(new ModelBox(bone5, 2, 207, -2.0F, 0.3399F, -8.8265F, 3, 1, 4, 0.0F, false));
-        bone5.cubeList.add(new ModelBox(bone5, 7, 93, -2.0F, 0.9913F, -9.3112F, 3, 1, 0, 0.0F, false));
+        bone5.cubeList.add(new ModelBox(bone5, 7, 93, -2.0F, 0.9913F, -9.3112F, 3, 1, 1, 0.0F, false));
         bone5.cubeList.add(new ModelBox(bone5, 4, 85, -2.0F, 1.0349F, -8.8131F, 3, 1, 0, 0.0F, false));
-        bone5.cubeList.add(new ModelBox(bone5, 4, 93, -1.0F, 0.4477F, -9.8093F, 1, 1, 0, 0.0F, false));
+        bone5.cubeList.add(new ModelBox(bone5, 4, 93, -1.0F, 0.4477F, -9.8093F, 1, 1, 1, 0.0F, false));
 
         bone3 = new ModelRenderer(this);
         bone3.setRotationPoint(0.6F, -4.75F, -8.0F);
         setRotationAngle(bone3, 0.2618F, 0.0F, 0.0F);
         Head.addChild(bone3);
-        bone3.cubeList.add(new ModelBox(bone3, 0, 88, -5.0F, -0.0898F, -4.0189F, 9, 4, 4, 0.0F, false));
-        bone3.cubeList.add(new ModelBox(bone3, 2, 207, -5.0F, -1.0898F, -4.0189F, 9, 5, 4, 0.0F, false));
+        bone3.cubeList.add(new ModelBox(bone3, 0, 88, -4.0F, -0.0898F, -4.0189F, 7, 3, 4, 0.0F, false));
+        bone3.cubeList.add(new ModelBox(bone3, 2, 207, -5.0F, -0.996F, -3.0189F, 9, 5, 3, 0.0F, false));
         bone3.cubeList.add(new ModelBox(bone3, 89, 54, -6.0F, -1.4488F, -4.3111F, 10, 1, 6, 0.0F, false));
         bone3.cubeList.add(new ModelBox(bone3, 7, 97, -6.0F, 2.8761F, -4.2777F, 1, 1, 4, 0.0F, false));
         bone3.cubeList.add(new ModelBox(bone3, 8, 89, 3.75F, 2.8761F, -4.2777F, 1, 1, 4, 0.0F, false));
@@ -135,14 +135,14 @@ public class ModelSabyr  extends ModelBase {
         bone3.cubeList.add(new ModelBox(bone3, 4, 95, -5.5F, 1.009F, -0.5186F, 1, 1, 1, 0.0F, false));
         bone3.cubeList.add(new ModelBox(bone3, 2, 207, 3.5F, 1.009F, -0.5186F, 1, 1, 1, 0.0F, false));
         bone3.cubeList.add(new ModelBox(bone3, 6, 97, 3.75F, 1.009F, -0.5186F, 1, 1, 1, 0.0F, false));
-        bone3.cubeList.add(new ModelBox(bone3, 119, 95, -5.5F, 1.4746F, -1.6786F, 1, 1, 1, 0.0F, false));
-        bone3.cubeList.add(new ModelBox(bone3, 142, 88, 3.5F, 1.4746F, -1.6786F, 1, 1, 1, 0.0F, false));
-        bone3.cubeList.add(new ModelBox(bone3, 205, 71, -5.5F, 1.2158F, -2.6445F, 1, 1, 1, 0.0F, false));
-        bone3.cubeList.add(new ModelBox(bone3, 131, 88, 3.5F, 1.2158F, -2.6445F, 1, 1, 1, 0.0F, false));
-        bone3.cubeList.add(new ModelBox(bone3, 206, 88, -5.5F, 1.1984F, -3.6751F, 1, 1, 1, 0.0F, false));
-        bone3.cubeList.add(new ModelBox(bone3, 95, 91, 3.5F, 1.1984F, -3.6751F, 1, 1, 1, 0.0F, false));
-        bone3.cubeList.add(new ModelBox(bone3, 171, 8, -5.5F, 0.8963F, -2.2733F, 1, 0, 1, 0.0F, false));
-        bone3.cubeList.add(new ModelBox(bone3, 169, 12, 3.5F, 0.8963F, -2.7733F, 1, 0, 2, 0.0F, false));
+        bone3.cubeList.add(new ModelBox(bone3, 119, 95, -5.5273F, 1.4746F, -1.6786F, 1, 1, 1, 0.0F, false));
+        bone3.cubeList.add(new ModelBox(bone3, 142, 88, 3.375F, 1.4746F, -1.6786F, 1, 1, 1, 0.0F, false));
+        bone3.cubeList.add(new ModelBox(bone3, 205, 71, -5.5273F, 1.2158F, -2.6445F, 1, 1, 1, 0.0F, false));
+        bone3.cubeList.add(new ModelBox(bone3, 131, 88, 3.375F, 1.2158F, -2.6445F, 1, 1, 1, 0.0F, false));
+        bone3.cubeList.add(new ModelBox(bone3, 206, 88, -5.5273F, 1.1984F, -3.6751F, 1, 1, 1, 0.0F, false));
+        bone3.cubeList.add(new ModelBox(bone3, 95, 91, 3.375F, 1.1984F, -3.6751F, 1, 1, 1, 0.0F, false));
+        bone3.cubeList.add(new ModelBox(bone3, 174, 11, -5.5F, -0.1037F, -2.2733F, 1, 1, 1, 0.0F, false));
+        bone3.cubeList.add(new ModelBox(bone3, 171, 11, 3.5F, 0.0525F, -2.367F, 1, 1, 1, 0.0F, false));
         bone3.cubeList.add(new ModelBox(bone3, 2, 94, 3.5F, -0.0217F, -4.5012F, 1, 1, 1, 0.0F, false));
         bone3.cubeList.add(new ModelBox(bone3, 5, 91, -5.5F, -0.0217F, -4.7512F, 1, 2, 1, 0.0F, false));
         bone3.cubeList.add(new ModelBox(bone3, 8, 84, -5.5F, -0.4699F, -0.3105F, 1, 3, 3, 0.0F, false));
@@ -152,7 +152,7 @@ public class ModelSabyr  extends ModelBase {
         bone3.cubeList.add(new ModelBox(bone3, 2, 207, -5.5F, -0.9876F, -4.2424F, 1, 1, 5, 0.0F, false));
         bone3.cubeList.add(new ModelBox(bone3, 12, 93, -5.5F, 1.2551F, -0.7022F, 1, 2, 2, 0.0F, false));
         bone3.cubeList.add(new ModelBox(bone3, 2, 94, 3.5F, 1.2551F, -0.7022F, 1, 2, 2, 0.0F, false));
-        bone3.cubeList.add(new ModelBox(bone3, 2, 93, 3.25F, 0.9443F, -4.76F, 1, 1, 5, 0.0F, false));
+        bone3.cubeList.add(new ModelBox(bone3, 2, 93, 3.25F, 0.3818F, -5.2912F, 1, 2, 2, 0.0F, false));
         bone3.cubeList.add(new ModelBox(bone3, 0, 93, -4.75F, 2.3238F, -8.2708F, 1, 1, 4, 0.0F, false));
         bone3.cubeList.add(new ModelBox(bone3, 0, 90, -4.5F, -0.1251F, -8.3826F, 1, 2, 4, 0.0F, false));
         bone3.cubeList.add(new ModelBox(bone3, 0, 91, 2.5F, -0.1251F, -8.3826F, 1, 2, 4, 0.0F, false));
@@ -217,24 +217,21 @@ public class ModelSabyr  extends ModelBase {
         bone.setRotationPoint(0.4F, -36.0F, 2.0F);
         setRotationAngle(bone, -0.5236F, 0.0F, 0.0F);
         Torso.addChild(bone);
-        bone.cubeList.add(new ModelBox(bone, 4, 139, -2.4F, -0.4562F, 1.1667F, 3, 2, 3, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 11, 146, -2.4F, -4.5902F, 10.327F, 3, 2, 3, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 2, 143, -2.4F, -9.5902F, 18.9872F, 3, 2, 3, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 10, 132, -2.4F, -13.5902F, 25.9154F, 3, 2, 3, 0.0F, false));
         bone.cubeList.add(new ModelBox(bone, 6, 134, -2.4F, 6.1508F, -8.9264F, 3, 2, 3, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 11, 131, -2.4F, 3.0438F, -4.8955F, 3, 2, 3, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 0, 143, -1.9F, 5.1191F, -8.2028F, 1, 1, 2, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 9, 136, -1.9F, 2.012F, -4.1719F, 1, 1, 2, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 3, 143, -1.9F, -1.488F, 1.8903F, 1, 1, 2, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 11, 138, -1.9F, -5.6219F, 11.0505F, 1, 1, 2, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 13, 140, -1.9F, -10.6219F, 19.7108F, 1, 1, 2, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 3, 144, -1.9F, -14.6219F, 26.639F, 1, 1, 2, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 7, 142, -1.4F, 3.7531F, -7.5868F, 0, 1, 1, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 8, 146, -1.4F, 0.646F, -3.5559F, 0, 1, 1, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 7, 148, -1.4F, -2.854F, 2.5063F, 0, 1, 1, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 9, 145, -1.4F, -6.988F, 11.6665F, 0, 1, 1, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 9, 142, -1.4F, -11.988F, 20.3268F, 0, 1, 1, 0.0F, false));
-        bone.cubeList.add(new ModelBox(bone, 5, 144, -1.4F, -15.988F, 27.255F, 0, 1, 1, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 6, 134, -2.4F, -0.2152F, 0.0999F, 3, 2, 3, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 6, 134, -2.4F, -4.3492F, 9.2601F, 3, 2, 3, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 6, 134, -2.4F, -8.9162F, 18.1704F, 3, 2, 3, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 6, 134, -2.4F, -14.3492F, 26.5806F, 3, 2, 3, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 0, 143, -1.9F, 4.1191F, -8.2028F, 2, 2, 2, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 0, 143, -1.9F, -1.9969F, 0.3905F, 2, 2, 2, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 0, 143, -1.9F, -6.0394F, 9.8922F, 2, 2, 2, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 0, 143, -1.9F, -10.6064F, 18.8025F, 2, 2, 2, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 0, 143, -1.9F, -15.5729F, 26.9047F, 2, 2, 2, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 7, 142, -1.4F, 3.1906F, -7.5868F, 1, 1, 1, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 7, 142, -1.4F, -2.9254F, 1.0065F, 1, 1, 1, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 7, 142, -1.4F, -6.9679F, 10.5082F, 1, 1, 1, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 7, 142, -1.4F, -11.5349F, 19.4185F, 1, 1, 1, 0.0F, false));
+        bone.cubeList.add(new ModelBox(bone, 7, 142, -1.4F, -16.5014F, 27.5207F, 1, 1, 1, 0.0F, false));
 
         LeftFrontLeg = new ModelRenderer(this);
         LeftFrontLeg.setRotationPoint(6.0F, -5.0F, -2.0F);
@@ -272,10 +269,10 @@ public class ModelSabyr  extends ModelBase {
         LeftFrontPaw.addChild(LeftFrontClaws);
         LeftFrontClaws.cubeList.add(new ModelBox(LeftFrontClaws, 6, 175, 1.0F, -0.4893F, -3.4878F, 2, 2, 4, 0.0F, false));
         LeftFrontClaws.cubeList.add(new ModelBox(LeftFrontClaws, 6, 175, -3.0F, -0.4893F, -3.4878F, 2, 2, 4, 0.0F, false));
-        LeftFrontClaws.cubeList.add(new ModelBox(LeftFrontClaws, 3, 94, -3.0F, 0.5107F, -4.9878F, 1, 1, 1, 0.0F, false));
-        LeftFrontClaws.cubeList.add(new ModelBox(LeftFrontClaws, 1, 91, -1.0F, 0.5107F, -4.9878F, 1, 1, 1, 0.0F, false));
-        LeftFrontClaws.cubeList.add(new ModelBox(LeftFrontClaws, 2, 100, 1.0F, 0.5107F, -4.9878F, 1, 1, 1, 0.0F, false));
-        LeftFrontClaws.cubeList.add(new ModelBox(LeftFrontClaws, 0, 97, 3.0F, 0.5107F, -4.7378F, 1, 1, 1, 0.0F, false));
+        LeftFrontClaws.cubeList.add(new ModelBox(LeftFrontClaws, 3, 94, -3.0F, 0.5107F, -4.4878F, 1, 1, 1, 0.0F, false));
+        LeftFrontClaws.cubeList.add(new ModelBox(LeftFrontClaws, 1, 91, -1.5F, 0.5107F, -4.4878F, 1, 1, 1, 0.0F, false));
+        LeftFrontClaws.cubeList.add(new ModelBox(LeftFrontClaws, 2, 100, 0.25F, 0.5107F, -4.4878F, 1, 1, 1, 0.0F, false));
+        LeftFrontClaws.cubeList.add(new ModelBox(LeftFrontClaws, 0, 97, 2.0F, 0.5107F, -4.4878F, 1, 1, 1, 0.0F, false));
         LeftFrontClaws.cubeList.add(new ModelBox(LeftFrontClaws, 6, 175, -1.0F, -0.4893F, -3.4878F, 2, 2, 4, 0.0F, false));
 
         RightFrontLeg = new ModelRenderer(this);
@@ -314,10 +311,10 @@ public class ModelSabyr  extends ModelBase {
         RightFrontPaw.addChild(RightFrontClaws);
         RightFrontClaws.cubeList.add(new ModelBox(RightFrontClaws, 0, 171, 1.0F, -0.4893F, -3.4878F, 2, 2, 4, 0.0F, false));
         RightFrontClaws.cubeList.add(new ModelBox(RightFrontClaws, 0, 171, -3.0F, -0.4893F, -3.4878F, 2, 2, 4, 0.0F, false));
-        RightFrontClaws.cubeList.add(new ModelBox(RightFrontClaws, 5, 97, -3.0F, 0.5107F, -4.7378F, 1, 1, 1, 0.0F, false));
-        RightFrontClaws.cubeList.add(new ModelBox(RightFrontClaws, 5, 95, -1.0F, 0.5107F, -4.9878F, 1, 1, 1, 0.0F, false));
-        RightFrontClaws.cubeList.add(new ModelBox(RightFrontClaws, 4, 97, 1.0F, 0.5107F, -4.9878F, 1, 1, 1, 0.0F, false));
-        RightFrontClaws.cubeList.add(new ModelBox(RightFrontClaws, 5, 98, 3.0F, 0.5107F, -4.9878F, 1, 1, 1, 0.0F, false));
+        RightFrontClaws.cubeList.add(new ModelBox(RightFrontClaws, 5, 97, -3.0F, 0.5107F, -4.2378F, 1, 1, 1, 0.0F, false));
+        RightFrontClaws.cubeList.add(new ModelBox(RightFrontClaws, 5, 95, -1.5F, 0.5107F, -4.2378F, 1, 1, 1, 0.0F, false));
+        RightFrontClaws.cubeList.add(new ModelBox(RightFrontClaws, 4, 97, 0.25F, 0.5107F, -4.2378F, 1, 1, 1, 0.0F, false));
+        RightFrontClaws.cubeList.add(new ModelBox(RightFrontClaws, 5, 98, 2.0F, 0.5107F, -4.2378F, 1, 1, 1, 0.0F, false));
         RightFrontClaws.cubeList.add(new ModelBox(RightFrontClaws, 0, 171, -1.0F, -0.4893F, -3.4878F, 2, 2, 4, 0.0F, false));
 
         HindleftLeg = new ModelRenderer(this);

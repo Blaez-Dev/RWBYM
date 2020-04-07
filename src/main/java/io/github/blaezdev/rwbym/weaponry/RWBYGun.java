@@ -475,7 +475,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         if(recoil == 2){tooltip.add(ChatFormatting.BLUE + "-"+ "Weak Shot Recoil - Propelling Player Backwards");}
         if(recoil == 1){tooltip.add(ChatFormatting.BLUE + "-"+ "Large Shot Recoil - Propelling Player Backwards");}
         if(isShield||canBlock){
-             if(isShield&&!canBlock){tooltip.add(ChatFormatting.BLUE + "-"+ "Blocks in Both Mainhand & Offhand");}
+             if(isShield&&!canBlock){tooltip.add(ChatFormatting.BLUE + "-"+ "Blocks in Offhand Only");}
              if(!isShield&&canBlock){tooltip.add(ChatFormatting.BLUE + "-"+ "Blocks in Mainhand Only");}
              if(isShield&&canBlock){tooltip.add(ChatFormatting.BLUE + "-"+ "Blocks in Both Mainhand & Offhand");}
          }
