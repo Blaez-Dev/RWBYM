@@ -707,6 +707,12 @@ public class RegUtil {
         registerItems(event, RWBYItems.chastifolammo);
         registerItems(event, RWBYItems.chastifolincrease);
         registerItems(event, RWBYItems.chastifolincreaseammo);
+        registerItems(event, RWBYItems.bolt);
+        registerItems(event, RWBYItems.boltfire);
+        registerItems(event, RWBYItems.boltgrav);
+        registerItems(event, RWBYItems.boltice);
+        registerItems(event, RWBYItems.boltlight);
+        registerItems(event, RWBYItems.boltwind);
         registerItems(event, RWBYItems.charm);
         registerItems(event, RWBYItems.arslanammo);
         registerBlocks(event, RWBYItems.fluidGrimm);

@@ -22,6 +22,7 @@ import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.projectile.EntityArrow;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
@@ -327,6 +328,7 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
             EntityPlayer player = (EntityPlayer) shootingEntity;
             ISemblance semblance = CapabilityHandler.getCurrentSemblance(player);
 
+            if(getShootingItemStack().getItem() instanceof RWBYGun){
                 if((((RWBYGun) getShootingItemStack().getItem()).weapontype & RWBYGun.BOOMERANG) !=0){
                     if(shootingEntity !=null &&!player.isSpectator() && !player.isDead && ticksInGround > 100 - 20) {
                         this.noClip = true;
@@ -339,7 +341,7 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
                             this.motionZ += vec3d.z * d0 - this.motionZ * 0.05D;
                             this.move(MoverType.SELF, this.motionX * 0.05D, this.motionY * 0.05D, this.motionZ * 0.05D);
                         }
-                    }}
+                    }}}
 
             if (semblance instanceof IPyrrha) {
             if(shootingEntity !=null &&!player.isSpectator() && !player.isDead && ticksInGround > 100 - (semblance.getLevel() * 20)) {
@@ -403,7 +405,7 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
 
             if (this.getIsCritical() && this.world.isRemote)
             {
-                for (int k = 0; k < 32; ++k)
+                for (int k = 0; k < 5; ++k)
                 {
                     this.world.spawnParticle(this.getParticle(), this.posX + this.motionX * (double)k / 32D, this.posY + this.motionY * (double)k / 32D, this.posZ + this.motionZ * (double)k / 32D, this.rand.nextGaussian() / 10, this.rand.nextGaussian() / 10, this.rand.nextGaussian() / 10);
                 }

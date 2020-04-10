@@ -261,6 +261,12 @@ public class EntityWeaponStore extends EntityRWBYMMerchant implements INpc, IMer
         }
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.rwbyblock8,1)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien100,2), new ItemStack(RWBYItems.extasisammo, 3)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien100,1), new ItemStack(RWBYItems.bolt, 10)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien100,1), new ItemStack(RWBYItems.boltfire, 10)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien100,1), new ItemStack(RWBYItems.boltwind, 10)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien100,1), new ItemStack(RWBYItems.boltlight, 10)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien100,1), new ItemStack(RWBYItems.boltice, 10)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien100,1), new ItemStack(RWBYItems.boltgrav, 10)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.remnants,1), new ItemStack(RWBYItems.lien10, 3)));
 
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien1,5),new ItemStack(RWBYItems.lien5, 1)));

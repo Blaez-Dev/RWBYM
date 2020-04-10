@@ -1,5 +1,5 @@
 {
-	"credit": "by LauraDarkez",
+	"credit": "Made with Blockbench",
 	"textures": {
 		"0": "rwbym:blocks/awool_colored_gray",
 		"1": "rwbym:blocks/awool_colored_ozpincane",
@@ -1741,6 +1741,47 @@
 			}
 		}
 	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [90, 0, 0],
+			"translation": [0, -6.25, 0],
+			"scale": [2, 2, 2]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [90, 0, 0],
+			"translation": [0, -6.25, 0],
+			"scale": [2, 2, 2]
+		},
+		"firstperson_righthand": {
+			"rotation": [55, 0, 0],
+			"translation": [0, -4, 0],
+			"scale": [2, 2, 2]
+		},
+		"firstperson_lefthand": {
+			"rotation": [55, 0, 0],
+			"translation": [0, -4, 0],
+			"scale": [2, 2, 2]
+		},
+		"ground": {
+			"rotation": [47, 0, 0],
+			"scale": [2, 2, 2]
+		},
+		"gui": {
+			"rotation": [90, -45, 0],
+			"translation": [-5.75, -4.75, 0],
+			"scale": [4, 4, 4]
+		},
+		"head": {
+			"rotation": [0, -90, 0],
+			"translation": [-21, 0, 0],
+			"scale": [4, 4, 4]
+		},
+		"fixed": {
+			"rotation": [90, 45, 0],
+			"translation": [5, -6.5, 0],
+			"scale": [4, 4, 4]
+		}
+	},
 	"groups": [
 		{
 			"name": "hexadecagon",
