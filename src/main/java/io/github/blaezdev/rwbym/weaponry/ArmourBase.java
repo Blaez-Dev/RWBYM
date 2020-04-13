@@ -104,9 +104,9 @@ public class ArmourBase extends ItemArmor {
     public static final long KINGSGAMBIT =      0x200000000L;
     public static final long KINGSPAWN =        0x400000000L;
     public static final long MAIDEN =           0x800000000L;
-    public static final long JAVELIN1 =       0x1000000000L;
-    public static final long JAVELIN2 =       0x2000000000L;
-    public static final long HandofBullets =  0x3000000000L;
+    public static final long JAVELIN1 =        0x1000000000L;
+    public static final long JAVELIN2 =        0x2000000000L;
+    public static final long HandofBullets =   0x4000000000L;
 
 
     public boolean validperk(EntityLivingBase playerIn,long armorperk){
