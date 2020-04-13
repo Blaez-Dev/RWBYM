@@ -91,9 +91,12 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
 
     public EntityBullet(World worldIn, EntityLivingBase shooter, ItemStack stack, ItemStack shootingStack) {
         this(worldIn, shooter);
-        if(shooter instanceof EntityPlayer){
-            if(shootingStack.getItem() instanceof RWBYGun){
-       if((((RWBYGun) shootingStack.getItem()).weapontype & RWBYGun.THROWN) !=0){this.setShootingItemStack(shootingStack.copy());}}}else this.setShootingItemStack(stack);
+        if(shootingStack.getItem() instanceof RWBYGun && (((RWBYGun) shootingStack.getItem()).weapontype & RWBYGun.THROWN) != 0) {
+    		this.setShootingItemStack(shootingStack.copy());
+    	}
+        else {
+        	this.setShootingItemStack(stack);
+        }
         this.setItem(stack);
         RWBYAmmoItem from = this.getItem();
         if (shooter instanceof EntityPlayer && from.canPickup()) {
@@ -142,24 +145,27 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
             int i = (int) item.getBaseDamage();
 
             if(this.getShootingItemStack().getItem() instanceof RWBYGun){
-            if((((RWBYGun) this.getShootingItemStack().getItem()).weapontype & RWBYGun.THROWN) !=0){
-            if(this.shootingEntity instanceof EntityPlayer){
-                EntityPlayer player = (EntityPlayer) this.shootingEntity;
-                if(this.validperk(player, ArmourBase.JAVELIN2)){
-                    i = i*3;
-                }else if(this.validperk(player, ArmourBase.JAVELIN1)){
-                    i = i*2;
-                }
-            }}}
+	            if((((RWBYGun) this.getShootingItemStack().getItem()).weapontype & RWBYGun.THROWN) !=0){
+		            if(this.shootingEntity instanceof EntityPlayer){
+		                EntityPlayer player = (EntityPlayer) this.shootingEntity;
+		                if(this.validperk(player, ArmourBase.JAVELIN2)){
+		                    i = i*3;
+		                }
+		                else if(this.validperk(player, ArmourBase.JAVELIN1)){
+		                    i = i*2;
+		                }
+		            }
+	            }
+            }
 
-            if(this.getShootingItemStack().getItem() instanceof RWBYGun){
-                if((((RWBYGun) this.getShootingItemStack().getItem()).weapontype & RWBYGun.THROWN) == 0){
-                    if(this.shootingEntity instanceof EntityPlayer){
-                        EntityPlayer player = (EntityPlayer) this.shootingEntity;
-                        if(this.validperk(player, ArmourBase.HandofBullets)){
-                            i = i*2;
-                        }
-                    }}}
+            if(this.getShootingItemStack().getItem() instanceof RWBYAmmoItem){
+                if(this.shootingEntity instanceof EntityPlayer){
+                    EntityPlayer player = (EntityPlayer) this.shootingEntity;
+                    if(this.validperk(player, ArmourBase.HandofBullets)){
+                        i = i*2;
+                    }
+                }
+            }
 
             DamageSource damagesource;
 
