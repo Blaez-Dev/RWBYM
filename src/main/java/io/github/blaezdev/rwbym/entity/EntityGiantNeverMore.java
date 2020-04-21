@@ -2,12 +2,14 @@ package io.github.blaezdev.rwbym.entity;
 
 import io.github.blaezdev.rwbym.ModLootTables;
 import io.github.blaezdev.rwbym.RWBYEntities;
+import io.github.blaezdev.rwbym.Init.RWBYItems;
 import io.github.blaezdev.rwbym.utility.RWBYConfig;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
@@ -88,6 +90,7 @@ public class EntityGiantNeverMore extends EntityGrimm
     {
         this.tasks.addTask(1, new io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.AIPickAttack());
         this.tasks.addTask(2, new io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.AISweepAttack());
+        this.tasks.addTask(2, new io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.AIFeatherAttack());
         this.tasks.addTask(3, new io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.AIOrbitPoint());
         this.targetTasks.addTask(1, new io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.AIAttackPlayer());
         this.tasks.addTask(3, new EntityAIAvoidEntity(this, EntityZwei.class, 6.0F, 1.0D, 1.2D));
@@ -237,6 +240,7 @@ public class EntityGiantNeverMore extends EntityGrimm
 
         private AIAttackPlayer() {
             this.attackTime = 10;
+            this.setMutexBits(0);
         }
 
         public boolean shouldExecute() {
@@ -245,7 +249,7 @@ public class EntityGiantNeverMore extends EntityGrimm
                 return false;
             } else {
                 this.attackTime = 20;
-                AxisAlignedBB aabb = io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.this.getEntityBoundingBox().grow(16.0D, 64.0D, 16.0D);
+                AxisAlignedBB aabb = io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.this.getEntityBoundingBox().grow(64.0D, 64.0D, 64.0D);
                 List<EntityPlayer> playerList = io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.this.world.getEntitiesWithinAABB(EntityPlayer.class, aabb);
                 if (!playerList.isEmpty()) {
                     playerList.sort((player1, player2) -> {
@@ -278,7 +282,7 @@ public class EntityGiantNeverMore extends EntityGrimm
         }
 
         public boolean shouldExecute() {
-            return EntityAITarget.isSuitableTarget(io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.this, io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.this.getAttackTarget(), false, false);
+            return EntityGiantNeverMore.this.getAttackTarget() != null;//EntityAITarget.isSuitableTarget(io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.this, io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.this.getAttackTarget(), false, false);
         }
 
         public void startExecuting() {
@@ -300,9 +304,16 @@ public class EntityGiantNeverMore extends EntityGrimm
             if (io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.this.attackPhase == io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.AttackPhase.CIRCLE) {
                 --this.phaseTime;
                 if (this.phaseTime <= 0) {
-                    io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.this.attackPhase = io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.AttackPhase.SWOOP;
-                    this.setCircleCenter();
-                    this.phaseTime = (8 + io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.this.rand.nextInt(4)) * 20;
+                	if (rand.nextInt(2) == 0) {
+	                    io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.this.attackPhase = io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.AttackPhase.SWOOP;
+	                    this.setCircleCenter();
+	                    this.phaseTime = (8 + io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.this.rand.nextInt(4)) * 20;
+                    }
+                	else {
+	                    io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.this.attackPhase = io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.AttackPhase.SHOOT;
+	                    this.setCircleCenter();
+	                    this.phaseTime = (8 + io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.this.rand.nextInt(4)) * 20;
+                	}
                 }
             }
 
@@ -341,7 +352,7 @@ public class EntityGiantNeverMore extends EntityGrimm
         }
 
         public void resetTask() {
-            io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.this.setAttackTarget((EntityLivingBase)null);
+            //io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.this.setAttackTarget((EntityLivingBase)null);
             io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.this.attackPhase = io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.AttackPhase.CIRCLE;
         }
 
@@ -358,8 +369,77 @@ public class EntityGiantNeverMore extends EntityGrimm
                 io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.this.attackPhase = io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.AttackPhase.CIRCLE;
                 io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.this.world.playEvent(1039, new BlockPos(io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.this), 0);
             } else if (io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.this.collided|| io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.this.hurtTime > 0) {
-                io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.this.attackPhase = AttackPhase.SWOOP;
+                io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.this.attackPhase = AttackPhase.CIRCLE;
             }
+
+        }
+    }
+    
+    class AIFeatherAttack extends io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.AIMove {
+    	
+    	private int timer = 0;
+    	
+    	private int shots = 0;
+    	
+        private AIFeatherAttack() {
+            super();
+        }
+
+        public boolean shouldExecute() {
+            return io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.this.getAttackTarget() != null && io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.this.attackPhase == io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.AttackPhase.SHOOT;
+        }
+
+        public boolean shouldContinueExecuting() {
+            EntityLivingBase target = io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.this.getAttackTarget();
+            if (target == null) {
+                return false;
+            } else if (target.isDead) {
+                return false;
+            } else {
+                return !(target instanceof EntityPlayer) || !((EntityPlayer)target).isSpectator() && !((EntityPlayer)target).isCreative() ? this.shouldExecute() : false;
+            }
+        }
+
+        public void startExecuting() {
+        	this.timer = 0;
+        	this.shots = 4 + rand.nextInt(2);
+        }
+
+        public void resetTask() {
+            //io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.this.setAttackTarget((EntityLivingBase)null);
+            io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.this.attackPhase = io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.AttackPhase.CIRCLE;
+        }
+
+        @Override
+        public void updateTask() {
+            this.tick();
+        }
+
+        public void tick() {
+            EntityLivingBase target = EntityGiantNeverMore.this.getAttackTarget();
+            EntityGiantNeverMore.this.targetPos = new Vec3d(target.posX, EntityGiantNeverMore.this.posY, target.posZ);
+            if (EntityGiantNeverMore.this.getDistanceSq(EntityGiantNeverMore.this.targetPos.x, EntityGiantNeverMore.this.targetPos.y, EntityGiantNeverMore.this.targetPos.z) < 1) {
+                EntityGiantNeverMore.this.attackPhase = EntityGiantNeverMore.AttackPhase.CIRCLE;
+                EntityGiantNeverMore.this.world.playEvent(1039, new BlockPos(EntityGiantNeverMore.this), 0);
+            }
+            else if (EntityGiantNeverMore.this.hurtTime > 0) {
+                EntityGiantNeverMore.this.attackPhase = AttackPhase.SWOOP;
+            }
+            else if (EntityGiantNeverMore.this.collided) {
+            	EntityGiantNeverMore.this.attackPhase = AttackPhase.CIRCLE;
+            }
+            else if (timer > 60 && timer % 4 == 0 && EntityGiantNeverMore.this.canEntityBeSeen(target)) {
+            	if (!world.isRemote) {
+            		EntityBullet bullet = new EntityBullet(world, EntityGiantNeverMore.this, new ItemStack(RWBYItems.ragorafireball), new ItemStack(RWBYItems.ragorafireball));
+            		bullet.shoot(target.posX - posX, target.posY - posY, target.posZ - posZ, 5, 10);
+            		world.spawnEntity(bullet);
+            	}
+            	if (shots-- == 0) {
+            		EntityGiantNeverMore.this.attackPhase = AttackPhase.CIRCLE;
+            	}
+            }
+            
+            timer++;
 
         }
     }
@@ -379,7 +459,7 @@ public class EntityGiantNeverMore extends EntityGrimm
         }
 
         public void startExecuting() {
-            this.radius = 5.0F + io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.this.rand.nextFloat() * 10.0F;
+            this.radius = 40.0F + io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.this.rand.nextFloat() * 20.0F;
             this.yVel = -4.0F + io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.this.rand.nextFloat() * 9.0F;
             this.direction = io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.this.rand.nextBoolean() ? 1.0F : -1.0F;
             this.setTargetPosition();
@@ -397,8 +477,8 @@ public class EntityGiantNeverMore extends EntityGrimm
 
             if (io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.this.rand.nextInt(250) == 0) {
                 ++this.radius;
-                if (this.radius > 15.0F) {
-                    this.radius = 5.0F;
+                if (this.radius > 80.0f) {
+                    this.radius = 40.0f;
                     this.direction = -this.direction;
                 }
             }
@@ -541,7 +621,9 @@ public class EntityGiantNeverMore extends EntityGrimm
 
     enum AttackPhase {
         CIRCLE,
-        SWOOP;
+        SWOOP,
+        SHOOT,
+        GRAB;
 
         AttackPhase() {
         }

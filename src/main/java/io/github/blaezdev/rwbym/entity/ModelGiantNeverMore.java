@@ -2,6 +2,7 @@ package io.github.blaezdev.rwbym.entity;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 
@@ -112,6 +113,8 @@ public class ModelGiantNeverMore extends ModelBase {
     }
     @Override
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+    	GlStateManager.pushMatrix();
+    	GlStateManager.rotate(90.0f, 0, 1, 0);
         this.Head.render(f5);
         this.footleft.render(f5);
         this.footleft2.render(f5);
@@ -121,6 +124,7 @@ public class ModelGiantNeverMore extends ModelBase {
         this.footright2.render(f5);
         this.footright3.render(f5);
         this.footleft3.render(f5);
+        GlStateManager.popMatrix();
     }
 
 

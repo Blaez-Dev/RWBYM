@@ -3,6 +3,7 @@ package io.github.blaezdev.rwbym.entity;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 
@@ -507,6 +508,8 @@ public class ModelNeverMore extends ModelBase {
 
     @Override
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+    	GlStateManager.pushMatrix();
+    	GlStateManager.rotate(-90.0f, 0, 1, 0);
         Head.render(f5);
         Torso.render(f5);
         Tail.render(f5);
@@ -514,6 +517,7 @@ public class ModelNeverMore extends ModelBase {
         RightLeg.render(f5);
         LeftwingBone.render(f5);
         RightWingbone.render(f5);
+        GlStateManager.popMatrix();
     }
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.rotateAngleX = x;
