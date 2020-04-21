@@ -33,6 +33,187 @@
           "name": "rwbym:rgrimmarm",
           "weight":20,
           "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:antlerlarge",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:brownfoxtail",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:whitedragontail",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:silverdragontail",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:whitefoxtail",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:graywolftail",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:blackfoxtail",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:blondewolftail",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:greendragontail",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:orangewolfears",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:whitewolftail",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:blackwolftail",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:blackbullhorns",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:reddragontail",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:orangewolftail",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:blondefoxtail",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:brownwolfears",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:blackwolfears",
+          "weight":20,
+          "count": 1
+        }
+      ,
+        {
+          "type": "item",
+          "name": "rwbym:antlersmall",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:bluedragontail",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:grayfoxtail",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:whitewolfears",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:blondewolfears",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:golddragontail",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:ramhorns",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:graywolfears",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:orangefoxtail",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:brownwolftail",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:whitefoxear",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:blackdragontail",
+          "weight":20,
+          "count": 1
         },	{
           "type": "item",
           "name": "rwbym:grimmhead",

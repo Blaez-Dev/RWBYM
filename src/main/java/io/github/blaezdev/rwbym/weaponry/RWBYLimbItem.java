@@ -34,7 +34,7 @@ public class RWBYLimbItem extends Item implements ICustomItem {
         this.setRegistryName(new ResourceLocation(RWBYModels.MODID, name));
         this.setUnlocalizedName(this.getRegistryName().toString());
         this.setCreativeTab(RWBYCreativeTabs.tab_rwbylimbs);
-        this.maxStackSize = 1;
+        this.maxStackSize = 64;
         this.name = name;
         this.slot = slot;
 

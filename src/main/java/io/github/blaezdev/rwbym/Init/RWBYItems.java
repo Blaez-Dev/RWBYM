@@ -239,7 +239,7 @@ public class RWBYItems {
     public static final Item qrow = new RWBYGun(
             "qrow",
             2500,
-            16,
+            18,
             RWBYGun.SCYTHE,
             "rwbym:qrowgun",
             "rwbym:ammmmo,rwbym:ammmmmmo",
@@ -255,7 +255,7 @@ public class RWBYItems {
     public static final Item qrowsword = new RWBYGun(
             "qrowsword",
             2500,
-            14,
+            16,
             RWBYGun.SWORD,
             "rwbym:qrow",
             "rwbym:nuller,rwbym:nullest",
@@ -669,7 +669,7 @@ public class RWBYItems {
     public static final Item torchwick = new RWBYGun(
             "torchwick",
             2500,
-            14,
+            15,
             RWBYGun.HAMMER,
             "rwbym:torchwickgun",
             "rwbym:nuller,rwbym:nullest",
@@ -1427,7 +1427,7 @@ public class RWBYItems {
             1,
             0,
             7,
-            null).setRecoil(3);
+            null).setRecoil(1);
     public static final Item cocogunv = new RWBYGun(
             "cocogunv",
             1250,
@@ -1443,7 +1443,7 @@ public class RWBYItems {
             1,
             1,
             7,
-            null).setRecoil(3);
+            null).setRecoil(1);
 
     public static final Item sanrei = new RWBYGun(
             "sanrei",
@@ -1873,7 +1873,7 @@ public class RWBYItems {
             "rwbym:hexenaxe",
             "rwbym:emammo,rwbym:emfireammo,rwbym:emflareammo",
             true,
-            0.8F,
+            0.7F,
             false,
             false,
             0,
@@ -2952,7 +2952,7 @@ public class RWBYItems {
     public static final Item neonnormal = new RWBYGun(
             "neonnormal",
             2500,
-            14,
+            15,
             RWBYGun.HAMMER, 
             "rwbym:neonfire",
             "rwbym:nullest,rwbym:nuller",
@@ -2968,7 +2968,7 @@ public class RWBYItems {
     public static final Item neonfire = new RWBYGun(
             "neonfire",
             2500,
-            14,
+            15,
             RWBYGun.HAMMER,
             "rwbym:neonice",
             "rwbym:nullest,rwbym:nuller",
@@ -2984,7 +2984,7 @@ public class RWBYItems {
     public static final Item neonice = new RWBYGun(
             "neonice",
             2500,
-            14,
+            15,
             RWBYGun.HAMMER,
             "rwbym:neonwind",
             "rwbym:nullest,rwbym:nuller",
@@ -3000,7 +3000,7 @@ public class RWBYItems {
     public static final Item neonwind = new RWBYGun(
             "neonwind",
             2500,
-            14,
+            15,
             RWBYGun.HAMMER, 
             "rwbym:neonnormal",
             "rwbym:nullest,rwbym:nuller",
@@ -3468,11 +3468,11 @@ public class RWBYItems {
             "rwbym:chastifol",
             "rwbym:chastifolincreaseammo",
             false,
-            1F,
+            0.6F,
             false,
             false,
             0,
-            1,
+            8,
             0,
             17,
             null);
@@ -3645,20 +3645,34 @@ public class RWBYItems {
     public static final Item scrollpink7 = new RWBYItem("7scroll_pink",  false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item scrollred7 = new RWBYItem("7scroll_red",  false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item scrollyellow7 = new RWBYItem("7scroll_yellow",  false, RWBYCreativeTabs.tab_rwbyitems);
+
+    //Right Arm
     public static final Item rgrimmarm = new RWBYLimbItem("rgrimmarm", "RightArm");
+    public static final Item clearrightarm = new RWBYLimbItem("clearrightarm", "RightArm");
+
+    //Left Arm
     public static final Item lgrimmarm = new RWBYLimbItem("lgrimmarm", "LeftArm");
+    public static final Item clearleftarm = new RWBYLimbItem("clearleftarm", "LeftArm");
+
+    //Right Leg
     public static final Item rgrimmleg = new RWBYLimbItem("rgrimmleg", "RightLeg");
+    public static final Item clearrightleg = new RWBYLimbItem("clearrightleg", "RightLeg");
+
+    //Left Leg
     public static final Item lgrimmleg = new RWBYLimbItem("lgrimmleg", "LeftLeg");
-    public static final Item blackcatear = new RWBYLimbItem("blackcatear", "Ears");
-    public static final Item blondecatear = new RWBYLimbItem("blondecatear", "Ears");
-    public static final Item browncatear = new RWBYLimbItem("browncatear", "Ears");
-    public static final Item greycatear = new RWBYLimbItem("greycatear", "Ears");
-    public static final Item orangecatear = new RWBYLimbItem("orangecatear", "Ears");
-    public static final Item blackfoxear = new RWBYLimbItem("blackfoxear", "Ears");
-    public static final Item blondefoxear = new RWBYLimbItem("blondefoxear", "Ears");
-    public static final Item brownfoxear = new RWBYLimbItem("brownfoxear", "Ears");
-    public static final Item greyfoxear = new RWBYLimbItem("greyfoxear", "Ears");
-    public static final Item orangefoxear = new RWBYLimbItem("orangefoxear", "Ears");
+    public static final Item clearleftleg = new RWBYLimbItem("clearleftleg",  "LeftLeg");
+
+    //Head
+    public static final Item grimmhead = new RWBYLimbItem("grimmhead", "Head");
+    public static final Item clearhead = new RWBYLimbItem("clearhead", "Head");
+
+
+    //Body
+    public static final Item clearbody = new RWBYLimbItem("clearbody", "Body");
+    public static final Item grimmbody = new RWBYLimbItem("grimmbody", "Body");
+
+
+    //Tail
     public static final Item cattail = new RWBYLimbItem("cattail", "Tail");
     public static final Item cattailblonde = new RWBYLimbItem("cattailblonde", "Tail");
     public static final Item cattailbrown = new RWBYLimbItem("cattailbrown", "Tail");
@@ -3674,6 +3688,42 @@ public class RWBYItems {
     public static final Item rabbittailgrey = new RWBYLimbItem("rabbittailgrey", "Tail");
     public static final Item rabbittailorange = new RWBYLimbItem("rabbittailorange", "Tail");
     public static final Item rabbittailwhite = new RWBYLimbItem("rabbittailwhite", "Tail");
+    public static final Item cleartail = new RWBYLimbItem("cleartail", "Tail");
+    public static final Item kag = new RWBYLimbItem("kag", "Tail");
+    public static final Item kag2 = new RWBYLimbItem("kag2", "Tail");
+    public static final Item blackdragontail = new RWBYLimbItem("blackdragontail", "Tail");
+    public static final Item blackfoxtail = new RWBYLimbItem("blackfoxtail", "Tail");
+    public static final Item blackwolftail = new RWBYLimbItem("blackwolftail", "Tail");
+    public static final Item blondefoxtail = new RWBYLimbItem("blondefoxtail", "Tail");
+    public static final Item blondewolftail = new RWBYLimbItem("blondewolftail", "Tail");
+    public static final Item bluedragontail = new RWBYLimbItem("bluedragontail", "Tail");
+    public static final Item brownfoxtail = new RWBYLimbItem("brownfoxtail", "Tail");
+    public static final Item brownwolftail = new RWBYLimbItem("brownwolftail", "Tail");
+    public static final Item golddragontail = new RWBYLimbItem("golddragontail", "Tail");
+    public static final Item grayfoxtail = new RWBYLimbItem("grayfoxtail", "Tail");
+    public static final Item graywolftail = new RWBYLimbItem("graywolftail", "Tail");
+    public static final Item greendragontail = new RWBYLimbItem("greendragontail", "Tail");
+    public static final Item orangefoxtail = new RWBYLimbItem("orangefoxtail", "Tail");
+    public static final Item orangewolftail = new RWBYLimbItem("orangewolftail", "Tail");
+    public static final Item reddragontail = new RWBYLimbItem("reddragontail", "Tail");
+    public static final Item silverdragontail = new RWBYLimbItem("silverdragontail", "Tail");
+    public static final Item whitedragontail = new RWBYLimbItem("whitedragontail", "Tail");
+    public static final Item whitefoxtail = new RWBYLimbItem("whitefoxtail", "Tail");
+    public static final Item whitewolftail = new RWBYLimbItem("whitewolftail", "Tail");
+
+    //Ears
+    public static final Item whitefoxear = new RWBYLimbItem("whitefoxear", "Ears");
+    public static final Item antlerlarge = new RWBYLimbItem("antlerlarge", "Ears");
+    public static final Item antlersmall = new RWBYLimbItem("antlersmall", "Ears");
+    public static final Item blackbullhorns = new RWBYLimbItem("blackbullhorns", "Ears");
+    public static final Item blackwolfears = new RWBYLimbItem("blackwolfears", "Ears");
+    public static final Item blondewolfears = new RWBYLimbItem("blondewolfears", "Ears");
+    public static final Item bonebullhorns = new RWBYLimbItem("bonebullhorns", "Ears");
+    public static final Item brownwolfears = new RWBYLimbItem("brownwolfears", "Ears");
+    public static final Item graywolfears = new RWBYLimbItem("graywolfears", "Ears");
+    public static final Item orangewolfears = new RWBYLimbItem("orangewolfears", "Ears");
+    public static final Item ramhorns = new RWBYLimbItem("ramhorns", "Ears");
+    public static final Item whitewolfears = new RWBYLimbItem("whitewolfears", "Ears");
     public static final Item rabbitearsblack = new RWBYLimbItem("rabbitearsblack", "Ears");
     public static final Item rabbitearsblonde = new RWBYLimbItem("rabbitearsblonde", "Ears");
     public static final Item rabbitearsbrown = new RWBYLimbItem("rabbitearsbrown", "Ears");
@@ -3681,18 +3731,18 @@ public class RWBYItems {
     public static final Item rabbitearsorange = new RWBYLimbItem("rabbitearsorange", "Ears");
     public static final Item rabbitearswhite = new RWBYLimbItem("rabbitearswhite", "Ears");
     public static final Item grimmhorn = new RWBYLimbItem("grimmhorn", "Ears");
-    public static final Item clearbody = new RWBYLimbItem("clearbody", "Body");
     public static final Item clearears = new RWBYLimbItem("clearears", "Ears");
-    public static final Item clearhead = new RWBYLimbItem("clearhead", "Head");
-    public static final Item cleartail = new RWBYLimbItem("cleartail", "Tail");
-    public static final Item clearleftarm = new RWBYLimbItem("clearleftarm", "LeftArm");
-    public static final Item clearrightarm = new RWBYLimbItem("clearrightarm", "RightArm");
-    public static final Item clearrightleg = new RWBYLimbItem("clearrightleg", "RightLeg");
-    public static final Item clearleftleg = new RWBYLimbItem("clearleftleg",  "LeftLeg");
-    public static final Item kag = new RWBYLimbItem("kag", "Tail");
-    public static final Item kag2 = new RWBYLimbItem("kag2", "Tail");
-    public static final Item grimmbody = new RWBYLimbItem("grimmbody", "Body");
-    public static final Item grimmhead = new RWBYLimbItem("grimmhead", "Head");
+    public static final Item blackcatear = new RWBYLimbItem("blackcatear", "Ears");
+    public static final Item blondecatear = new RWBYLimbItem("blondecatear", "Ears");
+    public static final Item browncatear = new RWBYLimbItem("browncatear", "Ears");
+    public static final Item greycatear = new RWBYLimbItem("greycatear", "Ears");
+    public static final Item orangecatear = new RWBYLimbItem("orangecatear", "Ears");
+    public static final Item blackfoxear = new RWBYLimbItem("blackfoxear", "Ears");
+    public static final Item blondefoxear = new RWBYLimbItem("blondefoxear", "Ears");
+    public static final Item brownfoxear = new RWBYLimbItem("brownfoxear", "Ears");
+    public static final Item greyfoxear = new RWBYLimbItem("greyfoxear", "Ears");
+    public static final Item orangefoxear = new RWBYLimbItem("orangefoxear", "Ears");
+
 
     //------------------------------------------------//
     public static final Item wallet = new RWBYContainerItem(
@@ -4023,7 +4073,7 @@ public class RWBYItems {
             0,
             null,
             32,
-            8,
+            12,
             RWBYCreativeTabs.tab_rwbyitems,
             null);
     public static final Item splfire = new RWBYAmmoItem(
@@ -4038,7 +4088,7 @@ public class RWBYItems {
             0,
             null,
             32,
-            8,
+            12,
             RWBYCreativeTabs.tab_rwbyitems,
             new FireAmmoHit(10));
     public static final Item splice = new RWBYAmmoItem(
@@ -4053,7 +4103,7 @@ public class RWBYItems {
             0,
             ImmutableList.of(new PotionEffect(Potion.getPotionFromResourceLocation("minecraft:slowness"), 100, 5)),
             32,
-            8,
+            12,
             RWBYCreativeTabs.tab_rwbyitems,
             null);
     public static final Item splgrav = new RWBYAmmoItem(
@@ -4068,7 +4118,7 @@ public class RWBYItems {
             0,
             ImmutableList.of(new PotionEffect(Potion.getPotionFromResourceLocation("minecraft:levitation"), 100, 2)),
             32,
-            8,
+            12,
             RWBYCreativeTabs.tab_rwbyitems,
             null);
     public static final Item spllight = new RWBYAmmoItem(
@@ -4083,7 +4133,7 @@ public class RWBYItems {
             0,
             null,
             32,
-            8,
+            12,
             RWBYCreativeTabs.tab_rwbyitems,
             new ExplosionAmmoHit(0));
     public static final Item gammag = new RWBYAmmoItem(
@@ -4098,7 +4148,7 @@ public class RWBYItems {
             0,
             null,
             32,
-            8,
+            10,
             RWBYCreativeTabs.tab_rwbyitems,
             null);
     public static final Item gamfiremag = new RWBYAmmoItem(
@@ -4113,7 +4163,7 @@ public class RWBYItems {
             0,
             null,
             32,
-            8,
+            10,
             RWBYCreativeTabs.tab_rwbyitems,
             new FireAmmoHit(10));
     public static final Item gamicemag = new RWBYAmmoItem(
@@ -4128,7 +4178,7 @@ public class RWBYItems {
             0,
             ImmutableList.of(new PotionEffect(Potion.getPotionFromResourceLocation("minecraft:slowness"), 100, 5)),
             32,
-            8,
+            10,
             RWBYCreativeTabs.tab_rwbyitems,
             null);
     public static final Item gamgravmag = new RWBYAmmoItem(
@@ -4143,7 +4193,7 @@ public class RWBYItems {
             0,
             ImmutableList.of(new PotionEffect(Potion.getPotionFromResourceLocation("minecraft:levitation"), 100, 2)),
             32,
-            8,
+            10,
             RWBYCreativeTabs.tab_rwbyitems,
             null);
     public static final Item emammo = new RWBYAmmoItem(
@@ -4158,7 +4208,7 @@ public class RWBYItems {
             0,
             null,
             32,
-            3,
+            5,
             RWBYCreativeTabs.tab_rwbyitems,
             null);
     public static final Item emfireammo = new RWBYAmmoItem(
@@ -4173,7 +4223,7 @@ public class RWBYItems {
             0,
             null,
             32,
-            3,
+            4,
             RWBYCreativeTabs.tab_rwbyitems,
             new FireAmmoHit(10));
     public static final Item emflareammo = new RWBYAmmoItem(
@@ -4188,7 +4238,7 @@ public class RWBYItems {
             0,
             null,
             32,
-            3,
+            5,
             RWBYCreativeTabs.tab_rwbyitems,
             new ExplosionAmmoHit(0));
     public static final Item crmag = new RWBYAmmoItem(
@@ -4203,7 +4253,7 @@ public class RWBYItems {
             0,
             null,
             32,
-            10,
+            15,
             RWBYCreativeTabs.tab_rwbyitems,
             null);
     public static final Item crgravmag = new RWBYAmmoItem(
@@ -4218,7 +4268,7 @@ public class RWBYItems {
             0,
             ImmutableList.of(new PotionEffect(Potion.getPotionFromResourceLocation("minecraft:levitation"), 100, 2)),
             32,
-            10,
+            15,
             RWBYCreativeTabs.tab_rwbyitems,
             null);
     public static final Item crfiremag = new RWBYAmmoItem(
@@ -4233,7 +4283,7 @@ public class RWBYItems {
             0,
             null,
             32,
-            10,
+            15,
             RWBYCreativeTabs.tab_rwbyitems,
             new FireAmmoHit(10));
     public static final Item crelectricmag = new RWBYAmmoItem(
@@ -4248,7 +4298,7 @@ public class RWBYItems {
             0,
             ImmutableList.of(new PotionEffect(Potion.getPotionFromResourceLocation("minecraft:slowness"), 500, 20)),
             32,
-            10,
+            15,
             RWBYCreativeTabs.tab_rwbyitems,
             new ExplosionAmmoHit(0));
     public static final Item hadesmag = new RWBYAmmoItem(
@@ -4398,7 +4448,7 @@ public class RWBYItems {
             0,
             null,
             1,
-            15,
+            3,
             null,
             null);
     public static final Item hardlightmagazines = new RWBYAmmoItem(
@@ -4413,7 +4463,7 @@ public class RWBYItems {
             0,
             null,
             25,
-            10,
+            15,
             null,
             new ExplosionAmmoHit(0)).setPierce(true);
     public static final Item magnammo = new RWBYAmmoItem(
@@ -4428,7 +4478,7 @@ public class RWBYItems {
             0,
             null,
             12,
-            10,
+            15,
             RWBYCreativeTabs.tab_rwbyitems,
             new ExplosionAmmoHit(3));
     public static final Item waterdust = new RWBYAmmoItem(
@@ -4533,7 +4583,7 @@ public class RWBYItems {
             0,
             null,
             6,
-            10,
+            15,
             null,
             new ExplosionAmmoHit(1));
     public static final Item extasisammo = new RWBYAmmoItem(
@@ -4563,7 +4613,7 @@ public class RWBYItems {
             0,
             null,
             1,
-            10,
+            6,
             null,
             null);
     public static final Item sanreiammo = new RWBYAmmoItem(
@@ -4609,7 +4659,7 @@ public class RWBYItems {
             0,
             null,
             1,
-            4,
+            10,
             null,
             null);
     public static final Item chatmag = new RWBYAmmoItem(
