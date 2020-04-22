@@ -4899,7 +4899,7 @@ public class RWBYItems {
             0,
             null,
             1,
-            10,
+            15,
             RWBYCreativeTabs.tab_rwbyitems,
             null);
     public static final Item boltgrav = new RWBYAmmoItem(
@@ -4914,7 +4914,7 @@ public class RWBYItems {
             0,
             ImmutableList.of(new PotionEffect(Potion.getPotionFromResourceLocation("minecraft:levitation"), 100, 2)),
             1,
-            10,
+            15,
             RWBYCreativeTabs.tab_rwbyitems,
             null);
     public static final Item boltfire = new RWBYAmmoItem(
@@ -4929,7 +4929,7 @@ public class RWBYItems {
             0,
             null,
             1,
-            10,
+            15,
             RWBYCreativeTabs.tab_rwbyitems,
             new FireAmmoHit(10));
     public static final Item boltlight = new RWBYAmmoItem(
@@ -4944,7 +4944,7 @@ public class RWBYItems {
             0,
             ImmutableList.of(new PotionEffect(Potion.getPotionFromResourceLocation("minecraft:slowness"), 500, 20)),
             1,
-            5,
+            15,
             RWBYCreativeTabs.tab_rwbyitems,
             new ExplosionAmmoHit(0));
     public static final Item boltice = new RWBYAmmoItem(
@@ -4959,7 +4959,7 @@ public class RWBYItems {
             0,
             ImmutableList.of(new PotionEffect(Potion.getPotionFromResourceLocation("minecraft:slowness"), 100, 5)),
             1,
-            10,
+            15,
             RWBYCreativeTabs.tab_rwbyitems,
             null);
     public static final Item boltwind = new RWBYAmmoItem(
@@ -4974,7 +4974,7 @@ public class RWBYItems {
             0,
             ImmutableList.of(new PotionEffect(MobEffects.SPEED, 400, 2)),
             1,
-            5,
+            15,
             RWBYCreativeTabs.tab_rwbyitems,
             null);
     public static final Item nevermorefeather = new RWBYAmmoItem(
