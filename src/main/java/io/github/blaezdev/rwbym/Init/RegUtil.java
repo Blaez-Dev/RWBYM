@@ -506,6 +506,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.crelectricmag);
         registerItems(event, RWBYItems.hadesmag);
         registerItems(event, RWBYItems.magnammo);
+        registerItems(event, RWBYItems.nevermorefeather);
         registerItems(event, RWBYItems.chatmag);
         registerItems(event, RWBYItems.chatelectricmag);
         registerItems(event, RWBYItems.chatfiremag);

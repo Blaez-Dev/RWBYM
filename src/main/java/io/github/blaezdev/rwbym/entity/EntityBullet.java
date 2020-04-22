@@ -330,7 +330,7 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
             }
 
 
-            if(shootingEntity != null){
+            if(shootingEntity != null && shootingEntity instanceof EntityPlayer){
             EntityPlayer player = (EntityPlayer) shootingEntity;
             ISemblance semblance = CapabilityHandler.getCurrentSemblance(player);
 

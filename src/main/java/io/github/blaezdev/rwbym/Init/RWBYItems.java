@@ -4977,6 +4977,21 @@ public class RWBYItems {
             5,
             RWBYCreativeTabs.tab_rwbyitems,
             null);
+    public static final Item nevermorefeather = new RWBYAmmoItem(
+            "nevermorefeather",
+            RWBYItems.nevermorefeather,
+            64,
+            false,
+            RWBYAmmoItem.SurviveOnHit.ENTITY,
+            "textures/entity/projectiles/tipped_arrow.png",
+            true,
+            false,
+            0,
+           null,
+            1,
+            5,
+            null,
+            null);
     public static final Item ragorafireball = new RWBYAmmoItem(
     		"ragorafireball",
     		new EntityDragonFireball(null),
