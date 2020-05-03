@@ -66,6 +66,8 @@ public class EntityWeaponStore extends EntityRWBYMMerchant implements INpc, IMer
             new MerchantRecipe(new ItemStack(RWBYItems.lien500,5),new ItemStack(RWBYItems.shadowiron,2), new ItemStack(RWBYItems.tyrian, 1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien500,6),new ItemStack(RWBYItems.frostediron,8), new ItemStack(RWBYItems.winterswd, 1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien500,6),new ItemStack(RWBYItems.brawnz,1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,6),new ItemStack(RWBYItems.nornir,1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,6),new ItemStack(RWBYItems.freyr,1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien500,6),new ItemStack(RWBYItems.royg,1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien500,6),new ItemStack(RWBYItems.nolan,1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien500,6),new ItemStack(RWBYItems.mayrifle,1)),
@@ -250,7 +252,7 @@ public class EntityWeaponStore extends EntityRWBYMMerchant implements INpc, IMer
         int nextRandom = rand.nextInt(this.weapons.length);
         Set<Integer> validate = new HashSet<>();
         validate.add(nextRandom);
-        for (int i = 0; i < 15; i++) {
+        for (int i = 0; i < 20; i++) {
             while(validate.contains(nextRandom)) {
                 nextRandom = rand.nextInt(this.weapons.length);
             }

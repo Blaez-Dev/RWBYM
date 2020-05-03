@@ -103,8 +103,9 @@ public class EntityGiantNeverMore extends EntityGrimm
     protected void applyEntityAttributes()
     {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(600.0D* RWBYConfig.attributes.grimmhealthmult);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(7.0D*RWBYConfig.attributes.grimmattackmult);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(1000.0D* RWBYConfig.attributes.grimmhealthmult);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(14.0D*RWBYConfig.attributes.grimmattackmult);
+        this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(15.0D);
     }
 
     protected void entityInit()
@@ -158,6 +159,7 @@ public class EntityGiantNeverMore extends EntityGrimm
     public void onLivingUpdate() {
         this.fallDistance = 0;
         super.onLivingUpdate();
+        this.heal(0.2F);
         if (this.world.isRemote) {
             float lvt_1_1_ = MathHelper.cos((float) (this.getEntityId() * 3 + this.ticksExisted) * 0.13F + 3.1415927F);
             float lvt_2_1_ = MathHelper.cos((float) (this.getEntityId() * 3 + this.ticksExisted + 1) * 0.13F + 3.1415927F);
@@ -220,7 +222,7 @@ public class EntityGiantNeverMore extends EntityGrimm
     }
 
     protected ResourceLocation getLootTable() {
-        return ModLootTables.Demiboss;
+        return ModLootTables.RaidBoss;
     }
 
     protected SoundEvent getAmbientSound() {
@@ -305,7 +307,7 @@ public class EntityGiantNeverMore extends EntityGrimm
                 --this.phaseTime;
                 --this.phaseTime;
                 if (this.phaseTime <= 0) {
-                	if (rand.nextInt(4) == 0) {
+                	if (rand.nextInt(2) == 0) {
 	                    io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.this.attackPhase = io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.AttackPhase.SWOOP;
 	                    this.setCircleCenter();
 	                    this.phaseTime = (8 + io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.this.rand.nextInt(4)) * 20;
@@ -432,7 +434,7 @@ public class EntityGiantNeverMore extends EntityGrimm
             else if (timer > 60 && timer % 4 == 0 && EntityGiantNeverMore.this.canEntityBeSeen(target)) {
             	if (!world.isRemote) {
             		EntityBullet bullet = new EntityBullet(world, EntityGiantNeverMore.this, new ItemStack(RWBYItems.nevermorefeather), new ItemStack(RWBYItems.nevermorefeather));
-            		bullet.shoot(target.posX - posX, target.posY - posY, target.posZ - posZ, 5, 4);
+            		bullet.shoot(target.posX - posX, target.posY - posY, target.posZ - posZ, 5, 2);
             		world.spawnEntity(bullet);
             	}
             	if (shots-- == 0) {
