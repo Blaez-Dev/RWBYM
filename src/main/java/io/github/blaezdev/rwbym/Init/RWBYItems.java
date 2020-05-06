@@ -1444,7 +1444,22 @@ public class RWBYItems {
             1,
             7,
             null).setRecoil(1);
-
+    public static final Item infinity = new RWBYGun(
+            "infinity",
+            0,
+            0,
+            RWBYGun.INT_MAG,
+            null,
+            "rwbym:ammmo",
+            true,
+            1,
+            false,
+            false,
+            0,
+            2,
+            0,
+            5,
+            null).setRecoil(1);
     public static final Item sanrei = new RWBYGun(
             "sanrei",
             0,

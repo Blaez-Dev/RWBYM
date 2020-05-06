@@ -223,7 +223,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         if((weapontype & WHIP) !=0) {this.damages = 14;}
         if(name.contains("gambol")|| name.contains("rvn")) { ohblade = true; this.damages = 14; }
         if(name.contains("weiss")||name.contains("oobleck")||name.contains("kyoshi")||name.contains("goodwitch")){mytre = true;}
-        if(name.contains("stormflower")||name.contains("ember")||name.contains("tyrian")||name.contains("fox")||name.contains("emerald")||name.contains("mariascythe")||name.contains("sunnunchuck")||name.contains("reese")){dualwield = true;}
+        if(name.contains("stormflower")||name.contains("ember")||name.contains("tyrian")||name.contains("fox")||name.contains("emerald")||name.contains("mariascythe")||name.contains("sunnunchuck")||name.contains("reese")||name.contains("infinity")){dualwield = true;}
         if(enchantmentglow == 1){glow = true;}
         if(name.contains("grimm")){
             grimm = true;

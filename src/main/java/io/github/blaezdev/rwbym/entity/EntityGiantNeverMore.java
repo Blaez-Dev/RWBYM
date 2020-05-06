@@ -306,6 +306,7 @@ public class EntityGiantNeverMore extends EntityGrimm
             if (io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.this.attackPhase == io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.AttackPhase.CIRCLE) {
                 --this.phaseTime;
                 --this.phaseTime;
+                --this.phaseTime;
                 if (this.phaseTime <= 0) {
                 	if (rand.nextInt(2) == 0) {
 	                    io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.this.attackPhase = io.github.blaezdev.rwbym.entity.EntityGiantNeverMore.AttackPhase.SWOOP;
