@@ -750,6 +750,7 @@ public class RegUtil {
         registerBlocks(event, RWBYItems.fluidGrimm);
         registerItems(event, RWBYItems.freyr);
         registerItems(event, RWBYItems.nornir);
+        registerItems(event, RWBYItems.flashaceballot);
         registerItems(event, RWBYItems.infinity);
     }
 

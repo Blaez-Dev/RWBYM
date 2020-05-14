@@ -1183,6 +1183,22 @@ public class RWBYItems {
             0,
             0,
             RWBYCreativeTabs.tab_rwbyweapons);
+    public static final Item flashaceballot = new RWBYGun(
+            "flashaceballot",
+            2500,
+            18,
+            RWBYGun.SWORD,
+            null,
+            "rwbym:nuller,rwbym:nullest",
+            false,
+            1,
+            false,
+            true,
+            0,
+            1,
+            0,
+            0,
+            null).setElementMelee("flash");
 
 
 

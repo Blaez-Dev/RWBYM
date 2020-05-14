@@ -1435,6 +1435,10 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", (double)this.weapondamage-1, 0));
             multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", this.weaponspeed, 0));
 
+            if(elementmelee == "flash"){
+                multimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(MOVEMENT_SPEED, "Speed modifier", 0.4, 0));
+
+            }
             if(elementmelee == "wind"){
             multimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(MOVEMENT_SPEED, "Speed modifier", 0.2, 0));}
         }

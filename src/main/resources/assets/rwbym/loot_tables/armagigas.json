@@ -104,6 +104,12 @@
           "name": "rwbym:elucidator",
           "weight": 1,
           "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:flashaceballot",
+          "weight": 1,
+          "count": 1
         }
       ]
     }
