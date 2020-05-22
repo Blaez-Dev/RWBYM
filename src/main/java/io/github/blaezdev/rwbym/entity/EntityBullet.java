@@ -95,7 +95,8 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
     		this.setShootingItemStack(shootingStack.copy());
     	}
         else {
-        	this.setShootingItemStack(stack);
+            ItemStack iss = new ItemStack(stack.getItem());
+        	this.setShootingItemStack(iss);
         }
         this.setItem(stack);
         RWBYAmmoItem from = this.getItem();

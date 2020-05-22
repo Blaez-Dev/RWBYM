@@ -37,6 +37,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;
+import net.minecraft.world.GameType;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -562,6 +563,10 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         if(!world.isRemote) {
             if (entity instanceof EntityPlayer) {
                 EntityPlayer player = (EntityPlayer) entity;
+                if(!player.getName().contains("Blaez")&&is.getItem() == RWBYItems.infinity){
+                    //player.attackEntityFrom(DamageSource.MAGIC, 1);
+                    is.shrink(1);
+               }
                 {    if (climbs) {
                     if (player.fallDistance > 4 & compensate) {
                         lastDamage = player.fallDistance;
@@ -1074,12 +1079,6 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                         else if ((weapontype & JUNIOR) !=0) {stack.damageItem(30,entityplayer);}
                         else if ((weapontype & INT_MAG) !=0) {stack.damageItem(4, entityplayer);}
                         else if ((weapontype & THROWN) !=0) {stack.shrink(1);}
-                        if (!flag){
-                            if ((weapontype & BOW) !=0 && !flagger) {
-                                itemstack.shrink(1);
-                            }
-                        }
-
 
 
                         if (!flag){
@@ -1089,6 +1088,8 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                                 }else {
                                 itemstack.shrink(1);stack.damageItem(1,entityplayer);}
 
+                            }else if ((weapontype & BOW) !=0 && !flagger) {
+                                itemstack.shrink(1);
                             }
                             else {
                                 itemstack.damageItem(1, entityplayer);

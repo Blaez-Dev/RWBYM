@@ -3910,6 +3910,12 @@ public class RWBYItems {
     public static final Item entityweisswind = new RWBYItem("entityweisswind",  false, null);
     public static final Item entityrocket = new RWBYItem("entityrocket",  false, null);
     public static final Item entityextasisammo = new RWBYItem("entityextasisammo",  false, null);
+    public static final Item entitybolt = new RWBYItem("entitybolt", false, null);
+    public static final Item entityboltice = new RWBYItem("entityboltice", false, null);
+    public static final Item entityboltlight = new RWBYItem("entityboltlight", false, null);
+    public static final Item entityboltwind = new RWBYItem("entityboltwind", false, null);
+    public static final Item entityboltfire = new RWBYItem("entityboltfire", false, null);
+    public static final Item entityboltgrav = new RWBYItem("entityboltgrav", false, null);
     public static final Item whisperingblossomammo = new RWBYItem("whisperingblossomammo",  false, null);
     public static final Item saw = new RWBYItem("saw",  false, null);
 
@@ -4952,7 +4958,7 @@ public class RWBYItems {
             new ExplosionAmmoHit(3));
     public static final Item bolt = new RWBYAmmoItem(
             "bolt",
-            RWBYItems.bolt,
+            RWBYItems.entitybolt,
             64,
             true,
             RWBYAmmoItem.SurviveOnHit.ENTITY,
@@ -4967,7 +4973,7 @@ public class RWBYItems {
             null);
     public static final Item boltgrav = new RWBYAmmoItem(
             "boltgrav",
-            RWBYItems.boltgrav,
+            RWBYItems.entityboltgrav,
             64,
             true,
             RWBYAmmoItem.SurviveOnHit.ENTITY,
@@ -4982,7 +4988,7 @@ public class RWBYItems {
             null);
     public static final Item boltfire = new RWBYAmmoItem(
             "boltfire",
-            RWBYItems.boltfire,
+            RWBYItems.entityboltfire,
             64,
             true,
             RWBYAmmoItem.SurviveOnHit.ENTITY,
@@ -4997,7 +5003,7 @@ public class RWBYItems {
             new FireAmmoHit(10));
     public static final Item boltlight = new RWBYAmmoItem(
             "boltlight",
-            RWBYItems.boltlight,
+            RWBYItems.entityboltlight,
             64,
             true,
             RWBYAmmoItem.SurviveOnHit.ENTITY,
@@ -5012,7 +5018,7 @@ public class RWBYItems {
             new ExplosionAmmoHit(0));
     public static final Item boltice = new RWBYAmmoItem(
             "boltice",
-            RWBYItems.boltice,
+            RWBYItems.entityboltice,
             64,
             true,
             RWBYAmmoItem.SurviveOnHit.ENTITY,
@@ -5027,7 +5033,7 @@ public class RWBYItems {
             null);
     public static final Item boltwind = new RWBYAmmoItem(
             "boltwind",
-            RWBYItems.boltwind,
+            RWBYItems.entityboltwind,
             64,
             true,
             RWBYAmmoItem.SurviveOnHit.ENTITY,

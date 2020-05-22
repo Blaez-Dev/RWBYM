@@ -591,6 +591,12 @@ public class RegUtil {
         registerItems(event, RWBYItems.he5);
         registerItems(event, RWBYItems.he6);
         registerBlocks(event, RWBYItems.rwbyblock7);
+        registerItems(event, RWBYItems.entitybolt);
+        registerItems(event, RWBYItems.entityboltfire);
+        registerItems(event, RWBYItems.entityboltgrav);
+        registerItems(event, RWBYItems.entityboltice);
+        registerItems(event, RWBYItems.entityboltlight);
+        registerItems(event, RWBYItems.entityboltwind);
         //armor
         registerItems(event, RWBYItems.whtefng);
         registerItems(event, RWBYItems.RagoraHead);
