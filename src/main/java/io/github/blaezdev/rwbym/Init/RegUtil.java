@@ -551,6 +551,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.feathercharm);
         registerItems(event, RWBYItems.fleetingcharm);
         registerItems(event, RWBYItems.rushcharm);
+        registerItems(event, RWBYItems.relicofknowledge);
         //registerItems(event, RWBYItems.silvercharm);
         //registerItems(event, RWBYItems.maidencharm);
         registerItems(event, RWBYItems.cr1);

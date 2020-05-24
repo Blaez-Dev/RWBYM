@@ -5596,6 +5596,7 @@ public class RWBYItems {
     public static final ItemArmor fleetingcharm = new ArmourBase(charmMat, 0, EntityEquipmentSlot.FEET, "fleetingcharm", null,     true, RWBYCreativeTabs.tab_rwbycharms, ArmourBase.MOVEMENTSPEED1);
     public static final ItemArmor rushcharm = new ArmourBase(charmMat, 0, EntityEquipmentSlot.FEET, "rushcharm", null,     true, RWBYCreativeTabs.tab_rwbycharms, ArmourBase.RUSH1);
     public static final ItemArmor fairykingcharm = new ArmourBase(charmMat, 0, EntityEquipmentSlot.FEET, "fairyking", null,     true, RWBYCreativeTabs.tab_rwbycharms, ArmourBase.JAVELIN2);
+    public static final ItemArmor relicofknowledge = new ArmourBase(charmMat, 0, EntityEquipmentSlot.FEET, "relicofknowledge", null,     true, RWBYCreativeTabs.tab_rwbycharms, 0).setTooltipinfo("Boosted XP Gain");
     //public static final ItemArmor silvercharm = new ArmourBase(charmMat, 0, EntityEquipmentSlot.FEET, "silvercharm", null,     true, RWBYCreativeTabs.tab_rwbycharms, ArmourBase.SILVERLIGHT);
     //public static final ItemArmor maidencharm = new ArmourBase(charmMat, 0, EntityEquipmentSlot.FEET, "maidencharm", null,     true, RWBYCreativeTabs.tab_rwbycharms, ArmourBase.MAIDEN);
 

@@ -68,6 +68,13 @@ public class ArmourBase extends ItemArmor {
     private final float knockbackresist;
     private final float attackspeed;
 
+    public String tooltipinfo = " ";
+
+    public ArmourBase setTooltipinfo(String Tooltipinfo) {
+        this.tooltipinfo = Tooltipinfo;
+        return this;
+    }
+
 
     public static final long MOVEMENTSPEED1 =        0x0001L; //( 2tiers)  5%,10%  of increased movement speed
     public static final long MOVEMENTSPEED2 =        0x0002L;
@@ -243,6 +250,7 @@ public class ArmourBase extends ItemArmor {
         if((armourperks & JAVELIN1) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Strong-Arm 1 ((Increased Damage Done by Thrown Weapons by 2X))");}
         if((armourperks & JAVELIN2) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Strong-Arm 2 ((Increased Damage Done by Thrown Weapons by 3X))");}
         if((armourperks & HandofBullets) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Hand of Bullets  ((Increased Damage Done by (Non-Thrown) Projectile Weapons by 2X))");}
+        tooltip.add(tooltipinfo);
     }
     
     @Override

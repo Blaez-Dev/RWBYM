@@ -55,6 +55,7 @@ public class RWBYItem extends Item implements ICustomItem {
         public ItemStack apply(ItemStack stack);
     }
 
+
     private boolean ismask;
     public String coin;
     private boolean gravity;
@@ -71,6 +72,8 @@ public class RWBYItem extends Item implements ICustomItem {
        this.coin = coin;
         return this;
     }
+
+
 
     public RWBYItem(String name, boolean isMask,  CreativeTabs creativetab) {
         this.setRegistryName(new ResourceLocation(RWBYModels.MODID, name));

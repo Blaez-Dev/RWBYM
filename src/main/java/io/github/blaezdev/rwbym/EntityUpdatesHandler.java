@@ -24,6 +24,7 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.MobEffects;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -38,6 +39,7 @@ import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent.Clone;
+import net.minecraftforge.event.entity.player.PlayerPickupXpEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -131,11 +133,19 @@ public class EntityUpdatesHandler {
         NBTTagCompound entityData = player.getEntityData();
         if (!entityData.getBoolean(RWBYModels.MODID + "joinedBefore")) {
             entityData.setBoolean(RWBYModels.MODID + "joinedBefore", true);
+
             if (RWBYConfig.general.enablefirstspawnscroll) {
                 player.inventory.addItemStackToInventory(new ItemStack(RWBYItems.scroll));
             }
             otheraura.setAmount(otheraura.getMaxAura());
         }
+    }
+
+    @SubscribeEvent
+    public void exp(PlayerPickupXpEvent event){
+        EntityPlayer player = event.getEntityPlayer();
+        if(player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem() == RWBYItems.relicofknowledge){
+        player.addExperience(10);}
     }
 
     @SubscribeEvent
