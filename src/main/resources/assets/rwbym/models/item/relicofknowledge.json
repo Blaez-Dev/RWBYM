@@ -23260,10 +23260,12 @@
 	],
 	"display": {
 		"thirdperson_righthand": {
-			"translation": [0, -1.5, 0]
+			"rotation": [80, 88, 0],
+			"translation": [0, -3.25, -4.25]
 		},
 		"thirdperson_lefthand": {
-			"translation": [0, -1.5, 0]
+			"rotation": [80, 88, 0],
+			"translation": [0, -3.25, -4.25]
 		},
 		"firstperson_righthand": {
 			"translation": [0, -1.5, 0]
