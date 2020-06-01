@@ -759,6 +759,11 @@ public class RegUtil {
         registerItems(event, RWBYItems.nornir);
         registerItems(event, RWBYItems.flashaceballot);
         registerItems(event, RWBYItems.infinity);
+        registerItems(event, RWBYItems.gwai1);
+        registerItems(event, RWBYItems.gwai2);
+        registerItems(event, RWBYItems.gwai3);
+        registerItems(event, RWBYItems.gwai4);
+        registerItems(event, RWBYItems.gwai5);
     }
 
     public static void registerAllRecipes(FMLInitializationEvent event){

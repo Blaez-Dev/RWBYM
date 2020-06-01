@@ -1560,7 +1560,90 @@ public class RWBYItems {
             16,
             null);
 
+    public static final Item gwai1 = new RWBYGun(
+            "gwai1",
+            2500,
+            14,
+            RWBYGun.SWORD,
+            "rwbym:gwai2",
+            "rwbym:nuller,rwbym:nullest",
+            false,
+            1,
+            false,
+            true,
+            0,
+            1,
+            0,
+            0,
+           RWBYCreativeTabs.tab_rwbyweapons);
 
+    public static final Item gwai2 = new RWBYGun(
+            "gwai2",
+            2500,
+            14,
+            RWBYGun.SWORD|RWBYGun.AURAWEAP,
+            "rwbym:gwai3",
+            "rwbym:nuller,rwbym:nullest",
+            false,
+            1,
+            false,
+            true,
+            0,
+            1,
+            0,
+            0,
+            null).setElementMelee("gwai2");
+
+    public static final Item gwai3 = new RWBYGun(
+            "gwai3",
+            2500,
+            14,
+            RWBYGun.SWORD|RWBYGun.AURAWEAP,
+            "rwbym:gwai4",
+            "rwbym:nuller,rwbym:nullest",
+            false,
+            1,
+            false,
+            true,
+            0,
+            1,
+            0,
+            0,
+            null).setElementMelee("gwai3");
+
+    public static final Item gwai4 = new RWBYGun(
+            "gwai4",
+            2500,
+            14,
+            RWBYGun.SWORD|RWBYGun.SANREI,
+            "rwbym:gwai5",
+            "rwbym:nuller,rwbym:nullest",
+            false,
+            1,
+            false,
+            true,
+            0,
+            1,
+            0,
+            0,
+            null).setElementMelee("gwai4");
+
+    public static final Item gwai5 = new RWBYGun(
+            "gwai5",
+            2500,
+            14,
+            RWBYGun.SWORD|RWBYGun.SANREI,
+            "rwbym:gwai1",
+            "rwbym:nuller,rwbym:nullest",
+            false,
+            1,
+            false,
+            true,
+            0,
+            1,
+            0,
+            0,
+            null).setElementMelee("gwai5");
 
     public static final Item torchwickgun = new RWBYGun(
             "torchwickgun",
