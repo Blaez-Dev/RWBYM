@@ -64,6 +64,8 @@ public class RWBYConfig
     public  int spawnrateberingle= 50;
     @Config.Name("Spawn Rate Queen Lancer")
     public  int spawnratequeenlancer= 1;
+    @Config.Name("Spawn Rate Wyvern")
+    public  int spawnratewyvern= 1;
     @Config.Name("Lancer Queen Nests")
     @Config.Comment("Enable Lancer Queens to Spawn anywhere dark")
     public  boolean lancernests = false;

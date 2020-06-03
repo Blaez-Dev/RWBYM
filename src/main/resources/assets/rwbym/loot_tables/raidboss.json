@@ -37,6 +37,12 @@
         },
         {
           "type": "item",
+          "name": "rwbym:relicofknowledge",
+          "weight": 1,
+          "count": 2
+        },
+        {
+          "type": "item",
           "name": "rwbym:kingsgambit",
           "weight": 1,
           "count": 2

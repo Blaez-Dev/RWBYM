@@ -200,7 +200,8 @@ public class TileEntityRWBYGrimmBait extends TileEntity implements ITickable {
 			case 10:
 				return new EntityDeathStalker(this.world);
 			case 11:
-				return new EntityGiantNeverMore(this.world);
+				if(world.rand.nextInt(2) == 1){return new EntityGiantNeverMore(this.world);}
+				else return new EntityWyvern(this.world);
 			case 12:
 				return new EntityMutantDeathStalker(this.world);
 			case 13:
