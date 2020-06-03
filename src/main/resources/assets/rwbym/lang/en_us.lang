@@ -739,11 +739,11 @@ item.rwbym:nornir.name=Nornir
 item.rwbym:freyr.name=Freyr
 item.rwbym:flashaceballot.name=§6Sword of Flashing Strikes
 item.rwbym:infinity.name=§6Omega
-item:rwbym:gwai1.name=§6???
-item:rwbym:gwai2.name=§6???
-item:rwbym:gwai3.name=§6???
-item:rwbym:gwai4.name=§6???
-item:rwbym:gwai5.name=§6Abyssal Blade - 鬼
+item.rwbym:gwai1.name=§6???
+item.rwbym:gwai2.name=§6???
+item.rwbym:gwai3.name=§6???
+item.rwbym:gwai4.name=§6???
+item.rwbym:gwai5.name=§6Abyssal Blade - 鬼
 
 effect.aura_regen=Aura Regen
 potion.effect.aura_regen=Potion of Aura Regen
