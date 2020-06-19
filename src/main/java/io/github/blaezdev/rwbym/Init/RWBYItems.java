@@ -18,6 +18,7 @@ import io.github.blaezdev.rwbym.weaponry.ammohit.PotionAmmoHit;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.audio.ElytraSound;
 import net.minecraft.entity.EntityAreaEffectCloud;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityDragonFireball;
@@ -25,6 +26,7 @@ import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.ItemElytra;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
@@ -3791,6 +3793,7 @@ public class RWBYItems {
     public static final Item scrollpink7 = new RWBYItem("7scroll_pink",  false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item scrollred7 = new RWBYItem("7scroll_red",  false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item scrollyellow7 = new RWBYItem("7scroll_yellow",  false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item glider = new RWBYGliderItem().setRegistryName(RWBYModels.MODID, "glider").setUnlocalizedName("glider");
 
     //Right Arm
     public static final Item rgrimmarm = new RWBYLimbItem("rgrimmarm", "RightArm");

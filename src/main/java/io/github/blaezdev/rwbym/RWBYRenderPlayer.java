@@ -45,7 +45,7 @@ public class RWBYRenderPlayer extends RenderPlayer
         this.addLayer(new LayerDeadmau5Head(this));
         this.addLayer(new LayerCape(this));
         this.addLayer(new LayerCustomHead(this.getMainModel().bipedHead));
-        this.addLayer(new LayerElytra(this));
+        this.addLayer(new PlayerRenderHandler.LayerGlider(this));
         this.addLayer(new LayerEntityOnShoulder(renderManager));
         this.addLayer(new LayerAccessories(this.getMainModel().bipedHead, "Head", Part.HEAD, true));
         this.addLayer(new LayerAccessories(this.getMainModel().bipedHead, "Ears", Part.HEAD, false));
@@ -55,34 +55,6 @@ public class RWBYRenderPlayer extends RenderPlayer
         this.addLayer(new LayerAccessories(this.getMainModel().bipedLeftLeg, "LeftLeg", Part.LEFT_LEG, true));
         this.addLayer(new LayerAccessories(this.getMainModel().bipedBody, "Body", Part.BODY, true));
         this.addLayer(new LayerAccessories(this.getMainModel().bipedBody, "Tail", Part.BODY, false));
-    }
-
-    public ModelPlayer getMainModel()
-    {
-        return (ModelPlayer)super.getMainModel();
-    }
-
-    /**
-     * Renders the desired {@code T} type Entity.
-     */
-    public void doRender(AbstractClientPlayer entity, double x, double y, double z, float entityYaw, float partialTicks)
-    {
-        if (net.minecraftforge.common.MinecraftForge.EVENT_BUS.post(new net.minecraftforge.client.event.RenderPlayerEvent.Pre(entity, this, partialTicks, x, y, z))) return;
-        if (!entity.isUser() || this.renderManager.renderViewEntity == entity)
-        {
-            double d0 = y;
-
-            if (entity.isSneaking())
-            {
-                d0 = y - 0.125D;
-            }
-
-            this.setModelVisibilities(entity);
-            GlStateManager.enableBlendProfile(GlStateManager.Profile.PLAYER_SKIN);
-            super.doRender(entity, x, d0, z, entityYaw, partialTicks);
-            GlStateManager.disableBlendProfile(GlStateManager.Profile.PLAYER_SKIN);
-        }
-        net.minecraftforge.common.MinecraftForge.EVENT_BUS.post(new net.minecraftforge.client.event.RenderPlayerEvent.Post(entity, this, partialTicks, x, y, z));
     }
 
     private void setModelVisibilities(AbstractClientPlayer clientPlayer)
@@ -162,46 +134,6 @@ public class RWBYRenderPlayer extends RenderPlayer
         }
     }
 
-    /**
-     * Returns the location of an entity's texture. Doesn't seem to be called unless you call Render.bindEntityTexture.
-     */
-    public ResourceLocation getEntityTexture(AbstractClientPlayer entity)
-    {
-        return entity.getLocationSkin();
-    }
-
-    public void transformHeldFull3DItemLayer()
-    {
-        GlStateManager.translate(0.0F, 0.1875F, 0.0F);
-    }
-
-    /**
-     * Allows the render to do state modifications necessary before the model is rendered.
-     */
-    protected void preRenderCallback(AbstractClientPlayer entitylivingbaseIn, float partialTickTime)
-    {
-        float f = 0.9375F;
-        GlStateManager.scale(0.9375F, 0.9375F, 0.9375F);
-    }
-
-    protected void renderEntityName(AbstractClientPlayer entityIn, double x, double y, double z, String name, double distanceSq)
-    {
-        if (distanceSq < 100.0D)
-        {
-            Scoreboard scoreboard = entityIn.getWorldScoreboard();
-            ScoreObjective scoreobjective = scoreboard.getObjectiveInDisplaySlot(2);
-
-            if (scoreobjective != null)
-            {
-                Score score = scoreboard.getOrCreateScore(entityIn.getName(), scoreobjective);
-                this.renderLivingLabel(entityIn, score.getScorePoints() + " " + scoreobjective.getDisplayName(), x, y, z, 64);
-                y += (double)((float)this.getFontRendererFromRenderManager().FONT_HEIGHT * 1.15F * 0.025F);
-            }
-        }
-
-        super.renderEntityName(entityIn, x, y, z, name, distanceSq);
-    }
-
     public void renderRightArm(AbstractClientPlayer clientPlayer)
     {
         float f = 1.0F;
@@ -236,51 +168,5 @@ public class RWBYRenderPlayer extends RenderPlayer
         modelplayer.bipedLeftArmwear.rotateAngleX = 0.0F;
         modelplayer.bipedLeftArmwear.render(0.0625F);
         GlStateManager.disableBlend();
-    }
-
-    /**
-     * Sets a simple glTranslate on a LivingEntity.
-     */
-    protected void renderLivingAt(AbstractClientPlayer entityLivingBaseIn, double x, double y, double z)
-    {
-        if (entityLivingBaseIn.isEntityAlive() && entityLivingBaseIn.isPlayerSleeping())
-        {
-            super.renderLivingAt(entityLivingBaseIn, x + (double)entityLivingBaseIn.renderOffsetX, y + (double)entityLivingBaseIn.renderOffsetY, z + (double)entityLivingBaseIn.renderOffsetZ);
-        }
-        else
-        {
-            super.renderLivingAt(entityLivingBaseIn, x, y, z);
-        }
-    }
-
-    protected void applyRotations(AbstractClientPlayer entityLiving, float p_77043_2_, float rotationYaw, float partialTicks)
-    {
-        if (entityLiving.isEntityAlive() && entityLiving.isPlayerSleeping())
-        {
-            GlStateManager.rotate(entityLiving.getBedOrientationInDegrees(), 0.0F, 1.0F, 0.0F);
-            GlStateManager.rotate(this.getDeathMaxRotation(entityLiving), 0.0F, 0.0F, 1.0F);
-            GlStateManager.rotate(270.0F, 0.0F, 1.0F, 0.0F);
-        }
-        else if (entityLiving.isElytraFlying())
-        {
-            super.applyRotations(entityLiving, p_77043_2_, rotationYaw, partialTicks);
-            float f = (float)entityLiving.getTicksElytraFlying() + partialTicks;
-            float f1 = MathHelper.clamp(f * f / 100.0F, 0.0F, 1.0F);
-            GlStateManager.rotate(f1 * (-90.0F - entityLiving.rotationPitch), 1.0F, 0.0F, 0.0F);
-            Vec3d vec3d = entityLiving.getLook(partialTicks);
-            double d0 = entityLiving.motionX * entityLiving.motionX + entityLiving.motionZ * entityLiving.motionZ;
-            double d1 = vec3d.x * vec3d.x + vec3d.z * vec3d.z;
-
-            if (d0 > 0.0D && d1 > 0.0D)
-            {
-                double d2 = (entityLiving.motionX * vec3d.x + entityLiving.motionZ * vec3d.z) / (Math.sqrt(d0) * Math.sqrt(d1));
-                double d3 = entityLiving.motionX * vec3d.z - entityLiving.motionZ * vec3d.x;
-                GlStateManager.rotate((float)(Math.signum(d3) * Math.acos(d2)) * 180.0F / (float)Math.PI, 0.0F, 1.0F, 0.0F);
-            }
-        }
-        else
-        {
-            super.applyRotations(entityLiving, p_77043_2_, rotationYaw, partialTicks);
-        }
     }
 }

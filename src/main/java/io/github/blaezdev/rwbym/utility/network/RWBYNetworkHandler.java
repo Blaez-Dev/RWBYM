@@ -36,6 +36,7 @@ public class RWBYNetworkHandler {
 	    registerMessage(MessageTradingList.class, Side.CLIENT);
 	    registerMessage(MessageTradingData.class, Side.SERVER);
 	    registerMessage(MessageGetTeamData.class, Side.SERVER);
+	    registerMessage(MessageUpdateFlying.class, Side.SERVER);
     }
     
     public static void sendToServer(IMessage message){

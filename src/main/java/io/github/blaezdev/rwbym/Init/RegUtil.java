@@ -449,6 +449,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.scrollblue7);
         registerItems(event, RWBYItems.scrollgreen7);
         registerItems(event, RWBYItems.scrollpink7);
+        registerItems(event, RWBYItems.glider);
         //lien items
         registerItems(event, RWBYItems.lien1);
         registerItems(event, RWBYItems.lien5);

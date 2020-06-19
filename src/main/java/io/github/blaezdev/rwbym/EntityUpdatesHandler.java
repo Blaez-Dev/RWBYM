@@ -13,21 +13,26 @@ import io.github.blaezdev.rwbym.entity.EntityBullet;
 import io.github.blaezdev.rwbym.entity.EntityGrimm;
 import io.github.blaezdev.rwbym.utility.RWBYConfig;
 import io.github.blaezdev.rwbym.utility.network.MessageSendPlayerData;
+import io.github.blaezdev.rwbym.utility.network.MessageUpdateFlying;
 import io.github.blaezdev.rwbym.utility.network.RWBYNetworkHandler;
 import io.github.blaezdev.rwbym.weaponry.ArmourBase;
 import io.github.blaezdev.rwbym.weaponry.RWBYHood;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
+import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemElytra;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.play.client.CPacketEntityAction;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -388,6 +393,8 @@ public class EntityUpdatesHandler {
         RWBYModels.LOGGER.log(RWBYModels.debug, "Client Connected");
     }
 
+    private boolean flag = false;
+    
     @SubscribeEvent
     public void onClientTick(TickEvent.PlayerTickEvent event) {
         EntityPlayer player = event.player;
@@ -405,6 +412,24 @@ public class EntityUpdatesHandler {
         if (biome == RWBYBiomes.DomainofLight && player.isInWater()) {
             PotionEffect potioneffect = new PotionEffect(MobEffects.REGENERATION, 60, 3, false, false);
             player.addPotionEffect(potioneffect);
+        }
+        
+        if (player.world.isRemote) {
+        	
+        	EntityPlayerSP client = (EntityPlayerSP) player;
+        
+	        if (client.movementInput.jump && !flag && !client.onGround && client.motionY < 0.0D && !client.isElytraFlying() && !client.capabilities.isFlying)
+	        {
+	            ItemStack itemstack = client.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
+	
+	            if (itemstack.getItem() != Items.ELYTRA && itemstack.getItem() instanceof ItemElytra && ItemElytra.isUsable(itemstack))
+	            {
+	            	RWBYNetworkHandler.sendToServer(new MessageUpdateFlying());
+	            }
+	        }
+	        
+	        flag = client.movementInput.jump;
+        
         }
 
     }
