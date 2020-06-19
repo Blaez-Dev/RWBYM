@@ -58,6 +58,9 @@ entity.queenlancer.name=Queen Lancer
 entity.tinydeathstalker.name=Tiny Deathstalker
 entity.ren.name=Lure
 entity.ragora.name=Ragora Familiar
+entity.wyvern.name=Wyvern
+entity.seer.name=Seer
+entity.ravager.name=Ravager
 
 
 

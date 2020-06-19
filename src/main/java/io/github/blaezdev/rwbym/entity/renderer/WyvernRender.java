@@ -25,7 +25,7 @@ public class WyvernRender extends RenderLivingBase<EntityWyvern> {
 
     protected void preRenderCallback(EntityWyvern entitylivingbaseIn, float partialTickTime) {
         GlStateManager.scale(3.5F, 3.5F, 3.5F);
-        GlStateManager.translate(0, 1F, 0);
+        GlStateManager.translate(0, 1.5F, 0);
     }
 
     @Override

@@ -750,7 +750,7 @@ public class ModelWyvern extends ModelBase {
 
 		Rightwing = new ModelRenderer(this);
 		Rightwing.setRotationPoint(-7.25F, -17.5767F, -2.3661F);
-		setRotationAngle(Rightwing, 0.0F, 0.0F, 0.2618F);
+		setRotationAngle(Rightwing, 0.0F, 0.0F, 0.0F);
 		Rightwing.cubeList.add(new ModelBox(Rightwing, 1, 88, -29.0F, -4.0F, -3.0F, 29, 4, 5, 0.0F, false));
 		Rightwing.cubeList.add(new ModelBox(Rightwing, 7, 97, -14.0F, -4.5F, -5.25F, 14, 5, 9, 0.0F, false));
 		Rightwing.cubeList.add(new ModelBox(Rightwing, 4, 46, -3.0F, -3.5F, -5.75F, 2, 2, 1, 0.0F, false));
@@ -1105,12 +1105,12 @@ public class ModelWyvern extends ModelBase {
 		bone67.cubeList.add(new ModelBox(bone67, 4, 56, 1.4571F, -0.5767F, 2.0481F, 1, 1, 4, 0.0F, false));
 
 		LeftWing = new ModelRenderer(this);
-		LeftWing.setRotationPoint(9.5F, -21.5767F, -2.3661F);
-		setRotationAngle(LeftWing, 0.0F, 0.0F, -0.2618F);
+		LeftWing.setRotationPoint(6.5F, -16.5767F, -2.3661F);
+		setRotationAngle(LeftWing, 0.0F, 0.0F, 0.0F);
 		
 
 		Bone190 = new ModelRenderer(this);
-		Bone190.setRotationPoint(0.0F, 0.0F, 0.0F);
+		Bone190.setRotationPoint(3.0F, -5.0F, 0.0F);
 		LeftWing.addChild(Bone190);
 		setRotationAngle(Bone190, 0.0F, 0.0F, -3.1416F);
 		Bone190.cubeList.add(new ModelBox(Bone190, 5, 91, -29.0F, -4.0F, -3.0F, 29, 4, 5, 0.0F, false));
