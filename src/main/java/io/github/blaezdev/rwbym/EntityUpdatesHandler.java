@@ -16,6 +16,7 @@ import io.github.blaezdev.rwbym.utility.network.MessageSendPlayerData;
 import io.github.blaezdev.rwbym.utility.network.MessageUpdateFlying;
 import io.github.blaezdev.rwbym.utility.network.RWBYNetworkHandler;
 import io.github.blaezdev.rwbym.weaponry.ArmourBase;
+import io.github.blaezdev.rwbym.weaponry.RWBYGliderItem;
 import io.github.blaezdev.rwbym.weaponry.RWBYHood;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.entity.EntityPlayerSP;
@@ -418,11 +419,12 @@ public class EntityUpdatesHandler {
         	
         	EntityPlayerSP client = (EntityPlayerSP) player;
         
-	        if (client.movementInput.jump && !flag && !client.onGround && client.motionY < 0.0D && !client.isElytraFlying() && !client.capabilities.isFlying)
+	        if (!client.onGround && client.motionY < 0.0D && !client.isElytraFlying() && !client.capabilities.isFlying)
 	        {
-	            ItemStack itemstack = client.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
+	            ItemStack itemstack1 = client.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
+	            ItemStack itemstack2 = client.getActiveItemStack();
 	
-	            if (itemstack.getItem() != Items.ELYTRA && itemstack.getItem() instanceof ItemElytra && ItemElytra.isUsable(itemstack))
+	            if ((client.movementInput.jump && !flag && itemstack1.getItem() instanceof ItemElytra && ItemElytra.isUsable(itemstack1)) || itemstack2.getItem() instanceof RWBYGliderItem && ItemElytra.isUsable(itemstack2))
 	            {
 	            	RWBYNetworkHandler.sendToServer(new MessageUpdateFlying());
 	            }
