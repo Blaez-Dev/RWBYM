@@ -433,6 +433,7 @@ public class PlayerRenderHandler {
 	        {
 	        	GlStateManager.pushMatrix();
 	        	GlStateManager.rotate(180, 0, 0, 1);
+	        	GlStateManager.scale(0.8F,0.7F,0.8F);
 	        	Minecraft.getMinecraft().getRenderItem().renderItem(itemstack, TransformType.HEAD);
 	        	GlStateManager.popMatrix();
 	        }
