@@ -40,7 +40,7 @@ public class Ruby implements IRuby {
 	/**activates the semblance*/
 	@Override
 	public boolean onActivate(EntityPlayer player) {
-		
+		IAura aura = player.getCapability(AuraProvider.AURA_CAP, null);
 		//System.out.println("" + this.level);
 
 		switch(this.selectedLevel) {
@@ -51,6 +51,7 @@ public class Ruby implements IRuby {
 			}
 		case 2:
 		case 3:
+
 			this.active = true;
 			return true;
 		default:
@@ -102,7 +103,7 @@ public class Ruby implements IRuby {
 		//System.out.println(cooldown);
 		
 		if (this.active) {
-			
+			if(aura.getPercentage() > 0.01){
 			if (!this.useAura(player, auraUse)) return;
 						
 			if (player.onGround || this.selectedLevel > 1) {
@@ -173,7 +174,7 @@ public class Ruby implements IRuby {
 					RWBYModels.proxy.generateRosepetals(player, flag1);
 				}
 			}
-		}
+		}else this.active = false;}
 
 		switch(this.selectedLevel) {
 		case 1:
