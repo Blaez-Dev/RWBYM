@@ -39,7 +39,7 @@ public class MessageUpdateFlying extends MessageBase<MessageUpdateFlying> {
         }
         else
         {
-            player.clearElytraFlying();
+            //player.clearElytraFlying();
         }
 		
 	}

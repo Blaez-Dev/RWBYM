@@ -86,7 +86,7 @@ public class RWBYServerEventHandler {
 
 		                if (!player.world.isRemote && (player.getTicksElytraFlying() + 1) % 20 == 0)
 		                {
-		                    itemstack1.damageItem(1, player);
+		                    itemstack2.damageItem(1, player);
 		                }
 		            }
 		            else
@@ -105,7 +105,7 @@ public class RWBYServerEventHandler {
 		        		player.setElytraFlying();
 		        	}
 		        	else {
-		        		player.clearElytraFlying();
+		        		//player.clearElytraFlying();
 		        	}
 		        }
 		       

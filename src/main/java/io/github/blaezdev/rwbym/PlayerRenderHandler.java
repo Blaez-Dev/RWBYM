@@ -76,11 +76,9 @@ public class PlayerRenderHandler {
 		setLayersForArmor(event, renderedPlayer);
 		
 		if(!event.isCanceled() && renderedPlayer.getHeldItemMainhand().getItem() == RWBYItems.reese && renderedPlayer.getHeldItemMainhand().getOrCreateSubCompound("RWBYM").getInteger("inactive") < 2){
-
 			renderHoverboard(event, renderedPlayer, renderingPlayer);
-			
 		}
-		
+				
 	}
 	
 	private void setLayersForArmor(RenderPlayerEvent.Pre event, EntityPlayer renderedPlayer) {

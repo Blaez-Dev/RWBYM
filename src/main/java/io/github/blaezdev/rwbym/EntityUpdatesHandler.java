@@ -426,7 +426,7 @@ public class EntityUpdatesHandler {
 	
 	            if ((client.movementInput.jump && !flag && itemstack1.getItem() instanceof ItemElytra && ItemElytra.isUsable(itemstack1)) || itemstack2.getItem() instanceof RWBYGliderItem && ItemElytra.isUsable(itemstack2))
 	            {
-	            	RWBYNetworkHandler.sendToServer(new MessageUpdateFlying());
+ 	            	RWBYNetworkHandler.sendToServer(new MessageUpdateFlying());
 	            }
 	        }
 	        
