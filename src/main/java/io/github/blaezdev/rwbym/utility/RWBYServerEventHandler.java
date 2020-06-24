@@ -75,19 +75,9 @@ public class RWBYServerEventHandler {
 		            if (itemstack1.getItem() instanceof ItemElytra && ItemElytra.isUsable(itemstack1))
 		            {
 		                flag = true;
-
-		                if (!player.world.isRemote && (player.getTicksElytraFlying() + 1) % 20 == 0)
-		                {
-		                    itemstack1.damageItem(1, player);
-		                }
 		            }
 		            else if(itemstack2.getItem() instanceof RWBYGliderItem && ItemElytra.isUsable(itemstack2)) {
 		                flag = true;
-
-		                if (!player.world.isRemote && (player.getTicksElytraFlying() + 1) % 20 == 0)
-		                {
-		                    itemstack2.damageItem(1, player);
-		                }
 		            }
 		            else
 		            {

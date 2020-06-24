@@ -4,6 +4,7 @@ import io.github.blaezdev.rwbym.Init.RWBYItems;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.*;
 import net.minecraft.util.ActionResult;
@@ -77,6 +78,9 @@ public class RWBYGliderItem extends Item {
                 entity.motionY += vec3d.y * d1 + (vec3d.y * d0 - entity.motionY) * 0.5D;
                 entity.motionZ += vec3d.z * d1 + (vec3d.z * d0 - entity.motionZ) * 0.5D;
 				entity.velocityChanged = true;
+				if (entityIn instanceof EntityPlayerMP && entityIn.ticksExisted % 20 == 0) {
+					stack.attemptDamageItem(1, itemRand, (EntityPlayerMP) entityIn);
+				}
 			}
 		}
 	}
