@@ -62,7 +62,7 @@ public class PlayerRenderHandler {
 		EntityPlayer renderingPlayer = Minecraft.getMinecraft().player;
 
 		ISemblance semblance = CapabilityHandler.getCurrentSemblance(renderedPlayer);
-				 
+
 		if (semblance != null) {
 			if (semblance.isInvisible()) {
 				event.setCanceled(true);
@@ -82,7 +82,7 @@ public class PlayerRenderHandler {
 		}
 		
 	}
-	
+
 	private void setLayersForArmor(RenderPlayerEvent.Pre event, EntityPlayer renderedPlayer) {
 		if (renderedPlayer.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem() instanceof ArmourBase) {
 			event.getRenderer().getMainModel().bipedHeadwear.showModel = false;
@@ -182,7 +182,7 @@ public class PlayerRenderHandler {
 		GlStateManager.popMatrix();
 
 	}
-	
+
 	public static class LayerAccessories implements LayerRenderer<EntityLivingBase> {
 
 		 private final ModelRenderer modelRenderer;

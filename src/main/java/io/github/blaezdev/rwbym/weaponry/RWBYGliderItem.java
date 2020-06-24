@@ -5,6 +5,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemElytra;
 import net.minecraft.item.ItemStack;
@@ -24,7 +25,7 @@ public class RWBYGliderItem extends Item {
 	
 	@Override
 	public int getMaxItemUseDuration(ItemStack stack) {
-		return 6000;
+		return 72000;
 	}
 	
 	@Override
@@ -36,7 +37,12 @@ public class RWBYGliderItem extends Item {
 		
 		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemstack);
 	}
-	
+
+	@Override
+	public EnumAction getItemUseAction(ItemStack stack) {
+		return EnumAction.NONE;
+	}
+
 	@Override
 	public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
 		if (entityIn instanceof EntityLivingBase && stack == ((EntityLivingBase) entityIn).getActiveItemStack()) {
@@ -49,6 +55,7 @@ public class RWBYGliderItem extends Item {
                 entity.motionX += vec3d.x * d1 + (vec3d.x * d0 - entity.motionX) * 0.5D;
                 entity.motionY += vec3d.y * d1 + (vec3d.y * d0 - entity.motionY) * 0.5D;
                 entity.motionZ += vec3d.z * d1 + (vec3d.z * d0 - entity.motionZ) * 0.5D;
+				entity.velocityChanged = true;
 			}
 		}
 	}
