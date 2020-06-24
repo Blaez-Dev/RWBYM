@@ -5,27 +5,52 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.EnumAction;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemElytra;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.*;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+
+import javax.annotation.Nullable;
 
 public class RWBYGliderItem extends Item {
 
 	public RWBYGliderItem() {
 		super();
-		setMaxDamage(500);
+		setMaxDamage(2500);
 		setMaxStackSize(1);
+		this.addPropertyOverride(new ResourceLocation("pull"), new IItemPropertyGetter()
+		{
+			@SideOnly(Side.CLIENT)
+			public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn)
+			{
+				if (entityIn == null)
+				{
+					return 0.0F;
+				}
+				else
+				{
+					return entityIn.getActiveItemStack().getItem() != RWBYItems.glider ? 0.0F : (float)(stack.getMaxItemUseDuration() - entityIn.getItemInUseCount()) / 20.0F;
+				}
+			}
+		});
+		this.addPropertyOverride(new ResourceLocation("pulling"), new IItemPropertyGetter()
+		{
+			@SideOnly(Side.CLIENT)
+			public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn)
+			{
+				return entityIn != null && entityIn.isHandActive() && entityIn.getActiveItemStack() == stack ? 1.0F : 0.0F;
+			}
+		});
 	}
 	
 	@Override
 	public int getMaxItemUseDuration(ItemStack stack) {
-		return 72000;
+		return 6000;
 	}
 	
 	@Override
@@ -38,10 +63,6 @@ public class RWBYGliderItem extends Item {
 		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemstack);
 	}
 
-	@Override
-	public EnumAction getItemUseAction(ItemStack stack) {
-		return EnumAction.NONE;
-	}
 
 	@Override
 	public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {

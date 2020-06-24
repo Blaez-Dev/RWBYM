@@ -3203,20 +3203,7 @@
 			"translation": [1, -0.5, -1.25],
 			"scale": [0.5, 0.5, 0.5]
 		}
-	},"overrides": [
-	{
-		"predicate": {
-			"pulling": 1
-		},
-		"model": "rwbym:item/glider1"
 	},
-	{
-		"predicate": {
-			"pulling": 1,
-			"pull": 0.001
-		},
-		"model": "rwbym:item/gliderdeployed"
-	}],
 	"groups": [
 		{
 			"name": "group",

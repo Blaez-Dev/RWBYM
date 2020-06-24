@@ -3794,6 +3794,7 @@ public class RWBYItems {
     public static final Item scrollred7 = new RWBYItem("7scroll_red",  false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item scrollyellow7 = new RWBYItem("7scroll_yellow",  false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item glider = new RWBYGliderItem().setRegistryName(RWBYModels.MODID, "glider").setUnlocalizedName("glider");
+    public static final Item gliderdeployed = new RWBYGliderItem().setRegistryName(RWBYModels.MODID, "gliderdeployed").setUnlocalizedName("gliderdeployed");
 
     //Right Arm
     public static final Item rgrimmarm = new RWBYLimbItem("rgrimmarm", "RightArm");

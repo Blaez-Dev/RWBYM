@@ -765,6 +765,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.gwai3);
         registerItems(event, RWBYItems.gwai4);
         registerItems(event, RWBYItems.gwai5);
+        registerItems(event, RWBYItems.gliderdeployed);
     }
 
     public static void registerAllRecipes(FMLInitializationEvent event){

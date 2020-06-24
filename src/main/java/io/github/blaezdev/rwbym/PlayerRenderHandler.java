@@ -428,13 +428,14 @@ public class PlayerRenderHandler {
 	    public void doRenderLayer(EntityLivingBase entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale)
 	    {
 	        ItemStack itemstack = entitylivingbaseIn.getActiveItemStack();
+	        ItemStack is = new ItemStack(RWBYItems.gliderdeployed);
 
 	        if (itemstack.getItem() instanceof RWBYGliderItem)
 	        {
 	        	GlStateManager.pushMatrix();
 	        	GlStateManager.rotate(180, 0, 0, 1);
 	        	GlStateManager.scale(0.5F,0.7F,0.5F);
-	        	Minecraft.getMinecraft().getRenderItem().renderItem(itemstack, TransformType.HEAD);
+	        	Minecraft.getMinecraft().getRenderItem().renderItem(is, TransformType.HEAD);
 	        	GlStateManager.popMatrix();
 	        }
 	    }
