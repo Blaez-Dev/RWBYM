@@ -1,8 +1,11 @@
 package io.github.blaezdev.rwbym.weaponry;
 
+import com.google.common.collect.Multimap;
 import io.github.blaezdev.rwbym.Init.RWBYItems;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -64,6 +67,16 @@ public class RWBYGliderItem extends Item {
 		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemstack);
 	}
 
+	public Multimap<String, AttributeModifier> getItemAttributeModifiers(EntityEquipmentSlot p_getItemAttributeModifiers_1_) {
+		Multimap<String, AttributeModifier> multimap = super.getItemAttributeModifiers(p_getItemAttributeModifiers_1_);
+		if (p_getItemAttributeModifiers_1_ == EntityEquipmentSlot.MAINHAND) {
+
+			multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", (double)16-1, 0));
+			multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", -1D, 0));
+		}
+
+		return multimap;
+	}
 
 	@Override
 	public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
@@ -78,11 +91,11 @@ public class RWBYGliderItem extends Item {
                 entity.motionY += vec3d.y * d1 + (vec3d.y * d0 - entity.motionY) * 0.5D;
                 entity.motionZ += vec3d.z * d1 + (vec3d.z * d0 - entity.motionZ) * 0.5D;
 				entity.velocityChanged = true;
-				if (entityIn instanceof EntityPlayerMP && entityIn.ticksExisted % 20 == 0) {
-					stack.attemptDamageItem(1, itemRand, (EntityPlayerMP) entityIn);
+				if (entityIn instanceof EntityPlayerMP && entityIn.ticksExisted % 90 == 0) {
+					offhand.damageItem(1, (EntityPlayerMP) entityIn);
 				}
 			}
 		}
 	}
-	
-}
+
+	}
