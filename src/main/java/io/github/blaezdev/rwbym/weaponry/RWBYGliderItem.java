@@ -1,6 +1,7 @@
 package io.github.blaezdev.rwbym.weaponry;
 
 import com.google.common.collect.Multimap;
+import io.github.blaezdev.rwbym.Init.RWBYCreativeTabs;
 import io.github.blaezdev.rwbym.Init.RWBYItems;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -27,6 +28,7 @@ public class RWBYGliderItem extends Item {
 		super();
 		setMaxDamage(2500);
 		setMaxStackSize(1);
+		this.setCreativeTab(RWBYCreativeTabs.tab_rwbyweapons);
 		this.addPropertyOverride(new ResourceLocation("pull"), new IItemPropertyGetter()
 		{
 			@SideOnly(Side.CLIENT)

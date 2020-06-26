@@ -129,6 +129,12 @@
           "name": "rwbym:rushcharm",
           "weight": 1,
           "count": 2
+        },
+        {
+          "type": "item",
+          "name": "rwbym:glider",
+          "weight": 1,
+          "count": 1
         }
       ]
     }
