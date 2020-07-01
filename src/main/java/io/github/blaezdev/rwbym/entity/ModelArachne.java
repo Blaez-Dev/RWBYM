@@ -5,6 +5,7 @@ import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.math.MathHelper;
 
 public class ModelArachne extends ModelBase {
@@ -258,4 +259,17 @@ public class ModelArachne extends ModelBase {
 		modelRenderer.rotateAngleY = y;
 		modelRenderer.rotateAngleZ = z;
 	}
+
+
+	public void setLivingAnimations(EntityLivingBase par1EntityLivingBase, float par2, float par3, float par4) {
+		this.Leg1.rotateAngleZ = MathHelper.cos(par2 * 0.6662f) * 1.4f * par3 - 0.1832596f;
+		this.Leg2.rotateAngleZ = MathHelper.cos(par2 * 0.6662f + 3.1415927f) * 1.4f * par3;
+		this.Leg3.rotateAngleZ = MathHelper.cos(par2 * 0.6662f) * 1.4f * par3 - 0.1832596f;
+		this.Leg4.rotateAngleZ = MathHelper.cos(par2 * 0.6662f + 3.1415927f) * 1.4f * par3;
+		this.Leg5.rotateAngleZ = MathHelper.cos(par2 * 0.6662f) * 1.4f * par3 - 0.1832596f;
+		this.Leg6.rotateAngleZ = MathHelper.cos(par2 * 0.6662f + 3.1415927f) * 1.4f * par3;
+		this.Leg7.rotateAngleZ = MathHelper.cos(par2 * 0.6662f) * 1.4f * par3 - 0.1832596f;
+		this.Leg8.rotateAngleZ = MathHelper.cos(par2 * 0.6662f + 3.1415927f) * 1.4f * par3;
+	}
+
 }

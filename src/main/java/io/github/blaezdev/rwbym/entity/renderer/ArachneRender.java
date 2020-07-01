@@ -25,8 +25,9 @@ public class ArachneRender extends RenderLivingBase<EntityArachne> {
     }
 
     protected void preRenderCallback(EntityArachne entitylivingbaseIn, float partialTickTime) {
-        GlStateManager.scale(0.3F, 0.3F, 0.3F);
-        GlStateManager.translate(0, -0.2, 0);
+        GlStateManager.scale(0.2F, 0.2F, 0.2F);
+        GlStateManager.translate(0, 0, 0);
+        GlStateManager.rotate(0,0,180,0);
     }
 
     @Override
