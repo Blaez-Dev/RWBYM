@@ -51,6 +51,7 @@ public class Clover implements IClover {
 
 	@Override
 	public void onUpdate(EntityPlayer player) {
+
 		PotionEffect potioneffect = new PotionEffect(MobEffects.LUCK, 2147000000, 8*level, false, false);
 		player.addPotionEffect(potioneffect);
 		--cooldown;

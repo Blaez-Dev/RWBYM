@@ -60,7 +60,7 @@ public class Jaune implements IJaune {
 
 	@Override
 	public void onUpdate(EntityPlayer player) {
-		
+
 		//RWBYModels.LOGGER.info(playerUUIDs);
 		if (!player.world.isRemote) {
 			for (int i = 0; i < 5; i++) {

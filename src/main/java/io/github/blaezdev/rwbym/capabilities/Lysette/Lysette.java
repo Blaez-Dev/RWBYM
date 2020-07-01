@@ -59,6 +59,7 @@ public class Lysette implements ILysette {
 
 	@Override
 	public void onUpdate(EntityPlayer player) {
+
 		int strength = Math.round(this.level * 90);
 		IAura aura = player.getCapability(AuraProvider.AURA_CAP, null);
 		BlockPos blockpos = player.getPosition();

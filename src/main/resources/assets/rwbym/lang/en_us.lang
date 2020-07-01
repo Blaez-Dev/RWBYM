@@ -30,6 +30,7 @@ entity.ursamajor.name=Ursa Major
 entity.beringle.name=Beringle
 entity.sabyr.name=Sabyr
 
+entity.arachne.name=Arachne
 entity.beowolf.name=Beowolf
 entity.boarbatusk.name=Boarbatusk
 entity.ursa.name=Ursa
@@ -747,7 +748,7 @@ item.rwbym:gwai2.name=§6???
 item.rwbym:gwai3.name=§6???
 item.rwbym:gwai4.name=§6???
 item.rwbym:gwai5.name=§6Abyssal Blade - 鬼
-item.rwbym:glider.name=§6Shallow Wing
+item.glider.name=§6Shallow Wing
 
 effect.aura_regen=Aura Regen
 potion.effect.aura_regen=Potion of Aura Regen

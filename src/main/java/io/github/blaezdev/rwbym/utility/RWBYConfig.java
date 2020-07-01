@@ -70,6 +70,8 @@ public class RWBYConfig
     public  int spawnrateravager= 50;
     @Config.Name("Spawn Rate Seer")
     public  int spawnrateseer= 50;
+    @Config.Name("Spawn Rate Arachne")
+    public  int spawnratearachne= 50;
     @Config.Name("Lancer Queen Nests")
     @Config.Comment("Enable Lancer Queens to Spawn anywhere dark")
     public  boolean lancernests = false;

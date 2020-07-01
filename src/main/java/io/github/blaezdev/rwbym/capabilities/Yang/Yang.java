@@ -47,6 +47,7 @@ public class Yang implements IYang {
 
 	@Override
 	public void onUpdate(EntityPlayer player) {
+		if(!player.isSpectator()){
 		IAura aura = player.getCapability(AuraProvider.AURA_CAP, null);
 		if(this.active){
 
@@ -108,7 +109,7 @@ public class Yang implements IYang {
 					this.active = false;
 				}
 				break;
-		}
+		}}
 	}
 
 	@Override

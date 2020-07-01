@@ -51,6 +51,7 @@ public class Qrow implements IQrow {
 
 	@Override
 	public void onUpdate(EntityPlayer player) {
+
 		PotionEffect potioneffect = new PotionEffect(MobEffects.UNLUCK, 2147000000, 8*level, false, false);
 		player.addPotionEffect(potioneffect);
 		--cooldown;

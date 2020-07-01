@@ -61,6 +61,7 @@ public class Ren implements IRen {
 
 	@Override
 	public void onUpdate(EntityPlayer player) {
+
 		int strength = Math.round(this.level * 90);
 		IAura aura = player.getCapability(AuraProvider.AURA_CAP, null);
 		if(this.active  && aura.getPercentage() > 0.01){

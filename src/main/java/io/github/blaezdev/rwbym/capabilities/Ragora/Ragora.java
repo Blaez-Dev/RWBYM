@@ -42,7 +42,7 @@ public class Ragora implements IRagora {
 		if (aura == null) {
 			return false;
 		}
-		if (!player.world.isRemote && this.summonTime <= 0) {
+		if (!player.world.isRemote && this.summonTime <= 0&&player.onGround) {
 			if (entityragora == null) {
 				if (this.cooldown == 0 && this.useAura(player, auraUseInitial)) {
 					entityragora = new EntityRagora(player.world, player);
@@ -74,7 +74,8 @@ public class Ragora implements IRagora {
 
 	@Override
 	public void onUpdate(EntityPlayer player) {
-		
+
+
 		if (entityragora != null && entityragora.isDead) {
 			entityragora = null;
 		}

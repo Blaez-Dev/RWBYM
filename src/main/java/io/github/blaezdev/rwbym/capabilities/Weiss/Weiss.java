@@ -29,6 +29,7 @@ public class Weiss implements IWeiss {
 	private int selectedLevel = 0;
 
 	public boolean onActivate(EntityPlayer player) {
+
 		IAura aura = player.getCapability(AuraProvider.AURA_CAP, null);
 		if (!this.useAura(player, auraUses[selectedLevel - 1])) return false;
 		if (this.cooldown > 0) {

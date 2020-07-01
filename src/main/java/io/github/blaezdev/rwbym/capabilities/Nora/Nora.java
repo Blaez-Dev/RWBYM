@@ -48,6 +48,7 @@ public class Nora implements INora {
 
 	@Override
 	public void onUpdate(EntityPlayer player) {
+
 		IAura aura = player.getCapability(AuraProvider.AURA_CAP, null);
 		ItemStack is = player.getHeldItemOffhand();
 		if(this.active & is.getItem() == RWBYItems.lightdustcrystal){
