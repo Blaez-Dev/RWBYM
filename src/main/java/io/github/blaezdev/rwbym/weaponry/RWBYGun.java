@@ -810,6 +810,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             playerIn.lastTickPosX = -look.z;
             compensate = true;
             playerIn.fallDistance = 0;
+            playerIn.velocityChanged = true;
         }}}
         if (!worldIn.isRemote && playerIn.isSneaking() && this.morph != null) {
             ItemStack morph1 = new ItemStack(Item.getByNameOrId(this.morph), is.getCount(), is.getMetadata());
