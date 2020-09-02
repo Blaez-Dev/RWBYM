@@ -3753,6 +3753,7 @@ public class RWBYItems {
     public static final Item he4 = new RWBYItem("he4",  false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item he5 = new RWBYItem("he5",  false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item he6 = new RWBYItem("he6",  false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item taintedartefact = new RWBYItem("taintedartefact",  false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item scrap = new RWBYItem("scrap",  false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item atlasknight = new RWBYItem("atlasknight",  false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item remnants = new RWBYItem("remnants",  false, RWBYCreativeTabs.tab_rwbyitems);

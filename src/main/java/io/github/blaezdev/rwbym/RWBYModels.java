@@ -10,6 +10,7 @@ import io.github.blaezdev.rwbym.blocks.tileentities.TileEntityRWBYGrimmBait;
 import io.github.blaezdev.rwbym.capabilities.CapabilityHandler;
 import io.github.blaezdev.rwbym.commands.CommandAura;
 import io.github.blaezdev.rwbym.commands.CommandChangeSemblance;
+import io.github.blaezdev.rwbym.commands.CommandSystemCall;
 import io.github.blaezdev.rwbym.gui.GUICrusher;
 import io.github.blaezdev.rwbym.gui.IRWBYGuiFactory;
 import io.github.blaezdev.rwbym.gui.scroll.GuiScreenScrollTeam;
@@ -184,6 +185,7 @@ public class RWBYModels {
     public void serverStart(FMLServerStartingEvent event) {
     	event.registerServerCommand(new CommandChangeSemblance());
     	event.registerServerCommand(new CommandAura());
+        event.registerServerCommand(new CommandSystemCall());
     }
 
     public static class GuiHandler implements IGuiHandler {

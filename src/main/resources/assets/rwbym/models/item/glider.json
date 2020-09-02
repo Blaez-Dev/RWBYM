@@ -8546,7 +8546,20 @@
 				"down": {"uv": [0, 0, 0.1875, 1], "rotation": 90, "texture": "#4"}
 			}
 		}
-	],
+	],"overrides": [
+	{
+		"predicate": {
+			"pulling": 1
+		},
+		"model": "rwbym:item/glider1"
+	},
+	{
+		"predicate": {
+			"pulling": 1,
+			"pull": 0.001
+		},
+		"model": "rwbym:item/gliderdeployed"
+	}],
 	"display": {
 		"thirdperson_righthand": {
 			"translation": [0, 0, 1.25]
@@ -8579,20 +8592,7 @@
 			"translation": [1, -0.5, -1.25],
 			"scale": [0.5, 0.5, 0.5]
 		}
-	},"overrides": [
-	{
-		"predicate": {
-			"pulling": 1
-		},
-		"model": "rwbym:item/glider1"
 	},
-	{
-		"predicate": {
-			"pulling": 1,
-			"pull": 0.001
-		},
-		"model": "rwbym:item/gliderdeployed"
-	}],
 	"groups": [
 		{
 			"name": "white lotus",

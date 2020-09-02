@@ -19,12 +19,14 @@ import io.github.blaezdev.rwbym.weaponry.ArmourBase;
 import io.github.blaezdev.rwbym.weaponry.RWBYGliderItem;
 import io.github.blaezdev.rwbym.weaponry.RWBYHood;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
@@ -35,12 +37,15 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.play.client.CPacketEntityAction;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.client.event.EntityViewRenderEvent;
+import net.minecraftforge.event.entity.living.LivingDamageEvent;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
@@ -55,6 +60,7 @@ import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.common.network.FMLNetworkEvent.ClientConnectedToServerEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import scala.reflect.internal.Trees;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -389,6 +395,8 @@ public class EntityUpdatesHandler {
 
     }
 
+
+
     @SubscribeEvent
     public void clientConnectedToServer(ClientConnectedToServerEvent event) {
         RWBYModels.LOGGER.log(RWBYModels.debug, "Client Connected");
@@ -414,25 +422,64 @@ public class EntityUpdatesHandler {
             PotionEffect potioneffect = new PotionEffect(MobEffects.REGENERATION, 60, 3, false, false);
             player.addPotionEffect(potioneffect);
         }
-        
+
         if (player.world.isRemote) {
-        	
+            if(player instanceof EntityPlayer){
+                if(player instanceof EntityPlayerSP){
         	EntityPlayerSP client = (EntityPlayerSP) player;
-        
+
 	        if (!client.onGround && client.motionY < 0.0D && !client.isElytraFlying() && !client.capabilities.isFlying)
 	        {
 	            ItemStack itemstack1 = client.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
 	            ItemStack itemstack2 = client.getActiveItemStack();
-	
+
 	            if ((client.movementInput.jump && !flag && itemstack1.getItem() instanceof ItemElytra && ItemElytra.isUsable(itemstack1)) || itemstack2.getItem() instanceof RWBYGliderItem && ItemElytra.isUsable(itemstack2))
 	            {
  	            	RWBYNetworkHandler.sendToServer(new MessageUpdateFlying());
 	            }
 	        }
-	        
-	        flag = client.movementInput.jump;
-        
-        }
 
+	        flag = client.movementInput.jump;
+
+        }}}
+
+    }
+
+    private ItemStack findtainted(EntityPlayer player){
+        for (int i = 0; i < player.inventory.getSizeInventory(); ++i) {
+            ItemStack itemstack = player.inventory.getStackInSlot(i);
+            if (itemstack.getItem() == RWBYItems.taintedartefact) {
+                return itemstack;
+            }
+        }
+        return ItemStack.EMPTY;
+    }
+
+    @SubscribeEvent
+    public void DropItem(LivingDamageEvent event) {
+        Entity e = event.getEntity();
+        if (e instanceof EntityPlayer) {
+            EntityPlayer player = (EntityPlayer) e;
+            World world = player.world;
+            ItemStack itemstack = findtainted(player);
+            if(itemstack.getItem() == RWBYItems.taintedartefact){
+            ItemStack tainted = new ItemStack(RWBYItems.taintedartefact);
+            if(itemstack.getCount()>5){
+            tainted.setCount(itemstack.getCount());}
+            EntityItem item = new EntityItem(world, player.posX, player.posY + 1, player.posZ, tainted);
+            item.motionX = world.rand.nextGaussian() * 0.1;
+            item.motionZ = world.rand.nextGaussian() * 0.1;
+            item.motionY = 0.5;
+            world.spawnEntity(item);
+            itemstack.setCount(0);
+            //mc.player.dropItem(RWBYItems.taintedartefact, 1);
+        }else{  if(world.rand.nextInt(100)>50 && event.getSource().getTrueSource() instanceof EntityPlayer){
+                ItemStack tainted = new ItemStack(RWBYItems.taintedartefact);
+                EntityItem item = new EntityItem(world, player.posX, player.posY + 1, player.posZ, tainted);
+                item.motionX = world.rand.nextGaussian() * 0.1;
+                item.motionZ = world.rand.nextGaussian() * 0.1;
+                item.motionY = 0.5;
+                world.spawnEntity(item);}}
+        }
     }
 }
