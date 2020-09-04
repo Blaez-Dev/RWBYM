@@ -428,6 +428,7 @@ public class RWBYItems {
             1,
             0,
             null);
+
     public static final Item juanev = new RWBYGun(
             "juanev",
             1250,
@@ -1318,6 +1319,22 @@ public class RWBYItems {
             0,
             3,
             null).setRecoil(5);
+    public static final Item p90 = new RWBYGun(
+            "p90",
+            2500,
+            0,
+            0,
+            null,
+            "rwbym:gammag,rwbym:gamgravmag,rwbym:gamicemag,rwbym:gamfiremag",
+            true,
+            1,
+            false,
+            false,
+            0,
+            1,
+            0,
+            3,
+            null).setRecoil(2).setElementMelee("wind");
     public static final Item gambolgunv = new RWBYGun(
             "gambolgunv",
             1250,
@@ -4793,7 +4810,7 @@ public class RWBYItems {
             RWBYItems.entitybulletv,
             1,
             false,
-            RWBYAmmoItem.SurviveOnHit.NONE,
+            RWBYAmmoItem.SurviveOnHit.ENTITY,
             "textures/entity/projectiles/tipped_arrow.png",
             true,
             true,

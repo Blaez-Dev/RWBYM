@@ -766,6 +766,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.gwai4);
         registerItems(event, RWBYItems.gwai5);
         registerItems(event, RWBYItems.gliderdeployed);
+        registerItems(event, RWBYItems.p90);
         registerItems(event, RWBYItems.taintedartefact);
     }
 

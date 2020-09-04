@@ -422,7 +422,7 @@ public class EntityUpdatesHandler {
             PotionEffect potioneffect = new PotionEffect(MobEffects.REGENERATION, 60, 3, false, false);
             player.addPotionEffect(potioneffect);
         }
-
+/*
         if (player.world.isRemote) {
             if(player instanceof EntityPlayer){
                 if(player instanceof EntityPlayerSP){
@@ -441,7 +441,7 @@ public class EntityUpdatesHandler {
 
 	        flag = client.movementInput.jump;
 
-        }}}
+        }}}*/
 
     }
 

@@ -52,7 +52,7 @@ public class RWBYRenderPlayer extends RenderPlayer
         this.addLayer(new LayerDeadmau5Head(this));
         this.addLayer(new LayerCape(this));
         this.addLayer(new LayerCustomHead(this.getMainModel().bipedHead));
-        this.addLayer(new PlayerRenderHandler.LayerGlider(this));
+        //this.addLayer(new PlayerRenderHandler.LayerGlider(this));
         this.addLayer(new LayerEntityOnShoulder(renderManager));
         this.addLayer(new LayerAccessories(this.getMainModel().bipedHead, "Head", Part.HEAD, true));
         this.addLayer(new LayerAccessories(this.getMainModel().bipedHead, "Ears", Part.HEAD, false));
