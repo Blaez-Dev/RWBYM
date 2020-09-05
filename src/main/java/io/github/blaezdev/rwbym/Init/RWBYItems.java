@@ -2905,6 +2905,22 @@ public class RWBYItems {
             0,
             17,
             RWBYCreativeTabs.tab_rwbyweapons);
+    public static final Item flyingthundergod = new RWBYGun(
+            "flyingthundergod",
+            2500,
+            8,
+            RWBYGun.JUNIOR|RWBYGun.DAGGER,
+            null,
+            "rwbym:gwen",
+            false,
+            1,
+            false,
+            false,
+            0,
+            1,
+            0,
+            17,
+            null);
     public static final Item deemace = new RWBYGun(
             "deemace",
             2500,
