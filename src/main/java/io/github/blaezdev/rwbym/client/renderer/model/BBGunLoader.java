@@ -1,9 +1,9 @@
-package io.github.blaezdev.rwbym.client.particle.renderer.model;
+package io.github.blaezdev.rwbym.client.renderer.model;
 
 import javax.annotation.Nonnull;
 
 import io.github.blaezdev.rwbym.RWBYModels;
-import io.github.blaezdev.rwbym.client.particle.renderer.model.bbgunmodel.UnbakedBBGunModel;
+import io.github.blaezdev.rwbym.client.renderer.model.bbgunmodel.UnbakedBBGunModel;
 import net.minecraft.client.resources.IResourceManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ICustomModelLoader;

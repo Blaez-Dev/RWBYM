@@ -1,4 +1,4 @@
-package io.github.blaezdev.rwbym.client.particle.renderer.model;
+package io.github.blaezdev.rwbym.client.renderer.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +9,7 @@ import javax.annotation.Nullable;
 
 import com.google.common.collect.ImmutableMap;
 
-import io.github.blaezdev.rwbym.client.particle.renderer.model.animator.Animator;
+import io.github.blaezdev.rwbym.client.renderer.model.animator.Animator;
 import io.github.blaezdev.rwbym.weaponry.specialweapons.guns.ItemGun;
 import net.minecraft.client.renderer.block.model.IBakedModel;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;

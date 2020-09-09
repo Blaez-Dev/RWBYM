@@ -1,4 +1,4 @@
-package io.github.blaezdev.rwbym.client.particle.renderer.model;
+package io.github.blaezdev.rwbym.client.renderer.model;
 
 import javax.vecmath.Matrix4f;
 import javax.vecmath.Vector3f;

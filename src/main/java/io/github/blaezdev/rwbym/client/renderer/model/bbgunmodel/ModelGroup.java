@@ -1,11 +1,11 @@
-package io.github.blaezdev.rwbym.client.particle.renderer.model.bbgunmodel;
+package io.github.blaezdev.rwbym.client.renderer.model.bbgunmodel;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import org.lwjgl.util.vector.Vector3f;
+import javax.vecmath.Vector3f;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonDeserializationContext;

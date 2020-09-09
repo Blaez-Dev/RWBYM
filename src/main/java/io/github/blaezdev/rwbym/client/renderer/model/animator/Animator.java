@@ -1,4 +1,4 @@
-package io.github.blaezdev.rwbym.client.particle.renderer.model.animator;
+package io.github.blaezdev.rwbym.client.renderer.model.animator;
 
 import javax.vecmath.Vector3f;
 
@@ -14,7 +14,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 
 import akka.japi.Pair;
-import io.github.blaezdev.rwbym.client.particle.renderer.model.TransformationBuilder;
+import io.github.blaezdev.rwbym.client.renderer.model.TransformationBuilder;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;

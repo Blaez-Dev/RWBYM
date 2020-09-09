@@ -11,7 +11,7 @@ import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
 
 import io.github.blaezdev.rwbym.RWBYSoundHandler.Sound;
-import io.github.blaezdev.rwbym.client.particle.renderer.model.TransformationBuilder;
+import io.github.blaezdev.rwbym.client.renderer.model.TransformationBuilder;
 import io.github.blaezdev.rwbym.entity.EntityBullet;
 import io.github.blaezdev.rwbym.weaponry.ArmourBase;
 import io.github.blaezdev.rwbym.weaponry.RWBYAmmoItem;

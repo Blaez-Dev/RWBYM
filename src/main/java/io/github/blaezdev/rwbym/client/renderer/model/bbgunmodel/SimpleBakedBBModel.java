@@ -1,4 +1,4 @@
-package io.github.blaezdev.rwbym.client.particle.renderer.model.bbgunmodel;
+package io.github.blaezdev.rwbym.client.renderer.model.bbgunmodel;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,8 +13,8 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.vecmath.Vector3f;
 
-import io.github.blaezdev.rwbym.client.particle.renderer.model.BakedQuadBuilder;
-import io.github.blaezdev.rwbym.client.particle.renderer.model.TransformationBuilder;
+import io.github.blaezdev.rwbym.client.renderer.model.BakedQuadBuilder;
+import io.github.blaezdev.rwbym.client.renderer.model.TransformationBuilder;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.EnumFaceDirection;
 import net.minecraft.client.renderer.block.model.BakedQuad;

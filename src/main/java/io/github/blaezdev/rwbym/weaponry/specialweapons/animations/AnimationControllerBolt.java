@@ -75,7 +75,7 @@ public class AnimationControllerBolt implements IAnimationController {
             }
         }
 
-        if (nbt.getBoolean("up")) {
+        if (nbt.getInteger("boltup") == 2) {
             nbt.setBoolean("hammer", true);
         }
 

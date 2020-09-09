@@ -1,4 +1,4 @@
-package io.github.blaezdev.rwbym.client.particle.renderer.model.bbgunmodel;
+package io.github.blaezdev.rwbym.client.renderer.model.bbgunmodel;
 
 import java.lang.reflect.Type;
 

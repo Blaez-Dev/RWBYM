@@ -1,4 +1,4 @@
-package io.github.blaezdev.rwbym.client.particle.renderer.model.bbgunmodel;
+package io.github.blaezdev.rwbym.client.renderer.model.bbgunmodel;
 
 import java.io.Reader;
 import java.io.StringReader;
@@ -12,9 +12,10 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.UUID;
 
+import javax.vecmath.Vector3f;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.lwjgl.util.vector.Vector3f;
 
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.collect.Lists;
@@ -388,20 +389,20 @@ public class ModelBlock
         }
 
     public static class ItemTransformVec3fDeserializer implements JsonDeserializer<ItemTransformVec3f> {
-        public static final Vector3f ROTATION_DEFAULT = new Vector3f(0.0F, 0.0F, 0.0F);
-        public static final Vector3f TRANSLATION_DEFAULT = new Vector3f(0.0F, 0.0F, 0.0F);
-        public static final Vector3f SCALE_DEFAULT = new Vector3f(1.0F, 1.0F, 1.0F);
+        public static final org.lwjgl.util.vector.Vector3f ROTATION_DEFAULT = new org.lwjgl.util.vector.Vector3f(0.0F, 0.0F, 0.0F);
+        public static final org.lwjgl.util.vector.Vector3f TRANSLATION_DEFAULT = new org.lwjgl.util.vector.Vector3f(0.0F, 0.0F, 0.0F);
+        public static final org.lwjgl.util.vector.Vector3f SCALE_DEFAULT = new org.lwjgl.util.vector.Vector3f(1.0F, 1.0F, 1.0F);
 
         public ItemTransformVec3f deserialize(JsonElement p_deserialize_1_, Type p_deserialize_2_, JsonDeserializationContext p_deserialize_3_) throws JsonParseException {
             JsonObject jsonobject = p_deserialize_1_.getAsJsonObject();
-            Vector3f vector3f = this.parseVector(jsonobject, "rotation", ROTATION_DEFAULT);
-            Vector3f vector3f1 = this.parseVector(jsonobject, "translation", TRANSLATION_DEFAULT);
+            org.lwjgl.util.vector.Vector3f vector3f = this.parseVector(jsonobject, "rotation", ROTATION_DEFAULT);
+            org.lwjgl.util.vector.Vector3f vector3f1 = this.parseVector(jsonobject, "translation", TRANSLATION_DEFAULT);
             vector3f1.scale(0.0625F);
-            Vector3f vector3f2 = this.parseVector(jsonobject, "scale", SCALE_DEFAULT);
+            org.lwjgl.util.vector.Vector3f vector3f2 = this.parseVector(jsonobject, "scale", SCALE_DEFAULT);
             return new ItemTransformVec3f(vector3f, vector3f1, vector3f2);
         }
 
-        private Vector3f parseVector(JsonObject json, String key, Vector3f fallback) {
+        private org.lwjgl.util.vector.Vector3f parseVector(JsonObject json, String key, org.lwjgl.util.vector.Vector3f fallback) {
             if (!json.has(key)) {
                 return fallback;
             } else {
@@ -415,7 +416,7 @@ public class ModelBlock
                         afloat[i] = JsonUtils.getFloat(jsonarray.get(i), key + "[" + i + "]");
                     }
 
-                    return new Vector3f(afloat[0], afloat[1], afloat[2]);
+                    return new org.lwjgl.util.vector.Vector3f(afloat[0], afloat[1], afloat[2]);
                 }
             }
         }

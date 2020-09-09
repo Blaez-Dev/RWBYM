@@ -1,4 +1,4 @@
-package io.github.blaezdev.rwbym.client.particle.renderer.model.bbgunmodel;
+package io.github.blaezdev.rwbym.client.renderer.model.bbgunmodel;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -17,8 +17,8 @@ import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import io.github.blaezdev.rwbym.RWBYModels;
-import io.github.blaezdev.rwbym.client.particle.renderer.model.BakedGunModel;
-import io.github.blaezdev.rwbym.client.particle.renderer.model.animator.Animator;
+import io.github.blaezdev.rwbym.client.renderer.model.BakedGunModel;
+import io.github.blaezdev.rwbym.client.renderer.model.animator.Animator;
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.IBakedModel;

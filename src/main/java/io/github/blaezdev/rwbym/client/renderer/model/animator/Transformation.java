@@ -1,4 +1,4 @@
-package io.github.blaezdev.rwbym.client.particle.renderer.model.animator;
+package io.github.blaezdev.rwbym.client.renderer.model.animator;
 
 import java.lang.reflect.Type;
 
