@@ -15,6 +15,10 @@ import io.github.blaezdev.rwbym.weaponry.ammohit.ExplosionAmmoHit;
 import io.github.blaezdev.rwbym.weaponry.ammohit.FireAmmoHit;
 import io.github.blaezdev.rwbym.weaponry.ammohit.IAmmoHit;
 import io.github.blaezdev.rwbym.weaponry.ammohit.PotionAmmoHit;
+import io.github.blaezdev.rwbym.weaponry.specialweapons.ItemMag;
+import io.github.blaezdev.rwbym.weaponry.specialweapons.bullets.Item50BMG;
+import io.github.blaezdev.rwbym.weaponry.specialweapons.bullets.Item50BMGCasing;
+import io.github.blaezdev.rwbym.weaponry.specialweapons.guns.ItemHecate;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -46,6 +50,12 @@ import java.util.Random;
 
 public class RWBYItems {
     public static final Item icon = new RWBYItem("icon",  false, null);
+    
+    public static final ItemHecate Hecate = (ItemHecate) new ItemHecate().setRegistryName(RWBYModels.MODID, "hecate");
+    public static final Item50BMGCasing Hecate50BMGcasing = (Item50BMGCasing) new Item50BMGCasing().setRegistryName(RWBYModels.MODID, "50bmgcasing");
+    public static final Item50BMG Hecate50BMG = (Item50BMG) new Item50BMG(() -> Hecate50BMGcasing, 64, 30).setRegistryName(RWBYModels.MODID, "50bmg");;
+    public static final ItemMag HecateMag = (ItemMag) new ItemMag(5, () -> Hecate50BMG).setRegistryName(RWBYModels.MODID, "hecate_mag");;
+    
     public static final Item crescent = new RWBYGun(
             "crescent",
             2500,

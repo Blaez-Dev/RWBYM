@@ -51,5 +51,45 @@
 		"category": "master",
 		"subtitle": "weapon.torchwick.shoot",
 		"sounds": [ { "name": "rwbym:weapon/torchwick/shoot", "stream": true } ]
-	}
+	},
+	"weapon.rifle.boltback": {
+	    "category": "master",
+	    "subtitle": "weapon.rifle.boltback",
+	    "sounds": [ { "name": "rwbym:weapon/rifle/boltback", "stream": true } ]
+    },
+    "weapon.rifle.boltdown": {
+        "category": "master",
+        "subtitle": "weapon.rifle.boltdown",
+        "sounds": [ { "name": "rwbym:weapon/rifle/boltdown", "stream": true } ]
+    },
+    "weapon.rifle.boltforward": {
+        "category": "master",
+        "subtitle": "weapon.rifle.boltforward",
+        "sounds": [ { "name": "rwbym:weapon/rifle/boltforward", "stream": true } ]
+    },
+    "weapon.rifle.boltup": {
+        "category": "master",
+        "subtitle": "weapon.rifle.boltup",
+        "sounds": [ { "name": "rwbym:weapon/rifle/boltup", "stream": true } ]
+    },
+    "weapon.rifle.shot": {
+        "category": "master",
+        "subtitle": "weapon.rifle.shot",
+        "sounds": [ { "name": "rwbym:weapon/rifle/shot", "stream": true } ]
+    },
+    "weapon.glock.dry": {
+        "category": "master",
+        "subtitle": "weapon.glock.dry",
+        "sounds": [ { "name": "rwbym:weapon/glock/dry", "stream": true } ]
+    },
+    "weapon.glock.mag_in": {
+        "category": "master",
+        "subtitle": "weapon.glock.mag_in",
+        "sounds": [ { "name": "rwbym:weapon/glock/magin", "stream": true } ]
+    },
+    "weapon.glock.mag_out": {
+        "category": "master",
+        "subtitle": "weapon.glock.mag_out",
+        "sounds": [ { "name": "rwbym:weapon/glock/magout", "stream": true } ]
+    }
 }

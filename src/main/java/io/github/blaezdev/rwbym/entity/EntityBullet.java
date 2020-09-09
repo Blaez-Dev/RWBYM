@@ -37,7 +37,7 @@ import net.minecraftforge.fml.common.registry.IThrowableEntity;
 
 public class EntityBullet extends EntityArrow implements IThrowableEntity{
 
-    public boolean validperk(EntityLivingBase playerIn,long armorperk){
+    public static boolean validperk(EntityLivingBase playerIn,long armorperk){
         for (ItemStack stack:playerIn.getArmorInventoryList()){
             if(stack.getItem() instanceof ArmourBase){
                 if((((ArmourBase) stack.getItem()).armourperks & armorperk) !=0){

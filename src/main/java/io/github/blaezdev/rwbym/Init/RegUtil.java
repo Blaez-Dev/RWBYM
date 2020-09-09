@@ -290,6 +290,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.carminestaff);
         registerItems(event, RWBYItems.carminesaiammo);
         registerItems(event, RWBYItems.carminestaffammo);
+        registerItems(event, RWBYItems.Hecate);
         //dust items
         registerBlocks(event, RWBYItems.crusher);
         registerItems(event, RWBYItems.chisel);
@@ -532,6 +533,9 @@ public class RegUtil {
         registerItems(event, RWBYItems.fetch);
         registerItems(event, RWBYItems.fetchboomerang);
         registerItems(event, RWBYItems.fetchammo);
+        registerItems(event, RWBYItems.HecateMag);
+        registerItems(event, RWBYItems.Hecate50BMG);
+        registerItems(event, RWBYItems.Hecate50BMGcasing);
 
 
         //mob drops

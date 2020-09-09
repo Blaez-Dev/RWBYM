@@ -61,6 +61,10 @@ import io.github.blaezdev.rwbym.capabilities.Yang.IYang;
 import io.github.blaezdev.rwbym.capabilities.Yang.Yang;
 import io.github.blaezdev.rwbym.capabilities.Yang.YangProvider;
 import io.github.blaezdev.rwbym.capabilities.Yang.YangStorage;
+import io.github.blaezdev.rwbym.capabilities.itemdata.IItemData;
+import io.github.blaezdev.rwbym.capabilities.itemdata.ItemData;
+import io.github.blaezdev.rwbym.capabilities.itemdata.ItemDataProvider;
+import io.github.blaezdev.rwbym.capabilities.itemdata.ItemDataStorage;
 import io.github.blaezdev.rwbym.capabilities.team.ITeam;
 import io.github.blaezdev.rwbym.capabilities.team.Team;
 import io.github.blaezdev.rwbym.capabilities.team.TeamProvider;
@@ -101,6 +105,8 @@ public class CapabilityHandler {
 	public static final ResourceLocation AURA_KEY = new ResourceLocation(RWBYModels.MODID, "aura");
 	public static final ResourceLocation TEAM_KEY = new ResourceLocation(RWBYModels.MODID, "team");
 	
+	public static final ResourceLocation ITEMDATA_KEY = new ResourceLocation(RWBYModels.MODID, "itemdata"); 
+	
 	private static List<Capability> capabilities = new ArrayList<Capability>();
 	
 	@SubscribeEvent
@@ -126,6 +132,7 @@ public class CapabilityHandler {
 		
 		if (event.getObject() instanceof World) {
 			event.addCapability(TEAM_KEY, new TeamProvider((World) event.getObject()));
+			event.addCapability(ITEMDATA_KEY, new ItemDataProvider());
 		}
 		
 	}
@@ -145,10 +152,11 @@ public class CapabilityHandler {
 		register(IClover.class, new CloverStorage(), Clover::new);
 		register(IHarriet.class, new HarrietStorage(), Harriet::new);
 		register(IPyrrha.class, new PyrrhaStorage(), Pyrrha::new);
-		register(IBlank.class, new BlankStorage(), Blank::new);
 
+		CapabilityManager.INSTANCE.register(IBlank.class, new BlankStorage(), Blank::new);
 		CapabilityManager.INSTANCE.register(IAura.class, new AuraStorage(), Aura::new);
 		CapabilityManager.INSTANCE.register(ITeam.class, new TeamStorage(), Team::new);
+		CapabilityManager.INSTANCE.register(IItemData.class, new ItemDataStorage(), ItemData::new);
 	}
 	
 	public static <T extends ISemblance> void register(Class<T> type, Capability.IStorage<T> storage, Callable<? extends T> factory) {
