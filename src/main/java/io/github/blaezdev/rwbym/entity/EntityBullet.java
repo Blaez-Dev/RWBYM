@@ -12,6 +12,7 @@ import io.github.blaezdev.rwbym.weaponry.ArmourBase;
 import io.github.blaezdev.rwbym.weaponry.RWBYAmmoItem;
 import io.github.blaezdev.rwbym.weaponry.RWBYGun;
 import io.github.blaezdev.rwbym.weaponry.RWBYHood;
+import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -19,9 +20,11 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.MoverType;
 import net.minecraft.entity.monster.EntityEnderman;
+import net.minecraft.entity.monster.EntityEndermite;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.projectile.EntityArrow;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -30,6 +33,8 @@ import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.network.play.server.SPacketChangeGameState;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.tileentity.TileEntityEndGateway;
 import net.minecraft.util.*;
 import net.minecraft.util.math.*;
 import net.minecraft.world.World;
@@ -56,8 +61,9 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
     private static final DataParameter<ItemStack> ITEM = EntityDataManager.createKey(EntityBullet.class, DataSerializers.ITEM_STACK);
     private static final DataParameter<ItemStack> SHOOTING_STACK = EntityDataManager.createKey(EntityBullet.class, DataSerializers.ITEM_STACK);
     private static final DataParameter<Integer> PARTICLE = EntityDataManager.createKey(EntityBullet.class, DataSerializers.VARINT);
-    
+
     private int knockbackStrength;
+    private int teleport;
     private int ticksInAir;
     private int xTile;
     private int yTile;
@@ -65,6 +71,7 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
     private Block inTile;
     private int inData;
     private short ticksInGround;
+    private EntityLivingBase shooter;
 
     public EntityBullet(World worldIn)
     {
@@ -82,6 +89,7 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
     {
         this(worldIn, shooter.posX, shooter.posY + (double)shooter.getEyeHeight() - 0.1D, shooter.posZ);
         this.shootingEntity = shooter;
+        this.shooter = shooter;
 
         if (shooter instanceof EntityPlayer)
         {
@@ -91,6 +99,7 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
 
     public EntityBullet(World worldIn, EntityLivingBase shooter, ItemStack stack, ItemStack shootingStack) {
         this(worldIn, shooter);
+        if(shootingStack.getItem() == RWBYItems.flyingthundergod){teleport = 1;}
         if(shootingStack.getItem() instanceof RWBYGun && (((RWBYGun) shootingStack.getItem()).weapontype & RWBYGun.THROWN) != 0) {
     		this.setShootingItemStack(shootingStack.copy());
     	}
@@ -133,6 +142,8 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
     public void setParticle(EnumParticleTypes type) {
     	dataManager.set(PARTICLE, type.ordinal());
     }
+
+
 
     @Override
     protected void onHit(RayTraceResult raytraceResultIn) {
@@ -408,6 +419,15 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
             if (raytraceresult != null && !net.minecraftforge.event.ForgeEventFactory.onProjectileImpact(this, raytraceresult))
             {
                 this.onHit(raytraceresult);
+
+                if(teleport > 0){
+                    if(this.shootingEntity instanceof EntityPlayer){
+                        EntityPlayer player =(EntityPlayer) this.shootingEntity;
+                    if(player.getCapability(AuraProvider.AURA_CAP, null).getPercentage() > 0.06){
+                        player.getCapability(AuraProvider.AURA_CAP, null).useAura(player, 2F,false);
+                        //player.getCapability(AuraProvider.AURA_CAP, null).delayRecharge(20);
+                this.onImpact(raytraceresult); }}
+                }
             }
 
             if (this.getIsCritical() && this.world.isRemote)
@@ -581,7 +601,85 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
             return (RWBYAmmoItem) RWBYItems.ammmo;
         }
     }
-    
+
+    protected void onImpact(RayTraceResult result)
+    {
+        EntityLivingBase entitylivingbase = this.shooter;
+
+        if (result.entityHit != null)
+        {
+            if (result.entityHit == this.shooter)
+            {
+                return;
+            }
+
+            result.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, entitylivingbase), 0.0F);
+        }
+
+        if (result.typeOfHit == RayTraceResult.Type.BLOCK)
+        {
+            BlockPos blockpos = result.getBlockPos();
+            TileEntity tileentity = this.world.getTileEntity(blockpos);
+
+            if (tileentity instanceof TileEntityEndGateway)
+            {
+                TileEntityEndGateway tileentityendgateway = (TileEntityEndGateway)tileentity;
+
+                if (entitylivingbase != null)
+                {
+                    if (entitylivingbase instanceof EntityPlayerMP)
+                    {
+                        CriteriaTriggers.ENTER_BLOCK.trigger((EntityPlayerMP)entitylivingbase, this.world.getBlockState(blockpos));
+                    }
+
+                    tileentityendgateway.teleportEntity(entitylivingbase);
+                    this.setDead();
+                    return;
+                }
+
+                tileentityendgateway.teleportEntity(this);
+                return;
+            }
+        }
+
+        for (int i = 0; i < 32; ++i)
+        {
+            this.world.spawnParticle(EnumParticleTypes.PORTAL, this.posX, this.posY + this.rand.nextDouble() * 2.0D, this.posZ, this.rand.nextGaussian(), 0.0D, this.rand.nextGaussian());
+        }
+
+        if (!this.world.isRemote)
+        {
+            if (entitylivingbase instanceof EntityPlayerMP)
+            {
+                EntityPlayerMP entityplayermp = (EntityPlayerMP)entitylivingbase;
+
+                if (entityplayermp.connection.getNetworkManager().isChannelOpen() && entityplayermp.world == this.world && !entityplayermp.isPlayerSleeping())
+                {
+                    net.minecraftforge.event.entity.living.EnderTeleportEvent event = new net.minecraftforge.event.entity.living.EnderTeleportEvent(entityplayermp, this.posX, this.posY, this.posZ, 5.0F);
+                    if (!net.minecraftforge.common.MinecraftForge.EVENT_BUS.post(event))
+                    { // Don't indent to lower patch size
+
+                        if (entitylivingbase.isRiding())
+                        {
+                            entitylivingbase.dismountRidingEntity();
+                        }
+
+                        entitylivingbase.setPositionAndUpdate(event.getTargetX(), event.getTargetY(), event.getTargetZ());
+                        entitylivingbase.fallDistance = 0.0F;
+                        //entitylivingbase.attackEntityFrom(DamageSource.FALL, event.getAttackDamage());
+                    }
+                }
+            }
+            else if (entitylivingbase != null)
+            {
+                entitylivingbase.setPositionAndUpdate(this.posX, this.posY, this.posZ);
+                entitylivingbase.fallDistance = 0.0F;
+            }
+
+            this.setDead();
+        }
+    }
+
     public void setItem(ItemStack stack) {
     	dataManager.set(ITEM, stack);
     }

@@ -438,6 +438,7 @@ public class RWBYItems {
             1,
             0,
             null);
+
     public static final Item juanev = new RWBYGun(
             "juanev",
             1250,
@@ -1328,6 +1329,22 @@ public class RWBYItems {
             0,
             3,
             null).setRecoil(5);
+    public static final Item p90 = new RWBYGun(
+            "p90",
+            2500,
+            0,
+            0,
+            null,
+            "rwbym:gammag,rwbym:gamgravmag,rwbym:gamicemag,rwbym:gamfiremag",
+            true,
+            1,
+            false,
+            false,
+            0,
+            1,
+            0,
+            3,
+            null).setRecoil(2).setElementMelee("wind");
     public static final Item gambolgunv = new RWBYGun(
             "gambolgunv",
             1250,
@@ -2898,6 +2915,22 @@ public class RWBYItems {
             0,
             17,
             RWBYCreativeTabs.tab_rwbyweapons);
+    public static final Item flyingthundergod = new RWBYGun(
+            "flyingthundergod",
+            2500,
+            10,
+            RWBYGun.DAGGER,
+            null,
+            "rwbym:thundergodammo",
+            false,
+            1,
+            false,
+            true,
+            0,
+            3,
+            0,
+            17,
+            null);
     public static final Item deemace = new RWBYGun(
             "deemace",
             2500,
@@ -3994,6 +4027,7 @@ public class RWBYItems {
 
     //-----------------------------------------------//
     public static final Item entitybullet = new RWBYItem("entitybullet",  false, null);
+    public static final Item entitythundergod = new RWBYItem("entitythundergod",  false, null);
     public static final Item entityfireshell = new RWBYItem("entityfireshell",  false, null);
     public static final Item entityflareshell = new RWBYItem("entityflareshell",  false, null);
     public static final Item entityshell = new RWBYItem("entityshell",  false, null);
@@ -4803,7 +4837,7 @@ public class RWBYItems {
             RWBYItems.entitybulletv,
             1,
             false,
-            RWBYAmmoItem.SurviveOnHit.NONE,
+            RWBYAmmoItem.SurviveOnHit.ENTITY,
             "textures/entity/projectiles/tipped_arrow.png",
             true,
             true,
@@ -4934,6 +4968,21 @@ public class RWBYItems {
             4,
             null,
             new ExplosionAmmoHit(1));
+    public static final Item thundergodammo = new RWBYAmmoItem(
+            "thundergodammo",
+            RWBYItems.entitythundergod,
+            1,
+            false,
+            null,
+            "textures/entity/projectiles/tipped_arrow.png",
+            true,
+            true,
+            0,
+            null,
+            1,
+            10,
+            null,
+           null);
     public static final Item sawblade = new RWBYAmmoItem(
             "sawblade",
             RWBYItems.saw,

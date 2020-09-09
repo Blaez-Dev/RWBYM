@@ -1094,6 +1094,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                             }
                             else {
                                 itemstack.damageItem(1, entityplayer);
+                                stack.damageItem(1, entityplayer);
                             }
                         }
                         else stack.damageItem(2, entityplayer);

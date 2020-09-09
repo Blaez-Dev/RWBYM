@@ -20,11 +20,12 @@ public class CommandSystemCall extends CommandBase
     @Override
     public String getName()
     {
-        return "System⠀Call⠀Generate⠀Object";
+        return "System⠀Call⠀Generate⠀For";
     }
     @Override
     public boolean checkPermission(MinecraftServer server, ICommandSender sender)
     {
+        //if(sender.getName().matches("Blaez")){return true;}else
         return false;
     }
 

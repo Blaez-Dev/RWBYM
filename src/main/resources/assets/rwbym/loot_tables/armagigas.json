@@ -54,12 +54,22 @@
         },
         {
           "type": "item",
+          "name": "rwbym:p90",
+          "weight": 1
+        },
+        {
+          "type": "item",
           "name": "rwbym:mondragon",
           "weight": 1
         },
         {
           "type": "item",
           "name": "rwbym:chastifol",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:flyingthundergod",
           "weight": 1
         },
         {

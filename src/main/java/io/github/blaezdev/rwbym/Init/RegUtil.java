@@ -770,7 +770,12 @@ public class RegUtil {
         registerItems(event, RWBYItems.gwai4);
         registerItems(event, RWBYItems.gwai5);
         registerItems(event, RWBYItems.gliderdeployed);
+        registerItems(event, RWBYItems.p90);
+        registerItems(event, RWBYItems.flyingthundergod);
+        registerItems(event, RWBYItems.entitythundergod);
         registerItems(event, RWBYItems.taintedartefact);
+        registerItems(event, RWBYItems.thundergodammo);
+
     }
 
     public static void registerAllRecipes(FMLInitializationEvent event){
@@ -1205,6 +1210,8 @@ public class RegUtil {
                     ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.chastifol.getRegistryName(), "inventory"));
                 }else if(item == RWBYItems.chastifolincreaseammo){
                     ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.chastifolincrease.getRegistryName(), "inventory"));
+                }else if(item == RWBYItems.thundergodammo){
+                    ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(RWBYItems.entitythundergod.getRegistryName(), "inventory"));
                 }
             	else {
             		ModelLoader.setCustomModelResourceLocation(item,0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
