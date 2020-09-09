@@ -421,7 +421,13 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
                 this.onHit(raytraceresult);
 
                 if(teleport > 0){
-                this.onImpact(raytraceresult);}
+                    if(this.shootingEntity instanceof EntityPlayer){
+                        EntityPlayer player =(EntityPlayer) this.shootingEntity;
+                    if(player.getCapability(AuraProvider.AURA_CAP, null).getPercentage() > 0.06){
+                        player.getCapability(AuraProvider.AURA_CAP, null).useAura(player, 2F,false);
+                        //player.getCapability(AuraProvider.AURA_CAP, null).delayRecharge(20);
+                this.onImpact(raytraceresult); }}
+                }
             }
 
             if (this.getIsCritical() && this.world.isRemote)
@@ -652,13 +658,6 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
                     net.minecraftforge.event.entity.living.EnderTeleportEvent event = new net.minecraftforge.event.entity.living.EnderTeleportEvent(entityplayermp, this.posX, this.posY, this.posZ, 5.0F);
                     if (!net.minecraftforge.common.MinecraftForge.EVENT_BUS.post(event))
                     { // Don't indent to lower patch size
-                        if (this.rand.nextFloat() < 0.05F && this.world.getGameRules().getBoolean("doMobSpawning"))
-                        {
-                            EntityEndermite entityendermite = new EntityEndermite(this.world);
-                            entityendermite.setSpawnedByPlayer(true);
-                            entityendermite.setLocationAndAngles(entitylivingbase.posX, entitylivingbase.posY, entitylivingbase.posZ, entitylivingbase.rotationYaw, entitylivingbase.rotationPitch);
-                            this.world.spawnEntity(entityendermite);
-                        }
 
                         if (entitylivingbase.isRiding())
                         {
@@ -667,7 +666,7 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
 
                         entitylivingbase.setPositionAndUpdate(event.getTargetX(), event.getTargetY(), event.getTargetZ());
                         entitylivingbase.fallDistance = 0.0F;
-                        entitylivingbase.attackEntityFrom(DamageSource.FALL, event.getAttackDamage());
+                        //entitylivingbase.attackEntityFrom(DamageSource.FALL, event.getAttackDamage());
                     }
                 }
             }

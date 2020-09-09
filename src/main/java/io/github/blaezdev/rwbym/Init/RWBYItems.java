@@ -2908,16 +2908,16 @@ public class RWBYItems {
     public static final Item flyingthundergod = new RWBYGun(
             "flyingthundergod",
             2500,
-            8,
-            RWBYGun.JUNIOR|RWBYGun.DAGGER,
+            10,
+            RWBYGun.DAGGER,
             null,
-            "rwbym:gwen",
+            "rwbym:thundergodammo",
             false,
             1,
             false,
-            false,
+            true,
             0,
-            1,
+            3,
             0,
             17,
             null);
@@ -4017,6 +4017,7 @@ public class RWBYItems {
 
     //-----------------------------------------------//
     public static final Item entitybullet = new RWBYItem("entitybullet",  false, null);
+    public static final Item entitythundergod = new RWBYItem("entitythundergod",  false, null);
     public static final Item entityfireshell = new RWBYItem("entityfireshell",  false, null);
     public static final Item entityflareshell = new RWBYItem("entityflareshell",  false, null);
     public static final Item entityshell = new RWBYItem("entityshell",  false, null);
@@ -4957,6 +4958,21 @@ public class RWBYItems {
             4,
             null,
             new ExplosionAmmoHit(1));
+    public static final Item thundergodammo = new RWBYAmmoItem(
+            "thundergodammo",
+            RWBYItems.entitythundergod,
+            1,
+            false,
+            null,
+            "textures/entity/projectiles/tipped_arrow.png",
+            true,
+            true,
+            0,
+            null,
+            1,
+            10,
+            null,
+           null);
     public static final Item sawblade = new RWBYAmmoItem(
             "sawblade",
             RWBYItems.saw,
