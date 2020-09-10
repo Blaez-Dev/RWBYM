@@ -91,5 +91,15 @@
         "category": "master",
         "subtitle": "weapon.glock.mag_out",
         "sounds": [ { "name": "rwbym:weapon/glock/magout", "stream": true } ]
+    },
+    "weapon.colt.slideback": {
+        "category": "master",
+        "subtitle": "weapon.colt.slideback",
+        "sounds": [ { "name": "rwbym:weapon/colt/slideback", "stream": true } ]
+    },
+    "weapon.colt.slideforward": {
+        "category": "master",
+        "subtitle": "weapon.colt.slideforward",
+        "sounds": [ { "name": "rwbym:weapon/colt/slideforward", "stream": true } ]
     }
 }

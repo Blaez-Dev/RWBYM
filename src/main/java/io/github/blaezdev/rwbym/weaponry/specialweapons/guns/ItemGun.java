@@ -167,7 +167,7 @@ public abstract class ItemGun extends Item {
         return false;
     }
 
-    public abstract SoundEvent getShootSound();
+    //public abstract SoundEvent getShootSound();
 
     public float getZoomFactor(ItemStack stack) {
         //if (this.hasAccessory(stack, ItemAccessory.AccessoryType.SCOPE)) {

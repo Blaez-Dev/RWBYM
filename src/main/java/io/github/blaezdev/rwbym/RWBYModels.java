@@ -8,6 +8,7 @@ import io.github.blaezdev.rwbym.blocks.containers.CrusherContainer;
 import io.github.blaezdev.rwbym.blocks.tileentities.TileEntityRWBYCrusher;
 import io.github.blaezdev.rwbym.blocks.tileentities.TileEntityRWBYGrimmBait;
 import io.github.blaezdev.rwbym.capabilities.CapabilityHandler;
+import io.github.blaezdev.rwbym.client.renderer.model.BBGunLoader;
 import io.github.blaezdev.rwbym.commands.CommandAura;
 import io.github.blaezdev.rwbym.commands.CommandChangeSemblance;
 import io.github.blaezdev.rwbym.commands.CommandSystemCall;
@@ -41,6 +42,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.structure.MapGenStructureIO;
+import net.minecraftforge.client.model.ModelLoaderRegistry;
 import net.minecraftforge.client.model.obj.OBJLoader;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
@@ -132,6 +134,8 @@ public class RWBYModels {
     	//LOGGER.log(Level.ERROR, "error");
     	//LOGGER.log(Level.FATAL, "fatal");
     	//LOGGER.log(Level.OFF, "off"); // should only be used to set logger level, which can't be done without copying and modifying forge files
+    	
+    	ModelLoaderRegistry.registerLoader(new BBGunLoader());
 
         MinecraftForge.EVENT_BUS.register(new ModEventHandler());
 

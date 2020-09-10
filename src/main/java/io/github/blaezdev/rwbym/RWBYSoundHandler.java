@@ -31,7 +31,10 @@ public class RWBYSoundHandler {
 		RIFLE_BOLT_DOWN("weapon.rifle.boltdown"),
 		GLOCK_DRY("weapon.glock.dry"),
 		GLOCK_MAG_IN("weapon.glock.mag_in"),
-		GLOCK_MAG_OUT("weapon.glock.mag_out");
+		GLOCK_MAG_OUT("weapon.glock.mag_out"),
+		COLT_SLIDE_BACK("weapon.colt.slideback"),
+		COLT_SLIDE_FORWARD("weapon.colt.slideforward");
+		
 		
 		private final String key;
 		

@@ -18,6 +18,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import io.github.blaezdev.rwbym.RWBYModels;
 import io.github.blaezdev.rwbym.client.renderer.model.BakedGunModel;
+import io.github.blaezdev.rwbym.client.renderer.model.GunOverrideHandler;
 import io.github.blaezdev.rwbym.client.renderer.model.animator.Animator;
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.client.Minecraft;
@@ -126,7 +127,7 @@ public class UnbakedBBGunModel implements IModel {
             models.add(bakePart(bakedTextureGetter, model));
         }
 
-        return new BakedGunModel(this, models, new HashMap<>(), bakedTextureGetter.apply(new ResourceLocation("")), format, ItemOverrideList.NONE, new HashMap<>());
+        return new BakedGunModel(this, models, new HashMap<>(), bakedTextureGetter.apply(new ResourceLocation("")), format, new GunOverrideHandler(animator), new HashMap<>());
     }
 
     public IBakedModel bakePart(Function<ResourceLocation, TextureAtlasSprite> bakedTextureGetter, ModelBlock model) {

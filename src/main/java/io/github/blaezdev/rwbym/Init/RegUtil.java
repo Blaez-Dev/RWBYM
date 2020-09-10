@@ -291,6 +291,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.carminesaiammo);
         registerItems(event, RWBYItems.carminestaffammo);
         registerItems(event, RWBYItems.Hecate);
+        registerItems(event, RWBYItems.P90);
         //dust items
         registerBlocks(event, RWBYItems.crusher);
         registerItems(event, RWBYItems.chisel);
@@ -536,6 +537,9 @@ public class RegUtil {
         registerItems(event, RWBYItems.HecateMag);
         registerItems(event, RWBYItems.Hecate50BMG);
         registerItems(event, RWBYItems.Hecate50BMGcasing);
+        registerItems(event, RWBYItems.P90Mag);
+        registerItems(event, RWBYItems.P90Bullet);
+        registerItems(event, RWBYItems.P90Casing);
 
 
         //mob drops
@@ -770,7 +774,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.gwai4);
         registerItems(event, RWBYItems.gwai5);
         registerItems(event, RWBYItems.gliderdeployed);
-        registerItems(event, RWBYItems.p90);
+        //registerItems(event, RWBYItems.p90);
         registerItems(event, RWBYItems.flyingthundergod);
         registerItems(event, RWBYItems.entitythundergod);
         registerItems(event, RWBYItems.taintedartefact);

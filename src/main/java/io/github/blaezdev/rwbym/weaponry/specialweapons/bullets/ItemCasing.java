@@ -6,9 +6,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
 
-public class Item50BMGCasing extends ItemBullet {
+public class ItemCasing extends ItemBullet {
 	
-	public Item50BMGCasing() {
+	public ItemCasing() {
 		super(null);
 	}
 

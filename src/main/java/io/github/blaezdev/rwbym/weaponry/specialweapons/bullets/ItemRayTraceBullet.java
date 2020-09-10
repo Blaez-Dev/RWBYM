@@ -31,6 +31,7 @@ import net.minecraft.util.EntityDamageSource;
 import net.minecraft.util.EntityDamageSourceIndirect;
 import net.minecraft.util.EntitySelectors;
 import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -39,7 +40,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraftforge.common.model.TRSRTransformation;
 
-public class Item50BMG extends ItemBullet {
+public class ItemRayTraceBullet extends ItemBullet {
 	
     private static final Predicate<Entity> ARROW_TARGETS = Predicates.and(EntitySelectors.NOT_SPECTATING, EntitySelectors.IS_ALIVE, new Predicate<Entity>()
     {
@@ -49,13 +50,15 @@ public class Item50BMG extends ItemBullet {
         }
     });
 
-	float distance;
-	int damage;
+	private final float distance;
+	private final int damage;
+	private final Supplier<SoundEvent> soundSupplier;
 	
-	public Item50BMG(Supplier<Item> casing, float distance, int damage) {
+	public ItemRayTraceBullet(Supplier<Item> casing, float distance, int damage, Supplier<SoundEvent> soundSupplier) {
 		super(casing);
 		this.distance = distance;
 		this.damage = damage;
+		this.soundSupplier = soundSupplier;
 	}
 
 	@Override
@@ -114,7 +117,7 @@ public class Item50BMG extends ItemBullet {
     		
     		//world.spawnEntity(bullet);
             
-            world.playSound(null, player.posX, player.posY, player.posZ, Sound.RIFLE_SHOOT.getSound(), SoundCategory.PLAYERS, 1, 1);
+            world.playSound(null, player.posX, player.posY, player.posZ, soundSupplier.get(), SoundCategory.PLAYERS, 1, 1);
             
     	}
 	}

@@ -18,8 +18,8 @@ public class ItemHecate extends ItemGun {
 		super();
 		this.accuracy = 0;
 		this.drift = 5f;
-		this.spreadX = 0.1f;
-		this.spreadY = 5f;
+		this.spreadX = 1f;
+		this.spreadY = 1f;
 		this.ammo = () -> RWBYItems.Hecate50BMG;
 		this.mag = () -> RWBYItems.HecateMag;
 		this.casing = () -> RWBYItems.Hecate50BMGcasing;
@@ -34,10 +34,10 @@ public class ItemHecate extends ItemGun {
 		animationControllers.add(new AnimationControllerMag());
 	}
 
-	@Override
-	public SoundEvent getShootSound() {
-		return Sound.RIFLE_SHOOT.getSound();
-	}
+//	@Override
+//	public SoundEvent getShootSound() {
+//		return Sound.RIFLE_SHOOT.getSound();
+//	}
 
 	@Override
 	public float getDefaultZoomFactor(ItemStack stack) {

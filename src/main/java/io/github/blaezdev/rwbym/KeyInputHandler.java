@@ -81,13 +81,14 @@ public class KeyInputHandler {
 	}
 	
 	public enum KeyPresses {
-		ADS(Minecraft.getMinecraft().gameSettings.keyBindUseItem.getKeyCode()),
+		ADS(0),//Minecraft.getMinecraft().gameSettings.keyBindUseItem.getKeyCode()),
 		SLIDELOCK_BOLT(Keyboard.KEY_T),
 		REMOVEBULLET_SLIDE(Keyboard.KEY_R),
-		SHOOT(Minecraft.getMinecraft().gameSettings.keyBindAttack.getKeyCode()),
-		HAMMER(Keyboard.KEY_V),
+		SHOOT(0),//Minecraft.getMinecraft().gameSettings.keyBindAttack.getKeyCode()),
+		HAMMER(Keyboard.KEY_B),
 		MAGRELEASE(Keyboard.KEY_G),
-		INSERT(Keyboard.KEY_Z);
+		INSERT(Keyboard.KEY_Z),
+		FIRESELECT(Keyboard.KEY_V);
 		
 		private final int keyCode;
 		
