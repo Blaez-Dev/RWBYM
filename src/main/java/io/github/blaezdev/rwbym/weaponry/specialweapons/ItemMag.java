@@ -53,7 +53,7 @@ public class ItemMag extends Item {
 		//tooltip.add("ID: " + Util.getOrCreateTag(stack).getString("UUID"));
 		if (worldIn != null) {
 	        NBTTagCompound nbt = worldIn.getCapability(ItemDataProvider.ITEMDATA_CAP, null).getData().getCompoundTag(Util.getOrCreateTag(stack).getString("UUID"));
-	        int bullets = nbt.getTagList("bullets", 9).tagCount();
+	        int bullets = nbt.getTagList("bullets", 8).tagCount();
 	        tooltip.add("Ammo: " + bullets + "/" + maxAmmo);
 		}
 	}
