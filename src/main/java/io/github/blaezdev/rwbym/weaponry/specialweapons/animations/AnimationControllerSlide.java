@@ -8,6 +8,7 @@ import io.github.blaezdev.rwbym.RWBYSoundHandler.Sound;
 import io.github.blaezdev.rwbym.utility.network.MessageEject;
 import io.github.blaezdev.rwbym.utility.network.MessagePlaySound;
 import io.github.blaezdev.rwbym.utility.network.RWBYNetworkHandler;
+import io.github.blaezdev.rwbym.utility.network.MessageEject.Direction;
 import io.github.blaezdev.rwbym.weaponry.specialweapons.ItemPropertyWrapper;
 import io.github.blaezdev.rwbym.weaponry.specialweapons.guns.ItemGun;
 import net.minecraft.entity.player.EntityPlayer;
@@ -45,6 +46,7 @@ public class AnimationControllerSlide implements IAnimationController {
 		
 		list.add(IAnimationController.integerProperty("slide", true));
 	    list.add(IAnimationController.integerProperty("check", false));
+	    list.add(IAnimationController.integerProperty("charge_handle", true));
 		
 		return list;
 	}
@@ -59,7 +61,7 @@ public class AnimationControllerSlide implements IAnimationController {
 			nbt.getCompoundTag("prev").setInteger("slide", 0);
 		}
 
-		if (nbt.getInteger("slide") < 3 && flag && KeyInputHandler.isKeyDown(KeyInputHandler.KeyPresses.SLIDELOCK_BOLT) && KeyInputHandler.isKeyDown(KeyInputHandler.KeyPresses.REMOVEBULLET_SLIDE)) {
+		if (slideLock && nbt.getInteger("slide") < 3 && flag && KeyInputHandler.isKeyDown(KeyInputHandler.KeyPresses.SLIDELOCK_BOLT) && KeyInputHandler.isKeyDown(KeyInputHandler.KeyPresses.REMOVEBULLET_SLIDE)) {
 			if (nbt.getInteger("check") < 4) {
 				nbt.setInteger("check", nbt.getInteger("check") + 1);
 			}
@@ -74,6 +76,7 @@ public class AnimationControllerSlide implements IAnimationController {
 			if (nbt.getInteger("slide") == 0) RWBYNetworkHandler.sendToServer(new MessagePlaySound(Sound.COLT_SLIDE_BACK));
 			if (nbt.getInteger("slide") < 4 && nbt.getInteger("check") < 3) {
 				nbt.setInteger("slide", nbt.getInteger("slide") + 1);
+				nbt.setInteger("charge_handle", nbt.getInteger("slide"));
 			}
 		}
 //		if (KeyInputHandler.isKeyDown(KeyInputHandler.KeyPresses.RemoveBullet)) {
@@ -96,7 +99,7 @@ public class AnimationControllerSlide implements IAnimationController {
 			nbt.setBoolean("hammer", true);
 			if (nbt.getCompoundTag("prev").getInteger("slide") < 4) {
 				if (!nbt.getString("BulletChambered").isEmpty()) {
-					RWBYNetworkHandler.sendToServer(new MessageEject(new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(nbt.getString("BulletChambered"))))));
+					RWBYNetworkHandler.sendToServer(new MessageEject(new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(nbt.getString("BulletChambered")))), Direction.DOWN));
 					nbt.setString("BulletChambered", "");
 				}
 			}
@@ -123,6 +126,7 @@ public class AnimationControllerSlide implements IAnimationController {
 					nbt.getTagList("bullets", 8).removeTag(nbt.getTagList("bullets", 8).tagCount() - 1);
 				}
 				nbt.setInteger("slide", 0);
+				nbt.setInteger("charge_handle", 0);
 				RWBYNetworkHandler.sendToServer(new MessagePlaySound(Sound.COLT_SLIDE_FORWARD));
 			}
 		}

@@ -8,6 +8,7 @@ import io.github.blaezdev.rwbym.weaponry.specialweapons.animations.AnimationCont
 import io.github.blaezdev.rwbym.weaponry.specialweapons.animations.AnimationControllerMag;
 import io.github.blaezdev.rwbym.weaponry.specialweapons.animations.AnimationControllerShoot;
 import io.github.blaezdev.rwbym.weaponry.specialweapons.animations.AnimationControllerSlide;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.SoundEvent;
 
@@ -20,7 +21,7 @@ public class ItemP90 extends ItemGun {
 		spreadY = 0.1f;
 		mag = () -> RWBYItems.P90Mag;
 		ammo = () -> RWBYItems.P90Bullet;
-		casing = () -> RWBYItems.P90Casing;
+		casing = () -> Items.AIR;
 	}
 
 	@Override

@@ -3,12 +3,12 @@
         {
             "model": "this:charging bolt",
             "predicates": {
-                "slide": [
+                "charge_handle": [
                     {
                         "value": "variable",
                         "order": 0,
                         "transformation": {
-                            "translation": [-0.024, 0, 0]
+                            "translation": [-0.036, 0, 0]
                         }
                     }
                 ]

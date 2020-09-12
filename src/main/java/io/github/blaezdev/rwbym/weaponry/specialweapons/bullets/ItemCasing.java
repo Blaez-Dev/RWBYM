@@ -4,6 +4,7 @@ import java.util.function.Supplier;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 public class ItemCasing extends ItemBullet {
@@ -14,5 +15,10 @@ public class ItemCasing extends ItemBullet {
 
 	@Override
 	public void fire(World world, EntityPlayer player, float entityAccuracy, float gunAccuracy, int life) {}
+
+	@Override
+	public Vec3d getPredictorLine(EntityPlayer player, float entityAccuracy, float gunAccuracy) {
+		return null;
+	}
 
 }

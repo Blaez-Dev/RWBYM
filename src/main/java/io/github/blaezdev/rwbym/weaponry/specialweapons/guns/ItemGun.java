@@ -20,7 +20,9 @@ import io.github.blaezdev.rwbym.utility.network.MessageUpdateNBT;
 import io.github.blaezdev.rwbym.utility.network.RWBYNetworkHandler;
 import io.github.blaezdev.rwbym.weaponry.specialweapons.ItemMag;
 import io.github.blaezdev.rwbym.weaponry.specialweapons.ItemPropertyWrapper;
+import io.github.blaezdev.rwbym.weaponry.specialweapons.animations.AnimationControllerShoot;
 import io.github.blaezdev.rwbym.weaponry.specialweapons.animations.IAnimationController;
+import io.github.blaezdev.rwbym.weaponry.specialweapons.animations.AnimationControllerFireSelect.Modes;
 import io.github.blaezdev.rwbym.weaponry.specialweapons.bullets.ItemBullet;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.util.ITooltipFlag;
@@ -33,6 +35,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
@@ -68,7 +71,7 @@ public abstract class ItemGun extends Item {
     protected float accuracy;
     protected List<IAnimationController> animationControllers = new ArrayList<>();
     public Supplier<ItemBullet> ammo;
-    public Supplier<ItemBullet> casing;
+    public Supplier<Item> casing;
     public Supplier<ItemMag> mag;
 
     public ItemGun() {
@@ -79,6 +82,16 @@ public abstract class ItemGun extends Item {
         List<ItemPropertyWrapper> itemProperties = new ArrayList<>();
         animationControllers.forEach(controller -> itemProperties.addAll(controller.getProperties()));
         itemProperties.forEach(property -> addPropertyOverride(property.getName(), property.getOverride()));
+    }
+    
+    //Client Only
+    public List<Vec3d> getPredictorLines(EntityPlayer player, ItemGun gun, NBTTagCompound nbt) {
+    	List<Vec3d> list = new ArrayList<>();
+    	Item item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(nbt.getString("BulletChambered")));
+    	if (item instanceof ItemBullet) {
+    		list.add(((ItemBullet)item).getPredictorLine(player, AnimationControllerShoot.getEntityAccuracy(player, nbt), gun.accuracy));
+    	}
+    	return list;
     }
     
     abstract protected void getAnimationControllers();
@@ -305,7 +318,7 @@ public abstract class ItemGun extends Item {
                 IItemData cap = worldIn.getCapability(ItemDataProvider.ITEMDATA_CAP, null);
                 NBTTagCompound baseTag = cap.getData();
 
-                NBTTagCompound nbt = baseTag.getCompoundTag(stack.getTagCompound().getString("UUID"));
+                NBTTagCompound nbt = baseTag.getCompoundTag(Util.getOrCreateTag(stack).getString("UUID"));
 
                 NBTTagCompound oldnbt = nbt.copy();
                 oldnbt.removeTag("prev");
@@ -324,7 +337,7 @@ public abstract class ItemGun extends Item {
         boolean flag = false;
 
         if (oldStack.getItem() instanceof ItemGun && newStack.getItem() instanceof ItemGun) {
-            flag = oldStack.getTagCompound().getString("UUID").equals(newStack.getTagCompound().getString("UUID"));
+            flag = Util.getOrCreateTag(oldStack).getString("UUID").equals(Util.getOrCreateTag(newStack).getString("UUID"));
         }
 
         return slotChanged || !flag;
@@ -332,7 +345,13 @@ public abstract class ItemGun extends Item {
 
     @Override
     public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-        tooltip.add("ID: " + Util.getOrCreateTag(stack).getString("UUID"));
+        //tooltip.add("ID: " + Util.getOrCreateTag(stack).getString("UUID"));
+    	if (worldIn != null) {
+	        NBTTagCompound nbt = worldIn.getCapability(ItemDataProvider.ITEMDATA_CAP, null).getData().getCompoundTag(Util.getOrCreateTag(stack).getString("UUID"));
+	        int bullets = nbt.getTagList("bullets", 9).tagCount();
+	        int maxBullets = mag.get().getMaxAmmo();
+	        tooltip.add("Ammo: " + bullets + "/" + maxBullets);
+    	}
 //        if (hasAccessories(stack)) {
 //            tooltip.add(new StringTextComponent("Accessories:"));
 //            for (int i = 0; i < 9; i++) {

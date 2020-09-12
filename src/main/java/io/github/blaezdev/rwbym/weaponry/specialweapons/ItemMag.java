@@ -50,7 +50,16 @@ public class ItemMag extends Item {
 	
 	@Override
 	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-		tooltip.add("ID: " + Util.getOrCreateTag(stack).getString("UUID"));
+		//tooltip.add("ID: " + Util.getOrCreateTag(stack).getString("UUID"));
+		if (worldIn != null) {
+	        NBTTagCompound nbt = worldIn.getCapability(ItemDataProvider.ITEMDATA_CAP, null).getData().getCompoundTag(Util.getOrCreateTag(stack).getString("UUID"));
+	        int bullets = nbt.getTagList("bullets", 9).tagCount();
+	        tooltip.add("Ammo: " + bullets + "/" + maxAmmo);
+		}
+	}
+	
+	public int getMaxAmmo() {
+		return maxAmmo;
 	}
 	
 	@Override
@@ -63,7 +72,7 @@ public class ItemMag extends Item {
 
 				NBTTagCompound nbt;
 
-				if (itemData.getData().hasKey(stack.getTagCompound().getString("UUID"))) {
+				if (itemData.getData().hasKey(Util.getOrCreateTag(stack).getString("UUID"))) {
 					nbt = itemData.getData().getCompoundTag(stack.getTagCompound().getString("UUID"));
 				}
 				else {

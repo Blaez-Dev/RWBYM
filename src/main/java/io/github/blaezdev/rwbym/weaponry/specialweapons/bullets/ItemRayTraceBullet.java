@@ -64,51 +64,11 @@ public class ItemRayTraceBullet extends ItemBullet {
 	@Override
 	public void fire(World world, EntityPlayer player, float entityAccuracy, float gunAccuracy, int life) {
     	if (!world.isRemote) {
-        	    		
-			double a = rand.nextDouble() * (gunAccuracy + entityAccuracy) / 360 * Math.PI;
-			double b = rand.nextDouble() * Math.PI * 2;
-			
-			float z = (float) (distance * Math.cos(a));
-			float y = (float) (distance * Math.sin(a) * Math.sin(b));
-			float x = (float) (distance * Math.sin(a) * Math.cos(b));
-    		
-    		TransformationBuilder transform = new TransformationBuilder().add(null, new Vector3f(player.rotationPitch, player.rotationYaw, 0), null, null, 0);
-    		
-    		Matrix4f m1 = TRSRTransformation.blockCornerToCenter(transform.build()).getMatrix();
-    		Matrix4f m2 = new Matrix4f();
-    		m2.setColumn(0, x, y, z, 1);
-    		m1.mul(m2);
-    		float[] floats = new float[4];
-    		m1.getColumn(0, floats);
     		
     		Vec3d start = new Vec3d(player.posX, player.posY + player.eyeHeight, player.posZ);
-    		Vec3d end = new Vec3d(floats[0] + start.x, floats[1] + start.y, floats[2] + start.z);
+    		Vec3d end = start.add(getRandomDirection(player, entityAccuracy, gunAccuracy));
     		
-    		RayTraceResult raytraceresult = player.world.rayTraceBlocks(start, end, false, true, false);
-            //vec3d1 = new Vec3d(this.posX, this.posY, this.posZ);
-            //end = new Vec3d(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
-
-            if (raytraceresult != null)
-            {
-                end = new Vec3d(raytraceresult.hitVec.x, raytraceresult.hitVec.y, raytraceresult.hitVec.z);
-            }
-
-            Entity entity = this.findEntityOnPath(start, end, player);
-
-            if (entity != null)
-            {
-                raytraceresult = new RayTraceResult(entity);
-            }
-
-            if (raytraceresult != null && raytraceresult.entityHit instanceof EntityPlayer)
-            {
-                EntityPlayer entityplayer = (EntityPlayer)raytraceresult.entityHit;
-
-                if (player instanceof EntityPlayer && !((EntityPlayer)player).canAttackPlayer(entityplayer))
-                {
-                    raytraceresult = null;
-                }
-            }
+    		RayTraceResult raytraceresult = getRayTrace(start, end, player);
 
             if (raytraceresult != null) // && !net.minecraftforge.event.ForgeEventFactory.onProjectileImpact(this, raytraceresult))
             {
@@ -119,7 +79,58 @@ public class ItemRayTraceBullet extends ItemBullet {
             
             world.playSound(null, player.posX, player.posY, player.posZ, soundSupplier.get(), SoundCategory.PLAYERS, 1, 1);
             
+            nextRandA = rand.nextDouble();
+            nextRandB = rand.nextDouble();
+            
     	}
+	}
+	
+	private Vec3d getRandomDirection(EntityPlayer player, float entityAccuracy, float gunAccuracy) {
+		double a = nextRandA * (gunAccuracy + entityAccuracy) / 360 * Math.PI;
+		double b = nextRandB * Math.PI * 2;
+		
+		float z = (float) (distance * Math.cos(a));
+		float y = (float) (distance * Math.sin(a) * Math.sin(b));
+		float x = (float) (distance * Math.sin(a) * Math.cos(b));
+		
+		TransformationBuilder transform = new TransformationBuilder().add(null, new Vector3f(player.rotationPitch, player.rotationYaw, 0), null, null, 0);
+		
+		Matrix4f m1 = TRSRTransformation.blockCornerToCenter(transform.build()).getMatrix();
+		Matrix4f m2 = new Matrix4f();
+		m2.setColumn(0, x, y, z, 1);
+		m1.mul(m2);
+		float[] floats = new float[4];
+		m1.getColumn(0, floats);
+		
+		return new Vec3d(floats[0], floats[1], floats[2]);
+	}
+	
+	private RayTraceResult getRayTrace(Vec3d start, Vec3d end, EntityPlayer player) {
+		RayTraceResult raytraceresult = player.world.rayTraceBlocks(start, end, false, true, false);
+		
+        if (raytraceresult != null)
+        {
+            end = new Vec3d(raytraceresult.hitVec.x, raytraceresult.hitVec.y, raytraceresult.hitVec.z);
+        }
+
+        Entity entity = this.findEntityOnPath(start, end, player);
+
+        if (entity != null)
+        {
+            raytraceresult = new RayTraceResult(entity);
+        }
+
+        if (raytraceresult != null && raytraceresult.entityHit instanceof EntityPlayer)
+        {
+            EntityPlayer entityplayer = (EntityPlayer)raytraceresult.entityHit;
+
+            if (player instanceof EntityPlayer && !((EntityPlayer)player).canAttackPlayer(entityplayer))
+            {
+                raytraceresult = null;
+            }
+        }
+        
+        return raytraceresult;
 	}
 	
     @Nullable
@@ -284,6 +295,21 @@ public class ItemRayTraceBullet extends ItemBullet {
 //            }
 //        }
     }
+
+	@Override
+	public Vec3d getPredictorLine(EntityPlayer player, float entityAccuracy, float gunAccuracy) {
+		
+		Vec3d start = new Vec3d(player.posX, player.posY + player.eyeHeight, player.posZ);
+		Vec3d end = start.add(getRandomDirection(player, entityAccuracy, gunAccuracy));
+		
+		RayTraceResult raytraceresult = getRayTrace(start, end, player);
+		
+		if (raytraceresult == null) {
+			return end;
+		}
+		
+		return raytraceresult.hitVec;
+	}
     
     
 

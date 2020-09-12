@@ -43,7 +43,7 @@ public class AnimationControllerShoot implements IAnimationController {
 		if (event.getGun() == this.itemGun) {
 			if (condition.apply(event.getNbt())) {
 				if (onShootEventPre(event.getStack(), event.getWorld(), event.getPlayer(), event.getItemSlot(), event.isSelected(), event.getNbt(), event.getGun())) {
-					boolean flag = this.itemGun.Shoot(event.getNbt(), event.getPlayer(), 10, this.getEntityAccuracy(event), event.getGun().getAccuracy(), 1);
+					boolean flag = this.itemGun.Shoot(event.getNbt(), event.getPlayer(), 10, this.getEntityAccuracy(event.getPlayer(), event.getNbt()), event.getGun().getAccuracy(), 1);
 					if (flag) {
 						onShootEventPost(event.getStack(), event.getWorld(), event.getPlayer(), event.getItemSlot(), event.isSelected(), event.getNbt(), event.getGun());
 //						if (event.getNbt().getInteger("mode") == AnimationControllerFireSelect.Modes.AUTO.ordinal() && !KeyInputHandler.isKeyPressed(KeyInputHandler.KeyPresses.LeftClick)) {
@@ -101,11 +101,11 @@ public class AnimationControllerShoot implements IAnimationController {
 //		}
 	}
 
-	public float getEntityAccuracy(AnimationEvent event) {
+	public static float getEntityAccuracy(EntityPlayer player, NBTTagCompound nbt) {
 		
-		double x = event.getPlayer().motionX;
-		double y = event.getPlayer().motionY;
-		double z = event.getPlayer().motionZ;
+		double x = player.motionX;
+		double y = player.motionY;
+		double z = player.motionZ;
 		
 		x *= 20;
 		y *= 20;
@@ -113,9 +113,9 @@ public class AnimationControllerShoot implements IAnimationController {
 		
 		y += 1.568;
 		
-		return (float) ((event.getNbt().getBoolean("ads") ? 1.0f : 10.0f) * Math.sqrt(x*x + y*y + z*z));
+		return (float) ((nbt.getBoolean("ads") ? 1.0f : 10.0f) + Math.sqrt(x*x + y*y + z*z));
 	}
-
+	
 	public interface Condition {
 		boolean apply(NBTTagCompound nbt);
 	}

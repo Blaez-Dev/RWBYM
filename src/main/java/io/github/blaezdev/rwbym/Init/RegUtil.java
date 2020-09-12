@@ -536,10 +536,10 @@ public class RegUtil {
         registerItems(event, RWBYItems.fetchammo);
         registerItems(event, RWBYItems.HecateMag);
         registerItems(event, RWBYItems.Hecate50BMG);
-        registerItems(event, RWBYItems.Hecate50BMGcasing);
+        //registerItems(event, RWBYItems.Hecate50BMGcasing);
         registerItems(event, RWBYItems.P90Mag);
         registerItems(event, RWBYItems.P90Bullet);
-        registerItems(event, RWBYItems.P90Casing);
+        //registerItems(event, RWBYItems.P90Casing);
 
 
         //mob drops

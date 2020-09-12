@@ -43,6 +43,7 @@ public class RWBYNetworkHandler {
 	    registerMessage(MessagePlaySound.class, Side.SERVER);
 	    registerMessage(MessageShoot.class, Side.SERVER);
 	    registerMessage(MessageAddToInventory.class, Side.SERVER);
+	    registerMessage(MessageSyncItemData.class, Side.CLIENT);
     }
     
     public static void sendToServer(IMessage message){

@@ -9,6 +9,7 @@ import io.github.blaezdev.rwbym.weaponry.specialweapons.animations.AnimationCont
 import io.github.blaezdev.rwbym.weaponry.specialweapons.animations.AnimationControllerHammer;
 import io.github.blaezdev.rwbym.weaponry.specialweapons.animations.AnimationControllerMag;
 import io.github.blaezdev.rwbym.weaponry.specialweapons.animations.AnimationControllerShoot;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.SoundEvent;
 
@@ -22,7 +23,7 @@ public class ItemHecate extends ItemGun {
 		this.spreadY = 1f;
 		this.ammo = () -> RWBYItems.Hecate50BMG;
 		this.mag = () -> RWBYItems.HecateMag;
-		this.casing = () -> RWBYItems.Hecate50BMGcasing;
+		this.casing = () -> Items.AIR;
 	}
 
 	@Override

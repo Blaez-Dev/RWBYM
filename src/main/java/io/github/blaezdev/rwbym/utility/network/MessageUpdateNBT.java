@@ -73,6 +73,8 @@ public class MessageUpdateNBT extends MessageBase<MessageUpdateNBT> {
 		String uuid = null;
 		short status = -1; 
 		
+		boolean flag;
+		
 		for ( World world : FMLCommonHandler.instance().getMinecraftServerInstance().worlds) {
 			IItemData itemData = world.getCapability(ItemDataProvider.ITEMDATA_CAP, null);
 			
@@ -97,7 +99,7 @@ public class MessageUpdateNBT extends MessageBase<MessageUpdateNBT> {
 						status = 1;
 						itemData.setData(baseTag);
 					}
-					RWBYNetworkHandler.sendToAll(new MessageUpdateNBT(stack2, message.slot, itemTag));
+					RWBYNetworkHandler.sendToClient(new MessageUpdateNBT(stack2, message.slot, itemTag), (EntityPlayerMP) player);
 				}
 				else {
 					itemTag = getItemTag(baseTag, message.nbt.getString("UUID"));
@@ -122,6 +124,7 @@ public class MessageUpdateNBT extends MessageBase<MessageUpdateNBT> {
 				}
 			}
 		}
+		RWBYNetworkHandler.sendToAll(new MessageSyncItemData(FMLCommonHandler.instance().getMinecraftServerInstance().worlds[0].getCapability(ItemDataProvider.ITEMDATA_CAP, null), player));
 	}
 	
 	private NBTTagCompound getItemTag(NBTTagCompound baseTag, String key) {
