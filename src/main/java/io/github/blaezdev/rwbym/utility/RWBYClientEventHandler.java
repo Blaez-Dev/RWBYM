@@ -23,6 +23,7 @@ import net.minecraft.client.renderer.GlStateManager.SourceFactor;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
@@ -41,9 +42,13 @@ public class RWBYClientEventHandler {
 	
 	private static final ResourceLocation AIM_CIRCLE = new ResourceLocation(RWBYModels.MODID, "textures/overlay/aim_circle.png");
 
-	public static float lastFOV;
+	public static float PrevFOV;
+	public static float FOV;
 	private static float accuracy;
 	private static float prevAccuracy;
+
+	private static float fovModifierHandPrev;
+	private static float fovModifierHand;
 	
 	private static final NoiseGeneratorPerlin PERLIN_NOISE = new NoiseGeneratorPerlin(new Random(), 1);
 	
@@ -67,7 +72,19 @@ public class RWBYClientEventHandler {
 	
 	@SubscribeEvent
 	public static void fovEvent(FOVUpdateEvent event) {
-		lastFOV = event.getFov() * Minecraft.getMinecraft().gameSettings.fovSetting;
+		ItemStack stack = Minecraft.getMinecraft().player.getHeldItemMainhand();
+		if (stack.getItem() instanceof ItemGun) {
+			NBTTagCompound nbt = Minecraft.getMinecraft().world.getCapability(ItemDataProvider.ITEMDATA_CAP, null).getData().getCompoundTag(Util.getOrCreateTag(stack).getString("UUID"));
+			if (nbt.getBoolean("ads")) {
+				event.setNewfov(event.getNewfov() * ((ItemGun) stack.getItem()).getZoomFactor(stack));
+				prevAccuracy = accuracy;
+				accuracy = AnimationControllerShoot.getEntityAccuracy(Minecraft.getMinecraft().player, nbt) + ((ItemGun) stack.getItem()).getAccuracy();
+			}
+		}
+        fovModifierHandPrev = fovModifierHand;
+        fovModifierHand += (event.getNewfov() - fovModifierHand) * 0.5F;
+        PrevFOV = FOV;
+		FOV = fovModifierHand * Minecraft.getMinecraft().gameSettings.fovSetting;
 	}
 	
 	@SubscribeEvent
@@ -78,7 +95,6 @@ public class RWBYClientEventHandler {
 			NBTTagCompound nbt = player.world.getCapability(ItemDataProvider.ITEMDATA_CAP, null).getData().getCompoundTag(Util.getOrCreateTag(player.getHeldItemMainhand()).getString("UUID"));
 			if (nbt.getBoolean("ads") && Modes.values()[nbt.getInteger("mode")] != Modes.SAFETY)
 			{
-				accuracy = AnimationControllerShoot.getEntityAccuracy(player, nbt) + ((ItemGun)player.getHeldItemMainhand().getItem()).getAccuracy();
 				//Minecraft.getMinecraft().getTextureManager().bindTexture(AIM_CIRCLE);
 				Minecraft.getMinecraft().renderEngine.bindTexture(AIM_CIRCLE);
 				GlStateManager.color(1, 1, 1, 1);
@@ -88,10 +104,9 @@ public class RWBYClientEventHandler {
 				//GlStateManager.disableDepth();
 				
 				float f = prevAccuracy + (accuracy - prevAccuracy) * event.getPartialTicks();
-				
-				prevAccuracy = accuracy;
-				
-				float scale = (float) (Math.tan(f * Math.PI / 360) / Math.tan(lastFOV * Math.PI / 360)) * 0.75f;
+				float fov = PrevFOV + (FOV - PrevFOV) * event.getPartialTicks();
+								
+				float scale = (float) (Math.tan(f * Math.PI / 360) / Math.tan(fov * Math.PI / 360)) * 0.75f;
 				
 				//GlStateManager.translate(0, 0, 100);
 				

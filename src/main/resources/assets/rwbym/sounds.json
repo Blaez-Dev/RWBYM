@@ -2,104 +2,104 @@
 	"weapon.crescent_rose.shoot": {
 		"category": "master",
 		"subtitle": "weapon.crescent_rose.shoot",
-		"sounds": [ { "name": "rwbym:weapon/crescent_rose/shoot", "stream": true } ]
+		"sounds": [ { "name": "rwbym:weapon/crescent_rose/shoot", "stream": false } ]
 	},
 	
 	"weapon.gambol_shroud.shoot": {
 		"category": "master",
 		"subtitle": "weapon.gambol_shroud.shoot",
-		"sounds": [ { "name": "rwbym:weapon/gambol_shroud/shoot", "stream": true } ]
+		"sounds": [ { "name": "rwbym:weapon/gambol_shroud/shoot", "stream": false } ]
 		
 	},
 	
 	"weapon.ember_celica.shoot": {
 		"category": "master",
 		"subtitle": "weapon.ember_celica,shoot",
-		"sounds": [ { "name": "rwbym:weapon/ember_celica/shoot", "stream": true } ]
+		"sounds": [ { "name": "rwbym:weapon/ember_celica/shoot", "stream": false } ]
 		
 	},
 	
 	"weapon.mytrenaster.shoot": {
 		"category": "master",
 		"subtitle": "weapon.mytrenaster.shoot",
-		"sounds": [ { "name": "rwbym:weapon/mytrenaster/shoot", "stream": true } ]
+		"sounds": [ { "name": "rwbym:weapon/mytrenaster/shoot", "stream": false } ]
 	},
 	
 	"weapon.storm_flower.shoot": {
 		"category": "master",
 		"subtitle": "weapon.storm_flower.shoot",
-		"sounds": [ { "name": "rwbym:weapon/storm_flower/shoot", "stream": true } ]
+		"sounds": [ { "name": "rwbym:weapon/storm_flower/shoot", "stream": false } ]
 	},
 
 	"weapon.port.shoot": {
 		"category": "master",
 		"subtitle": "weapon.port.shoot",
-		"sounds": [ { "name": "rwbym:weapon/port/shoot", "stream": true } ]
+		"sounds": [ { "name": "rwbym:weapon/port/shoot", "stream": false } ]
 	},
 
 	"weapon.magnhild.shoot": {
 		"category": "master",
 		"subtitle": "weapon.magnhild.shoot",
-		"sounds": [ { "name": "rwbym:weapon/magnhild/shoot", "stream": true } ]
+		"sounds": [ { "name": "rwbym:weapon/magnhild/shoot", "stream": false } ]
 	},
 	"weapon.junior.shoot": {
 		"category": "master",
 		"subtitle": "weapon.junior.shoot",
-		"sounds": [ { "name": "rwbym:weapon/junior/shoot", "stream": true } ]
+		"sounds": [ { "name": "rwbym:weapon/junior/shoot", "stream": false } ]
 	},
 	"weapon.torchwick.shoot": {
 		"category": "master",
 		"subtitle": "weapon.torchwick.shoot",
-		"sounds": [ { "name": "rwbym:weapon/torchwick/shoot", "stream": true } ]
+		"sounds": [ { "name": "rwbym:weapon/torchwick/shoot", "stream": false } ]
 	},
 	"weapon.rifle.boltback": {
 	    "category": "master",
 	    "subtitle": "weapon.rifle.boltback",
-	    "sounds": [ { "name": "rwbym:weapon/rifle/boltback", "stream": true } ]
+	    "sounds": [ { "name": "rwbym:weapon/rifle/boltback", "stream": false } ]
     },
     "weapon.rifle.boltdown": {
         "category": "master",
         "subtitle": "weapon.rifle.boltdown",
-        "sounds": [ { "name": "rwbym:weapon/rifle/boltdown", "stream": true } ]
+        "sounds": [ { "name": "rwbym:weapon/rifle/boltdown", "stream": false } ]
     },
     "weapon.rifle.boltforward": {
         "category": "master",
         "subtitle": "weapon.rifle.boltforward",
-        "sounds": [ { "name": "rwbym:weapon/rifle/boltforward", "stream": true } ]
+        "sounds": [ { "name": "rwbym:weapon/rifle/boltforward", "stream": false } ]
     },
     "weapon.rifle.boltup": {
         "category": "master",
         "subtitle": "weapon.rifle.boltup",
-        "sounds": [ { "name": "rwbym:weapon/rifle/boltup", "stream": true } ]
+        "sounds": [ { "name": "rwbym:weapon/rifle/boltup", "stream": false } ]
     },
     "weapon.rifle.shot": {
         "category": "master",
         "subtitle": "weapon.rifle.shot",
-        "sounds": [ { "name": "rwbym:weapon/rifle/shot", "stream": true } ]
+        "sounds": [ { "name": "rwbym:weapon/rifle/shot", "stream": false } ]
     },
     "weapon.glock.dry": {
         "category": "master",
         "subtitle": "weapon.glock.dry",
-        "sounds": [ { "name": "rwbym:weapon/glock/dry", "stream": true } ]
+        "sounds": [ { "name": "rwbym:weapon/glock/dry", "stream": false } ]
     },
     "weapon.glock.mag_in": {
         "category": "master",
         "subtitle": "weapon.glock.mag_in",
-        "sounds": [ { "name": "rwbym:weapon/glock/magin", "stream": true } ]
+        "sounds": [ { "name": "rwbym:weapon/glock/magin", "stream": false } ]
     },
     "weapon.glock.mag_out": {
         "category": "master",
         "subtitle": "weapon.glock.mag_out",
-        "sounds": [ { "name": "rwbym:weapon/glock/magout", "stream": true } ]
+        "sounds": [ { "name": "rwbym:weapon/glock/magout", "stream": false } ]
     },
     "weapon.colt.slideback": {
         "category": "master",
         "subtitle": "weapon.colt.slideback",
-        "sounds": [ { "name": "rwbym:weapon/colt/slideback", "stream": true } ]
+        "sounds": [ { "name": "rwbym:weapon/colt/slideback", "stream": false } ]
     },
     "weapon.colt.slideforward": {
         "category": "master",
         "subtitle": "weapon.colt.slideforward",
-        "sounds": [ { "name": "rwbym:weapon/colt/slideforward", "stream": true } ]
+        "sounds": [ { "name": "rwbym:weapon/colt/slideforward", "stream": false } ]
     }
 }
