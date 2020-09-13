@@ -12,6 +12,7 @@ import io.github.blaezdev.rwbym.utility.network.MessageAddToInventory;
 import io.github.blaezdev.rwbym.utility.network.MessageUpdateNBT;
 import io.github.blaezdev.rwbym.utility.network.RWBYNetworkHandler;
 import io.github.blaezdev.rwbym.weaponry.specialweapons.animations.IAnimationController;
+import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -110,7 +111,7 @@ public class ItemMag extends Item {
 					}
 					//Main.LOGGER.info("Sending nbt at slot {}", itemSlot);
 				}
-				RWBYNetworkHandler.sendToServer(new MessageUpdateNBT(stack, itemSlot, nbt));
+				RWBYNetworkHandler.sendToServer(new MessageUpdateNBT(stack, itemSlot, nbt, (AbstractClientPlayer) player));
 		}
 	}
 	

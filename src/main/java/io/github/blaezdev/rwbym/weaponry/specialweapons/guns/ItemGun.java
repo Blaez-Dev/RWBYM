@@ -25,6 +25,8 @@ import io.github.blaezdev.rwbym.weaponry.specialweapons.animations.IAnimationCon
 import io.github.blaezdev.rwbym.weaponry.specialweapons.animations.AnimationControllerFireSelect.Modes;
 import io.github.blaezdev.rwbym.weaponry.specialweapons.bullets.ItemBullet;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.AbstractClientPlayer;
+import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -326,7 +328,9 @@ public abstract class ItemGun extends Item {
 
                 animationControllers.forEach(controller -> controller.update(stack, worldIn, player, itemSlot, isSelected, nbt, (ItemGun) stack.getItem()));
 
-                RWBYNetworkHandler.sendToServer(new MessageUpdateNBT(stack, itemSlot, nbt));
+                //System.out.println(stack + ", " + player.getName());
+                
+                RWBYNetworkHandler.sendToServer(new MessageUpdateNBT(stack, itemSlot, nbt, (AbstractClientPlayer) player));
             }
         }
     }

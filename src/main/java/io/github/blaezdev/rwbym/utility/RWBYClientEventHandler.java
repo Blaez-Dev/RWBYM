@@ -5,6 +5,8 @@ import java.util.Random;
 
 import org.lwjgl.opengl.GL11;
 
+import com.google.common.base.Predicate;
+
 import io.github.blaezdev.rwbym.RWBYModels;
 import io.github.blaezdev.rwbym.capabilities.itemdata.ItemDataProvider;
 import io.github.blaezdev.rwbym.weaponry.specialweapons.animations.AnimationControllerShoot;
@@ -19,6 +21,7 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.GlStateManager.DestFactor;
 import net.minecraft.client.renderer.GlStateManager.SourceFactor;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
@@ -44,6 +47,15 @@ public class RWBYClientEventHandler {
 	
 	private static final NoiseGeneratorPerlin PERLIN_NOISE = new NoiseGeneratorPerlin(new Random(), 1);
 	
+	private static final Predicate<Entity> PLAYERS = new Predicate<Entity>() {
+
+		@Override
+		public boolean apply(Entity input) {
+			return input instanceof EntityPlayer;
+		}
+
+	};
+	
 	@SubscribeEvent
 	public static void onRenderOvelayPre(RenderGameOverlayEvent.Pre event) {
 		if (event.getType() == ElementType.CROSSHAIRS) {
@@ -62,10 +74,9 @@ public class RWBYClientEventHandler {
 	public static void onRenderOvelayPost(RenderGameOverlayEvent.Post event) {
 		
 		EntityPlayer player = Minecraft.getMinecraft().player;
-		
-		if (event.getType() == ElementType.ALL && player.getHeldItemMainhand().getItem() instanceof ItemGun) {
+		if (Minecraft.getMinecraft().gameSettings.thirdPersonView == 0 && event.getType() == ElementType.ALL && player.getHeldItemMainhand().getItem() instanceof ItemGun) {
 			NBTTagCompound nbt = player.world.getCapability(ItemDataProvider.ITEMDATA_CAP, null).getData().getCompoundTag(Util.getOrCreateTag(player.getHeldItemMainhand()).getString("UUID"));
-			//if (nbt.getBoolean("ads") && Modes.values()[nbt.getInteger("mode")] != Modes.SAFETY)
+			if (nbt.getBoolean("ads") && Modes.values()[nbt.getInteger("mode")] != Modes.SAFETY)
 			{
 				accuracy = AnimationControllerShoot.getEntityAccuracy(player, nbt) + ((ItemGun)player.getHeldItemMainhand().getItem()).getAccuracy();
 				//Minecraft.getMinecraft().getTextureManager().bindTexture(AIM_CIRCLE);
@@ -80,7 +91,7 @@ public class RWBYClientEventHandler {
 				
 				prevAccuracy = accuracy;
 				
-				float scale = (float) (Math.tan(f * Math.PI / 180) / Math.tan(lastFOV * Math.PI / 360));
+				float scale = (float) (Math.tan(f * Math.PI / 360) / Math.tan(lastFOV * Math.PI / 360)) * 0.75f;
 				
 				//GlStateManager.translate(0, 0, 100);
 				
@@ -111,38 +122,10 @@ public class RWBYClientEventHandler {
 //				GlStateManager.translate(0, -player.getEyeHeight(), 0);
 
 								
-//				prepareDrawingBulletLines(event.getPartialTicks());
-//				double doubleX = player.prevPosX + event.getPartialTicks() * (player.posX - player.prevPosX);
-//				double doubleY = player.prevPosY + event.getPartialTicks() * (player.posY - player.prevPosY);
-//				double doubleZ = player.prevPosZ + event.getPartialTicks() * (player.posZ - player.prevPosZ);
-//				Vec3d start = new Vec3d(doubleX, doubleY + player.getEyeHeight(), doubleZ);
-//				List<Vec3d> lines = ((ItemGun)player.getHeldItemMainhand().getItem()).getPredictorLines(player, (ItemGun)player.getHeldItemMainhand().getItem(), nbt);
-//				
-//				for (Vec3d end : lines) {
-//					if (end != null) {
-//						drawBulletLine(start, end);
-//					}
-//				}
-//				
-//				//drawBulletLine(start, start.add(player.getLookVec().scale(64)));
-//				//drawBulletLine(new Vec3d(0, player.getEyeHeight(), 0), player.getLookVec().addVector(0, player.getEyeHeight(), 0));
-//				finishDrawing();
-			}
-		}
-	}
-	
-	@SubscribeEvent
-	public static void onPlayerRender(RenderPlayerEvent.Post event) {
-		
-		EntityPlayer player = event.getEntityPlayer();
-		
-		if (player.getHeldItemMainhand().getItem() instanceof ItemGun) {
-			NBTTagCompound nbt = player.world.getCapability(ItemDataProvider.ITEMDATA_CAP, null).getData().getCompoundTag(Util.getOrCreateTag(player.getHeldItemMainhand()).getString("UUID"));
-			if (nbt.getBoolean("ads") && Modes.values()[nbt.getInteger("mode")] != Modes.SAFETY) {
-				prepareDrawingBulletLines(event.getPartialRenderTick());
-				double doubleX = player.prevPosX + event.getPartialRenderTick() * (player.posX - player.prevPosX);
-				double doubleY = player.prevPosY + event.getPartialRenderTick() * (player.posY - player.prevPosY);
-				double doubleZ = player.prevPosZ + event.getPartialRenderTick() * (player.posZ - player.prevPosZ);
+				prepareDrawingBulletLines(event.getPartialTicks());
+				double doubleX = player.prevPosX + event.getPartialTicks() * (player.posX - player.prevPosX);
+				double doubleY = player.prevPosY + event.getPartialTicks() * (player.posY - player.prevPosY);
+				double doubleZ = player.prevPosZ + event.getPartialTicks() * (player.posZ - player.prevPosZ);
 				Vec3d start = new Vec3d(doubleX, doubleY + player.getEyeHeight(), doubleZ);
 				List<Vec3d> lines = ((ItemGun)player.getHeldItemMainhand().getItem()).getPredictorLines(player, (ItemGun)player.getHeldItemMainhand().getItem(), nbt);
 				
@@ -157,6 +140,70 @@ public class RWBYClientEventHandler {
 				finishDrawing();
 			}
 		}
+	}
+	
+	@SubscribeEvent
+	public static void onWorldRender(RenderWorldLastEvent event) {
+		EntityPlayer player = Minecraft.getMinecraft().player;
+		
+		List<Entity> list = player.world.getEntitiesInAABBexcluding(player, player.getEntityBoundingBox().grow(64), PLAYERS);
+		
+		for (Entity entity : list) {
+			
+			EntityPlayer otherPlayer = (EntityPlayer) entity;
+	
+			if (otherPlayer.getHeldItemMainhand().getItem() instanceof ItemGun) {
+				NBTTagCompound nbt = otherPlayer.world.getCapability(ItemDataProvider.ITEMDATA_CAP, null).getData().getCompoundTag(Util.getOrCreateTag(otherPlayer.getHeldItemMainhand()).getString("UUID"));
+				if (nbt.getBoolean("ads") && Modes.values()[nbt.getInteger("mode")] != Modes.SAFETY)
+				{								
+					prepareDrawingBulletLines(event.getPartialTicks());
+					double doubleX = otherPlayer.prevPosX + event.getPartialTicks() * (otherPlayer.posX - otherPlayer.prevPosX);
+					double doubleY = otherPlayer.prevPosY + event.getPartialTicks() * (otherPlayer.posY - otherPlayer.prevPosY);
+					double doubleZ = otherPlayer.prevPosZ + event.getPartialTicks() * (otherPlayer.posZ - otherPlayer.prevPosZ);
+					Vec3d start = new Vec3d(doubleX, doubleY + otherPlayer.getEyeHeight(), doubleZ);
+					List<Vec3d> lines = ((ItemGun)otherPlayer.getHeldItemMainhand().getItem()).getPredictorLines(otherPlayer, (ItemGun)otherPlayer.getHeldItemMainhand().getItem(), nbt);
+					
+					for (Vec3d end : lines) {
+						if (end != null) {
+							drawBulletLine(start, end);
+						}
+					}
+					
+					//drawBulletLine(start, start.add(player.getLookVec().scale(64)));
+					//drawBulletLine(new Vec3d(0, player.getEyeHeight(), 0), player.getLookVec().addVector(0, player.getEyeHeight(), 0));
+					finishDrawing();
+				}
+			}
+		
+		}
+	}
+	
+	@SubscribeEvent
+	public static void onPlayerRender(RenderPlayerEvent.Post event) {
+//		
+//		EntityPlayer player = event.getEntityPlayer();
+//		
+//		if (player.getHeldItemMainhand().getItem() instanceof ItemGun) {
+//			NBTTagCompound nbt = player.world.getCapability(ItemDataProvider.ITEMDATA_CAP, null).getData().getCompoundTag(Util.getOrCreateTag(player.getHeldItemMainhand()).getString("UUID"));
+//			if (nbt.getBoolean("ads") && Modes.values()[nbt.getInteger("mode")] != Modes.SAFETY) {
+//				prepareDrawingBulletLines(event.getPartialRenderTick());
+//				double doubleX = player.prevPosX + event.getPartialRenderTick() * (player.posX - player.prevPosX);
+//				double doubleY = player.prevPosY + event.getPartialRenderTick() * (player.posY - player.prevPosY);
+//				double doubleZ = player.prevPosZ + event.getPartialRenderTick() * (player.posZ - player.prevPosZ);
+//				Vec3d start = new Vec3d(doubleX, doubleY + player.getEyeHeight(), doubleZ);
+//				List<Vec3d> lines = ((ItemGun)player.getHeldItemMainhand().getItem()).getPredictorLines(player, (ItemGun)player.getHeldItemMainhand().getItem(), nbt);
+//				
+//				for (Vec3d end : lines) {
+//					if (end != null) {
+//						drawBulletLine(start, end);
+//					}
+//				}
+//				
+//				//drawBulletLine(start, start.add(player.getLookVec().scale(64)));
+//				//drawBulletLine(new Vec3d(0, player.getEyeHeight(), 0), player.getLookVec().addVector(0, player.getEyeHeight(), 0));
+//				finishDrawing();
+//			}
+//		}
 	}
 	
     public static void drawCenteredTexturedModalRect(float x, float y, float width, float height)
@@ -184,6 +231,7 @@ public class RWBYClientEventHandler {
 		GL11.glDisable(GL11.GL_CULL_FACE);
 		GL11.glEnable(GL11.GL_BLEND);
 		GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
+		GL11.glDisable(GL11.GL_ALPHA_TEST);
 
 		GL11.glTranslated(-doubleX, -doubleY, -doubleZ);
 		GL11.glColor4d(1, 0, 0, 0.5);
@@ -208,9 +256,10 @@ public class RWBYClientEventHandler {
 	private static void finishDrawing() {
 		GL11.glEnd();
 		GL11.glColor4d(1, 1, 1, 1);
-		GL11.glEnable(GL11.GL_LIGHTING);
+		//GL11.glEnable(GL11.GL_LIGHTING);
 		GL11.glEnable(GL11.GL_TEXTURE_2D);
-		GL11.glEnable(GL11.GL_DEPTH_TEST);
+		//GL11.glEnable(GL11.GL_DEPTH_TEST);
+		//GL11.glEnable(GL11.GL_CULL_FACE);
 		GL11.glPopMatrix();
 	}
 	

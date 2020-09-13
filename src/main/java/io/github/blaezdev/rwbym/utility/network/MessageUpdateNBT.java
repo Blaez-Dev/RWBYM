@@ -6,6 +6,8 @@ import io.github.blaezdev.rwbym.RWBYModels;
 import io.github.blaezdev.rwbym.capabilities.itemdata.IItemData;
 import io.github.blaezdev.rwbym.capabilities.itemdata.ItemDataProvider;
 import io.netty.buffer.ByteBuf;
+import net.minecraft.client.entity.AbstractClientPlayer;
+import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
@@ -19,9 +21,17 @@ public class MessageUpdateNBT extends MessageBase<MessageUpdateNBT> {
 	private NBTTagCompound stackNBT;
 	private int slot;
 	private NBTTagCompound nbt;
+	private String uuid = "";
 
 	public MessageUpdateNBT() {}
 
+	public MessageUpdateNBT(ItemStack stack, int slot, NBTTagCompound nbt, AbstractClientPlayer clientPlayer) {
+		this.stackNBT = stack.serializeNBT();
+		this.slot = slot;
+		this.nbt = nbt;
+		this.uuid = clientPlayer.getUniqueID().toString();
+	}
+	
 	public MessageUpdateNBT(ItemStack stack, int slot, NBTTagCompound nbt) {
 		this.stackNBT = stack.serializeNBT();
 		this.slot = slot;
@@ -33,6 +43,7 @@ public class MessageUpdateNBT extends MessageBase<MessageUpdateNBT> {
 		this.stackNBT = ByteBufUtils.readTag(buf);
 		this.slot = buf.readInt();
 		this.nbt = ByteBufUtils.readTag(buf);
+		this.uuid = ByteBufUtils.readUTF8String(buf);
 	}
 
 	@Override
@@ -40,6 +51,7 @@ public class MessageUpdateNBT extends MessageBase<MessageUpdateNBT> {
 		ByteBufUtils.writeTag(buf, stackNBT);
 		buf.writeInt(slot);
 		ByteBufUtils.writeTag(buf, nbt);
+		ByteBufUtils.writeUTF8String(buf, uuid);
 	}
 
 	@Override
@@ -58,6 +70,12 @@ public class MessageUpdateNBT extends MessageBase<MessageUpdateNBT> {
 
 	@Override
 	public void handleServerSide(MessageUpdateNBT message, EntityPlayer player) {
+		
+		if (!message.uuid.equals(player.getUniqueID().toString())) {
+			System.out.println("Wrong Player");
+			player = FMLCommonHandler.instance().getMinecraftServerInstance().getPlayerList().getPlayerByUUID(UUID.fromString(message.uuid));
+		}
+		
 		ItemStack stack1 = new ItemStack(message.stackNBT);
 		//Main.LOGGER.info(message.nbt);
 		ItemStack stack2 = player.inventory.getStackInSlot(message.slot);
@@ -102,6 +120,7 @@ public class MessageUpdateNBT extends MessageBase<MessageUpdateNBT> {
 					RWBYNetworkHandler.sendToClient(new MessageUpdateNBT(stack2, message.slot, itemTag), (EntityPlayerMP) player);
 				}
 				else {
+					uuid = message.nbt.getString("UUID");
 					itemTag = getItemTag(baseTag, message.nbt.getString("UUID"));
 					itemTag.merge(message.nbt);
 					status = 2;
@@ -124,7 +143,9 @@ public class MessageUpdateNBT extends MessageBase<MessageUpdateNBT> {
 				}
 			}
 		}
-		RWBYNetworkHandler.sendToAll(new MessageSyncItemData(FMLCommonHandler.instance().getMinecraftServerInstance().worlds[0].getCapability(ItemDataProvider.ITEMDATA_CAP, null), player));
+		if (uuid != null) {
+			RWBYNetworkHandler.sendToAll(new MessageSyncItemData(FMLCommonHandler.instance().getMinecraftServerInstance().worlds[0].getCapability(ItemDataProvider.ITEMDATA_CAP, null), uuid, player));
+		}
 	}
 	
 	private NBTTagCompound getItemTag(NBTTagCompound baseTag, String key) {
