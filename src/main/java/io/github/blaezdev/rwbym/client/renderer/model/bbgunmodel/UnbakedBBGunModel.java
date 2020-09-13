@@ -74,6 +74,7 @@ public class UnbakedBBGunModel implements IModel {
         		catch (IOException e) {
         			RWBYModels.LOGGER.warn("Could not load model: {}", location1);
         			e.printStackTrace();
+        			break;
         		}
     	        String animatorPath = location1.getResourcePath().split("\\.")[0] + ".json";
         		try {

@@ -108,73 +108,74 @@ public class BakedGunModel implements IBakedModel {
             return quads;
         }
         //System.out.println(this.subTransforms.size() + ", " + models.size());
-        if (this.subTransforms.size() <= models.size()) {
-            int i;
-            for (i = 0; i < subTransforms.size(); i++) {
+        //if (this.subTransforms.size() <= models.size()) {
+        int count = Math.min(subTransforms.size(), models.size());
+        int i;
+        for (i = 0; i < count; i++) {
 
-                for (BakedQuad quad : models.get(i).getQuads(state, side, rand)) {
+            for (BakedQuad quad : models.get(i).getQuads(state, side, rand)) {
 
-                    //System.out.println(quad.getFormat());
+                //System.out.println(quad.getFormat());
 
-                    Matrix4f transformation = this.subTransforms.get(i).getMatrix();
+                Matrix4f transformation = this.subTransforms.get(i).getMatrix();
 
-                    if (transformation.equals(TRSRTransformation.identity().getMatrix())) {
-                        quads.add(quad);
-                        continue;
-                    }
-
-                    int[] data = quad.getVertexData().clone();
-
-                    //System.out.println(data);
-
-                    Matrix4f points = new Matrix4f();
-
-                    points.m00 = Float.intBitsToFloat(data[0]);
-                    points.m10 = Float.intBitsToFloat(data[1]);
-                    points.m20 = Float.intBitsToFloat(data[2]);
-                    points.m30 = 1;
-
-                    points.m01 = Float.intBitsToFloat(data[7]);
-                    points.m11 = Float.intBitsToFloat(data[8]);
-                    points.m21 = Float.intBitsToFloat(data[9]);
-                    points.m31 = 1;
-
-                    points.m02 = Float.intBitsToFloat(data[14]);
-                    points.m12 = Float.intBitsToFloat(data[15]);
-                    points.m22 = Float.intBitsToFloat(data[16]);
-                    points.m32 = 1;
-
-                    points.m03 = Float.intBitsToFloat(data[21]);
-                    points.m13 = Float.intBitsToFloat(data[22]);
-                    points.m23 = Float.intBitsToFloat(data[23]);
-                    points.m33 = 1;
-
-                    points.mul(transformation, points);
-
-                    data[0] = Float.floatToRawIntBits(points.m00);
-                    data[1] = Float.floatToRawIntBits(points.m10);
-                    data[2] = Float.floatToRawIntBits(points.m20);
-
-                    data[7] = Float.floatToRawIntBits(points.m01);
-                    data[8] = Float.floatToRawIntBits(points.m11);
-                    data[9] = Float.floatToRawIntBits(points.m21);
-
-                    data[14] = Float.floatToRawIntBits(points.m02);
-                    data[15] = Float.floatToRawIntBits(points.m12);
-                    data[16] = Float.floatToRawIntBits(points.m22);
-
-                    data[21] = Float.floatToRawIntBits(points.m03);
-                    data[22] = Float.floatToRawIntBits(points.m13);
-                    data[23] = Float.floatToRawIntBits(points.m23);
-
-                    ForgeHooksClient.fillNormal(data, null);
-
-                    BakedQuad newQuad = new BakedQuad(data, quad.getTintIndex(), quad.getFace(), quad.getSprite(), quad.shouldApplyDiffuseLighting(), quad.getFormat());
-
-                    quads.add(newQuad);
+                if (transformation.equals(TRSRTransformation.identity().getMatrix())) {
+                    quads.add(quad);
+                    continue;
                 }
+
+                int[] data = quad.getVertexData().clone();
+
+                //System.out.println(data);
+
+                Matrix4f points = new Matrix4f();
+
+                points.m00 = Float.intBitsToFloat(data[0]);
+                points.m10 = Float.intBitsToFloat(data[1]);
+                points.m20 = Float.intBitsToFloat(data[2]);
+                points.m30 = 1;
+
+                points.m01 = Float.intBitsToFloat(data[7]);
+                points.m11 = Float.intBitsToFloat(data[8]);
+                points.m21 = Float.intBitsToFloat(data[9]);
+                points.m31 = 1;
+
+                points.m02 = Float.intBitsToFloat(data[14]);
+                points.m12 = Float.intBitsToFloat(data[15]);
+                points.m22 = Float.intBitsToFloat(data[16]);
+                points.m32 = 1;
+
+                points.m03 = Float.intBitsToFloat(data[21]);
+                points.m13 = Float.intBitsToFloat(data[22]);
+                points.m23 = Float.intBitsToFloat(data[23]);
+                points.m33 = 1;
+
+                points.mul(transformation, points);
+
+                data[0] = Float.floatToRawIntBits(points.m00);
+                data[1] = Float.floatToRawIntBits(points.m10);
+                data[2] = Float.floatToRawIntBits(points.m20);
+
+                data[7] = Float.floatToRawIntBits(points.m01);
+                data[8] = Float.floatToRawIntBits(points.m11);
+                data[9] = Float.floatToRawIntBits(points.m21);
+
+                data[14] = Float.floatToRawIntBits(points.m02);
+                data[15] = Float.floatToRawIntBits(points.m12);
+                data[16] = Float.floatToRawIntBits(points.m22);
+
+                data[21] = Float.floatToRawIntBits(points.m03);
+                data[22] = Float.floatToRawIntBits(points.m13);
+                data[23] = Float.floatToRawIntBits(points.m23);
+
+                ForgeHooksClient.fillNormal(data, null);
+
+                BakedQuad newQuad = new BakedQuad(data, quad.getTintIndex(), quad.getFace(), quad.getSprite(), quad.shouldApplyDiffuseLighting(), quad.getFormat());
+
+                quads.add(newQuad);
             }
         }
+        //}
         //System.out.println(quads.size());
 
         if (quads.size() > 0) {

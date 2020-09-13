@@ -35,6 +35,12 @@ public class BBGunLoader implements ICustomModelLoader {
     @Override
     public IModel loadModel(@Nonnull ResourceLocation modelLocation) throws Exception {
         RWBYModels.LOGGER.info("Loading Model: {}", modelLocation);
-        return new UnbakedBBGunModel(modelLocation);
+        try {
+        	return new UnbakedBBGunModel(modelLocation);
+        }
+        catch (Exception e) {
+        	e.printStackTrace();
+        	throw e;
+        }
     }
 }

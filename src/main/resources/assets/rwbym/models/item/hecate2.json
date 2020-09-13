@@ -1,0 +1,100 @@
+{
+    "submodels": [
+        {
+            "model": "this:bolt",
+            "predicates": {
+                "boltup": [
+                    {
+                        "value": "variable",
+                        "order": 0,
+                        "transformation": {
+                            "translation": [0, 0, 0],
+                            "rotation": [-22.5, 0, 0],
+                            "center": [0, 0.05534375, 0.005725]
+                        }
+                    }
+                ],
+                "boltback": [
+                    {
+                        "value": "variable",
+                        "order": 1,
+                        "transformation": {
+                            "translation": [-0.0625, 0, 0]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "model": "rwbym:50bmg",
+            "predicates": {
+                "chambered": [
+                    {
+                        "value": "default",
+                        "transformation": {
+                            "scale": [0, 0, 0]
+                        }
+                    },
+                    {
+                        "value": 1,
+                        "order": 1,
+                        "transformation": {
+                            "scale": [1, 1, 1],
+                            "translation": [0, 0, -0.06]
+                        }
+                    }
+                ],
+                "boltback": [
+                    {
+                        "value": "variable",
+                        "order": 2,
+                        "transformation": {
+                            "translation": [0, 0, 0.03]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "model": "this:magazine",
+            "predicates": {
+                "mag": [
+                    {
+                        "value": "default",
+                        "transformation": {
+                            "scale": [0, 0, 0]
+                        }
+                    },
+                    {
+                        "value": 1,
+                        "transformation": {
+                            "scale": [1, 1, 1]
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "basetransformation": {
+        "predicates": {
+            "ads": {
+                "FIRST_PERSON_LEFT_HAND": [
+                    {
+                        "value": "variable",
+                        "transformation": {
+                            "translation": [-0.27, 0.144, 0.1]
+                        }
+                    }
+                ],
+                "FIRST_PERSON_RIGHT_HAND": [
+                    {
+                        "value": "variable",
+                        "transformation": {
+                            "translation": [-0.268, 0.145, 0.1]
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

@@ -321,6 +321,9 @@ public class ModelBlock
                     {
                     	JsonObject textureObject = (JsonObject) textureElement;
                         map.put(textureObject.get("id").getAsString(), new ResourceLocation(textureObject.get("namespace").getAsString(), textureObject.get("folder").getAsString() + "/" + textureObject.get("name").getAsString().replace(".png", "")).toString());
+                        if (textureObject.get("particle").getAsBoolean()) {
+                        	map.put("particle", new ResourceLocation(textureObject.get("namespace").getAsString(), textureObject.get("folder").getAsString() + "/" + textureObject.get("name").getAsString().replace(".png", "")).toString());
+                        }
                     }
                 }
 
