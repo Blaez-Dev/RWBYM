@@ -13,6 +13,7 @@ import com.google.common.base.Predicates;
 import io.github.blaezdev.rwbym.RWBYSoundHandler.Sound;
 import io.github.blaezdev.rwbym.client.renderer.model.TransformationBuilder;
 import io.github.blaezdev.rwbym.entity.EntityBullet;
+import io.github.blaezdev.rwbym.utility.Util;
 import io.github.blaezdev.rwbym.weaponry.ArmourBase;
 import io.github.blaezdev.rwbym.weaponry.RWBYAmmoItem;
 import io.github.blaezdev.rwbym.weaponry.RWBYGun;
@@ -79,15 +80,32 @@ public class ItemRayTraceBullet extends ItemBullet {
             
             world.playSound(null, player.posX, player.posY, player.posZ, soundSupplier.get(), SoundCategory.PLAYERS, 1, 1);
             
-            nextRandA = rand.nextDouble();
-            nextRandB = rand.nextDouble();
-            
     	}
 	}
 	
 	private Vec3d getRandomDirection(EntityPlayer player, float entityAccuracy, float gunAccuracy) {
-		double a = nextRandA * (gunAccuracy + entityAccuracy) / 360 * Math.PI;
-		double b = nextRandB * Math.PI * 2;
+		double a = nextRandA.get() * (gunAccuracy + entityAccuracy) / 360 * Math.PI;
+		double b = nextRandB.get() * Math.PI * 2;
+		
+		float z = (float) (distance * Math.cos(a));
+		float y = (float) (distance * Math.sin(a) * Math.sin(b));
+		float x = (float) (distance * Math.sin(a) * Math.cos(b));
+		
+		TransformationBuilder transform = new TransformationBuilder().add(null, new Vector3f(player.rotationPitch, player.rotationYaw, 0), null, null, 0);
+		
+		Matrix4f m1 = TRSRTransformation.blockCornerToCenter(transform.build()).getMatrix();
+		Matrix4f m2 = new Matrix4f();
+		m2.setColumn(0, x, y, z, 1);
+		m1.mul(m2);
+		float[] floats = new float[4];
+		m1.getColumn(0, floats);
+		
+		return new Vec3d(floats[0], floats[1], floats[2]);
+	}
+	
+	private Vec3d getRandomDirection(int index, EntityPlayer player, float entityAccuracy, float gunAccuracy) {
+		double a = nextRandA.get(index) * (gunAccuracy + entityAccuracy) / 360 * Math.PI;
+		double b = nextRandB.get(index) * Math.PI * 2;
 		
 		float z = (float) (distance * Math.cos(a));
 		float y = (float) (distance * Math.sin(a) * Math.sin(b));
@@ -117,7 +135,7 @@ public class ItemRayTraceBullet extends ItemBullet {
 
         if (entity != null)
         {
-            raytraceresult = new RayTraceResult(entity);
+            raytraceresult = Util.rayTraceEntity(start, end, entity);
         }
 
         if (raytraceresult != null && raytraceresult.entityHit instanceof EntityPlayer)
@@ -297,10 +315,29 @@ public class ItemRayTraceBullet extends ItemBullet {
     }
 
 	@Override
-	public Vec3d getPredictorLine(EntityPlayer player, float entityAccuracy, float gunAccuracy) {
+	public Vec3d getPredictorLine(int index, EntityPlayer player, float partialTicks, float entityAccuracy, float gunAccuracy) {
+		
+		double x = player.prevPosX + (player.posX - player.prevPosX) * partialTicks;
+		double y = player.prevPosY + (player.posY - player.prevPosY) * partialTicks;
+		double z = player.prevPosZ + (player.posZ - player.prevPosZ) * partialTicks;
+		
+		Vec3d start = new Vec3d(x, y + player.eyeHeight, z);
+		Vec3d end = start.add(getRandomDirection(index, player, entityAccuracy, gunAccuracy));
+		
+		RayTraceResult raytraceresult = getRayTrace(start, end, player);
+		
+		if (raytraceresult == null) {
+			return end;
+		}
+		
+		return raytraceresult.hitVec;
+	}
+	
+	@Override
+	public Vec3d getPredictorLine(int index, EntityPlayer player, float entityAccuracy, float gunAccuracy) {
 		
 		Vec3d start = new Vec3d(player.posX, player.posY + player.eyeHeight, player.posZ);
-		Vec3d end = start.add(getRandomDirection(player, entityAccuracy, gunAccuracy));
+		Vec3d end = start.add(getRandomDirection(index, player, entityAccuracy, gunAccuracy));
 		
 		RayTraceResult raytraceresult = getRayTrace(start, end, player);
 		

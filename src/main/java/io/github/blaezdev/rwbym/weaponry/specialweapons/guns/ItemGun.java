@@ -14,6 +14,7 @@ import io.github.blaezdev.rwbym.RWBYModels;
 import io.github.blaezdev.rwbym.Init.RWBYCreativeTabs;
 import io.github.blaezdev.rwbym.capabilities.itemdata.IItemData;
 import io.github.blaezdev.rwbym.capabilities.itemdata.ItemDataProvider;
+import io.github.blaezdev.rwbym.utility.RWBYConfig;
 import io.github.blaezdev.rwbym.utility.Util;
 import io.github.blaezdev.rwbym.utility.network.MessageShoot;
 import io.github.blaezdev.rwbym.utility.network.MessageUpdateNBT;
@@ -87,11 +88,33 @@ public abstract class ItemGun extends Item {
     }
     
     //Client Only
+    public List<Vec3d> getPredictorLines(EntityPlayer player, float partialTicks, float entityAccuracy, ItemGun gun, NBTTagCompound nbt) {
+    	List<Vec3d> list = new ArrayList<>();
+    	Item item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(nbt.getString("BulletChambered")));
+    	if (item instanceof ItemBullet) {
+    		list.add(((ItemBullet)item).getPredictorLine(0, player, partialTicks, entityAccuracy, gun.accuracy));
+        	if (Modes.values()[nbt.getInteger("mode")] == Modes.AUTO) {
+        		for (int i = 0; i < RWBYConfig.general.maxBulletLines - 1 && i < nbt.getTagList("bullets", 8).tagCount(); i++) {
+        	    	item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(nbt.getTagList("bullets", 8).getStringTagAt(i)));
+        			list.add(((ItemBullet)item).getPredictorLine(i + 1, player, partialTicks, entityAccuracy, gun.accuracy));
+        		}
+        	}
+    	}
+    	return list;
+    }
+    
+    //Client Only
     public List<Vec3d> getPredictorLines(EntityPlayer player, ItemGun gun, NBTTagCompound nbt) {
     	List<Vec3d> list = new ArrayList<>();
     	Item item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(nbt.getString("BulletChambered")));
     	if (item instanceof ItemBullet) {
-    		list.add(((ItemBullet)item).getPredictorLine(player, AnimationControllerShoot.getEntityAccuracy(player, nbt), gun.accuracy));
+    		list.add(((ItemBullet)item).getPredictorLine(0, player, AnimationControllerShoot.getEntityAccuracy(player, nbt), gun.accuracy));
+        	if (Modes.values()[nbt.getInteger("mode")] == Modes.AUTO) {
+        		for (int i = 0; i < RWBYConfig.general.maxBulletLines - 1 && i < nbt.getTagList("bullets", 8).tagCount(); i++) {
+        	    	item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(nbt.getTagList("bullets", 8).getStringTagAt(i)));
+        			list.add(((ItemBullet)item).getPredictorLine(i + 1, player, AnimationControllerShoot.getEntityAccuracy(player, nbt), gun.accuracy));
+        		}
+        	}
     	}
     	return list;
     }
@@ -349,7 +372,7 @@ public abstract class ItemGun extends Item {
 
     @Override
     public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-        //tooltip.add("ID: " + Util.getOrCreateTag(stack).getString("UUID"));
+        tooltip.add("ID: " + Util.getOrCreateTag(stack).getString("UUID"));
     	if (worldIn != null) {
 	        NBTTagCompound nbt = worldIn.getCapability(ItemDataProvider.ITEMDATA_CAP, null).getData().getCompoundTag(Util.getOrCreateTag(stack).getString("UUID"));
 	        int bullets = nbt.getTagList("bullets", 8).tagCount();

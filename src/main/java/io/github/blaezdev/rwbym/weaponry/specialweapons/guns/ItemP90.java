@@ -29,9 +29,9 @@ public class ItemP90 extends ItemGun {
         this.animationControllers.add(new AnimationControllerShoot(this, nbt -> !nbt.getBoolean("AutoSlideLock")));
         this.animationControllers.add(new AnimationControllerADS());
         this.animationControllers.add(new AnimationControllerFireSelect(this, AnimationControllerFireSelect.Modes.SEMI, AnimationControllerFireSelect.Modes.AUTO));
-        this.animationControllers.add(new AnimationControllerSlide(this, false));
         this.animationControllers.add(new AnimationControllerMag());
         this.animationControllers.add(new AnimationControllerHammer(this, false));
+        this.animationControllers.add(new AnimationControllerSlide(this, false));
 	}
 
 //	@Override
@@ -41,7 +41,7 @@ public class ItemP90 extends ItemGun {
 
 	@Override
 	public float getDefaultZoomFactor(ItemStack stack) {
-		return 0.9f;
+		return 0.1f;
 	}
 
 }

@@ -25,7 +25,7 @@ public class AnimationControllerSlide implements IAnimationController {
 
 	private final ItemGun itemgun;
 	private final boolean slideLock;
-	private boolean justfired = false;
+	//private boolean justfired = false;
 
 	public AnimationControllerSlide(ItemGun itemgun, boolean slideLock) {
 		this.itemgun = itemgun;
@@ -36,7 +36,8 @@ public class AnimationControllerSlide implements IAnimationController {
 	@SubscribeEvent
 	public void onShootEvent(AnimationControllerShoot.ShootEvent.Post event) {
 		if (event.getGun() == this.itemgun) {
-			this.justfired = true;
+			event.getNbt().setBoolean("justfired", true);
+			//this.justfired = true;
 		}
 	}
 
@@ -56,7 +57,7 @@ public class AnimationControllerSlide implements IAnimationController {
 
 		boolean flag = player.getHeldItemMainhand().equals(stack);
 
-		if (this.justfired) {
+		if (nbt.getBoolean("justfired")) {
 			nbt.setInteger("slide", 4);
 			nbt.getCompoundTag("prev").setInteger("slide", 0);
 		}
@@ -155,13 +156,10 @@ public class AnimationControllerSlide implements IAnimationController {
 			nbt.setBoolean("AutoSlideLock", false);
 		}
 
-		if (this.justfired) {
+		if (nbt.getBoolean("justfired")) {
 			nbt.setInteger("slide", 4);
 			nbt.getCompoundTag("prev").setInteger("slide", 0);
-		}
-
-		if (this.justfired) {
-			this.justfired = false;
+			nbt.setBoolean("justfired", false);
 		}
 
 		//System.out.println(nbt);

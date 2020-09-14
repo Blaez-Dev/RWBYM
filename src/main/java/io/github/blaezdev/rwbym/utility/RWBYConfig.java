@@ -195,6 +195,8 @@ public class RWBYConfig
     public float gunvolume = 1F;
     @Config.Name("speedlimiter -- lightningdust")
     public boolean lightningdustlimiter = false;
+    @Config.Name("Maximum Bullet Predictor Lines")
+    public int maxBulletLines = 10;
 
 }
 

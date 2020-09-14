@@ -28,6 +28,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
+import net.minecraftforge.client.event.EntityViewRenderEvent;
 import net.minecraftforge.client.event.FOVUpdateEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderPlayerEvent;
@@ -71,14 +72,14 @@ public class RWBYClientEventHandler {
 	}
 	
 	@SubscribeEvent
-	public static void fovEvent(FOVUpdateEvent event) {
+	public static void fovUpdateEvent(FOVUpdateEvent event) {
 		ItemStack stack = Minecraft.getMinecraft().player.getHeldItemMainhand();
 		if (stack.getItem() instanceof ItemGun) {
 			NBTTagCompound nbt = Minecraft.getMinecraft().world.getCapability(ItemDataProvider.ITEMDATA_CAP, null).getData().getCompoundTag(Util.getOrCreateTag(stack).getString("UUID"));
 			if (nbt.getBoolean("ads")) {
 				event.setNewfov(event.getNewfov() * ((ItemGun) stack.getItem()).getZoomFactor(stack));
 				prevAccuracy = accuracy;
-				accuracy = AnimationControllerShoot.getEntityAccuracy(Minecraft.getMinecraft().player, nbt) + ((ItemGun) stack.getItem()).getAccuracy();
+				accuracy = AnimationControllerShoot.getEntityAccuracy(Minecraft.getMinecraft().player, nbt);
 			}
 		}
         fovModifierHandPrev = fovModifierHand;
@@ -88,10 +89,17 @@ public class RWBYClientEventHandler {
 	}
 	
 	@SubscribeEvent
+	public static void fovEvent(EntityViewRenderEvent.FOVModifier event) {
+		//FOV = event.getFOV();
+		//System.out.println(FOV);
+	}
+	
+	@SubscribeEvent
 	public static void onRenderOvelayPost(RenderGameOverlayEvent.Post event) {
 		
 		EntityPlayer player = Minecraft.getMinecraft().player;
-		if (Minecraft.getMinecraft().gameSettings.thirdPersonView == 0 && event.getType() == ElementType.ALL && player.getHeldItemMainhand().getItem() instanceof ItemGun) {
+		if (Minecraft.getMinecraft().gameSettings.thirdPersonView == 0 && 
+				event.getType() == ElementType.ALL && player.getHeldItemMainhand().getItem() instanceof ItemGun) {
 			NBTTagCompound nbt = player.world.getCapability(ItemDataProvider.ITEMDATA_CAP, null).getData().getCompoundTag(Util.getOrCreateTag(player.getHeldItemMainhand()).getString("UUID"));
 			if (nbt.getBoolean("ads") && Modes.values()[nbt.getInteger("mode")] != Modes.SAFETY)
 			{
@@ -103,19 +111,11 @@ public class RWBYClientEventHandler {
 				GlStateManager.disableAlpha();
 				//GlStateManager.disableDepth();
 				
-				float f = prevAccuracy + (accuracy - prevAccuracy) * event.getPartialTicks();
+				float f = prevAccuracy + (accuracy - prevAccuracy) * event.getPartialTicks() + ((ItemGun) player.getHeldItemMainhand().getItem()).getAccuracy();
 				float fov = PrevFOV + (FOV - PrevFOV) * event.getPartialTicks();
+				//System.out.println(FOV);
 								
-				float scale = (float) (Math.tan(f * Math.PI / 360) / Math.tan(fov * Math.PI / 360)) * 0.75f;
-				
-				//GlStateManager.translate(0, 0, 100);
-				
-				//GlStateManager.translate(0, player.getEyeHeight(), 10);
-				//GlStateManager.rotate(player.rotationYaw, 0, -1, 0);
-				//GlStateManager.rotate(player.rotationPitch, 1, 0, 0);
-				
-				//Minecraft.getMinecraft().ingameGUI.drawTexturedModalRect(0, 0, 0, 0, 256, 256);
-				//GuiScreen screen = Minecraft.getMinecraft().;
+				float scale = (float) (Math.tan(f * Math.PI / 360) / Math.tan(fov * Math.PI / 360) / 0.75);
 				
 				Minecraft mc = Minecraft.getMinecraft();
 				
@@ -128,31 +128,10 @@ public class RWBYClientEventHandler {
 				GlStateManager.translate(width/2, height/2, 0);
 				GlStateManager.rotate((float) PERLIN_NOISE.getValue(0, (mc.world.getTotalWorldTime() + event.getPartialTicks()) * 0.01) * f * 50, 0, 0, 1);
 
-				drawCenteredTexturedModalRect(0, 0, width * scale, width * scale);
+				drawCenteredTexturedModalRect(0, 0, height * scale, height * scale);
 				
 				GlStateManager.popMatrix();
 				
-//				GlStateManager.rotate(player.rotationPitch, -1, 0, 0);
-//				GlStateManager.rotate(player.rotationYaw, 0, 1, 0);
-//				GlStateManager.translate(0, -player.getEyeHeight(), 0);
-
-								
-				prepareDrawingBulletLines(event.getPartialTicks());
-				double doubleX = player.prevPosX + event.getPartialTicks() * (player.posX - player.prevPosX);
-				double doubleY = player.prevPosY + event.getPartialTicks() * (player.posY - player.prevPosY);
-				double doubleZ = player.prevPosZ + event.getPartialTicks() * (player.posZ - player.prevPosZ);
-				Vec3d start = new Vec3d(doubleX, doubleY + player.getEyeHeight(), doubleZ);
-				List<Vec3d> lines = ((ItemGun)player.getHeldItemMainhand().getItem()).getPredictorLines(player, (ItemGun)player.getHeldItemMainhand().getItem(), nbt);
-				
-				for (Vec3d end : lines) {
-					if (end != null) {
-						drawBulletLine(start, end);
-					}
-				}
-				
-				//drawBulletLine(start, start.add(player.getLookVec().scale(64)));
-				//drawBulletLine(new Vec3d(0, player.getEyeHeight(), 0), player.getLookVec().addVector(0, player.getEyeHeight(), 0));
-				finishDrawing();
 			}
 		}
 	}
@@ -176,7 +155,8 @@ public class RWBYClientEventHandler {
 					double doubleY = otherPlayer.prevPosY + event.getPartialTicks() * (otherPlayer.posY - otherPlayer.prevPosY);
 					double doubleZ = otherPlayer.prevPosZ + event.getPartialTicks() * (otherPlayer.posZ - otherPlayer.prevPosZ);
 					Vec3d start = new Vec3d(doubleX, doubleY + otherPlayer.getEyeHeight(), doubleZ);
-					List<Vec3d> lines = ((ItemGun)otherPlayer.getHeldItemMainhand().getItem()).getPredictorLines(otherPlayer, (ItemGun)otherPlayer.getHeldItemMainhand().getItem(), nbt);
+					float f = prevAccuracy + (accuracy - prevAccuracy) * event.getPartialTicks();
+					List<Vec3d> lines = ((ItemGun)otherPlayer.getHeldItemMainhand().getItem()).getPredictorLines(otherPlayer, event.getPartialTicks(), f, (ItemGun)otherPlayer.getHeldItemMainhand().getItem(), nbt);
 					
 					for (Vec3d end : lines) {
 						if (end != null) {
@@ -255,17 +235,20 @@ public class RWBYClientEventHandler {
 	}
 	
 	private static void drawBulletLine(Vec3d start, Vec3d end) {
-		Vec3d dir = new Vec3d(start.x - end.x, 0, start.z - end.z).normalize().scale(0.05);
+		
+		double size = 0.05;
+		
+		Vec3d dir = new Vec3d(start.x - end.x, 0, start.z - end.z).normalize().scale(size);
 
 		GL11.glVertex3d(start.x - dir.z, start.y, start.z + dir.x);
 		GL11.glVertex3d(start.x + dir.z, start.y, start.z - dir.x);
 		GL11.glVertex3d(end.x + dir.z, end.y, end.z - dir.x);
 		GL11.glVertex3d(end.x - dir.z, end.y, end.z + dir.x);
 		
-		GL11.glVertex3d(start.x, start.y + 0.05, start.z);
-		GL11.glVertex3d(start.x, start.y - 0.05, start.z);
-		GL11.glVertex3d(end.x, end.y - 0.05, end.z );
-		GL11.glVertex3d(end.x, end.y + 0.05, end.z);
+		GL11.glVertex3d(start.x, start.y + size, start.z);
+		GL11.glVertex3d(start.x, start.y - size, start.z);
+		GL11.glVertex3d(end.x, end.y - size, end.z );
+		GL11.glVertex3d(end.x, end.y + size, end.z);
 	}
 	
 	private static void finishDrawing() {
