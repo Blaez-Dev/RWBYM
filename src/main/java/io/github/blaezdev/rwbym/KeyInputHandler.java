@@ -5,16 +5,20 @@ import io.github.blaezdev.rwbym.capabilities.ISemblance;
 import io.github.blaezdev.rwbym.utility.network.MessageActivateSemblance;
 import io.github.blaezdev.rwbym.utility.network.MessageCycleLevel;
 import io.github.blaezdev.rwbym.utility.network.RWBYNetworkHandler;
+import io.github.blaezdev.rwbym.weaponry.specialweapons.guns.ItemGun;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.settings.GameSettings;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.InputEvent;
 import net.minecraftforge.fml.common.gameevent.InputEvent.KeyInputEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.ClientTickEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.Phase;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.lwjgl.input.Keyboard;
+import org.lwjgl.input.Mouse;
 
 public class KeyInputHandler {
 
@@ -75,16 +79,39 @@ public class KeyInputHandler {
 		if (event.phase == Phase.START) {
 			for (KeyPresses key : KeyPresses.values()) {
 				STATES[key.ordinal()][1] = STATES[key.ordinal()][0];
-				STATES[key.ordinal()][0] = key.getKeybind().isKeyDown();
+				if (key.keyCode < 0) {
+					STATES[key.ordinal()][0] = Mouse.isButtonDown(key.keyCode + 100);
+				}
+				else {
+					STATES[key.ordinal()][0] = key.getKeybind().isKeyDown();
+				}
 			}
 		}
 	}
 	
+	@SubscribeEvent
+	public void onInput(InputEvent event) {
+		
+		EntityPlayer player = Minecraft.getMinecraft().player;
+		
+		GameSettings gs = Minecraft.getMinecraft().gameSettings;
+		
+		if (player != null && player.getHeldItemMainhand().getItem() instanceof ItemGun && !gs.keyBindSprint.isKeyDown()) {
+						
+			KeyBinding.setKeyBindState(gs.keyBindAttack.getKeyCode(), false);
+			while (gs.keyBindAttack.isPressed());
+			
+			KeyBinding.setKeyBindState(gs.keyBindUseItem.getKeyCode(), false);
+			while (gs.keyBindUseItem.isPressed());
+			
+		}
+	}
+	
 	public enum KeyPresses {
-		ADS(0),//Minecraft.getMinecraft().gameSettings.keyBindUseItem.getKeyCode()),
+		ADS(Minecraft.getMinecraft().gameSettings.keyBindUseItem.getKeyCode()),
 		SLIDELOCK_BOLT(Keyboard.KEY_T),
 		REMOVEBULLET_SLIDE(Keyboard.KEY_R),
-		SHOOT(0),//Minecraft.getMinecraft().gameSettings.keyBindAttack.getKeyCode()),
+		SHOOT(Minecraft.getMinecraft().gameSettings.keyBindAttack.getKeyCode()),
 		HAMMER(Keyboard.KEY_B),
 		MAGRELEASE(Keyboard.KEY_G),
 		INSERT(Keyboard.KEY_Z),
@@ -96,7 +123,7 @@ public class KeyInputHandler {
 		
 		KeyPresses(int keyCode) {
 			this.keyCode = keyCode;
-			this.keybind = new KeyBinding(this.toString(), this.getKeyCode(), "key.categories.RWBYM.special");
+			this.keybind = keyCode < 0 ? null : new KeyBinding(this.toString(), this.getKeyCode(), "key.categories.RWBYM.special");
 		}
 				
 		public int getKeyCode() {
