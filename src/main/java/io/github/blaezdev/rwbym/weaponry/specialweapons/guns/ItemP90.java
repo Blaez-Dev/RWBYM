@@ -41,7 +41,7 @@ public class ItemP90 extends ItemGun {
 
 	@Override
 	public float getDefaultZoomFactor(ItemStack stack) {
-		return 0.1f;
+		return 0.9f;
 	}
 
 }

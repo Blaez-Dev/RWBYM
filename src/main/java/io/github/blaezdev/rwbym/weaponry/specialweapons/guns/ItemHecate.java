@@ -9,9 +9,13 @@ import io.github.blaezdev.rwbym.weaponry.specialweapons.animations.AnimationCont
 import io.github.blaezdev.rwbym.weaponry.specialweapons.animations.AnimationControllerHammer;
 import io.github.blaezdev.rwbym.weaponry.specialweapons.animations.AnimationControllerMag;
 import io.github.blaezdev.rwbym.weaponry.specialweapons.animations.AnimationControllerShoot;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.world.World;
 
 public class ItemHecate extends ItemGun {
 	
@@ -43,6 +47,11 @@ public class ItemHecate extends ItemGun {
 	@Override
 	public float getDefaultZoomFactor(ItemStack stack) {
 		return 0.1f;
+	}
+	
+	@Override
+	protected boolean slowOnADS() {
+		return true;
 	}
 
 }

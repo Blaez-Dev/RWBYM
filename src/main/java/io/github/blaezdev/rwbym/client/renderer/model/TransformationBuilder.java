@@ -37,6 +37,11 @@ public class TransformationBuilder {
 		if (translation == null) {
 			translation = new Vector3f();
 		}
+		
+		if (order == -1) {
+			order = scales.size();
+		}
+		
 		Vector3f replaced = scales.put(order, new Vector3f(scale));
 		rotations.put(order, new Vector3f(rotation));
 		centers.put(order, new Vector3f(center));

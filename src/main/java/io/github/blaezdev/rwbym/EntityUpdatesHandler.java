@@ -9,15 +9,18 @@ import io.github.blaezdev.rwbym.capabilities.Clover.IClover;
 import io.github.blaezdev.rwbym.capabilities.ISemblance;
 import io.github.blaezdev.rwbym.capabilities.Lysette.ILysette;
 import io.github.blaezdev.rwbym.capabilities.Qrow.IQrow;
+import io.github.blaezdev.rwbym.capabilities.itemdata.ItemDataProvider;
 import io.github.blaezdev.rwbym.entity.EntityBullet;
 import io.github.blaezdev.rwbym.entity.EntityGrimm;
 import io.github.blaezdev.rwbym.utility.RWBYConfig;
+import io.github.blaezdev.rwbym.utility.Util;
 import io.github.blaezdev.rwbym.utility.network.MessageSendPlayerData;
 import io.github.blaezdev.rwbym.utility.network.MessageUpdateFlying;
 import io.github.blaezdev.rwbym.utility.network.RWBYNetworkHandler;
 import io.github.blaezdev.rwbym.weaponry.ArmourBase;
 import io.github.blaezdev.rwbym.weaponry.RWBYGliderItem;
 import io.github.blaezdev.rwbym.weaponry.RWBYHood;
+import io.github.blaezdev.rwbym.weaponry.specialweapons.guns.ItemGun;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
@@ -44,11 +47,14 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.client.event.EntityViewRenderEvent;
+import net.minecraftforge.event.entity.item.ItemEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
+import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.player.ItemFishedEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent.Clone;
 import net.minecraftforge.event.entity.player.PlayerPickupXpEvent;
 import net.minecraftforge.event.world.BlockEvent;
@@ -94,6 +100,13 @@ public class EntityUpdatesHandler {
         }
     }
 
+    @SubscribeEvent
+    public void onItemStopUse(LivingEntityUseItemEvent.Stop event) {
+		ItemStack stack = event.getItem();
+		if (stack.getItem() instanceof ItemGun) {
+    		event.setCanceled(event.getEntityLiving().world.getCapability(ItemDataProvider.ITEMDATA_CAP, null).getData().getCompoundTag(Util.getOrCreateTag(stack).getString("UUID")).getBoolean("ads"));
+    	}
+    }
 
     @SideOnly(Side.CLIENT)
     @SubscribeEvent(priority= EventPriority.NORMAL, receiveCanceled=true)

@@ -84,7 +84,19 @@
                     {
                         "value": "variable",
                         "transformation": {
-                            "translation": [0.05, 0, -0.15]
+                            "translation": [0, 0.005, -0.155]
+                        }
+                    },
+                    {
+                        "value": {
+                            "min": 0.5,
+                            "max": 1,
+                            "scale": true,
+                            "local": false
+                        },
+                        "transformation": {
+                            "translation": [1, -4.325, 3.7125],
+                            "scale": [1, 25, 25]
                         }
                     }
                 ]

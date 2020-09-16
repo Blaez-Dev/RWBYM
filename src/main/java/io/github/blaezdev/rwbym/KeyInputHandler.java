@@ -80,7 +80,7 @@ public class KeyInputHandler {
 			for (KeyPresses key : KeyPresses.values()) {
 				STATES[key.ordinal()][1] = STATES[key.ordinal()][0];
 				if (key.keyCode < 0) {
-					STATES[key.ordinal()][0] = Mouse.isButtonDown(key.keyCode + 100);
+					STATES[key.ordinal()][0] = Mouse.isButtonDown(key.keyCode + 100) && Minecraft.getMinecraft().currentScreen == null;;
 				}
 				else {
 					STATES[key.ordinal()][0] = key.getKeybind().isKeyDown();
@@ -101,8 +101,8 @@ public class KeyInputHandler {
 			KeyBinding.setKeyBindState(gs.keyBindAttack.getKeyCode(), false);
 			while (gs.keyBindAttack.isPressed());
 			
-			KeyBinding.setKeyBindState(gs.keyBindUseItem.getKeyCode(), false);
-			while (gs.keyBindUseItem.isPressed());
+			//KeyBinding.setKeyBindState(gs.keyBindUseItem.getKeyCode(), false);
+			//while (gs.keyBindUseItem.isPressed());
 			
 		}
 	}

@@ -36,10 +36,12 @@ import net.minecraft.item.IItemPropertyGetter;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 public abstract class ItemGun extends Item {
@@ -354,11 +356,19 @@ public abstract class ItemGun extends Item {
                 //System.out.println(stack + ", " + player.getName());
                 
                 RWBYNetworkHandler.sendToServer(new MessageUpdateNBT(stack, itemSlot, nbt, (AbstractClientPlayer) player));
+                
+                if (slowOnADS() && nbt.getBoolean("ads")) {
+                	player.setActiveHand(EnumHand.MAIN_HAND);
+                }
             }
         }
     }
 
-    @Override
+    protected boolean slowOnADS() {
+    	return false;
+    }
+
+	@Override
     public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
 
         boolean flag = false;
@@ -387,6 +397,11 @@ public abstract class ItemGun extends Item {
 //                }
 //            }
 //        }
+    }
+        
+    @Override
+    public int getMaxItemUseDuration(ItemStack stack) {
+    	return 7200;
     }
 
     public int findAmmo(EntityPlayer player) {
