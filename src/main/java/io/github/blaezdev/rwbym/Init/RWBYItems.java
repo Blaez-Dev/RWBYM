@@ -18,7 +18,7 @@ import io.github.blaezdev.rwbym.weaponry.ammohit.IAmmoHit;
 import io.github.blaezdev.rwbym.weaponry.ammohit.PotionAmmoHit;
 import io.github.blaezdev.rwbym.weaponry.specialweapons.ItemMag;
 import io.github.blaezdev.rwbym.weaponry.specialweapons.bullets.ItemRayTraceBullet;
-import io.github.blaezdev.rwbym.weaponry.specialweapons.bullets.ItemCasing;
+//import io.github.blaezdev.rwbym.weaponry.specialweapons.bullets.ItemCasing;
 import io.github.blaezdev.rwbym.weaponry.specialweapons.guns.ItemHecate;
 import io.github.blaezdev.rwbym.weaponry.specialweapons.guns.ItemP90;
 import net.minecraft.block.Block;
