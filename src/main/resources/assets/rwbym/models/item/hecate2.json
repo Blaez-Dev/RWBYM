@@ -26,6 +26,19 @@
             }
         },
         {
+            "model": "this:magazine",
+            "predicates": {
+                "mag": [
+                    {
+                        "value": 0,
+                        "transformation": {
+                            "scale": [0, 0, 0]
+                        }
+                    }
+                ]
+            }
+        },
+        {
             "model": "rwbym:50bmg",
             "predicates": {
                 "chambered": [
@@ -50,25 +63,6 @@
                         "order": 2,
                         "transformation": {
                             "translation": [0, 0, 0.03]
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "model": "this:magazine",
-            "predicates": {
-                "mag": [
-                    {
-                        "value": "default",
-                        "transformation": {
-                            "scale": [0, 0, 0]
-                        }
-                    },
-                    {
-                        "value": 1,
-                        "transformation": {
-                            "scale": [1, 1, 1]
                         }
                     }
                 ]

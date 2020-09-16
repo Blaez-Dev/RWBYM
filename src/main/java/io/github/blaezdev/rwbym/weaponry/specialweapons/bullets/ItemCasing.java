@@ -17,7 +17,13 @@ public class ItemCasing extends ItemBullet {
 	public void fire(World world, EntityPlayer player, float entityAccuracy, float gunAccuracy, int life) {}
 
 	@Override
-	public Vec3d getPredictorLine(EntityPlayer player, float entityAccuracy, float gunAccuracy) {
+	public Vec3d getPredictorLine(int index, EntityPlayer player, float entityAccuracy, float gunAccuracy) {
+		return null;
+	}
+
+	@Override
+	public Vec3d getPredictorLine(int index, EntityPlayer player, float partialTicks, float entityAccuracy,
+			float gunAccuracy) {
 		return null;
 	}
 
