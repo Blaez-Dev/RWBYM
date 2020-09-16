@@ -64,6 +64,16 @@
         },
         {
           "type": "item",
+          "name": "rwbym:hecate2.bbmodel",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:p90.bbmodel",
+          "weight": 1
+        },
+        {
+          "type": "item",
           "name": "rwbym:chastifol",
           "weight": 1
         },

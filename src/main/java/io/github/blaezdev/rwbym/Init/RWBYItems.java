@@ -55,12 +55,12 @@ public class RWBYItems {
     
     public static final ItemHecate Hecate = (ItemHecate) new ItemHecate().setRegistryName(RWBYModels.MODID, "hecate2.bbmodel").setUnlocalizedName("hecate2");
     //public static final ItemCasing Hecate50BMGcasing = (ItemCasing) new ItemCasing().setRegistryName(RWBYModels.MODID, "50bmgcasing").setUnlocalizedName("50bmgcasing");
-    public static final ItemRayTraceBullet Hecate50BMG = (ItemRayTraceBullet) new ItemRayTraceBullet(() -> Items.AIR, 100, 50, () -> Sound.RIFLE_SHOOT.getSound()).setRegistryName(RWBYModels.MODID, "50bmg").setUnlocalizedName("50bmg");
+    public static final ItemRayTraceBullet Hecate50BMG = (ItemRayTraceBullet) new ItemRayTraceBullet(() -> Items.AIR, 100, 60, () -> Sound.RIFLE_SHOOT.getSound()).setRegistryName(RWBYModels.MODID, "50bmg").setUnlocalizedName("50bmg");
     public static final ItemMag HecateMag = (ItemMag) new ItemMag(7, () -> Hecate50BMG).setRegistryName(RWBYModels.MODID, "hecate_mag").setUnlocalizedName("hecate_mag");
     
     public static final ItemP90 P90 = (ItemP90) new ItemP90().setRegistryName(RWBYModels.MODID, "p90.bbmodel").setUnlocalizedName("p90").setUnlocalizedName("p90");
     //public static final ItemCasing P90Casing = (ItemCasing) new ItemCasing().setRegistryName(RWBYModels.MODID, "p90casing").setUnlocalizedName("p90casing");
-    public static final ItemRayTraceBullet P90Bullet = (ItemRayTraceBullet) new ItemRayTraceBullet(() -> Items.AIR, 64, 5, () -> Sound.GAMBOL_SHROUD_SHOOT.getSound()).setRegistryName(RWBYModels.MODID, "p90bullet").setUnlocalizedName("p90bullet");
+    public static final ItemRayTraceBullet P90Bullet = (ItemRayTraceBullet) new ItemRayTraceBullet(() -> Items.AIR, 64, 8, () -> Sound.GAMBOL_SHROUD_SHOOT.getSound()).setRegistryName(RWBYModels.MODID, "p90bullet").setUnlocalizedName("p90bullet");
     public static final ItemMag P90Mag = (ItemMag) new ItemMag(50, () -> P90Bullet).setRegistryName(RWBYModels.MODID, "p90_mag").setUnlocalizedName("p90_mag");
 
     public static final Item crescent = new RWBYGun(
