@@ -28,7 +28,7 @@ public class RWBYGliderItem extends Item {
 		super();
 		setMaxDamage(2500);
 		setMaxStackSize(1);
-		this.setCreativeTab(RWBYCreativeTabs.tab_rwbyweapons);
+		//this.setCreativeTab(RWBYCreativeTabs.tab_rwbyweapons);
 		this.addPropertyOverride(new ResourceLocation("pull"), new IItemPropertyGetter()
 		{
 			@SideOnly(Side.CLIENT)

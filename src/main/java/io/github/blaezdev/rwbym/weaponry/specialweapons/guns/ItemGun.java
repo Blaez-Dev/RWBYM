@@ -84,6 +84,7 @@ public abstract class ItemGun extends Item {
         this.setCreativeTab(RWBYCreativeTabs.tab_rwbyweapons);
         this.addPropertyOverride(new ResourceLocation("chambered"), BULLET_CHAMBERED_GETTER);
         getAnimationControllers();
+        this.maxStackSize = 1;
         List<ItemPropertyWrapper> itemProperties = new ArrayList<>();
         animationControllers.forEach(controller -> itemProperties.addAll(controller.getProperties()));
         itemProperties.forEach(property -> addPropertyOverride(property.getName(), property.getOverride()));
