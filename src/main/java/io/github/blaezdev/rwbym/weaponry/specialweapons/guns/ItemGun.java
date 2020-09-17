@@ -73,14 +73,12 @@ public abstract class ItemGun extends Item {
         return EnumAction.NONE;
     }
 
-    @Override
-    public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
+    public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn)
+    {
         ItemStack itemstack = playerIn.getHeldItem(handIn);
-
-        return new ActionResult(EnumActionResult.SUCCESS, itemstack);
-
+        playerIn.setActiveHand(handIn);
+        return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemstack);
     }
-
 
     //private static final IItemPropertyGetter FIRED_GETTER = new BooleanPropertyGetter("fired");
 
@@ -392,7 +390,7 @@ public abstract class ItemGun extends Item {
             flag = Util.getOrCreateTag(oldStack).getString("UUID").equals(Util.getOrCreateTag(newStack).getString("UUID"));
         }
 
-        return slotChanged || !flag;
+        return false;//slotChanged || !flag;
     }
 
     @Override
@@ -416,7 +414,7 @@ public abstract class ItemGun extends Item {
         
     @Override
     public int getMaxItemUseDuration(ItemStack stack) {
-    	return 720000;
+    	return 72000;
     }
 
     public int findAmmo(EntityPlayer player) {

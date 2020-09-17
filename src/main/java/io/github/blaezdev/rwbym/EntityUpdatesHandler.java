@@ -129,13 +129,9 @@ public class EntityUpdatesHandler {
     public void onRenderHand(RenderSpecificHandEvent event) {
         Minecraft minecraft = Minecraft.getMinecraft();
         EntityPlayer player = minecraft.player;
-
-            // TODO Tinkers inverts this event by rendering manually with its dual harvesting, come up with a solution
         if(player.getItemInUseCount() > 1 && player.getHeldItemMainhand().getItem() instanceof ItemGun && player.getActiveHand() == EnumHand.MAIN_HAND){
             if (event.getHand() == EnumHand.OFF_HAND) {
-                if (event.getSwingProgress() == 0f) {
                     event.setCanceled(true);
-                }
             }
         }
     }
