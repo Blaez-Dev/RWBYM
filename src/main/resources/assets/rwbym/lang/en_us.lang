@@ -770,6 +770,17 @@ key.categories.RWBYM=RWBYM
 
 key.activatesemblance=Activate Semblance
 
+key.categories.RWBYM.special=RWBYM Special Weapon Keybinds
+
+key.ADS(Minecraft.getMinecraft().gameSettings.keyBindUseItem.getKeyCode()),
+key.SLIDELOCK_BOLT=Operate SlideLock/Bolt
+key.REMOVEBULLET_SLIDE=Remove Bullet/Operate Slide
+key.SHOOT=Shoot
+key.HAMMER=Operate Hammer
+key.MAGRELEASE=Remove Magazine/Swap Magazine
+key.INSERT=Insert Magazine/Cartridge
+key.FIRESELECT=Change Fire Mode
+
 command.semblance.usage=/setsemblance [player] <semblance> [level]
 
 command.aura.usage=/aura [player] ['max'] [set|add|remove] [amount|percent%%|'max']

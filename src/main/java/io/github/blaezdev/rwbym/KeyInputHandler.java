@@ -123,7 +123,7 @@ public class KeyInputHandler {
 		
 		KeyPresses(int keyCode) {
 			this.keyCode = keyCode;
-			this.keybind = keyCode < 0 ? null : new KeyBinding(this.toString(), this.getKeyCode(), "key.categories.RWBYM.special");
+			this.keybind = keyCode < 0 ? null : new KeyBinding("key." + this.toString(), this.getKeyCode(), "key.categories.RWBYM.special");
 		}
 				
 		public int getKeyCode() {

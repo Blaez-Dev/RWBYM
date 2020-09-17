@@ -76,15 +76,7 @@
                     {
                         "value": "variable",
                         "transformation": {
-                            "translation": [0.05, 0, 0.16]
-                        }
-                    }
-                ],
-                "FIRST_PERSON_RIGHT_HAND": [
-                    {
-                        "value": "variable",
-                        "transformation": {
-                            "translation": [0, 0.005, -0.155]
+                            "translation": [0.3125, -0.026, 0.2495]
                         }
                     },
                     {
@@ -95,8 +87,31 @@
                             "local": false
                         },
                         "transformation": {
-                            "translation": [1, -4.325, 3.7125],
-                            "scale": [1, 25, 25]
+                            "_translation": [1, -4.325, 3.7125],
+                            "__translation": [1, -4.34, -7.235],
+                            "translation": [-1, -4.34, -7.235],
+                            "scale": [1, 30, 30]
+                        }
+                    }
+                ],
+                "FIRST_PERSON_RIGHT_HAND": [
+                    {
+                        "value": "variable",
+                        "transformation": {
+                            "translation": [-0.3125, -0.026, -0.2495]
+                        }
+                    },
+                    {
+                        "value": {
+                            "min": 0.5,
+                            "max": 1,
+                            "scale": true,
+                            "local": false
+                        },
+                        "transformation": {
+                            "_translation": [1, -4.325, 3.7125],
+                            "translation": [1, -4.34, 7.235],
+                            "scale": [1, 30, 30]
                         }
                     }
                 ]

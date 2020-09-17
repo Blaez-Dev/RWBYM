@@ -18,7 +18,9 @@ public class KeybindRegistry {
 		ClientRegistry.registerKeyBinding(activateSemblance);
 		ClientRegistry.registerKeyBinding(cycleLevel);
 		for (KeyPresses key : KeyPresses.values()) {
-			ClientRegistry.registerKeyBinding(key.getKeybind());
+			if (key.getKeybind() != null) {
+				ClientRegistry.registerKeyBinding(key.getKeybind());
+			}
 		}
 	}
 }
