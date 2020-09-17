@@ -7,6 +7,9 @@ import java.util.function.Supplier;
 
 import javax.annotation.Nullable;
 
+import net.minecraft.item.EnumAction;
+import net.minecraft.util.*;
+import net.minecraft.util.math.BlockPos;
 import org.apache.commons.lang3.tuple.Pair;
 
 import io.github.blaezdev.rwbym.KeyInputHandler;
@@ -36,9 +39,6 @@ import net.minecraft.item.IItemPropertyGetter;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -68,6 +68,20 @@ public abstract class ItemGun extends Item {
         }
     };
 
+    @Override
+    public EnumAction getItemUseAction(ItemStack stack) {
+        return EnumAction.NONE;
+    }
+
+    @Override
+    public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
+        ItemStack itemstack = playerIn.getHeldItem(handIn);
+
+        return new ActionResult(EnumActionResult.SUCCESS, itemstack);
+
+    }
+
+
     //private static final IItemPropertyGetter FIRED_GETTER = new BooleanPropertyGetter("fired");
 
     protected double spreadY;
@@ -89,7 +103,7 @@ public abstract class ItemGun extends Item {
         animationControllers.forEach(controller -> itemProperties.addAll(controller.getProperties()));
         itemProperties.forEach(property -> addPropertyOverride(property.getName(), property.getOverride()));
     }
-    
+
     //Client Only
     public List<Vec3d> getPredictorLines(EntityPlayer player, float partialTicks, float entityAccuracy, ItemGun gun, NBTTagCompound nbt) {
     	List<Vec3d> list = new ArrayList<>();
@@ -402,7 +416,7 @@ public abstract class ItemGun extends Item {
         
     @Override
     public int getMaxItemUseDuration(ItemStack stack) {
-    	return 7200;
+    	return 720000;
     }
 
     public int findAmmo(EntityPlayer player) {
@@ -454,6 +468,8 @@ public abstract class ItemGun extends Item {
         }
         return -1;
     }
+
+
 
     public boolean isMag(ItemStack stack) {
         return stack.getItem() == mag.get();

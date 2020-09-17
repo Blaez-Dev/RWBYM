@@ -47,6 +47,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.client.event.EntityViewRenderEvent;
+import net.minecraftforge.client.event.RenderSpecificHandEvent;
 import net.minecraftforge.event.entity.item.ItemEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
@@ -123,6 +124,21 @@ public class EntityUpdatesHandler {
          // must cancel event for event handler to take effect
     }
 
+
+    @SubscribeEvent(priority = EventPriority.HIGHEST)
+    public void onRenderHand(RenderSpecificHandEvent event) {
+        Minecraft minecraft = Minecraft.getMinecraft();
+        EntityPlayer player = minecraft.player;
+
+            // TODO Tinkers inverts this event by rendering manually with its dual harvesting, come up with a solution
+        if(player.getItemInUseCount() > 1 && player.getHeldItemMainhand().getItem() instanceof ItemGun && player.getActiveHand() == EnumHand.MAIN_HAND){
+            if (event.getHand() == EnumHand.OFF_HAND) {
+                if (event.getSwingProgress() == 0f) {
+                    event.setCanceled(true);
+                }
+            }
+        }
+    }
 
     @SideOnly(Side.CLIENT)
     @SubscribeEvent(priority=EventPriority.NORMAL, receiveCanceled=true)
