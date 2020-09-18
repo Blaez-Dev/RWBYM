@@ -135,8 +135,6 @@ public class RWBYModels {
     	//LOGGER.log(Level.FATAL, "fatal");
     	//LOGGER.log(Level.OFF, "off"); // should only be used to set logger level, which can't be done without copying and modifying forge files
     	
-    	ModelLoaderRegistry.registerLoader(new BBGunLoader());
-
         MinecraftForge.EVENT_BUS.register(new ModEventHandler());
 
         if(!RWBYConfig.worldgen.legacyworldgen){

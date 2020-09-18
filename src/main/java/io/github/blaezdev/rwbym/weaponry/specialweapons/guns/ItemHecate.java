@@ -2,19 +2,14 @@ package io.github.blaezdev.rwbym.weaponry.specialweapons.guns;
 
 import java.util.List;
 
-import io.github.blaezdev.rwbym.RWBYSoundHandler.Sound;
 import io.github.blaezdev.rwbym.Init.RWBYItems;
 import io.github.blaezdev.rwbym.weaponry.specialweapons.animations.AnimationControllerADS;
 import io.github.blaezdev.rwbym.weaponry.specialweapons.animations.AnimationControllerBolt;
 import io.github.blaezdev.rwbym.weaponry.specialweapons.animations.AnimationControllerHammer;
 import io.github.blaezdev.rwbym.weaponry.specialweapons.animations.AnimationControllerMag;
 import io.github.blaezdev.rwbym.weaponry.specialweapons.animations.AnimationControllerShoot;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class ItemHecate extends ItemGun {

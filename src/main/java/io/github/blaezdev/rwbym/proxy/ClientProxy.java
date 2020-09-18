@@ -7,6 +7,7 @@ import io.github.blaezdev.rwbym.RWBYModels;
 import io.github.blaezdev.rwbym.client.particle.RenderEvents;
 import io.github.blaezdev.rwbym.client.particle.RosePetal;
 import io.github.blaezdev.rwbym.client.particle.TextureStitcher;
+import io.github.blaezdev.rwbym.client.renderer.model.BBGunLoader;
 import io.github.blaezdev.rwbym.entity.*;
 import io.github.blaezdev.rwbym.entity.renderer.*;
 import io.github.blaezdev.rwbym.utility.RWBYConfig;
@@ -28,6 +29,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntitySkull;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.client.model.ModelLoaderRegistry;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fluids.BlockFluidBase;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -96,6 +98,7 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntityArachne.class, ArachneRender.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(EntityArachneClone.class, ArachneCloneRender.FACTORY);
 		registerBlockmodel(event, RWBYItems.fluidGrimm);
+    	ModelLoaderRegistry.registerLoader(new BBGunLoader());
         MinecraftForge.EVENT_BUS.register(new TextureStitcher());
     }
 

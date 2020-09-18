@@ -25,6 +25,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
@@ -32,9 +33,11 @@ import net.minecraftforge.client.event.EntityViewRenderEvent;
 import net.minecraftforge.client.event.FOVUpdateEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderPlayerEvent;
+import net.minecraftforge.client.event.RenderSpecificHandEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
 import net.minecraftforge.client.event.RenderWorldLastEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 
@@ -61,6 +64,17 @@ public class RWBYClientEventHandler {
 		}
 
 	};
+	
+    @SubscribeEvent(priority = EventPriority.HIGHEST)
+    public void onRenderHand(RenderSpecificHandEvent event) {
+        Minecraft minecraft = Minecraft.getMinecraft();
+        EntityPlayer player = minecraft.player;
+        if(player.getItemInUseCount() > 1 && player.getHeldItemMainhand().getItem() instanceof ItemGun && player.getActiveHand() == EnumHand.MAIN_HAND){
+            if (event.getHand() == EnumHand.OFF_HAND) {
+                    event.setCanceled(true);
+            }
+        }
+    }
 	
 	@SubscribeEvent
 	public static void onRenderOvelayPre(RenderGameOverlayEvent.Pre event) {
