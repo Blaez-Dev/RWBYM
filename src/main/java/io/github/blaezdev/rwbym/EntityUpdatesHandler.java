@@ -479,7 +479,7 @@ public class EntityUpdatesHandler {
         }
         return ItemStack.EMPTY;
     }
-
+/*
     @SubscribeEvent
     public void DropItem(LivingDamageEvent event) {
         Entity e = event.getEntity();
@@ -506,5 +506,5 @@ public class EntityUpdatesHandler {
                 item.motionY = 0.5;
                 world.spawnEntity(item);}}
         }
-    }
+    }*/
 }

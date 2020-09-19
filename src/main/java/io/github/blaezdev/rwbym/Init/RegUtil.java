@@ -777,7 +777,7 @@ public class RegUtil {
         //registerItems(event, RWBYItems.p90);
         registerItems(event, RWBYItems.flyingthundergod);
         registerItems(event, RWBYItems.entitythundergod);
-        registerItems(event, RWBYItems.taintedartefact);
+        //registerItems(event, RWBYItems.taintedartefact);
         registerItems(event, RWBYItems.thundergodammo);
 
     }
