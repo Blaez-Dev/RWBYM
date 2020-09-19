@@ -2,6 +2,7 @@ package io.github.blaezdev.rwbym.weaponry.specialweapons.animations;
 
 import java.util.List;
 
+import io.github.blaezdev.rwbym.RWBYModels;
 import io.github.blaezdev.rwbym.capabilities.itemdata.IItemData;
 import io.github.blaezdev.rwbym.capabilities.itemdata.ItemDataProvider;
 import io.github.blaezdev.rwbym.weaponry.specialweapons.ItemPropertyWrapper;
@@ -78,7 +79,7 @@ public interface IAnimationController {
 		return new ItemPropertyWrapper(name, (stack, worldIn, entity) -> {
 			if (worldIn == null) {
 				if (showInInvenotry) {
-					worldIn = Minecraft.getMinecraft().world;
+					worldIn = RWBYModels.proxy.getWorld(0);
 				}
 			}
 
@@ -103,7 +104,7 @@ public interface IAnimationController {
 		return new ItemPropertyWrapper(name, (stack, worldIn, entity) -> {
 			if (worldIn == null) {
 				if (showInInvenotry) {
-					worldIn = Minecraft.getMinecraft().world;
+					worldIn = RWBYModels.proxy.getWorld(0);
 				}
 			}
 
@@ -126,7 +127,7 @@ public interface IAnimationController {
 		return new ItemPropertyWrapper(name, (stack, worldIn, entity) -> {
 			if (worldIn == null) {
 				if (showInInvenotry) {
-					worldIn = Minecraft.getMinecraft().world;
+					worldIn = RWBYModels.proxy.getWorld(0);
 				}
 			}
 
@@ -150,7 +151,7 @@ public interface IAnimationController {
 		return new ItemPropertyWrapper(name, (stack, worldIn, entity) -> {
 			if (worldIn == null) {
 				if (showInInvenotry) {
-					worldIn = Minecraft.getMinecraft().world;
+					worldIn = RWBYModels.proxy.getWorld(0);
 				}
 			}
 
@@ -174,7 +175,7 @@ public interface IAnimationController {
 		return new ItemPropertyWrapper(name, (stack, worldIn, entity) -> {
 			if (worldIn == null) {
 				if (showInInvenotry) {
-					worldIn = Minecraft.getMinecraft().world;
+					worldIn = RWBYModels.proxy.getWorld(0);
 				}
 			}
 

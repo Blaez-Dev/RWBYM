@@ -54,7 +54,7 @@ public abstract class ItemGun extends Item {
         public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn)
         {
             if (worldIn == null) {
-                worldIn = Minecraft.getMinecraft().world;
+                worldIn = RWBYModels.proxy.getWorld(0);
             }
 
             IItemData iItemData = worldIn.getCapability(ItemDataProvider.ITEMDATA_CAP, null);
@@ -368,7 +368,7 @@ public abstract class ItemGun extends Item {
 
                 //System.out.println(stack + ", " + player.getName());
                 
-                RWBYNetworkHandler.sendToServer(new MessageUpdateNBT(stack, itemSlot, nbt, (AbstractClientPlayer) player));
+                RWBYNetworkHandler.sendToServer(new MessageUpdateNBT(stack, itemSlot, nbt, player));
                 
                 if (slowOnADS() && nbt.getBoolean("ads")) {
                 	player.setActiveHand(EnumHand.MAIN_HAND);
@@ -395,10 +395,13 @@ public abstract class ItemGun extends Item {
 
     @Override
     public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-        tooltip.add("ID: " + Util.getOrCreateTag(stack).getString("UUID"));
+        //tooltip.add("ID: " + Util.getOrCreateTag(stack).getString("UUID"));
     	if (worldIn != null) {
 	        NBTTagCompound nbt = worldIn.getCapability(ItemDataProvider.ITEMDATA_CAP, null).getData().getCompoundTag(Util.getOrCreateTag(stack).getString("UUID"));
 	        int bullets = nbt.getTagList("bullets", 8).tagCount();
+	        if (!nbt.getString("BulletChambered").isEmpty()) {
+	        	bullets++;
+	        }
 	        int maxBullets = mag.get().getMaxAmmo();
 	        tooltip.add("Ammo: " + bullets + "/" + maxBullets);
     	}

@@ -111,7 +111,7 @@ public class ItemMag extends Item {
 					}
 					//Main.LOGGER.info("Sending nbt at slot {}", itemSlot);
 				}
-				RWBYNetworkHandler.sendToServer(new MessageUpdateNBT(stack, itemSlot, nbt, (AbstractClientPlayer) player));
+				RWBYNetworkHandler.sendToServer(new MessageUpdateNBT(stack, itemSlot, nbt, player));
 		}
 	}
 	

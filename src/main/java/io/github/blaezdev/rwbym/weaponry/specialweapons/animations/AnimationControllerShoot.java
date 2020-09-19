@@ -3,7 +3,6 @@ package io.github.blaezdev.rwbym.weaponry.specialweapons.animations;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.github.blaezdev.rwbym.KeyInputHandler;
 import io.github.blaezdev.rwbym.RWBYSoundHandler.Sound;
 import io.github.blaezdev.rwbym.utility.network.MessagePlaySound;
 import io.github.blaezdev.rwbym.utility.network.RWBYNetworkHandler;

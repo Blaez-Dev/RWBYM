@@ -25,7 +25,7 @@ public class MessageUpdateNBT extends MessageBase<MessageUpdateNBT> {
 
 	public MessageUpdateNBT() {}
 
-	public MessageUpdateNBT(ItemStack stack, int slot, NBTTagCompound nbt, AbstractClientPlayer clientPlayer) {
+	public MessageUpdateNBT(ItemStack stack, int slot, NBTTagCompound nbt, EntityPlayer clientPlayer) {
 		this.stackNBT = stack.serializeNBT();
 		this.slot = slot;
 		this.nbt = nbt;

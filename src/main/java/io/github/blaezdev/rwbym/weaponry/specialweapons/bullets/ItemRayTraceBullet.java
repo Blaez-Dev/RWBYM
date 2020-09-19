@@ -155,7 +155,7 @@ public class ItemRayTraceBullet extends ItemBullet {
     protected Entity findEntityOnPath(Vec3d start, Vec3d end, EntityPlayer player)
     {
         Entity entity = null;
-        List<Entity> list = player.world.getEntitiesInAABBexcluding(player, new AxisAlignedBB(start, end).grow(1.0D), ARROW_TARGETS);
+        List<Entity> list = player.world.getEntitiesInAABBexcluding(player, new AxisAlignedBB(start.x, start.y, start.z, end.x, end.y, end.z).grow(1.0D), ARROW_TARGETS);
         double d0 = 0.0D;
 
         for (int i = 0; i < list.size(); ++i)

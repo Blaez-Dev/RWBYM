@@ -124,18 +124,6 @@ public class EntityUpdatesHandler {
          // must cancel event for event handler to take effect
     }
 
-
-    @SubscribeEvent(priority = EventPriority.HIGHEST)
-    public void onRenderHand(RenderSpecificHandEvent event) {
-        Minecraft minecraft = Minecraft.getMinecraft();
-        EntityPlayer player = minecraft.player;
-        if(player.getItemInUseCount() > 1 && player.getHeldItemMainhand().getItem() instanceof ItemGun && player.getActiveHand() == EnumHand.MAIN_HAND){
-            if (event.getHand() == EnumHand.OFF_HAND) {
-                    event.setCanceled(true);
-            }
-        }
-    }
-
     @SideOnly(Side.CLIENT)
     @SubscribeEvent(priority=EventPriority.NORMAL, receiveCanceled=true)
     public void onEvent(EntityViewRenderEvent.FogColors event)
