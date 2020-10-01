@@ -110,6 +110,11 @@ public class RWBYConfig
     @Config.Name("Enable Player Aura Damage Reduction")
     @Config.Comment("enable or disable player damage to aura reduction")
     public  boolean aurareduction = true;
+    @Config.Comment("Current Max Aura/player damage to aura reduction = mob damage reduction reconmendation to keep at default")
+    public  int entitydamagetoaurareduction = 500;
+    @Config.Name("Enable Mob Aura Damage Reduction")
+    @Config.Comment("enable or disable player damage to aura reduction")
+    public  boolean mobauradamagereduction = true;
     @Config.Name("Blake Drain Rate")
     public float blakedrainrate = 5.0F;
     @Config.Name("Nora Drain Rate")
@@ -190,7 +195,7 @@ public class RWBYConfig
 
     public static class General {
     @Config.Name("Give Player Scroll on First Spawn?")
-    public  boolean enablefirstspawnscroll = false;
+    public  boolean enablefirstspawnscroll = true;
     @Config.Name("Gun Volume")
     public float gunvolume = 1F;
     @Config.Name("speedlimiter -- lightningdust")

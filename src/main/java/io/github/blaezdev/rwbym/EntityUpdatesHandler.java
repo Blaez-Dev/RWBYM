@@ -28,6 +28,7 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.projectile.EntityArrow;
@@ -327,10 +328,26 @@ public class EntityUpdatesHandler {
                 if (player.hasCapability(AuraProvider.AURA_CAP, null)) {
                     IAura aura = player.getCapability(AuraProvider.AURA_CAP, null);
                     float playerdamagereduction = aura.getMaxAura() / RWBYConfig.aura.playerdamagetoaurareduction;
+                    float mobdamagereduction = aura.getMaxAura() / RWBYConfig.aura.entitydamagetoaurareduction;
                     float eventamount = event.getAmount() * 5;
                     if (playerdamagereduction > 0.5F) {
                         playerdamagereduction = 0.5F;
                     }
+                    if (mobdamagereduction > 0.7F) {
+                        mobdamagereduction = 0.7F;
+                    }
+
+
+                    if (RWBYConfig.aura.mobauradamagereduction) {
+                        if (event.getSource().getTrueSource() instanceof EntityMob) {
+                            float overflow = aura.useAura(player, eventamount * mobdamagereduction, true);
+                            aura.delayRecharge(600);
+                            event.setAmount(overflow / 5);
+                        } else {
+                            float overflow = aura.useAura(player, event.getAmount() * 5, true);
+                            aura.delayRecharge(600);
+                            event.setAmount(overflow / 5);
+                        }}
                     if (RWBYConfig.aura.aurareduction) {
                         if (event.getSource().getTrueSource() instanceof EntityPlayer || event.getSource().getTrueSource() instanceof EntityBullet || event.getSource().getTrueSource() instanceof EntityArrow) {
                             float overflow = aura.useAura(player, eventamount * playerdamagereduction, true);
@@ -341,6 +358,7 @@ public class EntityUpdatesHandler {
                             aura.delayRecharge(600);
                             event.setAmount(overflow / 5);
                         }
+
                     } else {
                         float overflow = aura.useAura(player, event.getAmount() * 5, true);
                         aura.delayRecharge(600);
