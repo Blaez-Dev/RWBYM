@@ -53,7 +53,10 @@ import io.github.blaezdev.rwbym.capabilities.Ruby.IRuby;
 import io.github.blaezdev.rwbym.capabilities.Ruby.Ruby;
 import io.github.blaezdev.rwbym.capabilities.Ruby.RubyProvider;
 import io.github.blaezdev.rwbym.capabilities.Ruby.RubyStorage;
+import io.github.blaezdev.rwbym.capabilities.Valour.IValour;
+import io.github.blaezdev.rwbym.capabilities.Valour.Valour;
 import io.github.blaezdev.rwbym.capabilities.Valour.ValourProvider;
+import io.github.blaezdev.rwbym.capabilities.Valour.ValourStorage;
 import io.github.blaezdev.rwbym.capabilities.Weiss.IWeiss;
 import io.github.blaezdev.rwbym.capabilities.Weiss.Weiss;
 import io.github.blaezdev.rwbym.capabilities.Weiss.WeissProvider;
@@ -155,6 +158,7 @@ public class CapabilityHandler {
 		register(IClover.class, new CloverStorage(), Clover::new);
 		register(IHarriet.class, new HarrietStorage(), Harriet::new);
 		register(IPyrrha.class, new PyrrhaStorage(), Pyrrha::new);
+		register(IValour.class, new ValourStorage(), Valour::new);
 
 		CapabilityManager.INSTANCE.register(IBlank.class, new BlankStorage(), Blank::new);
 		CapabilityManager.INSTANCE.register(IAura.class, new AuraStorage(), Aura::new);

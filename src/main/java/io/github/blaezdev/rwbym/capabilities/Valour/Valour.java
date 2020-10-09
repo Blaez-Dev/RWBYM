@@ -38,6 +38,21 @@ public class Valour implements IValour {
 	private int active = 0;
 	
 	private int airTime = 0;
+
+	private boolean checkValidFlash(EntityPlayer player)
+	{
+		for(int j = -1; j<=1; ++j)
+		{
+			for(int k = -1; k <= 1; ++k)
+			{
+				if(player.world.getBlockState(new BlockPos((int)(player.posX), (int)(player.posY + j), (int)(player.posZ + k))) != Blocks.AIR)// && !this.getValidFlash())
+				{
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 	
 	@Override
 	public boolean onActivate(EntityPlayer player) {
@@ -93,23 +108,9 @@ public class Valour implements IValour {
 		airTime = nbt.getInteger("airTime");
 	}
 
-	public boolean checkValidFlash(EntityPlayer player)
-	{
-		for(int j = -1; j<=1; ++j)
-		{
-			for(int k = -1; k <= 1; ++k)
-			{
-				//Basically checking if player is not flying. which is same as onGround... I have no idea why I have this code
-				//I did have another check here that see's if player is inside the LeztzStil Square which restricts movement.
 
-				if(player.world.getBlockState(new BlockPos((int)(player.posX), (int)(player.posY + j), (int)(player.posZ + k))) != Blocks.AIR)// && !this.getValidFlash())
-				{
-					return true;
-				}
-			}
-		}
-		return false;
-	}
+
+
 
 	@Override
 	public int getLevel() {

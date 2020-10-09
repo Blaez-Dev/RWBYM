@@ -5,6 +5,4 @@ import net.minecraft.entity.player.EntityPlayer;
 
 public interface IValour extends ISemblance {
 
-	//public void CheckValidFlash(EntityPlayer player);
-	
 }
