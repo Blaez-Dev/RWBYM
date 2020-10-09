@@ -125,6 +125,8 @@ public class RWBYConfig
     public float lysettedrainrate = 0.05F;
     @Config.Name("Ruby Drain Rate")
     public float rubydrainrate = 0.1F;
+    @Config.Name("Valour Drainrate")
+    public float valourdrainrate = 25F;
     @Config.Name("Weiss Boarbatusk Cost")
     public int weissboarbatusk = 5;
     @Config.Name("Weiss Beowolf Cost")

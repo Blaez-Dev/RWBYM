@@ -53,6 +53,7 @@ import io.github.blaezdev.rwbym.capabilities.Ruby.IRuby;
 import io.github.blaezdev.rwbym.capabilities.Ruby.Ruby;
 import io.github.blaezdev.rwbym.capabilities.Ruby.RubyProvider;
 import io.github.blaezdev.rwbym.capabilities.Ruby.RubyStorage;
+import io.github.blaezdev.rwbym.capabilities.Valour.ValourProvider;
 import io.github.blaezdev.rwbym.capabilities.Weiss.IWeiss;
 import io.github.blaezdev.rwbym.capabilities.Weiss.Weiss;
 import io.github.blaezdev.rwbym.capabilities.Weiss.WeissProvider;
@@ -101,6 +102,7 @@ public class CapabilityHandler {
 	public static final ResourceLocation Harriet_Key = new ResourceLocation(RWBYModels.MODID, "harriet");
 	public static final ResourceLocation Pyrrha_Key = new ResourceLocation(RWBYModels.MODID, "pyrrha");
 	public static final ResourceLocation Blank_Key = new ResourceLocation(RWBYModels.MODID, "blank");
+	public static final ResourceLocation Valour_Key = new ResourceLocation(RWBYModels.MODID, "valour");
 	
 	public static final ResourceLocation AURA_KEY = new ResourceLocation(RWBYModels.MODID, "aura");
 	public static final ResourceLocation TEAM_KEY = new ResourceLocation(RWBYModels.MODID, "team");
@@ -128,6 +130,7 @@ public class CapabilityHandler {
 			event.addCapability(Harriet_Key, new HarrietProvider());
 			event.addCapability(Pyrrha_Key, new PyrrhaProvider());
 			event.addCapability(Blank_Key, new BlankProvider());
+			event.addCapability(Valour_Key, new ValourProvider());
 		}
 		
 		if (event.getObject() instanceof World) {

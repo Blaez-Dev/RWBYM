@@ -13,6 +13,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import java.util.UUID;
@@ -56,6 +57,11 @@ public abstract class CommonProxy {
 		
 		return member;
 
+	}
+
+	public EntityPlayer getPlayerFromMessage(MessageContext ctx)
+	{
+		return ctx.getServerHandler().player;
 	}
 
 	public abstract EntityPlayer getClientPlayer();
