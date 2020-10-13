@@ -64,7 +64,7 @@ public class Valour implements IValour {
 			{
 				int distance = 6*level;	//(LEVEL * amplifier) + 2?? Whatever you want really.
 				IAura aura = player.getCapability(AuraProvider.AURA_CAP, null);
-				if(aura.getAmount() > 25F){
+				if(aura.getAmount() > 10F){
 					aura.useAura(player,auraUse,false);
 					if(player instanceof EntityPlayerMP)
 					{
@@ -77,7 +77,7 @@ public class Valour implements IValour {
 		}
 
 		return false;
-		
+
 	}
 
 	@Override
@@ -136,7 +136,7 @@ public class Valour implements IValour {
 	public boolean isActive() {
 		return false;
 	}
-	
+
 	@Override
 	public boolean isInvisible() {
 		return active > 0;

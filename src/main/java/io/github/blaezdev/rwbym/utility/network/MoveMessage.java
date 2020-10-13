@@ -44,6 +44,7 @@ public class MoveMessage extends MessageBase<MoveMessage>
     }*/
 
     public void handleClientSide(MoveMessage message, EntityPlayer player) {
+        player.move(MoverType.SELF, message.distance*Math.cos(-player.rotationPitch * (Math.PI / 180F))*Math.sin(-player.rotationYaw * (Math.PI / 180F)), message.distance*Math.sin(-player.rotationPitch * (Math.PI / 180F)), message.distance*Math.cos(-player.rotationPitch * (Math.PI / 180F))*Math.cos(-player.rotationYaw * (Math.PI / 180F)));
 
     }
 
