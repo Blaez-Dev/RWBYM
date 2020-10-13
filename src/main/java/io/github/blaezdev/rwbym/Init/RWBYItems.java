@@ -77,7 +77,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.CRESCENT_ROSE_SHOOT.getSound(),//1,
+            () -> Sound.CRESCENT_ROSE_SHOOT.getSound(),//1,
             RWBYCreativeTabs.tab_rwbyweapons).setRecoil(5);
     public static final Item hadesgun = new RWBYGun(
             "hadesgun",
@@ -93,7 +93,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.EMBER_CELICA_SHOOT.getSound(),//7,
+            () -> Sound.EMBER_CELICA_SHOOT.getSound(),//7,
             null).setElement("rwbym:hadesgunrecoil").setRecoil(8);
     public static final Item hadesgunrecoil = new RWBYGun(
             "hadesgunrecoil",
@@ -109,7 +109,7 @@ public class RWBYItems {
             1,
             1,
             0,
-            Sound.EMBER_CELICA_SHOOT.getSound(),//7,
+            () -> Sound.EMBER_CELICA_SHOOT.getSound(),//7,
             RWBYCreativeTabs.tab_rwbyweapons).setElement("rwbym:hadesgun").setRecoil(20);
     public static final Item hadesscy = new RWBYGun(
             "hadesscy",
@@ -125,7 +125,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.EMBER_CELICA_SHOOT.getSound(),//7,
+            () -> Sound.EMBER_CELICA_SHOOT.getSound(),//7,
             null).setRecoil(15);
     public static final Item grimmscy = new RWBYGun(
             "grimmscy",
@@ -173,7 +173,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.GAMBOL_SHROUD_SHOOT.getSound(),//3,
+            () -> Sound.GAMBOL_SHROUD_SHOOT.getSound(),//3,
             RWBYCreativeTabs.tab_rwbyweapons);
     public static final Item crescentfrost = new RWBYGun(
             "crescentfrost",
@@ -189,7 +189,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.CRESCENT_ROSE_SHOOT.getSound(),//1,
+            () -> Sound.CRESCENT_ROSE_SHOOT.getSound(),//1,
             null).setRecoil(5);
     public static final Item gambol = new RWBYGun(
             "gambol",
@@ -347,7 +347,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            SoundEvents.ENTITY_ENDERPEARL_THROW,
+            () -> SoundEvents.ENTITY_ENDERPEARL_THROW,
             RWBYCreativeTabs.tab_rwbyweapons);
     public static final Item pyrrhasword = new RWBYGun(
             "pyrrhasword",
@@ -411,7 +411,7 @@ public class RWBYItems {
             1,
             1,
             1,
-            Sound.CRESCENT_ROSE_SHOOT.getSound(),//1,
+            () -> Sound.CRESCENT_ROSE_SHOOT.getSound(),//1,
             null).setRecoil(5);
     public static final Item weissv = new RWBYGun(
             "weissv",
@@ -427,7 +427,7 @@ public class RWBYItems {
             0,
             1,
             1,
-            Sound.MYRTENASTER_SHOOT.getSound(),//4,
+            () -> Sound.MYRTENASTER_SHOOT.getSound(),//4,
             null);
     public static final Item gambolv = new RWBYGun(
             "gambolv",
@@ -492,7 +492,7 @@ public class RWBYItems {
             0,
             1,
             1,
-            SoundEvents.ENTITY_ENDERPEARL_THROW,
+            () -> SoundEvents.ENTITY_ENDERPEARL_THROW,
             null);
     public static final Item pyrrhaswordv = new RWBYGun(
             "pyrrhaswordv",
@@ -556,7 +556,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.STORMFLOWER_SHOOT.getSound(),//5,
+            () -> Sound.STORMFLOWER_SHOOT.getSound(),//5,
             RWBYCreativeTabs.tab_rwbyweapons).setRecoil(5);
     public static final Item cocobagv = new RWBYGun(
             "cocobagv",
@@ -604,7 +604,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            SoundEvents.ENTITY_ENDERPEARL_THROW,
+            () -> SoundEvents.ENTITY_ENDERPEARL_THROW,
             RWBYCreativeTabs.tab_rwbyweapons);
     public static final Item ozpincane = new RWBYGun(
             "ozpincane",
@@ -944,7 +944,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.GAMBOL_SHROUD_SHOOT.getSound(),//3,
+            () -> Sound.GAMBOL_SHROUD_SHOOT.getSound(),//3,
             null).setRecoil(5);
     public static final Item angelcane = new RWBYGun(
             "angelcane",
@@ -1008,7 +1008,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.CRESCENT_ROSE_SHOOT.getSound(),//12,
+            () -> Sound.CRESCENT_ROSE_SHOOT.getSound(),//12,
             RWBYCreativeTabs.tab_rwbyweapons).setRecoil(10);
     public static final Item chatareusgun = new RWBYGun(
             "chatareusgun",
@@ -1024,7 +1024,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.CRESCENT_ROSE_SHOOT.getSound(),//12,
+            () -> Sound.CRESCENT_ROSE_SHOOT.getSound(),//12,
             null).setRecoil(10);
 
     public static final Item lark = new RWBYGun(
@@ -1041,7 +1041,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.CRESCENT_ROSE_SHOOT.getSound(),//12,
+            () -> Sound.CRESCENT_ROSE_SHOOT.getSound(),//12,
             RWBYCreativeTabs.tab_rwbyweapons).setRecoil(10);
 
     public static final Item armasword = new NPCRWBYSword(
@@ -1093,7 +1093,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            SoundEvents.ENTITY_ENDERPEARL_THROW,
+            () -> SoundEvents.ENTITY_ENDERPEARL_THROW,
             null);
     public static final Item reese = new KineticWeapons(
             "reese",
@@ -1119,7 +1119,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.STORMFLOWER_SHOOT.getSound(),//14,
+            () -> Sound.STORMFLOWER_SHOOT.getSound(),//14,
             null).setRecoil(5);
     public static final Item bolin = new RWBYGun(
             "bolin",
@@ -1238,7 +1238,7 @@ public class RWBYItems {
             1,
             1,
             0,
-            Sound.CRESCENT_ROSE_SHOOT.getSound(),//1,
+            () -> Sound.CRESCENT_ROSE_SHOOT.getSound(),//1,
             null).setRecoil(10);
     public static final Item crescentgunfrost = new RWBYGun(
             "crescentgunfrost",
@@ -1254,7 +1254,7 @@ public class RWBYItems {
             1,
             1,
             0,
-            Sound.CRESCENT_ROSE_SHOOT.getSound(),//1,
+            () -> Sound.CRESCENT_ROSE_SHOOT.getSound(),//1,
             null).setRecoil(10);
     public static final Item weiss = new RWBYGun(
             "weiss",
@@ -1270,7 +1270,7 @@ public class RWBYItems {
             3,
             1,
             0,
-            Sound.MYRTENASTER_SHOOT.getSound(),//4,
+            () -> Sound.MYRTENASTER_SHOOT.getSound(),//4,
             RWBYCreativeTabs.tab_rwbyweapons).setRecoil(3);
     public static final Item crescentgunv = new RWBYGun(
             "crescentgunv",
@@ -1286,7 +1286,7 @@ public class RWBYItems {
             1,
             1,
             1,
-            Sound.CRESCENT_ROSE_SHOOT.getSound(),//1,
+            () -> Sound.CRESCENT_ROSE_SHOOT.getSound(),//1,
             null).setRecoil(10);
     public static final Item ember = new RWBYGun(
             "ember",
@@ -1302,7 +1302,7 @@ public class RWBYItems {
             0,
             4,
             0,
-            Sound.EMBER_CELICA_SHOOT.getSound(),//2,
+            () -> Sound.EMBER_CELICA_SHOOT.getSound(),//2,
             RWBYCreativeTabs.tab_rwbyweapons).setRecoil(7);
     public static final Item ember2 = new RWBYGun(
             "ember2",
@@ -1318,7 +1318,7 @@ public class RWBYItems {
             0,
             4,
             0,
-            Sound.EMBER_CELICA_SHOOT.getSound(),//2,
+            () -> Sound.EMBER_CELICA_SHOOT.getSound(),//2,
             null).setRecoil(7);
     public static final Item gambolgun = new RWBYGun(
             "gambolgun",
@@ -1334,7 +1334,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.GAMBOL_SHROUD_SHOOT.getSound(),//3,
+            () -> Sound.GAMBOL_SHROUD_SHOOT.getSound(),//3,
             null).setRecoil(5);
     public static final Item p90 = new RWBYGun(
             "p90",
@@ -1350,7 +1350,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.GAMBOL_SHROUD_SHOOT.getSound(),//3,
+            () -> Sound.GAMBOL_SHROUD_SHOOT.getSound(),//3,
             null).setRecoil(2).setElementMelee("wind");
     public static final Item gambolgunv = new RWBYGun(
             "gambolgunv",
@@ -1366,7 +1366,7 @@ public class RWBYItems {
             0,
             1,
             1,
-            Sound.GAMBOL_SHROUD_SHOOT.getSound(),//3,
+            () -> Sound.GAMBOL_SHROUD_SHOOT.getSound(),//3,
             null).setRecoil(5);
     public static final Item stormflower = new RWBYGun(
             "stormflower",
@@ -1382,7 +1382,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.STORMFLOWER_SHOOT.getSound(),//5,
+            () -> Sound.STORMFLOWER_SHOOT.getSound(),//5,
             RWBYCreativeTabs.tab_rwbyweapons).setRecoil(3);
     public static final Item noragun = new RWBYGun(
             "noragun",
@@ -1398,7 +1398,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.MAGNHILD_SHOOT.getSound(),//6,
+            () -> Sound.MAGNHILD_SHOOT.getSound(),//6,
             null).setRecoil(7);
     public static final Item stormflowerv = new RWBYGun(
             "stormflowerv",
@@ -1414,7 +1414,7 @@ public class RWBYItems {
             0,
             1,
             1,
-            Sound.STORMFLOWER_SHOOT.getSound(),//5,
+            () -> Sound.STORMFLOWER_SHOOT.getSound(),//5,
             null).setRecoil(3);
     public static final Item noragunv = new RWBYGun(
             "noragunv",
@@ -1430,7 +1430,7 @@ public class RWBYItems {
             0,
             1,
             1,
-            Sound.MAGNHILD_SHOOT.getSound(),//6,
+            () -> Sound.MAGNHILD_SHOOT.getSound(),//6,
             null).setRecoil(7);
     public static final Item emberv = new RWBYGun(
             "emberv",
@@ -1446,7 +1446,7 @@ public class RWBYItems {
             0,
             4,
             1,
-            Sound.EMBER_CELICA_SHOOT.getSound(),//2,
+            () -> Sound.EMBER_CELICA_SHOOT.getSound(),//2,
             null).setRecoil(7);
     public static final Item qrowgun = new RWBYGun(
             "qrowgun",
@@ -1462,7 +1462,7 @@ public class RWBYItems {
             0,
             4,
             0,
-            Sound.EMBER_CELICA_SHOOT.getSound(),//2,
+            () -> Sound.EMBER_CELICA_SHOOT.getSound(),//2,
             null).setRecoil(7);
     public static final Item cocogun = new RWBYGun(
             "cocogun",
@@ -1478,7 +1478,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.EMBER_CELICA_SHOOT.getSound(),//7,
+            () -> Sound.EMBER_CELICA_SHOOT.getSound(),//7,
             null).setRecoil(1);
     public static final Item cocogunv = new RWBYGun(
             "cocogunv",
@@ -1494,7 +1494,7 @@ public class RWBYItems {
             0,
             1,
             1,
-            Sound.EMBER_CELICA_SHOOT.getSound(),//7,
+            () -> Sound.EMBER_CELICA_SHOOT.getSound(),//7,
             null).setRecoil(1);
     public static final Item infinity = new RWBYGun(
             "infinity",
@@ -1510,7 +1510,7 @@ public class RWBYItems {
             0,
             2,
             0,
-            Sound.STORMFLOWER_SHOOT.getSound(),//5,
+            () -> Sound.STORMFLOWER_SHOOT.getSound(),//5,
             null).setRecoil(1);
     public static final Item sanrei = new RWBYGun(
             "sanrei",
@@ -1526,7 +1526,7 @@ public class RWBYItems {
             0,
             3,
             0,
-            SoundEvents.ENTITY_ARROW_SHOOT,
+            () -> SoundEvents.ENTITY_ARROW_SHOOT,
             null);
 
     public static final Item letztstil = new RWBYGun(
@@ -1543,7 +1543,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            SoundEvents.ENTITY_ARROW_SHOOT,
+            () -> SoundEvents.ENTITY_ARROW_SHOOT,
             null);
     public static final Item bangle = new RWBYGun(
             "bangle",
@@ -1593,7 +1593,7 @@ public class RWBYItems {
             0,
             3,
             0,
-            SoundEvents.ENTITY_ARROW_SHOOT,
+            () -> SoundEvents.ENTITY_ARROW_SHOOT,
             null);
 
     public static final Item gwai1 = new RWBYGun(
@@ -1695,7 +1695,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.TORCHWICK_SHOOT.getSound(),//11,
+            () -> Sound.TORCHWICK_SHOOT.getSound(),//11,
             null).setRecoil(7);
     public static final Item portgun = new RWBYGun(
             "portgun",
@@ -1711,7 +1711,7 @@ public class RWBYItems {
             0,
             4,
             0,
-            Sound.PORT_SHOOT.getSound(),//8,
+            () -> Sound.PORT_SHOOT.getSound(),//8,
             null).setRecoil(7);
     public static final Item emeraldgun = new RWBYGun(
             "emeraldgun",
@@ -1727,7 +1727,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.STORMFLOWER_SHOOT.getSound(),//5,
+            () -> Sound.STORMFLOWER_SHOOT.getSound(),//5,
             RWBYCreativeTabs.tab_rwbyweapons).setRecoil(5);
     public static final Item emeraldblade = new RWBYGun(
             "emeraldblade",
@@ -1743,7 +1743,7 @@ public class RWBYItems {
             4,
             1,
             0,
-            Sound.STORMFLOWER_SHOOT.getSound(),//5,
+            () -> Sound.STORMFLOWER_SHOOT.getSound(),//5,
             null).setRecoil(5);
     public static final Item jnrrocket = new RWBYGun(
             "jnrrocket",
@@ -1759,7 +1759,7 @@ public class RWBYItems {
             0,
             4,
             0,
-            Sound.JUNIOR_SHOOT.getSound(),//10,
+            () -> Sound.JUNIOR_SHOOT.getSound(),//10,
             null).setRecoil(20);
     public static final Item extasis = new RWBYGun(
             "extasis",
@@ -1775,7 +1775,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.JUNIOR_SHOOT.getSound(),//10,
+            () -> Sound.JUNIOR_SHOOT.getSound(),//10,
             RWBYCreativeTabs.tab_rwbyweapons).setRecoil(20);
     public static final Item extasislance = new RWBYGun(
             "extasislance",
@@ -1807,7 +1807,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            SoundEvents.ENTITY_ARROW_SHOOT,
+            () -> SoundEvents.ENTITY_ARROW_SHOOT,
             null);
     public static final Item robyncrossbow = new RWBYGun(
             "robyncrossbow",
@@ -1823,7 +1823,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            SoundEvents.ENTITY_ARROW_SHOOT,
+            () -> SoundEvents.ENTITY_ARROW_SHOOT,
             RWBYCreativeTabs.tab_rwbyweapons);
     public static final Item robynshield = new RWBYGun(
             "robynshield",
@@ -1839,7 +1839,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            SoundEvents.ENTITY_ARROW_SHOOT,
+            () -> SoundEvents.ENTITY_ARROW_SHOOT,
             null);
     public static final Item adamgun = new RWBYGun(
             "adamgun",
@@ -1855,7 +1855,7 @@ public class RWBYItems {
             0,
             3,
             0,
-            Sound.EMBER_CELICA_SHOOT.getSound(),//2,
+            () -> Sound.EMBER_CELICA_SHOOT.getSound(),//2,
             null).setRecoil(7);
     public  static  final Item sunstaff = new RWBYGun("sunstaff",
             2500,
@@ -1885,7 +1885,7 @@ public class RWBYItems {
             0,
             4,
             0,
-            Sound.PORT_SHOOT.getSound(),//8,
+            () -> Sound.PORT_SHOOT.getSound(),//8,
             RWBYCreativeTabs.tab_rwbyweapons).setRecoil(7);
     public static final Item neptunegun = new RWBYGun(
             "neptunegun",
@@ -1901,7 +1901,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.CRESCENT_ROSE_SHOOT.getSound(),//13,
+            () -> Sound.CRESCENT_ROSE_SHOOT.getSound(),//13,
             RWBYCreativeTabs.tab_rwbyweapons).setRecoil(8);
     public  static  final Item neptunespear = new RWBYGun(
             "neptunespear",
@@ -1965,7 +1965,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            SoundEvents.ENTITY_ENDERPEARL_THROW,
+            () -> SoundEvents.ENTITY_ENDERPEARL_THROW,
             RWBYCreativeTabs.tab_rwbyweapons);
     public static final Item scarletsword = new RWBYGun(
             "scarletsword",
@@ -1981,7 +1981,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.PORT_SHOOT.getSound(),//8,
+            () -> Sound.PORT_SHOOT.getSound(),//8,
             RWBYCreativeTabs.tab_rwbyweapons).setRecoil(8);
     public static final Item nadirgun = new RWBYGun(
             "nadirgun",
@@ -1997,7 +1997,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.STORMFLOWER_SHOOT.getSound(),//14,
+            () -> Sound.STORMFLOWER_SHOOT.getSound(),//14,
             RWBYCreativeTabs.tab_rwbyweapons).setRecoil(5);
     public static final Item nadirsword = new RWBYGun(
             "nadirsword",
@@ -2029,7 +2029,7 @@ public class RWBYItems {
             0,
             4,
             0,
-            Sound.EMBER_CELICA_SHOOT.getSound(),//2,
+            () -> Sound.EMBER_CELICA_SHOOT.getSound(),//2,
             RWBYCreativeTabs.tab_rwbyweapons).setRecoil(5);
     public  static  final  Item hexenaxe = new RWBYGun(
             "hexenaxe",
@@ -2045,7 +2045,7 @@ public class RWBYItems {
             0,
             4,
             0,
-            Sound.EMBER_CELICA_SHOOT.getSound(),//2,
+            () -> Sound.EMBER_CELICA_SHOOT.getSound(),//2,
             null).setRecoil(2);
     public static final Item magnumgun = new RWBYGun(
             "magnumgun",
@@ -2061,7 +2061,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.GAMBOL_SHROUD_SHOOT.getSound(),//3,
+            () -> Sound.GAMBOL_SHROUD_SHOOT.getSound(),//3,
             RWBYCreativeTabs.tab_rwbyweapons).setRecoil(5);
     public static final Item magnumsword = new RWBYGun(
             "magnumsword",
@@ -2077,7 +2077,7 @@ public class RWBYItems {
             2,
             1,
             0,
-            Sound.GAMBOL_SHROUD_SHOOT.getSound(),//3,
+            () -> Sound.GAMBOL_SHROUD_SHOOT.getSound(),//3,
             null).setRecoil(5);
     public static final Item pyrrharifle = new RWBYGun(
             "pyrrharifle",
@@ -2093,7 +2093,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.PORT_SHOOT.getSound(),//8,
+            () -> Sound.PORT_SHOOT.getSound(),//8,
             null).setRecoil(10);
     public static final Item ironwood = new RWBYGun(
             "ironwood",
@@ -2109,7 +2109,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.GAMBOL_SHROUD_SHOOT.getSound(),//3,
+            () -> Sound.GAMBOL_SHROUD_SHOOT.getSound(),//3,
             RWBYCreativeTabs.tab_rwbyweapons).setRecoil(4);
     public static final Item ironwood2 = new RWBYGun(
             "ironwood2",
@@ -2125,7 +2125,7 @@ public class RWBYItems {
             1,
             1,
             0,
-            Sound.GAMBOL_SHROUD_SHOOT.getSound(),//3,
+            () -> Sound.GAMBOL_SHROUD_SHOOT.getSound(),//3,
             RWBYCreativeTabs.tab_rwbyweapons).setRecoil(4);
     public static final Item goodwitch = new RWBYGun(
             "goodwitch",
@@ -2141,7 +2141,7 @@ public class RWBYItems {
             0,
             2,
             0,
-            Sound.MYRTENASTER_SHOOT.getSound(),//4,
+            () -> Sound.MYRTENASTER_SHOOT.getSound(),//4,
             RWBYCreativeTabs.tab_rwbyweapons).setRecoil(3);
     public static final Item oobleckflamethrower = new RWBYGun(
             "oobleckflamethrower",
@@ -2157,7 +2157,7 @@ public class RWBYItems {
             0,
             3,
             0,
-            SoundEvents.ITEM_FIRECHARGE_USE,
+            () -> SoundEvents.ITEM_FIRECHARGE_USE,
             null).setRecoil(3);
     public static final Item cardin = new RWBYGun(
             "cardin",
@@ -2173,7 +2173,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.MYRTENASTER_SHOOT.getSound(),//4,
+            () -> Sound.MYRTENASTER_SHOOT.getSound(),//4,
             RWBYCreativeTabs.tab_rwbyweapons).setRecoil(3).setElementMelee("fire");
     public static final Item nebulabow = new RWBYGun(
             "nebulabow",
@@ -2189,7 +2189,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            SoundEvents.ENTITY_ARROW_SHOOT,
+            () -> SoundEvents.ENTITY_ARROW_SHOOT,
             null);
 
     public static final Item nebulasword = new RWBYGun(
@@ -2255,7 +2255,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.CRESCENT_ROSE_SHOOT.getSound(),//13,
+            () -> Sound.CRESCENT_ROSE_SHOOT.getSound(),//13,
             RWBYCreativeTabs.tab_rwbyweapons).setRecoil(8);
     public static final Item fetchboomerang = new RWBYGun(
             "fetchboomerang",
@@ -2271,7 +2271,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            SoundEvents.ENTITY_ENDERPEARL_THROW,
+            () -> SoundEvents.ENTITY_ENDERPEARL_THROW,
             null);
     public static final  Item gravitydustcrystalcut = new RWBYCutGem(
             "gravitydustcrystalcut",
@@ -2343,7 +2343,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.GAMBOL_SHROUD_SHOOT.getSound(),//9,
+            () -> Sound.GAMBOL_SHROUD_SHOOT.getSound(),//9,
             RWBYCreativeTabs.tab_rwbyweapons).setRecoil(3);
     public static final Item atlasrifle = new RWBYGun(
             "atlasrifle",
@@ -2359,7 +2359,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.PORT_SHOOT.getSound(),//8,
+            () -> Sound.PORT_SHOOT.getSound(),//8,
             RWBYCreativeTabs.tab_rwbyweapons).setRecoil(4);
     public static final Item vernal = new RWBYGun(
             "vernal",
@@ -2375,7 +2375,7 @@ public class RWBYItems {
             0,
             2,
             0,
-            Sound.PORT_SHOOT.getSound(),//8,
+            () -> Sound.PORT_SHOOT.getSound(),//8,
             RWBYCreativeTabs.tab_rwbyweapons).setRecoil(7);
     public static final Item dove = new RWBYGun(
             "dove",
@@ -2391,7 +2391,7 @@ public class RWBYItems {
             0,
             2,
             0,
-            Sound.GAMBOL_SHROUD_SHOOT.getSound(),//3,
+            () -> Sound.GAMBOL_SHROUD_SHOOT.getSound(),//3,
             RWBYCreativeTabs.tab_rwbyweapons).setRecoil(5);
     public static final Item tyrian = new RWBYGun(
             "tyrian",
@@ -2407,7 +2407,7 @@ public class RWBYItems {
             0,
             2,
             0,
-            Sound.STORMFLOWER_SHOOT.getSound(),//5,
+            () -> Sound.STORMFLOWER_SHOOT.getSound(),//5,
             RWBYCreativeTabs.tab_rwbyweapons).setRecoil(5);
     public static final Item russelnormal = new RWBYGun(
             "russelnormal",
@@ -2487,7 +2487,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.EMBER_CELICA_SHOOT.getSound(),//7,
+            () -> Sound.EMBER_CELICA_SHOOT.getSound(),//7,
             null).setRecoil(3);
     public static final Item vidian = new RWBYGun(
             "vidian",
@@ -2535,7 +2535,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            SoundEvents.ENTITY_ARROW_SHOOT,
+            () -> SoundEvents.ENTITY_ARROW_SHOOT,
             null);
     public static final Item cinderglass = new RWBYGun(
             "cinderglass",
@@ -2583,7 +2583,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.MYRTENASTER_SHOOT.getSound(),//4,
+            () -> Sound.MYRTENASTER_SHOOT.getSound(),//4,
             RWBYCreativeTabs.tab_rwbyweapons).setRecoil(3);
     public static final Item fennecdouble = new RWBYGun(
             "fennecdouble",
@@ -2599,7 +2599,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.MYRTENASTER_SHOOT.getSound(),//4,
+            () -> Sound.MYRTENASTER_SHOOT.getSound(),//4,
             null).setRecoil(3);
     public static final Item corsac = new RWBYGun(
             "corsac",
@@ -2615,7 +2615,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.MYRTENASTER_SHOOT.getSound(),//4,
+            () -> Sound.MYRTENASTER_SHOOT.getSound(),//4,
             RWBYCreativeTabs.tab_rwbyweapons).setElementMelee("wind");
     public static final Item corsacdouble = new RWBYGun(
             "corsacdouble",
@@ -2631,7 +2631,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.MYRTENASTER_SHOOT.getSound(),//4,
+            () -> Sound.MYRTENASTER_SHOOT.getSound(),//4,
             null).setElementMelee("wind");
     public static final Item aquaealatlbow = new RWBYGun(
             "aquaealatlbow",
@@ -2647,7 +2647,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            SoundEvents.ENTITY_ARROW_SHOOT,
+            () -> SoundEvents.ENTITY_ARROW_SHOOT,
             null);
     public static final Item aquaealatlsword = new RWBYGun(
             "aquaealatlsword",
@@ -2695,7 +2695,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.CRESCENT_ROSE_SHOOT.getSound(),//1,
+            () -> Sound.CRESCENT_ROSE_SHOOT.getSound(),//1,
             null);
     public static final Item mayrifle = new RWBYGun(
             "mayrifle",
@@ -2711,7 +2711,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.CRESCENT_ROSE_SHOOT.getSound(),//1,
+            () -> Sound.CRESCENT_ROSE_SHOOT.getSound(),//1,
             RWBYCreativeTabs.tab_rwbyweapons).setRecoil(10);
     public static final Item whitefangspear = new RWBYGun(
             "whitefangspear",
@@ -2727,7 +2727,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.CRESCENT_ROSE_SHOOT.getSound(),//1,
+            () -> Sound.CRESCENT_ROSE_SHOOT.getSound(),//1,
             RWBYCreativeTabs.tab_rwbyweapons);
 
     public static final Item scarletstormgun = new RWBYGun(
@@ -2744,7 +2744,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.EMBER_CELICA_SHOOT.getSound(),//7,
+            () -> Sound.EMBER_CELICA_SHOOT.getSound(),//7,
             RWBYCreativeTabs.tab_rwbyweapons).setRecoil(5);
     public static final Item scarletstormaxe = new RWBYGun(
             "scarletstormaxe",
@@ -2760,7 +2760,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.CRESCENT_ROSE_SHOOT.getSound(),//1,
+            () -> Sound.CRESCENT_ROSE_SHOOT.getSound(),//1,
             null);
     public static final Item iliasword = new RWBYGun(
             "iliasword",
@@ -2776,7 +2776,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.CRESCENT_ROSE_SHOOT.getSound(),//1,
+            () -> Sound.CRESCENT_ROSE_SHOOT.getSound(),//1,
             RWBYCreativeTabs.tab_rwbyweapons);
     public static final Item lionheart = new RWBYGun(
             "lionheart",
@@ -2792,7 +2792,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.MYRTENASTER_SHOOT.getSound(),//4,
+            () -> Sound.MYRTENASTER_SHOOT.getSound(),//4,
             RWBYCreativeTabs.tab_rwbyweapons).setRecoil(3);
     public static final Item heroshield = new RWBYGun(
             "heroshield",
@@ -2808,7 +2808,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.MYRTENASTER_SHOOT.getSound(),//4,
+            () -> Sound.MYRTENASTER_SHOOT.getSound(),//4,
             null);
     public static final Item leafshield = new RWBYGun(
             "leafshield",
@@ -2824,7 +2824,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.MYRTENASTER_SHOOT.getSound(),//4,
+            () -> Sound.MYRTENASTER_SHOOT.getSound(),//4,
             null);
     public static final Item pickaxeshield = new RWBYGun(
             "pickaxeshield",
@@ -2840,7 +2840,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.MYRTENASTER_SHOOT.getSound(),//4,
+            () -> Sound.MYRTENASTER_SHOOT.getSound(),//4,
             null);
     public static final Item rageshield = new RWBYGun(
             "rageshield",
@@ -2856,7 +2856,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.MYRTENASTER_SHOOT.getSound(),//4,
+            () -> Sound.MYRTENASTER_SHOOT.getSound(),//4,
             null);
     public static final Item nolan = new RWBYGun(
             "nolan",
@@ -2888,7 +2888,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            SoundEvents.ENTITY_ENDERPEARL_THROW,
+            () -> SoundEvents.ENTITY_ENDERPEARL_THROW,
             RWBYCreativeTabs.tab_rwbyweapons);
     public static final Item wfp = new RWBYGun(
             "wfp",
@@ -2904,7 +2904,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.GAMBOL_SHROUD_SHOOT.getSound(),//3,
+            () -> Sound.GAMBOL_SHROUD_SHOOT.getSound(),//3,
             RWBYCreativeTabs.tab_rwbyweapons).setRecoil(6);
     public static final Item gwenknife = new RWBYGun(
             "gwenknife",
@@ -2920,7 +2920,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            SoundEvents.ENTITY_ENDERPEARL_THROW,
+            () -> SoundEvents.ENTITY_ENDERPEARL_THROW,
             RWBYCreativeTabs.tab_rwbyweapons);
     public static final Item flyingthundergod = new RWBYGun(
             "flyingthundergod",
@@ -2936,7 +2936,7 @@ public class RWBYItems {
             0,
             3,
             0,
-            SoundEvents.ENTITY_ENDERPEARL_THROW,
+            () -> SoundEvents.ENTITY_ENDERPEARL_THROW,
             null);
     public static final Item deemace = new RWBYGun(
             "deemace",
@@ -2968,7 +2968,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.GAMBOL_SHROUD_SHOOT.getSound(),//3,
+            () -> Sound.GAMBOL_SHROUD_SHOOT.getSound(),//3,
             RWBYCreativeTabs.tab_rwbyweapons).setElement("rwbym:noctustraumfire").setRecoil(5);
     public static final Item noctustraumfire = new RWBYGun(
             "noctustraumfire",
@@ -2984,7 +2984,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.GAMBOL_SHROUD_SHOOT.getSound(),//3,
+            () -> Sound.GAMBOL_SHROUD_SHOOT.getSound(),//3,
             null).setElement("rwbym:noctustraumice").setRecoil(5);
     public static final Item noctustraumice = new RWBYGun(
             "noctustraumice",
@@ -3000,7 +3000,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.GAMBOL_SHROUD_SHOOT.getSound(),//3,
+            () -> Sound.GAMBOL_SHROUD_SHOOT.getSound(),//3,
             null).setElement("rwbym:noctustraumlight").setRecoil(5);
     public static final Item noctustraumlight = new RWBYGun(
             "noctustraumlight",
@@ -3016,7 +3016,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.GAMBOL_SHROUD_SHOOT.getSound(),//3,
+            () -> Sound.GAMBOL_SHROUD_SHOOT.getSound(),//3,
             null).setElement("rwbym:noctustraumgrav").setRecoil(5);
     public static final Item noctustraumgrav = new RWBYGun(
             "noctustraumgrav",
@@ -3032,7 +3032,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.GAMBOL_SHROUD_SHOOT.getSound(),//3,
+            () -> Sound.GAMBOL_SHROUD_SHOOT.getSound(),//3,
             null).setElement("rwbym:noctustraumnormal").setRecoil(5);
     public static final Item noctustraumnormalscy = new RWBYGun(
             "noctustraumnormalscy",
@@ -3048,7 +3048,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.CRESCENT_ROSE_SHOOT.getSound(),//1,
+            () -> Sound.CRESCENT_ROSE_SHOOT.getSound(),//1,
             null);
     public static final Item noctustraumfirescy = new RWBYGun(
             "noctustraumfirescy",
@@ -3064,7 +3064,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.CRESCENT_ROSE_SHOOT.getSound(),//1,
+            () -> Sound.CRESCENT_ROSE_SHOOT.getSound(),//1,
             null).setElementMelee("fire");
     public static final Item noctustraumicescy = new RWBYGun(
             "noctustraumicescy",
@@ -3080,7 +3080,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.CRESCENT_ROSE_SHOOT.getSound(),//1,
+            () -> Sound.CRESCENT_ROSE_SHOOT.getSound(),//1,
             null).setElementMelee("ice");
     public static final Item noctustraumgravscy = new RWBYGun(
             "noctustraumgravscy",
@@ -3096,7 +3096,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.CRESCENT_ROSE_SHOOT.getSound(),//1,
+            () -> Sound.CRESCENT_ROSE_SHOOT.getSound(),//1,
             null).setElementMelee("grav");
     public static final Item noctustraumlightscy = new RWBYGun(
             "noctustraumlightscy",
@@ -3112,7 +3112,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.CRESCENT_ROSE_SHOOT.getSound(),//1,
+            () -> Sound.CRESCENT_ROSE_SHOOT.getSound(),//1,
             null).setElementMelee("wind");
 
     public static final Item neonnormal = new RWBYGun(
@@ -3129,7 +3129,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.CRESCENT_ROSE_SHOOT.getSound(),//1,
+            () -> Sound.CRESCENT_ROSE_SHOOT.getSound(),//1,
             RWBYCreativeTabs.tab_rwbyweapons);
     public static final Item neonfire = new RWBYGun(
             "neonfire",
@@ -3145,7 +3145,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.CRESCENT_ROSE_SHOOT.getSound(),//1,
+            () -> Sound.CRESCENT_ROSE_SHOOT.getSound(),//1,
             null).setElementMelee("fire");
     public static final Item neonice = new RWBYGun(
             "neonice",
@@ -3161,7 +3161,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.CRESCENT_ROSE_SHOOT.getSound(),//1,
+            () -> Sound.CRESCENT_ROSE_SHOOT.getSound(),//1,
             null).setElementMelee("ice");
     public static final Item neonwind = new RWBYGun(
             "neonwind",
@@ -3177,7 +3177,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.CRESCENT_ROSE_SHOOT.getSound(),//1,
+            () -> Sound.CRESCENT_ROSE_SHOOT.getSound(),//1,
             null).setElementMelee("wind");
     public static final Item tocksword = new RWBYGun(
             "tocksword",
@@ -3193,7 +3193,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.GAMBOL_SHROUD_SHOOT.getSound(),//3,
+            () -> Sound.GAMBOL_SHROUD_SHOOT.getSound(),//3,
             RWBYCreativeTabs.tab_rwbyweapons);
 
     public static final Item lichtroze_closedfire = new RWBYGun(
@@ -3258,7 +3258,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            SoundEvents.ENTITY_ENDERPEARL_THROW,
+            () -> SoundEvents.ENTITY_ENDERPEARL_THROW,
             RWBYCreativeTabs.tab_rwbyweapons).setRecoil(3).setElementMelee("fire");
     public static final Item kyoshigrav = new RWBYGun(
             "kyoshigrav",
@@ -3274,7 +3274,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            SoundEvents.ENTITY_ENDERPEARL_THROW,
+            () -> SoundEvents.ENTITY_ENDERPEARL_THROW,
             null).setRecoil(3).setElementMelee("grav");
     public static final Item kyoshiice = new RWBYGun(
             "kyoshiice",
@@ -3290,7 +3290,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            SoundEvents.ENTITY_ENDERPEARL_THROW,
+            () -> SoundEvents.ENTITY_ENDERPEARL_THROW,
             null).setRecoil(3).setElementMelee("ice");
     public static final Item kyoshiwind = new RWBYGun(
             "kyoshiwind",
@@ -3306,7 +3306,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            SoundEvents.ENTITY_ENDERPEARL_THROW,
+            () -> SoundEvents.ENTITY_ENDERPEARL_THROW,
             null).setRecoil(3).setElementMelee("wind");
     public static final Item whitefangsword = new RWBYGun(
             "whitefangsword",
@@ -3338,7 +3338,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.PORT_SHOOT.getSound(),//8,
+            () -> Sound.PORT_SHOOT.getSound(),//8,
             RWBYCreativeTabs.tab_rwbyweapons).setRecoil(6);
     public static final Item amberstafffire = new RWBYGun(
             "amberstafffire",
@@ -3389,7 +3389,7 @@ public class RWBYItems {
             0,
             4,
             0,
-            Sound.EMBER_CELICA_SHOOT.getSound(),//2,
+            () -> Sound.EMBER_CELICA_SHOOT.getSound(),//2,
             null).setRecoil(7);
     public static final Item amesardent = new RWBYGun(
             "amesardent",
@@ -3421,7 +3421,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.CRESCENT_ROSE_SHOOT.getSound(),//13,
+            () -> Sound.CRESCENT_ROSE_SHOOT.getSound(),//13,
             RWBYCreativeTabs.tab_rwbyweapons).setRecoil(8);
     public static final Item pugzbow = new RWBYGun(
             "pugzbow",
@@ -3437,7 +3437,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            SoundEvents.ENTITY_ARROW_SHOOT,
+            () -> SoundEvents.ENTITY_ARROW_SHOOT,
             null);
     public static final Item pugzsword = new RWBYGun("pugzsword",
             2500,
@@ -3468,7 +3468,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            SoundEvents.ENTITY_ENDERPEARL_THROW,
+            () -> SoundEvents.ENTITY_ENDERPEARL_THROW,
             RWBYCreativeTabs.tab_rwbyweapons).setElementMelee("grav");
     public static final Item cassandra = new RWBYGun("cassandra",
             2500,
@@ -3499,7 +3499,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.GAMBOL_SHROUD_SHOOT.getSound(),//3,
+            () -> Sound.GAMBOL_SHROUD_SHOOT.getSound(),//3,
             null).setRecoil(5);
     public static final Item freyr = new RWBYGun(
             "freyr",
@@ -3531,7 +3531,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.GAMBOL_SHROUD_SHOOT.getSound(),//3,
+            () -> Sound.GAMBOL_SHROUD_SHOOT.getSound(),//3,
             RWBYCreativeTabs.tab_rwbyweapons).setRecoil(4);
     public static final Item hollowtome = new RWBYGun("hollowtome",
             2500,
@@ -3546,7 +3546,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.MYRTENASTER_SHOOT.getSound(),//4,
+            () -> Sound.MYRTENASTER_SHOOT.getSound(),//4,
             RWBYCreativeTabs.tab_rwbyweapons);
     public static final Item hollowtomefire = new RWBYGun("hollowtomefire",
             2500,
@@ -3561,7 +3561,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.MYRTENASTER_SHOOT.getSound(),//4,
+            () -> Sound.MYRTENASTER_SHOOT.getSound(),//4,
             null).setElementMelee("fire");
     public static final Item hollowtomegravity = new RWBYGun("hollowtomegravity",
             2500,
@@ -3576,7 +3576,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.MYRTENASTER_SHOOT.getSound(),//4,
+            () -> Sound.MYRTENASTER_SHOOT.getSound(),//4,
             null).setElementMelee("grav");
     public static final Item hollowtomewind = new RWBYGun("hollowtomewind",
             2500,
@@ -3591,7 +3591,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.MYRTENASTER_SHOOT.getSound(),//4,
+            () -> Sound.MYRTENASTER_SHOOT.getSound(),//4,
             null).setElementMelee("wind");
     public static final Item hollowtomelightning = new RWBYGun("hollowtomelightning",
             2500,
@@ -3606,7 +3606,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.MYRTENASTER_SHOOT.getSound(),//4,
+            () -> Sound.MYRTENASTER_SHOOT.getSound(),//4,
             null).setElementMelee("light");
     public static final Item hollowtomewater = new RWBYGun("hollowtomewater",
             2500,
@@ -3621,7 +3621,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.MYRTENASTER_SHOOT.getSound(),//4,
+            () -> Sound.MYRTENASTER_SHOOT.getSound(),//4,
             null).setElementMelee("water");
     public static final Item hollowtomeice = new RWBYGun("hollowtomeice",
             2500,
@@ -3636,7 +3636,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.MYRTENASTER_SHOOT.getSound(),//4,
+            () -> Sound.MYRTENASTER_SHOOT.getSound(),//4,
             null).setElementMelee("ice");
 
     public static final Item kingfisher = new RWBYFishing("kingfisher");
@@ -3655,7 +3655,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            SoundEvents.ENTITY_ENDERPEARL_THROW,
+            () -> SoundEvents.ENTITY_ENDERPEARL_THROW,
             null);
 
     public static final Item chastifolincrease = new RWBYGun(
@@ -3672,7 +3672,7 @@ public class RWBYItems {
             0,
             8,
             0,
-            SoundEvents.ENTITY_ENDERPEARL_THROW,
+            () -> SoundEvents.ENTITY_ENDERPEARL_THROW,
             null);
 
     public static final Item carminesai = new RWBYGun(
@@ -3689,7 +3689,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            SoundEvents.ENTITY_ENDERPEARL_THROW,
+            () -> SoundEvents.ENTITY_ENDERPEARL_THROW,
             RWBYCreativeTabs.tab_rwbyweapons);
 
     public static final Item carminestaff = new RWBYGun(
@@ -3706,7 +3706,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            SoundEvents.ENTITY_ENDERPEARL_THROW,
+            () -> SoundEvents.ENTITY_ENDERPEARL_THROW,
             null);
 
     public static final Item moonskimmer = new RWBYGun(
@@ -3723,7 +3723,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            SoundEvents.ENTITY_ENDERPEARL_THROW,
+            () -> SoundEvents.ENTITY_ENDERPEARL_THROW,
             RWBYCreativeTabs.tab_rwbyweapons);
 
     public static final Item mondragon = new RWBYGun(
@@ -3740,7 +3740,7 @@ public class RWBYItems {
             0,
             1,
             0,
-            Sound.GAMBOL_SHROUD_SHOOT.getSound(),//3,
+            () -> Sound.GAMBOL_SHROUD_SHOOT.getSound(),//3,
             null).setRecoil(5);
 
     //------------------------------------------------//

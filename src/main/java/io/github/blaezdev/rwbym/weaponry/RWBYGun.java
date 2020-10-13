@@ -49,6 +49,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
+import java.util.function.Supplier;
 
 
 /**
@@ -73,7 +74,8 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     private boolean mytre = false;
     private boolean glow = false;
     private boolean weaponuseglow = false;
-    private SoundEvent soundeffect;
+    private Supplier<SoundEvent> soundeffect;
+    private float pitch, volume;
     private int bulletCount;
     public int weapontype;
     public final boolean isShield;
@@ -180,9 +182,14 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         return false;
     }
 	
+    public RWBYGun(String name, int durability, int weapondamage, int weapontype, String morph, String ammo, boolean noCharge, float projectileSpeed, boolean shield,boolean canBlock, int recoilType, int bulletCount, int enchantmentglow, Supplier<SoundEvent> soundeffect, float pitch, float volume, CreativeTabs creativetab) {
+    	this(name, durability, weapondamage, weapontype, morph, ammo, noCharge, projectileSpeed, shield, canBlock, recoilType, bulletCount, enchantmentglow, soundeffect, creativetab);
+    	this.volume = volume;
+    	this.pitch = pitch;
+    }
 
 
-    public RWBYGun(String name, int durability, int weapondamage, int weapontype, String morph, String ammo, boolean noCharge, float projectileSpeed, boolean shield,boolean canBlock, int recoilType, int bulletCount, int enchantmentglow, SoundEvent soundeffect, CreativeTabs creativetab) {
+    public RWBYGun(String name, int durability, int weapondamage, int weapontype, String morph, String ammo, boolean noCharge, float projectileSpeed, boolean shield,boolean canBlock, int recoilType, int bulletCount, int enchantmentglow, Supplier<SoundEvent> soundeffect, CreativeTabs creativetab) {
         this.setRegistryName(new ResourceLocation(RWBYModels.MODID, name));
         this.setUnlocalizedName(this.getRegistryName().toString());
         this.setCreativeTab(creativetab);
@@ -219,6 +226,8 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         if((weapontype & THROWN) !=0){this.thrown = true;}else this.thrown = false;
 
         this.soundeffect = soundeffect;
+        this.volume = 1.0f;
+        this.pitch = 1.0f;
         if(name.contains("kkfire")) kkfire = true; if(name.contains("kkice")) kkice = true; if(name.contains("kkwind")) kkwind = true; if(name.contains("gwenknife")){gwen = true;}
         if((weapontype & (OFFHAND | WINTER)) !=0) { ohblade = true; this.damages = 14; }
         if((weapontype & WHIP) !=0) {this.damages = 14;}
@@ -1101,7 +1110,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                     }
                     
                     if (soundeffect != null) {
-                    	worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, soundeffect, SoundCategory.MASTER, RWBYConfig.general.gunvolume, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+                    	worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, soundeffect.get(), SoundCategory.MASTER, RWBYConfig.general.gunvolume, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
                     }
 //                    if (soundeffect == 1) {
 //                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, RWBYSoundHandler.Crescent_Rose_Shoot, SoundCategory.MASTER, RWBYConfig.general.gunvolume, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
