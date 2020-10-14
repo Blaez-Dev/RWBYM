@@ -3,6 +3,7 @@ package io.github.blaezdev.rwbym.entity;
 import io.github.blaezdev.rwbym.Init.RWBYItems;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
+import net.minecraft.entity.boss.EntityWither;
 import net.minecraft.entity.monster.*;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
@@ -162,6 +163,10 @@ public class EntityRWBYMMerchant extends EntityCreature implements INpc, IMercha
 
         // add as many trades as you want
     }
+
+
+    public boolean attackEntityFrom(DamageSource source, float amount)
+    { return false; }
 
     public void verifySellingItem(ItemStack stack) {
         if (!this.world.isRemote && this.livingSoundTime > -this.getTalkInterval() + 20) {
