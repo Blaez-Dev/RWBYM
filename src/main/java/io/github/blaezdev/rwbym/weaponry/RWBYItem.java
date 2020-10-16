@@ -16,6 +16,7 @@ import io.github.blaezdev.rwbym.capabilities.Qrow.QrowProvider;
 import io.github.blaezdev.rwbym.capabilities.Ragora.RagoraProvider;
 import io.github.blaezdev.rwbym.capabilities.Ren.RenProvider;
 import io.github.blaezdev.rwbym.capabilities.Ruby.RubyProvider;
+import io.github.blaezdev.rwbym.capabilities.Valour.ValourProvider;
 import io.github.blaezdev.rwbym.capabilities.Weiss.WeissProvider;
 import io.github.blaezdev.rwbym.capabilities.Yang.YangProvider;
 import io.github.blaezdev.rwbym.entity.EntityArmorgeist;
@@ -307,6 +308,17 @@ public class RWBYItem extends Item implements ICustomItem {
                 if (semblance.toString().equals("pyrrha")) {
                     semblance.setLevel(semblance.getLevel() + 1);
                 } else {CapabilityHandler.setSemblance(playerIn, PyrrhaProvider.Pyrrha_CAP, 1);}
+                itemstack.shrink(1);
+            }
+        }
+
+        if(coin.matches("valour"))
+        {
+            if(!worldIn.isRemote){
+                ISemblance semblance = CapabilityHandler.getCurrentSemblance(playerIn);
+                if (semblance.toString().equals("valour")) {
+                    semblance.setLevel(semblance.getLevel() + 1);
+                } else {CapabilityHandler.setSemblance(playerIn, ValourProvider.Valour_CAP, 1);}
                 itemstack.shrink(1);
             }
         }

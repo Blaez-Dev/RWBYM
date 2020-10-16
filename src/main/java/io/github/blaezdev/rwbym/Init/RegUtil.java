@@ -441,6 +441,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.coin_clover);
         registerItems(event, RWBYItems.coin_harriet);
         registerItems(event, RWBYItems.coin_pyrrha);
+        registerItems(event, RWBYItems.coin_valour);
         //registerItems(event, RWBYItems.coin_raven);
         registerItems(event, RWBYItems.scroll);
         registerItems(event, RWBYItems.scroll2);
