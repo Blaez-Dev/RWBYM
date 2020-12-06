@@ -698,7 +698,7 @@ public class RWBYItems {
             false,
             false,
             0,
-            1,
+            3,
             0,
             null,
             RWBYCreativeTabs.tab_rwbyweapons);

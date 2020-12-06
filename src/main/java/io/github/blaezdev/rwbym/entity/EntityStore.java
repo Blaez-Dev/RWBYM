@@ -124,19 +124,20 @@ public class EntityStore extends EntityRWBYMMerchant implements INpc, IMerchant{
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.waterdustcrystal,1),new ItemStack(RWBYItems.lien5,1)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.winddustcrystal,1),new ItemStack(RWBYItems.lien5,1)));
 
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.bait,1),new ItemStack(RWBYItems.remnants,32),new ItemStack(RWBYItems.coinr,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.bait,1),new ItemStack(RWBYItems.remnants,32),new ItemStack(RWBYItems.coinw,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.bait,1),new ItemStack(RWBYItems.remnants,32),new ItemStack(RWBYItems.coinb,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.bait,1),new ItemStack(RWBYItems.remnants,32),new ItemStack(RWBYItems.coiny,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.bait,1),new ItemStack(RWBYItems.remnants,32),new ItemStack(RWBYItems.coinjaune,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.bait,1),new ItemStack(RWBYItems.remnants,32),new ItemStack(RWBYItems.coin_pyrrha,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.bait,1),new ItemStack(RWBYItems.remnants,32),new ItemStack(RWBYItems.coinnora,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.bait,1),new ItemStack(RWBYItems.remnants,32),new ItemStack(RWBYItems.coin_ren,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.bait,1),new ItemStack(RWBYItems.remnants,32),new ItemStack(RWBYItems.coin_lysette,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.bait,1),new ItemStack(RWBYItems.remnants,32),new ItemStack(RWBYItems.coin_ragora,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.bait,1),new ItemStack(RWBYItems.remnants,32),new ItemStack(RWBYItems.coin_clover,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.bait,1),new ItemStack(RWBYItems.remnants,32),new ItemStack(RWBYItems.coin_harriet,1)));
-        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.bait,1),new ItemStack(RWBYItems.remnants,32),new ItemStack(RWBYItems.coinqrow,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.bait,1),new ItemStack(RWBYItems.remnants,16),new ItemStack(RWBYItems.coinr,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.bait,1),new ItemStack(RWBYItems.remnants,16),new ItemStack(RWBYItems.coinw,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.bait,1),new ItemStack(RWBYItems.remnants,16),new ItemStack(RWBYItems.coinb,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.bait,1),new ItemStack(RWBYItems.remnants,16),new ItemStack(RWBYItems.coiny,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.bait,1),new ItemStack(RWBYItems.remnants,16),new ItemStack(RWBYItems.coinjaune,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.bait,1),new ItemStack(RWBYItems.remnants,16),new ItemStack(RWBYItems.coin_pyrrha,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.bait,1),new ItemStack(RWBYItems.remnants,16),new ItemStack(RWBYItems.coinnora,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.bait,1),new ItemStack(RWBYItems.remnants,16),new ItemStack(RWBYItems.coin_ren,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.bait,1),new ItemStack(RWBYItems.remnants,16),new ItemStack(RWBYItems.coin_lysette,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.bait,1),new ItemStack(RWBYItems.remnants,16),new ItemStack(RWBYItems.coin_ragora,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.bait,1),new ItemStack(RWBYItems.remnants,16),new ItemStack(RWBYItems.coin_clover,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.bait,1),new ItemStack(RWBYItems.remnants,16),new ItemStack(RWBYItems.coin_harriet,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.bait,1),new ItemStack(RWBYItems.remnants,16),new ItemStack(RWBYItems.coinqrow,1)));
+        this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.bait,1),new ItemStack(RWBYItems.remnants,16),new ItemStack(RWBYItems.coin_valour,1)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500, 1), new ItemStack(RWBYItems.signdust)));
         this.trades.add(new MerchantRecipe(new ItemStack(RWBYItems.lien500, 6), new ItemStack(RWBYItems.zwei)));
 

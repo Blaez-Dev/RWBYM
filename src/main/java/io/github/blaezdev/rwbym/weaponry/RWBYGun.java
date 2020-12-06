@@ -1101,6 +1101,10 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                             }else if ((weapontype & BOW) !=0 && !flagger) {
                                 itemstack.shrink(1);
                             }
+                            else if (itemstack.getUnlocalizedName().contains("dust")) {
+                                itemstack.shrink(1);
+                                stack.damageItem(1, entityplayer);
+                            }
                             else {
                                 itemstack.damageItem(1, entityplayer);
                                 stack.damageItem(1, entityplayer);

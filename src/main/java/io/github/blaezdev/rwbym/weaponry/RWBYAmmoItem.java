@@ -347,6 +347,12 @@ public class RWBYAmmoItem extends Item implements ICustomItem {
         return multimap;
     }
 
+    @Override
+    public int getItemBurnTime(ItemStack itemStack) {
+        if(dustcrystal|| getUnlocalizedName().contains("dust")){
+            return 5200;}else return 0;
+    }
+
     public int getItemEnchantability()
     {
         return 0;
