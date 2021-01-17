@@ -42,6 +42,8 @@ public class RWBYConfig
     public  int spawnrategoliath= 1;
     @Config.Name("Spawn Rate Deathstalker")
     public  int spawnratedeathstalker= 1;
+    @Config.Name("Spawn Rate Hollow")
+    public  int spawnratehollow= 1;
     @Config.Name("Spawn Rate Mutant Deathstalker")
     public  int spawnratemutantdeathstalker= 1;
     @Config.Name("Spawn Rate Nevermore")

@@ -85,7 +85,7 @@ public class RWBYEntities {
         EntityRegistry.registerModEntity(new ResourceLocation("rwbym:seer"), EntitySeer.class, "seer", entityID++, instance, 64, 1, true, (0 << 16) + (0 << 8) + 0, (153 << 16) + (153 << 8) + 153);
         EntityRegistry.registerModEntity(new ResourceLocation("rwbym:arachne"), EntityArachne.class, "arachne", entityID++, instance, 64, 1, true, (0 << 16) + (0 << 8) + 0, (153 << 16) + (153 << 8) + 153);
         EntityRegistry.registerModEntity(new ResourceLocation("rwbym:arachneclone"), EntityArachneClone.class, "arachneclone", entityID++, instance, 64, 1, true);
-
+        EntityRegistry.registerModEntity(new ResourceLocation("rwbym:hollow"), EntityHollow.class, "hollow", entityID++, instance, 64, 1, true, (0 << 16) + (0 << 8) + 0, (153 << 16) + (153 << 8) + 153);
 
         Biome[] biomes = getBiomeList(EntityCreeper.class, EnumCreatureType.MONSTER);
         Biome[] biomes1 = getBiomeList(EntityStray.class, EnumCreatureType.MONSTER);
@@ -101,6 +101,7 @@ public class RWBYEntities {
         EntityRegistry.addSpawn(EntityWyvern.class, RWBYConfig.configmobspawnrates.spawnratewyvern, 0, 1, EnumCreatureType.MONSTER, biomes);
         }
 
+        EntityRegistry.addSpawn(EntityHollow.class, RWBYConfig.configmobspawnrates.spawnratehollow, 0, 1, EnumCreatureType.MONSTER, biomes);
         EntityRegistry.addSpawn(EntityDeathStalker.class, RWBYConfig.configmobspawnrates.spawnratedeathstalker, 0, 1, EnumCreatureType.MONSTER, biomes);
         EntityRegistry.addSpawn(EntityNeverMore.class, RWBYConfig.configmobspawnrates.spawnratenevermore, 0, 3, EnumCreatureType.MONSTER, biomes);
         EntityRegistry.addSpawn(EntityNuckleeve.class, RWBYConfig.configmobspawnrates.spawnratenuckleeve, 0, 1, EnumCreatureType.MONSTER, biomes);
