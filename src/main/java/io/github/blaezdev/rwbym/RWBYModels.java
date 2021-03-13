@@ -1,9 +1,6 @@
 package io.github.blaezdev.rwbym;
 
-import io.github.blaezdev.rwbym.Init.RWBYBiomes;
-import io.github.blaezdev.rwbym.Init.RWBYCreativeTabs;
-import io.github.blaezdev.rwbym.Init.RWBYFluids;
-import io.github.blaezdev.rwbym.Init.RegUtil;
+import io.github.blaezdev.rwbym.Init.*;
 import io.github.blaezdev.rwbym.blocks.containers.CrusherContainer;
 import io.github.blaezdev.rwbym.blocks.tileentities.TileEntityRWBYCrusher;
 import io.github.blaezdev.rwbym.blocks.tileentities.TileEntityRWBYGrimmBait;
@@ -26,6 +23,7 @@ import io.github.blaezdev.rwbym.weaponry.RWBYGun;
 import io.github.blaezdev.rwbym.weaponry.RWBYHood;
 import io.github.blaezdev.rwbym.world.village.ComponentVillageShop1;
 import io.github.blaezdev.rwbym.world.village.VillageShop1CreationHandler;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -45,6 +43,7 @@ import net.minecraft.world.gen.structure.MapGenStructureIO;
 import net.minecraftforge.client.model.ModelLoaderRegistry;
 import net.minecraftforge.client.model.obj.OBJLoader;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -163,6 +162,7 @@ public class RWBYModels {
         RWBYFluids.register();
         RegUtil.registerAll(event);
         RegUtil.registerGamePotions();
+        RegUtil.onEnchantmentRegister();
         MinecraftForge.EVENT_BUS.register(this);
         if (items != null) items.forEach(ICustomItem::register);
         proxy.preInit(event);

@@ -1,5 +1,6 @@
 package io.github.blaezdev.rwbym;
 
+import io.github.blaezdev.rwbym.Init.EnchantInit;
 import io.github.blaezdev.rwbym.Init.RWBYBiomes;
 import io.github.blaezdev.rwbym.Init.RWBYItems;
 import io.github.blaezdev.rwbym.capabilities.Aura.AuraProvider;
@@ -25,6 +26,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
@@ -49,6 +51,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.client.event.EntityViewRenderEvent;
 import net.minecraftforge.client.event.RenderSpecificHandEvent;
+import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.item.ItemEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
@@ -485,6 +488,8 @@ public class EntityUpdatesHandler {
         }
         return ItemStack.EMPTY;
     }
+
+
 /*
     @SubscribeEvent
     public void DropItem(LivingDamageEvent event) {

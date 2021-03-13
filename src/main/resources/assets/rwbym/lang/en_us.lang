@@ -787,6 +787,8 @@ key.MAGRELEASE=Remove Magazine/Swap Magazine
 key.INSERT=Insert Magazine/Cartridge
 key.FIRESELECT=Change Fire Mode
 
+enchantment.doubleshot=Double Shot
+
 command.semblance.usage=/setsemblance [player] <semblance> [level]
 
 command.aura.usage=/aura [player] ['max'] [set|add|remove] [amount|percent%%|'max']

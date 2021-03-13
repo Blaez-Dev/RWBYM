@@ -6,6 +6,7 @@ import io.github.blaezdev.rwbym.utility.craftingutil;
 import io.github.blaezdev.rwbym.weaponry.RWBYItem;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.init.PotionTypes;
@@ -18,8 +19,10 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.potion.PotionHelper;
 import net.minecraft.potion.PotionType;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
@@ -1237,6 +1240,10 @@ public class RegUtil {
     public static final PotionType aura_regen_strong = new PotionType("aura_regen", new PotionEffect(RegUtil.AURA_REGEN, 1200, 3)).setRegistryName("aura_regen_strong");
     public static final PotionType aura_regen_long = new PotionType("aura_regen", new PotionEffect(RegUtil.AURA_REGEN, 9600, 0)).setRegistryName("aura_regen_long");
 
+
+    public static void onEnchantmentRegister(){
+        ForgeRegistries.ENCHANTMENTS.registerAll(EnchantInit.ENCHANTMENTS.toArray(new Enchantment[0]));
+    }
 
     public static void registerGamePotions(){
         registerPotion(aura_regen,aura_regen_long,aura_regen_strong,AURA_REGEN);

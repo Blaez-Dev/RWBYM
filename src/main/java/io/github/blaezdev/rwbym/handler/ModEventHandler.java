@@ -104,5 +104,4 @@ public class ModEventHandler implements IPrivateAccessor {
         }
         return false;
     }
-
 }
