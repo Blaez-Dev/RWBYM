@@ -787,7 +787,7 @@ key.MAGRELEASE=Remove Magazine/Swap Magazine
 key.INSERT=Insert Magazine/Cartridge
 key.FIRESELECT=Change Fire Mode
 
-enchantment.doubleshot=Double Shot
+enchantment.doubleshot=§6Twin Shot (Fire a Second Shot)
 
 command.semblance.usage=/setsemblance [player] <semblance> [level]
 
