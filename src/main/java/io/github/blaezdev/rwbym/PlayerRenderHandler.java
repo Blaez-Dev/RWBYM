@@ -416,7 +416,7 @@ public class PlayerRenderHandler {
 	    /** Instance of the player renderer. */
 	    protected final RenderLivingBase<?> renderPlayer;
 	    /** The model used by the Elytra. */
-	    //private final ModelElytra modelElytra = new ModelElytra();
+	    private final ModelElytra modelElytra = new ModelElytra();
 
 	    public LayerGlider(RenderLivingBase<?> p_i47185_1_)
 	    {

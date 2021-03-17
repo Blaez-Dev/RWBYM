@@ -680,6 +680,11 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
         }
     }
 
+    public void setKnockbackStrength(int knockbackStrengthIn)
+    {
+        this.knockbackStrength = knockbackStrengthIn;
+    }
+
     public void setItem(ItemStack stack) {
     	dataManager.set(ITEM, stack);
     }

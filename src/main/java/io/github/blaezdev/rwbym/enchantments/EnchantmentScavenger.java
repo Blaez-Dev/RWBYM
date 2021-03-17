@@ -9,11 +9,11 @@ import net.minecraft.init.Enchantments;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.util.ResourceLocation;
 
-public class EnchantmentDoubleShot extends Enchantment {
-    public EnchantmentDoubleShot(){
+public class EnchantmentScavenger extends Enchantment {
+    public EnchantmentScavenger(){
         super(Rarity.VERY_RARE, EnumEnchantmentType.WEAPON,new EntityEquipmentSlot[]{EntityEquipmentSlot.MAINHAND,EntityEquipmentSlot.OFFHAND});
-        this.setName("doubleshot");
-        this.setRegistryName(new ResourceLocation(RWBYModels.MODID+":doubleshot"));
+        this.setName("scavenger");
+        this.setRegistryName(new ResourceLocation(RWBYModels.MODID+":scavenger"));
 
         EnchantInit.ENCHANTMENTS.add(this);
     }
@@ -36,6 +36,6 @@ public class EnchantmentDoubleShot extends Enchantment {
     @Override
     protected boolean canApplyTogether(Enchantment ench) {
         return super.canApplyTogether(ench)
-                && ench != EnchantInit.KNOCK_SHOT && ench != EnchantInit.AURA_SIPHON;
+                && ench != EnchantInit.AURA_SIPHON;
     }
 }

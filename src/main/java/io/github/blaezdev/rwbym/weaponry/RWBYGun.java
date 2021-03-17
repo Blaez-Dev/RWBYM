@@ -2,6 +2,7 @@ package io.github.blaezdev.rwbym.weaponry;
 
 import com.google.common.collect.Multimap;
 import com.mojang.realmsclient.gui.ChatFormatting;
+import io.github.blaezdev.rwbym.Init.EnchantInit;
 import io.github.blaezdev.rwbym.Init.RWBYItems;
 import io.github.blaezdev.rwbym.RWBYModels;
 import io.github.blaezdev.rwbym.RWBYSoundHandler;
@@ -17,6 +18,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeMap;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -506,6 +508,14 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         if(stack.getItem() == RWBYItems.pickaxeshield){tooltip.add(" "); tooltip.add(ChatFormatting.BLUE +  "Mining Skill + 1");}
         if(stack.getItem() == RWBYItems.pickaxeshield){tooltip.add(" "); tooltip.add(ChatFormatting.WHITE +  "Your Reflexes and Eyesight adjust to make mining easier.");}
         super.addInformation(stack, worldIn, tooltip, flagIn);
+
+        if (stack.hasTagCompound() && stack.getTagCompound().hasKey("Aura"))
+        {
+            tooltip.add(ChatFormatting.WHITE+"Aura Stored:");
+            tooltip.add(ChatFormatting.BLUE+Integer.toString(stack.getTagCompound().getInteger("Aura")));
+            tooltip.add(ChatFormatting.WHITE+"Aura Storage is on:");
+            tooltip.add(ChatFormatting.BLUE+Boolean.toString(stack.getTagCompound().getBoolean("AuraOn")));
+        }
     }
 
     @Override
@@ -572,10 +582,35 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         if(!world.isRemote) {
             if (entity instanceof EntityPlayer) {
                 EntityPlayer player = (EntityPlayer) entity;
-                if(!player.getName().contains("Blaez")&&is.getItem() == RWBYItems.infinity){
-                    //player.attackEntityFrom(DamageSource.MAGIC, 1);
-                    is.shrink(1);
-               }
+
+
+                if(is.getItem() == RWBYItems.ozpincane){  NBTTagCompound nbt;
+                    if (is.hasTagCompound())
+                    {
+                        nbt = is.getTagCompound();
+                    }
+                    else
+                    {
+                        nbt = new NBTTagCompound();
+                        nbt.setInteger("Aura", 1);
+                        nbt.setBoolean("AuraON",false);
+                    }
+
+                    if (nbt.hasKey("Aura")&& player.isSneaking() && player.getCapability(AuraProvider.AURA_CAP, null).getAmount() < player.getCapability(AuraProvider.AURA_CAP,null).getMaxAura() && nbt.getInteger("Aura") > 5 && nbt.getBoolean("AuraOn") == true && player.getHeldItemMainhand() == is)
+                    {
+                        player.getCapability(AuraProvider.AURA_CAP, null).useAura(player, -2F, false);
+                        nbt.setInteger("Aura", nbt.getInteger("Aura") - 2);
+                        System.out.println(nbt.getInteger("Aura"));
+                    }
+                    if (nbt.hasKey("Aura")&& player.isSneaking() && player.getCapability(AuraProvider.AURA_CAP, null).getAmount() > 5F && nbt.getInteger("Aura")< 2000 && nbt.getBoolean("AuraOn") == false && player.getHeldItemMainhand() == is)
+                    {
+                        player.getCapability(AuraProvider.AURA_CAP, null).useAura(player, 2F, false);
+                        nbt.setInteger("Aura", nbt.getInteger("Aura") + 2);
+                        System.out.println(nbt.getInteger("Aura"));
+                    }
+                    is.setTagCompound(nbt);
+                }
+
                 {    if (climbs) {
                     if (player.fallDistance > 4 & compensate) {
                         lastDamage = player.fallDistance;
@@ -590,6 +625,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
             }
         }
+
 
 
         if (!world.isRemote && this.data != null) {
@@ -764,6 +800,10 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             player.getCapability(AuraProvider.AURA_CAP, null).useAura(playerIn, 0.15F, false);
             player.getCapability(AuraProvider.AURA_CAP, null).delayRecharge(30);
         }
+
+
+
+
         if (!playerIn.onGround && playerIn.getItemInUseCount() > 1 && (weapontype & (UMBRELLA)) !=0)
         {
             Vec3d look = playerIn.getLookVec();
@@ -878,7 +918,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     }
 
     @Nonnull
-    private ItemStack findAmmo(EntityPlayer player, boolean force) {
+    public ItemStack findAmmo(EntityPlayer player, boolean force) {
 
         Item ammo1 = this.ammo == null ? Items.ARROW : Item.getByNameOrId(this.ammo);
         if (force || (ammo1 instanceof ItemArrow && ((ItemArrow) ammo1).isInfinite(null, player.getActiveItemStack(), player))
@@ -946,7 +986,6 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
     @Override
     public void onPlayerStoppedUsing(ItemStack stack, World worldIn, EntityLivingBase entityLiving, int timeLeft) { // Mostly copied from ItemBow, with slight edits
-
         if (entityLiving instanceof EntityPlayer) {
             EntityPlayer entityplayer = (EntityPlayer) entityLiving;
             boolean flagger = entityplayer.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantments.INFINITY, stack) > 0;
@@ -954,9 +993,22 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             boolean flag2 = false;
             ItemStack itemstack = this.findAmmo(entityplayer, flag);
 
+
             if(!itemstack.isEmpty()){
                 flag2 = true;
             }
+
+
+            if (stack.hasTagCompound())
+            {
+                NBTTagCompound nbt;
+                nbt = stack.getTagCompound();
+                if(nbt.getBoolean("AuraOn") == true){nbt.setBoolean("AuraOn",false);}
+                else if(nbt.getBoolean("AuraOn") == false){nbt.setBoolean("AuraOn", true);}
+
+            }
+
+
 
 
             if(weaponuseglow){
@@ -1038,6 +1090,11 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                 }
             }
 
+            if (EnchantmentHelper.getEnchantmentLevel(EnchantInit.DOUBLE_SHOT, stack) > 0 && !thrown)
+            {
+                shotcount = shotcount*2;
+            }
+
             finishshot = bulletCount*shotcount;
 
             int i = this.getMaxItemUseDuration(stack) - timeLeft;
@@ -1068,6 +1125,14 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                         for (int i2 = 0; i2 < finishshot; i2++) {
                             EntityArrow entityarrow = (itemstack.getItem() instanceof RWBYAmmoItem ? ((RWBYAmmoItem) itemstack.getItem()).createArrow(worldIn, itemstack, stack, entityplayer) : ((ItemArrow) Items.ARROW).createArrow(worldIn, itemstack, entityplayer));
                             entityarrow.shoot(entityplayer, entityplayer.rotationPitch, entityplayer.rotationYaw, 0.0F, f * 3.0F * (this.projectileSpeed == 0.0F ? 1.0F : this.projectileSpeed), inaccuracy*itemRand.nextInt(5));
+
+
+                            int k = EnchantmentHelper.getEnchantmentLevel(EnchantInit.KNOCK_SHOT, stack);
+
+                            if (k > 0)
+                            {
+                                entityarrow.setKnockbackStrength(k*2);
+                            }
 
                             //System.out.println(inaccuracy);
                             entityarrow.setIsCritical(true);

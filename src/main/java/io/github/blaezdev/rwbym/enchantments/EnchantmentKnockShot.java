@@ -9,11 +9,11 @@ import net.minecraft.init.Enchantments;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.util.ResourceLocation;
 
-public class EnchantmentDoubleShot extends Enchantment {
-    public EnchantmentDoubleShot(){
+public class EnchantmentKnockShot extends Enchantment {
+    public EnchantmentKnockShot(){
         super(Rarity.VERY_RARE, EnumEnchantmentType.WEAPON,new EntityEquipmentSlot[]{EntityEquipmentSlot.MAINHAND,EntityEquipmentSlot.OFFHAND});
-        this.setName("doubleshot");
-        this.setRegistryName(new ResourceLocation(RWBYModels.MODID+":doubleshot"));
+        this.setName("knockshot");
+        this.setRegistryName(new ResourceLocation(RWBYModels.MODID+":knockshot"));
 
         EnchantInit.ENCHANTMENTS.add(this);
     }
@@ -30,12 +30,11 @@ public class EnchantmentDoubleShot extends Enchantment {
 
     @Override
     public int getMaxLevel() {
-        return 1;
+        return 5;
     }
 
     @Override
     protected boolean canApplyTogether(Enchantment ench) {
-        return super.canApplyTogether(ench)
-                && ench != EnchantInit.KNOCK_SHOT && ench != EnchantInit.AURA_SIPHON;
+        return super.canApplyTogether(ench) && ench != EnchantInit.DOUBLE_SHOT && ench != EnchantInit.AURA_SIPHON;
     }
 }

@@ -788,6 +788,9 @@ key.INSERT=Insert Magazine/Cartridge
 key.FIRESELECT=Change Fire Mode
 
 enchantment.doubleshot=§6Twin Shot (Fire a Second Shot)
+enchantment.knockshot=§6Knock Shot (Send Your Enemies Flying!)
+enchantment.aurasiphon=§6 Aura Siphon (Kills Grant 10 Aura while item is Held)
+enchantment.scavenger=§6 Ammo Scavenger (Chance for Kills to return Durability to Magazines/Dust Crystals The Held Weapon Can Use)
 
 command.semblance.usage=/setsemblance [player] <semblance> [level]
 

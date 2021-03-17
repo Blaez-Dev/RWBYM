@@ -20,6 +20,7 @@ import io.github.blaezdev.rwbym.utility.network.MessageUpdateFlying;
 import io.github.blaezdev.rwbym.utility.network.RWBYNetworkHandler;
 import io.github.blaezdev.rwbym.weaponry.ArmourBase;
 import io.github.blaezdev.rwbym.weaponry.RWBYGliderItem;
+import io.github.blaezdev.rwbym.weaponry.RWBYGun;
 import io.github.blaezdev.rwbym.weaponry.RWBYHood;
 import io.github.blaezdev.rwbym.weaponry.specialweapons.guns.ItemGun;
 import net.minecraft.block.material.Material;
@@ -27,6 +28,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
@@ -153,6 +155,37 @@ public class EntityUpdatesHandler {
         otheraura.setAmount(0);
         otheraura.addAmount(otheraura.getMaxAura());
         //System.out.println("Respawn");
+    }
+
+    @SubscribeEvent
+    public void entityDeath(LivingDeathEvent event){
+        if (event.getSource().getTrueSource() instanceof EntityPlayer) {
+            EntityPlayer player = (EntityPlayer) event.getSource().getTrueSource();
+            IAura aura = player.getCapability(AuraProvider.AURA_CAP, null);
+            ItemStack isMainhand = player.getHeldItemMainhand();
+            ItemStack isOffhand = player.getHeldItemOffhand();
+            if(EnchantmentHelper.getEnchantmentLevel(EnchantInit.AURA_SIPHON, isMainhand) > 0||EnchantmentHelper.getEnchantmentLevel(EnchantInit.AURA_SIPHON, isOffhand) > 0 && aura.getAmount() < aura.getMaxAura()){
+                aura.useAura(player, -10F, false);
+                if(aura.getMaxAura()<aura.getAmount()){
+                    aura.setAmount(aura.getMaxAura());
+                }
+            }
+
+            if(EnchantmentHelper.getEnchantmentLevel(EnchantInit.SCAVENGER, isMainhand) > 0||EnchantmentHelper.getEnchantmentLevel(EnchantInit.SCAVENGER, isOffhand) > 0){
+                if(isMainhand.getItem() instanceof RWBYGun && EnchantmentHelper.getEnchantmentLevel(EnchantInit.SCAVENGER, isMainhand) > 0 && player.getRNG().nextInt(32) < 4){
+                RWBYGun gun = (RWBYGun)isMainhand.getItem();
+                ItemStack ammo = gun.findAmmo(player, false);
+                ammo.damageItem(-2, player);
+                }
+
+                if(isOffhand.getItem() instanceof RWBYGun && EnchantmentHelper.getEnchantmentLevel(EnchantInit.SCAVENGER, isOffhand) > 0 && player.getRNG().nextInt(32) < 4){
+                    RWBYGun gun = (RWBYGun)isOffhand.getItem();
+                    ItemStack ammo = gun.findAmmo(player, false);
+                    ammo.damageItem(-2, player);
+                }
+            }
+
+        }
     }
 
     @SubscribeEvent

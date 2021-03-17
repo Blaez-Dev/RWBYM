@@ -11,6 +11,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntityDamageSource;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.Vec3d;
@@ -147,7 +148,7 @@ public class Ruby implements IRuby {
 						{
 							if (entity instanceof EntityLivingBase) {
 								EntityLivingBase entitylivingbase = (EntityLivingBase)entity;
-								entitylivingbase.attackEntityFrom(new EntityDamageSource("rose petal", player), f*10);
+								entitylivingbase.attackEntityFrom(DamageSource.causePlayerDamage(player), f*10);
 							}
 						}
 					}
