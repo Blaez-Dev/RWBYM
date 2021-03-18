@@ -30,6 +30,7 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.EntityMob;
@@ -82,6 +83,16 @@ import static net.minecraft.client.renderer.GlStateManager.FogMode.EXP;
 import static net.minecraft.client.renderer.GlStateManager.FogMode.LINEAR;
 
 public class EntityUpdatesHandler {
+
+    private ItemStack generateitem(ItemStack is){
+        ItemStack generatedis = is;
+        //generatedis.addEnchantment(EnchantInit.getBarrelmodifierEnchant(), 1);
+        //generatedis.addEnchantment(EnchantInit.getFramemodifierEnchant(), 1);
+        generatedis.addEnchantment(EnchantInit.getShotmodifierEnchant(), 1);
+        generatedis.addEnchantment(EnchantInit.getKillmodifierEnchant(), 1);
+        //generatedis.addEnchantment(EnchantInit.getEnemymodifierEnchant(), 1);
+        return generatedis;
+    }
 
     @SubscribeEvent
     public void onUpdate(LivingUpdateEvent event) {
@@ -233,7 +244,6 @@ public class EntityUpdatesHandler {
 
     @SubscribeEvent
     public void onLivingDropsEvent(LivingDropsEvent event) {
-
         Entity entity = event.getEntity();
         World world = event.getEntity().getEntityWorld();
         BlockPos pos = event.getEntity().getPosition();
@@ -247,6 +257,17 @@ public class EntityUpdatesHandler {
         itemset2.add(RWBYItems.pickaxeshield);
         itemset2.add(RWBYItems.rageshield);
         Entity killer = event.getSource().getTrueSource();
+
+        for (int i = 0; i < event.getDrops().size(); i++) {
+            ItemStack randomizedrops = event.getDrops().get(i).getItem();
+            if(randomizedrops.getItem() instanceof RWBYGun){
+                randomizedrops = generateitem(randomizedrops);
+                EntityItem itemdroprandomizer = new EntityItem(world, pos.getX() + .5, pos.getY() + .5, pos.getZ() + .5, randomizedrops);
+                event.getDrops().set(i, itemdroprandomizer);
+            }
+        }
+
+
         if (event.getSource().getDamageType().equals("player")) {
             if (entity instanceof EntityGrimm && killer instanceof EntityPlayer) {
                 EntityPlayer player = (EntityPlayer) event.getSource().getTrueSource();
