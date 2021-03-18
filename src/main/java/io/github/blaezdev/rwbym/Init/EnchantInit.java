@@ -5,6 +5,7 @@ import io.github.blaezdev.rwbym.enchantments.killmodifiers.EnchantmentAuraSiphon
 import io.github.blaezdev.rwbym.enchantments.shotmodifiers.EnchantmentDoubleShot;
 import io.github.blaezdev.rwbym.enchantments.shotmodifiers.EnchantmentKnockShot;
 import io.github.blaezdev.rwbym.enchantments.killmodifiers.EnchantmentScavenger;
+import io.github.blaezdev.rwbym.enchantments.shotmodifiers.EnchantmentPoisonShot;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraftforge.fml.common.Mod;
 
@@ -15,10 +16,11 @@ import java.util.Random;
 @Mod.EventBusSubscriber(modid=RWBYModels.MODID)
 public class EnchantInit {
     public static final List<Enchantment> ENCHANTMENTS = new ArrayList<Enchantment>();
-    public static final Enchantment DOUBLE_SHOT = new EnchantmentDoubleShot(); //Shot Based Disallow Multiple Shot Modifiers
-    public static final Enchantment KNOCK_SHOT = new EnchantmentKnockShot();  //Shot Based Disallow Multiple Shot Modifiers
-    public static final Enchantment AURA_SIPHON = new EnchantmentAuraSiphon();  //Kill Based Disallow Multiple Kill Modifiers
-    public static final Enchantment SCAVENGER = new EnchantmentScavenger(); //Kill Based Disallow Multiple Kill Modifiers
+    public static final Enchantment DOUBLE_SHOT = new EnchantmentDoubleShot();
+    public static final Enchantment KNOCK_SHOT = new EnchantmentKnockShot();
+    public static final Enchantment AURA_SIPHON = new EnchantmentAuraSiphon();
+    public static final Enchantment SCAVENGER = new EnchantmentScavenger();
+    public static final Enchantment POISON_SHOT = new EnchantmentPoisonShot();
 
 
     public static ArrayList<Enchantment> shotmodifier = new ArrayList<Enchantment>(){
@@ -39,6 +41,7 @@ public class EnchantInit {
     public static Enchantment getShotmodifierEnchant(){
         shotmodifier.add(EnchantInit.DOUBLE_SHOT);
         shotmodifier.add(EnchantInit.KNOCK_SHOT);
+        shotmodifier.add(EnchantInit.POISON_SHOT);
         Random rand = new Random();
         int index = rand.nextInt(shotmodifier.size());
         Enchantment randenchant = shotmodifier.get(index);

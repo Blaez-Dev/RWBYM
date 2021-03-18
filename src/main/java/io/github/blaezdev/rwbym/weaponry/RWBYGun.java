@@ -600,13 +600,13 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                     {
                         player.getCapability(AuraProvider.AURA_CAP, null).useAura(player, -2F, false);
                         nbt.setInteger("Aura", nbt.getInteger("Aura") - 2);
-                        System.out.println(nbt.getInteger("Aura"));
+                        //System.out.println(nbt.getInteger("Aura"));
                     }
                     if (nbt.hasKey("Aura")&& player.isSneaking() && player.getCapability(AuraProvider.AURA_CAP, null).getAmount() > 5F && nbt.getInteger("Aura")< 2000 && nbt.getBoolean("AuraOn") == false && player.getHeldItemMainhand() == is)
                     {
                         player.getCapability(AuraProvider.AURA_CAP, null).useAura(player, 2F, false);
                         nbt.setInteger("Aura", nbt.getInteger("Aura") + 2);
-                        System.out.println(nbt.getInteger("Aura"));
+                        //System.out.println(nbt.getInteger("Aura"));
                     }
                     is.setTagCompound(nbt);
                 }

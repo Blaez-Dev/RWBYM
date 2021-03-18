@@ -287,6 +287,7 @@ public class EntityUpdatesHandler {
     @SubscribeEvent
     public void onEntityDamageLast(LivingHurtEvent event) {
         EntityLivingBase entityliving = event.getEntityLiving();
+
         if (event.getSource().getTrueSource() instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) event.getSource().getTrueSource();
             ISemblance semblance = CapabilityHandler.getCurrentSemblance(player);

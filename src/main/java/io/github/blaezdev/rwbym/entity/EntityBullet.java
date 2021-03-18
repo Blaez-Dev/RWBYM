@@ -1,5 +1,6 @@
 package io.github.blaezdev.rwbym.entity;
 
+import io.github.blaezdev.rwbym.Init.EnchantInit;
 import io.github.blaezdev.rwbym.Init.RWBYItems;
 import io.github.blaezdev.rwbym.RWBYModels;
 import io.github.blaezdev.rwbym.capabilities.Aura.AuraProvider;
@@ -16,6 +17,7 @@ import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.MoverType;
@@ -24,6 +26,7 @@ import net.minecraft.entity.monster.EntityEndermite;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.projectile.EntityArrow;
+import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -60,6 +63,7 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
 
     private static final DataParameter<ItemStack> ITEM = EntityDataManager.createKey(EntityBullet.class, DataSerializers.ITEM_STACK);
     private static final DataParameter<ItemStack> SHOOTING_STACK = EntityDataManager.createKey(EntityBullet.class, DataSerializers.ITEM_STACK);
+    private static final DataParameter<ItemStack> FIRING_WEAPON = EntityDataManager.createKey(EntityBullet.class, DataSerializers.ITEM_STACK);
     private static final DataParameter<Integer> PARTICLE = EntityDataManager.createKey(EntityBullet.class, DataSerializers.VARINT);
 
     private int knockbackStrength;
@@ -102,9 +106,11 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
         if(shootingStack.getItem() == RWBYItems.flyingthundergod){teleport = 1;}
         if(shootingStack.getItem() instanceof RWBYGun && (((RWBYGun) shootingStack.getItem()).weapontype & RWBYGun.THROWN) != 0) {
     		this.setShootingItemStack(shootingStack.copy());
+    		this.setFiringWeaponItemStack(shootingStack.copy());
     	}
         else {
             ItemStack iss = new ItemStack(stack.getItem());
+            this.setFiringWeaponItemStack(shootingStack.copy());
         	this.setShootingItemStack(iss);
         }
         this.setItem(stack);
@@ -119,6 +125,7 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
         super.entityInit();
         dataManager.register(ITEM, ItemStack.EMPTY);
         dataManager.register(SHOOTING_STACK, ItemStack.EMPTY);
+        dataManager.register(FIRING_WEAPON, ItemStack.EMPTY);
         dataManager.register(PARTICLE, EnumParticleTypes.CRIT.ordinal());
     }
 
@@ -524,6 +531,12 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
             this.setDead();
         }}
 
+        if(EnchantmentHelper.getEnchantmentLevel(EnchantInit.POISON_SHOT, getFiringWeaponItemStack()) > 0){
+            PotionEffect poisonshot = new PotionEffect(MobEffects.POISON, 200, 3);
+            living.addPotionEffect(poisonshot);
+            //System.out.println("works");
+        }
+
         if (item.getPotions() != null) {
             for (PotionEffect potion : item.getPotions()) {
                 PotionEffect effect = new PotionEffect(potion);
@@ -699,6 +712,14 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
 
     public void setShootingItemStack(ItemStack stack) {
         dataManager.set(SHOOTING_STACK, stack);
+    }
+
+    public ItemStack getFiringWeaponItemStack() {
+        return dataManager.get(FIRING_WEAPON);
+    }
+
+    public void setFiringWeaponItemStack(ItemStack stack) {
+        dataManager.set(FIRING_WEAPON, stack);
     }
 
     @Override
