@@ -1,4 +1,4 @@
-package io.github.blaezdev.rwbym.enchantments;
+package io.github.blaezdev.rwbym.enchantments.killmodifiers;
 
 import io.github.blaezdev.rwbym.Init.EnchantInit;
 import io.github.blaezdev.rwbym.RWBYModels;
@@ -9,11 +9,11 @@ import net.minecraft.init.Enchantments;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.util.ResourceLocation;
 
-public class EnchantmentDoubleShot extends Enchantment {
-    public EnchantmentDoubleShot(){
+public class EnchantmentAuraSiphon extends Enchantment {
+    public EnchantmentAuraSiphon(){
         super(Rarity.VERY_RARE, EnumEnchantmentType.WEAPON,new EntityEquipmentSlot[]{EntityEquipmentSlot.MAINHAND,EntityEquipmentSlot.OFFHAND});
-        this.setName("doubleshot");
-        this.setRegistryName(new ResourceLocation(RWBYModels.MODID+":doubleshot"));
+        this.setName("aurasiphon");
+        this.setRegistryName(new ResourceLocation(RWBYModels.MODID+":aurasiphon"));
 
         EnchantInit.ENCHANTMENTS.add(this);
     }
@@ -36,6 +36,6 @@ public class EnchantmentDoubleShot extends Enchantment {
     @Override
     protected boolean canApplyTogether(Enchantment ench) {
         return super.canApplyTogether(ench)
-                && ench != EnchantInit.KNOCK_SHOT && ench != EnchantInit.AURA_SIPHON;
+                && ench != EnchantInit.SCAVENGER;
     }
 }

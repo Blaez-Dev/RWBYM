@@ -1,5 +1,6 @@
 package io.github.blaezdev.rwbym.blocks.tileentities;
 
+import io.github.blaezdev.rwbym.Init.EnchantInit;
 import io.github.blaezdev.rwbym.Init.RWBYItems;
 import io.github.blaezdev.rwbym.entity.*;
 import net.minecraft.entity.EntityLiving;
@@ -30,7 +31,17 @@ public class TileEntityRWBYGrimmBait extends TileEntity implements ITickable {
     private boolean stopping = false;
     private List<EntityItem> drops = new ArrayList<>();
     private List<EntityLiving> alive = new ArrayList<>();
-    
+
+	private ItemStack generateitem(ItemStack is){
+		ItemStack generatedis = is;
+		//generatedis.addEnchantment(EnchantInit.getBarrelmodifierEnchant(), 1);
+		//generatedis.addEnchantment(EnchantInit.getFramemodifierEnchant(), 1);
+		generatedis.addEnchantment(EnchantInit.getShotmodifierEnchant(), 1);
+		generatedis.addEnchantment(EnchantInit.getKillmodifierEnchant(), 1);
+		//generatedis.addEnchantment(EnchantInit.getEnemymodifierEnchant(), 1);
+		return generatedis;
+	}
+
     public TileEntityRWBYGrimmBait() {
 		// TODO Auto-generated constructor stub
 	}
@@ -67,23 +78,23 @@ public class TileEntityRWBYGrimmBait extends TileEntity implements ITickable {
 			this.drops.add(item);
 		}
 			ArrayList<ItemStack> drops2 = new ArrayList<>();
-			drops2.add(new ItemStack(RWBYItems.grimmrapier, 1));
-			drops2.add(new ItemStack(RWBYItems.grimmscy, 1));
-			drops2.add(new ItemStack(RWBYItems.grimmwhip, 1));
-			drops2.add(new ItemStack(RWBYItems.noctustraumnormal, 1));
+			drops2.add(generateitem(new ItemStack(RWBYItems.grimmrapier, 1)));
+			drops2.add(generateitem(new ItemStack(RWBYItems.grimmscy, 1)));
+			drops2.add(generateitem(new ItemStack(RWBYItems.grimmwhip, 1)));
+			drops2.add(generateitem(new ItemStack(RWBYItems.noctustraumnormal, 1)));
 			drops2.add(new ItemStack(RWBYItems.he1, 1));
 			drops2.add(new ItemStack(RWBYItems.he2, 1));
 			drops2.add(new ItemStack(RWBYItems.he3, 1));
 			drops2.add(new ItemStack(RWBYItems.he4, 1));
 			drops2.add(new ItemStack(RWBYItems.he5, 1));
 			drops2.add(new ItemStack(RWBYItems.he6, 1));
-			drops2.add(new ItemStack(RWBYItems.extasis, 1));
-			drops2.add(new ItemStack(RWBYItems.amesardent, 1));
-			drops2.add(new ItemStack(RWBYItems.lichtroze_closedfire, 1));
-			drops2.add(new ItemStack(RWBYItems.kyoshifire, 1));
-			drops2.add(new ItemStack(RWBYItems.hollowtome, 1));
-			drops2.add(new ItemStack(RWBYItems.moonskimmer, 1));
-			drops2.add(new ItemStack(RWBYItems.gwai1, 1));
+			drops2.add(generateitem(new ItemStack(RWBYItems.extasis, 1)));
+			drops2.add(generateitem(new ItemStack(RWBYItems.amesardent, 1)));
+			drops2.add(generateitem(new ItemStack(RWBYItems.lichtroze_closedfire, 1)));
+			drops2.add(generateitem(new ItemStack(RWBYItems.kyoshifire, 1)));
+			drops2.add(generateitem(new ItemStack(RWBYItems.hollowtome, 1)));
+			drops2.add(generateitem(new ItemStack(RWBYItems.moonskimmer, 1)));
+			drops2.add(generateitem(new ItemStack(RWBYItems.gwai1, 1)));
 
 
 			EntityItem item2 = new EntityItem(this.world, this.getPos().getX(), this.getPos().getY() + 1, this.getPos().getZ(), drops2.get(rand.nextInt(drops2.size())));

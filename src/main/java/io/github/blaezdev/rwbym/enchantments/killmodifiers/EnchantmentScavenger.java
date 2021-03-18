@@ -1,4 +1,4 @@
-package io.github.blaezdev.rwbym.enchantments;
+package io.github.blaezdev.rwbym.enchantments.killmodifiers;
 
 import io.github.blaezdev.rwbym.Init.EnchantInit;
 import io.github.blaezdev.rwbym.RWBYModels;
@@ -9,11 +9,11 @@ import net.minecraft.init.Enchantments;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.util.ResourceLocation;
 
-public class EnchantmentKnockShot extends Enchantment {
-    public EnchantmentKnockShot(){
+public class EnchantmentScavenger extends Enchantment {
+    public EnchantmentScavenger(){
         super(Rarity.VERY_RARE, EnumEnchantmentType.WEAPON,new EntityEquipmentSlot[]{EntityEquipmentSlot.MAINHAND,EntityEquipmentSlot.OFFHAND});
-        this.setName("knockshot");
-        this.setRegistryName(new ResourceLocation(RWBYModels.MODID+":knockshot"));
+        this.setName("scavenger");
+        this.setRegistryName(new ResourceLocation(RWBYModels.MODID+":scavenger"));
 
         EnchantInit.ENCHANTMENTS.add(this);
     }
@@ -30,11 +30,12 @@ public class EnchantmentKnockShot extends Enchantment {
 
     @Override
     public int getMaxLevel() {
-        return 5;
+        return 1;
     }
 
     @Override
     protected boolean canApplyTogether(Enchantment ench) {
-        return super.canApplyTogether(ench) && ench != EnchantInit.DOUBLE_SHOT && ench != EnchantInit.AURA_SIPHON;
+        return super.canApplyTogether(ench)
+                && ench != EnchantInit.AURA_SIPHON;
     }
 }

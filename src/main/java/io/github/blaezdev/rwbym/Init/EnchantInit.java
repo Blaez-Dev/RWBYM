@@ -1,18 +1,12 @@
 package io.github.blaezdev.rwbym.Init;
 
 import io.github.blaezdev.rwbym.RWBYModels;
-import io.github.blaezdev.rwbym.enchantments.EnchantmentAuraSiphon;
-import io.github.blaezdev.rwbym.enchantments.EnchantmentDoubleShot;
-import io.github.blaezdev.rwbym.enchantments.EnchantmentKnockShot;
-import io.github.blaezdev.rwbym.enchantments.EnchantmentScavenger;
+import io.github.blaezdev.rwbym.enchantments.killmodifiers.EnchantmentAuraSiphon;
+import io.github.blaezdev.rwbym.enchantments.shotmodifiers.EnchantmentDoubleShot;
+import io.github.blaezdev.rwbym.enchantments.shotmodifiers.EnchantmentKnockShot;
+import io.github.blaezdev.rwbym.enchantments.killmodifiers.EnchantmentScavenger;
 import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
-import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +27,15 @@ public class EnchantInit {
     public static ArrayList<Enchantment> killmodifier = new ArrayList<Enchantment>(){
     };
 
+    public static ArrayList<Enchantment> framemodifier = new ArrayList<Enchantment>(){
+    };
+
+    public static ArrayList<Enchantment> barrelmodifier = new ArrayList<Enchantment>(){
+    };
+
+    public static ArrayList<Enchantment> enemymodifier = new ArrayList<Enchantment>(){
+    };
+
     public static Enchantment getShotmodifierEnchant(){
         shotmodifier.add(EnchantInit.DOUBLE_SHOT);
         shotmodifier.add(EnchantInit.KNOCK_SHOT);
@@ -50,6 +53,28 @@ public class EnchantInit {
         Enchantment randenchant = killmodifier.get(index);
         return randenchant;
     }
+
+    public static Enchantment getFramemodifierEnchant(){
+        Random rand = new Random();
+        int index = rand.nextInt(framemodifier.size());
+        Enchantment randenchant = framemodifier.get(index);
+        return randenchant;
+    }
+
+    public static Enchantment getBarrelmodifierEnchant(){
+        Random rand = new Random();
+        int index = rand.nextInt(barrelmodifier.size());
+        Enchantment randenchant = barrelmodifier.get(index);
+        return randenchant;
+    }
+
+    public static Enchantment getEnemymodifierEnchant(){
+        Random rand = new Random();
+        int index = rand.nextInt(enemymodifier.size());
+        Enchantment randenchant = enemymodifier.get(index);
+        return randenchant;
+    }
+
 
     /*
     @SubscribeEvent
