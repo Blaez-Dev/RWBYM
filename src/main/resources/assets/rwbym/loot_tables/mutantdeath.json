@@ -21,8 +21,8 @@
         },
         {
           "condition": "random_chance_with_looting",
-          "chance": 0.25,
-          "looting_multiplier": 0.01
+          "chance": 1,
+          "looting_multiplier": 0.5
         }
       ],
       "name": "boss1",
