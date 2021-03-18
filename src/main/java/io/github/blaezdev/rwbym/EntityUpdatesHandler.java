@@ -175,14 +175,14 @@ public class EntityUpdatesHandler {
                 if(isMainhand.getItem() instanceof RWBYGun && EnchantmentHelper.getEnchantmentLevel(EnchantInit.SCAVENGER, isMainhand) > 0 && player.getRNG().nextInt(32) < 4){
                 RWBYGun gun = (RWBYGun)isMainhand.getItem();
                 ItemStack ammo = gun.findAmmo(player, false);
-                    if(gun.weapontype == gun.INT_MAG||gun.weapontype == gun.THROWN){
+                    if(gun.weapontype == gun.INT_MAG){
                         ammo = isMainhand;
                     }
                 ammo.damageItem(-2, player);
                 }else if(isOffhand.getItem() instanceof RWBYGun && EnchantmentHelper.getEnchantmentLevel(EnchantInit.SCAVENGER, isOffhand) > 0 && player.getRNG().nextInt(32) < 4){
                     RWBYGun gun = (RWBYGun)isOffhand.getItem();
                     ItemStack ammo = gun.findAmmo(player, false);
-                    if(gun.weapontype == gun.INT_MAG||gun.weapontype == gun.THROWN){
+                    if(gun.weapontype == gun.INT_MAG){
                         ammo = isOffhand;
                     }
                     ammo.damageItem(-2, player);
