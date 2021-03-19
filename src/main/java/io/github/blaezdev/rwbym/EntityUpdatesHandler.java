@@ -230,7 +230,7 @@ public class EntityUpdatesHandler {
     public void onBlockDropItems(BlockEvent.HarvestDropsEvent event) {
         if (event.getHarvester() instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) event.getHarvester();
-            if (event.getState().getMaterial() == Material.PLANTS && player.getHeldItemMainhand().getItem() == RWBYItems.leafshield || event.getState().getBlock().getMaterial(null) == Material.PLANTS && player.getHeldItemOffhand().getItem() == RWBYItems.leafshield) {
+            if (event.getState().getMaterial() == Material.PLANTS && player.getHeldItemMainhand().getItem() == RWBYItems.leafshield || event.getState().getMaterial() == Material.PLANTS && player.getHeldItemOffhand().getItem() == RWBYItems.leafshield) {
                 List<ItemStack> drops = new ArrayList<ItemStack>();
                 drops.addAll(event.getDrops());
                 for (int i = 0; i < 1; ++i) {
