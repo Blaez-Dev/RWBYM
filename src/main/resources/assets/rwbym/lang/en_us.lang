@@ -792,6 +792,12 @@ enchantment.knockshot=§6Knock Shot (Shots Send Your Enemies Flying)
 enchantment.aurasiphon=§6Aura Siphon (Kills Grant 10 Aura while item is Held)
 enchantment.scavenger=§6Scavenger (Random Chance Kills return Durability to Mag)
 enchantment.poisonshot=§6Poison Shot (Shots Inflict Poison on Impact)
+enchantment.lightweightframe=§6Light Weight Frame (0.5x Per Shot Recoil)
+enchantment.attunedframe=§6Attuned Frame (0.7x Per Shot Recoil)
+enchantment.precisionframe=§6Precision Frame (1x Per Shot Recoil)
+enchantment.rapidfireframe=§6Rapid Fire Frame(1.2 Per Shot Recoil)
+enchantment.heavyweightframe=§6Heavy Weight Frame(1.5x Per Shot Recoil)
+
 
 command.semblance.usage=/setsemblance [player] <semblance> [level]
 

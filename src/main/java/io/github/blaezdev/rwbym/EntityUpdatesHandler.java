@@ -86,12 +86,13 @@ public class EntityUpdatesHandler {
 
     private ItemStack generateitem(ItemStack is){
         ItemStack generatedis = is;
-        //generatedis.addEnchantment(EnchantInit.getBarrelmodifierEnchant(), 1);
-        generatedis.addEnchantment(EnchantInit.getFramemodifierEnchant(), 1);
-        generatedis.addEnchantment(EnchantInit.getShotmodifierEnchant(), 1);
-        generatedis.addEnchantment(EnchantInit.getKillmodifierEnchant(), 1);
+        ItemStack generatedisclean = new ItemStack(generatedis.getItem());
+        //generatedisclean.addEnchantment(EnchantInit.getBarrelmodifierEnchant(), 1);
+        generatedisclean.addEnchantment(EnchantInit.getFramemodifierEnchant(), 1);
+        generatedisclean.addEnchantment(EnchantInit.getShotmodifierEnchant(), 1);
+        generatedisclean.addEnchantment(EnchantInit.getKillmodifierEnchant(), 1);
         //generatedis.addEnchantment(EnchantInit.getEnemymodifierEnchant(), 1);
-        return generatedis;
+        return generatedisclean;
     }
 
     @SubscribeEvent
