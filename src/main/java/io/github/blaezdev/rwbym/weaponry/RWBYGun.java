@@ -72,7 +72,8 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     private final String ammo;
     private final float projectileSpeed;
     private final boolean charges; // TODO: use this
-    private int accuracymodifier = 1;
+    private float accuracymodifier = 1F;
+    private float rifling = 1F;
     private int recoil;
     private boolean mytre = false;
     private boolean glow = false;
@@ -1132,7 +1133,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                    if(shotcount > 2){inaccuracy = 0;}else {inaccuracy = shotcount;}
                         for (int i2 = 0; i2 < finishshot; i2++) {
                             EntityArrow entityarrow = (itemstack.getItem() instanceof RWBYAmmoItem ? ((RWBYAmmoItem) itemstack.getItem()).createArrow(worldIn, itemstack, stack, entityplayer) : ((ItemArrow) Items.ARROW).createArrow(worldIn, itemstack, entityplayer));
-                            entityarrow.shoot(entityplayer, entityplayer.rotationPitch, entityplayer.rotationYaw, 0.0F, f * 3.0F * (this.projectileSpeed == 0.0F ? 1.0F : this.projectileSpeed), inaccuracy*itemRand.nextInt(5)*accuracymodifier);
+                            entityarrow.shoot(entityplayer, entityplayer.rotationPitch, entityplayer.rotationYaw, 0.0F, f * 3.0F * (this.projectileSpeed == 0.0F ? 1.0F : this.projectileSpeed)*rifling, inaccuracy*itemRand.nextInt(5)*accuracymodifier);
 
 
                             int k = EnchantmentHelper.getEnchantmentLevel(EnchantInit.KNOCK_SHOT, stack);

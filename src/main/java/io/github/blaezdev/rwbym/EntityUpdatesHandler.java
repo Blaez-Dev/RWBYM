@@ -87,7 +87,7 @@ public class EntityUpdatesHandler {
     private ItemStack generateitem(ItemStack is){
         ItemStack generatedis = is;
         ItemStack generatedisclean = new ItemStack(generatedis.getItem());
-        //generatedisclean.addEnchantment(EnchantInit.getBarrelmodifierEnchant(), 1);
+        generatedisclean.addEnchantment(EnchantInit.getBarrelmodifierEnchant(), 1);
         generatedisclean.addEnchantment(EnchantInit.getFramemodifierEnchant(), 1);
         generatedisclean.addEnchantment(EnchantInit.getShotmodifierEnchant(), 1);
         generatedisclean.addEnchantment(EnchantInit.getKillmodifierEnchant(), 1);

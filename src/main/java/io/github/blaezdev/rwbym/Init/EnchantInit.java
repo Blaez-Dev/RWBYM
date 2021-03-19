@@ -1,6 +1,7 @@
 package io.github.blaezdev.rwbym.Init;
 
 import io.github.blaezdev.rwbym.RWBYModels;
+import io.github.blaezdev.rwbym.enchantments.barrelmodifiers.*;
 import io.github.blaezdev.rwbym.enchantments.framemodifiers.*;
 import io.github.blaezdev.rwbym.enchantments.killmodifiers.EnchantmentAuraSiphon;
 import io.github.blaezdev.rwbym.enchantments.shotmodifiers.EnchantmentDoubleShot;
@@ -27,6 +28,15 @@ public class EnchantInit {
     public static final Enchantment LIGHT_WEIGHT_FRAME = new EnchantmentLightWeightFrame();
     public static final Enchantment PRECISION_FRAME = new EnchantmentPrecisionFrame();
     public static final Enchantment RAPID_FIRE_FRAME = new EnchantmentRapidFireFrame();
+    public static final Enchantment ARROW_BREAK_BARREL = new EnchantmentArrowBrake();
+    public static final Enchantment CHAMBERED_COMPENSATOR_BARREL = new EnchantmentChamberedCompensator();
+    public static final Enchantment CORKSCREW_RIFLING = new EnchantmentCorkScrewRifling();
+    public static final Enchantment EXTENDED_BARREL = new EnchantmentExtendedBarrel();
+    public static final Enchantment FLUTED_BARREL = new EnchantmentFluted();
+    public static final Enchantment FULL_BORE_BARREL = new EnchantmentFullBore();
+    public static final Enchantment HOME_FORGED_RIFILING = new EnchantmentHomeForgedRifling();
+    public static final Enchantment POLYGONAL_RIFILING = new EnchantmentPolygonalRifling();
+    public static final Enchantment SMALL_BORE_BARREL = new  EnchantmentSmallBore();
 
 
     public static ArrayList<Enchantment> shotmodifier = new ArrayList<Enchantment>(){
@@ -76,6 +86,15 @@ public class EnchantInit {
     }
 
     public static Enchantment getBarrelmodifierEnchant(){
+        barrelmodifier.add(ARROW_BREAK_BARREL);
+        barrelmodifier.add(CHAMBERED_COMPENSATOR_BARREL);
+        barrelmodifier.add(CORKSCREW_RIFLING);
+        barrelmodifier.add(EXTENDED_BARREL);
+        barrelmodifier.add(FLUTED_BARREL);
+        barrelmodifier.add(FULL_BORE_BARREL);
+        barrelmodifier.add(HOME_FORGED_RIFILING);
+        barrelmodifier.add(POLYGONAL_RIFILING);
+        barrelmodifier.add(SMALL_BORE_BARREL);
         Random rand = new Random();
         int index = rand.nextInt(barrelmodifier.size());
         Enchantment randenchant = barrelmodifier.get(index);
