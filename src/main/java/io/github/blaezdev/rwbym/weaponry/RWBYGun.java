@@ -492,8 +492,15 @@ public class RWBYGun extends ItemBow implements ICustomItem{
              if(!isShield&&canBlock){tooltip.add(ChatFormatting.BLUE + "-"+ "Blocks in Mainhand Only");}
              if(isShield&&canBlock){tooltip.add(ChatFormatting.BLUE + "-"+ "Blocks in Both Mainhand & Offhand");}
          }
+
+        int shotrecoilmodified = shotrecoil;
+        if(EnchantmentHelper.getEnchantmentLevel(EnchantInit.LIGHT_WEIGHT_FRAME,stack) > 0){shotrecoilmodified = Math.round(shotrecoilmodified*0.5F);} else
+        if(EnchantmentHelper.getEnchantmentLevel(EnchantInit.ATTUNED_FRAME,stack) > 0){shotrecoilmodified = Math.round(shotrecoilmodified*0.7F);} else
+        if(EnchantmentHelper.getEnchantmentLevel(EnchantInit.PRECISION_FRAME,stack) > 0){shotrecoilmodified = Math.round(shotrecoilmodified*0.9F);} else
+        if(EnchantmentHelper.getEnchantmentLevel(EnchantInit.RAPID_FIRE_FRAME,stack) > 0){shotrecoilmodified = Math.round(shotrecoilmodified*1.2F);} else
+        if(EnchantmentHelper.getEnchantmentLevel(EnchantInit.HEAVY_WEIGHT_FRAME,stack) > 0){shotrecoilmodified = Math.round(shotrecoilmodified*1.5F);}
          if(shotrecoil > 0){
-            String shotrecoils = Integer.toString(shotrecoil);
+            String shotrecoils = Integer.toString(shotrecoilmodified);
             tooltip.add("Shot Recoil Amount:");
             tooltip.add(ChatFormatting.BLUE +"-" +  shotrecoils);
         }
@@ -1244,19 +1251,18 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 //                    }
 
 
-                    int shotcountprevious = shotcount;
+                    int shotrecoilmodified = shotrecoil;
 
-                    if(EnchantmentHelper.getEnchantmentLevel(EnchantInit.LIGHT_WEIGHT_FRAME,stack) > 0){shotrecoil = Math.round(shotrecoil*0.5F);} else
-                    if(EnchantmentHelper.getEnchantmentLevel(EnchantInit.ATTUNED_FRAME,stack) > 0){shotrecoil = Math.round(shotrecoil*0.7F);} else
-                    if(EnchantmentHelper.getEnchantmentLevel(EnchantInit.PRECISION_FRAME,stack) > 0){shotrecoil = Math.round(shotrecoil*0.9F);} else
-                    if(EnchantmentHelper.getEnchantmentLevel(EnchantInit.RAPID_FIRE_FRAME,stack) > 0){shotrecoil = Math.round(shotrecoil*1.2F);} else
-                    if(EnchantmentHelper.getEnchantmentLevel(EnchantInit.HEAVY_WEIGHT_FRAME,stack) > 0){shotrecoil = Math.round(shotrecoil*1.5F);}
+                    if(EnchantmentHelper.getEnchantmentLevel(EnchantInit.LIGHT_WEIGHT_FRAME,stack) > 0){shotrecoilmodified = Math.round(shotrecoilmodified*0.5F);} else
+                    if(EnchantmentHelper.getEnchantmentLevel(EnchantInit.ATTUNED_FRAME,stack) > 0){shotrecoilmodified = Math.round(shotrecoilmodified*0.7F);} else
+                    if(EnchantmentHelper.getEnchantmentLevel(EnchantInit.PRECISION_FRAME,stack) > 0){shotrecoilmodified = Math.round(shotrecoilmodified*0.9F);} else
+                    if(EnchantmentHelper.getEnchantmentLevel(EnchantInit.RAPID_FIRE_FRAME,stack) > 0){shotrecoilmodified = Math.round(shotrecoilmodified*1.2F);} else
+                    if(EnchantmentHelper.getEnchantmentLevel(EnchantInit.HEAVY_WEIGHT_FRAME,stack) > 0){shotrecoilmodified = Math.round(shotrecoilmodified*1.5F);}
 
-                        for (int timer = shotrecoil; timer>1; timer --){
+                        for (int timer = shotrecoilmodified; timer>1; timer --){
                         entityplayer.rotationPitch -= 1.0F;
                         }
 
-                        shotcount = shotcountprevious;
 
 
                     //shooting recoil
