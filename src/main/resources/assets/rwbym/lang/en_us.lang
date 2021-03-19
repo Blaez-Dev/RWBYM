@@ -788,10 +788,10 @@ key.INSERT=Insert Magazine/Cartridge
 key.FIRESELECT=Change Fire Mode
 
 enchantment.doubleshot=§6Twin Shot (Fire a Second Shot)
-enchantment.knockshot=§6Knock Shot (Send Your Enemies Flying)
+enchantment.knockshot=§6Knock Shot (Shots Send Your Enemies Flying)
 enchantment.aurasiphon=§6Aura Siphon (Kills Grant 10 Aura while item is Held)
 enchantment.scavenger=§6Scavenger (Random Chance Kills return Durability to Mag)
-enchantment.poisonshot=§6Poison Shot (Inflicts Poison on Impact)
+enchantment.poisonshot=§6Poison Shot (Shots Inflict Poison on Impact)
 
 command.semblance.usage=/setsemblance [player] <semblance> [level]
 

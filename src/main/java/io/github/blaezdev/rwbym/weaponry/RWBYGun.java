@@ -72,6 +72,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
     private final String ammo;
     private final float projectileSpeed;
     private final boolean charges; // TODO: use this
+    private int accuracymodifier = 1;
     private int recoil;
     private boolean mytre = false;
     private boolean glow = false;
@@ -1124,7 +1125,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                    if(shotcount > 2){inaccuracy = 0;}else {inaccuracy = shotcount;}
                         for (int i2 = 0; i2 < finishshot; i2++) {
                             EntityArrow entityarrow = (itemstack.getItem() instanceof RWBYAmmoItem ? ((RWBYAmmoItem) itemstack.getItem()).createArrow(worldIn, itemstack, stack, entityplayer) : ((ItemArrow) Items.ARROW).createArrow(worldIn, itemstack, entityplayer));
-                            entityarrow.shoot(entityplayer, entityplayer.rotationPitch, entityplayer.rotationYaw, 0.0F, f * 3.0F * (this.projectileSpeed == 0.0F ? 1.0F : this.projectileSpeed), inaccuracy*itemRand.nextInt(5));
+                            entityarrow.shoot(entityplayer, entityplayer.rotationPitch, entityplayer.rotationYaw, 0.0F, f * 3.0F * (this.projectileSpeed == 0.0F ? 1.0F : this.projectileSpeed), inaccuracy*itemRand.nextInt(5)*accuracymodifier);
 
 
                             int k = EnchantmentHelper.getEnchantmentLevel(EnchantInit.KNOCK_SHOT, stack);
@@ -1242,10 +1243,20 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 //                        worldIn.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, SoundEvents.ENTITY_ENDERPEARL_THROW, SoundCategory.MASTER, RWBYConfig.general.gunvolume, 0.5F/ (itemRand.nextFloat() * 0.4F + 1.0F) + f + 0.5F);
 //                    }
 
+
+                    int shotcountprevious = shotcount;
+
+                    if(EnchantmentHelper.getEnchantmentLevel(EnchantInit.LIGHT_WEIGHT_FRAME,stack) > 0){shotrecoil = Math.round(shotrecoil*0.5F);} else
+                    if(EnchantmentHelper.getEnchantmentLevel(EnchantInit.ATTUNED_FRAME,stack) > 0){shotrecoil = Math.round(shotrecoil*0.7F);} else
+                    if(EnchantmentHelper.getEnchantmentLevel(EnchantInit.PRECISION_FRAME,stack) > 0){shotrecoil = Math.round(shotrecoil*0.9F);} else
+                    if(EnchantmentHelper.getEnchantmentLevel(EnchantInit.RAPID_FIRE_FRAME,stack) > 0){shotrecoil = Math.round(shotrecoil*1.2F);} else
+                    if(EnchantmentHelper.getEnchantmentLevel(EnchantInit.HEAVY_WEIGHT_FRAME,stack) > 0){shotrecoil = Math.round(shotrecoil*1.5F);}
+
                         for (int timer = shotrecoil; timer>1; timer --){
                         entityplayer.rotationPitch -= 1.0F;
                         }
 
+                        shotcount = shotcountprevious;
 
 
                     //shooting recoil

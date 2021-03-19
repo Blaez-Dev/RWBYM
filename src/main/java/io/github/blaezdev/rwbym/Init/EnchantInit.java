@@ -1,6 +1,7 @@
 package io.github.blaezdev.rwbym.Init;
 
 import io.github.blaezdev.rwbym.RWBYModels;
+import io.github.blaezdev.rwbym.enchantments.framemodifiers.*;
 import io.github.blaezdev.rwbym.enchantments.killmodifiers.EnchantmentAuraSiphon;
 import io.github.blaezdev.rwbym.enchantments.shotmodifiers.EnchantmentDoubleShot;
 import io.github.blaezdev.rwbym.enchantments.shotmodifiers.EnchantmentKnockShot;
@@ -21,6 +22,11 @@ public class EnchantInit {
     public static final Enchantment AURA_SIPHON = new EnchantmentAuraSiphon();
     public static final Enchantment SCAVENGER = new EnchantmentScavenger();
     public static final Enchantment POISON_SHOT = new EnchantmentPoisonShot();
+    public static final Enchantment ATTUNED_FRAME = new EnchantmentAttunedFrame();
+    public static final Enchantment HEAVY_WEIGHT_FRAME = new EnchantmentHeavyWeightFrame();
+    public static final Enchantment LIGHT_WEIGHT_FRAME = new EnchantmentLightWeightFrame();
+    public static final Enchantment PRECISION_FRAME = new EnchantmentPrecisionFrame();
+    public static final Enchantment RAPID_FIRE_FRAME = new EnchantmentRapidFireFrame();
 
 
     public static ArrayList<Enchantment> shotmodifier = new ArrayList<Enchantment>(){
@@ -58,6 +64,11 @@ public class EnchantInit {
     }
 
     public static Enchantment getFramemodifierEnchant(){
+        framemodifier.add(EnchantInit.ATTUNED_FRAME);
+        framemodifier.add(EnchantInit.PRECISION_FRAME);
+        framemodifier.add(EnchantInit.HEAVY_WEIGHT_FRAME);
+        framemodifier.add(EnchantInit.LIGHT_WEIGHT_FRAME);
+        framemodifier.add(EnchantInit.RAPID_FIRE_FRAME);
         Random rand = new Random();
         int index = rand.nextInt(framemodifier.size());
         Enchantment randenchant = framemodifier.get(index);
