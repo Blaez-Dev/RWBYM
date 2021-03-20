@@ -38,7 +38,7 @@ public class MessagePlaySound extends MessageBase<MessagePlaySound> {
 	@Override
 	public void handleServerSide(MessagePlaySound message, EntityPlayer player) {
 		// TODO Auto-generated method stub
-		player.world.playSound(null, player.posX, player.posY, player.posZ, Sound.values()[message.sound].getSound(), SoundCategory.PLAYERS, 1, 1);
+		player.world.playSound(null, player.posX, player.posY, player.posZ, Sound.values()[message.sound].getSound(), SoundCategory.MASTER, 1, 1);
 	}
 
 }
