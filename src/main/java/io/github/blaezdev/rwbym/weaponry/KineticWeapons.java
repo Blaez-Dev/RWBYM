@@ -290,7 +290,7 @@ public class KineticWeapons extends ItemSword implements ICustomItem {
                         {
                             if (entity2 instanceof EntityLivingBase) {
                                 EntityLivingBase entitylivingbase = (EntityLivingBase)entity2;
-                                if (entitylivingbase.attackEntityFrom(new EntityDamageSource("rose petal", player), f*10)) {
+                                if (entitylivingbase.attackEntityFrom(DamageSource.causePlayerDamage(player), f*10)) {
                                 	//RWBYModels.LOGGER.info("damaged 1e");
                                 	player.getHeldItem(EnumHand.MAIN_HAND).damageItem(1, player);
                                 }
