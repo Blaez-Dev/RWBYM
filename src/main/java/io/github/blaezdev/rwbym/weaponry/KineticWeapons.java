@@ -320,7 +320,7 @@ public class KineticWeapons extends ItemSword implements ICustomItem {
 
 
         if (!worldIn.isRemote && playerIn.isSneaking() && this.morph != null) {
-            is = new ItemStack(Item.getByNameOrId(this.morph), is.getCount(), is.getMetadata());
+            is = new ItemStack(Item.getByNameOrId(this.morph), is.getCount(), is.getMetadata(), is.getTagCompound());
             return new ActionResult<>(EnumActionResult.SUCCESS, is);
         } else if ((canBlock || reese) && hand == EnumHand.MAIN_HAND) {
             playerIn.setActiveHand(EnumHand.MAIN_HAND);

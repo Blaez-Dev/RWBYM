@@ -1025,6 +1025,18 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                 weaponuseglow = false;
             }
 
+
+            if(EnchantmentHelper.getEnchantmentLevel(EnchantInit.ARROW_BREAK_BARREL, stack) > 0){rifling = 1.0F; accuracymodifier= 1.2F;}else
+                if(EnchantmentHelper.getEnchantmentLevel(EnchantInit.CHAMBERED_COMPENSATOR_BARREL, stack) > 0){rifling=1.3F; accuracymodifier=1.5F;}else
+                    if(EnchantmentHelper.getEnchantmentLevel(EnchantInit.CORKSCREW_RIFLING, stack) > 0){rifling=1.2F; accuracymodifier=0.4F;}else
+                        if(EnchantmentHelper.getEnchantmentLevel(EnchantInit.EXTENDED_BARREL, stack)>0){rifling=1.8F; accuracymodifier=0.5F;}else
+                            if(EnchantmentHelper.getEnchantmentLevel(EnchantInit.FLUTED_BARREL, stack)>0){rifling=1.2F; accuracymodifier=0.9F;}else
+                                if(EnchantmentHelper.getEnchantmentLevel(EnchantInit.FULL_BORE_BARREL, stack)>0){rifling =1.5F; accuracymodifier=0.9F;}else
+                                    if(EnchantmentHelper.getEnchantmentLevel(EnchantInit.HOME_FORGED_RIFILING, stack)>0){rifling=1F; accuracymodifier=1.1F;}else
+                                        if(EnchantmentHelper.getEnchantmentLevel(EnchantInit.POLYGONAL_RIFILING, stack)>0){rifling=1F; accuracymodifier=0.9F;}else
+                                            if(EnchantmentHelper.getEnchantmentLevel(EnchantInit.SMALL_BORE_BARREL,stack)>0){rifling=1.3F; accuracymodifier=0.7F;}
+
+
             ItemStack is = entityplayer.getActiveItemStack();
             if (is.getItem() == RWBYItems.pyrrharifle && entityplayer.getActiveHand() == EnumHand.OFF_HAND||is.getItem() == RWBYItems.pyrrhaspear && entityplayer.getActiveHand() == EnumHand.OFF_HAND)
             {
