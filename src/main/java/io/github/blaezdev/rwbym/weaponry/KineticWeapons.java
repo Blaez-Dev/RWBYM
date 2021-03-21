@@ -119,7 +119,7 @@ public class KineticWeapons extends ItemSword implements ICustomItem {
 
         if(entity instanceof  EntityPlayer){
             EntityPlayer player = (EntityPlayer) entity;
-            if(player.getHeldItemMainhand().getItem() == RWBYItems.reese && player.getHeldItemMainhand().getOrCreateSubCompound("RWBYM").getInteger("inactive") < 2){
+            if(player.getHeldItemMainhand().getItem() == RWBYItems.reese && player.getHeldItemMainhand().getOrCreateSubCompound("RWBYM").getInteger("inactive") < 2 && is.getOrCreateSubCompound("RWBYM").getInteger("inactive")<2){
 
                 if (world.isRemote) {
                 	
@@ -320,7 +320,14 @@ public class KineticWeapons extends ItemSword implements ICustomItem {
 
 
         if (!worldIn.isRemote && playerIn.isSneaking() && this.morph != null) {
-            is = new ItemStack(Item.getByNameOrId(this.morph), is.getCount(), is.getMetadata(), is.getTagCompound());
+            ItemStack morph1 = new ItemStack(Item.getByNameOrId(this.morph), is.getCount(), is.getMetadata());
+            //noinspection ConstantConditions
+            if (is.hasTagCompound()) {
+                morph1.setTagCompound(is.getTagCompound());
+            }
+            if (hand == EnumHand.MAIN_HAND) {
+                playerIn.inventory.setInventorySlotContents(playerIn.inventory.currentItem, morph1);
+            }
             return new ActionResult<>(EnumActionResult.SUCCESS, is);
         } else if ((canBlock || reese) && hand == EnumHand.MAIN_HAND) {
             playerIn.setActiveHand(EnumHand.MAIN_HAND);
