@@ -136,11 +136,11 @@ public class RWBYModels {
     	
         MinecraftForge.EVENT_BUS.register(new ModEventHandler());
 
-        if(!RWBYConfig.worldgen.legacyworldgen){
+        //if(!RWBYConfig.worldgen.legacyworldgen){
         VillagerRegistry.instance().registerVillageCreationHandler(new VillageShop1CreationHandler());
         MapGenStructureIO.registerStructureComponent(ComponentVillageShop1.class, "rwbym:rwbym5");
 
-        }
+        //}
 
 
         if (event.getSide() == Side.CLIENT){

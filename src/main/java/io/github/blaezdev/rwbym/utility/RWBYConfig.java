@@ -32,52 +32,52 @@ public class RWBYConfig
     public static Mining worldgen = new Mining();
 
     public static class Configmobspawnrates { 
-        @Config.Name("Spawn Rate Beowolf")
+        @Config.Name("Spawn Rate Beowolf(turn down numbers for rarer)")
     public  int spawnratebeowolf= 50;
-    @Config.Name("Spawn Rate Ursa")
+    @Config.Name("Spawn Rate Ursa(turn down numbers for rarer)")
     public  int spawnrateursa= 50;
-    @Config.Name("Spawn Rate Boarbatusk")
+    @Config.Name("Spawn Rate Boarbatusk(turn down numbers for rarer)")
     public  int spawnrateboar= 50;
-    @Config.Name("Spawn Rate Goliath")
+    @Config.Name("Spawn Rate Goliath(turn down numbers for rarer)")
     public  int spawnrategoliath= 1;
-    @Config.Name("Spawn Rate Deathstalker")
+    @Config.Name("Spawn Rate Deathstalker(turn down numbers for rarer)")
     public  int spawnratedeathstalker= 1;
-    @Config.Name("Spawn Rate Hollow")
+    @Config.Name("Spawn Rate Hollow(turn down numbers for rarer)")
     public  int spawnratehollow= 1;
-    @Config.Name("Spawn Rate Mutant Deathstalker")
+    @Config.Name("Spawn Rate Mutant Deathstalker(turn down numbers for rarer)")
     public  int spawnratemutantdeathstalker= 1;
-    @Config.Name("Spawn Rate Nevermore")
+    @Config.Name("Spawn Rate Nevermore(turn down numbers for rarer)")
     public  int spawnratenevermore= 50;
-    @Config.Name("Spawn Rate Giant Nevermore")
+    @Config.Name("Spawn Rate Giant Nevermore(turn down numbers for rarer)")
     public  int spawnrategiantnevermore= 1;
-    @Config.Name("Spawn Rate Creep")
+    @Config.Name("Spawn Rate Creep(turn down numbers for rarer)")
     public  int spawnratecreep= 50;
-    @Config.Name("Spawn Rate Geist")
+    @Config.Name("Spawn Rate Geist(turn down numbers for rarer)")
     public  int spawnrategeist= 30;
-    @Config.Name("Spawn Rate Lancer")
+    @Config.Name("Spawn Rate Lancer(turn down numbers for rarer)")
     public  int spawnratelancer= 50;
-    @Config.Name("Spawn Rate Nuckleeve")
+    @Config.Name("Spawn Rate Nuckleeve(turn down numbers for rarer)")
     public  int spawnratenuckleeve= 1;
-    @Config.Name("Spawn Rate Apathy")
+    @Config.Name("Spawn Rate Apathy(turn down numbers for rarer)")
     public  int spawnrateapathy= 50;
-    @Config.Name("Spawn Rate Tiny DeathStalker")
+    @Config.Name("Spawn Rate Tiny DeathStalker(turn down numbers for rarer)")
     public  int spawnratetinydeathstalker= 50;
-    @Config.Name("Spawn Rate Beringle")
+    @Config.Name("Spawn Rate Beringle(turn down numbers for rarer)")
     public  int spawnrateberingle= 50;
-    @Config.Name("Spawn Rate Queen Lancer")
+    @Config.Name("Spawn Rate Queen Lancer(turn down numbers for rarer)")
     public  int spawnratequeenlancer= 1;
-    @Config.Name("Spawn Rate Wyvern")
+    @Config.Name("Spawn Rate Wyvern(turn down numbers for rarer)")
     public  int spawnratewyvern= 1;
-    @Config.Name("Spawn Rate Ravager")
+    @Config.Name("Spawn Rate Ravager(turn down numbers for rarer)")
     public  int spawnrateravager= 50;
-    @Config.Name("Spawn Rate Seer")
+    @Config.Name("Spawn Rate Seer(turn down numbers for rarer)")
     public  int spawnrateseer= 50;
-    @Config.Name("Spawn Rate Arachne")
+    @Config.Name("Spawn Rate Arachne(turn down numbers for rarer)")
     public  int spawnratearachne= 50;
     @Config.Name("Lancer Queen Nests")
     @Config.Comment("Enable Lancer Queens to Spawn anywhere dark")
     public  boolean lancernests = false;
-    @Config.Name("Disable Random Boss Spawns//Only spawn during Dark Crystal Raids")
+    @Config.Name("Enable Random Boss Spawns will Only spawn during Dark Crystal Raids(KEEP TO FALSE FOR YOUR OWN SANITY )")
     public boolean randombossspawns = true;
     }
 
@@ -162,38 +162,38 @@ public class RWBYConfig
     }
 
     public static class Mining{
-    @Config.Name("Spawn Chance Dust Shop")
-    public  int dustshop = 60;
-    @Config.Name("Spawn Chance of Remote Dust shop")
-    public  int dustshop2 = 60;
-    @Config.Name("Spawn Chance Crow Bar")
-    public  int bar = 60;
-    @Config.Name("Spawn Chance Well")
-    public  int well = 10;
-    @Config.Name("Rarity of RWBYM Biomes")
+    //@Config.Name("Spawn Chance Dust Shop")
+    //public  int dustshop = 60;
+    //@Config.Name("Spawn Chance of Remote Dust shop")
+    //public  int dustshop2 = 60;
+    //@Config.Name("Spawn Chance Crow Bar")
+    //public  int bar = 60;
+    //@Config.Name("Spawn Chance Well")
+    //public  int well = 10;
+    @Config.Name("Rarity of RWBYM Biomes(Higher Numbers are more Common)")
     public  int biomerarity = 20;
-    @Config.Name("Spawn Chance Dark Crystal")
+    @Config.Name("Spawn Chance Dark Crystal(1 in rate chance where possible)")
     public  int darkcrystalrate = 8;
-    @Config.Name("Spawn Chance Gravity DusT")
+    @Config.Name("Spawn Chance Gravity Dust(Higher Numbers are more Common)")
     public  int gravityore = 1;
-    @Config.Name("Spawn Chance Fire Dust")
+    @Config.Name("Spawn Chance Fire Dust(Higher Numbers are more Common)")
     public  int fireore = 1;
-    @Config.Name("Spawn Chance Wind Dust")
+    @Config.Name("Spawn Chance Wind Dust(Higher Numbers are more Common)")
     public  int windore = 1;
-    @Config.Name("Spawn Chance Impure Dust")
+    @Config.Name("Spawn Chance Impure Dust(Higher Numbers are more Common)")
     public  int impureore = 2;
-    @Config.Name("Spawn Chance Water Dust")
+    @Config.Name("Spawn Chance Water Dust(Higher Numbers are more Common)")
     public  int waterore = 1;
-    @Config.Name("Spawn Chance Lightning Dust")
+    @Config.Name("Spawn Chance Lightning Dust(Higher Numbers are more Common)")
     public  int lightore = 1;
-    @Config.Name("Spawn Chance Ice Dust")
+    @Config.Name("Spawn Chance Ice Dust(Higher Numbers are more Common)")
     public  int iceore = 1;
-    @Config.Name("Dust Ore Random Effect Chance")
+    @Config.Name("Dust Ore Explosion Effect Chance")
     public  int dustoreeffect = 20;
-    @Config.Name("Unsafe Dust Mining")
+    @Config.Name("Enable or Disable Explosive Dust Mining")
     public  boolean unsafemining = true;
-    @Config.Name("Legacy WorldGen")
-    public boolean legacyworldgen = false;
+    //@Config.Name("Legacy WorldGen")
+    //public boolean legacyworldgen = false;
     }
 
 

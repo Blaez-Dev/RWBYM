@@ -97,17 +97,18 @@ public class Oregen implements IWorldGenerator{
                 this.runGenerator(water_overworld, world, random, chunkX, chunkZ, RWBYConfig.worldgen.waterore, 0, 256); //BiomeOcean.class,BiomeBeach.class, BiomeMushroomIsland.class,BiomeSwamp.class
                 this.runGenerator(light_overworld, world, random, chunkX, chunkZ, RWBYConfig.worldgen.lightore, 0, 256);//BiomeHills.class,BiomeMesa.class
                 this.runGenerator(ice_overworld, world, random, chunkX, chunkZ, RWBYConfig.worldgen.iceore, 0, 256);
-                if(RWBYConfig.worldgen.legacyworldgen){
-                generatestructure1(world, random, blockX + 8, blockZ + 8);
-                generatestructure2(world, random, blockX + 8, blockZ + 8);
-                generatestructure4(world, random, blockX + 8, blockZ + 8);
-                }
-                generatestructure3(world, random, blockX + 8, blockZ + 8);
+                //if(RWBYConfig.worldgen.legacyworldgen){
+                //generatestructure1(world, random, blockX + 8, blockZ + 8);
+                //generatestructure2(world, random, blockX + 8, blockZ + 8);
+                //generatestructure4(world, random, blockX + 8, blockZ + 8);
+                //}
+                //generatestructure3(world, random, blockX + 8, blockZ + 8);
                 generateraid(world, random, blockX + 8, blockZ + 8);
                 //this.fluidGenerator(chunkGenerator,world, chunkX, chunkZ, RWBYBiomes.GrimmWastes);
         }
     }
 
+    /*
     private void generatestructure1(World world, Random rand, int blockX, int blockZ)
     {
         if (world.rand.nextInt(RWBYConfig.worldgen.dustshop) < 1) {
@@ -140,7 +141,7 @@ public class Oregen implements IWorldGenerator{
             structure4.generate(world, rand, pos);
             //System.out.println("Structure Generated");
         }
-    }
+    }*/
 
 
     private void generateraid(World world, Random rand, int blockX, int blockZ)
@@ -155,6 +156,7 @@ public class Oregen implements IWorldGenerator{
         }
     }
 
+    /*
     private void generatestructure3(World world, Random rand, int blockX, int blockZ)
     {
         if (world.rand.nextInt(RWBYConfig.worldgen.well) < 1)
@@ -165,7 +167,7 @@ public class Oregen implements IWorldGenerator{
             structure3.generate(world, rand, pos);
 
         }
-    }
+    }*/
 
     public static int getLakeFromAbove(World world, int x, int z)
     {
