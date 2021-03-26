@@ -36,6 +36,6 @@ public class EnchantmentScavenger extends Enchantment {
     @Override
     protected boolean canApplyTogether(Enchantment ench) {
         return super.canApplyTogether(ench)
-                && ench != EnchantInit.AURA_SIPHON && ench != EnchantInit.LUCKY_HIT;
+                && ench != EnchantInit.AURA_SIPHON && ench != EnchantInit.LUCKY_HIT && ench != EnchantInit.TRICKSTER;
     }
 }

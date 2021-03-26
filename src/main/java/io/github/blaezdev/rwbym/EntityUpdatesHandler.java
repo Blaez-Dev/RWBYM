@@ -11,6 +11,7 @@ import io.github.blaezdev.rwbym.capabilities.ISemblance;
 import io.github.blaezdev.rwbym.capabilities.Lysette.ILysette;
 import io.github.blaezdev.rwbym.capabilities.Qrow.IQrow;
 import io.github.blaezdev.rwbym.capabilities.itemdata.ItemDataProvider;
+import io.github.blaezdev.rwbym.entity.EntityBlake;
 import io.github.blaezdev.rwbym.entity.EntityBullet;
 import io.github.blaezdev.rwbym.entity.EntityGrimm;
 import io.github.blaezdev.rwbym.utility.RWBYConfig;
@@ -230,6 +231,15 @@ public class EntityUpdatesHandler {
                     aura.setAmount(aura.getMaxAura());
                 }
             }
+
+            if(EnchantmentHelper.getEnchantmentLevel(EnchantInit.TRICKSTER, isMainhand) > 0){
+                if(isMainhand.getItem() instanceof RWBYGun && EnchantmentHelper.getEnchantmentLevel(EnchantInit.TRICKSTER, isMainhand) > 0 && player.getRNG().nextInt(32) < 4){
+                    BlockPos blockpos = (new BlockPos(event.getEntityLiving().getPosition()));
+                    EntityBlake entityBlake = new EntityBlake(event.getEntityLiving().world);
+                    entityBlake.moveToBlockPosAndAngles(blockpos, 0.0F, 0.0F);
+                    event.getEntityLiving().world.spawnEntity(entityBlake);
+
+                }}
 
             if(EnchantmentHelper.getEnchantmentLevel(EnchantInit.SCAVENGER, isMainhand) > 0){
                 if(isMainhand.getItem() instanceof RWBYGun && EnchantmentHelper.getEnchantmentLevel(EnchantInit.SCAVENGER, isMainhand) > 0 && player.getRNG().nextInt(32) < 4){

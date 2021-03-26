@@ -9,11 +9,11 @@ import net.minecraft.init.Enchantments;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.util.ResourceLocation;
 
-public class EnchantmentAuraSiphon extends Enchantment {
-    public EnchantmentAuraSiphon(){
+public class EnchantmentTrickster extends Enchantment {
+    public EnchantmentTrickster(){
         super(Rarity.VERY_RARE, EnumEnchantmentType.WEAPON,new EntityEquipmentSlot[]{EntityEquipmentSlot.MAINHAND,EntityEquipmentSlot.OFFHAND});
-        this.setName("aurasiphon");
-        this.setRegistryName(new ResourceLocation(RWBYModels.MODID+":aurasiphon"));
+        this.setName("trickster");
+        this.setRegistryName(new ResourceLocation(RWBYModels.MODID+":trickster"));
 
         EnchantInit.ENCHANTMENTS.add(this);
     }
@@ -36,6 +36,6 @@ public class EnchantmentAuraSiphon extends Enchantment {
     @Override
     protected boolean canApplyTogether(Enchantment ench) {
         return super.canApplyTogether(ench)
-                && ench != EnchantInit.SCAVENGER && ench != EnchantInit.LUCKY_HIT && ench != EnchantInit.TRICKSTER;
+                && ench != EnchantInit.SCAVENGER && ench != EnchantInit.LUCKY_HIT && ench != EnchantInit.LUCKY_HIT;
     }
 }

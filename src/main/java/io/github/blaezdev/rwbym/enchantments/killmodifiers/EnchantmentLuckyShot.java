@@ -36,6 +36,6 @@ public class EnchantmentLuckyShot extends Enchantment {
     @Override
     protected boolean canApplyTogether(Enchantment ench) {
         return super.canApplyTogether(ench)
-                && ench != EnchantInit.SCAVENGER && ench != EnchantInit.AURA_SIPHON;
+                && ench != EnchantInit.SCAVENGER && ench != EnchantInit.AURA_SIPHON && ench != EnchantInit.TRICKSTER;
     }
 }

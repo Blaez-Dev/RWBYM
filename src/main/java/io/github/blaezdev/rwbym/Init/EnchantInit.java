@@ -5,6 +5,7 @@ import io.github.blaezdev.rwbym.enchantments.barrelmodifiers.*;
 import io.github.blaezdev.rwbym.enchantments.framemodifiers.*;
 import io.github.blaezdev.rwbym.enchantments.killmodifiers.EnchantmentAuraSiphon;
 import io.github.blaezdev.rwbym.enchantments.killmodifiers.EnchantmentLuckyShot;
+import io.github.blaezdev.rwbym.enchantments.killmodifiers.EnchantmentTrickster;
 import io.github.blaezdev.rwbym.enchantments.shotmodifiers.EnchantmentDoubleShot;
 import io.github.blaezdev.rwbym.enchantments.shotmodifiers.EnchantmentKnockShot;
 import io.github.blaezdev.rwbym.enchantments.killmodifiers.EnchantmentScavenger;
@@ -19,17 +20,25 @@ import java.util.Random;
 @Mod.EventBusSubscriber(modid=RWBYModels.MODID)
 public class EnchantInit {
     public static final List<Enchantment> ENCHANTMENTS = new ArrayList<Enchantment>();
+    //-Shot Modifiers-//
     public static final Enchantment DOUBLE_SHOT = new EnchantmentDoubleShot();
     public static final Enchantment KNOCK_SHOT = new EnchantmentKnockShot();
+    public static final Enchantment POISON_SHOT = new EnchantmentPoisonShot();
+
+    //-Kill Modifiers-//
     public static final Enchantment AURA_SIPHON = new EnchantmentAuraSiphon();
     public static final Enchantment SCAVENGER = new EnchantmentScavenger();
     public static final Enchantment LUCKY_HIT = new EnchantmentLuckyShot();
-    public static final Enchantment POISON_SHOT = new EnchantmentPoisonShot();
+    public static final Enchantment TRICKSTER = new EnchantmentTrickster();
+
+    //-Frame-//
     public static final Enchantment ATTUNED_FRAME = new EnchantmentAttunedFrame();
     public static final Enchantment HEAVY_WEIGHT_FRAME = new EnchantmentHeavyWeightFrame();
     public static final Enchantment LIGHT_WEIGHT_FRAME = new EnchantmentLightWeightFrame();
     public static final Enchantment PRECISION_FRAME = new EnchantmentPrecisionFrame();
     public static final Enchantment RAPID_FIRE_FRAME = new EnchantmentRapidFireFrame();
+
+    //-Barrels-//
     public static final Enchantment ARROW_BREAK_BARREL = new EnchantmentArrowBrake();
     public static final Enchantment CHAMBERED_COMPENSATOR_BARREL = new EnchantmentChamberedCompensator();
     public static final Enchantment CORKSCREW_RIFLING = new EnchantmentCorkScrewRifling();
@@ -70,6 +79,7 @@ public class EnchantInit {
         killmodifier.add(EnchantInit.AURA_SIPHON);
         killmodifier.add(EnchantInit.SCAVENGER);
         killmodifier.add(EnchantInit.LUCKY_HIT);
+        killmodifier.add(EnchantInit.TRICKSTER);
         Random rand = new Random();
         int index = rand.nextInt(killmodifier.size());
         Enchantment randenchant = killmodifier.get(index);
