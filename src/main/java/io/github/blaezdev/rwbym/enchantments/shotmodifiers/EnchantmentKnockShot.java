@@ -30,7 +30,7 @@ public class EnchantmentKnockShot extends Enchantment {
 
     @Override
     public int getMaxLevel() {
-        return 5;
+        return 1;
     }
 
     @Override

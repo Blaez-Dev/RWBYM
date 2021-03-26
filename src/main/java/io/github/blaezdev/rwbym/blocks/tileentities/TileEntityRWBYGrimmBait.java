@@ -3,6 +3,7 @@ package io.github.blaezdev.rwbym.blocks.tileentities;
 import io.github.blaezdev.rwbym.Init.EnchantInit;
 import io.github.blaezdev.rwbym.Init.RWBYItems;
 import io.github.blaezdev.rwbym.entity.*;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -35,11 +36,27 @@ public class TileEntityRWBYGrimmBait extends TileEntity implements ITickable {
 	private ItemStack generateitem(ItemStack is){
 		ItemStack generatedis = is;
 		ItemStack generatedisclean = new ItemStack(generatedis.getItem());
-		generatedisclean.addEnchantment(EnchantInit.getBarrelmodifierEnchant(), 1);
-		generatedisclean.addEnchantment(EnchantInit.getFramemodifierEnchant(), 1);
-		generatedisclean.addEnchantment(EnchantInit.getShotmodifierEnchant(), 1);
-		generatedisclean.addEnchantment(EnchantInit.getKillmodifierEnchant(), 1);
-		//generatedis.addEnchantment(EnchantInit.getEnemymodifierEnchant(), 1);
+		if(generatedisclean.getItem() == RWBYItems.ozpincane){  NBTTagCompound nbt;
+			if (is.hasTagCompound())
+			{
+				nbt = is.getTagCompound();
+			}
+			else
+			{
+				nbt = new NBTTagCompound();
+				nbt.setInteger("Aura", 1);
+				nbt.setBoolean("AuraON",false);
+			}
+			generatedisclean.setTagCompound(nbt);
+		}
+
+		if(EnchantmentHelper.getEnchantments(is) != null) {
+			generatedisclean.addEnchantment(EnchantInit.getBarrelmodifierEnchant(), 1);
+			generatedisclean.addEnchantment(EnchantInit.getFramemodifierEnchant(), 1);
+			generatedisclean.addEnchantment(EnchantInit.getShotmodifierEnchant(), 1);
+			generatedisclean.addEnchantment(EnchantInit.getKillmodifierEnchant(), 1);
+			//generatedis.addEnchantment(EnchantInit.getEnemymodifierEnchant(), 1);
+		}
 		return generatedisclean;
 	}
 

@@ -68,6 +68,7 @@ import net.minecraftforge.event.entity.player.PlayerPickupXpEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerRespawnEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
@@ -84,15 +85,60 @@ import static net.minecraft.client.renderer.GlStateManager.FogMode.LINEAR;
 
 public class EntityUpdatesHandler {
 
+    private static PotionEffect[] potioneffectlist = new PotionEffect[]{
+            new PotionEffect(MobEffects.NIGHT_VISION, 600, 1, true, false),
+            new PotionEffect(MobEffects.HASTE, 600, 1, true, false),
+            new PotionEffect(MobEffects.FIRE_RESISTANCE, 600, 1, true, false),
+            new PotionEffect(MobEffects.JUMP_BOOST, 600, 1, true, false),
+            new PotionEffect(MobEffects.WATER_BREATHING, 600, 1, true, false),
+            new PotionEffect(MobEffects.ABSORPTION, 600, 1, true, false),
+            new PotionEffect(MobEffects.HEALTH_BOOST, 600, 1, true, false),
+            new PotionEffect(MobEffects.STRENGTH, 600, 1, true, false),
+            new PotionEffect(MobEffects.REGENERATION, 600, 1, true, false),
+            new PotionEffect(MobEffects.SPEED, 600, 1, true, false),
+            new PotionEffect(MobEffects.RESISTANCE, 600, 1, true, false)
+    };
+
     private ItemStack generateitem(ItemStack is){
         ItemStack generatedis = is;
         ItemStack generatedisclean = new ItemStack(generatedis.getItem());
-        generatedisclean.addEnchantment(EnchantInit.getBarrelmodifierEnchant(), 1);
-        generatedisclean.addEnchantment(EnchantInit.getFramemodifierEnchant(), 1);
-        generatedisclean.addEnchantment(EnchantInit.getShotmodifierEnchant(), 1);
-        generatedisclean.addEnchantment(EnchantInit.getKillmodifierEnchant(), 1);
-        //generatedis.addEnchantment(EnchantInit.getEnemymodifierEnchant(), 1);
+
+
+        if(generatedisclean.getItem() == RWBYItems.ozpincane){  NBTTagCompound nbt;
+            if (is.hasTagCompound())
+            {
+                nbt = is.getTagCompound();
+            }
+            else
+            {
+                nbt = new NBTTagCompound();
+                nbt.setInteger("Aura", 1);
+                nbt.setBoolean("AuraON",false);
+            }
+            generatedisclean.setTagCompound(nbt);
+        }
+
+        if(EnchantmentHelper.getEnchantments(is) != null) {
+            generatedisclean.addEnchantment(EnchantInit.getBarrelmodifierEnchant(), 1);
+            generatedisclean.addEnchantment(EnchantInit.getFramemodifierEnchant(), 1);
+            generatedisclean.addEnchantment(EnchantInit.getShotmodifierEnchant(), 1);
+            generatedisclean.addEnchantment(EnchantInit.getKillmodifierEnchant(), 1);
+            //generatedis.addEnchantment(EnchantInit.getEnemymodifierEnchant(), 1);
+        }
         return generatedisclean;
+    }
+
+    @SubscribeEvent
+    public void onCraft(PlayerEvent.ItemCraftedEvent event){
+        if(event.crafting.getItem() instanceof RWBYGun){
+            if(EnchantmentHelper.getEnchantments(event.crafting) != null) {
+                event.crafting.addEnchantment(EnchantInit.getBarrelmodifierEnchant(), 1);
+                event.crafting.addEnchantment(EnchantInit.getFramemodifierEnchant(), 1);
+                event.crafting.addEnchantment(EnchantInit.getShotmodifierEnchant(), 1);
+                event.crafting.addEnchantment(EnchantInit.getKillmodifierEnchant(), 1);
+                //generatedis.addEnchantment(EnchantInit.getEnemymodifierEnchant(), 1);
+            }
+        }
     }
 
     @SubscribeEvent
@@ -169,6 +215,8 @@ public class EntityUpdatesHandler {
         //System.out.println("Respawn");
     }
 
+
+
     @SubscribeEvent
     public void entityDeath(LivingDeathEvent event){
         if (event.getSource().getTrueSource() instanceof EntityPlayer) {
@@ -182,6 +230,13 @@ public class EntityUpdatesHandler {
                     aura.setAmount(aura.getMaxAura());
                 }
             }
+
+            if(EnchantmentHelper.getEnchantmentLevel(EnchantInit.SCAVENGER, isMainhand) > 0){
+                if(isMainhand.getItem() instanceof RWBYGun && EnchantmentHelper.getEnchantmentLevel(EnchantInit.SCAVENGER, isMainhand) > 0 && player.getRNG().nextInt(32) < 4){
+                    int randeffect = player.getRNG().nextInt(this.potioneffectlist.length);
+                    player.addPotionEffect(potioneffectlist[randeffect]);
+
+                }}
 
             if(EnchantmentHelper.getEnchantmentLevel(EnchantInit.SCAVENGER, isMainhand) > 0||EnchantmentHelper.getEnchantmentLevel(EnchantInit.SCAVENGER, isOffhand) > 0){
                 if(isMainhand.getItem() instanceof RWBYGun && EnchantmentHelper.getEnchantmentLevel(EnchantInit.SCAVENGER, isMainhand) > 0 && player.getRNG().nextInt(32) < 4){

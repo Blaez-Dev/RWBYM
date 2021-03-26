@@ -21,7 +21,7 @@
         },
         {
           "condition": "random_chance_with_looting",
-          "chance": 1,
+          "chance": 0.5,
           "looting_multiplier": 0.01
         }
       ],
@@ -31,99 +31,99 @@
         {
         "type": "item",
         "name": "rwbym:armasword",
-        "weight": 5
+        "weight": 25
       },
         {
           "type": "item",
           "name": "rwbym:coinr",
-          "weight": 1
+          "weight": 5
         },
         {
           "type": "item",
           "name": "rwbym:coin_ren",
-          "weight": 1
+          "weight": 5
         },{
           "type": "item",
           "name": "rwbym:coinjaune",
-          "weight": 1
+          "weight": 5
         },
         {
           "type": "item",
           "name": "rwbym:coinnora",
-          "weight": 1
+          "weight": 5
         },
         {
           "type": "item",
           "name": "rwbym:mondragon",
-          "weight": 1
+          "weight": 5
         },
         {
           "type": "item",
           "name": "rwbym:hecate2.bbmodel",
-          "weight": 1
+          "weight": 5
         },
         {
           "type": "item",
           "name": "rwbym:p90.bbmodel",
-          "weight": 1
+          "weight": 5
         },
         {
           "type": "item",
           "name": "rwbym:chastifol",
-          "weight": 1
+          "weight": 5
         },
         {
           "type": "item",
           "name": "rwbym:flyingthundergod",
-          "weight": 1
+          "weight": 5
         },
         {
           "type": "item",
           "name": "rwbym:coinw",
-          "weight": 1
+          "weight": 5
         },{
           "type": "item",
           "name": "rwbym:coinb",
-          "weight": 1
+          "weight": 5
         },{
           "type": "item",
           "name": "rwbym:coiny",
-          "weight": 1
+          "weight": 5
         },{
           "type": "item",
           "name": "rwbym:smrgrave",
-          "weight": 5,
+          "weight": 25,
           "count": 1
         },
         {
           "type": "item",
           "name": "rwbym:bangle",
-          "weight": 1,
+          "weight": 5,
           "count": 1
         },
 
         {
           "type": "item",
           "name": "rwbym:heroshield",
-          "weight": 1,
+          "weight": 5,
           "count": 1
         },
         {
           "type": "item",
           "name": "rwbym:darkrepulser",
-          "weight": 1,
+          "weight": 5,
           "count": 1
         },
         {
           "type": "item",
           "name": "rwbym:elucidator",
-          "weight": 1,
+          "weight": 5,
           "count": 1
         },
         {
           "type": "item",
           "name": "rwbym:flashaceballot",
-          "weight": 1,
+          "weight": 5,
           "count": 1
         }
       ]

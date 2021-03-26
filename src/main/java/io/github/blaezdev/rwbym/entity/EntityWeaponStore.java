@@ -11,6 +11,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
@@ -37,11 +38,26 @@ public class EntityWeaponStore extends EntityRWBYMMerchant implements INpc, IMer
     private ItemStack generateitem(ItemStack is){
         ItemStack generatedis = is;
         ItemStack generatedisclean = new ItemStack(generatedis.getItem());
-        generatedisclean.addEnchantment(EnchantInit.getBarrelmodifierEnchant(), 1);
-        generatedisclean.addEnchantment(EnchantInit.getFramemodifierEnchant(), 1);
-        generatedisclean.addEnchantment(EnchantInit.getShotmodifierEnchant(), 1);
-        generatedisclean.addEnchantment(EnchantInit.getKillmodifierEnchant(), 1);
-        //generatedis.addEnchantment(EnchantInit.getEnemymodifierEnchant(), 1);
+        if(generatedisclean.getItem() == RWBYItems.ozpincane){  NBTTagCompound nbt;
+            if (is.hasTagCompound())
+            {
+                nbt = is.getTagCompound();
+            }
+            else
+            {
+                nbt = new NBTTagCompound();
+                nbt.setInteger("Aura", 1);
+                nbt.setBoolean("AuraON",false);
+            }
+            generatedisclean.setTagCompound(nbt);
+        }
+        if(EnchantmentHelper.getEnchantments(is) != null) {
+            generatedisclean.addEnchantment(EnchantInit.getBarrelmodifierEnchant(), 1);
+            generatedisclean.addEnchantment(EnchantInit.getFramemodifierEnchant(), 1);
+            generatedisclean.addEnchantment(EnchantInit.getShotmodifierEnchant(), 1);
+            generatedisclean.addEnchantment(EnchantInit.getKillmodifierEnchant(), 1);
+            //generatedis.addEnchantment(EnchantInit.getEnemymodifierEnchant(), 1);
+        }
         return generatedisclean;
     }
 

@@ -4,6 +4,7 @@ import io.github.blaezdev.rwbym.RWBYModels;
 import io.github.blaezdev.rwbym.enchantments.barrelmodifiers.*;
 import io.github.blaezdev.rwbym.enchantments.framemodifiers.*;
 import io.github.blaezdev.rwbym.enchantments.killmodifiers.EnchantmentAuraSiphon;
+import io.github.blaezdev.rwbym.enchantments.killmodifiers.EnchantmentLuckyShot;
 import io.github.blaezdev.rwbym.enchantments.shotmodifiers.EnchantmentDoubleShot;
 import io.github.blaezdev.rwbym.enchantments.shotmodifiers.EnchantmentKnockShot;
 import io.github.blaezdev.rwbym.enchantments.killmodifiers.EnchantmentScavenger;
@@ -22,6 +23,7 @@ public class EnchantInit {
     public static final Enchantment KNOCK_SHOT = new EnchantmentKnockShot();
     public static final Enchantment AURA_SIPHON = new EnchantmentAuraSiphon();
     public static final Enchantment SCAVENGER = new EnchantmentScavenger();
+    public static final Enchantment LUCKY_HIT = new EnchantmentLuckyShot();
     public static final Enchantment POISON_SHOT = new EnchantmentPoisonShot();
     public static final Enchantment ATTUNED_FRAME = new EnchantmentAttunedFrame();
     public static final Enchantment HEAVY_WEIGHT_FRAME = new EnchantmentHeavyWeightFrame();
@@ -67,6 +69,7 @@ public class EnchantInit {
     public static Enchantment getKillmodifierEnchant(){
         killmodifier.add(EnchantInit.AURA_SIPHON);
         killmodifier.add(EnchantInit.SCAVENGER);
+        killmodifier.add(EnchantInit.LUCKY_HIT);
         Random rand = new Random();
         int index = rand.nextInt(killmodifier.size());
         Enchantment randenchant = killmodifier.get(index);

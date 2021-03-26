@@ -36,6 +36,6 @@ public class EnchantmentAuraSiphon extends Enchantment {
     @Override
     protected boolean canApplyTogether(Enchantment ench) {
         return super.canApplyTogether(ench)
-                && ench != EnchantInit.SCAVENGER;
+                && ench != EnchantInit.SCAVENGER && ench != EnchantInit.LUCKY_HIT;
     }
 }

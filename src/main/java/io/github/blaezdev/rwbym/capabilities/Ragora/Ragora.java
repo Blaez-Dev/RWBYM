@@ -39,6 +39,7 @@ public class Ragora implements IRagora {
 	@Override
 	public boolean onActivate(EntityPlayer player) {
 		IAura aura = player.getCapability(AuraProvider.AURA_CAP, null);
+
 		if (aura == null) {
 			return false;
 		}

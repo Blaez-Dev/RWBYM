@@ -710,14 +710,14 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                 player.getCapability(AuraProvider.AURA_CAP, null).useAura(player, 0.3F, false);
             }
             if(player.getCapability(AuraProvider.AURA_CAP, null).getAmount() < 1F && player.getHeldItem(EnumHand.MAIN_HAND) == is ){
-                is = new ItemStack(Item.getByNameOrId(this.morph), is.getCount(), is.getMetadata());
+                is = new ItemStack(Item.getByNameOrId(this.morph), is.getCount(), is.getMetadata(), is.getTagCompound());
                 player.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, is);
             }
 
 
 
             if(player.getCapability(AuraProvider.AURA_CAP, null).getAmount() < 1F && player.getHeldItem(EnumHand.OFF_HAND) == is ){
-                is = new ItemStack(Item.getByNameOrId(this.morph), is.getCount(), is.getMetadata());
+                is = new ItemStack(Item.getByNameOrId(this.morph), is.getCount(), is.getMetadata(), is.getTagCompound());
                 player.setItemStackToSlot(EntityEquipmentSlot.OFFHAND, is);
             }
         }
