@@ -233,7 +233,7 @@ public class EntityUpdatesHandler {
             }
 
             if(EnchantmentHelper.getEnchantmentLevel(EnchantInit.TRICKSTER, isMainhand) > 0){
-                if(isMainhand.getItem() instanceof RWBYGun && EnchantmentHelper.getEnchantmentLevel(EnchantInit.TRICKSTER, isMainhand) > 0 && player.getRNG().nextInt(32) < 4){
+                if(isMainhand.getItem() instanceof RWBYGun && EnchantmentHelper.getEnchantmentLevel(EnchantInit.TRICKSTER, isMainhand) > 0 && player.getRNG().nextInt(16) < 4){
                     BlockPos blockpos = (new BlockPos(event.getEntityLiving().getPosition()));
                     EntityBlake entityBlake = new EntityBlake(event.getEntityLiving().world);
                     entityBlake.moveToBlockPosAndAngles(blockpos, 0.0F, 0.0F);
@@ -241,8 +241,8 @@ public class EntityUpdatesHandler {
 
                 }}
 
-            if(EnchantmentHelper.getEnchantmentLevel(EnchantInit.SCAVENGER, isMainhand) > 0){
-                if(isMainhand.getItem() instanceof RWBYGun && EnchantmentHelper.getEnchantmentLevel(EnchantInit.SCAVENGER, isMainhand) > 0 && player.getRNG().nextInt(32) < 4){
+            if(EnchantmentHelper.getEnchantmentLevel(EnchantInit.LUCKY_HIT, isMainhand) > 0){
+                if(isMainhand.getItem() instanceof RWBYGun && EnchantmentHelper.getEnchantmentLevel(EnchantInit.LUCKY_HIT, isMainhand) > 0 && player.getRNG().nextInt(32) < 4){
                     int randeffect = player.getRNG().nextInt(this.potioneffectlist.length);
                     player.addPotionEffect(potioneffectlist[randeffect]);
 
