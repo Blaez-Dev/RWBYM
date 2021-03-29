@@ -85,6 +85,7 @@ public class EntityWeaponStore extends EntityRWBYMMerchant implements INpc, IMer
             new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),generateitem(new ItemStack(RWBYItems.gwenknife,1))),
             new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),generateitem(new ItemStack(RWBYItems.octavia,1))),
             new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),generateitem(new ItemStack(RWBYItems.atlaspistol,1))),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),generateitem(new ItemStack(RWBYItems.atlasrifle,1))),
             new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.frostediron,4), generateitem(new ItemStack(RWBYItems.cinder, 1))),
             new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.shadowiron,4),generateitem( new ItemStack(RWBYItems.cinderglass, 1))),
             new MerchantRecipe(new ItemStack(RWBYItems.lien500,4),new ItemStack(RWBYItems.shadowiron,8),generateitem( new ItemStack(RWBYItems.jnrbat, 1))),
