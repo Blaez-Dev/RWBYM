@@ -42,6 +42,8 @@ public class EntityArmourStore extends EntityRWBYMMerchant implements INpc, IMer
             new MerchantRecipe(new ItemStack(RWBYItems.lien50,3),new ItemStack(RWBYItems.RagoraHead, 1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien50,3),new ItemStack(RWBYItems.Juane1Chest, 1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien50,3),new ItemStack(RWBYItems.Juane1Legs, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien50,3),new ItemStack(RWBYItems.nora1Chest, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien50,3),new ItemStack(RWBYItems.nora1Legs, 1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien50,3),new ItemStack(RWBYItems.Weiss1Chest, 1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien50,3),new ItemStack(RWBYItems.Weiss1Legs, 1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien50,3),new ItemStack(RWBYItems.AdamChest, 1)),

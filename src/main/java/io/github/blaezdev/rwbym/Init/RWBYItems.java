@@ -5605,6 +5605,10 @@ public class RWBYItems {
     public static final ItemArmor yang1Chest = new ArmourBase(yang1Mat, 0, EntityEquipmentSlot.CHEST, "yang1_chest", null, true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.RUSH1|ArmourBase.K01);
     public static final ItemArmor yang1Legs = new ArmourBase(yang1Mat, 0, EntityEquipmentSlot.LEGS, "yang1_legs", null,     true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.K02|ArmourBase.FOOTING1);
 
+    public static final ItemArmor.ArmorMaterial nora1Mat = EnumHelper.addArmorMaterial("nora1", "rwbym:nora1", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
+    public static final ItemArmor nora1Chest = new ArmourBase(nora1Mat, 0, EntityEquipmentSlot.CHEST, "nora1_chest", null, true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.RUSH1|ArmourBase.K01);
+    public static final ItemArmor nora1Legs = new ArmourBase(nora1Mat, 0, EntityEquipmentSlot.LEGS, "nora1_legs", null,     true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.K02|ArmourBase.FOOTING1);
+    
     public static final ItemArmor.ArmorMaterial yang2Mat = EnumHelper.addArmorMaterial("yang2", "rwbym:yang2", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
     public static final ItemArmor yang2Chest = new ArmourBase(yang2Mat, 0, EntityEquipmentSlot.CHEST, "yang2_chest", null, true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.K01|ArmourBase.VITALITY1);
     public static final ItemArmor yang2Legs = new ArmourBase(yang2Mat, 0, EntityEquipmentSlot.LEGS, "yang2_legs", null,     true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.FIRESTARTER|ArmourBase.FOOTING1);
