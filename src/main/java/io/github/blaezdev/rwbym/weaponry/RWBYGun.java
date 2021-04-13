@@ -593,7 +593,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                 EntityPlayer player = (EntityPlayer) entity;
 
 
-                if(is.getItem() == RWBYItems.ozpincane){  NBTTagCompound nbt;
+                if(is.getItem() == RWBYItems.ozpincane || is.getItem() == RWBYItems.bangle || is.getItem() == RWBYItems.hbangle){  NBTTagCompound nbt;
                     if (is.hasTagCompound())
                     {
                         nbt = is.getTagCompound();
