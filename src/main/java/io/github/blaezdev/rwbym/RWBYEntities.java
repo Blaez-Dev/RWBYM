@@ -3,6 +3,7 @@ package io.github.blaezdev.rwbym;
 import io.github.blaezdev.rwbym.Init.RWBYBiomes;
 import io.github.blaezdev.rwbym.entity.*;
 import io.github.blaezdev.rwbym.utility.RWBYConfig;
+import io.github.blaezdev.rwbym.weaponry.RWBYItem;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EnumCreatureAttribute;
@@ -94,49 +95,126 @@ public class RWBYEntities {
 
 
         if(RWBYConfig.configmobspawnrates.randombossspawns){
-        EntityRegistry.addSpawn(EntityGoliath.class, RWBYConfig.configmobspawnrates.spawnrategoliath, 0, 1, EnumCreatureType.MONSTER, biomes);
-        EntityRegistry.addSpawn(EntityMutantDeathStalker.class, RWBYConfig.configmobspawnrates.spawnratemutantdeathstalker, 0, 1, EnumCreatureType.MONSTER, biomes);
-        EntityRegistry.addSpawn(EntityQueenLancer.class, RWBYConfig.configmobspawnrates.spawnratequeenlancer, 0, 1, EnumCreatureType.MONSTER, biomes);
-        EntityRegistry.addSpawn(EntityGiantNeverMore.class, RWBYConfig.configmobspawnrates.spawnrategiantnevermore, 0, 1, EnumCreatureType.MONSTER, biomes);
-        EntityRegistry.addSpawn(EntityWyvern.class, RWBYConfig.configmobspawnrates.spawnratewyvern, 0, 1, EnumCreatureType.MONSTER, biomes);
+            if(RWBYConfig.configmobspawnrates.spawnrategoliath > 0){
+        EntityRegistry.addSpawn(EntityGoliath.class, RWBYConfig.configmobspawnrates.spawnrategoliath, 0, 1, EnumCreatureType.MONSTER, biomes);}
+
+            if(RWBYConfig.configmobspawnrates.spawnratemutantdeathstalker > 0){
+        EntityRegistry.addSpawn(EntityMutantDeathStalker.class, RWBYConfig.configmobspawnrates.spawnratemutantdeathstalker, 0, 1, EnumCreatureType.MONSTER, biomes);}
+
+            if(RWBYConfig.configmobspawnrates.spawnratequeenlancer > 0){
+        EntityRegistry.addSpawn(EntityQueenLancer.class, RWBYConfig.configmobspawnrates.spawnratequeenlancer, 0, 1, EnumCreatureType.MONSTER, biomes);}
+
+            if(RWBYConfig.configmobspawnrates.spawnrategiantnevermore > 0){
+        EntityRegistry.addSpawn(EntityGiantNeverMore.class, RWBYConfig.configmobspawnrates.spawnrategiantnevermore, 0, 1, EnumCreatureType.MONSTER, biomes);}
+
+            if(RWBYConfig.configmobspawnrates.spawnratewyvern > 0){
+        EntityRegistry.addSpawn(EntityWyvern.class, RWBYConfig.configmobspawnrates.spawnratewyvern, 0, 1, EnumCreatureType.MONSTER, biomes);}
+
         }
 
-        EntityRegistry.addSpawn(EntityHollow.class, RWBYConfig.configmobspawnrates.spawnratehollow, 0, 1, EnumCreatureType.MONSTER, biomes);
-        EntityRegistry.addSpawn(EntityDeathStalker.class, RWBYConfig.configmobspawnrates.spawnratedeathstalker, 0, 1, EnumCreatureType.MONSTER, biomes);
-        EntityRegistry.addSpawn(EntityNeverMore.class, RWBYConfig.configmobspawnrates.spawnratenevermore, 0, 3, EnumCreatureType.MONSTER, biomes);
-        EntityRegistry.addSpawn(EntityNuckleeve.class, RWBYConfig.configmobspawnrates.spawnratenuckleeve, 0, 1, EnumCreatureType.MONSTER, biomes);
-        EntityRegistry.addSpawn(EntityBeowolf.class, RWBYConfig.configmobspawnrates.spawnratebeowolf, 0, 3, EnumCreatureType.MONSTER, biomes);
-        EntityRegistry.addSpawn(EntityUrsa.class, RWBYConfig.configmobspawnrates.spawnrateursa, 0, 3, EnumCreatureType.MONSTER, biomes);
-        EntityRegistry.addSpawn(EntityUrsaMajor.class, RWBYConfig.configmobspawnrates.spawnrateursa, 0, 3, EnumCreatureType.MONSTER, biomes);
-        EntityRegistry.addSpawn(EntityBoarbatusk.class, RWBYConfig.configmobspawnrates.spawnrateboar, 0, 3, EnumCreatureType.MONSTER, biomes);
-        EntityRegistry.addSpawn(EntityCreep.class, RWBYConfig.configmobspawnrates.spawnratecreep, 0, 3, EnumCreatureType.MONSTER, biomes);
-        EntityRegistry.addSpawn(EntityGeist.class, RWBYConfig.configmobspawnrates.spawnrategeist, 0, 3, EnumCreatureType.MONSTER, biomes);
-        EntityRegistry.addSpawn(EntityApathy.class, RWBYConfig.configmobspawnrates.spawnrateapathy, 0, 3, EnumCreatureType.MONSTER, biomes);
-        EntityRegistry.addSpawn(EntityLancer.class, RWBYConfig.configmobspawnrates.spawnratelancer, 0, 3, EnumCreatureType.MONSTER, biomes);
-        EntityRegistry.addSpawn(EntityJuvenileDeathstalker.class, RWBYConfig.configmobspawnrates.spawnratetinydeathstalker, 0, 3, EnumCreatureType.MONSTER, biomes);
-        EntityRegistry.addSpawn(EntityBeringle.class, RWBYConfig.configmobspawnrates.spawnrateberingle, 0, 3, EnumCreatureType.MONSTER, biomes);
-        EntityRegistry.addSpawn(EntityRavager.class, RWBYConfig.configmobspawnrates.spawnrateravager, 0, 5, EnumCreatureType.MONSTER, biomes);
-        EntityRegistry.addSpawn(EntitySeer.class, RWBYConfig.configmobspawnrates.spawnrateseer, 0, 5, EnumCreatureType.MONSTER, biomes);
-        EntityRegistry.addSpawn(EntityArachne.class, RWBYConfig.configmobspawnrates.spawnratearachne, 0, 5, EnumCreatureType.MONSTER, biomes);
+        if(RWBYConfig.configmobspawnrates.spawnratehollow > 0){
+        EntityRegistry.addSpawn(EntityHollow.class, RWBYConfig.configmobspawnrates.spawnratehollow, 0, 1, EnumCreatureType.MONSTER, biomes);}
+
+        if(RWBYConfig.configmobspawnrates.spawnratedeathstalker > 0){
+        EntityRegistry.addSpawn(EntityDeathStalker.class, RWBYConfig.configmobspawnrates.spawnratedeathstalker, 0, 1, EnumCreatureType.MONSTER, biomes);}
+
+        if(RWBYConfig.configmobspawnrates.spawnratenevermore > 0){
+        EntityRegistry.addSpawn(EntityNeverMore.class, RWBYConfig.configmobspawnrates.spawnratenevermore, 0, 3, EnumCreatureType.MONSTER, biomes);}
+
+        if(RWBYConfig.configmobspawnrates.spawnratenuckleeve > 0){
+            EntityRegistry.addSpawn(EntityNuckleeve.class, RWBYConfig.configmobspawnrates.spawnratenuckleeve, 0, 1, EnumCreatureType.MONSTER, biomes); }
+
+        if(RWBYConfig.configmobspawnrates.spawnratebeowolf > 0){
+            EntityRegistry.addSpawn(EntityBeowolf.class, RWBYConfig.configmobspawnrates.spawnratebeowolf, 0, 3, EnumCreatureType.MONSTER, biomes); }
+
+
+        if(RWBYConfig.configmobspawnrates.spawnrateursa > 0){
+            EntityRegistry.addSpawn(EntityUrsa.class, RWBYConfig.configmobspawnrates.spawnrateursa, 0, 3, EnumCreatureType.MONSTER, biomes); }
+
+
+        if(RWBYConfig.configmobspawnrates.spawnrateursa > 0){
+            EntityRegistry.addSpawn(EntityUrsaMajor.class, RWBYConfig.configmobspawnrates.spawnrateursa, 0, 3, EnumCreatureType.MONSTER, biomes); }
+
+        if(RWBYConfig.configmobspawnrates.spawnrateboar > 0) {
+            EntityRegistry.addSpawn(EntityBoarbatusk.class, RWBYConfig.configmobspawnrates.spawnrateboar, 0, 3, EnumCreatureType.MONSTER, biomes); }
+
+        if(RWBYConfig.configmobspawnrates.spawnratecreep > 0) {
+            EntityRegistry.addSpawn(EntityCreep.class, RWBYConfig.configmobspawnrates.spawnratecreep, 0, 3, EnumCreatureType.MONSTER, biomes); }
+
+        if(RWBYConfig.configmobspawnrates.spawnrategeist > 0){
+        EntityRegistry.addSpawn(EntityGeist.class, RWBYConfig.configmobspawnrates.spawnrategeist, 0, 3, EnumCreatureType.MONSTER, biomes);}
+
+        if(RWBYConfig.configmobspawnrates.spawnrateapathy > 0) {
+            EntityRegistry.addSpawn(EntityApathy.class, RWBYConfig.configmobspawnrates.spawnrateapathy, 0, 3, EnumCreatureType.MONSTER, biomes); }
+
+        if(RWBYConfig.configmobspawnrates.spawnratelancer > 0) {
+            EntityRegistry.addSpawn(EntityLancer.class, RWBYConfig.configmobspawnrates.spawnratelancer, 0, 3, EnumCreatureType.MONSTER, biomes); }
+
+        if(RWBYConfig.configmobspawnrates.spawnratedeathstalker > 0){
+        EntityRegistry.addSpawn(EntityJuvenileDeathstalker.class, RWBYConfig.configmobspawnrates.spawnratetinydeathstalker, 0, 3, EnumCreatureType.MONSTER, biomes);}
+
+        if(RWBYConfig.configmobspawnrates.spawnrateberingle > 0){
+        EntityRegistry.addSpawn(EntityBeringle.class, RWBYConfig.configmobspawnrates.spawnrateberingle, 0, 3, EnumCreatureType.MONSTER, biomes);}
+
+        if(RWBYConfig.configmobspawnrates.spawnrateravager > 0){
+        EntityRegistry.addSpawn(EntityRavager.class, RWBYConfig.configmobspawnrates.spawnrateravager, 0, 5, EnumCreatureType.MONSTER, biomes);}
+
+        if(RWBYConfig.configmobspawnrates.spawnrateseer > 0){
+        EntityRegistry.addSpawn(EntitySeer.class, RWBYConfig.configmobspawnrates.spawnrateseer, 0, 5, EnumCreatureType.MONSTER, biomes);}
+
+        if(RWBYConfig.configmobspawnrates.spawnratearachne > 0){
+        EntityRegistry.addSpawn(EntityArachne.class, RWBYConfig.configmobspawnrates.spawnratearachne, 0, 5, EnumCreatureType.MONSTER, biomes);}
 
 
 
-        EntityRegistry.addSpawn(EntityBeowolf.class, 10, 2, 3, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);
-        EntityRegistry.addSpawn(EntityUrsa.class, 10, 2, 3, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);
-        EntityRegistry.addSpawn(EntityUrsaMajor.class, 10, 2, 3, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);
-        EntityRegistry.addSpawn(EntityBoarbatusk.class, 10, 2, 3, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);
-        EntityRegistry.addSpawn(EntityGoliath.class, RWBYConfig.configmobspawnrates.spawnrategoliath, 0, 1, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);
-        EntityRegistry.addSpawn(EntityDeathStalker.class, RWBYConfig.configmobspawnrates.spawnratedeathstalker, 0, 1, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);
-        EntityRegistry.addSpawn(EntityMutantDeathStalker.class, RWBYConfig.configmobspawnrates.spawnratemutantdeathstalker, 0, 1, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);
-        EntityRegistry.addSpawn(EntityNeverMore.class, 10, 2, 3, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);
-        EntityRegistry.addSpawn(EntityGiantNeverMore.class, RWBYConfig.configmobspawnrates.spawnrategiantnevermore, 0, 1, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);
-        EntityRegistry.addSpawn(EntityCreep.class, 10, 2, 3, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);
-        EntityRegistry.addSpawn(EntityGeist.class, RWBYConfig.configmobspawnrates.spawnrategeist, 2, 3, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);
-        EntityRegistry.addSpawn(EntityApathy.class, RWBYConfig.configmobspawnrates.spawnrateapathy, 2, 3, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);
-        EntityRegistry.addSpawn(EntityNuckleeve.class, RWBYConfig.configmobspawnrates.spawnratenuckleeve, 0, 1, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);
-        EntityRegistry.addSpawn(EntityLancer.class, 10, 2, 3, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);
-        EntityRegistry.addSpawn(EntityJuvenileDeathstalker.class, 10, 2, 3, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);
-        EntityRegistry.addSpawn(EntityQueenLancer.class, RWBYConfig.configmobspawnrates.spawnratequeenlancer, 0, 1, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);
+        ///Grimm Wastes Spawning//
+        if(RWBYConfig.configmobspawnrates.spawnratebeowolf > 0){
+        EntityRegistry.addSpawn(EntityBeowolf.class, 10, 2, 3, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);}
+
+        if(RWBYConfig.configmobspawnrates.spawnrateursa > 0){
+        EntityRegistry.addSpawn(EntityUrsa.class, 10, 2, 3, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);}
+
+        if(RWBYConfig.configmobspawnrates.spawnrateursa > 0){
+        EntityRegistry.addSpawn(EntityUrsaMajor.class, 10, 2, 3, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);}
+
+        if(RWBYConfig.configmobspawnrates.spawnrateboar > 0){
+        EntityRegistry.addSpawn(EntityBoarbatusk.class, 10, 2, 3, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);}
+
+        if(RWBYConfig.configmobspawnrates.spawnrategoliath > 0){
+        EntityRegistry.addSpawn(EntityGoliath.class, RWBYConfig.configmobspawnrates.spawnrategoliath, 0, 1, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);}
+
+        if(RWBYConfig.configmobspawnrates.spawnratedeathstalker > 0){
+        EntityRegistry.addSpawn(EntityDeathStalker.class, RWBYConfig.configmobspawnrates.spawnratedeathstalker, 0, 1, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);}
+
+        if(RWBYConfig.configmobspawnrates.spawnratemutantdeathstalker > 0){
+        EntityRegistry.addSpawn(EntityMutantDeathStalker.class, RWBYConfig.configmobspawnrates.spawnratemutantdeathstalker, 0, 1, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);}
+
+        if(RWBYConfig.configmobspawnrates.spawnratenevermore > 0){
+        EntityRegistry.addSpawn(EntityNeverMore.class, 10, 2, 3, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);}
+
+        if(RWBYConfig.configmobspawnrates.spawnrategiantnevermore > 0){
+        EntityRegistry.addSpawn(EntityGiantNeverMore.class, RWBYConfig.configmobspawnrates.spawnrategiantnevermore, 0, 1, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);}
+
+        if(RWBYConfig.configmobspawnrates.spawnratecreep > 0){
+        EntityRegistry.addSpawn(EntityCreep.class, 10, 2, 3, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);}
+
+        if(RWBYConfig.configmobspawnrates.spawnrategeist > 0){
+        EntityRegistry.addSpawn(EntityGeist.class, RWBYConfig.configmobspawnrates.spawnrategeist, 2, 3, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);}
+
+        if(RWBYConfig.configmobspawnrates.spawnrateapathy > 0){
+        EntityRegistry.addSpawn(EntityApathy.class, RWBYConfig.configmobspawnrates.spawnrateapathy, 2, 3, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);}
+
+        if(RWBYConfig.configmobspawnrates.spawnratenuckleeve > 0){
+        EntityRegistry.addSpawn(EntityNuckleeve.class, RWBYConfig.configmobspawnrates.spawnratenuckleeve, 0, 1, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);}
+
+        if(RWBYConfig.configmobspawnrates.spawnratelancer > 0){
+        EntityRegistry.addSpawn(EntityLancer.class, 10, 2, 3, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);}
+
+        if(RWBYConfig.configmobspawnrates.spawnratetinydeathstalker > 0){
+        EntityRegistry.addSpawn(EntityJuvenileDeathstalker.class, 10, 2, 3, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);}
+
+        if(RWBYConfig.configmobspawnrates.spawnratequeenlancer > 0){
+        EntityRegistry.addSpawn(EntityQueenLancer.class, RWBYConfig.configmobspawnrates.spawnratequeenlancer, 0, 1, EnumCreatureType.CREATURE, RWBYBiomes.GrimmWastes);}
 
 
         //DungeonHooks.addDungeonMob(new ResourceLocation("rwbym:beowolf"), 180);

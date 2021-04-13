@@ -549,10 +549,6 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
 
         RWBYAmmoItem item = this.getItem();
 
-        if(EnchantmentHelper.getEnchantmentLevel(EnchantInit.DOUBLE_SHOT, getFiringWeaponItemStack()) > 0){
-        this.setDead();
-        }
-
         if (!item.canSurviveBlockHit()) {
             this.setDead();
         }

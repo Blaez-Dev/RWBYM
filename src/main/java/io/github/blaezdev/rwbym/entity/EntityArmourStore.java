@@ -54,6 +54,15 @@ public class EntityArmourStore extends EntityRWBYMMerchant implements INpc, IMer
             new MerchantRecipe(new ItemStack(RWBYItems.lien50,3),new ItemStack(RWBYItems.AtlasChest, 1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien50,3),new ItemStack(RWBYItems.AtlasHead, 1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien50,3),new ItemStack(RWBYItems.AtlasLegs, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien50,3),new ItemStack(RWBYItems.AtlasredChest, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien50,3),new ItemStack(RWBYItems.AtlasredHead, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien50,3),new ItemStack(RWBYItems.AtlasredLegs, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien50,3),new ItemStack(RWBYItems.AtlasyellowChest, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien50,3),new ItemStack(RWBYItems.AtlasyellowHead, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien50,3),new ItemStack(RWBYItems.AtlasyellowLegs, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien50,3),new ItemStack(RWBYItems.AtlasgreenChest, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien50,3),new ItemStack(RWBYItems.AtlasgreenHead, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien50,3),new ItemStack(RWBYItems.AtlasgreenLegs, 1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien50,3),new ItemStack(RWBYItems.Beacon1Chest, 1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien50,3),new ItemStack(RWBYItems.Beacon1Legs, 1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien50,3),new ItemStack(RWBYItems.BeaconChest, 1)),
@@ -291,7 +300,7 @@ public class EntityArmourStore extends EntityRWBYMMerchant implements INpc, IMer
         int nextRandom = rand.nextInt(this.weapons.length);
         Set<Integer> validate = new HashSet<>();
         validate.add(nextRandom);
-        for (int i = 0; i < 35; i++) {
+        for (int i = 0; i < 45; i++) {
             while(validate.contains(nextRandom)) {
                 nextRandom = rand.nextInt(this.weapons.length);
             }

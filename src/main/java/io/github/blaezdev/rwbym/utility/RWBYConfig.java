@@ -32,47 +32,47 @@ public class RWBYConfig
     public static Mining worldgen = new Mining();
 
     public static class Configmobspawnrates { 
-        @Config.Name("Spawn Rate Beowolf(turn down numbers for rarer)")
+        @Config.Name("Spawn Rate Beowolf(turn down numbers for rarer / set to 0 to turn off spawning random spawning will still spawn via grimm raids)")
     public  int spawnratebeowolf= 50;
-    @Config.Name("Spawn Rate Ursa(turn down numbers for rarer)")
+    @Config.Name("Spawn Rate Ursa(turn down numbers for rarer / set to 0 to turn off spawning random spawning will still spawn via grimm raids)")
     public  int spawnrateursa= 50;
-    @Config.Name("Spawn Rate Boarbatusk(turn down numbers for rarer)")
+    @Config.Name("Spawn Rate Boarbatusk(turn down numbers for rarer / set to 0 to turn off spawning random spawning will still spawn via grimm raids)")
     public  int spawnrateboar= 50;
-    @Config.Name("Spawn Rate Goliath(turn down numbers for rarer)")
+    @Config.Name("Spawn Rate Goliath(turn down numbers for rarer / set to 0 to turn off spawning random spawning will still spawn via grimm raids)")
     public  int spawnrategoliath= 1;
-    @Config.Name("Spawn Rate Deathstalker(turn down numbers for rarer)")
+    @Config.Name("Spawn Rate Deathstalker(turn down numbers for rarer / set to 0 to turn off spawning random spawning will still spawn via grimm raids)")
     public  int spawnratedeathstalker= 1;
-    @Config.Name("Spawn Rate Hollow(turn down numbers for rarer)")
+    @Config.Name("Spawn Rate Hollow(turn down numbers for rarer / set to 0 to turn off spawning random spawning will still spawn via grimm raids)")
     public  int spawnratehollow= 1;
-    @Config.Name("Spawn Rate Mutant Deathstalker(turn down numbers for rarer)")
+    @Config.Name("Spawn Rate Mutant Deathstalker(turn down numbers for rarer / set to 0 to turn off spawning random spawning will still spawn via grimm raids)")
     public  int spawnratemutantdeathstalker= 1;
-    @Config.Name("Spawn Rate Nevermore(turn down numbers for rarer)")
+    @Config.Name("Spawn Rate Nevermore(turn down numbers for rarer / set to 0 to turn off spawning random spawning will still spawn via grimm raids)")
     public  int spawnratenevermore= 50;
-    @Config.Name("Spawn Rate Giant Nevermore(turn down numbers for rarer)")
+    @Config.Name("Spawn Rate Giant Nevermore(turn down numbers for rarer / set to 0 to turn off spawning random spawning will still spawn via grimm raids)")
     public  int spawnrategiantnevermore= 1;
-    @Config.Name("Spawn Rate Creep(turn down numbers for rarer)")
+    @Config.Name("Spawn Rate Creep(turn down numbers for rarer / set to 0 to turn off spawning random spawning will still spawn via grimm raids)")
     public  int spawnratecreep= 50;
-    @Config.Name("Spawn Rate Geist(turn down numbers for rarer)")
+    @Config.Name("Spawn Rate Geist(turn down numbers for rarer / set to 0 to turn off spawning random spawning will still spawn via grimm raids)")
     public  int spawnrategeist= 30;
-    @Config.Name("Spawn Rate Lancer(turn down numbers for rarer)")
+    @Config.Name("Spawn Rate Lancer(turn down numbers for rarer / set to 0 to turn off spawning random spawning will still spawn via grimm raids)")
     public  int spawnratelancer= 50;
-    @Config.Name("Spawn Rate Nuckleeve(turn down numbers for rarer)")
+    @Config.Name("Spawn Rate Nuckleeve(turn down numbers for rarer / set to 0 to turn off spawning random spawning will still spawn via grimm raids)")
     public  int spawnratenuckleeve= 1;
-    @Config.Name("Spawn Rate Apathy(turn down numbers for rarer)")
+    @Config.Name("Spawn Rate Apathy(turn down numbers for rarer / set to 0 to turn off spawning random spawning will still spawn via grimm raids)")
     public  int spawnrateapathy= 50;
-    @Config.Name("Spawn Rate Tiny DeathStalker(turn down numbers for rarer)")
+    @Config.Name("Spawn Rate Tiny DeathStalker(turn down numbers for rarer / set to 0 to turn off spawning random spawning will still spawn via grimm raids)")
     public  int spawnratetinydeathstalker= 50;
-    @Config.Name("Spawn Rate Beringle(turn down numbers for rarer)")
+    @Config.Name("Spawn Rate Beringle(turn down numbers for rarer / set to 0 to turn off spawning random spawning will still spawn via grimm raids)")
     public  int spawnrateberingle= 50;
-    @Config.Name("Spawn Rate Queen Lancer(turn down numbers for rarer)")
+    @Config.Name("Spawn Rate Queen Lancer(turn down numbers for rarer / set to 0 to turn off spawning random spawning will still spawn via grimm raids)")
     public  int spawnratequeenlancer= 1;
-    @Config.Name("Spawn Rate Wyvern(turn down numbers for rarer)")
+    @Config.Name("Spawn Rate Wyvern(turn down numbers for rarer / set to 0 to turn off spawning random spawning will still spawn via grimm raids)")
     public  int spawnratewyvern= 1;
-    @Config.Name("Spawn Rate Ravager(turn down numbers for rarer)")
+    @Config.Name("Spawn Rate Ravager(turn down numbers for rarer / set to 0 to turn off spawning random spawning will still spawn via grimm raids)")
     public  int spawnrateravager= 50;
-    @Config.Name("Spawn Rate Seer(turn down numbers for rarer)")
+    @Config.Name("Spawn Rate Seer(turn down numbers for rarer / set to 0 to turn off spawning random spawning will still spawn via grimm raids)")
     public  int spawnrateseer= 50;
-    @Config.Name("Spawn Rate Arachne(turn down numbers for rarer)")
+    @Config.Name("Spawn Rate Arachne(turn down numbers for rarer / set to 0 to turn off spawning random spawning will still spawn via grimm raids)")
     public  int spawnratearachne= 50;
     @Config.Name("Lancer Queen Nests")
     @Config.Comment("Enable Lancer Queens to Spawn anywhere dark")

@@ -808,7 +808,7 @@ enchantment.fullbore=§6Full Bore Barrel(Range Mod: 1.5x InAccuracy Mod: 0.9x)
 enchantment.homeforgedrifling=§6Home Forged Rifling(Range Mod: 1.0x InAccuracy Mod: 1.1x)
 enchantment.polygonalrifling=§6Polygonal Rifling(Range Mod: 1.0x InAccuracy Mod: 0.9x)
 enchantment.smallbore=§6Small Bore Barrel(Range Mod: 1.3x InAccuracy Mod: 0.7x)
-
+enchantment.trickster=§6Trickster (Chance to Spawn a Distracting Clone on Kill)
 
 
 command.semblance.usage=/setsemblance [player] <semblance> [level]

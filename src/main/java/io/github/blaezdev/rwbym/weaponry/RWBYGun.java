@@ -709,16 +709,27 @@ public class RWBYGun extends ItemBow implements ICustomItem{
             if((weapontype & LETZT) !=0){
                 player.getCapability(AuraProvider.AURA_CAP, null).useAura(player, 0.3F, false);
             }
+
             if(player.getCapability(AuraProvider.AURA_CAP, null).getAmount() < 1F && player.getHeldItem(EnumHand.MAIN_HAND) == is ){
-                is = new ItemStack(Item.getByNameOrId(this.morph), is.getCount(), is.getMetadata(), is.getTagCompound());
-                player.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, is);
+
+                ItemStack morph1 = new ItemStack(Item.getByNameOrId(this.morph), is.getCount(), is.getMetadata());
+
+                if (is.hasTagCompound()) {
+                    morph1.setTagCompound(is.getTagCompound());
+                }
+                player.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, morph1);
             }
 
 
 
             if(player.getCapability(AuraProvider.AURA_CAP, null).getAmount() < 1F && player.getHeldItem(EnumHand.OFF_HAND) == is ){
-                is = new ItemStack(Item.getByNameOrId(this.morph), is.getCount(), is.getMetadata(), is.getTagCompound());
-                player.setItemStackToSlot(EntityEquipmentSlot.OFFHAND, is);
+
+                ItemStack morph1 = new ItemStack(Item.getByNameOrId(this.morph), is.getCount(), is.getMetadata());
+
+                if (is.hasTagCompound()) {
+                    morph1.setTagCompound(is.getTagCompound());
+                }
+                player.setItemStackToSlot(EntityEquipmentSlot.OFFHAND, morph1);
             }
         }
 
@@ -1149,6 +1160,13 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 
 
                             int k = EnchantmentHelper.getEnchantmentLevel(EnchantInit.KNOCK_SHOT, stack);
+
+                            if(EnchantmentHelper.getEnchantmentLevel(EnchantInit.DOUBLE_SHOT, stack) > 0){
+                                entityarrow.pickupStatus = EntityArrow.PickupStatus.DISALLOWED;
+                                if(thrown){
+                                    entityarrow.pickupStatus = EntityArrow.PickupStatus.ALLOWED;
+                                }
+                            }
 
                             if (k > 0)
                             {

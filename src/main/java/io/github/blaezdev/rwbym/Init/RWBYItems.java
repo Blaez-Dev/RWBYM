@@ -5497,6 +5497,24 @@ public class RWBYItems {
     public static final ItemArmor AtlasLegs = new ArmourBase(AtlasMat, 0, EntityEquipmentSlot.LEGS, "atlas_legs", null,      true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.DEFENSE1|ArmourBase.VITALITY1);
     public static final ItemArmor AtlasHead = new ArmourBase(AtlasMat, 0, EntityEquipmentSlot.HEAD, "atlas_head", null,  true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.NIGHTVISION);
 
+
+    public static final ItemArmor.ArmorMaterial AtlasyellowMat = EnumHelper.addArmorMaterial("Atlasyellow", "rwbym:atlasyellow", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
+    public static final ItemArmor AtlasyellowChest = new ArmourBase(AtlasyellowMat, 0, EntityEquipmentSlot.CHEST, "atlasyellow_chest", null,  true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.DEFENSE1|ArmourBase.ATTACKBOOST1);
+    public static final ItemArmor AtlasyellowLegs = new ArmourBase(AtlasyellowMat, 0, EntityEquipmentSlot.LEGS, "atlasyellow_legs", null,      true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.DEFENSE1|ArmourBase.VITALITY1);
+    public static final ItemArmor AtlasyellowHead = new ArmourBase(AtlasyellowMat, 0, EntityEquipmentSlot.HEAD, "atlasyellow_head", null,  true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.NIGHTVISION);
+
+    public static final ItemArmor.ArmorMaterial AtlasredMat = EnumHelper.addArmorMaterial("Atlasred", "rwbym:atlasred", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
+    public static final ItemArmor AtlasredChest = new ArmourBase(AtlasredMat, 0, EntityEquipmentSlot.CHEST, "atlasred_chest", null,  true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.DEFENSE1|ArmourBase.ATTACKBOOST1);
+    public static final ItemArmor AtlasredLegs = new ArmourBase(AtlasredMat, 0, EntityEquipmentSlot.LEGS, "atlasred_legs", null,      true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.DEFENSE1|ArmourBase.VITALITY1);
+    public static final ItemArmor AtlasredHead = new ArmourBase(AtlasredMat, 0, EntityEquipmentSlot.HEAD, "atlasred_head", null,  true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.NIGHTVISION);
+
+
+    public static final ItemArmor.ArmorMaterial AtlasgreenMat = EnumHelper.addArmorMaterial("Atlasgreen", "rwbym:atlasgreen", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
+    public static final ItemArmor AtlasgreenChest = new ArmourBase(AtlasgreenMat, 0, EntityEquipmentSlot.CHEST, "atlasgreen_chest", null,  true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.DEFENSE1|ArmourBase.ATTACKBOOST1);
+    public static final ItemArmor AtlasgreenLegs = new ArmourBase(AtlasgreenMat, 0, EntityEquipmentSlot.LEGS, "atlasgreen_legs", null,      true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.DEFENSE1|ArmourBase.VITALITY1);
+    public static final ItemArmor AtlasgreenHead = new ArmourBase(AtlasgreenMat, 0, EntityEquipmentSlot.HEAD, "atlasgreen_head", null,  true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.NIGHTVISION);
+
+
     public static final ItemArmor.ArmorMaterial BeaconMat = EnumHelper.addArmorMaterial("Beacon", "rwbym:beacon", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
     public static final ItemArmor BeaconChest = new ArmourBase(BeaconMat, 0, EntityEquipmentSlot.CHEST, "beacon_chest",  null, true, RWBYCreativeTabs.tab_rwbyarmour, 0);
     public static final ItemArmor BeaconLegs = new ArmourBase(BeaconMat, 0, EntityEquipmentSlot.LEGS, "beacon_legs",    null, true, RWBYCreativeTabs.tab_rwbyarmour, 0);

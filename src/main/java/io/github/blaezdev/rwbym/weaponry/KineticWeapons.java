@@ -328,7 +328,7 @@ public class KineticWeapons extends ItemSword implements ICustomItem {
             if (hand == EnumHand.MAIN_HAND) {
                 playerIn.inventory.setInventorySlotContents(playerIn.inventory.currentItem, morph1);
             }
-            return new ActionResult<>(EnumActionResult.SUCCESS, is);
+            return new ActionResult<>(EnumActionResult.FAIL, is);
         } else if ((canBlock || reese) && hand == EnumHand.MAIN_HAND) {
             playerIn.setActiveHand(EnumHand.MAIN_HAND);
             NBTTagCompound nbt = is.getOrCreateSubCompound("RWBYM");
