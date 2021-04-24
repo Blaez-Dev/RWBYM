@@ -763,6 +763,16 @@ public class RegUtil {
         registerItems(event, RWBYItems.pennyv7Head);
         registerItems(event, RWBYItems.nora1Chest);
         registerItems(event, RWBYItems.nora1Legs);
+        registerItems(event, RWBYItems.RimuruChest);
+        registerItems(event, RWBYItems.RimuruLegs);
+        registerItems(event, RWBYItems.Rubyv7Chest);
+        registerItems(event, RWBYItems.Rubyv7Legs);
+        registerItems(event, RWBYItems.Weissv7Chest);
+        registerItems(event, RWBYItems.Weissv7Legs);
+        registerItems(event, RWBYItems.Blakev7Chest);
+        registerItems(event, RWBYItems.Blakev7Legs);
+        registerItems(event, RWBYItems.Yangv7Chest);
+        registerItems(event, RWBYItems.Yangv7Legs);
         registerItems(event, RWBYItems.moonskimmer);
         registerItems(event, RWBYItems.pennyswdammo);
         registerItems(event, RWBYItems.fairykingcharm);

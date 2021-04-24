@@ -114,6 +114,7 @@ public class ArmourBase extends ItemArmor {
     public static final long JAVELIN1 =        0x1000000000L;
     public static final long JAVELIN2 =        0x2000000000L;
     public static final long HandofBullets =   0x4000000000L;
+    public static final long Predator =   0x4000000000L;
 
 
     public boolean validperk(EntityLivingBase playerIn,long armorperk){

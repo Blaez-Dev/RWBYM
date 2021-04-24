@@ -5754,7 +5754,29 @@ public class RWBYItems {
     public static final ItemArmor pennyv7Legs = new ArmourBase(pennyv7Mat, 0, EntityEquipmentSlot.LEGS, "pennyv7_legs", null,     true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.DEFENSE1|ArmourBase.GLADIATOR2|ArmourBase.AURAREGEN);
     public static final ItemArmor pennyv7Head = new ArmourBase(pennyv7Mat, 0, EntityEquipmentSlot.HEAD, "pennyv7_head", "rwbym:pennyv7hood", true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.JAVELIN1|ArmourBase.VITALITY2);
 
+
+    public static final ItemArmor.ArmorMaterial Rubyv7Mat = EnumHelper.addArmorMaterial("Rubyv7", "rwbym:rubyv7", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
+    public static final ItemArmor Rubyv7Chest = new ArmourBase(Rubyv7Mat, 0, EntityEquipmentSlot.CHEST, "rubyv7_chest",  null, true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.MOVEMENTSPEED2|ArmourBase.REACH2|ArmourBase.HandofBullets);
+    public static final ItemArmor Rubyv7Legs = new ArmourBase(Rubyv7Mat, 0, EntityEquipmentSlot.LEGS, "rubyv7_legs",    null, true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.JUMPBOOST2|ArmourBase.ATTACKBOOST3);
+
+
+    public static final ItemArmor.ArmorMaterial Weissv7Mat = EnumHelper.addArmorMaterial("Weissv7", "rwbym:weissv7", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
+    public static final ItemArmor Weissv7Chest = new ArmourBase(Weissv7Mat, 0, EntityEquipmentSlot.CHEST, "weissv7_chest",  null, true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.PUNCTURE2|ArmourBase.AURAREGEN|ArmourBase.MOVEMENTSPEED2);
+    public static final ItemArmor Weissv7Legs = new ArmourBase(Weissv7Mat, 0, EntityEquipmentSlot.LEGS, "weissv7_legs",    null, true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.ATTACKBOOST3|ArmourBase.MOVEMENTSPEED1|ArmourBase.RUSH2);
+
+    public static final ItemArmor.ArmorMaterial Yangv7Mat = EnumHelper.addArmorMaterial("Yangv7", "rwbym:yangv7", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
+    public static final ItemArmor Yangv7Chest = new ArmourBase(Yangv7Mat, 0, EntityEquipmentSlot.CHEST, "yangv7_chest",  null, true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.RUSH2|ArmourBase.K02|ArmourBase.DEFENSE2);
+    public static final ItemArmor Yangv7Legs = new ArmourBase(Yangv7Mat, 0, EntityEquipmentSlot.LEGS, "yangv7_legs",    null, true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.FIRESTARTER|ArmourBase.MOVEMENTSPEED1|ArmourBase.ATTACKBOOST4);
+
+    public static final ItemArmor.ArmorMaterial Blakev7Mat = EnumHelper.addArmorMaterial("Blakev7", "rwbym:blakev7", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
+    public static final ItemArmor Blakev7Chest = new ArmourBase(Blakev7Mat, 0, EntityEquipmentSlot.CHEST, "blakev7_chest",  null, true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.GLADIATOR2|ArmourBase.ATTACKBOOST2|ArmourBase.RUSH2);
+    public static final ItemArmor Blakev7Legs = new ArmourBase(Blakev7Mat, 0, EntityEquipmentSlot.LEGS, "blakev7_legs",    null, true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.JUMPBOOST3|ArmourBase.FOOTING2|ArmourBase.HandofBullets);
     
+    public static final ItemArmor.ArmorMaterial RimuruMat = EnumHelper.addArmorMaterial("Rimuru", "rwbym:rimuru", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
+    public static final ItemArmor RimuruChest = new ArmourBase(RimuruMat, 0, EntityEquipmentSlot.CHEST, "rimuru_chest",  null, true, RWBYCreativeTabs.tab_rwbyarmour, 0);
+    public static final ItemArmor RimuruLegs = new ArmourBase(RimuruMat, 0, EntityEquipmentSlot.LEGS, "rimuru_legs",    null, true, RWBYCreativeTabs.tab_rwbyarmour, 0);
+
+
     //Charms
     public static final ItemArmor.ArmorMaterial charmMat = EnumHelper.addArmorMaterial("charm", "rwbym:charm", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
     public static final ItemArmor kingsgambit = new ArmourBase(charmMat, 0, EntityEquipmentSlot.FEET, "kingsgambit", null,     true, RWBYCreativeTabs.tab_rwbycharms, ArmourBase.KINGSGAMBIT);
