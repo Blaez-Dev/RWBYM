@@ -33,6 +33,8 @@ import io.github.blaezdev.rwbym.capabilities.Nora.INora;
 import io.github.blaezdev.rwbym.capabilities.Nora.Nora;
 import io.github.blaezdev.rwbym.capabilities.Nora.NoraProvider;
 import io.github.blaezdev.rwbym.capabilities.Nora.NoraStorage;
+import io.github.blaezdev.rwbym.capabilities.Predator.IPredator;
+import io.github.blaezdev.rwbym.capabilities.Predator.Predator;
 import io.github.blaezdev.rwbym.capabilities.Pyrrha.IPyrrha;
 import io.github.blaezdev.rwbym.capabilities.Pyrrha.Pyrrha;
 import io.github.blaezdev.rwbym.capabilities.Pyrrha.PyrrhaProvider;
@@ -109,9 +111,11 @@ public class CapabilityHandler {
 	
 	public static final ResourceLocation AURA_KEY = new ResourceLocation(RWBYModels.MODID, "aura");
 	public static final ResourceLocation TEAM_KEY = new ResourceLocation(RWBYModels.MODID, "team");
-	
-	public static final ResourceLocation ITEMDATA_KEY = new ResourceLocation(RWBYModels.MODID, "itemdata"); 
-	
+
+	public static final ResourceLocation ITEMDATA_KEY = new ResourceLocation(RWBYModels.MODID, "itemdata");
+
+	public static final ResourceLocation PREDATOR_KEY = new ResourceLocation(RWBYModels.MODID, "predator");
+
 	private static List<Capability> capabilities = new ArrayList<Capability>();
 	
 	@SubscribeEvent
@@ -134,6 +138,7 @@ public class CapabilityHandler {
 			event.addCapability(Pyrrha_Key, new PyrrhaProvider());
 			event.addCapability(Blank_Key, new BlankProvider());
 			event.addCapability(Valour_Key, new ValourProvider());
+			event.addCapability(PREDATOR_KEY, new Predator.PredatorProvider());
 		}
 		
 		if (event.getObject() instanceof World) {
@@ -164,6 +169,7 @@ public class CapabilityHandler {
 		CapabilityManager.INSTANCE.register(IAura.class, new AuraStorage(), Aura::new);
 		CapabilityManager.INSTANCE.register(ITeam.class, new TeamStorage(), Team::new);
 		CapabilityManager.INSTANCE.register(IItemData.class, new ItemDataStorage(), ItemData::new);
+		CapabilityManager.INSTANCE.register(IPredator.class, new Predator.PradatorStorage(), Predator::new);
 	}
 	
 	public static <T extends ISemblance> void register(Class<T> type, Capability.IStorage<T> storage, Callable<? extends T> factory) {
@@ -177,16 +183,16 @@ public class CapabilityHandler {
 	
 	public static ISemblance getCurrentSemblance(EntityPlayer player) {
 		
-		RWBYModels.LOGGER.log(RWBYModels.updtes, "Getting Active Semblance for Player: {}", player.getDisplayNameString());
+//		RWBYModels.LOGGER.log(RWBYModels.updtes, "Getting Active Semblance for Player: {}", player.getDisplayNameString());
 				
 		List<ISemblance> semblances = new ArrayList<ISemblance>();
 
 		for (Capability<ISemblance> capability : capabilities) {
 			if (player.hasCapability(capability, null)) {
 				ISemblance semblance = player.getCapability(capability, null);
-				RWBYModels.LOGGER.log(RWBYModels.updtes, "Found Semblance: " + semblance);
+//				RWBYModels.LOGGER.log(RWBYModels.updtes, "Found Semblance: " + semblance);
 				if (semblance.getLevel() > 0) {
-					RWBYModels.LOGGER.log(RWBYModels.updtes, "Adding Semblance: " + semblance);
+//					RWBYModels.LOGGER.log(RWBYModels.updtes, "Adding Semblance: " + semblance);
 					semblances.add(semblance);
 				}
 			}
@@ -206,7 +212,7 @@ public class CapabilityHandler {
 	
 	public static ISemblance getCapabilityByName(EntityPlayer player, String name) {
 		
-		RWBYModels.LOGGER.log(RWBYModels.updtes, "Getting Semblance {} for Player: {}", name, player.getDisplayNameString());
+//		RWBYModels.LOGGER.log(RWBYModels.updtes, "Getting Semblance {} for Player: {}", name, player.getDisplayNameString());
 		
 		name = name.toLowerCase();
 
@@ -228,7 +234,7 @@ public class CapabilityHandler {
 		for (Capability<ISemblance> capability : capabilities) {
 			if (player.hasCapability(capability, null)) {
 				ISemblance semblance = player.getCapability(capability, null);
-				RWBYModels.LOGGER.log(RWBYModels.updtes, "Found Semblance: " + semblance);
+//				RWBYModels.LOGGER.log(RWBYModels.updtes, "Found Semblance: " + semblance);
 				semblances.add(semblance);
 			}
 		}

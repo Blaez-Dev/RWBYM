@@ -6,7 +6,10 @@ import io.github.blaezdev.rwbym.Init.RWBYItems;
 import io.github.blaezdev.rwbym.Init.RWBYPotions;
 import io.github.blaezdev.rwbym.Init.RegUtil;
 import io.github.blaezdev.rwbym.RWBYModels;
+import io.github.blaezdev.rwbym.capabilities.Predator.IPredator;
+import io.github.blaezdev.rwbym.capabilities.Predator.Predator;
 import io.github.blaezdev.rwbym.entity.ModelArmor;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.util.ITooltipFlag;
@@ -16,6 +19,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -118,7 +122,7 @@ public class ArmourBase extends ItemArmor {
 
 
 
-    public boolean validperk(EntityLivingBase playerIn,long armorperk){
+    public static boolean validperk(EntityLivingBase playerIn,long armorperk){
         for (ItemStack stack:playerIn.getArmorInventoryList()){
             if(stack.getItem() instanceof ArmourBase){
                 if((((ArmourBase) stack.getItem()).armourperks & armorperk) !=0L){
@@ -213,6 +217,7 @@ public class ArmourBase extends ItemArmor {
         return armorModel;
     }
 
+    @SideOnly(Side.CLIENT)
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add("Armour Perks:");
@@ -252,9 +257,22 @@ public class ArmourBase extends ItemArmor {
         if((armourperks & JAVELIN1) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Strong-Arm 1 ((Increased Damage Done by Thrown Weapons by 2X))");}
         if((armourperks & JAVELIN2) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Strong-Arm 2 ((Increased Damage Done by Thrown Weapons by 3X))");}
         if((armourperks & HandofBullets) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Hand of Bullets  ((Increased Damage Done by (Non-Thrown) Projectile Weapons by 2X))");}
+        if ((armourperks & Predator) != 0) {attachPredatorInfo(tooltip);}
         tooltip.add(tooltipinfo);
     }
-    
+
+    @SideOnly(Side.CLIENT)
+    private static void attachPredatorInfo(List<String> tooltip)
+    {
+        EntityPlayer player = Minecraft.getMinecraft().player;
+        if (player != null)
+        {
+            IPredator cap = io.github.blaezdev.rwbym.capabilities.Predator.Predator.getCap(player);
+            if (cap != null)
+                tooltip.add(ChatFormatting.BLUE + "-" + "Predator  ((Increase Attack Damage Permanently by killing certain mobs)), current kills: " + cap.getKills() + ", bonus damage multiplier: " + cap.getBonusDamageMultiplier());
+        }
+    }
+
     @Override
     public String getArmorTexture(ItemStack stack, Entity entity, EntityEquipmentSlot slot, String type) {
     	
@@ -281,29 +299,29 @@ public class ArmourBase extends ItemArmor {
 
         if (!world.isRemote && entity instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) entity;
-            if(this.validperk(player, AURAREGEN)){
+            if(validperk(player, AURAREGEN)){
                 PotionEffect potioneffect = new PotionEffect(RegUtil.AURA_REGEN, 60, 1, false, false);
                 player.addPotionEffect(potioneffect);
 
             }
-            if(this.validperk(player, NIGHTVISION)){
+            if(validperk(player, NIGHTVISION)){
                 PotionEffect potioneffect = new PotionEffect(MobEffects.NIGHT_VISION, 240, 0, false, false);
                 player.addPotionEffect(potioneffect);
             }
-            if(this.validperk(player, JUMPBOOST1)){
+            if(validperk(player, JUMPBOOST1)){
                 PotionEffect potioneffect = new PotionEffect(MobEffects.JUMP_BOOST, 60, 0, false, false);
                 player.addPotionEffect(potioneffect);
             }
-            if(this.validperk(player, JUMPBOOST2)){
+            if(validperk(player, JUMPBOOST2)){
                 PotionEffect potioneffect = new PotionEffect(MobEffects.JUMP_BOOST, 60, 1, false, false);
                 player.addPotionEffect(potioneffect);
 
             }
-            if(this.validperk(player, JUMPBOOST3)){
+            if(validperk(player, JUMPBOOST3)){
                 PotionEffect potioneffect = new PotionEffect(MobEffects.JUMP_BOOST, 60, 2, false, false);
                 player.addPotionEffect(potioneffect);
             }
-            if(this.validperk(player, FIRESTARTER)){
+            if(validperk(player, FIRESTARTER)){
                 PotionEffect potioneffect = new PotionEffect(MobEffects.FIRE_RESISTANCE, 60, 1, false, false);
                 player.addPotionEffect(potioneffect);
             }

@@ -44,7 +44,8 @@ public class RWBYNetworkHandler {
 	    registerMessage(MessageShoot.class, Side.SERVER);
 	    registerMessage(MessageAddToInventory.class, Side.SERVER);
 	    registerMessage(MessageSyncItemData.class, Side.CLIENT);
-	    registerMessage(MoveMessage.class, Side.CLIENT);
+		registerMessage(MoveMessage.class, Side.CLIENT);
+		registerMessage(MessageSyncPredatorCap.class, Side.CLIENT);
     }
     
     public static void sendToServer(IMessage message){

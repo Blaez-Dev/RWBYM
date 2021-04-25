@@ -773,6 +773,8 @@ public class RegUtil {
         registerItems(event, RWBYItems.Blakev7Legs);
         registerItems(event, RWBYItems.Yangv7Chest);
         registerItems(event, RWBYItems.Yangv7Legs);
+        registerItems(event, RWBYItems.PredatorChest);
+        registerItems(event, RWBYItems.PredatorLegs);
         registerItems(event, RWBYItems.moonskimmer);
         registerItems(event, RWBYItems.pennyswdammo);
         registerItems(event, RWBYItems.fairykingcharm);
