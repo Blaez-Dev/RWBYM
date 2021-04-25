@@ -5773,8 +5773,8 @@ public class RWBYItems {
     public static final ItemArmor Blakev7Legs = new ArmourBase(Blakev7Mat, 0, EntityEquipmentSlot.LEGS, "blakev7_legs",    null, true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.JUMPBOOST3|ArmourBase.FOOTING2|ArmourBase.HandofBullets);
 
     public static final ItemArmor.ArmorMaterial RimuruMat = EnumHelper.addArmorMaterial("Rimuru", "rwbym:rimuru", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
-    public static final ItemArmor RimuruChest = new ArmourBase(RimuruMat, 0, EntityEquipmentSlot.CHEST, "rimuru_chest",  null, true, RWBYCreativeTabs.tab_rwbyarmour, 0);
-    public static final ItemArmor RimuruLegs = new ArmourBase(RimuruMat, 0, EntityEquipmentSlot.LEGS, "rimuru_legs",    null, true, RWBYCreativeTabs.tab_rwbyarmour, 0);
+    public static final ItemArmor RimuruChest = new ArmourBase(RimuruMat, 0, EntityEquipmentSlot.CHEST, "rimuru_chest",  null, true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.Predator);
+    public static final ItemArmor RimuruLegs = new ArmourBase(RimuruMat, 0, EntityEquipmentSlot.LEGS, "rimuru_legs",    null, true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.Predator);
 
     public static final ItemArmor.ArmorMaterial PredatorMat = EnumHelper.addArmorMaterial("Rimuru", "rwbym:predator", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
     public static final ItemArmor PredatorChest = new ArmourBase(PredatorMat, 0, EntityEquipmentSlot.CHEST, "predator_chest",  null, true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.Predator);

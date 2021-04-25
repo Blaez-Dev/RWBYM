@@ -268,8 +268,15 @@ public class ArmourBase extends ItemArmor {
         if (player != null)
         {
             IPredator cap = io.github.blaezdev.rwbym.capabilities.Predator.Predator.getCap(player);
+            String perkname = "Predator";
+            if(cap.getKills()>10000){perkname = "Demon Lord";} else
+            if(cap.getKills()>7500){perkname = "Beelzebub";} else
+            if(cap.getKills()>5000){perkname = "Merciless";} else
+            if(cap.getKills()>1000){perkname = "Gluttony";} else
+            if(cap.getKills()>250){perkname = "Starved";} else
+                if(cap.getKills()<250){perkname = "Predator";}
             if (cap != null)
-                tooltip.add(ChatFormatting.BLUE + "-" + "Predator  ((Increase Attack Damage Permanently by killing certain mobs)), current kills: " + cap.getKills() + ", bonus damage multiplier: " + cap.getBonusDamageMultiplier());
+                tooltip.add(ChatFormatting.BLUE + "-" +ChatFormatting.GOLD+ perkname + ChatFormatting.BLUE+"((Damage Multiplier Permanently Increased by Killing Grimm)), Souls Devoured: "+ ChatFormatting.WHITE + cap.getKills() + ChatFormatting.BLUE + ", Damage Multiplier: "+ ChatFormatting.WHITE  + cap.getBonusDamageMultiplier()+"X");
         }
     }
 

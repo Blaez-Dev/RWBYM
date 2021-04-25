@@ -59,7 +59,8 @@ public class Predator implements IPredator
 	@Override
 	public float getBonusDamageMultiplier()
 	{
-		float multiplierPerKill = 3.0F / 10000;
+		float multiplierPerKill = 5.0F / 20000;
+		//System.out.println(getKills());
 		return 1.0F + multiplierPerKill * getKills();
 	}
 
@@ -98,14 +99,14 @@ public class Predator implements IPredator
 	{
 		EntityLivingBase entity = event.getEntityLiving();
 		Entity attacker = event.getSource().getTrueSource();
-		System.out.println(attacker);
-		System.out.println(entity);
+		//System.out.println(attacker);
+		//System.out.println(entity);
 		if (attacker instanceof EntityPlayer && entity instanceof IPrey)
 		{
 			IPrey prey = (IPrey) entity;
 			EntityPlayer predator = (EntityPlayer) attacker;
-			System.out.println(ArmourBase.validperk(predator, ArmourBase.Predator));
-			System.out.println(prey.canBeHunted());
+			//System.out.println(ArmourBase.validperk(predator, ArmourBase.Predator));
+			//System.out.println(prey.canBeHunted());
 			if (ArmourBase.validperk(predator, ArmourBase.Predator) && prey.canBeHunted())
 			{
 				IPredator cap = getCap(predator);
@@ -113,6 +114,7 @@ public class Predator implements IPredator
 				{
 					prey.onHunted(predator);
 					cap.increaseKills(predator, prey.getKillsFeed());
+					//System.out.println(cap.getKills());
 				}
 			}
 		}
@@ -128,8 +130,12 @@ public class Predator implements IPredator
 			if (ArmourBase.validperk(predator, ArmourBase.Predator))
 			{
 				IPredator cap = getCap(predator);
-				if (cap != null)
-					event.setAmount(event.getAmount() * cap.getBonusDamageMultiplier());
+				//System.out.println(getCap(predator).getKills());
+				//System.out.println("damage amount"+event.getAmount());
+				//System.out.println("damage modifier"+cap.getBonusDamageMultiplier());
+
+				if (cap != null) event.setAmount(event.getAmount() * cap.getBonusDamageMultiplier());
+				//System.out.println("final damage"+event.getAmount());
 			}
 		}
 	}
