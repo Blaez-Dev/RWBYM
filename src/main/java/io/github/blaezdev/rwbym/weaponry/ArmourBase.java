@@ -276,7 +276,7 @@ public class ArmourBase extends ItemArmor {
             if(cap.getKills()>250){perkname = "Starved";} else
                 if(cap.getKills()<250){perkname = "Predator";}
             if (cap != null)
-                tooltip.add(ChatFormatting.BLUE + "-" +ChatFormatting.GOLD+ perkname + ChatFormatting.BLUE+"((Damage Multiplier Permanently Increased by Killing Grimm)), Souls Devoured: "+ ChatFormatting.WHITE + cap.getKills() + ChatFormatting.BLUE + ", Damage Multiplier: "+ ChatFormatting.WHITE  + cap.getBonusDamageMultiplier()+"X");
+                tooltip.add(ChatFormatting.BLUE + "-" +ChatFormatting.GOLD+ perkname + ChatFormatting.BLUE+"((Damage Multiplier Permanently Increased by Killing Grimm)), Souls Devoured: "+ ChatFormatting.WHITE + cap.getKills() + ChatFormatting.BLUE + ", Damage Multiplier: "+ ChatFormatting.WHITE  + cap.getBonusDamageMultiplier()+ChatFormatting.GOLD+"X");
         }
     }
 
