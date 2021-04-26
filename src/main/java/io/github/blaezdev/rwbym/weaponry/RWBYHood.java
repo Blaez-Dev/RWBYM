@@ -6,6 +6,8 @@ import io.github.blaezdev.rwbym.Init.RWBYCreativeTabs;
 import io.github.blaezdev.rwbym.Init.RWBYItems;
 import io.github.blaezdev.rwbym.Init.RegUtil;
 import io.github.blaezdev.rwbym.RWBYModels;
+import io.github.blaezdev.rwbym.capabilities.Predator.IPredator;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -163,6 +165,26 @@ public class RWBYHood extends Item implements ICustomItem {
         if((armourperks & JAVELIN1) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Strong-Arm 1 ((Increased Damage Done by Thrown Weapons by 2X))");}
         if((armourperks & JAVELIN2) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Strong-Arm 2 ((Increased Damage Done by Thrown Weapons by 3X))");}
         if((armourperks & HandofBullets) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Strong-Arm 1 ((Increased Damage Done by Projectile Weapons by 2X))");}
+        if ((armourperks & Predator) != 0) {attachPredatorInfo(tooltip);}
+    }
+
+    @SideOnly(Side.CLIENT)
+    private static void attachPredatorInfo(List<String> tooltip)
+    {
+        EntityPlayer player = Minecraft.getMinecraft().player;
+        if (player != null)
+        {
+            IPredator cap = io.github.blaezdev.rwbym.capabilities.Predator.Predator.getCap(player);
+            String perkname = "Predator";
+            if(cap.getKills()>10000){perkname = "Demon Lord";} else
+            if(cap.getKills()>7500){perkname = "Beelzebub";} else
+            if(cap.getKills()>5000){perkname = "Merciless";} else
+            if(cap.getKills()>1000){perkname = "Gluttony";} else
+            if(cap.getKills()>250){perkname = "Starved";} else
+            if(cap.getKills()<250){perkname = "Predator";}
+            if (cap != null)
+                tooltip.add(ChatFormatting.BLUE + "-" +ChatFormatting.GOLD+ perkname + ChatFormatting.BLUE+"((Damage Multiplier Permanently Increased by Killing Grimm)), Souls Devoured: "+ ChatFormatting.WHITE + cap.getKills() + ChatFormatting.BLUE + ", Damage Multiplier: "+ ChatFormatting.WHITE  + cap.getBonusDamageMultiplier()+ChatFormatting.GOLD+"X");
+        }
     }
 
     @Override
@@ -195,6 +217,9 @@ public class RWBYHood extends Item implements ICustomItem {
             if(this.validperk(player, FIRESTARTER)){
                 PotionEffect potioneffect = new PotionEffect(MobEffects.FIRE_RESISTANCE, 60, 1, false, false);
                 player.addPotionEffect(potioneffect);
+            }
+            if(this.validperk(player, AntiMagic)){
+                player.clearActivePotions();
             }
         }
     }
