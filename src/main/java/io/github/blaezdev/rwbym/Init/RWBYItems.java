@@ -5775,13 +5775,7 @@ public class RWBYItems {
     public static final ItemArmor.ArmorMaterial RimuruMat = EnumHelper.addArmorMaterial("Rimuru", "rwbym:rimuru", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
     public static final ItemArmor RimuruChest = new ArmourBase(RimuruMat, 0, EntityEquipmentSlot.CHEST, "rimuru_chest",  null, true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.Predator);
     public static final ItemArmor RimuruLegs = new ArmourBase(RimuruMat, 0, EntityEquipmentSlot.LEGS, "rimuru_legs",    null, true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.Predator);
-    public static final Item AntimagicMask = new RWBYHood("sntimagic_mask",  true,null, RWBYCreativeTabs.tab_rwbyarmour,  ArmourBase.Predator);
-
-
-
-    public static final ItemArmor.ArmorMaterial PredatorMat = EnumHelper.addArmorMaterial("Rimuru", "rwbym:predator", 40, new int[]{0, 0, 0, 0}, 8, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
-    public static final ItemArmor PredatorChest = new ArmourBase(PredatorMat, 0, EntityEquipmentSlot.CHEST, "predator_chest",  null, true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.Predator);
-    public static final ItemArmor PredatorLegs = new ArmourBase(PredatorMat, 0, EntityEquipmentSlot.LEGS, "predator_legs",    null, true, RWBYCreativeTabs.tab_rwbyarmour, ArmourBase.Predator);
+    public static final Item AntimagicMask = new RWBYHood("antimagic_mask",  true,null, RWBYCreativeTabs.tab_rwbyarmour,  ArmourBase.Predator|ArmourBase.AntiMagic);
 
 
     //Charms

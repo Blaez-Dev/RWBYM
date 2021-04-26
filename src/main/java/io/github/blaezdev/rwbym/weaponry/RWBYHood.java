@@ -165,6 +165,7 @@ public class RWBYHood extends Item implements ICustomItem {
         if((armourperks & JAVELIN1) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Strong-Arm 1 ((Increased Damage Done by Thrown Weapons by 2X))");}
         if((armourperks & JAVELIN2) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Strong-Arm 2 ((Increased Damage Done by Thrown Weapons by 3X))");}
         if((armourperks & HandofBullets) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Strong-Arm 1 ((Increased Damage Done by Projectile Weapons by 2X))");}
+        if((armourperks & AntiMagic) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Anti-Magic  ((Immunity to Any Potion Effects; Postive or Negative. May Cause Visual Glitches With Displayed Potion Effects!))");}
         if ((armourperks & Predator) != 0) {attachPredatorInfo(tooltip);}
     }
 
