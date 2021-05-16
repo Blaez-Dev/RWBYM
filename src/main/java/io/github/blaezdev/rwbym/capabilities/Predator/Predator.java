@@ -59,7 +59,7 @@ public class Predator implements IPredator
 	@Override
 	public float getBonusDamageMultiplier()
 	{
-		float multiplierPerKill = 5.0F / 20000;
+		float multiplierPerKill = 6.0F / 20000;
 		//System.out.println(getKills());
 		return 1.0F + multiplierPerKill * getKills();
 	}

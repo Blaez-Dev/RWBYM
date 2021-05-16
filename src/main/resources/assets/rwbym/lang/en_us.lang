@@ -771,6 +771,8 @@ item.rwbym:gwai4.name=§6???
 item.rwbym:gwai5.name=§6Abyssal Blade - 鬼
 item.glider.name=§6Shallow Wing
 item.rwbym:coin_valour.name=Valour Semblance Coin
+item.rwbym:antimagic_mask.name=Anti-Magic Mask
+entity.zwei.name=Zwei
 
 effect.aura_regen=Aura Regen
 potion.effect.aura_regen=Potion of Aura Regen

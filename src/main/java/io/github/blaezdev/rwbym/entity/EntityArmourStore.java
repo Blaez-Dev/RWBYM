@@ -180,7 +180,19 @@ public class EntityArmourStore extends EntityRWBYMMerchant implements INpc, IMer
             new MerchantRecipe(new ItemStack(RWBYItems.lien50,3),new ItemStack(RWBYItems.diannaLegs,1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien50,3),new ItemStack(RWBYItems.baileyChest,1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien50,3),new ItemStack(RWBYItems.baileyLegs,1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien100,2),new ItemStack(RWBYItems.AntimagicMask, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien100,2),new ItemStack(RWBYItems.RimuruChest, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien100,2),new ItemStack(RWBYItems.RimuruLegs, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien100,2),new ItemStack(RWBYItems.Rubyv7Chest, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien100,2),new ItemStack(RWBYItems.Rubyv7Legs, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien100,2),new ItemStack(RWBYItems.Yangv7Chest, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien100,2),new ItemStack(RWBYItems.Yangv7Legs, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien100,2),new ItemStack(RWBYItems.Blakev7Chest, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien100,2),new ItemStack(RWBYItems.Blakev7Legs, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien100,2),new ItemStack(RWBYItems.Weissv7Chest, 1)),
+            new MerchantRecipe(new ItemStack(RWBYItems.lien100,2),new ItemStack(RWBYItems.Weissv7Legs, 1)),
             new MerchantRecipe(new ItemStack(RWBYItems.lien100,4),new ItemStack(RWBYItems.scroll2, 1))};
+
 
     private int randomTickDivider;
     private boolean isLookingForHome;
