@@ -1,12 +1,12 @@
 {
 	"credit": "Made with Blockbench, Laura Darkez",
 	"textures": {
-		"0": "rwbym:blocks/awool_colored_grey",
+		"0": "rwbym:blocks/awool_colored_silver",
 		"2": "rwbym:blocks/awool_colored_purple",
-		"3": "rwbym:blocks/awool_colored_lightblack",
-		"4": "rwbym:blocks/awool_colored_black",
-		"5": "rwbym:blocks/awool_colored_silver",
-		"particle": "rwbym:blocks/awool_colored_grey"
+		"3": "rwbym:blocks/awool_colored_gray",
+		"4": "rwbym:blocks/awool_colored_lightblack",
+		"5": "rwbym:blocks/awool_colored_slategrey",
+		"particle": "rwbym:blocks/awool_colored_silver"
 	},
 	"elements": [
 		{
