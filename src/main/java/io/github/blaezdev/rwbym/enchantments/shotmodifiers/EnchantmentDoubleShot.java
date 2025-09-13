@@ -36,6 +36,6 @@ public class EnchantmentDoubleShot extends Enchantment {
     @Override
     protected boolean canApplyTogether(Enchantment ench) {
         return super.canApplyTogether(ench)
-                && ench != EnchantInit.FlareFrost_Shot && ench != EnchantInit.KNOCK_SHOT && ench != EnchantInit.POISON_SHOT;
+                && ench != EnchantInit.KNOCK_SHOT && ench != EnchantInit.POISON_SHOT;
     }
 }

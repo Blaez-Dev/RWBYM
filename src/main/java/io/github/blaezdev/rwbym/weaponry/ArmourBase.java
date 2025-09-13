@@ -12,7 +12,6 @@ import io.github.blaezdev.rwbym.entity.ModelArmor;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.model.ModelBiped;
-import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -37,7 +36,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.logging.log4j.LogManager;
-
+import org.omg.CORBA.PUBLIC_MEMBER;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -223,43 +222,43 @@ public class ArmourBase extends ItemArmor {
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add("Armour Perks:");
-        if((armourperks & MOVEMENTSPEED1) != 0){tooltip.add(ChatFormatting.BLUE +"-" +   I18n.format("ui.tooltiparmor.movementspeed1"));}
-        if((armourperks & MOVEMENTSPEED2) != 0){tooltip.add(ChatFormatting.BLUE +"-" +   I18n.format("ui.tooltiparmor.movementspeed2"));}
-        if((armourperks & DEFENSE1) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  I18n.format("ui.tooltiparmor.defense1"));}
-        if((armourperks & DEFENSE2) != 0){tooltip.add(ChatFormatting.BLUE +"-" +   I18n.format("ui.tooltiparmor.defense2"));}
-        if((armourperks & VITALITY1) != 0){tooltip.add(ChatFormatting.BLUE +"-" +   I18n.format("ui.tooltiparmor.vitality1"));}
-        if((armourperks & VITALITY2) != 0){tooltip.add(ChatFormatting.BLUE +"-" +   I18n.format("ui.tooltiparmor.vitality2"));}
-        if((armourperks & VITALITY3) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  I18n.format("ui.tooltiparmor.vitality3"));}
-        if((armourperks & ATTACKBOOST1) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  I18n.format("ui.tooltiparmor.attack1"));}
-        if((armourperks & ATTACKBOOST2) != 0){tooltip.add(ChatFormatting.BLUE +"-" +   I18n.format("ui.tooltiparmor.attack2"));}
-        if((armourperks & ATTACKBOOST3) != 0){tooltip.add(ChatFormatting.BLUE +"-" +   I18n.format("ui.tooltiparmor.attack3"));}
-        if((armourperks & ATTACKBOOST4) != 0){tooltip.add(ChatFormatting.BLUE +"-" +   I18n.format("ui.tooltiparmor.attack4"));}
-        if((armourperks & NIGHTVISION) != 0){tooltip.add(ChatFormatting.BLUE +"-" +   I18n.format("ui.tooltiparmor.nightvision"));}
-        if((armourperks & JUMPBOOST1) != 0){tooltip.add(ChatFormatting.BLUE +"-" +   I18n.format("ui.tooltiparmor.jumpboost1"));}
-        if((armourperks & JUMPBOOST2) != 0){tooltip.add(ChatFormatting.BLUE +"-" +   I18n.format("ui.tooltiparmor.jumpboost2"));}
-        if((armourperks & JUMPBOOST3) != 0){tooltip.add(ChatFormatting.BLUE +"-" +   I18n.format("ui.tooltiparmor.jumpboost3"));}
-        if((armourperks & CRITICALSTRIKE1) != 0){tooltip.add(ChatFormatting.BLUE +"-" +   I18n.format("ui.tooltiparmor.critstrike1"));}
-        if((armourperks & CRITICALSTRIKE2) != 0){tooltip.add(ChatFormatting.BLUE +"-" +   I18n.format("ui.tooltiparmor.critstrike2"));}
-        if((armourperks & GLADIATOR1) != 0){tooltip.add(ChatFormatting.BLUE +"-" +   I18n.format("ui.tooltiparmor.gladiator1"));}
-        if((armourperks & GLADIATOR2) != 0){tooltip.add(ChatFormatting.BLUE +"-" +   I18n.format("ui.tooltiparmor.gladiator2"));}
-        if((armourperks & REACH1) != 0){tooltip.add(ChatFormatting.BLUE +"-" +   I18n.format("ui.tooltiparmor.reach1"));}
-        if((armourperks & REACH2) != 0){tooltip.add(ChatFormatting.BLUE +"-" +   I18n.format("ui.tooltiparmor.reach2"));}
-        if((armourperks & PUNCTURE1) != 0){tooltip.add(ChatFormatting.BLUE +"-" +   I18n.format("ui.tooltiparmor.puncture1"));}
-        if((armourperks & PUNCTURE2) != 0){tooltip.add(ChatFormatting.BLUE +"-" +   I18n.format("ui.tooltiparmor.puncture2"));}
-        if((armourperks & K01) != 0){tooltip.add(ChatFormatting.BLUE +"-" +   I18n.format("ui.tooltiparmor.knockout1"));}
-        if((armourperks & K02) != 0){tooltip.add(ChatFormatting.BLUE +"-" +   I18n.format("ui.tooltiparmor.knockout2"));}
-        if((armourperks & FOOTING1) != 0){tooltip.add(ChatFormatting.BLUE +"-" +   I18n.format("ui.tooltiparmor.footing1"));}
-        if((armourperks & FOOTING2) != 0){tooltip.add(ChatFormatting.BLUE +"-" +   I18n.format("ui.tooltiparmor.footing2"));}
-        if((armourperks & RUSH1) != 0){tooltip.add(ChatFormatting.BLUE +"-" +   I18n.format("ui.tooltiparmor.rush1"));}
-        if((armourperks & RUSH2) != 0){tooltip.add(ChatFormatting.BLUE +"-" +   I18n.format("ui.tooltiparmor.rush2"));}
-        if((armourperks & AURAREGEN) != 0){tooltip.add(ChatFormatting.BLUE +"-" +   I18n.format("ui.tooltiparmor.auraregen"));}
-        if((armourperks & FIRESTARTER) != 0){tooltip.add(ChatFormatting.BLUE +"-" +   I18n.format("ui.tooltiparmor.firestarter"));}
-        if((armourperks & KINGSGAMBIT) != 0){tooltip.add(ChatFormatting.BLUE +"-" +   I18n.format("ui.tooltiparmor.kingsgambit"));}
-        if((armourperks & KINGSPAWN) != 0){tooltip.add(ChatFormatting.BLUE +"-" +   I18n.format("ui.tooltiparmor.kingspawn"));}
-        if((armourperks & JAVELIN1) != 0){tooltip.add(ChatFormatting.BLUE +"-" +   I18n.format("ui.tooltiparmor.strongarm1"));}
-        if((armourperks & JAVELIN2) != 0){tooltip.add(ChatFormatting.BLUE +"-" +   I18n.format("ui.tooltiparmor.strongarm2"));}
-        if((armourperks & HandofBullets) != 0){tooltip.add(ChatFormatting.BLUE +"-" +   I18n.format("ui.tooltiparmor.handofbullets"));}
-        if((armourperks & AntiMagic) != 0){tooltip.add(ChatFormatting.BLUE +"-" +   I18n.format("ui.tooltiparmor.antimagic"));}
+        if((armourperks & MOVEMENTSPEED1) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Movement Speed Rank 1 ((Modifies Movement Speed))");}
+        if((armourperks & MOVEMENTSPEED2) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Movement Speed Rank 2 ((Modifies Movement Speed))");}
+        if((armourperks & DEFENSE1) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Defense Rank 1 ((Increases Armour Rating))");}
+        if((armourperks & DEFENSE2) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Defense Rank 2 ((Increases Armour Rating))");}
+        if((armourperks & VITALITY1) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Vitality Rank 1 ((Increases Health))");}
+        if((armourperks & VITALITY2) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Vitality Rank 2 ((Increases Health))");}
+        if((armourperks & VITALITY3) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Vitality Rank 3 ((Increases Health))");}
+        if((armourperks & ATTACKBOOST1) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Attack Boost Rank 1 ((Increases Melee Damage))");}
+        if((armourperks & ATTACKBOOST2) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Attack Boost Rank 2 ((Increases Melee Damage))");}
+        if((armourperks & ATTACKBOOST3) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Attack Boost Rank 3 ((Increases Melee Damage))");}
+        if((armourperks & ATTACKBOOST4) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Attack Boost Rank 4 ((Increases Melee Damage))");}
+        if((armourperks & NIGHTVISION) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Night Vision Rank 1 ((Applies Night Vision))");}
+        if((armourperks & JUMPBOOST1) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Jump Boost Rank 1 ((Applies Jump Boost 1))");}
+        if((armourperks & JUMPBOOST2) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Jump Boost Rank 2 ((Applies Jump Boost 2))");}
+        if((armourperks & JUMPBOOST3) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Jump Boost Rank 3 ((Applies Jump Boost 3))");}
+        if((armourperks & CRITICALSTRIKE1) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Critical Strike Rank 1 ((Dagger Criticals can Hit at 75HP instead of 100))");}
+        if((armourperks & CRITICALSTRIKE2) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Critical Strike Rank 2 ((Dagger Criticals can Hit at 50HP instead of 100))");}
+        if((armourperks & GLADIATOR1) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Gladiator Rank 1 ((Applies more Knockback on Sword Sweep Attacks))");}
+        if((armourperks & GLADIATOR2) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Gladiator Rank 2 ((Applies more Knockback on Sword Sweep Attacks))");}
+        if((armourperks & REACH1) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Reach Rank 1 ((Pole Arms Have Increased Sweep Range +1 per rank))");}
+        if((armourperks & REACH2) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Reach Rank 2 ((Pole Arms Have Increased Sweep Range +1 per rank))");}
+        if((armourperks & PUNCTURE1) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Puncture Rank 1 ((Rapiers More Damage on Armour Pierce))");}
+        if((armourperks & PUNCTURE2) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Puncture Rank 2 ((Rapiers More Damage on Armour Pierce))");}
+        if((armourperks & K01) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Knockout Rank 1 ((Fist and Blunt Weapons have increased chance to cause a dazing effect per rank.))");}
+        if((armourperks & K02) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Knockout Rank 2 ((Fist and Blunt Weapons have increased chance to cause a dazing effect per rank.))");}
+        if((armourperks & FOOTING1) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Footing Rank 1 ((Knockback Resistance))");}
+        if((armourperks & FOOTING2) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Footing Rank 1 ((Knockback Resistance))");}
+        if((armourperks & RUSH1) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Rush Rank 1 ((Attack Speed))");}
+        if((armourperks & RUSH2) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Rush Rank 2 ((Attack Speed))");}
+        if((armourperks & AURAREGEN) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Aura Regen Rank 1 ((Applies Aura Regen))");}
+        if((armourperks & FIRESTARTER) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Fire-Starter Rank 1 ((Applies Fire Resistance))");}
+        if((armourperks & KINGSGAMBIT) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "King's Gambit ((It's Good to be the King, Increases Damage of Players nearby using Pawns))");}
+        if((armourperks & KINGSPAWN) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "King's Pawn ((For King and Glory!, Increases Damage of the Equiped Player When there is a nearby player using King's Gambit))");}
+        if((armourperks & JAVELIN1) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Strong-Arm 1 ((Increased Damage Done by Thrown Weapons by 2X))");}
+        if((armourperks & JAVELIN2) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Strong-Arm 2 ((Increased Damage Done by Thrown Weapons by 3X))");}
+        if((armourperks & HandofBullets) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Hand of Bullets  ((Increased Damage Done by (Non-Thrown) Projectile Weapons by 2X))");}
+        if((armourperks & AntiMagic) != 0){tooltip.add(ChatFormatting.BLUE +"-" +  "Anti-Magic  ((Immunity to Any Potion Effects; Postive or Negative. May Cause Visual Glitches With Displayed Potion Effects!))");}
         if ((armourperks & Predator) != 0) {attachPredatorInfo(tooltip);}
         tooltip.add(tooltipinfo);
     }

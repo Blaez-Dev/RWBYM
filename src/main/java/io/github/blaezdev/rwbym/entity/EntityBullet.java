@@ -532,14 +532,7 @@ public class EntityBullet extends EntityArrow implements IThrowableEntity{
         }}
 
         if(EnchantmentHelper.getEnchantmentLevel(EnchantInit.POISON_SHOT, getFiringWeaponItemStack()) > 0){
-            PotionEffect poisonshot = new PotionEffect(MobEffects.POISON, 200, 1);
-            living.addPotionEffect(poisonshot);
-            //System.out.println("works");
-        }
-
-        if(EnchantmentHelper.getEnchantmentLevel(EnchantInit.FlareFrost_Shot, getFiringWeaponItemStack()) > 0){
-            PotionEffect poisonshot = new PotionEffect(MobEffects.SLOWNESS, 200, 6);
-            living.setFire(10);
+            PotionEffect poisonshot = new PotionEffect(MobEffects.POISON, 200, 3);
             living.addPotionEffect(poisonshot);
             //System.out.println("works");
         }

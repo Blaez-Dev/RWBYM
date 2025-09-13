@@ -7,7 +7,6 @@ import io.github.blaezdev.rwbym.capabilities.Aura.AuraProvider;
 import io.github.blaezdev.rwbym.capabilities.Aura.IAura;
 import io.github.blaezdev.rwbym.capabilities.CapabilityHandler;
 import io.github.blaezdev.rwbym.capabilities.Clover.IClover;
-import io.github.blaezdev.rwbym.capabilities.Harriet.IHarriet;
 import io.github.blaezdev.rwbym.capabilities.ISemblance;
 import io.github.blaezdev.rwbym.capabilities.Lysette.ILysette;
 import io.github.blaezdev.rwbym.capabilities.Qrow.IQrow;
@@ -182,14 +181,13 @@ public class EntityUpdatesHandler {
     public void onEvent(EntityViewRenderEvent.FogDensity event)
     {   EntityPlayer player = (EntityPlayer) event.getEntity();
         Biome biome = player.world.getBiome(player.getPosition());
-        if(RWBYConfig.general.enablebiomefogeffects == true){
         if (biome == RWBYBiomes.GrimmWastes)
         {
             GlStateManager.setFog(EXP);
             event.setDensity(0.3F);
             event.setCanceled(true);
-        }else if (biome == RWBYBiomes.DomainofLight) { GlStateManager.setFog(EXP); event.setDensity(0.005F); event.setCanceled(true);}
-        else{GlStateManager.setFog(LINEAR); event.setDensity(0.0000001F);}}
+        }//else if (biome == RWBYBiomes.DomainofLight) { GlStateManager.setFog(EXP); event.setDensity(0.005F); event.setCanceled(true);}
+        else{GlStateManager.setFog(LINEAR); event.setDensity(0.0000001F);}
          // must cancel event for event handler to take effect
     }
 
@@ -198,18 +196,17 @@ public class EntityUpdatesHandler {
     public void onEvent(EntityViewRenderEvent.FogColors event)
     { EntityPlayer player = (EntityPlayer) event.getEntity();
         Biome biome = player.world.getBiome(player.getPosition());
-        if(RWBYConfig.general.enablebiomefogeffects == true){
         if (biome == RWBYBiomes.GrimmWastes)
         {
             event.setRed(0.2F);
             event.setGreen(0.2F);
             event.setBlue(0.2F);
-        }else if (biome == RWBYBiomes.DomainofLight)
+        }/*else if (biome == RWBYBiomes.DomainofLight)
         {
             event.setRed(1F);
             event.setGreen(1F);
             event.setBlue(0.65F);
-        }}
+        }*/
     }
 
     @SubscribeEvent
@@ -416,22 +413,6 @@ public class EntityUpdatesHandler {
         if (event.getSource().getTrueSource() instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) event.getSource().getTrueSource();
             ISemblance semblance = CapabilityHandler.getCurrentSemblance(player);
-            if (semblance instanceof IHarriet) {
-                int level = semblance.getLevel();
-                PotionEffect potion = new PotionEffect(MobEffects.INSTANT_DAMAGE, 0, 2, true, false);
-                PotionEffect potion2 = new PotionEffect(MobEffects.HUNGER, 5, 126, true, false);
-                if (semblance.isActive()) {
-                    entityliving.knockBack(entityliving,level,-player.getLookVec().x,-player.getLookVec().z);
-                    if(level>4){entityliving.addPotionEffect(potion);}
-                    player.addPotionEffect(potion2);
-                    player.getCapability(AuraProvider.AURA_CAP, null).useAura(player, 15F, false);
-                }
-            }
-        }
-
-        if (event.getSource().getTrueSource() instanceof EntityPlayer) {
-            EntityPlayer player = (EntityPlayer) event.getSource().getTrueSource();
-            ISemblance semblance = CapabilityHandler.getCurrentSemblance(player);
             float attackdamage = event.getAmount();
             if (semblance instanceof IQrow) {
                 int level = semblance.getLevel();
@@ -475,28 +456,38 @@ public class EntityUpdatesHandler {
                 EntityPlayer player = (EntityPlayer) entityliving;
                 if (player.hasCapability(AuraProvider.AURA_CAP, null)) {
                     IAura aura = player.getCapability(AuraProvider.AURA_CAP, null);
-                    float playerdamagereduction = RWBYConfig.aura.playerdamagetoaurareduction;
-                    float mobdamagereduction = RWBYConfig.aura.entitydamagetoaurareduction;
+                    float playerdamagereduction = aura.getMaxAura() / RWBYConfig.aura.playerdamagetoaurareduction;
+                    float mobdamagereduction = aura.getMaxAura() / RWBYConfig.aura.entitydamagetoaurareduction;
                     float eventamount = event.getAmount() * 5;
-                    if (playerdamagereduction < 0.2F) {
-                        playerdamagereduction = 0.2F;
+                    if (playerdamagereduction > 0.5F) {
+                        playerdamagereduction = 0.5F;
                     }
-                    if (mobdamagereduction < 0.3F) {
-                        mobdamagereduction = 0.3F;
+                    if (mobdamagereduction > 0.7F) {
+                        mobdamagereduction = 0.7F;
                     }
 
 
-                    if (RWBYConfig.aura.auradamagereduction) {
-                        float overflow = 1f;
+                    if (RWBYConfig.aura.mobauradamagereduction) {
                         if (event.getSource().getTrueSource() instanceof EntityMob) {
-                            overflow = aura.useAura(player, eventamount * mobdamagereduction, true);
-                        }else if (event.getSource().getTrueSource() instanceof EntityPlayer || event.getSource().getTrueSource() instanceof EntityBullet || event.getSource().getTrueSource() instanceof EntityArrow) {
-                            overflow = aura.useAura(player, eventamount * playerdamagereduction, true);
-                        }else{
-                            overflow = aura.useAura(player, eventamount * 1F, true);
+                            float overflow = aura.useAura(player, eventamount * mobdamagereduction, true);
+                            aura.delayRecharge(600);
+                            event.setAmount(overflow / 5);
+                        } else {
+                            float overflow = aura.useAura(player, event.getAmount() * 5, true);
+                            aura.delayRecharge(600);
+                            event.setAmount(overflow / 5);
+                        }}
+                    if (RWBYConfig.aura.aurareduction) {
+                        if (event.getSource().getTrueSource() instanceof EntityPlayer || event.getSource().getTrueSource() instanceof EntityBullet || event.getSource().getTrueSource() instanceof EntityArrow) {
+                            float overflow = aura.useAura(player, eventamount * playerdamagereduction, true);
+                            aura.delayRecharge(600);
+                            event.setAmount(overflow / 5);
+                        } else {
+                            float overflow = aura.useAura(player, event.getAmount() * 5, true);
+                            aura.delayRecharge(600);
+                            event.setAmount(overflow / 5);
                         }
-                        aura.delayRecharge(600);
-                        event.setAmount(overflow / 5);
+
                     } else {
                         float overflow = aura.useAura(player, event.getAmount() * 5, true);
                         aura.delayRecharge(600);

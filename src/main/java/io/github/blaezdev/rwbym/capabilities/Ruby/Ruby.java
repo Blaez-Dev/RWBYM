@@ -161,11 +161,7 @@ public class Ruby implements IRuby {
 					ItemStack is4 = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
 					ItemStack is5 = player.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
 					boolean flag1 = false;
-					if(is.getItem() == RWBYItems.sunderrifle){
-						flag1 = true;
-					}else if(is.getItem() == RWBYItems.sunderaxe){
-						flag1 = true;
-					}else if(is.getItem() == RWBYItems.crescentfrost){
+					if(is.getItem() == RWBYItems.crescentfrost){
 						flag1 = true;
 					}else if(is.getItem() == RWBYItems.crescentgunfrost){
 						flag1 = true;

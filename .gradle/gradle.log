@@ -1,10 +1,9 @@
+Etag download for https://files.minecraftforge.net/maven/de/oceanlabs/mcp/versions.json failed with code 404Etag download for https://files.minecraftforge.net/maven/de/oceanlabs/mcp/versions.json failed with code 404
+
 This mapping 'snapshot_20171003' was designed for MC 1.12! Use at your own peril.This mapping 'snapshot_20171003' was designed for MC 1.12! Use at your own peril.
 
-WARNING: You are using an unsupported version of ForgeGradle.
-Please consider upgrading to ForgeGradle 5 and helping in the efforts to get old versions working on the modern toolchain.
-See https://gist.github.com/TheCurle/fe7ad3ede188cbdd15c235cc75d52d4a for more info on contributing.
 #################################################
-         ForgeGradle 2.3.4-gfc67182        
+         ForgeGradle 2.3-SNAPSHOT-6084129e        
   https://github.com/MinecraftForge/ForgeGradle  
 #################################################
                  Powered by MCP                  
@@ -12,8 +11,7 @@ See https://gist.github.com/TheCurle/fe7ad3ede188cbdd15c235cc75d52d4a for more i
      by: Searge, ProfMobius, R4wk, ZeuX          
      Fesh0r, IngisKahn, bspkrs, LexManos         
 #################################################
-:genIntellijRuns
 
-BUILD SUCCESSFUL
+CONFIGURE SUCCESSFUL
 
-Total time: 3.265 secs
+Total time: 30.474 secs

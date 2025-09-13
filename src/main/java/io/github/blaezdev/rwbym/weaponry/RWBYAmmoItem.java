@@ -3,10 +3,6 @@ package io.github.blaezdev.rwbym.weaponry;
 import com.google.common.collect.Multimap;
 import com.mojang.realmsclient.gui.ChatFormatting;
 import io.github.blaezdev.rwbym.RWBYModels;
-import io.github.blaezdev.rwbym.capabilities.CapabilityHandler;
-import io.github.blaezdev.rwbym.capabilities.Hazel.IHazel;
-import io.github.blaezdev.rwbym.capabilities.ISemblance;
-import io.github.blaezdev.rwbym.capabilities.Nora.INora;
 import io.github.blaezdev.rwbym.entity.EntityBullet;
 import io.github.blaezdev.rwbym.utility.RWBYConfig;
 import io.github.blaezdev.rwbym.weaponry.ammohit.IAmmoHit;
@@ -15,7 +11,6 @@ import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
-import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -75,13 +70,6 @@ public class RWBYAmmoItem extends Item implements ICustomItem {
     private final float attackboost;
     private final float knockbackresist;
     private final float attackspeed;
-
-    private float semblancemovementspeedmult;
-    private float semblancearmourbuff;
-    private float semblancehealthbuff;
-    private float semblanceattackboost;
-    private float semblanceknockbackresist;
-    private float semblanceattackspeed;
 
     public static final int HARDLIGHT =       0x0001;
     public static final int WATER =           0x0002;
@@ -275,97 +263,8 @@ public class RWBYAmmoItem extends Item implements ICustomItem {
                 //player.addPotionEffect(potioneffect);
                 player.heal(0.01F);
             }
-            ISemblance semblance = CapabilityHandler.getCurrentSemblance(player);
-
-            if(semblance instanceof INora){
-                if(healthbuff<0F&&!((element & ICE) != 0)){
-                    semblancehealthbuff = healthbuff/2;
-                }else{semblancehealthbuff=healthbuff;}
-
-            } else{semblancehealthbuff=healthbuff;}
-
-            if(semblance instanceof IHazel){
-
-                if((element & WATER) != 0) {
-                    semblancemovementspeedmult = 0;
-                    semblancearmourbuff = 0;
-                    semblancehealthbuff = 0;
-                    semblanceattackboost = 0F;
-                    semblanceknockbackresist = 0;
-                    semblanceattackspeed = 0;
-                }
-                else if((element & IMPURE) != 0){
-                    semblancemovementspeedmult = 0;
-                    semblancearmourbuff = 0;
-                    semblancehealthbuff = 0F;
-                    semblanceattackboost = 0;
-                    semblanceknockbackresist = 0;
-                    semblanceattackspeed = 0;
-                }
-                else if ((element & WIND) != 0){
-                    semblancemovementspeedmult = 1.5F;
-                    semblancearmourbuff = 0;
-                    semblancehealthbuff = 0F;
-                    semblanceattackboost = 0;
-                    semblanceknockbackresist = 0;
-                    semblanceattackspeed = 0;
-                }
-                else if((element & FIRE) != 0){
-                    semblancemovementspeedmult = 0;
-                    semblancearmourbuff = 0;
-                    semblancehealthbuff = 0F;
-                    semblanceattackboost = 2F;
-                    semblanceknockbackresist = 0;
-                    semblanceattackspeed = 0;
-                }
-                else if((element & GRAVITY) != 0){
-                    semblancemovementspeedmult = 0;
-                    semblancearmourbuff = 0;
-                    semblancehealthbuff = 0F;
-                    semblanceattackboost = 0;
-                    semblanceknockbackresist = 0;
-                    semblanceattackspeed = 0;
-                }
-                else if((element & LIGHTNING) != 0){
-                    if(RWBYConfig.general.lightningdustlimiter){
-                        semblancemovementspeedmult = 0.7F;
-                        semblancearmourbuff = 0;
-                        semblancehealthbuff = 0F;
-                        semblanceattackboost = 0;
-                        semblanceknockbackresist = 0;
-                        semblanceattackspeed = 2.5F;}else{
-                        semblancemovementspeedmult = 1.50F;
-                        semblancearmourbuff = 0;
-                        semblancehealthbuff = 0F;
-                        semblanceattackboost = 0;
-                        semblanceknockbackresist = 0;
-                        semblanceattackspeed = 2.5F;
-                    }
-                }else if((element & ICE) != 0){
-                    semblancemovementspeedmult = 0F;
-                    semblancearmourbuff = 0;
-                    semblancehealthbuff = 1F;
-                    semblanceattackboost = 0;
-                    semblanceknockbackresist = 0;
-                    semblanceattackspeed = 0;
-                }else if((element & HARDLIGHT) != 0){
-                    semblancemovementspeedmult = 0.5F;
-                    semblancearmourbuff = 0.5F;
-                    semblancehealthbuff = 0;
-                    semblanceattackboost = 0F;
-                    semblanceknockbackresist = 1F;
-                    semblanceattackspeed = 0;
-                }
-
-            } else{
-                semblancehealthbuff=healthbuff;
-                semblanceattackboost=attackboost;
-                semblanceattackspeed=attackspeed;
-                semblanceknockbackresist=knockbackresist;
-                semblancearmourbuff=armourbuff;
-                semblancemovementspeedmult=movementspeedmult;
-            }
-        }}
+        }
+    }
 /*
     @Override
     public boolean isValidArmor(ItemStack stack, EntityEquipmentSlot armorType, Entity entity) {
@@ -377,11 +276,10 @@ public class RWBYAmmoItem extends Item implements ICustomItem {
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-        tooltip.add("-"+ I18n.format("ui.tooltipbulletimpactdamage"));
+        tooltip.add("Bullet Impact Damage:");
         tooltip.add(ChatFormatting.BLUE + "-"+baseDamage);
-        if(element == WATER){tooltip.add(ChatFormatting.BLUE + "-"+I18n.format("ui.tooltipbulletelementwater"));}
-        if(element == GRAVITY){tooltip.add(ChatFormatting.BLUE+"-"+I18n.format("ui.tooltipbulletelementgravity"));}
-
+        if(element == WATER){tooltip.add(ChatFormatting.BLUE + "-"+"Slight Regeneration While in the Offhand");}
+        if(element == GRAVITY){tooltip.add(ChatFormatting.BLUE+"-"+"Slow Falling While in the Offhand");}
         super.addInformation(stack, worldIn, tooltip, flagIn);
     }
 
@@ -439,11 +337,11 @@ public class RWBYAmmoItem extends Item implements ICustomItem {
         if (equipmentSlot == EntityEquipmentSlot.OFFHAND)
         {
             multimap.put(SharedMonsterAttributes.ARMOR.getName(), new AttributeModifier(Defence, "Armor modifier", (double)this.armourbuff, 2));
-            multimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(MovementSpeed, "Movement Speed", (double)this.semblancemovementspeedmult, 2));
-            multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(Attackspeed, "Attack Speed", (double)this.semblanceattackspeed, 2));
-            multimap.put(SharedMonsterAttributes.KNOCKBACK_RESISTANCE.getName(), new AttributeModifier(Knockback, "Knockback", (double)this.semblanceknockbackresist, 2));
-            multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(Attackboost, "Attack Boost", (double)this.semblanceattackboost, 2));
-            multimap.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(Vitality, "Health", (double)this.semblancehealthbuff, 2));
+            multimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(MovementSpeed, "Movement Speed", (double)this.movementspeedmult, 2));
+            multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(Attackspeed, "Attack Speed", (double)this.attackspeed, 2));
+            multimap.put(SharedMonsterAttributes.KNOCKBACK_RESISTANCE.getName(), new AttributeModifier(Knockback, "Knockback", (double)this.knockbackresist, 2));
+            multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(Attackboost, "Attack Boost", (double)this.attackboost, 2));
+            multimap.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(Vitality, "Health", (double)this.healthbuff, 2));
         }
 
         return multimap;

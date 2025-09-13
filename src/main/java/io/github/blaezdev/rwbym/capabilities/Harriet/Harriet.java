@@ -16,7 +16,7 @@ public class Harriet implements IHarriet {
 
 	private int Timer = 0;
 
-	private static final int MAX_LEVEL = 5;
+	private static final int MAX_LEVEL = 3;
 	
 	private int level = 0;
 
@@ -29,10 +29,8 @@ public class Harriet implements IHarriet {
 		switch(this.level) {
 			case 1:
 			case 2:
-			case 3:
-			case 4:
 
-			case 5:
+			case 3:
 				this.active = true;
 				this.Timer = 120;
 				return true;
@@ -48,8 +46,6 @@ public class Harriet implements IHarriet {
 			case 1:
 			case 2:
 			case 3:
-			case 4:
-			case 5:
 				return true;
 		}
 		return false;
@@ -62,25 +58,19 @@ public class Harriet implements IHarriet {
 		IAura aura = player.getCapability(AuraProvider.AURA_CAP, null);
 		if(this.active  && aura.getPercentage() > 0.01){
 
-		if (!this.useAura(player, auraUse*this.level)) return;
+		if (!this.useAura(player, auraUse)) return;
 
 		
 		if (strength > 0) {
 			PotionEffect potioneffect = new PotionEffect(MobEffects.SPEED, strength, this.level*speedmult, true, false);
 			player.addPotionEffect(potioneffect);
 		}
-			if (this.level>2) {
-				PotionEffect potioneffect = new PotionEffect(MobEffects.SPEED, strength, this.level*speedmult, true, false);
-				player.addPotionEffect(potioneffect);
-			}
 		}
 
 		switch(this.level) {
 			case 1:
 			case 2:
 			case 3:
-			case 4:
-			case 5:
 				if (this.Timer > 0) {
 					this.Timer--;
 					player.world.spawnParticle(EnumParticleTypes.CRIT, player.posX + 1-player.getRNG().nextInt(2), player.posY + 1.0D, player.posZ + 1-player.getRNG().nextInt(2), 3-player.getRNG().nextInt(6), 3-player.getRNG().nextInt(6), 3-player.getRNG().nextInt(6));

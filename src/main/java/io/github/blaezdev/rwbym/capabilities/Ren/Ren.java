@@ -4,8 +4,6 @@ import io.github.blaezdev.rwbym.capabilities.Aura.AuraProvider;
 import io.github.blaezdev.rwbym.capabilities.Aura.IAura;
 import io.github.blaezdev.rwbym.entity.EntityRen;
 import io.github.blaezdev.rwbym.utility.RWBYConfig;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.nbt.NBTTagCompound;
@@ -66,31 +64,9 @@ public class Ren implements IRen {
 
 		int strength = Math.round(this.level * 90);
 		IAura aura = player.getCapability(AuraProvider.AURA_CAP, null);
-
-		if(this.level>1&&player.isSneaking()){
-			AxisAlignedBB axisalignedbb = player.getEntityBoundingBox().grow(12*this.level,12*this.level,12*this.level);
-
-
-			List<Entity> list1 = player.world.getEntitiesWithinAABBExcludingEntity(player, axisalignedbb);
-
-			if (!list1.isEmpty())
-			{
-
-				for (Entity entity : list1)
-				{
-					if (entity instanceof EntityLivingBase) {
-						EntityLivingBase entitylivingbase = (EntityLivingBase)entity;
-						entitylivingbase.addPotionEffect(new PotionEffect(MobEffects.GLOWING, level * 20, 1, true, false));
-						player.getCapability(AuraProvider.AURA_CAP, null).useAura(player, 0.1F, false);
-					}
-				}
-			}}
-
 		if(this.active  && aura.getPercentage() > 0.01){
 
 		if (!this.useAura(player, auraUse)) return;
-
-
 
 		
 		if (strength > 0) {

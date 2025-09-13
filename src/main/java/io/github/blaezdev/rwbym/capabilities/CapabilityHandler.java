@@ -21,10 +21,6 @@ import io.github.blaezdev.rwbym.capabilities.Harriet.Harriet;
 import io.github.blaezdev.rwbym.capabilities.Harriet.HarrietProvider;
 import io.github.blaezdev.rwbym.capabilities.Harriet.HarrietStorage;
 import io.github.blaezdev.rwbym.capabilities.Harriet.IHarriet;
-import io.github.blaezdev.rwbym.capabilities.Hazel.Hazel;
-import io.github.blaezdev.rwbym.capabilities.Hazel.HazelProvider;
-import io.github.blaezdev.rwbym.capabilities.Hazel.HazelStorage;
-import io.github.blaezdev.rwbym.capabilities.Hazel.IHazel;
 import io.github.blaezdev.rwbym.capabilities.Jaune.IJaune;
 import io.github.blaezdev.rwbym.capabilities.Jaune.Jaune;
 import io.github.blaezdev.rwbym.capabilities.Jaune.JauneProvider;
@@ -112,7 +108,6 @@ public class CapabilityHandler {
 	public static final ResourceLocation Pyrrha_Key = new ResourceLocation(RWBYModels.MODID, "pyrrha");
 	public static final ResourceLocation Blank_Key = new ResourceLocation(RWBYModels.MODID, "blank");
 	public static final ResourceLocation Valour_Key = new ResourceLocation(RWBYModels.MODID, "valour");
-	public static final ResourceLocation Hazel_Key = new ResourceLocation(RWBYModels.MODID, "hazel");
 	
 	public static final ResourceLocation AURA_KEY = new ResourceLocation(RWBYModels.MODID, "aura");
 	public static final ResourceLocation TEAM_KEY = new ResourceLocation(RWBYModels.MODID, "team");
@@ -143,7 +138,6 @@ public class CapabilityHandler {
 			event.addCapability(Pyrrha_Key, new PyrrhaProvider());
 			event.addCapability(Blank_Key, new BlankProvider());
 			event.addCapability(Valour_Key, new ValourProvider());
-			event.addCapability(Hazel_Key, new HazelProvider());
 			event.addCapability(PREDATOR_KEY, new Predator.PredatorProvider());
 		}
 		
@@ -170,14 +164,12 @@ public class CapabilityHandler {
 		register(IHarriet.class, new HarrietStorage(), Harriet::new);
 		register(IPyrrha.class, new PyrrhaStorage(), Pyrrha::new);
 		register(IValour.class, new ValourStorage(), Valour::new);
-		register(IHazel.class, new HazelStorage(), Hazel::new);
-		register(IBlank.class, new BlankStorage(), Blank::new);
 
-
+		CapabilityManager.INSTANCE.register(IBlank.class, new BlankStorage(), Blank::new);
 		CapabilityManager.INSTANCE.register(IAura.class, new AuraStorage(), Aura::new);
 		CapabilityManager.INSTANCE.register(ITeam.class, new TeamStorage(), Team::new);
 		CapabilityManager.INSTANCE.register(IItemData.class, new ItemDataStorage(), ItemData::new);
-		CapabilityManager.INSTANCE.register(IPredator.class, new Predator.PredatorStorage(), Predator::new);
+		CapabilityManager.INSTANCE.register(IPredator.class, new Predator.PradatorStorage(), Predator::new);
 	}
 	
 	public static <T extends ISemblance> void register(Class<T> type, Capability.IStorage<T> storage, Callable<? extends T> factory) {

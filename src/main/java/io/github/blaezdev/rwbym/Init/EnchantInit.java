@@ -7,7 +7,6 @@ import io.github.blaezdev.rwbym.enchantments.killmodifiers.EnchantmentAuraSiphon
 import io.github.blaezdev.rwbym.enchantments.killmodifiers.EnchantmentLuckyShot;
 import io.github.blaezdev.rwbym.enchantments.killmodifiers.EnchantmentTrickster;
 import io.github.blaezdev.rwbym.enchantments.shotmodifiers.EnchantmentDoubleShot;
-import io.github.blaezdev.rwbym.enchantments.shotmodifiers.EnchantmentFlareFrostShot;
 import io.github.blaezdev.rwbym.enchantments.shotmodifiers.EnchantmentKnockShot;
 import io.github.blaezdev.rwbym.enchantments.killmodifiers.EnchantmentScavenger;
 import io.github.blaezdev.rwbym.enchantments.shotmodifiers.EnchantmentPoisonShot;
@@ -25,14 +24,12 @@ public class EnchantInit {
     public static final Enchantment DOUBLE_SHOT = new EnchantmentDoubleShot();
     public static final Enchantment KNOCK_SHOT = new EnchantmentKnockShot();
     public static final Enchantment POISON_SHOT = new EnchantmentPoisonShot();
-    public static final Enchantment FlareFrost_Shot = new EnchantmentFlareFrostShot();
 
     //-Kill Modifiers-//
     public static final Enchantment AURA_SIPHON = new EnchantmentAuraSiphon();
     public static final Enchantment SCAVENGER = new EnchantmentScavenger();
     public static final Enchantment LUCKY_HIT = new EnchantmentLuckyShot();
     public static final Enchantment TRICKSTER = new EnchantmentTrickster();
-    //public static final Enchantment BloodRush = new EnchantmentTrickster();
 
     //-Frame-//
     public static final Enchantment ATTUNED_FRAME = new EnchantmentAttunedFrame();
@@ -72,7 +69,6 @@ public class EnchantInit {
         shotmodifier.add(EnchantInit.DOUBLE_SHOT);
         shotmodifier.add(EnchantInit.KNOCK_SHOT);
         shotmodifier.add(EnchantInit.POISON_SHOT);
-        shotmodifier.add(EnchantInit.FlareFrost_Shot);
         Random rand = new Random();
         int index = rand.nextInt(shotmodifier.size());
         Enchantment randenchant = shotmodifier.get(index);

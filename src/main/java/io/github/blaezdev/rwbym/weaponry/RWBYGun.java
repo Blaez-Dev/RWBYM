@@ -450,7 +450,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         ammmo = ammmo.replace("rwbym:nulls", "");
         String[] itemIds = ammmo.split(",");
         if (itemIds.length > 0) {
-            tooltip.add(I18n.format("ui.tooltipgunammorequired"));
+            tooltip.add("Ammo Required:");
 	        for (int i = 0; i < itemIds.length; i++) {
 	            Item item = Item.getByNameOrId(itemIds[i]);
 	            if (item != null) {
@@ -458,40 +458,40 @@ public class RWBYGun extends ItemBow implements ICustomItem{
 	            }
 	        }
         }}
-        if(weapontype > 0||dualwield|| recoil == 4){tooltip.add(I18n.format("ui.tooltipgunweaponinfo"));}
-        if((weapontype & OFFHAND) !=0|| ohblade){tooltip.add(ChatFormatting.BLUE +"-" +I18n.format("ui.tooltipgun.block.offhand"));}
-         if((weapontype & SWORD) !=0){tooltip.add(ChatFormatting.BLUE +"-" +I18n.format("ui.tooltipgun.weapontype.sword"));}
-         if((weapontype & LION_HEART) !=0){tooltip.add(ChatFormatting.BLUE +"-"+I18n.format("ui.tooltipgun.weapontype.lionheartshield"));}
-         if((weapontype & RAPIER) !=0){tooltip.add(ChatFormatting.BLUE +"-" +I18n.format("ui.tooltipgun.weapontype.rapier"));}
-         if((weapontype & SCARLET) !=0){tooltip.add(ChatFormatting.BLUE +"-" +I18n.format("ui.tooltipgun.weapontype.offhandgun"));}
-         if((weapontype & WINTER) !=0){tooltip.add(ChatFormatting.BLUE +"-" +I18n.format("ui.tooltipgun.weapontype.rapier"));}
-         if((weapontype & WHIP) !=0){tooltip.add(ChatFormatting.BLUE +"-" +I18n.format("ui.tooltipgun.weapontype.whip"));}
-         if((weapontype & SCYTHE) !=0){tooltip.add(ChatFormatting.BLUE +"-" +I18n.format("ui.tooltipgun.weapontype.polearm"));}
-         if((weapontype & DAGGER) !=0){tooltip.add(ChatFormatting.BLUE +"-" +I18n.format("ui.tooltipgun.weapontype.dagger"));}
-         if((weapontype & INT_MAG) !=0){tooltip.add(ChatFormatting.BLUE +"-" +I18n.format("ui.tooltipgun.weapontype.internalmagazine"));}
-         if((weapontype & JUNIOR) !=0){tooltip.add(ChatFormatting.BLUE +"-" +I18n.format("ui.tooltipgun.weapontype.internalmagazine"));}
-        if((weapontype & ROCKET) !=0){tooltip.add(ChatFormatting.BLUE +"-" +I18n.format("ui.tooltipgun.weapontype.rocketlauncher"));}
-         if(dualwield){tooltip.add(ChatFormatting.BLUE + "-" + I18n.format("ui.tooltipgun.weapontype.pairedguns"));}
-         if((weapontype & TOOL) !=0){tooltip.add(ChatFormatting.BLUE + "-" +I18n.format("ui.tooltipgun.weapontype.multitool"));}
-        if((weapontype & BOW) !=0){tooltip.add(ChatFormatting.BLUE + "-" +I18n.format("ui.tooltipgun.weapontype.bow"));}
-        if((weapontype & STAFF) !=0){tooltip.add(ChatFormatting.BLUE + "-" +I18n.format("ui.tooltipgun.weapontype.staff"));}
-        if((weapontype & UMBRELLA) !=0){tooltip.add(ChatFormatting.BLUE + "-" + I18n.format("ui.tooltipgun.weapontype.glider"));}
-        if((weapontype & AXE) !=0){tooltip.add(ChatFormatting.BLUE + "-" + I18n.format("ui.tooltipgun.weapontype.axe"));}
-        if((weapontype & PICKAXE) !=0){tooltip.add(ChatFormatting.BLUE + "-" +I18n.format("ui.tooltipgun.weapontype.pickaxe"));}
-        if((weapontype & TOME) !=0){tooltip.add(ChatFormatting.BLUE + "-" + I18n.format("ui.tooltipgun.weapontype.tome"));}
-        if((weapontype & FIST) !=0){tooltip.add(ChatFormatting.BLUE + "-" + I18n.format("ui.tooltipgun.weapontype.gaunlet"));}
-        if((weapontype & HAMMER) !=0){tooltip.add(ChatFormatting.BLUE + "-" + I18n.format("ui.tooltipgun.weapontype.bluntweapon"));}
-        if((weapontype & THROWN) !=0){tooltip.add(ChatFormatting.BLUE + "-" + I18n.format("ui.tooltipgun.weapontype.throwableweapon"));}
-        if(grimm){tooltip.add(ChatFormatting.BLUE + "-"+ I18n.format("ui.tooltipgun.weapontype.grimmweapon"));}
-         if((weapontype & (AURAWEAP|LETZT|SANREI)) !=0){tooltip.add(ChatFormatting.BLUE + "-" + I18n.format("ui.tooltipgun.weapontype.aurabased"));}
-         if((weapontype & WALLCLIMB) !=0){tooltip.add(ChatFormatting.BLUE + "-"+ I18n.format("ui.tooltipgun.weapontype.wallclimb"));}
-        if(recoil == 3){tooltip.add(ChatFormatting.BLUE + "-"+ I18n.format("ui.tooltipgun.recoiltype.forward"));}
-        if(recoil == 2){tooltip.add(ChatFormatting.BLUE + "-"+ I18n.format("ui.tooltipgun.weapontype.backwardweak"));}
-        if(recoil == 1){tooltip.add(ChatFormatting.BLUE + "-"+ I18n.format("ui.tooltipgun.weapontype.backwardstrong"));}
+        if(weapontype > 0||dualwield|| recoil == 4){tooltip.add("Weapon Info:");}
+        if((weapontype & OFFHAND) !=0|| ohblade){tooltip.add(ChatFormatting.BLUE +"-" +  "Offhand Blade");}
+         if((weapontype & SWORD) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Sword");}
+         if((weapontype & LION_HEART) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Lion Heart Shield");}
+         if((weapontype & RAPIER) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Rapier");}
+         if((weapontype & SCARLET) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Offhand Gun Only");}
+         if((weapontype & WINTER) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Rapier");}
+         if((weapontype & WHIP) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Whip");}
+         if((weapontype & SCYTHE) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Polearm");}
+         if((weapontype & DAGGER) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Dagger");}
+         if((weapontype & INT_MAG) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Internal Magazine");}
+         if((weapontype & JUNIOR) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Internal Magazine");}
+        if((weapontype & ROCKET) !=0){tooltip.add(ChatFormatting.BLUE +"-" +  "Rocket Launcher");}
+         if(dualwield){tooltip.add(ChatFormatting.BLUE + "-" + "Paired Guns");}
+         if((weapontype & TOOL) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Multi-Tool");}
+        if((weapontype & BOW) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Bow");}
+        if((weapontype & STAFF) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Staff");}
+        if((weapontype & UMBRELLA) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Glide Capable");}
+        if((weapontype & AXE) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Axe");}
+        if((weapontype & PICKAXE) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Pickaxe");}
+        if((weapontype & TOME) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Tome");}
+        if((weapontype & FIST) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Gaunlet");}
+        if((weapontype & HAMMER) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Blunt Weapon");}
+        if((weapontype & THROWN) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Throwable Weapon");}
+        if(grimm){tooltip.add(ChatFormatting.BLUE + "-"+ "Grimm Weapon");}
+         if((weapontype & (AURAWEAP|LETZT|SANREI)) !=0){tooltip.add(ChatFormatting.BLUE + "-" + "Aura Based Weapon");}
+         if((weapontype & WALLCLIMB) !=0){tooltip.add(ChatFormatting.BLUE + "-"+ "Wall Climbing Capable");}
+        if(recoil == 3){tooltip.add(ChatFormatting.BLUE + "-"+ "Dashes Forward When no ammo is present.");}
+        if(recoil == 2){tooltip.add(ChatFormatting.BLUE + "-"+ "Weak Shot Recoil - Propelling Player Backwards");}
+        if(recoil == 1){tooltip.add(ChatFormatting.BLUE + "-"+ "Large Shot Recoil - Propelling Player Backwards");}
         if(isShield||canBlock){
-             if(isShield&&!canBlock){tooltip.add(ChatFormatting.BLUE + "-"+ I18n.format("ui.tooltipgun.block.offhand"));}
-             if(!isShield&&canBlock){tooltip.add(ChatFormatting.BLUE + "-"+  I18n.format("ui.tooltipgun.block.mainhand"));}
-             if(isShield&&canBlock){tooltip.add(ChatFormatting.BLUE + "-"+  I18n.format("ui.tooltipgun.block.bothhand"));}
+             if(isShield&&!canBlock){tooltip.add(ChatFormatting.BLUE + "-"+ "Blocks in Offhand Only");}
+             if(!isShield&&canBlock){tooltip.add(ChatFormatting.BLUE + "-"+ "Blocks in Mainhand Only");}
+             if(isShield&&canBlock){tooltip.add(ChatFormatting.BLUE + "-"+ "Blocks in Both Mainhand & Offhand");}
          }
 
         int shotrecoilmodified = shotrecoil;
@@ -502,27 +502,27 @@ public class RWBYGun extends ItemBow implements ICustomItem{
         if(EnchantmentHelper.getEnchantmentLevel(EnchantInit.HEAVY_WEIGHT_FRAME,stack) > 0){shotrecoilmodified = Math.round(shotrecoilmodified*1.5F);}
          if(shotrecoil > 0){
             String shotrecoils = Integer.toString(shotrecoilmodified);
-            tooltip.add( I18n.format("ui.tooltipgun.shotrecoilamount"));
+            tooltip.add("Shot Recoil Amount:");
             tooltip.add(ChatFormatting.BLUE +"-" +  shotrecoils);
         }
         if(bulletCount > 1){
             String shotcounter = Integer.toString(bulletCount);
-            tooltip.add( I18n.format("ui.tooltipgun.projectilenumber"));
+            tooltip.add("Number of Projectiles:");
             tooltip.add(ChatFormatting.BLUE + "-"+shotcounter);
         }
-        if(stack.getItem() == RWBYItems.bangle){tooltip.add(" "); tooltip.add(ChatFormatting.BLUE+"-" +   I18n.format("ui.tooltipgun.bangle"));}
-        if(stack.getItem() == RWBYItems.hbangle){tooltip.add(" "); tooltip.add(ChatFormatting.BLUE +"-" +   I18n.format("ui.tooltipgun.hbangle"));}
-        if(stack.getItem() == RWBYItems.leafshield){tooltip.add(" "); tooltip.add(ChatFormatting.BLUE +   I18n.format("ui.tooltipgun.leafshield1"));}
-        if(stack.getItem() == RWBYItems.leafshield){tooltip.add(" "); tooltip.add(ChatFormatting.WHITE +   I18n.format("ui.tooltipgun.leafshield2"));}
-        if(stack.getItem() == RWBYItems.pickaxeshield){tooltip.add(" "); tooltip.add(ChatFormatting.BLUE +   I18n.format("ui.tooltipgun.pickaxeshield1"));}
-        if(stack.getItem() == RWBYItems.pickaxeshield){tooltip.add(" "); tooltip.add(ChatFormatting.WHITE +   I18n.format("ui.tooltipgun.pickaxeshield2"));}
+        if(stack.getItem() == RWBYItems.bangle){tooltip.add(" "); tooltip.add(ChatFormatting.BLUE+"-" +  "Hums with a Faint Energy");}
+        if(stack.getItem() == RWBYItems.hbangle){tooltip.add(" "); tooltip.add(ChatFormatting.BLUE +"-" +  "Hums with a Faint Dark Energy");}
+        if(stack.getItem() == RWBYItems.leafshield){tooltip.add(" "); tooltip.add(ChatFormatting.BLUE +  "Collection Skill + 1");}
+        if(stack.getItem() == RWBYItems.leafshield){tooltip.add(" "); tooltip.add(ChatFormatting.WHITE +  "Vegetation Yields Double the Yield");}
+        if(stack.getItem() == RWBYItems.pickaxeshield){tooltip.add(" "); tooltip.add(ChatFormatting.BLUE +  "Mining Skill + 1");}
+        if(stack.getItem() == RWBYItems.pickaxeshield){tooltip.add(" "); tooltip.add(ChatFormatting.WHITE +  "Your Reflexes and Eyesight adjust to make mining easier.");}
         super.addInformation(stack, worldIn, tooltip, flagIn);
 
         if (stack.hasTagCompound() && stack.getTagCompound().hasKey("Aura"))
         {
-            tooltip.add(ChatFormatting.WHITE+ I18n.format("ui.tooltipgun.aurastorage.storednumber"));
+            tooltip.add(ChatFormatting.WHITE+"Aura Stored:");
             tooltip.add(ChatFormatting.BLUE+Integer.toString(stack.getTagCompound().getInteger("Aura")));
-            tooltip.add(ChatFormatting.WHITE+ I18n.format("ui.tooltipgun.aurastorage.on.off"));
+            tooltip.add(ChatFormatting.WHITE+"Aura Storage is on:");
             tooltip.add(ChatFormatting.BLUE+Boolean.toString(stack.getTagCompound().getBoolean("AuraOn")));
         }
     }
@@ -593,34 +593,7 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                 EntityPlayer player = (EntityPlayer) entity;
 
 
-                if(is.getItem() == RWBYItems.ozpincanetravel){  NBTTagCompound nbt;
-                    if (is.hasTagCompound())
-                    {
-                        nbt = is.getTagCompound();
-                    }
-                    else
-                    {
-                        nbt = new NBTTagCompound();
-                        nbt.setInteger("Aura", 1);
-                        nbt.setBoolean("AuraON",false);
-                    }
-
-                    if (nbt.hasKey("Aura")&& player.isSneaking() && player.getCapability(AuraProvider.AURA_CAP, null).getAmount() < player.getCapability(AuraProvider.AURA_CAP,null).getMaxAura() && nbt.getInteger("Aura") > 5 && nbt.getBoolean("AuraOn") == true && player.getHeldItemMainhand() == is)
-                    {
-                        player.getCapability(AuraProvider.AURA_CAP, null).useAura(player, -2F, false);
-                        nbt.setInteger("Aura", nbt.getInteger("Aura") - 2);
-                        //System.out.println(nbt.getInteger("Aura"));
-                    }
-                    if (nbt.hasKey("Aura")&& player.isSneaking() && player.getCapability(AuraProvider.AURA_CAP, null).getAmount() > 5F && nbt.getInteger("Aura")< 8000 && nbt.getBoolean("AuraOn") == false && player.getHeldItemMainhand() == is)
-                    {
-                        player.getCapability(AuraProvider.AURA_CAP, null).useAura(player, 2F, false);
-                        nbt.setInteger("Aura", nbt.getInteger("Aura") + 2);
-                        //System.out.println(nbt.getInteger("Aura"));
-                    }
-                    is.setTagCompound(nbt);
-                }
-
-                if(is.getItem() == RWBYItems.bangle || is.getItem() == RWBYItems.hbangle){  NBTTagCompound nbt;
+                if(is.getItem() == RWBYItems.ozpincane || is.getItem() == RWBYItems.bangle || is.getItem() == RWBYItems.hbangle){  NBTTagCompound nbt;
                     if (is.hasTagCompound())
                     {
                         nbt = is.getTagCompound();

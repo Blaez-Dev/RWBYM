@@ -7,20 +7,13 @@ import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.MobEffects;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.common.capabilities.Capability;
-
-import java.util.List;
 
 public class Lysette implements ILysette {
 
@@ -73,27 +66,6 @@ public class Lysette implements ILysette {
 		if(this.active  && aura.getPercentage() > 0.01){
 
 		if (!this.useAura(player, auraUse)) return;
-
-			if(this.level>2&&player.isActiveItemStackBlocking()){
-				AxisAlignedBB axisalignedbb = player.getEntityBoundingBox().grow(3,3,3);
-
-
-				List<Entity> list1 = player.world.getEntitiesWithinAABBExcludingEntity(player, axisalignedbb);
-
-				if (!list1.isEmpty())
-				{
-
-					for (Entity entity : list1)
-					{
-						if (entity instanceof EntityLivingBase) {
-							EntityLivingBase entitylivingbase = (EntityLivingBase)entity;
-							entitylivingbase.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, level * 150, 124, true, false));
-							player.getCapability(AuraProvider.AURA_CAP, null).useAura(player, 5F, false);
-							entitylivingbase.knockBack(entitylivingbase,this.level+2,-player.getLookVec().x,-player.getLookVec().z);
-						}
-					}
-				}
-			}
 
 		
 		if (strength > 0) {

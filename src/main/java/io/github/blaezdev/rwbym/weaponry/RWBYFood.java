@@ -4,7 +4,6 @@ import com.mojang.realmsclient.gui.ChatFormatting;
 import io.github.blaezdev.rwbym.Init.RWBYCreativeTabs;
 import io.github.blaezdev.rwbym.Init.RegUtil;
 import io.github.blaezdev.rwbym.RWBYModels;
-import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -72,63 +71,63 @@ public class RWBYFood extends Item implements ICustomItem {
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         if (food == 1) {//Hot Chocolate
-            tooltip.add(ChatFormatting.BLUE +"-" + I18n.format("ui.foodhotchocolate"));
+            tooltip.add(ChatFormatting.BLUE +"-" +  "Regeneration and Health Boost for 1 minute.");
         }
         if (food == 2) {//Coffee
-            tooltip.add(ChatFormatting.BLUE +"-" +I18n.format("ui.foodcoffee"));
+            tooltip.add(ChatFormatting.BLUE +"-" +  "Speed and Haste for 1 minute.");
         }
         if (food == 3) {//Strawberry Sunrise
-            tooltip.add(ChatFormatting.BLUE +"-" +I18n.format("ui.foodstrawberrysunrise"));
+            tooltip.add(ChatFormatting.BLUE +"-" +  "Speed, Resistance, and Strength for 1 minute");
         }
         if (food == 4) {//Grape Soda
-            tooltip.add(ChatFormatting.BLUE +"-" +I18n.format("ui.foodgrapesoda"));
+            tooltip.add(ChatFormatting.BLUE +"-" +  "Haste for 1 minute and Health Restore.");
         }
         if (food == 5) {//TorchQuick
-            tooltip.add(ChatFormatting.BLUE +"-" +I18n.format("ui.foodtorchquick"));
+            tooltip.add(ChatFormatting.BLUE +"-" +  "a Tasty Energy Drink with none of the Horrible Side Effects!");
 
         }
         if (food == 6) {//Qrow's Flask
-            tooltip.add(ChatFormatting.BLUE +"-" +I18n.format("ui.foodqrowsflask"));
+            tooltip.add(ChatFormatting.BLUE +"-" +  "Smells Strong. Restores Saturation and Health");
         }
         if (food == 7) {//Sake
-            tooltip.add(ChatFormatting.BLUE +"-" +I18n.format("ui.foodsake"));
+            tooltip.add(ChatFormatting.BLUE +"-" +  "Invisibility for 1 minute.");
 
         }
         if (food == 8) {
             //Coconut Milk
-            tooltip.add(ChatFormatting.BLUE +"-" +I18n.format("ui.foodcoconutmilk"));
+            tooltip.add(ChatFormatting.BLUE +"-" +  "Jump Boost,Speed,Water Breathing and Night Vision for 1 minute.");
         }
 
         if (food == 9) {//Pancakes
-            tooltip.add(ChatFormatting.BLUE +"-" +I18n.format("ui.foodpancakes"));
+            tooltip.add(ChatFormatting.BLUE +"-" +  "Good Luck for 2 minutes, Aura Regen for 1 Minute and Restores Saturation");
         }
 
         if (food == 10) {
-            //Bourbon
-            tooltip.add(ChatFormatting.BLUE +"-" +I18n.format("ui.foodbourbon"));
+            //Boubon
+            tooltip.add(ChatFormatting.BLUE +"-" +  "Absorption for 2 minutes.");
         }
 
         if (food == 11) {//Brandy
-            tooltip.add(ChatFormatting.BLUE +"-" +I18n.format("ui.foodbrandy"));
+            tooltip.add(ChatFormatting.BLUE +"-" +  "Strength and Aura Regen for 2 minutes.");
         }
 
         if (food == 12) {//Vodka
-            tooltip.add(ChatFormatting.BLUE +"-" +I18n.format("ui.foodvodka"));
+            tooltip.add(ChatFormatting.BLUE +"-" +  "Strength for 2 minutes.");
         }
 
         if (food == 13) {//Wine
-            tooltip.add(ChatFormatting.BLUE +"-" +I18n.format("ui.foodwine"));
+            tooltip.add(ChatFormatting.BLUE +"-" +  "Strength and Speed for 2 minutes.");
         }
 
         if (food == 14) {//Fish Ramen
-            tooltip.add(ChatFormatting.BLUE +"-" +I18n.format("ui.foodfishramen"));
+            tooltip.add(ChatFormatting.BLUE +"-" +  "Aura Regen and Night Vision for 2 minutes and Restores Saturation.");
         }
 
         if (food == 15) {//Ramen
-            tooltip.add(ChatFormatting.BLUE +"-" +I18n.format("ui.foodramen"));
+            tooltip.add(ChatFormatting.BLUE +"-" +  "Aura Regen for 2 minutes and Restores Saturation.");
         }
         if (food == 16) {//Peach
-            tooltip.add(ChatFormatting.BLUE +"-" +I18n.format("ui.foodpeach"));
+            tooltip.add(ChatFormatting.BLUE +"-" +  "Heals for 2.5 Hearts");
         }
     }
 
