@@ -6,6 +6,7 @@ import io.github.blaezdev.rwbym.Init.RWBYItems;
 import io.github.blaezdev.rwbym.RWBYModels;
 import io.github.blaezdev.rwbym.utility.RWBYConfig;
 import mcp.MethodsReturnNonnullByDefault;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -275,8 +276,8 @@ public class RWBYCutGem extends ItemBow implements ICustomItem {
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-        if(element == WATER){tooltip.add(ChatFormatting.BLUE + "-"+"Mild Regeneration While in the Offhand and Water Breathing");}
-        if(element == GRAVITY){tooltip.add(ChatFormatting.BLUE+"-"+"Slow Falling While in the Offhand and Levitation While Sneaking in Mid-Air");}
+        if(element == WATER){tooltip.add(ChatFormatting.BLUE + "-"+I18n.format("ui.tooltipbulletelementwater"));}
+        if(element == GRAVITY){tooltip.add(ChatFormatting.BLUE+"-"+I18n.format("ui.tooltipbulletelementgravity"));}
         super.addInformation(stack, worldIn, tooltip, flagIn);
     }
 

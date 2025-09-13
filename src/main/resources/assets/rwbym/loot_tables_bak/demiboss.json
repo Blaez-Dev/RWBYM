@@ -1,0 +1,99 @@
+{
+  "pools": [
+    {
+      "name": "demiboss",
+      "rolls": {
+        "min": 1,
+        "max": 3
+      },
+      "entries": [
+        {
+          "type": "item",
+          "name": "rwbym:remnants",
+          "weight": 40
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "condition": "killed_by_player"
+        },
+        {
+          "condition": "random_chance_with_looting",
+          "chance": 1,
+          "looting_multiplier": 0.5
+        }
+      ],
+      "name": "grimmparts",
+      "rolls": 2,
+      "entries": [
+        {
+          "type": "item",
+          "name": "rwbym:firedancercharm",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:criticalcharm",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:auracharm",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:healthcharm",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:reachcharm",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:puncturecharm",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:edgecharm",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:knockoutcharm",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:tankcharm",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:attackcharm",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:feathercharm",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:fleetingcharm",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:rushcharm",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

@@ -153,7 +153,7 @@ public class Predator implements IPredator
 			RWBYNetworkHandler.sendToClient(new MessageSyncPredatorCap(cap.getKills()), player);
 	}
 
-	public static class PradatorStorage implements Capability.IStorage<IPredator>
+	public static class PredatorStorage implements Capability.IStorage<IPredator>
 	{
 		@Override
 		public NBTBase writeNBT(Capability<IPredator> capability, IPredator instance, EnumFacing side)

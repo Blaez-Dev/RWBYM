@@ -1,0 +1,143 @@
+{
+  "pools": [
+    {
+      "name": "raidboss",
+      "rolls": {
+        "min": 0,
+        "max": 1
+      },
+      "entries": [
+        {
+          "type": "item",
+          "name": "rwbym:remnants",
+          "weight": 40
+        }
+
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "condition": "killed_by_player"
+        },
+        {
+          "condition": "random_chance_with_looting",
+          "chance": 1,
+          "looting_multiplier": 0.00
+        }
+      ],
+      "name": "raiddrops",
+      "rolls": 4,
+      "entries": [
+        {
+          "type": "item",
+          "name": "rwbym:fairyking",
+          "weight": 1,
+          "count": 2
+        },
+        {
+          "type": "item",
+          "name": "rwbym:relicofknowledge",
+          "weight": 1,
+          "count": 2
+        },
+        {
+          "type": "item",
+          "name": "rwbym:kingsgambit",
+          "weight": 1,
+          "count": 2
+        },
+        {
+          "type": "item",
+          "name": "rwbym:kingsgambitpawn",
+          "weight": 1,
+          "count": 2
+        },        {
+          "type": "item",
+          "name": "rwbym:firedancercharm",
+          "weight": 1,
+          "count": 2
+        },
+        {
+          "type": "item",
+          "name": "rwbym:criticalcharm",
+          "weight": 1,
+          "count": 2
+        },
+        {
+          "type": "item",
+          "name": "rwbym:auracharm",
+          "weight": 1,
+          "count": 2
+        },
+        {
+          "type": "item",
+          "name": "rwbym:healthcharm",
+          "weight": 1,
+          "count": 2
+        },
+        {
+          "type": "item",
+          "name": "rwbym:reachcharm",
+          "weight": 1,
+          "count": 2
+        },
+        {
+          "type": "item",
+          "name": "rwbym:puncturecharm",
+          "weight": 1,
+          "count": 2
+        },
+        {
+          "type": "item",
+          "name": "rwbym:edgecharm",
+          "weight": 1,
+          "count": 2
+        },
+        {
+          "type": "item",
+          "name": "rwbym:knockoutcharm",
+          "weight": 1,
+          "count": 2
+        },
+        {
+          "type": "item",
+          "name": "rwbym:tankcharm",
+          "weight": 1,
+          "count": 2
+        },
+        {
+          "type": "item",
+          "name": "rwbym:attackcharm",
+          "weight": 1,
+          "count": 2
+        },
+        {
+          "type": "item",
+          "name": "rwbym:feathercharm",
+          "weight": 1,
+          "count": 2
+        },
+        {
+          "type": "item",
+          "name": "rwbym:fleetingcharm",
+          "weight": 1,
+          "count": 2
+        },
+        {
+          "type": "item",
+          "name": "rwbym:rushcharm",
+          "weight": 1,
+          "count": 2
+        },
+        {
+          "type": "item",
+          "name": "rwbym:glider",
+          "weight": 1,
+          "count": 1
+        }
+      ]
+    }
+  ]
+}
+
