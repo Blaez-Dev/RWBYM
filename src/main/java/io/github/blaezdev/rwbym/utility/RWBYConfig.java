@@ -104,19 +104,24 @@ public class RWBYConfig
     public  int aurapositiony = 39;
     @Config.Name("Semblance Recharge Delay in Ticks")
     public  int delayticks = 250;
+    @Config.Name("Aura Max Level")
+    public  int auralvlmax = 500;
+    @Config.Name("Aura XP Cost per Level")
+    public  int auraperlevel = 40;
     @Config.Name("Can Aura Block Damage?")
     public  boolean aurablockdamage = true;
+
     @Config.Name("Player Aura Damage Reduction Amount")
-    @Config.Comment("Current Max Aura/player damage to aura reduction = player damage reduction reconmendation to keep at default")
-    public  int playerdamagetoaurareduction = 1000;
-    @Config.Name("Enable Player Aura Damage Reduction")
+    @Config.Comment("percentage reduce damage = player damage reduction reconmendation to keep at default")
+    public  float playerdamagetoaurareduction = 0.5F;
+
+
+    @Config.Comment("percentage reduce damage = mob damage reduction reconmendation to keep at default")
+    public  float entitydamagetoaurareduction = 0.5F;
+
+    @Config.Name("Enable Aura Damage Reduction")
     @Config.Comment("enable or disable player damage to aura reduction")
-    public  boolean aurareduction = true;
-    @Config.Comment("Current Max Aura/player damage to aura reduction = mob damage reduction reconmendation to keep at default")
-    public  int entitydamagetoaurareduction = 500;
-    @Config.Name("Enable Mob Aura Damage Reduction")
-    @Config.Comment("enable or disable player damage to aura reduction")
-    public  boolean mobauradamagereduction = true;
+    public  boolean auradamagereduction = true;
     @Config.Name("Blake Drain Rate")
     public float blakedrainrate = 5.0F;
     @Config.Name("Nora Drain Rate")
@@ -200,6 +205,10 @@ public class RWBYConfig
     public static class General {
     @Config.Name("Give Player Scroll on First Spawn?")
     public  boolean enablefirstspawnscroll = true;
+
+    @Config.Name("enable/disable biome fog effects")
+    public  boolean enablebiomefogeffects = true;
+
     @Config.Name("Gun Volume")
     public float gunvolume = 1F;
     @Config.Name("speedlimiter -- lightningdust")

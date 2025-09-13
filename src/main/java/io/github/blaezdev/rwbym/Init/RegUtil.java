@@ -61,6 +61,7 @@ public class RegUtil {
         registerBlocks(event, RWBYItems.hrdltfence);
         //weapons
         registerItems(event, RWBYItems.crescent);
+        registerItems(event, RWBYItems.sunderaxe);
         registerItems(event, RWBYItems.crescentfrost);
         registerItems(event, RWBYItems.crescentgunfrost);
         registerItems(event, RWBYItems.weiss);
@@ -104,6 +105,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.cocogun);
         registerItems(event, RWBYItems.cocogunv);
         registerItems(event, RWBYItems.ozpincane);
+        registerItems(event, RWBYItems.ozpincanetravel);
         registerItems(event, RWBYItems.amberstafffire);
         registerItems(event, RWBYItems.amberstaffwind);
         registerItems(event, RWBYItems.port);
@@ -295,6 +297,8 @@ public class RegUtil {
         registerItems(event, RWBYItems.carminestaffammo);
         registerItems(event, RWBYItems.Hecate);
         registerItems(event, RWBYItems.P90);
+        registerItems(event, RWBYItems.sunderaxe);
+        registerItems(event, RWBYItems.sunderrifle);
         //dust items
         registerBlocks(event, RWBYItems.crusher);
         registerItems(event, RWBYItems.chisel);
@@ -920,6 +924,7 @@ public class RegUtil {
         registerRecipes( RWBYItems.neptuneChest);
         registerRecipes( RWBYItems.neptuneLegs);
         registerRecipes( RWBYItems.crescent);
+        registerRecipes(RWBYItems.sunderaxe);
         registerRecipes( RWBYItems.crescentfrost);
         registerRecipes( RWBYItems.crescentgunfrost);
         registerRecipes( RWBYItems.weiss);
@@ -961,6 +966,7 @@ public class RegUtil {
         registerRecipes( RWBYItems.cocogun);
         registerRecipes( RWBYItems.cocogunv);
         registerRecipes( RWBYItems.ozpincane);
+        registerRecipes( RWBYItems.ozpincanetravel);
         registerRecipes( RWBYItems.port);
         registerRecipes( RWBYItems.portgun);
         registerRecipes( RWBYItems.jnrbat);

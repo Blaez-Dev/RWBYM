@@ -1,5 +1,6 @@
 package io.github.blaezdev.rwbym.weaponry;
 
+import com.mojang.realmsclient.gui.ChatFormatting;
 import io.github.blaezdev.rwbym.Init.RWBYCreativeTabs;
 import io.github.blaezdev.rwbym.RWBYModels;
 import io.github.blaezdev.rwbym.capabilities.Blake.BlakeProvider;
@@ -340,6 +341,121 @@ public class RWBYItem extends Item implements ICustomItem {
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         super.addInformation(stack, worldIn, tooltip, flagIn);
         if(zwei){tooltip.add("a Wild Zwei has Appeared use bones to tame him");}
+
+
+        if(coin.matches("ruby"))
+        {
+            tooltip.add("           ");
+            tooltip.add("Semblance Info:");
+            tooltip.add(ChatFormatting.BLUE + "Lv 1 Allows Faster Movement on Ground");
+            tooltip.add(ChatFormatting.BLUE + "Lv 2 Allows Flight");
+            tooltip.add(ChatFormatting.BLUE + "Lv 3 Allows Flight and Deals AOE Damage");
+            tooltip.add("           ");
+        }
+        if(coin.matches("weiss"))
+        {
+            tooltip.add("           ");
+            tooltip.add("Semblance Info:");
+            tooltip.add(ChatFormatting.BLUE + "Lv 1 Summon Boarbatusk");
+            tooltip.add(ChatFormatting.BLUE + "Lv 2 Summon Beowolf");
+            tooltip.add(ChatFormatting.BLUE + "Lv 3 Summon Ursa");
+            tooltip.add(ChatFormatting.BLUE + "Lv 4 Summon ArmaGigas");
+            tooltip.add("           ");
+        }
+
+        if(coin.matches("blake"))
+        {
+            tooltip.add("           ");
+            tooltip.add("Semblance Info:");
+            tooltip.add(ChatFormatting.BLUE + "Lv 1 Summon a Shadow, Can be combined with dust in offhand to apply effects");
+            tooltip.add(ChatFormatting.BLUE + "Lv 2 Reduce Cost");
+            tooltip.add(ChatFormatting.BLUE + "Lv 3 Reduce Cost Further");
+            tooltip.add("           ");
+        }
+
+        if(coin.matches("yang"))
+        {
+            tooltip.add("           ");
+            tooltip.add("Semblance Info:");
+            tooltip.add(ChatFormatting.BLUE + "Lv 1 Passive Effect Increases Damage based off Missing Aura");
+            tooltip.add(ChatFormatting.BLUE + "Activating the Semblance Drains Aura and Provides a Stronger Buff");
+            tooltip.add(ChatFormatting.BLUE + "Lv 2-3 Increases Strength Buff");
+            tooltip.add("           ");
+        }
+
+        if(coin.matches("ren"))
+        {
+            tooltip.add("           ");
+            tooltip.add("Semblance Info:");
+            tooltip.add(ChatFormatting.BLUE + "Lv 1 Summons a Distraction and Makes yourself Invisible");
+            tooltip.add(ChatFormatting.BLUE + "Lv 2 Reduces Cost");
+            tooltip.add(ChatFormatting.BLUE + "Lv 3 Reduces Cost");
+            tooltip.add("           ");
+        }
+
+        if(coin.matches("ragora"))
+        {
+            tooltip.add("           ");
+            tooltip.add("Semblance Info:");
+            tooltip.add(ChatFormatting.BLUE + "Lv 1 Summons a Familiar that Follows");
+            tooltip.add(ChatFormatting.BLUE + "and Protects you draining aura while active");
+            tooltip.add(ChatFormatting.BLUE + "Lv 2 Reduce Cost");
+            tooltip.add(ChatFormatting.BLUE + "Lv 3 Reduce Cost");
+            tooltip.add("           ");
+        }
+
+        if(coin.matches("jaune"))
+        {
+            tooltip.add(ChatFormatting.BLUE + "Lv 1 Doubles Aura Gains per level and Aura Level Cap");
+        }
+
+        if(coin.matches("nora"))
+        {
+            tooltip.add(ChatFormatting.BLUE + "Lv 1 Speed and Strength Boost when Active(requires offhand lightning dust gem)");
+            tooltip.add(ChatFormatting.BLUE + "or Being shot by lighting dust will trigger it involuntarily.");
+            tooltip.add(ChatFormatting.BLUE + "Lv 2 Boosts Improved");
+        }
+
+        if(coin.matches("qrow"))
+        {
+            tooltip.add(ChatFormatting.BLUE + "Lv 1 Modifier will Halve Damage or Increase it Up to 1.5");
+            tooltip.add(ChatFormatting.BLUE + "Lv 2 Modifier will Halve Damage or Increase it Up to 1.6");
+            tooltip.add(ChatFormatting.BLUE + "Lv 3 Modifier will Halve Damage or Increase it Up to 1.7");
+        }
+
+        if(coin.matches("lysette"))
+        {
+            tooltip.add(ChatFormatting.BLUE + "Lv 1 while holding will act as frost walker and inflict slowness on melee hits while held");
+            tooltip.add(ChatFormatting.BLUE + "Lv 2 increases size of frostwalker ice and duration of slowness");
+        }
+
+        if(coin.matches("clover"))
+        {
+            tooltip.add(ChatFormatting.BLUE + "Lv 1 Damage Modifier 1.2");
+            tooltip.add(ChatFormatting.BLUE + "Lv 2 Damage Modifier 1.3");
+            tooltip.add(ChatFormatting.BLUE + "Lv 3 Damage Modifier 1.4");
+        }
+
+        if(coin.matches("harriet"))
+        {
+            tooltip.add(ChatFormatting.BLUE + "Lv 1 Boosts Speed");
+            tooltip.add(ChatFormatting.BLUE + "Lv 2 Increased Boost to Speed");
+            tooltip.add(ChatFormatting.BLUE + "Lv 3 Increased Boost to Speed");
+        }
+
+        if(coin.matches("pyrrha"))
+        {
+            tooltip.add(ChatFormatting.BLUE + "Lv 1 acts as Loyalty for Thrown Weapons");
+            tooltip.add(ChatFormatting.BLUE + "Lv 2 Reduces Cost and Increases Speed of Return");
+            tooltip.add(ChatFormatting.BLUE + "Lv 3 Reduces Cost and Increases Speed of Return");
+        }
+
+        if(coin.matches("valour"))
+        {
+            tooltip.add(ChatFormatting.BLUE + "Lv 1 Allows Short Range Teleportation Directly Infront of Player");
+            tooltip.add(ChatFormatting.BLUE + "Lv 2 Increases Range");
+            tooltip.add(ChatFormatting.BLUE + "Lv 3 Increases Range");
+        }
     }
 
     @Override

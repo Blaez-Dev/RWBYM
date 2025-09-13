@@ -4,6 +4,7 @@ import io.github.blaezdev.rwbym.RWBYModels;
 import io.github.blaezdev.rwbym.capabilities.CapabilityHandler;
 import io.github.blaezdev.rwbym.capabilities.ISemblance;
 import io.github.blaezdev.rwbym.capabilities.Jaune.IJaune;
+import io.github.blaezdev.rwbym.utility.RWBYConfig;
 import io.github.blaezdev.rwbym.utility.network.MessageSendPlayerData;
 import io.github.blaezdev.rwbym.utility.network.RWBYNetworkHandler;
 import net.minecraft.entity.player.EntityPlayer;
@@ -20,6 +21,12 @@ public class Aura implements IAura {
 	
 	/**Maximum Aura*/
 	private float max = 100;
+
+	/**Aura Level Cap**/
+	private int auralvlcap = RWBYConfig.aura.auralvlmax -100;
+
+	/**Aura Level Cost**/
+	private int auralvlcost = RWBYConfig.aura.auraperlevel;
 	
 	/**Amount to recharge*/
 	private float recharge = 1;
@@ -101,7 +108,10 @@ public class Aura implements IAura {
 	@Override
 	public int getEXPToLevel() {
 		int lvl = (int) (max - 100);
-		return (int)(40 + 4 * lvl + 0.1 * lvl * lvl + Math.pow(1.005, lvl));
+		if(lvl < auralvlcap){return (int)(auralvlcost);}
+		else{return 2147000000;}
+		/*
+		return (int)(40 + 4 * lvl + 0.1 * lvl * lvl + Math.pow(1.005, lvl));*/
 	}
 	
 	@Override

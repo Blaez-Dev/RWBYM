@@ -61,7 +61,7 @@ public class Nora implements INora {
 			}
 
 			if (!this.useAura(player, auraUse)) return;
-				PotionEffect potioneffect = new PotionEffect(MobEffects.STRENGTH, 60*level, 8*level, false, false);
+			PotionEffect potioneffect = new PotionEffect(MobEffects.STRENGTH, 60*level, 8*level, false, false);
 				player.addPotionEffect(potioneffect);
 				PotionEffect potioneffect2 = new PotionEffect(MobEffects.SPEED, 60*level, 6*level, false, false);
 				player.addPotionEffect(potioneffect2);

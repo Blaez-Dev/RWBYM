@@ -1,0 +1,449 @@
+{
+  "pools": [
+    {
+      "name": "boss",
+      "rolls": {
+        "min": 1,
+        "max": 4
+      },
+      "entries": [
+        {
+          "type": "item",
+          "name": "rwbym:remnants",
+          "weight": 100
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "condition": "killed_by_player"
+        },
+        {
+          "condition": "random_chance_with_looting",
+          "chance": 1,
+          "looting_multiplier": 0.5
+        }
+      ],
+      "name": "boss1",
+      "rolls": 1,
+      "entries": [
+		{
+          "type": "item",
+          "name": "rwbym:rgrimmarm",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:antlerlarge",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:brownfoxtail",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:whitedragontail",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:silverdragontail",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:whitefoxtail",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:graywolftail",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:blackfoxtail",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:blondewolftail",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:greendragontail",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:orangewolfears",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:whitewolftail",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:blackwolftail",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:blackbullhorns",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:reddragontail",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:orangewolftail",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:blondefoxtail",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:brownwolfears",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:blackwolfears",
+          "weight":20,
+          "count": 1
+        }
+      ,
+        {
+          "type": "item",
+          "name": "rwbym:antlersmall",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:bluedragontail",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:grayfoxtail",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:whitewolfears",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:blondewolfears",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:golddragontail",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:ramhorns",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:graywolfears",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:orangefoxtail",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:brownwolftail",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:whitefoxear",
+          "weight":20,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:blackdragontail",
+          "weight":20,
+          "count": 1
+        },	{
+          "type": "item",
+          "name": "rwbym:grimmhead",
+          "weight":20,
+          "count": 1
+        },		{
+          "type": "item",
+          "name": "rwbym:lgrimmarm",
+          "weight":20,
+          "count": 1
+        },		{
+          "type": "item",
+          "name": "rwbym:grimmhorn",
+          "weight":20,
+          "count": 1
+        },		{
+          "type": "item",
+          "name": "rwbym:rgrimmleg",
+          "weight":20,
+          "count": 1
+        },		{
+          "type": "item",
+          "name": "rwbym:lgrimmleg",
+          "weight":20,
+          "count": 1
+        },		{
+          "type": "item",
+          "name": "rwbym:blackcatear",
+          "weight":20,
+          "count": 1
+        },		{
+          "type": "item",
+          "name": "rwbym:blondecatear",
+          "weight":20,
+          "count": 1
+        },		{
+          "type": "item",
+          "name": "rwbym:browncatear",
+          "weight":20,
+          "count": 1
+        },		{
+          "type": "item",
+          "name": "rwbym:greycatear",
+          "weight":20,
+          "count": 1
+        },		{
+          "type": "item",
+          "name": "rwbym:orangecatear",
+          "weight":20,
+          "count": 1
+        },		{
+          "type": "item",
+          "name": "rwbym:blackfoxear",
+          "weight":20,
+          "count": 1
+        },		{
+          "type": "item",
+          "name": "rwbym:blondefoxear",
+          "weight":20,
+          "count": 1
+        },		{
+          "type": "item",
+          "name": "rwbym:brownfoxear",
+          "weight":20,
+          "count": 1
+        },		{
+          "type": "item",
+          "name": "rwbym:greyfoxear",
+          "weight":20,
+          "count": 1
+        },
+			{
+          "type": "item",
+          "name": "rwbym:orangefoxear",
+          "weight":20,
+          "count": 1
+        },		{
+          "type": "item",
+          "name": "rwbym:cattail",
+          "weight":20,
+          "count": 1
+        },		{
+          "type": "item",
+          "name": "rwbym:cattailblonde",
+          "weight":20,
+          "count": 1
+        },		{
+          "type": "item",
+          "name": "rwbym:cattailbrown",
+          "weight":20,
+          "count": 1
+        },		{
+          "type": "item",
+          "name": "rwbym:cattailgrey",
+          "weight":20,
+          "count": 1
+        },		{
+          "type": "item",
+          "name": "rwbym:cattailorange",
+          "weight":20,
+          "count": 1
+        },		{
+          "type": "item",
+          "name": "rwbym:dorsalfinblack",
+          "weight":20,
+          "count": 1
+        },		{
+          "type": "item",
+          "name": "rwbym:dorsalfingrey",
+          "weight":20,
+          "count": 1
+        },		{
+          "type": "item",
+          "name": "rwbym:dorsalfinpearl",
+          "weight":20,
+          "count": 1
+        },		{
+          "type": "item",
+          "name": "rwbym:dorsalfinsilver",
+          "weight":20,
+          "count": 1
+        },
+			{
+          "type": "item",
+          "name": "rwbym:rabbittailblack",
+          "weight":20,
+          "count": 1
+        },		{
+          "type": "item",
+          "name": "rwbym:rabbittailblonde",
+          "weight":20,
+          "count": 1
+        },
+			{
+          "type": "item",
+          "name": "rwbym:rabbittailbrown",
+          "weight":20,
+          "count": 1
+        },		{
+          "type": "item",
+          "name": "rwbym:rabbittailgrey",
+          "weight":20,
+          "count": 1
+        },		{
+          "type": "item",
+          "name": "rwbym:rabbittailorange",
+          "weight":20,
+          "count": 1
+        },		{
+          "type": "item",
+          "name": "rwbym:rabbittailwhite",
+          "weight":20,
+          "count": 1
+        },		{
+          "type": "item",
+          "name": "rwbym:rabbitearsblack",
+          "weight":20,
+          "count": 1
+        },		{
+          "type": "item",
+          "name": "rwbym:rabbitearsblonde",
+          "weight":20,
+          "count": 1
+        },		{
+          "type": "item",
+          "name": "rwbym:rabbitearsbrown",
+          "weight":20,
+          "count": 1
+        },		{
+          "type": "item",
+          "name": "rwbym:rabbitearsgrey",
+          "weight":20,
+          "count": 1
+        },		{
+          "type": "item",
+          "name": "rwbym:rabbitearsorange",
+          "weight":20,
+          "count": 1
+        },		{
+          "type": "item",
+          "name": "rwbym:rabbitearswhite",
+          "weight":20,
+          "count": 1
+        },		{
+          "type": "item",
+          "name": "rwbym:clearears",
+          "weight":20,
+          "count": 1
+        },		{
+          "type": "item",
+          "name": "rwbym:clearhead",
+          "weight":20,
+          "count": 1
+        },		{
+          "type": "item",
+          "name": "rwbym:cleartail",
+          "weight":20,
+          "count": 1
+        },		{
+          "type": "item",
+          "name": "rwbym:clearleftarm",
+          "weight":20,
+          "count": 1
+        },		{
+          "type": "item",
+          "name": "rwbym:clearrightarm",
+          "weight":20,
+          "count": 1
+        },		{
+          "type": "item",
+          "name": "rwbym:clearleftleg",
+          "weight":20,
+          "count": 1
+        },		{
+          "type": "item",
+          "name": "rwbym:clearrightleg",
+          "weight":20,
+          "count": 1
+        },		{
+          "type": "item",
+          "name": "rwbym:kag",
+          "weight":20,
+          "count": 1
+        },		{
+          "type": "item",
+          "name": "rwbym:kag2",
+          "weight":20,
+          "count": 1
+        }
+      ]
+    }
+  ]
+}
