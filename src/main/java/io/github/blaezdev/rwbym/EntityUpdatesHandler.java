@@ -122,7 +122,7 @@ public class EntityUpdatesHandler {
             generatedisclean.setTagCompound(nbt);
         }
 
-        if(EnchantmentHelper.getEnchantments(is) != null) {
+        if(EnchantmentHelper.getEnchantments(is).isEmpty()) {
             generatedisclean.addEnchantment(EnchantInit.getBarrelmodifierEnchant(), 1);
             generatedisclean.addEnchantment(EnchantInit.getFramemodifierEnchant(), 1);
             generatedisclean.addEnchantment(EnchantInit.getShotmodifierEnchant(), 1);
@@ -135,7 +135,7 @@ public class EntityUpdatesHandler {
     @SubscribeEvent
     public void onCraft(PlayerEvent.ItemCraftedEvent event){
         if(event.crafting.getItem() instanceof RWBYGun){
-            if(EnchantmentHelper.getEnchantments(event.crafting) != null) {
+            if(EnchantmentHelper.getEnchantments(event.crafting).isEmpty()) {
                 event.crafting.addEnchantment(EnchantInit.getBarrelmodifierEnchant(), 1);
                 event.crafting.addEnchantment(EnchantInit.getFramemodifierEnchant(), 1);
                 event.crafting.addEnchantment(EnchantInit.getShotmodifierEnchant(), 1);
@@ -148,6 +148,8 @@ public class EntityUpdatesHandler {
     @SubscribeEvent
     public void onUpdate(LivingUpdateEvent event) {
         EntityLivingBase entityLiving = event.getEntityLiving();
+
+
 
         if (entityLiving != null && entityLiving instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) entityLiving;
@@ -328,6 +330,9 @@ public class EntityUpdatesHandler {
         itemset2.add(RWBYItems.rageshield);
         Entity killer = event.getSource().getTrueSource();
 
+
+
+        if(entity instanceof EntityPlayer == false){
         for (int i = 0; i < event.getDrops().size(); i++) {
             ItemStack randomizedrops = event.getDrops().get(i).getItem();
             if(randomizedrops.getItem() instanceof RWBYGun){
@@ -335,7 +340,9 @@ public class EntityUpdatesHandler {
                 EntityItem itemdroprandomizer = new EntityItem(world, pos.getX() + .5, pos.getY() + .5, pos.getZ() + .5, randomizedrops);
                 event.getDrops().set(i, itemdroprandomizer);
             }
-        }
+        }}
+
+
 
 
         if (event.getSource().getDamageType().equals("player")) {

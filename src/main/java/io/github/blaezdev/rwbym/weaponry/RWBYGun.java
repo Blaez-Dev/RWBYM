@@ -593,6 +593,16 @@ public class RWBYGun extends ItemBow implements ICustomItem{
                 EntityPlayer player = (EntityPlayer) entity;
 
 
+
+                    if(EnchantmentHelper.getEnchantments(is).isEmpty()) {
+                        is.addEnchantment(EnchantInit.getBarrelmodifierEnchant(), 1);
+                        is.addEnchantment(EnchantInit.getFramemodifierEnchant(), 1);
+                        is.addEnchantment(EnchantInit.getShotmodifierEnchant(), 1);
+                        is.addEnchantment(EnchantInit.getKillmodifierEnchant(), 1);
+                        //generatedis.addEnchantment(EnchantInit.getEnemymodifierEnchant(), 1);
+                    }
+
+
                 if(is.getItem() == RWBYItems.ozpincanetravel){  NBTTagCompound nbt;
                     if (is.hasTagCompound())
                     {
