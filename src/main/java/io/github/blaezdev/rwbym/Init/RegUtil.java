@@ -116,6 +116,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.robyncrossbow);
         registerItems(event, RWBYItems.robynshield);
         registerItems(event, RWBYItems.lionheart);
+        registerItems(event, RWBYItems.wattshield);
         registerItems(event, RWBYItems.jnrbat);
         registerItems(event, RWBYItems.jnrrocket);
         registerItems(event, RWBYItems.henchmen);
@@ -127,6 +128,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.iliasword);
         registerItems(event, RWBYItems.fennecdouble);
         registerItems(event, RWBYItems.corsacdouble);
+        registerItems(event, RWBYItems.flynt);
         registerItems(event, RWBYItems.torchwick);
         registerItems(event, RWBYItems.torchwickgun);
         registerItems(event, RWBYItems.neoumb_closed);

@@ -1320,6 +1320,22 @@ public class RWBYItems {
             0,
             () -> Sound.MYRTENASTER_SHOOT.getSound(),//4,
             RWBYCreativeTabs.tab_rwbyweapons).setRecoil(3);
+    public static final Item flynt = new RWBYGun(
+            "flynt",
+            2500,
+            14,
+            RWBYGun.RAPIER,
+            null,
+            "rwbym:gravitydust,rwbym:winddust,rwbym:icedust,rwbym:waterdust,rwbym:firedust,rwbym:lightdust,rwbym:gravitydustcrystal,rwbym:winddustcrystal,rwbym:icedustcrystal,rwbym:waterdustcrystal,rwbym:firedustcrystal,rwbym:lightdustcrystal",
+            false,
+            1,
+            false,
+            false,
+            0,
+            3,
+            0,
+            () -> Sound.MYRTENASTER_SHOOT.getSound(),//4,
+            RWBYCreativeTabs.tab_rwbyweapons).setRecoil(3);
     public static final Item crescentgunv = new RWBYGun(
             "crescentgunv",
             1250,
@@ -1889,6 +1905,25 @@ public class RWBYItems {
             0,
             () -> SoundEvents.ENTITY_ARROW_SHOOT,
             null);
+
+
+    public static final Item wattshield = new RWBYGun(
+            "wattshield",
+            2500,
+            14,
+            RWBYGun.FIST,
+            null,
+            "minecraft:arrows32,minecraft:nullest",
+            false,
+            2,
+            true,
+            true,
+            0,
+            1,
+            0,
+            () -> SoundEvents.ENTITY_ARROW_SHOOT,
+            RWBYCreativeTabs.tab_rwbyweapons);
+
     public static final Item adamgun = new RWBYGun(
             "adamgun",
             2500,
