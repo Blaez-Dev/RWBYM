@@ -544,6 +544,11 @@ public class RegUtil {
         registerItems(event, RWBYItems.fetch);
         registerItems(event, RWBYItems.fetchboomerang);
         registerItems(event, RWBYItems.fetchammo);
+        registerItems(event, RWBYItems.timber);
+        registerItems(event, RWBYItems.timberhammer);
+        registerItems(event, RWBYItems.thorn);
+        registerItems(event, RWBYItems.thornammo);
+        registerItems(event, RWBYItems.bonesword);
         registerItems(event, RWBYItems.HecateMag);
         registerItems(event, RWBYItems.Hecate50BMG);
         //registerItems(event, RWBYItems.Hecate50BMGcasing);

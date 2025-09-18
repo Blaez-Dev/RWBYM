@@ -125,6 +125,18 @@
           "name": "rwbym:flashaceballot",
           "weight": 5,
           "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:bonesword",
+          "weight": 5,
+          "count": 1
+        },
+        {
+          "type": "item",
+          "name": "rwbym:infinity",
+          "weight": 5,
+          "count": 1
         }
       ]
     }

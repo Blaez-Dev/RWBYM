@@ -798,6 +798,55 @@ public class RWBYItems {
             0,
             null,
             RWBYCreativeTabs.tab_rwbyweapons);
+    public static final Item jnrrocket = new RWBYGun(
+            "jnrrocket",
+            2500,
+            0,
+            RWBYGun.JUNIOR,
+            "rwbym:jnrbat",
+            "rwbym:jnrammo",
+            false,
+            1,
+            false,
+            false,
+            0,
+            4,
+            0,
+            () -> Sound.JUNIOR_SHOOT.getSound(),//10,
+            null).setRecoil(20);
+
+    public static final Item timberhammer = new RWBYGun(
+            "timberhammer",
+            5000,
+            18,
+            RWBYGun.HAMMER,
+            "rwbym:timber",
+            "rwbym:nuller,rwbym:nullest",
+            false,
+            1,
+            false,
+            true,
+            0,
+            1,
+            0,
+            null,
+            RWBYCreativeTabs.tab_rwbyweapons);
+    public static final Item timber = new RWBYGun(
+            "timber",
+            5000,
+            0,
+            RWBYGun.JUNIOR,
+            "rwbym:timberhammer",
+            "rwbym:jnrammo",
+            false,
+            1,
+            false,
+            false,
+            0,
+            2,
+            0,
+            () -> Sound.JUNIOR_SHOOT.getSound(),//10,
+            null).setRecoil(30);
     public static final Item adamswd = new RWBYGun(
             "adamswd",
             2500,
@@ -1258,7 +1307,7 @@ public class RWBYItems {
             18,
             RWBYGun.SWORD,
             null,
-            "rwbym:nuller,rwbym:nullest",
+            "rwbym:gravitydust,rwbym:winddust,rwbym:icedust,rwbym:waterdust,rwbym:firedust,rwbym:lightdust,rwbym:gravitydustcrystal,rwbym:winddustcrystal,rwbym:icedustcrystal,rwbym:waterdustcrystal,rwbym:firedustcrystal,rwbym:lightdustcrystal",
             false,
             1,
             false,
@@ -1267,7 +1316,7 @@ public class RWBYItems {
             1,
             0,
             null,
-            null).setElementMelee("flash");
+            RWBYCreativeTabs.tab_rwbyweapons).setElementMelee("flash");
 
 
 
@@ -1592,7 +1641,7 @@ public class RWBYItems {
             2,
             0,
             () -> Sound.STORMFLOWER_SHOOT.getSound(),//5,
-            null).setRecoil(1);
+            RWBYCreativeTabs.tab_rwbyweapons).setRecoil(1);
     public static final Item sanrei = new RWBYGun(
             "sanrei",
             0,
@@ -1826,22 +1875,7 @@ public class RWBYItems {
             0,
             () -> Sound.STORMFLOWER_SHOOT.getSound(),//5,
             null).setRecoil(5);
-    public static final Item jnrrocket = new RWBYGun(
-            "jnrrocket",
-            2500,
-            0,
-            RWBYGun.JUNIOR,
-            "rwbym:jnrbat",
-            "rwbym:jnrammo",
-            false,
-            1,
-            false,
-            false,
-            0,
-            4,
-            0,
-            () -> Sound.JUNIOR_SHOOT.getSound(),//10,
-            null).setRecoil(20);
+
     public static final Item extasis = new RWBYGun(
             "extasis",
             2500,
@@ -3758,6 +3792,23 @@ public class RWBYItems {
             () -> SoundEvents.ENTITY_ENDERPEARL_THROW,
             null);
 
+    public static final Item thorn = new RWBYGun(
+            "thorn",
+            2500,
+            16,
+            RWBYGun.FIST|RWBYGun.THROWN|RWBYGun.BOOMERANG,
+            null,
+            "rwbym:thornammo",
+            false,
+            1F,
+            false,
+            false,
+            0,
+            1,
+            0,
+            () -> SoundEvents.ENTITY_ENDERPEARL_THROW,
+            RWBYCreativeTabs.tab_rwbyweapons);
+
     public static final Item chastifolincrease = new RWBYGun(
             "chastifolincrease",
             2500,
@@ -4733,6 +4784,22 @@ public class RWBYItems {
     public static final Item chastifolammo = new RWBYAmmoItem(
             "chastifolammo",
             RWBYItems.chastifol,
+            1,
+            true,
+            RWBYAmmoItem.SurviveOnHit.ENTITY,
+            "textures/entity/projectiles/tipped_arrow.png",
+            true,
+            true,
+            0,
+            null,
+            1,
+            35,
+            null,
+            null);
+
+    public static final Item thornammo = new RWBYAmmoItem(
+            "thornammo",
+            RWBYItems.thorn,
             1,
             true,
             RWBYAmmoItem.SurviveOnHit.ENTITY,
