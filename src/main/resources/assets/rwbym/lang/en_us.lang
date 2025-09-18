@@ -199,6 +199,7 @@ item.rwbym:kkwind.name=Kore Kosmou - Wind Lance
 item.rwbym:torchwick.name=Melodic Cudgel
 item.rwbym:torchwickgun.name=Melodic Cudgel
 tile.toolkit.name=Tool Kit
+tile.lantern.name=Dust Lantern
 tile.fireblock.name=Case of Fire Dust
 tile.forestironblock.name=Forest Iron Block
 tile.frostedironblock.name=Frosted Iron Block

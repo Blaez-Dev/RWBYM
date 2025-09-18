@@ -5546,6 +5546,7 @@ public class RWBYItems {
     		.setRegistryName(RWBYModels.MODID, "hrdltfence")
     		.setUnlocalizedName("hrdltfence")
     		.setCreativeTab(RWBYCreativeTabs.tab_rwbyitems);
+    public static final Block lantern = new RWBYLantern("lantern", Material.GLASS, RWBYCreativeTabs.tab_rwbyitems, 0f, 1f, "null", 1);
     public static final Block fluidGrimm = new BlockFluidGrimm(RWBYFluids.GRIMM, Material.WATER)
     		.setQuantaPerBlock(5)
     		.setRegistryName(new ResourceLocation(RWBYModels.MODID, "fluidgrimm")).setUnlocalizedName("fluidgrimm");

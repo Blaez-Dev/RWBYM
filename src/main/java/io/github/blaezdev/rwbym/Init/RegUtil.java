@@ -59,9 +59,9 @@ public class RegUtil {
         registerBlocks(event, RWBYItems.rwbyblock6);
         registerBlocks(event, RWBYItems.rwbyblock9);
         registerBlocks(event, RWBYItems.hrdltfence);
+        registerBlocks(event, RWBYItems.lantern);
         //weapons
         registerItems(event, RWBYItems.crescent);
-        registerItems(event, RWBYItems.sunderaxe);
         registerItems(event, RWBYItems.crescentfrost);
         registerItems(event, RWBYItems.crescentgunfrost);
         registerItems(event, RWBYItems.weiss);
