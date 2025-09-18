@@ -1252,6 +1252,23 @@ public class RWBYItems {
             null,
             null).setElementMelee("flash");
 
+    public static final Item bonesword = new RWBYGun(
+            "bonesword",
+            2500,
+            18,
+            RWBYGun.SWORD,
+            null,
+            "rwbym:nuller,rwbym:nullest",
+            false,
+            1,
+            false,
+            true,
+            0,
+            1,
+            0,
+            null,
+            null).setElementMelee("flash");
+
 
 
     //------------------------------------------------//
