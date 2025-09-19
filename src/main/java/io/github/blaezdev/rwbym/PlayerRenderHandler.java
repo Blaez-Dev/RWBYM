@@ -78,6 +78,9 @@ public class PlayerRenderHandler {
 		if(!event.isCanceled() && renderedPlayer.getHeldItemMainhand().getItem() == RWBYItems.reese && renderedPlayer.getHeldItemMainhand().getOrCreateSubCompound("RWBYM").getInteger("inactive") < 2){
 			renderHoverboard(event, renderedPlayer, renderingPlayer);
 		}
+		if(!event.isCanceled() && renderedPlayer.getHeldItemMainhand().getItem() == RWBYItems.lucidroseboard && renderedPlayer.getHeldItemMainhand().getOrCreateSubCompound("RWBYM").getInteger("inactive") < 2){
+			renderHoverboard(event, renderedPlayer, renderingPlayer);
+		}
 				
 	}
 

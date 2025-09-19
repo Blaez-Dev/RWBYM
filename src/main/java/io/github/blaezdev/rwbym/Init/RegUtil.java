@@ -64,6 +64,9 @@ public class RegUtil {
         registerItems(event, RWBYItems.crescent);
         registerItems(event, RWBYItems.crescentfrost);
         registerItems(event, RWBYItems.crescentgunfrost);
+        registerItems(event, RWBYItems.lucidroseboard);
+        registerItems(event, RWBYItems.lucidroserifle);
+        registerItems(event, RWBYItems.lucidrosescythe);
         registerItems(event, RWBYItems.weiss);
         registerItems(event, RWBYItems.gambol);
         registerItems(event, RWBYItems.ember);

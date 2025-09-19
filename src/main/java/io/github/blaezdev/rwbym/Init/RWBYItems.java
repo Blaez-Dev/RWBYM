@@ -1185,6 +1185,49 @@ public class RWBYItems {
             false,
             false,
             RWBYCreativeTabs.tab_rwbyweapons);
+    public static final Item lucidroseboard = new KineticWeapons(
+            "lucidroseboard",
+            2500,
+            -4,
+            0,
+            "rwbym:lucidroserifle",
+            false,
+            false,
+            RWBYCreativeTabs.tab_rwbyweapons);
+
+    public static final Item lucidroserifle = new RWBYGun(
+            "lucidroserifle",
+            2500,
+            0,
+            0,
+            "rwbym:lucidrosescythe",
+            "rwbym:crmag,rwbym:crfiremag,rwbym:crgravmag,rwbym:crelectricmag",
+            false,
+            3,
+            false,
+            false,
+            0,
+            1,
+            0,
+            () -> Sound.CRESCENT_ROSE_SHOOT.getSound(),//1,
+            null).setRecoil(10);
+
+    public static final Item lucidrosescythe = new RWBYGun(
+            "lucidrosescythe",
+            2500,
+            17,
+            RWBYGun.SCYTHE,
+            "rwbym:lucidroseboard",
+            "rwbym:crmag,rwbym:crfiremag,rwbym:crgravmag,rwbym:crelectricmag",
+            false,
+            1,
+            false,
+            false,
+            0,
+            1,
+            0,
+            () -> Sound.CRESCENT_ROSE_SHOOT.getSound(),//1,
+            RWBYCreativeTabs.tab_rwbyweapons).setRecoil(5);
 
     public static final Item reesegun = new RWBYGun(
             "reesegun",

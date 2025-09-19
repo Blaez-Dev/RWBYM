@@ -67,6 +67,9 @@ entity.ravager.name=Ravager
 
 item.rwbym:crescent.name=Crescent Rose
 item.rwbym:crescentgun.name=Crescent Rose
+item.rwbym:lucidroseboard.name=Lucid Rose
+item.rwbym:lucidroserifle.name=Lucid Rose
+item.rwbym:lucidrosescythe.name=Lucid Rose
 item.rwbym:crescentgunfrost.name= Summer Crescent
 item.rwbym:crescentfrost.name= Summer Crescent
 item.rwbym:sunderaxe.name= Sundered Rose
