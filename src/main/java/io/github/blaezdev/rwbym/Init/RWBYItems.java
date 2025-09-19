@@ -611,7 +611,7 @@ public class RWBYItems {
             2500,
             13,
             RWBYGun.SWORD|RWBYGun.THROWN|RWBYGun.BOOMERANG,
-            null,
+            "rwbym:pennygun",
             "rwbym:pennyswdammo",
             false,
             1,
@@ -1683,7 +1683,7 @@ public class RWBYItems {
             0,
             2,
             0,
-            () -> Sound.STORMFLOWER_SHOOT.getSound(),//5,
+            () -> Sound.STORMFLOWER_SHOOT.getSound(),
             RWBYCreativeTabs.tab_rwbyweapons).setRecoil(1);
     public static final Item sanrei = new RWBYGun(
             "sanrei",
@@ -4764,6 +4764,23 @@ public class RWBYItems {
             18,
             null,
             null);
+
+    public static final Item pennygun = new RWBYGun(
+            "pennygun",
+            2500,
+            0,
+            RWBYGun.INT_MAG,
+            "rwbym:pennyswd",
+            "rwbym:ammmo",
+            true,
+            1,
+            false,
+            false,
+            0,
+            2,
+            0,
+            () -> Sound.STORMFLOWER_SHOOT.getSound(),
+            RWBYCreativeTabs.tab_rwbyweapons).setRecoil(1);
     public static final Item carminesaiammo = new RWBYAmmoItem(
             "carminesaiammo",
             RWBYItems.carminesai,

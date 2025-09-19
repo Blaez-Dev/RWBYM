@@ -153,6 +153,7 @@ public class RegUtil {
         registerItems(event, RWBYItems.ironwood2);
         registerItems(event, RWBYItems.winterswd);
         registerItems(event, RWBYItems.pennyswd);
+        registerItems(event, RWBYItems.pennygun);
         registerItems(event, RWBYItems.atlaspistol);
         registerItems(event, RWBYItems.atlasrifle);
         registerItems(event, RWBYItems.kkfire);
