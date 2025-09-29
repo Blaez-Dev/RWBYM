@@ -21,6 +21,7 @@ public class RWBYNetworkHandler {
 	    INSTANCE = NetworkRegistry.INSTANCE.newSimpleChannel("rwbym");
 	    
 	    registerMessage(MessageActivateSemblance.class, Side.SERVER);
+		registerMessage(MessageActivateMaiden.class, Side.SERVER);
 	    registerMessage(MessageSendPlayerDataToServer.class, Side.SERVER);
 	    registerMessage(MessageSendPlayerData.class, Side.CLIENT);
 	    registerMessage(MessagePosVelUpdate.class, Side.CLIENT);

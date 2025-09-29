@@ -181,7 +181,7 @@ public class CapabilityHandler {
 		register(IValour.class, new ValourStorage(), Valour::new);
 		register(IHazel.class, new HazelStorage(), Hazel::new);
 		register(IBlank.class, new BlankStorage(), Blank::new);
-		registermaiden(IFall.class, new FallStorage(), Fall::new);
+		register(IFall.class, new FallStorage(), Fall::new);
 
 
 		CapabilityManager.INSTANCE.register(IAura.class, new AuraStorage(), Aura::new);
@@ -230,6 +230,7 @@ public class CapabilityHandler {
 		if (semblances.size() > 1) {
 			//RWBYModels.LOGGER.warn("Player Has Multiple Active Semblances");
 		}
+
 
 		if (semblances.isEmpty()) {
 			RWBYModels.LOGGER.info("Not Currently a Maiden");
