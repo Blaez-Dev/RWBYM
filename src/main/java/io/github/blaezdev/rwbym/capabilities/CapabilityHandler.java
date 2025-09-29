@@ -33,6 +33,10 @@ import io.github.blaezdev.rwbym.capabilities.Lysette.ILysette;
 import io.github.blaezdev.rwbym.capabilities.Lysette.Lysette;
 import io.github.blaezdev.rwbym.capabilities.Lysette.LysetteProvider;
 import io.github.blaezdev.rwbym.capabilities.Lysette.LysetteStorage;
+import io.github.blaezdev.rwbym.capabilities.Maiden.Fall.Fall;
+import io.github.blaezdev.rwbym.capabilities.Maiden.Fall.FallProvider;
+import io.github.blaezdev.rwbym.capabilities.Maiden.Fall.FallStorage;
+import io.github.blaezdev.rwbym.capabilities.Maiden.Fall.IFall;
 import io.github.blaezdev.rwbym.capabilities.Nora.INora;
 import io.github.blaezdev.rwbym.capabilities.Nora.Nora;
 import io.github.blaezdev.rwbym.capabilities.Nora.NoraProvider;
@@ -113,6 +117,8 @@ public class CapabilityHandler {
 	public static final ResourceLocation Blank_Key = new ResourceLocation(RWBYModels.MODID, "blank");
 	public static final ResourceLocation Valour_Key = new ResourceLocation(RWBYModels.MODID, "valour");
 	public static final ResourceLocation Hazel_Key = new ResourceLocation(RWBYModels.MODID, "hazel");
+
+	public static final ResourceLocation Fall_Key = new ResourceLocation(RWBYModels.MODID, "fall");
 	
 	public static final ResourceLocation AURA_KEY = new ResourceLocation(RWBYModels.MODID, "aura");
 	public static final ResourceLocation TEAM_KEY = new ResourceLocation(RWBYModels.MODID, "team");
@@ -144,6 +150,7 @@ public class CapabilityHandler {
 			event.addCapability(Blank_Key, new BlankProvider());
 			event.addCapability(Valour_Key, new ValourProvider());
 			event.addCapability(Hazel_Key, new HazelProvider());
+			event.addCapability(Fall_Key, new FallProvider());
 			event.addCapability(PREDATOR_KEY, new Predator.PredatorProvider());
 		}
 		
@@ -172,6 +179,7 @@ public class CapabilityHandler {
 		register(IValour.class, new ValourStorage(), Valour::new);
 		register(IHazel.class, new HazelStorage(), Hazel::new);
 		register(IBlank.class, new BlankStorage(), Blank::new);
+		register(IFall.class, new FallStorage(), Fall::new);
 
 
 		CapabilityManager.INSTANCE.register(IAura.class, new AuraStorage(), Aura::new);
