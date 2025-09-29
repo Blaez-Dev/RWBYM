@@ -441,7 +441,6 @@ public class RegUtil {
         registerBlocks(event, RWBYItems.viridianironblock);
         registerBlocks(event, RWBYItems.forestironblock);
         //semblance coins
-        registerItems(event, RWBYItems.coinfall);
         registerItems(event, RWBYItems.coinr);
         registerItems(event, RWBYItems.coinw);
         registerItems(event, RWBYItems.coinb);

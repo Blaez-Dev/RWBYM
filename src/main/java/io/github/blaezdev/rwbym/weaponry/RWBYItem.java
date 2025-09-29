@@ -11,8 +11,6 @@ import io.github.blaezdev.rwbym.capabilities.Harriet.HarrietProvider;
 import io.github.blaezdev.rwbym.capabilities.ISemblance;
 import io.github.blaezdev.rwbym.capabilities.Jaune.JauneProvider;
 import io.github.blaezdev.rwbym.capabilities.Lysette.LysetteProvider;
-import io.github.blaezdev.rwbym.capabilities.Maiden.Fall.Fall;
-import io.github.blaezdev.rwbym.capabilities.Maiden.Fall.FallProvider;
 import io.github.blaezdev.rwbym.capabilities.Nora.NoraProvider;
 import io.github.blaezdev.rwbym.capabilities.Pyrrha.PyrrhaProvider;
 import io.github.blaezdev.rwbym.capabilities.Qrow.QrowProvider;
@@ -172,16 +170,6 @@ public class RWBYItem extends Item implements ICustomItem {
             playerIn.openGui(RWBYModels.instance, RWBYModels.GuiHandler.GUI.SCROLL.ordinal(), worldIn, 0, 0, 0);
         }
 
-        if(coin.matches("fall"))
-        {
-            if(!worldIn.isRemote){
-                ISemblance semblance = CapabilityHandler.getCurrentmaiden(playerIn);
-                if (semblance.toString().equals("Fall")) {
-                    //semblance.setLevel(semblance.getLevel() + 1);
-                } else {CapabilityHandler.setSemblance(playerIn, FallProvider.Fall_CAP, 1);}
-                itemstack.shrink(1);
-            }
-        }
 
         if(coin.matches("ruby"))
         {

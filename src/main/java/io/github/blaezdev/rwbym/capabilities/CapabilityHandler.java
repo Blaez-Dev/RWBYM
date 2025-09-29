@@ -33,10 +33,6 @@ import io.github.blaezdev.rwbym.capabilities.Lysette.ILysette;
 import io.github.blaezdev.rwbym.capabilities.Lysette.Lysette;
 import io.github.blaezdev.rwbym.capabilities.Lysette.LysetteProvider;
 import io.github.blaezdev.rwbym.capabilities.Lysette.LysetteStorage;
-import io.github.blaezdev.rwbym.capabilities.Maiden.Fall.Fall;
-import io.github.blaezdev.rwbym.capabilities.Maiden.Fall.FallProvider;
-import io.github.blaezdev.rwbym.capabilities.Maiden.Fall.FallStorage;
-import io.github.blaezdev.rwbym.capabilities.Maiden.Fall.IFall;
 import io.github.blaezdev.rwbym.capabilities.Nora.INora;
 import io.github.blaezdev.rwbym.capabilities.Nora.Nora;
 import io.github.blaezdev.rwbym.capabilities.Nora.NoraProvider;
@@ -83,6 +79,7 @@ import io.github.blaezdev.rwbym.capabilities.team.ITeam;
 import io.github.blaezdev.rwbym.capabilities.team.Team;
 import io.github.blaezdev.rwbym.capabilities.team.TeamProvider;
 import io.github.blaezdev.rwbym.capabilities.team.TeamStorage;
+import io.github.blaezdev.rwbym.utility.RWBYConfig;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
@@ -114,8 +111,6 @@ public class CapabilityHandler {
 	public static final ResourceLocation Harriet_Key = new ResourceLocation(RWBYModels.MODID, "harriet");
 	public static final ResourceLocation Pyrrha_Key = new ResourceLocation(RWBYModels.MODID, "pyrrha");
 	public static final ResourceLocation Blank_Key = new ResourceLocation(RWBYModels.MODID, "blank");
-
-	public static final ResourceLocation Fall_Key = new ResourceLocation(RWBYModels.MODID, "fall");
 	public static final ResourceLocation Valour_Key = new ResourceLocation(RWBYModels.MODID, "valour");
 	public static final ResourceLocation Hazel_Key = new ResourceLocation(RWBYModels.MODID, "hazel");
 	
@@ -127,9 +122,6 @@ public class CapabilityHandler {
 	public static final ResourceLocation PREDATOR_KEY = new ResourceLocation(RWBYModels.MODID, "predator");
 
 	private static List<Capability> capabilities = new ArrayList<Capability>();
-
-	private static List<Capability> maiden = new ArrayList<Capability>();
-
 	
 	@SubscribeEvent
 	public void attachCapability(AttachCapabilitiesEvent event) {
@@ -152,7 +144,6 @@ public class CapabilityHandler {
 			event.addCapability(Blank_Key, new BlankProvider());
 			event.addCapability(Valour_Key, new ValourProvider());
 			event.addCapability(Hazel_Key, new HazelProvider());
-			event.addCapability(Fall_Key, new FallProvider());
 			event.addCapability(PREDATOR_KEY, new Predator.PredatorProvider());
 		}
 		
@@ -181,7 +172,6 @@ public class CapabilityHandler {
 		register(IValour.class, new ValourStorage(), Valour::new);
 		register(IHazel.class, new HazelStorage(), Hazel::new);
 		register(IBlank.class, new BlankStorage(), Blank::new);
-		registermaiden(IFall.class, new FallStorage(), Fall::new);
 
 
 		CapabilityManager.INSTANCE.register(IAura.class, new AuraStorage(), Aura::new);
@@ -197,45 +187,6 @@ public class CapabilityHandler {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
-
-
-	public static <T extends ISemblance> void registermaiden(Class<T> type, Capability.IStorage<T> storage, Callable<? extends T> factory) {
-		CapabilityManager.INSTANCE.register(type, storage, factory);
-		try {
-			maiden.add(factory.call().getCapability());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	public static ISemblance getCurrentmaiden(EntityPlayer player) {
-
-//		RWBYModels.LOGGER.log(RWBYModels.updtes, "Getting Active Semblance for Player: {}", player.getDisplayNameString());
-
-		List<ISemblance> semblances = new ArrayList<ISemblance>();
-
-		for (Capability<ISemblance> capability : maiden) {
-			if (player.hasCapability(capability, null)) {
-				ISemblance semblance = player.getCapability(capability, null);
-//				RWBYModels.LOGGER.log(RWBYModels.updtes, "Found Semblance: " + semblance);
-				if (semblance.getLevel() > 0) {
-//					RWBYModels.LOGGER.log(RWBYModels.updtes, "Adding Semblance: " + semblance);
-					semblances.add(semblance);
-				}
-			}
-		}
-
-
-		if (semblances.size() > 1) {
-			//RWBYModels.LOGGER.warn("Player Has Multiple Active Semblances");
-		}
-
-		if (semblances.isEmpty()) {
-			RWBYModels.LOGGER.info("Not Currently a Maiden");
-			return null;
-		}
-		return semblances.get(rand.nextInt(semblances.size()));
 	}
 	
 	public static ISemblance getCurrentSemblance(EntityPlayer player) {
@@ -279,25 +230,8 @@ public class CapabilityHandler {
 			}
 		}
 		
-		//RWBYModels.LOGGER.error("Unable to Get Requested Sembalnce: {}", name);
+		RWBYModels.LOGGER.error("Unable to Get Requested Sembalnce: {}", name);
 		
-		return null;
-	}
-
-	public static ISemblance getMaidenByName(EntityPlayer player, String name) {
-
-//		RWBYModels.LOGGER.log(RWBYModels.updtes, "Getting Semblance {} for Player: {}", name, player.getDisplayNameString());
-
-		name = name.toLowerCase();
-
-		for (Capability<ISemblance> capability : maiden) {
-			if (capability.getName().toLowerCase().contains(name)) {
-				return player.getCapability(capability, null);
-			}
-		}
-
-		//RWBYModels.LOGGER.error("Unable to Get Requested Sembalnce: {}", name);
-
 		return null;
 	}
 
@@ -316,22 +250,6 @@ public class CapabilityHandler {
 		return semblances;
 	}
 
-
-	public static List<ISemblance> getAllMaidens(EntityPlayer player) {
-
-		List<ISemblance> semblances = new ArrayList<ISemblance>();
-
-		for (Capability<ISemblance> capability : maiden) {
-			if (player.hasCapability(capability, null)) {
-				ISemblance semblance = player.getCapability(capability, null);
-//				RWBYModels.LOGGER.log(RWBYModels.updtes, "Found Semblance: " + semblance);
-				semblances.add(semblance);
-			}
-		}
-
-		return semblances;
-	}
-
 	public static <T extends ISemblance> void setSemblance(EntityPlayer player, Capability<T> capability, int level) {
 		for (ISemblance semblance : getAllSemblances(player)) {
 			semblance.setLevel(0);
@@ -340,20 +258,6 @@ public class CapabilityHandler {
 			}
 		}
 		
-		if (player.hasCapability(capability, null)) {
-			ISemblance semblance = player.getCapability(capability, null);
-			semblance.setLevel(level);
-		}
-	}
-
-	public static <T extends ISemblance> void setMaiden(EntityPlayer player, Capability<T> capability, int level) {
-		for (ISemblance semblance : getAllMaidens(player)) {
-			semblance.setLevel(0);
-			if (semblance.getSelectedLevel() != -1) {
-				semblance.setSelectedLevel(0);
-			}
-		}
-
 		if (player.hasCapability(capability, null)) {
 			ISemblance semblance = player.getCapability(capability, null);
 			semblance.setLevel(level);
