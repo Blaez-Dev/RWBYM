@@ -111,7 +111,7 @@ public class Fall implements IFall {
 	
 	@Override
 	public String toString() {
-		return "Fall";
+		return "Blank";
 	}
 	
 	@Override

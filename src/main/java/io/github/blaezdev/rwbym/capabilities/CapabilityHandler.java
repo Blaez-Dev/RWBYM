@@ -211,16 +211,16 @@ public class CapabilityHandler {
 
 	public static ISemblance getCurrentmaiden(EntityPlayer player) {
 
-		RWBYModels.LOGGER.log(RWBYModels.updtes, "Getting Active Maiden for Player: {}", player.getDisplayNameString());
+//		RWBYModels.LOGGER.log(RWBYModels.updtes, "Getting Active Semblance for Player: {}", player.getDisplayNameString());
 
 		List<ISemblance> semblances = new ArrayList<ISemblance>();
 
 		for (Capability<ISemblance> capability : maiden) {
 			if (player.hasCapability(capability, null)) {
 				ISemblance semblance = player.getCapability(capability, null);
-				RWBYModels.LOGGER.log(RWBYModels.updtes, "Found Maiden: " + semblance);
+//				RWBYModels.LOGGER.log(RWBYModels.updtes, "Found Semblance: " + semblance);
 				if (semblance.getLevel() > 0) {
-					RWBYModels.LOGGER.log(RWBYModels.updtes, "Adding Maiden: " + semblance);
+//					RWBYModels.LOGGER.log(RWBYModels.updtes, "Adding Semblance: " + semblance);
 					semblances.add(semblance);
 				}
 			}

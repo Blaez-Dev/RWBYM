@@ -177,7 +177,7 @@ public class RWBYItem extends Item implements ICustomItem {
             if(!worldIn.isRemote){
                 ISemblance semblance = CapabilityHandler.getCurrentmaiden(playerIn);
                 if (semblance.toString().equals("Fall")) {
-                    semblance.setLevel(semblance.getLevel() + 1);
+                    //semblance.setLevel(semblance.getLevel() + 1);
                 } else {CapabilityHandler.setSemblance(playerIn, FallProvider.Fall_CAP, 1);}
                 itemstack.shrink(1);
             }
