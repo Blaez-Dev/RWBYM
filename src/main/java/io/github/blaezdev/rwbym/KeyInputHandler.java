@@ -2,6 +2,7 @@ package io.github.blaezdev.rwbym;
 
 import io.github.blaezdev.rwbym.capabilities.CapabilityHandler;
 import io.github.blaezdev.rwbym.capabilities.ISemblance;
+import io.github.blaezdev.rwbym.utility.network.MessageActivateMaiden;
 import io.github.blaezdev.rwbym.utility.network.MessageActivateSemblance;
 import io.github.blaezdev.rwbym.utility.network.MessageCycleLevel;
 import io.github.blaezdev.rwbym.utility.network.RWBYNetworkHandler;
@@ -34,6 +35,7 @@ public class KeyInputHandler {
 		EntityPlayer player = mc.player;
 		
 		ISemblance semblance = CapabilityHandler.getCurrentSemblance(player);
+		ISemblance maiden = CapabilityHandler.getCurrentmaiden(player);
 		
 		if (semblance != null && semblance.isMovementBlocked()) {
 			KeyBinding.setKeyBindState(mc.gameSettings.keyBindForward.getKeyCode(), false);
@@ -43,8 +45,18 @@ public class KeyInputHandler {
 			KeyBinding.setKeyBindState(mc.gameSettings.keyBindJump.getKeyCode(), false);
 			KeyBinding.setKeyBindState(mc.gameSettings.keyBindSneak.getKeyCode(), false);
 		}
-		
-		
+
+		if (KeybindRegistry.activateMaiden.isPressed()) {
+			RWBYModels.LOGGER.log(RWBYModels.debug, "Activating Maiden Powers");
+			if (maiden != null) {
+				RWBYNetworkHandler.sendToServer(new MessageActivateMaiden(true));
+			}
+		}
+		else {
+			if (maiden != null) {
+				RWBYNetworkHandler.sendToServer(new MessageActivateMaiden(false));
+			}
+		}
 	
 		if (KeybindRegistry.activateSemblance.isPressed()) {
 			RWBYModels.LOGGER.log(RWBYModels.debug, "Activating Semblance");

@@ -4003,6 +4003,7 @@ public class RWBYItems {
     public static final Item remnants = new RWBYItem("remnants",  false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item armagigas = new RWBYItem("armagigas",  false, RWBYCreativeTabs.tab_rwbyitems);
     public static final Item zwei = new RWBYItem("zwei",  false, RWBYCreativeTabs.tab_rwbyitems);
+    public static final Item coinfall = new RWBYItem("coinfall",  false, RWBYCreativeTabs.tab_rwbyitems).setCoin("fall");
     public static final Item coinr = new RWBYItem("coinr",  false, RWBYCreativeTabs.tab_rwbyitems).setCoin("ruby");
     public static final Item coinw = new RWBYItem("coinw",  false, RWBYCreativeTabs.tab_rwbyitems).setCoin("weiss");
     public static final Item coinb = new RWBYItem("coinb",  false, RWBYCreativeTabs.tab_rwbyitems).setCoin("blake");
