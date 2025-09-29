@@ -4,7 +4,7 @@ import io.github.blaezdev.rwbym.capabilities.CapabilityHandler;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 
-public class MessageActivateMaiden extends MessageBase<MessageActivateMaiden>{
+public class MessageActivateMaiden extends MessageBase<MessageActivateSemblance>{
 
     boolean activate;
 
@@ -25,12 +25,12 @@ public class MessageActivateMaiden extends MessageBase<MessageActivateMaiden>{
     }
 
     @Override
-    public void handleClientSide(MessageActivateMaiden message, EntityPlayer player){
+    public void handleClientSide(MessageActivateSemblance message, EntityPlayer player){
 
     }
 
     @Override
-    public void handleServerSide(MessageActivateMaiden message, EntityPlayer player){
+    public void handleServerSide(MessageActivateSemblance message, EntityPlayer player){
 
         if (message.activate) {
             CapabilityHandler.getCurrentmaiden(player).onActivate(player);
